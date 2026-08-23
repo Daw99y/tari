@@ -4,41 +4,19 @@ next-env.d.ts
 *.tsbuildinfo
 .DS_Store
 
-# the feedback route's mail key and recipient — server-side, never committed
+# Secrets. The Discord OAuth pair, the feedback webhook, the database URL.
 .env*.local
 
-# local-only
+# Local-only
 .claude/settings.local.json
 .scratch/
-app/lab/
-public/lab/
-public/WoW Vanilla:Classic Icon Pack/
 
-# the hero video master — only the three derived assets ship
-public/BWL.mov
-
-# 5K source captures for the art pipeline — never served, never committed.
-# They live OUTSIDE public/ so they cannot ship by accident; the graded
-# web-ready versions are in public/ and public/journey/. The per-file
-# public/*.png entries that used to sit here moved with the files.
-art-sources/*
-!art-sources/README.md
-
-# the Higgsfield layer cuts and their 4K sources — the two graded stills
-# in public/pane/ are what ship
-layered-cities/
-
-# The relit zone captures and their working folders. Same rule art-sources/
-# and layered-cities/ keep: the raw and regraded stills stay on the machine
-# that made them, and only the web-ready webp in public/journey/ ships.
-ReLit-WoW-Zone-images/
+# Art sources. The rule inherited from whelp plz and worth keeping: raw and
+# regraded captures stay on the machine that made them, and only the
+# web-ready files under public/ ever ship. Add the folders back as they
+# appear. Anything over a couple of hundred MB belongs in blob storage,
+# not here. See docs/STATUS.md §5.
+art-sources/
 relit-images/
-
-# Holding pens. Nothing in one is meant to survive, so nothing in one is
-# meant to be in the history either.
-_to_delete/
-mockups/whelp-anim/_to_delete/
-
-# A 26 MB capture sitting in public/. Nothing serves it; if the bank ever
-# needs a shot it gets a graded webp beside the others.
-public/RatchetBank.png
+ReLit-WoW-Zone-images/
+layered-cities/

@@ -1,0 +1,8 @@
+/* Deliberately empty apart from the Tailwind import.
+ *
+ * The old repo's globals.css reached 385 KB because the design system grew
+ * instead of being designed. docs/TARI.md §11.4: the landing page sets the
+ * vocabulary, the room stress-tests it, and design.md records only what
+ * survived both. Nothing goes in here until it has earned its place. */
+
+@import "tailwindcss";
