@@ -1,0 +1,243 @@
+/* The landing page's tokens. This is the first vocabulary; design.md records
+ * what survives the room (docs/TARI.md §11.4). globals.css stays empty. */
+
+.page {
+  --ground: #06060a;
+  --ink: #f2f0ea;
+  --mute: rgba(242, 240, 234, 0.62);
+  --rule: rgba(242, 240, 234, 0.22);
+  --serif: ui-serif, "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  --sans: system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+  --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+  position: relative;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  background: var(--ground);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.5;
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---- the room */
+
+.scene {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  transform-origin: 45% 60%;
+  animation: push 60s ease-out forwards;
+}
+
+@keyframes push {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.1);
+  }
+}
+
+.room {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 50%;
+  filter: saturate(0.9) contrast(1.05) brightness(0.95);
+}
+
+/* The Seduction hearts. The canvas paints on black; `screen` keeps the light. */
+.effect {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  mix-blend-mode: screen;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 1200ms ease 300ms;
+  /* No CSS filter here: a filter on a large screen-blended canvas makes
+   * Chrome paint a seam at a tile edge. The file's own glow batch is enough. */
+}
+
+.effect[data-ready="true"] {
+  opacity: 1;
+}
+
+/* Grade: a vignette and a floor for the type. */
+.scrim {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(120% 90% at 50% 45%, rgba(6, 6, 10, 0) 50%, rgba(6, 6, 10, 0.3) 100%),
+    linear-gradient(to top, rgba(6, 6, 10, 0.82) 0%, rgba(6, 6, 10, 0.4) 24%, rgba(6, 6, 10, 0) 46%),
+    linear-gradient(to left, rgba(6, 6, 10, 0.28) 0%, rgba(6, 6, 10, 0) 40%),
+    linear-gradient(to bottom, rgba(6, 6, 10, 0.32) 0%, rgba(6, 6, 10, 0) 16%);
+}
+
+/* Film: a whisper of grain so the image reads as footage, not a JPEG. */
+.grain {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.05;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1 0'/></filter><rect width='160' height='160' filter='url(%23n)'/></svg>");
+  background-size: 160px 160px;
+}
+
+/* ---- bar */
+
+.bar {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.4rem clamp(1.25rem, 4vw, 3.5rem);
+}
+
+.wordmark {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--ink);
+  text-decoration: none;
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  letter-spacing: -0.01em;
+  line-height: 1;
+}
+
+.fox {
+  width: 1.4rem;
+  height: 1.4rem;
+  fill: var(--ink);
+}
+
+.button {
+  appearance: none;
+  border: 1px solid var(--rule);
+  background: rgba(6, 6, 10, 0.25);
+  color: var(--ink);
+  font: 500 0.85rem/1 var(--sans);
+  letter-spacing: 0.01em;
+  padding: 0.7rem 1.05rem;
+  border-radius: 999px;
+  cursor: pointer;
+  white-space: nowrap;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition:
+    border-color 200ms ease,
+    background 200ms ease;
+}
+
+.button:hover {
+  border-color: var(--ink);
+  background: rgba(242, 240, 234, 0.08);
+}
+
+.button:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
+}
+
+.buttonQuiet {
+  color: var(--mute);
+  cursor: default;
+}
+
+/* ---- the title card */
+
+.card {
+  position: relative;
+  z-index: 2;
+  margin-top: auto;
+  margin-left: auto;
+  padding: 0 clamp(1.25rem, 4vw, 3.5rem) clamp(3rem, 8vh, 6rem);
+  max-width: 60rem;
+  text-align: right;
+  animation: rise 1100ms cubic-bezier(0.2, 0.7, 0.2, 1) 150ms both;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.h1 {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(3.4rem, 9vw, 8.5rem);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  margin: 0 0 1.25rem;
+  text-wrap: balance;
+  text-shadow: 0 2px 60px rgba(0, 0, 0, 0.7);
+}
+
+.line {
+  margin: 0;
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--mute);
+}
+
+/* ---- the credit */
+
+.credit {
+  position: absolute;
+  z-index: 2;
+  left: clamp(1.25rem, 4vw, 3.5rem);
+  bottom: clamp(1.1rem, 3vh, 1.8rem);
+  margin: 0;
+  font-family: var(--mono);
+  font-size: 0.64rem;
+  letter-spacing: 0.06em;
+  color: rgba(242, 240, 234, 0.4);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scene,
+  .card {
+    animation: none;
+  }
+  .effect {
+    transition: none;
+  }
+}
+
+/* ---- narrow */
+
+@media (max-width: 48rem) {
+  .card {
+    padding-bottom: 5.5rem;
+  }
+  .credit {
+    max-width: 60%;
+    line-height: 1.4;
+  }
+  .button {
+    padding: 0.6rem 0.85rem;
+    font-size: 0.8rem;
+  }
+  .line {
+    letter-spacing: 0.16em;
+  }
+}

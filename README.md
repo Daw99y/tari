@@ -46,16 +46,18 @@ npm run typecheck   # tsc --noEmit
 
 ```
 app/api/  auth  record  account  feedback     the four routes that survived
+app/lab/  the specimen drawer: real 1.12 spell visuals, read in the browser
 db/       schema.sql
-lib/      auth  db  sync  import  types  utils
+lib/      auth  db  sync  import  types  utils  m2
           class-color  faction  feedback  zip
-docs/     TARI.md  STATUS.md
+docs/     TARI.md  STATUS.md  LAB.md
+public/lab/m2/   the .m2 files /lab reads. Blizzard's; reference only
 ```
 
 `lib/import.ts` parses the WP2 addon export. It is the most valuable file in
 the repo.
 
-`app/page.tsx` is a boot check. Delete it when the landing page starts.
+`app/page.tsx` is the landing hero: full-bleed room, the Seduction visual played live from its `.m2`.
 
 ## What is deliberately absent
 
