@@ -7,22 +7,15 @@
  * and writes public/lab/doll/manifest.json. Nothing is re-authored: the
  * manifest only ever names files that came out of the client.
  *
+ * Gear is not built here. `doll-items.mjs` builds the wardrobe — every
+ * equippable item in the client — out of ItemDisplayInfo and an item-name
+ * database, and the page reads both.
+ *
  * Column layouts below were pinned by dumping real rows, not from a doc.
- * ItemDisplayInfo (23 fields):
- *   0 id · 1-2 model L/R · 3-4 model texture L/R · 5 icon · 6-8 geoset group ·
- *   9 flags · 10 spell visual · 11 sound · 12-13 helmet geoset vis M/F ·
- *   14-21 body textures (arm upper, arm lower, hand, torso upper, torso
- *   lower, leg upper, leg lower, foot) · 22 item visual
- * There is one icon field, not two. A robe's geoset groups read 2/0/1 at
- * columns 6-8, which selects sleeve variant 3 and robe-skirt variant 2 — a
- * floor-length robe. Reading them one column later gives a short skirt.
  * CharHairGeosets (6 fields): id, race, gender, variation, geoset, show scalp.
  * CharacterFacialHairStyles (9 fields): race, gender, variation, three unused,
  *   then beard, sideburn and moustache variants — the last two swapped
  *   against the family order the models use.
- * HelmetGeosetVisData (6 fields): id, then five race bitmasks — hair, the
- *   three facial-hair groups, ears. Bit N set means a character of race N
- *   loses that group while the helm is on.
  * CharSections (10 fields):
  *   0 id · 1 race · 2 gender · 3 base section · 4 variation · 5 colour ·
  *   6-8 texture · 9 flags
@@ -55,38 +48,10 @@ const ARCHIVES = ["patch-2.MPQ", "patch.MPQ", "model.MPQ", "texture.MPQ", "inter
 const RACES = [1, 2, 3, 4, 5, 6, 7, 8];
 const GENDERS = [0, 1];
 
-/* Head models exist once per race and gender, suffixed like `_HuM`. Confirmed
- * against the archive listing: DwF DwM GnF GnM HuF HuM NiF NiM OrF OrM ScF
- * ScM TaF TaM TrF TrM. */
-const RACE_CODE = { 1: "Hu", 2: "Or", 3: "Dw", 4: "Ni", 5: "Sc", 6: "Ta", 7: "Gn", 8: "Tr" };
-
 const genderName = (g) => (g === 0 ? "Male" : "Female");
-const modelSuffix = (race, g) => `_${RACE_CODE[race]}${g === 0 ? "M" : "F"}`;
-
-/* Body textures are suffixed `_M`, `_F`, or `_U` when the art is shared. Try
- * the gendered name first and fall back to unisex. */
-const texSuffixes = (g) => [g === 0 ? "_M" : "_F", "_U", ""];
 
 /* Which look each body opens on. */
 const LOOK = { skinColor: 0, faceVariation: 0, hairVariation: 1, hairColor: 0, facialHair: 1 };
-
-/* Items to include, found by a model or texture name so no fragile display id
- * is written down here. `on` is the ItemDisplayInfo column to match against.
- * These cover every path: a held model, a two-model shoulder, a helm, and
- * pieces that are texture-only. */
-const WANT_ITEMS = [
-  { slot: "mainhand", folder: "Weapon", match: /^Sword_1H_Short_A_01\.mdx$/i, on: 1 },
-  { slot: "offhand", folder: "Shield", match: /^Buckler_Round_A_01\.mdx$/i, on: 1 },
-  // 57 display rows share this helm model and 33 of them hide nothing, so the
-  // one picked here has to be a row that does — otherwise the bench never
-  // exercises helmet hiding and the hair pokes through the cap.
-  { slot: "head", folder: "Head", match: /^Helm_Leather_A_01\.mdx$/i, on: 1, where: (r) => r[12] !== 0 },
-  { slot: "shoulder", folder: "Shoulder", match: /^LShoulder_Leather_A_01\.mdl$/i, on: 1 },
-  { slot: "chest", match: /Mail_A_01.*_TU$/i, on: 17 },
-  { slot: "legs", match: /Mail_A_01.*_LU$/i, on: 19 },
-  { slot: "feet", match: /Mail_A_01.*_FO$/i, on: 21 },
-  { slot: "hands", match: /Mail_A_01.*_HA$/i, on: 16 },
-];
 
 /* What each of the three CharSections texture columns is for, by section kind.
  * Confirmed by dumping rows across every race: for a hair row the columns are
@@ -102,17 +67,6 @@ const ROLES = {
   hair: ["hair", "scalpLower", "scalpUpper"],
   underwear: ["pelvis", "torso"],
 };
-
-const BODY_TEX = [
-  ["armUpper", "ArmUpperTexture"],
-  ["armLower", "ArmLowerTexture"],
-  ["hand", "HandTexture"],
-  ["torsoUpper", "TorsoUpperTexture"],
-  ["torsoLower", "TorsoLowerTexture"],
-  ["legUpper", "LegUpperTexture"],
-  ["legLower", "LegLowerTexture"],
-  ["foot", "FootTexture"],
-];
 
 /* ------------------------------------------------------------------ */
 
@@ -221,15 +175,6 @@ function convert(gamePaths) {
   return out;
 }
 
-/** The first candidate path that made it through conversion. */
-function first(png, candidates) {
-  for (const c of candidates ?? []) {
-    const p = png.get(c);
-    if (p) return p;
-  }
-  return null;
-}
-
 /** The average colour of a texture's opaque pixels, as #rrggbb. */
 function swatch(pngPath) {
   const script = `
@@ -247,7 +192,7 @@ print('#%02x%02x%02x' % ((r//n, g//n, b//n) if n else (0, 0, 0)))
 
 /** Everything one body needs, worked out before any archive is touched. */
 function plan(race, gender, dbcs) {
-  const { cs, chg, cfh, idi, helmetHides, raceFolder } = dbcs;
+  const { cs, chg, cfh, raceFolder } = dbcs;
   const folder = raceFolder(race);
   const model = `Character\\${folder}\\${genderName(gender)}\\${folder}${genderName(gender)}.m2`;
 
@@ -292,41 +237,6 @@ function plan(race, gender, dbcs) {
     .map((r) => ({ variation: r[2], geosets: [r[6], r[8], r[7]] }))
     .sort((a, b) => a.variation - b.variation);
 
-  const items = [];
-  for (const want of WANT_ITEMS) {
-    const row = idi.rows.find((r) => want.match.test(idi.str(r[want.on])) && (!want.where || want.where(r)));
-    if (!row) {
-      console.log(`  ! ${folder} ${genderName(gender)} ${want.slot}: nothing matches ${want.match}`);
-      continue;
-    }
-    const entry = {
-      slot: want.slot,
-      displayId: row[0],
-      geosetGroups: [row[6], row[7], row[8]],
-      hides: helmetHides(race, gender === 0 ? row[12] : row[13]),
-      _modelPaths: [],
-      _texPaths: {},
-    };
-    // Models are named .mdx/.mdl in the DBC but are .m2 on disk.
-    for (const i of [0, 1]) {
-      const name = idi.str(row[1 + i]);
-      if (!name || !want.folder) continue;
-      const bare = name.replace(/\.(mdx|mdl)$/i, "");
-      const file = want.folder === "Head" ? `${bare}${modelSuffix(race, gender)}.m2` : `${bare}.m2`;
-      entry._modelPaths[i] = `Item\\ObjectComponents\\${want.folder}\\${file}`;
-      const tex = idi.str(row[3 + i]);
-      if (tex) entry._texPaths[`model${i}`] = [`Item\\ObjectComponents\\${want.folder}\\${tex}.blp`];
-    }
-    for (const [i, [key, folder]] of BODY_TEX.entries()) {
-      const name = idi.str(row[14 + i]);
-      if (name)
-        entry._texPaths[key] = texSuffixes(gender).map(
-          (sfx) => `Item\\TextureComponents\\${folder}\\${name}${sfx}.blp`,
-        );
-    }
-    items.push(entry);
-  }
-
   return {
     race,
     gender,
@@ -334,12 +244,8 @@ function plan(race, gender, dbcs) {
     sections,
     hairStyles,
     facialStyles,
-    items,
-    texPaths: [
-      ...sections.flatMap((s) => Object.values(s.roles)),
-      ...items.flatMap((e) => Object.values(e._texPaths).flat()),
-    ],
-    modelPaths: [model, ...items.flatMap((e) => e._modelPaths.filter(Boolean))],
+    texPaths: sections.flatMap((s) => Object.values(s.roles)),
+    modelPaths: [model],
   };
 }
 
@@ -382,21 +288,11 @@ function main() {
     return "Facial hair";
   };
 
-  const hgv = readDbc(join(DBC, "HelmetGeosetVisData.dbc"));
   const dbcs = {
     cs: readDbc(join(DBC, "CharSections.dbc")),
     chg: readDbc(join(DBC, "CharHairGeosets.dbc")),
     cfh: readDbc(join(DBC, "CharacterFacialHairStyles.dbc")),
-    idi: readDbc(join(DBC, "ItemDisplayInfo.dbc")),
     raceFolder,
-    /* What a helm takes off. Five race bitmasks per row: hair, the three
-     * facial-hair groups, then ears. */
-    helmetHides: (race, id) => {
-      const row = hgv.rows.find((r) => r[0] === id);
-      if (!row) return [];
-      const groups = ["hair", "beard", "moustache", "sideburns", "ears"];
-      return groups.filter((_, i) => (row[1 + i] & (1 << race)) !== 0);
-    },
   };
 
   const plans = RACES.flatMap((race) => GENDERS.map((g) => plan(race, g, dbcs)));
@@ -470,22 +366,6 @@ function main() {
               return { kind: sec.kind, variation: sec.variation, color: sec.color, files };
             })
             .filter((sec) => Object.keys(sec.files).length),
-          items: p.items.map((e) => {
-            const out = {
-              slot: e.slot,
-              displayId: e.displayId,
-              geosetGroups: e.geosetGroups,
-              hides: e.hides,
-              models: e._modelPaths.map((q) => (q && existsSync(join(OUT, "m2", leaf(q))) ? leaf(q) : null)),
-              modelTextures: [first(png, e._texPaths.model0), first(png, e._texPaths.model1)],
-              body: {},
-            };
-            for (const [key] of BODY_TEX) {
-              const q = first(png, e._texPaths[key]);
-              if (q) out.body[key] = q;
-            }
-            return out;
-          }),
         }))
         .filter((b) => b.model),
     })).filter((r) => r.genders.length),
@@ -500,8 +380,7 @@ function main() {
       console.log(
         `${r.name.padEnd(10)} ${b.name.padEnd(7)} ${String(b.skinColors.filter(Boolean).length).padStart(2)} skins  ` +
           `${String(faces).padStart(2)} faces  ${String(b.hairStyles.length).padStart(2)} hair × ` +
-          `${String(b.hairColors.filter(Boolean).length).padStart(2)}  ${String(b.facialStyles.length).padStart(2)} ${r.facialLabel.toLowerCase()}  ` +
-          `${b.items.filter((i) => i.models.some(Boolean)).length} worn models`,
+          `${String(b.hairColors.filter(Boolean).length).padStart(2)}  ${String(b.facialStyles.length).padStart(2)} ${r.facialLabel.toLowerCase()}`,
       );
     }
   console.log(`\nwrote ${OUT}/manifest.json`);

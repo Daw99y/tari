@@ -1,26 +1,36 @@
 # Doll — a character wearing gear, out of the 1.12 client
 
 `/lab/doll` builds any playable vanilla character — eight races, both genders,
-every skin, face, hair and beard — and dresses them, all read from the same
-client `/lab` reads spell visuals from. The panel offers the five choices the game's own creation screen offers,
-in the same order, and the figure stands in Goldshire rather than a void.
-Written 2026-08-24.
+every skin, face, hair and beard — and puts any of 6,903 items on them, all
+read from the same client `/lab` reads spell visuals from. The panel offers the
+five choices the game's own creation screen offers, in the same order, and the
+figure stands in Goldshire rather than a void.
+Written 2026-08-24. The wardrobe went in the same day.
 
 ## What runs where
 
 ```
-scripts/doll-build.mjs   DBC → MPQ → public/lab/doll/{m2,tex,manifest.json}
+scripts/doll-build.mjs   the bodies:  DBC → MPQ → public/lab/doll/{m2,tex}
+scripts/doll-items.mjs   the wardrobe: + item_template → …/items/
+scripts/client.mjs       where the client is, how to lift files out of it
 scripts/blp.py           BLP2 → PNG, including the alpha Pillow drops
 scripts/dbc.mjs          the WDBC table reader
 lib/m2.ts                the M2 reader, now with normals, geosets, attachments
 lib/m2-gl.ts             three.js drawing, CPU skinning
 lib/doll.ts              the dressing rules: regions, sockets, geosets
+lib/wardrobe.ts          one item, resolved against the body wearing it
 app/lab/doll/            the page
 ```
 
-Run `node scripts/doll-build.mjs` to rebuild the assets. It takes about 90
-seconds; most of that is MPQ scans, which cost three seconds each, so the
-script groups every file it wants by folder and pulls one folder at a time.
+Run `node scripts/doll-build.mjs` for the bodies and `node
+scripts/doll-items.mjs` for the gear. Both skip anything already converted, so
+a re-run after a rule change costs seconds. The first item build takes about
+five minutes and writes 72 MB.
+
+**The wardrobe is not in git.** It is Blizzard's item art, `docs/TARI.md` §7.1
+says putting their work in front of users is a decision to take on purpose, and
+72 MB of it would double the repo. `.gitignore` covers
+`public/lab/doll/items/`; run the script and it appears.
 
 ## Three mechanisms, not one
 
@@ -154,6 +164,60 @@ loses that group while the helm is on.
   Body texture names carry `_M`, `_F` or `_U`; try the gendered name, then
   unisex.
 
+## The wardrobe
+
+`ItemDisplayInfo.dbc` says what a look is made of and stops there. It has no
+item names, no slots and no qualities, because in 1.12 those live on the server
+rather than in the client — there is no `Item.dbc` until 2.0. So the catalogue
+is a join: display rows from the client, names and slots from the ClassicDB
+`item_template` dump that CPLUS already carries.
+
+`scripts/doll-items.mjs` writes `items/catalogue.json`, about 1.4 MB: 6,903
+items, 6,332 looks, the file names each look needs, and the
+`HelmetGeosetVisData` table so the page can work out what a helm bares on a
+night elf as against a dwarf. Model and texture names repeat hard across the
+wardrobe — one `Mail_A_01Red` dresses dozens of looks — so the catalogue stores
+indices into a string pool.
+
+### The two halves are not the same vintage
+
+ClassicDB `displayid` values above roughly 28.9k come from a later client.
+Around 2,300 of them have no row in a 1.12 `ItemDisplayInfo.dbc` at all, which
+is where the Fiery War Axe and the tier-one helms went. The dangerous ones are
+those that do land on a row, because the row is the wrong one: they draw
+somebody else's armour under the right name, and a wrong look reads as correct.
+
+CPLUS ran the sweep that found the line, in its `scripts/load_item_icons.py`:
+every id at or below **28911** agrees with Wowhead and every id above it
+disagrees, with nothing in use between 28911 and 28934. The build drops
+anything above it and the panel says how many. Recovering them needs an item
+database with 1.12 display ids, and matching on the icon does not do it — of
+2,646 orphans only 17 have an icon that names exactly one candidate row.
+
+### Developer leftovers
+
+The item table still carries `[PH]` placeholders, `10% Test Speed Boots`,
+191 rows prefixed `Deprecated` and the tier-test greens (`63 Green Rogue
+Belt`). They sort into the pickers alongside real gear and read as broken data.
+495 of them are marked in the catalogue and hidden until you ask, rather than
+dropped — they are real rows and a bench should reach anything the client has.
+
+`Monster - Axe, 2H Horde Black Tombstone` is deliberately not marked. Those are
+the weapons NPCs carry, the art is real, and their names say what they are.
+
+### Two things the wardrobe does that the sample items never did
+
+**A cloak has no model.** It is geoset family 15 on the character, painted from
+texture slot 2 — the slot the game leaves for an item's own art — so the cape
+goes on the body piece rather than beside it. Nothing in the manifest exercised
+this before.
+
+**Item art is gendered and the suffix is per file.** A stem ships as `_M`, `_F`,
+`_U`, or with no suffix, and which of the four varies file by file. Having the
+page try them in turn works and costs a 404 for every overlay on every change of
+gear, so the build records which exist as a bitmask and the page asks for one
+file.
+
 ## Why WebGL
 
 `/lab` paints spell visuals on a 2D canvas: a few hundred additive triangles,
@@ -283,22 +347,26 @@ hides hair and the hair comes through the cap, exactly as asked.
 
 ## Not done yet
 
-- 81 MB on disk: 4,131 textures at 27 MB and 36 models at 54 MB. The models
+- 74 MB of bodies in git: 4,060 textures at 27 MB and 16 models at 47 MB. The models
   dominate and are mostly animation — a character file carries 142 sequences
   and the bench plays one. Stripping the rest would need a rewriter that fixes
   every absolute offset in the header, which is why it has not been done. The
   browser only ever fetches the one body it is showing, so this is repo weight,
   not page weight.
-- One race and gender. `RACE` and `GENDER` at the top of the build script drive
-  it; the other 17 character models are in `model.MPQ`.
-- Held items sit on the right sockets but keep their own orientation. Sheathed
-  and drawn positions use different sockets (26 to 28 for sheathed) and are not
-  wired up.
+- Held items sit on the right sockets but keep their own orientation. The Stand
+  animation is the unarmed one, so a drawn sword follows a relaxed hand.
+  Sheathed and drawn positions use different sockets (26 to 28 for sheathed)
+  and are not wired up.
+- A bow is parked in the free hand. Its drawn pose is two-handed and its
+  sheathed pose is the back, and neither is wired up, so it gets its own row
+  rather than fighting the main hand for one.
+- Five icons of 718 name art the archives do not ship. Those rows draw an empty
+  square.
 - `SLOT_FAMILIES` maps a slot to the geoset families it controls. Chest and legs
-  are guesses that render correctly for the mail set in the manifest. Check
-  each against a robe and a set of plate before trusting them.
-- Cloaks, tabards and belts have families and sockets here, but no item in the
-  manifest exercises them.
+  now check out against a robe (`Robe of the Archmage` draws its floor-length
+  skirt) and against plate. Shirt shares the chest families on the grounds that
+  nearly every shirt reads 0/0/0 and only repaints; no shirt has been found that
+  disagrees, which is not the same as none existing.
 
 ## Provenance
 

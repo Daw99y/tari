@@ -50,15 +50,69 @@ export const ATTACH = {
   back: 12,
 } as const;
 
-/** Which socket each worn model hangs from. A shoulder item ships two models,
- *  left and right, so it names two. */
-export const SLOT_ATTACH: Record<string, number[]> = {
-  mainhand: [ATTACH.handRight],
-  offhand: [ATTACH.shield],
-  head: [ATTACH.helm],
-  shoulder: [ATTACH.shoulderLeft, ATTACH.shoulderRight],
-  back: [ATTACH.back],
+/** The slots the panel offers, top to bottom, and what to call each one.
+ *  Ordered the way a character sheet reads rather than the way the inventory
+ *  types are numbered. */
+export const SLOT_ORDER = [
+  "head",
+  "shoulder",
+  "back",
+  "chest",
+  "shirt",
+  "tabard",
+  "wrist",
+  "hands",
+  "waist",
+  "legs",
+  "feet",
+  "mainhand",
+  "offhand",
+  "ranged",
+] as const;
+
+export const SLOT_LABEL: Record<string, string> = {
+  head: "Head",
+  shoulder: "Shoulders",
+  back: "Back",
+  chest: "Chest",
+  shirt: "Shirt",
+  tabard: "Tabard",
+  wrist: "Wrists",
+  hands: "Hands",
+  waist: "Waist",
+  legs: "Legs",
+  feet: "Feet",
+  mainhand: "Main hand",
+  offhand: "Off hand",
+  ranged: "Ranged",
 };
+
+/** The order the body overlays stack in. Gloves paint over a sleeve and a
+ *  belt paints over both the chest and the legs, so a chest piece put on last
+ *  would rub out the boots. Anything not named here paints before the lot. */
+export const LAYER_ORDER = [
+  "shirt",
+  "chest",
+  "legs",
+  "feet",
+  "wrist",
+  "hands",
+  "waist",
+  "tabard",
+  "back",
+];
+
+/** Item quality, as the game colours it. */
+export const QUALITY = [
+  "#9d9d9d",
+  "#ffffff",
+  "#1eff00",
+  "#0070dd",
+  "#a335ee",
+  "#ff8000",
+  "#e6cc80",
+  "#e6cc80",
+] as const;
 
 /** Which side each race starts on. Not in any DBC column worth trusting, and
  *  it has not changed since 2004 — the creation screen splits on it, so the
@@ -148,12 +202,18 @@ const EAR_FAMILY = 7;
  *  screen — a wrong family reads as a missing sleeve, not as an error. */
 export const SLOT_FAMILIES: Record<string, number[]> = {
   chest: [8, 10, 13],
+  // A shirt drives the same sleeve and doublet families a chest piece does.
+  // Nearly all of them read 0/0/0, which leaves the bare variant showing and
+  // only repaints it, so the shared table costs nothing.
+  shirt: [8, 10, 13],
   legs: [11, 9, 13],
   feet: [5],
   hands: [4],
   back: [15],
   tabard: [12],
   waist: [17],
+  // Bracers are paint alone: the forearm rectangle and no geometry at all.
+  wrist: [],
 };
 
 export type Worn = { slot: string; geosetGroups: number[]; hides?: string[] };
@@ -218,7 +278,11 @@ export function visibleGeosets(opts: {
 
 /* ---------- body texture ---------- */
 
-export type BodyLayer = { region: Region; url: string };
+/** One overlay and where it goes. `urls` is a list of candidates rather than
+ *  one file because item art is gendered and which of `_M`, `_F`, `_U` or no
+ *  suffix at all the client ships varies file by file. The first that loads
+ *  wins, so the list is ordered gendered, unisex, bare. */
+export type BodyLayer = { region: Region; urls: string[] };
 
 /** Paint the base skin, then every layer in turn, into one 256×256 canvas.
  *  That canvas is the body texture — the thing a chest piece actually is. */
@@ -231,13 +295,23 @@ export async function composeBody(baseUrl: string, layers: BodyLayer[]): Promise
   for (const layer of layers) {
     const r = BODY_REGIONS[layer.region];
     if (!r) continue;
-    try {
-      g.drawImage(await loadImage(layer.url), r.x, r.y, r.w, r.h);
-    } catch {
-      /* A layer the client does not ship is not an error. Skip it. */
-    }
+    const image = await firstImage(layer.urls);
+    /* A layer the client does not ship is not an error. Skip it. */
+    if (image) g.drawImage(image, r.x, r.y, r.w, r.h);
   }
   return canvas;
+}
+
+/** The first of these that loads, or null if none of them do. */
+export async function firstImage(urls: string[]): Promise<HTMLImageElement | null> {
+  for (const url of urls) {
+    try {
+      return await loadImage(url);
+    } catch {
+      /* Try the next suffix. */
+    }
+  }
+  return null;
 }
 
 function loadImage(url: string): Promise<HTMLImageElement> {
