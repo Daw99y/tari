@@ -11,6 +11,9 @@ next-env.d.ts
 .claude/settings.local.json
 .scratch/
 
+# Where scripts/doll-build.mjs unpacks the archives before converting.
+.doll-tmp/
+
 # Art sources. The rule inherited from whelp plz and worth keeping: raw and
 # regraded captures stay on the machine that made them, and only the
 # web-ready files under public/ ever ship. Add the folders back as they
