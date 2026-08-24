@@ -17,8 +17,9 @@
  * columns 6-8, which selects sleeve variant 3 and robe-skirt variant 2 — a
  * floor-length robe. Reading them one column later gives a short skirt.
  * CharHairGeosets (6 fields): id, race, gender, variation, geoset, show scalp.
- * CharacterFacialHairStyles (9 fields): variation, gender, race, three unused,
- *   then beard, moustache and sideburn variants.
+ * CharacterFacialHairStyles (9 fields): race, gender, variation, three unused,
+ *   then beard, sideburn and moustache variants — the last two swapped
+ *   against the family order the models use.
  * HelmetGeosetVisData (6 fields): id, then five race bitmasks — hair, the
  *   three facial-hair groups, ears. Bit N set means a character of race N
  *   loses that group while the helm is on.
@@ -92,11 +93,14 @@ const WANT_ITEMS = [
  * the hair mesh's texture, the scalp's lower half and its upper half. */
 const SECTION = { 0: "skin", 1: "face", 2: "facialHair", 3: "hair", 4: "underwear" };
 const ROLES = {
-  skin: ["skin"],
+  // A skin row names the body texture and a second "extra" sheet, shared by
+  // groups of three colours. The extra fills texture slot 8, which is what a
+  // tauren's mane and braids are mapped to.
+  skin: ["skin", "extra"],
   face: ["lower", "upper"],
   facialHair: ["lower", "upper"],
   hair: ["hair", "scalpLower", "scalpUpper"],
-  underwear: ["pelvis"],
+  underwear: ["pelvis", "torso"],
 };
 
 const BODY_TEX = [
@@ -273,17 +277,20 @@ function plan(race, gender, dbcs) {
     .map((r) => ({ variation: r[3], geoset: r[4], showScalp: r[5] === 1 }))
     .sort((a, b) => a.variation - b.variation);
 
-  /* Beard, moustache and sideburns. This table puts variation first and race
-   * third, and columns 3 to 5 hold leftover values that are not geosets. A
-   * gender with no facial-hair art gets an empty list rather than styles that
-   * would draw nothing. */
-  const hasFacialArt = sections.some((s) => s.kind === "facialHair");
-  const facialStyles = !hasFacialArt
-    ? []
-    : cfh.rows
-        .filter((r) => r[1] === gender && r[2] === race)
-        .map((r) => ({ variation: r[0], geosets: [r[6], r[7], r[8]] }))
-        .sort((a, b) => a.variation - b.variation);
+  /* Beard, moustache and sideburns. Race, gender, variation, in that order —
+   * columns 3 to 5 hold leftover values that are not geosets, and the two
+   * geoset columns after the beard are stored swapped: column 7 is the
+   * sideburn (family 3) and column 8 the moustache (family 2). Both facts
+   * were pinned by checking every row against the meshes the sixteen body
+   * models actually carry: this reading matches 94 of 115 rows in full, and
+   * every other reading matches at most 51. Rows are kept even when the body
+   * has no facial-hair paint: a tauren's mane and a human female's earrings
+   * are all mesh, painted by the hair or the skin, and the page already drops
+   * any style whose meshes the model does not carry. */
+  const facialStyles = cfh.rows
+    .filter((r) => r[0] === race && r[1] === gender)
+    .map((r) => ({ variation: r[2], geosets: [r[6], r[8], r[7]] }))
+    .sort((a, b) => a.variation - b.variation);
 
   const items = [];
   for (const want of WANT_ITEMS) {
