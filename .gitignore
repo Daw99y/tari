@@ -23,3 +23,6 @@ art-sources/
 relit-images/
 ReLit-WoW-Zone-images/
 layered-cities/
+
+# Masters never go in git (see public/journey/README.md); this one is 26 MB.
+public/RLextras/RatchetBank.png
