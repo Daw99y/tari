@@ -37,7 +37,9 @@ type Section = {
   kind: string;
   variation: number;
   color: number;
-  files: Partial<Record<"skin" | "lower" | "upper" | "hair" | "scalpLower" | "scalpUpper" | "pelvis", string>>;
+  files: Partial<
+    Record<"skin" | "extra" | "lower" | "upper" | "hair" | "scalpLower" | "scalpUpper" | "pelvis", string>
+  >;
 };
 
 type Item = {
@@ -209,15 +211,11 @@ export default function Doll() {
       underwear: section("underwear", 0, skinColor)?.files ?? {},
       hair: hairRow,
       beard: section("facialHair", beard?.variation ?? 0, hairColor)?.files ?? {},
-      // A tauren's hair row names no usable hair texture: the female's file is
-      // not in the archives at all, and the male's slot points at a face
-      // texture, which is what put a slab of skin where his horns should be.
-      // Fall through to the scalp art, which is the only tauren hair the
-      // client ships.
-      hairTexture:
-        (hairRow.hair && !/face/i.test(hairRow.hair) ? hairRow.hair : undefined) ??
-        hairRow.scalpLower ??
-        hairRow.scalpUpper,
+      // A tauren's hair row names no usable hair texture — the male's slot
+      // points at a face texture — and none is needed: nothing on a tauren
+      // samples the hair slot. His mane reads the skin's extra sheet and his
+      // horns read the body skin itself.
+      hairTexture: hairRow.hair && !/face/i.test(hairRow.hair) ? hairRow.hair : undefined,
     };
   }, [g, options, look]);
 
@@ -371,10 +369,14 @@ export default function Doll() {
       // underwear, whose pelvis shares the leg-upper rectangle. Armour last.
       push("faceLower", chosen.face.lower);
       push("faceUpper", chosen.face.upper);
-      if (chosen.showScalp) {
-        push("faceLower", chosen.hair.scalpLower);
-        push("faceUpper", chosen.hair.scalpUpper);
-      }
+      // The scalp always goes on: the hair covering the skull is paint, and
+      // the hair mesh is only the part that stands off it — a night elf's
+      // ponytail leaves a bare pink crown without this. The same two sheets
+      // are a bald man's shaved head and a tauren's horn colours. The
+      // `showScalp` flag is not a display switch; it marks the bald rows a
+      // helm swaps in, which this bench does not do.
+      push("faceLower", chosen.hair.scalpLower);
+      push("faceUpper", chosen.hair.scalpUpper);
       // A style with no geosets is a clean shave, and its texture row is not
       // a blank one — human male style 2 draws no mesh but its texture still
       // has a beard painted on it. Skip the paint when there is no geometry.
@@ -383,6 +385,7 @@ export default function Doll() {
         push("faceUpper", chosen.beard.upper);
       }
       push("legUpper", chosen.underwear.pelvis);
+      push("torsoUpper", chosen.underwear.torso);
       for (const item of activeItems)
         for (const [region, file] of Object.entries(item.body)) push(region as Region, file);
 
@@ -399,15 +402,20 @@ export default function Doll() {
       }
       if (!live) return;
 
-      // Slot 1 is the composed body. Slot 6 is the hair, except on a tauren,
-      // whose model uses slot 8 for the mane where every other race uses 6 —
-      // feed 8 the body skin and the mane comes out wearing armour.
+      // Slot 1 is the composed body. Slot 6 is the hair. Slot 8 is the skin's
+      // extra sheet, named by the same CharSections row as the skin itself —
+      // a tauren's mane and braids and the furred parts of his body read it,
+      // so it follows the skin colour, not the hair colour.
       const runtime = new Map<number, THREE.Texture>([[1, bodyTex]]);
       if (chosen.hairTexture) {
         const hairTex = await loadTexture(`${BASE}/tex/${chosen.hairTexture}`);
         if (!live) return;
         runtime.set(6, hairTex);
-        runtime.set(8, hairTex);
+      }
+      if (chosen.skin.extra) {
+        const extraTex = await loadTexture(`${BASE}/tex/${chosen.skin.extra}`);
+        if (!live) return;
+        runtime.set(8, extraTex);
       }
 
       // Textures the model names for itself: the eye glow on a night elf or

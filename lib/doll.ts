@@ -134,7 +134,14 @@ export function familyOf(geoset: number): number {
  *  leaves the character with a gap where their shins should be. A cloth glove
  *  that only repaints the hand keeps variant 1 too, which is why the rule is
  *  uniform rather than a list of exceptions. */
-const BARE_FAMILIES = [4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 17, 18];
+const BARE_FAMILIES = [4, 5, 6, 8, 9, 10, 11, 12, 13, 14, 15, 17, 18];
+
+/** Ears are the one family whose default is variant 2, not 1: 701 is the
+ *  earless stub a helmet swaps in, and a night elf or troll does not even
+ *  carry it — their files hold 702 alone. No item picks ear variants, so the
+ *  family sits outside the bare-variant rule rather than as an exception
+ *  inside it. */
+const EAR_FAMILY = 7;
 
 /** Which families an item in this slot controls, in the order its three
  *  `geosetGroups` values apply. Each one needs checking against the model on
@@ -185,6 +192,7 @@ export function visibleGeosets(opts: {
 }): Set<number> {
   const variants = new Map<number, number>();
   for (const family of BARE_FAMILIES) variants.set(family, 1);
+  variants.set(EAR_FAMILY, 2);
   for (const item of opts.items) {
     const families = SLOT_FAMILIES[item.slot];
     if (!families) continue;
