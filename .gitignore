@@ -11,8 +11,14 @@ next-env.d.ts
 .claude/settings.local.json
 .scratch/
 
-# Where scripts/doll-build.mjs unpacks the archives before converting.
+# Where the doll build scripts unpack the archives before converting.
 .doll-tmp/
+
+# The wardrobe: 90 MB of Blizzard's item art, rebuilt by
+# `node scripts/doll-items.mjs` from a local 1.12 client. Out of git on
+# purpose — see docs/DOLL.md, and docs/TARI.md §7.1 on putting their work in
+# front of users.
+public/lab/doll/items/
 
 # Art sources. The rule inherited from whelp plz and worth keeping: raw and
 # regraded captures stay on the machine that made them, and only the

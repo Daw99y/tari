@@ -17,14 +17,26 @@ import {
   FACTION,
   GEOSET_FAMILY,
   hiddenGroups,
+  LAYER_ORDER,
+  QUALITY,
   ROW_LABELS,
-  SLOT_ATTACH,
+  SLOT_LABEL,
+  SLOT_ORDER,
   visibleGeosets,
   type BodyLayer,
   type Region,
 } from "@/lib/doll";
 import { parseM2, type M2Mesh } from "@/lib/m2";
 import { loadTexture, MODEL_TO_SCENE, Piece, type GlTextures } from "@/lib/m2-gl";
+import {
+  dress,
+  itemsBySlot,
+  loadCatalogue,
+  WARDROBE,
+  type Catalogue,
+  type Dressed,
+  type Item as WardrobeItem,
+} from "@/lib/wardrobe";
 
 import styles from "./doll.module.css";
 
@@ -38,18 +50,8 @@ type Section = {
   variation: number;
   color: number;
   files: Partial<
-    Record<"skin" | "extra" | "lower" | "upper" | "hair" | "scalpLower" | "scalpUpper" | "pelvis", string>
+    Record<"skin" | "extra" | "lower" | "upper" | "hair" | "scalpLower" | "scalpUpper" | "pelvis" | "torso", string>
   >;
-};
-
-type Item = {
-  slot: string;
-  displayId: number;
-  geosetGroups: number[];
-  hides: string[];
-  models: (string | null)[];
-  modelTextures: (string | null)[];
-  body: Partial<Record<Region, string>>;
 };
 
 type GenderBlock = {
@@ -62,7 +64,6 @@ type GenderBlock = {
   hairColors: (string | null)[];
   skinColors: (string | null)[];
   sections: Section[];
-  items: Item[];
 };
 
 type RaceBlock = { race: number; name: string; facialLabel: string; genders: GenderBlock[] };
@@ -73,8 +74,12 @@ type Manifest = { races: RaceBlock[] };
 type Look = { skin: number; face: number; hair: number; hairColor: number; beard: number };
 
 async function fetchM2(file: string): Promise<M2Mesh> {
-  const r = await fetch(`${BASE}/m2/${file}`);
-  if (!r.ok) throw new Error(`${file}: ${r.status}`);
+  return fetchModel(`${BASE}/m2/${file}`);
+}
+
+async function fetchModel(url: string): Promise<M2Mesh> {
+  const r = await fetch(url);
+  if (!r.ok) throw new Error(`${url}: ${r.status}`);
   return parseM2(await r.arrayBuffer());
 }
 
@@ -92,8 +97,16 @@ export default function Doll() {
   const [gender, setGender] = useState(0);
   const [body, setBody] = useState<M2Mesh | null>(null);
   const [error, setError] = useState<string | null>(null);
-  const [worn, setWorn] = useState<Set<string>>(new Set());
   const [overrides, setOverrides] = useState<Map<number, boolean>>(new Map());
+  /* The wardrobe: every equippable item in the client, and what this character
+   * currently has on. Kept as whole items rather than ids so the rail can
+   * print a name without a second lookup. */
+  const [catalogue, setCatalogue] = useState<Catalogue | null>(null);
+  const [wardrobeFault, setWardrobeFault] = useState<string | null>(null);
+  const [equipped, setEquipped] = useState<Map<string, WardrobeItem>>(new Map());
+  const [picking, setPicking] = useState<string | null>(null);
+  const [query, setQuery] = useState("");
+  const [leftovers, setLeftovers] = useState(false);
   const [tris, setTris] = useState(0);
   const [regionMap, setRegionMap] = useState(false);
   const [showAll, setShowAll] = useState(false);
@@ -147,11 +160,24 @@ export default function Doll() {
         const m: Manifest = await (await fetch(`${BASE}/manifest.json`)).json();
         if (!live) return;
         setManifest(m);
-        setWorn(new Set(m.races[0].genders[0].items.map((i) => i.slot)));
       } catch (e) {
         if (live) setError(e instanceof Error ? e.message : String(e));
       }
     })();
+    return () => {
+      live = false;
+    };
+  }, []);
+
+  /* The wardrobe. A separate build from the bodies and a separate fetch: it
+   * is 90 MB of item art that is not in git, so a checkout without it should
+   * still draw a naked character rather than a blank page. */
+  useEffect(() => {
+    let live = true;
+    loadCatalogue().then(
+      (c) => live && setCatalogue(c),
+      (e) => live && setWardrobeFault(e instanceof Error ? e.message : String(e)),
+    );
     return () => {
       live = false;
     };
@@ -219,12 +245,38 @@ export default function Doll() {
     };
   }, [g, options, look]);
 
-  const wornItems = useMemo(
-    () =>
-      (g?.items ?? [])
-        .filter((i) => worn.has(i.slot))
-        .map((i) => ({ slot: i.slot, geosetGroups: i.geosetGroups, hides: i.hides })),
-    [g, worn],
+  /* What every equipped item does to this body. Race and gender are part of
+   * it: a helm is a different file per body and bares a night elf's ears
+   * without touching a dwarf's beard. Ordered so the overlays stack the way
+   * gear layers — gloves over sleeves, a belt over both. */
+  const dressed = useMemo(() => {
+    if (!catalogue) return [] as Dressed[];
+    return [...equipped.values()]
+      .sort((a, b) => LAYER_ORDER.indexOf(a.slot) - LAYER_ORDER.indexOf(b.slot))
+      .map((item) => dress(catalogue, item, race, gender))
+      .filter((d): d is Dressed => d !== null);
+  }, [catalogue, equipped, race, gender]);
+
+  const wornItems = useMemo(() => dressed.map((d) => d.worn), [dressed]);
+
+  /* Every item that fits each slot, so the picker only has to filter by name. */
+  const bySlot = useMemo(() => (catalogue ? itemsBySlot(catalogue) : new Map()), [catalogue]);
+
+  /* At most this many rows, or a picker for the 674 two-handers spends longer
+   * laying out than the scene does drawing. */
+  const results = useMemo(() => {
+    if (!picking) return { rows: [] as WardrobeItem[], total: 0, hidden: 0 };
+    const all: WardrobeItem[] = bySlot.get(picking) ?? [];
+    const q = query.trim().toLowerCase();
+    const named = q ? all.filter((i) => i.name.toLowerCase().includes(q)) : all;
+    const hits = leftovers ? named : named.filter((i) => !i.leftover);
+    return { rows: hits.slice(0, 120), total: hits.length, hidden: named.length - hits.length };
+  }, [bySlot, picking, query, leftovers]);
+
+  /** What each slot offers, counted the way the picker will show it. */
+  const slotCount = useCallback(
+    (slot: string) => (bySlot.get(slot) ?? []).filter((i: WardrobeItem) => leftovers || !i.leftover).length,
+    [bySlot, leftovers],
   );
 
   /* What the gear takes off. A helm that hides hair hides every style, so
@@ -358,12 +410,10 @@ export default function Doll() {
     resize();
 
     (async () => {
-      const activeItems = g.items.filter((i) => worn.has(i.slot));
-
       /* --- the body texture --- */
       const layers: BodyLayer[] = [];
       const push = (region: Region, file?: string) => {
-        if (file) layers.push({ region, url: `${BASE}/tex/${file}` });
+        if (file) layers.push({ region, urls: [`${BASE}/tex/${file}`] });
       };
       // The face first, then the hairline and the beard on top of it, then the
       // underwear, whose pelvis shares the leg-upper rectangle. Armour last.
@@ -386,8 +436,9 @@ export default function Doll() {
       }
       push("legUpper", chosen.underwear.pelvis);
       push("torsoUpper", chosen.underwear.torso);
-      for (const item of activeItems)
-        for (const [region, file] of Object.entries(item.body)) push(region as Region, file);
+      // Armour last, already in layering order. Each overlay carries its
+      // gendered, unisex and bare candidates; the first that loads wins.
+      for (const d of dressed) layers.push(...d.layers);
 
       let bodyTex: THREE.Texture;
       if (regionMap) {
@@ -417,6 +468,15 @@ export default function Doll() {
         if (!live) return;
         runtime.set(8, extraTex);
       }
+      // A cloak has no model. It is geoset family 15 on the character itself,
+      // painted from texture slot 2 — the slot the game leaves for an item's
+      // own art — so the cape goes on the body piece, not beside it.
+      const cape = dressed.find((d) => d.capeUrl)?.capeUrl;
+      if (cape) {
+        const capeTex = await loadTexture(cape);
+        if (!live) return;
+        runtime.set(2, capeTex);
+      }
 
       // Textures the model names for itself: the eye glow on a night elf or
       // an undead, a second skin on the gnome male.
@@ -432,30 +492,26 @@ export default function Doll() {
 
       /* --- worn models --- */
       const attached: { piece: Piece; attach: number }[] = [];
-      for (const item of activeItems) {
-        const sockets = SLOT_ATTACH[item.slot];
-        if (!sockets) continue;
-        for (const [i, file] of item.models.entries()) {
-          if (!file) continue;
-          const socket = sockets[Math.min(i, sockets.length - 1)];
+      for (const d of dressed)
+        for (const model of d.models) {
           try {
-            const mesh = await fetchM2(file);
+            const mesh = await fetchModel(model.url);
             if (!live) return;
             const itemRuntime = new Map<number, THREE.Texture>();
-            const texFile = item.modelTextures[i] ?? item.modelTextures[0];
-            if (texFile) itemRuntime.set(2, await loadTexture(`${BASE}/tex/${texFile}`));
+            if (model.textureUrl) itemRuntime.set(2, await loadTexture(model.textureUrl));
             if (!live) return;
             const piece = new Piece(mesh, new Map(), { runtime: itemRuntime });
             piece.object.matrixAutoUpdate = false;
             piece.update(0, mesh.sequences[0] ?? null);
             disposables.push(piece);
             stage.add(piece.object);
-            attached.push({ piece, attach: socket });
+            attached.push({ piece, attach: model.attach });
           } catch (e) {
-            console.warn(`doll: ${file} did not load`, e);
+            // A head model that the client does not ship for this race and
+            // gender is a gap in the art, not a fault worth stopping for.
+            console.warn(`doll: ${model.url} did not load`, e);
           }
         }
-      }
 
       setTris(
         body.batches.reduce((n, b) => n + (showAll || shown.has(b.geoset) ? b.count / 3 : 0), 0) +
@@ -503,7 +559,7 @@ export default function Doll() {
       renderer.dispose();
       host.removeChild(renderer.domElement);
     };
-  }, [g, body, worn, shown, showAll, regionMap, chosen]);
+  }, [g, body, dressed, shown, showAll, regionMap, chosen]);
 
   /* ---------- controls ---------- */
 
@@ -523,11 +579,16 @@ export default function Doll() {
     });
   };
 
-  const toggleSlot = (slot: string) =>
-    setWorn((prev) => {
-      const next = new Set(prev);
-      if (next.has(slot)) next.delete(slot);
-      else next.add(slot);
+  const equip = (item: WardrobeItem) => {
+    setEquipped((prev) => new Map(prev).set(item.slot, item));
+    setPicking(null);
+    setQuery("");
+  };
+
+  const takeOff = (slot: string) =>
+    setEquipped((prev) => {
+      const next = new Map(prev);
+      next.delete(slot);
       return next;
     });
 
@@ -647,29 +708,120 @@ export default function Doll() {
 
       <aside className={styles.rail}>
         <section>
-          <h2 className={styles.railHead}>Worn</h2>
-          {g?.items.length ? (
-            <ul className={styles.slots}>
-              {g.items.map((item) => (
-                <li key={item.slot}>
-                  <label className={styles.slot}>
-                    <input
-                      type="checkbox"
-                      aria-label={`Wear ${item.slot}`}
-                      checked={worn.has(item.slot)}
-                      onChange={() => toggleSlot(item.slot)}
-                    />
-                    <span className={styles.slotName}>{item.slot}</span>
-                    <span className={styles.slotKind}>
-                      {item.models.some(Boolean) ? `${item.models.filter(Boolean).length} model` : "texture"}
-                    </span>
-                    <span className={styles.slotId}>{item.displayId}</span>
-                  </label>
-                </li>
-              ))}
-            </ul>
+          <h2 className={styles.railHead}>Equipment</h2>
+          {wardrobeFault ? (
+            <p className={styles.empty}>
+              No wardrobe. Run <code className={styles.code}>node scripts/doll-items.mjs</code> to build it.
+            </p>
+          ) : !catalogue ? (
+            <p className={styles.empty}>Reading the wardrobe…</p>
+          ) : picking ? (
+            <div className={styles.picker}>
+              <div className={styles.pickerHead}>
+                <button type="button" className={styles.back} onClick={() => setPicking(null)}>
+                  ‹ Slots
+                </button>
+                <span className={styles.pickerSlot}>{SLOT_LABEL[picking]}</span>
+              </div>
+              <input
+                className={styles.search}
+                type="search"
+                autoFocus
+                value={query}
+                placeholder={`Search ${slotCount(picking)} items`}
+                onChange={(e) => setQuery(e.currentTarget.value)}
+              />
+              <ul className={styles.results}>
+                {results.rows.map((item) => (
+                  <li key={item.entry}>
+                    <button type="button" className={styles.result} onClick={() => equip(item)}>
+                      <Icon file={item.icon} />
+                      <span className={styles.resultName} style={{ color: QUALITY[item.quality] }}>
+                        {item.name}
+                      </span>
+                      <span className={styles.resultLevel}>{item.itemLevel || ""}</span>
+                    </button>
+                  </li>
+                ))}
+              </ul>
+              {results.total > results.rows.length ? (
+                <p className={styles.railNote}>
+                  {results.total - results.rows.length} more. Type to narrow it down.
+                </p>
+              ) : null}
+              {results.total === 0 ? <p className={styles.railNote}>Nothing by that name.</p> : null}
+              {results.hidden ? (
+                <button type="button" className={styles.reset} onClick={() => setLeftovers(true)}>
+                  Show {results.hidden} developer leftover{results.hidden === 1 ? "" : "s"}
+                </button>
+              ) : null}
+            </div>
           ) : (
-            <p className={styles.empty}>Run scripts/doll-build.mjs to fill this.</p>
+            <>
+              <ul className={styles.slots}>
+                {SLOT_ORDER.map((slot) => {
+                  const item = equipped.get(slot);
+                  const count = slotCount(slot);
+                  return (
+                    <li key={slot} className={styles.slotRow}>
+                      <button
+                        type="button"
+                        className={styles.slotPick}
+                        disabled={!count}
+                        onClick={() => {
+                          setPicking(slot);
+                          setQuery("");
+                        }}
+                      >
+                        <Icon file={item?.icon ?? null} />
+                        <span className={styles.slotName}>{SLOT_LABEL[slot]}</span>
+                        {item ? (
+                          <span className={styles.slotItem} style={{ color: QUALITY[item.quality] }}>
+                            {item.name}
+                          </span>
+                        ) : (
+                          <span className={styles.slotCount}>{count || "—"}</span>
+                        )}
+                      </button>
+                      {item ? (
+                        <button
+                          type="button"
+                          className={styles.takeOff}
+                          aria-label={`Take off ${SLOT_LABEL[slot]}`}
+                          onClick={() => takeOff(slot)}
+                        >
+                          ×
+                        </button>
+                      ) : null}
+                    </li>
+                  );
+                })}
+              </ul>
+              {equipped.size ? (
+                <button type="button" className={styles.reset} onClick={() => setEquipped(new Map())}>
+                  Take it all off
+                </button>
+              ) : null}
+              <label className={styles.slot}>
+                <input
+                  type="checkbox"
+                  aria-label="Show developer leftovers"
+                  checked={leftovers}
+                  onChange={(e) => setLeftovers(e.currentTarget.checked)}
+                />
+                <span className={styles.slotName}>Show developer leftovers</span>
+              </label>
+              <p className={styles.railNote}>
+                {catalogue.items.filter((i) => leftovers || i[6] !== 1).length.toLocaleString()} items out of the
+                client. Placeholders, balance tests and deprecated rows are real entries in the item table and are
+                held back until asked for.
+              </p>
+              <p className={styles.railNote}>
+                A further {catalogue.untrusted.toLocaleString()} are missing: the item database points them at a
+                look from a later client, which either does not exist in 1.12 or is somebody else&rsquo;s armour.
+                Drawing those would be worse than leaving them out.
+              </p>
+            </>
           )}
         </section>
 
@@ -756,6 +908,15 @@ export default function Doll() {
       </aside>
     </div>
   );
+}
+
+/** An item's icon, straight out of Interface\\Icons. A slot with nothing in it
+ *  keeps the same square so the rows do not jump when gear goes on. */
+function Icon({ file }: { file: string | null }) {
+  if (!file) return <span className={styles.iconEmpty} aria-hidden />;
+  // eslint-disable-next-line @next/next/no-img-element -- one 64px sprite out
+  // of the client, no layout shift to guard against and no loader to pay for.
+  return <img className={styles.icon} src={`${WARDROBE}/icons/${file}`} alt="" width={22} height={22} />;
 }
 
 function Swatch({ hex }: { hex?: string }) {
