@@ -1,0 +1,523 @@
+/* /lab/doll — the fitting bench. Scoped tokens, like lab.module.css. This one
+ * runs dark: the subject is armour on a body, and armour reads against a dark
+ * field the way it does nowhere else. */
+
+.bench {
+  --stage: #0e0d11;
+  --plinth: #17161c;
+  --edge: #2a2930;
+  --ink: #e9e8e4;
+  --mute: #83828c;
+  --dim: #55545e;
+  --brass: #c8a45c;
+  --serif: ui-serif, "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  --sans: system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+  --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 21rem;
+  gap: 0;
+  min-height: 100dvh;
+  background: var(--stage);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+}
+
+@media (max-width: 60rem) {
+  .bench {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- the stage ---------- */
+
+/* Goldshire at dusk, the same graded still the journey pages use. The game
+ * stands you in a zone rather than a void, and the armour reads better against
+ * something with depth behind it. Two scrims keep it in its place: a wash
+ * across the left so the panel stays legible, and a vignette that seats the
+ * figure instead of letting the trees compete with it. */
+.stage {
+  position: relative;
+  min-height: 70vh;
+  background:
+    linear-gradient(90deg, rgba(14, 13, 17, 0.92) 0%, rgba(14, 13, 17, 0.45) 26%, rgba(14, 13, 17, 0.1) 48%),
+    radial-gradient(70% 60% at 52% 60%, rgba(14, 13, 17, 0) 35%, rgba(14, 13, 17, 0.72) 100%),
+    url("/journey/elwynn-forest.webp") center / cover no-repeat,
+    var(--stage);
+}
+
+.viewport {
+  position: absolute;
+  inset: 0;
+  touch-action: none;
+  cursor: grab;
+}
+
+.viewport:active {
+  cursor: grabbing;
+}
+
+.viewport canvas {
+  display: block;
+}
+
+/* The zone is a backdrop, not a subject: hold it back so the figure is the
+ * brightest thing on screen. */
+.stage {
+  isolation: isolate;
+}
+
+.hint {
+  position: absolute;
+  left: clamp(1rem, 3vw, 2.5rem);
+  bottom: clamp(1rem, 3vw, 2rem);
+  margin: 0;
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--dim);
+  pointer-events: none;
+}
+
+.count {
+  margin-left: 1.25em;
+  color: var(--mute);
+}
+
+.fault {
+  position: absolute;
+  inset: auto 2rem 4rem 2rem;
+  margin: 0;
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  color: #d98a7a;
+}
+
+/* ---------- the rail ---------- */
+
+.rail {
+  border-left: 1px solid var(--edge);
+  padding: clamp(1.5rem, 3vw, 2.25rem) clamp(1.25rem, 2vw, 1.75rem) 4rem;
+  overflow-y: auto;
+  max-height: 100dvh;
+  background: var(--plinth);
+}
+
+.rail section + section {
+  margin-top: 2.5rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid var(--edge);
+}
+
+.railHead {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 1.2rem;
+  letter-spacing: 0.01em;
+  margin: 0 0 0.75rem;
+}
+
+.railNote,
+.empty {
+  margin: 0 0 1.25rem;
+  color: var(--mute);
+  font-size: 0.8rem;
+  line-height: 1.55;
+}
+
+.slots,
+.geosets {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Rows are a four-column reading grid: the control, the name, what kind of
+ * thing it is, and its id — ids right-aligned so they scan as a column. */
+.slot {
+  display: grid;
+  grid-template-columns: auto 1fr auto auto;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.4rem 0;
+  cursor: pointer;
+}
+
+.slotName {
+  text-transform: capitalize;
+}
+
+.slotKind {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  color: var(--dim);
+}
+
+.slotId {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: var(--mute);
+  font-variant-numeric: tabular-nums;
+  min-width: 3.5em;
+  text-align: right;
+}
+
+.family + .family {
+  margin-top: 1.25rem;
+}
+
+.familyName {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  margin: 0 0 0.25rem;
+  font-size: 0.78rem;
+  color: var(--mute);
+}
+
+.familyKey {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
+  color: var(--brass);
+  min-width: 2.6em;
+}
+
+.geoset {
+  display: grid;
+  grid-template-columns: auto 5.6em 1fr 2.6em;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.22rem 0;
+  cursor: pointer;
+  color: var(--dim);
+}
+
+.geoset:hover {
+  color: var(--mute);
+}
+
+.geoset.on {
+  color: var(--ink);
+}
+
+.geosetId,
+.geosetTris {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.geosetTris {
+  text-align: right;
+  color: var(--dim);
+}
+
+/* The bar is the chunk's share of its family, so the panel doubles as a
+ * readout of how much mesh each rule is switching. */
+.bar {
+  position: relative;
+  height: 1px;
+  background: var(--edge);
+}
+
+.bar::after {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: var(--fill, 0%);
+  background: currentColor;
+}
+
+.geoset.on .bar::after {
+  background: var(--brass);
+  height: 2px;
+  top: -0.5px;
+}
+
+.slot input,
+.geoset input {
+  appearance: none;
+  width: 0.7rem;
+  height: 0.7rem;
+  margin: 0;
+  border: 1px solid var(--dim);
+  background: transparent;
+  cursor: pointer;
+}
+
+.slot input:checked,
+.geoset input:checked {
+  background: var(--brass);
+  border-color: var(--brass);
+}
+
+.slot input:focus-visible,
+.geoset input:focus-visible {
+  outline: 2px solid var(--brass);
+  outline-offset: 2px;
+}
+
+/* A family the worn gear takes off. The rows stay tickable — forcing one on is
+ * how you check a hide rule — but a forced row has to look forced, or the
+ * model reads as broken. */
+.hiddenTag {
+  margin-left: auto;
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--dim);
+}
+
+.geoset.forced .geosetId {
+  color: #d98a7a;
+}
+
+.geoset.forced .geosetId::after {
+  content: " forced";
+  font-size: 0.9em;
+}
+
+.geoset.forced .bar::after {
+  background: #d98a7a;
+}
+
+.reset {
+  display: block;
+  margin: 0.75rem 0 0;
+  padding: 0.3rem 0.6rem;
+  font: inherit;
+  font-size: 0.75rem;
+  color: var(--mute);
+  background: transparent;
+  border: 1px solid var(--edge);
+  cursor: pointer;
+}
+
+.reset:hover {
+  color: var(--ink);
+  border-color: var(--dim);
+}
+
+.reset:focus-visible {
+  outline: 2px solid var(--brass);
+  outline-offset: 2px;
+}
+
+/* ---------- the creator ----------
+ *
+ * The game's own creation screen puts this in a carved stone frame. That would
+ * read as costume here, so the panel is a hairline and a scrim instead: the
+ * figure keeps the whole stage, and the controls sit in it rather than beside
+ * it. The one thing the original never told you — how many faces there are,
+ * how far through the list you are — is the thing this panel puts in mono next
+ * to every row. */
+
+.creator {
+  position: absolute;
+  top: clamp(1rem, 3vh, 2rem);
+  left: clamp(1rem, 3vw, 2.5rem);
+  width: 15.5rem;
+  padding: 1.1rem 1.15rem 1.15rem;
+  border: 1px solid var(--edge);
+  background: linear-gradient(180deg, rgba(14, 13, 17, 0.92), rgba(14, 13, 17, 0.78));
+  backdrop-filter: blur(2px);
+}
+
+/* Two columns, the way the creation screen has always split the roster. The
+ * faction names are the only place on this page a colour other than brass
+ * appears, and they are the reason you can find your race without reading
+ * eight labels. */
+.roster {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.55rem;
+  margin-bottom: 0.9rem;
+}
+
+.sideName {
+  margin: 0 0 0.3rem;
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--dim);
+}
+
+.side:first-child .sideName {
+  color: #7c93c4;
+}
+
+.side:last-child .sideName {
+  color: #b06a5e;
+}
+
+.race {
+  display: block;
+  width: 100%;
+  padding: 0.24rem 0.4rem;
+  text-align: left;
+  font-size: 0.78rem;
+  color: var(--mute);
+  background: transparent;
+  border: 0;
+  border-left: 2px solid transparent;
+  cursor: pointer;
+}
+
+.race:hover {
+  color: var(--ink);
+  border-left-color: var(--edge);
+}
+
+.raceOn {
+  color: var(--ink);
+  border-left-color: var(--brass);
+  background: rgba(200, 164, 92, 0.1);
+}
+
+.race:focus-visible {
+  outline: 2px solid var(--brass);
+  outline-offset: -2px;
+}
+
+.genders {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.3rem;
+  margin-bottom: 1rem;
+}
+
+.gender {
+  padding: 0.4rem 0.3rem;
+  font-family: var(--serif);
+  font-size: 0.92rem;
+  color: var(--mute);
+  background: transparent;
+  border: 1px solid var(--edge);
+  cursor: pointer;
+}
+
+.gender:hover {
+  color: var(--ink);
+  border-color: var(--dim);
+}
+
+.genderOn {
+  color: var(--stage);
+  background: var(--brass);
+  border-color: var(--brass);
+}
+
+.steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.steps li + li {
+  margin-top: 0.28rem;
+}
+
+/* Label, then the value, then how far through the list, then the arrows. The
+ * value column collapses when a row has nothing to show. */
+.step {
+  display: grid;
+  grid-template-columns: 1fr auto auto auto auto;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.32rem 0 0.32rem 0.5rem;
+  border: 1px solid var(--edge);
+}
+
+.stepLabel {
+  font-size: 0.82rem;
+  color: var(--ink);
+}
+
+.stepCount {
+  font-family: var(--mono);
+  font-size: 0.66rem;
+  font-variant-numeric: tabular-nums;
+  color: var(--dim);
+}
+
+.stepNote {
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--dim);
+}
+
+/* The only note that takes the whole row: a body with no beards at all. */
+.stepEmpty {
+  grid-column: 2 / -1;
+  justify-self: end;
+  padding-right: 0.6rem;
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--dim);
+}
+
+.stepSwatch {
+  width: 0.85rem;
+  height: 0.85rem;
+  border: 1px solid var(--edge);
+}
+
+.arrow {
+  width: 1.4rem;
+  padding: 0.05rem 0;
+  font-size: 0.95rem;
+  line-height: 1;
+  color: var(--brass);
+  background: transparent;
+  border: 0;
+  border-left: 1px solid var(--edge);
+  cursor: pointer;
+}
+
+.arrow:hover {
+  color: var(--ink);
+  background: rgba(200, 164, 92, 0.12);
+}
+
+.randomise {
+  display: block;
+  width: 100%;
+  margin-top: 0.9rem;
+  padding: 0.42rem;
+  font-family: var(--serif);
+  font-size: 0.9rem;
+  color: var(--brass);
+  background: transparent;
+  border: 1px solid var(--brass);
+  cursor: pointer;
+}
+
+.randomise:hover {
+  color: var(--stage);
+  background: var(--brass);
+}
+
+.gender:focus-visible,
+.arrow:focus-visible,
+.randomise:focus-visible {
+  outline: 2px solid var(--brass);
+  outline-offset: 2px;
+}
+
+@media (max-width: 60rem) {
+  .creator {
+    position: static;
+    width: auto;
+    margin: 1rem;
+  }
+}
