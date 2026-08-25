@@ -4,7 +4,8 @@
  * middle, the gear down both sides in the game's own order, the weapons
  * under it, and the facts the import carried in the corner. Nothing here
  * is invented: a slot with no import is empty, a panel with no fact is
- * not drawn. docs/CHARACTER.md. */
+ * not drawn, and the corner prints the trades rather than every skill line
+ * the client reports (lib/character.ts, trades). docs/CHARACTER.md. */
 
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
@@ -20,6 +21,8 @@ import {
   SHEET_LEFT,
   SHEET_RIGHT,
   START_ROOM,
+  TRADE_CAP,
+  trades,
   type Character,
 } from "@/lib/character";
 import { QUALITY } from "@/lib/doll";
@@ -73,6 +76,7 @@ export default function Sheet() {
   }
 
   const home = getRoom(START_ROOM[me.race] ?? "elwynn-forest");
+  const worked = trades(me.professions);
   const slot = (id: number) => {
     const itemId = me.gear[id - 1] ?? 0;
     return { id, label: GEAR_SLOTS[id - 1], item: itemId ? byEntry.get(itemId) ?? null : null, itemId };
@@ -83,55 +87,69 @@ export default function Sheet() {
       {home ? <img className={styles.art} src={roomArt(home.id)} alt="" /> : null}
       <div className={styles.scrim} />
 
-      <header className={styles.head}>
-        <p className={styles.line}>
-          Level {me.level} {RACE_NAME[me.race]} {CLASS_NAME[me.cls]}
-          {me.realm ? <span className={styles.realm}> · {me.realm}</span> : null}
-          {me.guild ? <span className={styles.realm}> · &lt;{me.guild}&gt;</span> : null}
-        </p>
-        <h1 className={styles.name}>{me.name}</h1>
-      </header>
-
-      <ul className={`${styles.column} ${styles.left}`} aria-label="Worn, left">
-        {SHEET_LEFT.map((id) => (
-          <Slot key={id} {...slot(id)} />
-        ))}
-      </ul>
-
-      <div ref={hostRef} className={styles.doll} />
-
-      <ul className={`${styles.column} ${styles.right}`} aria-label="Worn, right">
-        {SHEET_RIGHT.map((id) => (
-          <Slot key={id} {...slot(id)} align="right" />
-        ))}
-      </ul>
-
-      <ul className={styles.weapons} aria-label="Weapons">
-        {SHEET_BOTTOM.map((id) => (
-          <Slot key={id} {...slot(id)} />
-        ))}
-      </ul>
-
-      <aside className={styles.facts} aria-label="Facts">
-        {me.importedAt ? (
-          <>
-            {me.played != null ? <Fact k="Played" v={played(me.played)} /> : null}
-            {me.copper != null ? <Fact k="Money" v={money(me.copper)} /> : null}
-            {me.hearth ? <Fact k="Hearth" v={me.hearth} /> : null}
-            {me.zone ? <Fact k="Last seen" v={me.zone} /> : null}
-            {me.professions?.map((p) => <Fact key={p.name} k={p.name} v={String(p.rank)} />)}
-          </>
-        ) : (
-          <p className={styles.costume}>
-            A body without an import. Paste what <span className={styles.mono}>/tari</span> gives you to fill this in.
+      <div className={styles.page}>
+        <header className={styles.head}>
+          <p className={styles.line}>
+            Level {me.level} {RACE_NAME[me.race]} {CLASS_NAME[me.cls]}
+            {me.realm ? <span className={styles.realm}> · {me.realm}</span> : null}
+            {me.guild ? <span className={styles.realm}> · &lt;{me.guild}&gt;</span> : null}
           </p>
-        )}
-        <Link href="/you/new" className={styles.again}>
-          Change
-        </Link>
-      </aside>
+          <h1 className={styles.name}>{me.name}</h1>
+        </header>
 
-      {error ? <p className={styles.fault}>{error}</p> : null}
+        <ul className={`${styles.column} ${styles.left}`} aria-label="Worn, left">
+          {SHEET_LEFT.map((id) => (
+            <Slot key={id} {...slot(id)} />
+          ))}
+        </ul>
+
+        <div ref={hostRef} className={styles.doll} />
+
+        <ul className={`${styles.column} ${styles.right}`} aria-label="Worn, right">
+          {SHEET_RIGHT.map((id) => (
+            <Slot key={id} {...slot(id)} align="right" />
+          ))}
+        </ul>
+
+        <ul className={styles.weapons} aria-label="Weapons">
+          {SHEET_BOTTOM.map((id) => (
+            <Slot key={id} {...slot(id)} />
+          ))}
+        </ul>
+
+        <aside className={styles.facts} aria-label="Facts">
+          {me.importedAt ? (
+            <>
+              {me.played != null ? <Fact k="Played" v={played(me.played)} /> : null}
+              {me.copper != null ? <Fact k="Money" v={money(me.copper)} /> : null}
+              {me.hearth ? <Fact k="Hearth" v={me.hearth} /> : null}
+              {me.zone ? <Fact k="Last seen" v={me.zone} /> : null}
+              {worked.length ? (
+                <ul className={styles.trades}>
+                  {worked.map((t) => (
+                    <li key={t.name} className={styles.fact}>
+                      <span className={styles.factKey}>{t.name}</span>
+                      <span className={styles.factVal}>
+                        {t.rank}
+                        <span className={styles.cap}> / {TRADE_CAP}</span>
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              ) : null}
+            </>
+          ) : (
+            <p className={styles.costume}>
+              A body without an import. Paste what <span className={styles.mono}>/tari</span> gives you to fill this in.
+            </p>
+          )}
+          <Link href="/you/new" className={styles.again}>
+            Change
+          </Link>
+        </aside>
+
+        {error ? <p className={styles.fault}>{error}</p> : null}
+      </div>
     </div>
   );
 }

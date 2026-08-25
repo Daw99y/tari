@@ -8,6 +8,14 @@
   background: var(--ground);
   color: var(--ink);
   font-family: var(--sans);
+}
+
+/* Everything but the art. The room stays still behind it; this is the layer
+ * that scrolls when the stage is too narrow to hold the paperdoll open. */
+.page {
+  position: relative;
+  z-index: 1;
+  height: 100%;
   display: grid;
   grid-template-columns: minmax(14rem, 18rem) minmax(0, 1fr) minmax(14rem, 18rem);
   grid-template-rows: auto minmax(0, 1fr) auto;
@@ -113,8 +121,9 @@
 }
 
 .weapons {
-  grid-column: 1 / -1;
+  grid-column: 2;
   grid-row: 3;
+  align-self: end;
   position: relative;
   z-index: 2;
   list-style: none;
@@ -150,7 +159,9 @@
 }
 
 .weapons .slot {
-  width: 13rem;
+  flex: 1 1 0;
+  min-width: 0;
+  max-width: 13rem;
 }
 
 .icon {
@@ -194,14 +205,21 @@
   color: var(--ink);
 }
 
-/* ---- the facts, bottom-left, over the weapons row's corner */
+/* ---- the facts: the bottom-left corner, beside the weapons.
+ *
+ * Bare ink — CONTRAST.md surface A, the bottom-left of the scrim. It is a
+ * cell of the grid rather than a layer over it: floated in the corner it
+ * reached up into the gear whenever the stage was short, and a panel that
+ * can climb into another one is not a corner. It holds four facts and the
+ * trades, and nothing else, so it stays a corner rather than a column. */
 
 .facts {
-  position: absolute;
-  left: clamp(1.25rem, 3vw, 2.25rem);
-  bottom: clamp(1.25rem, 3vh, 2rem);
+  grid-column: 1;
+  grid-row: 3;
+  align-self: end;
+  position: relative;
   z-index: 3;
-  width: min(16rem, 30%);
+  width: min(16rem, 100%);
   display: grid;
   gap: 0.3rem;
 }
@@ -215,6 +233,15 @@
   line-height: 1.3;
 }
 
+.trades {
+  list-style: none;
+  margin: 0.15rem 0 0;
+  padding: 0.45rem 0 0;
+  display: grid;
+  gap: 0.3rem;
+  border-top: 0.5px solid var(--rule);
+}
+
 .factKey {
   color: rgba(242, 240, 234, 0.5);
 }
@@ -222,6 +249,10 @@
 .factVal {
   color: var(--ink);
   font-variant-numeric: tabular-nums;
+}
+
+.cap {
+  color: rgba(242, 240, 234, 0.35);
 }
 
 .costume {
@@ -290,31 +321,49 @@
   border-radius: 999px;
 }
 
-@media (max-width: 64rem) {
-  .sheet {
+/* The stage too narrow to hold three columns open: the body on top, the gear
+ * in two columns under it, and the corner's facts back in the flow at the
+ * bottom. It is taller than the stage, so this is the one layout that
+ * scrolls — the art behind it does not move. */
+@container stage (max-width: 64rem) {
+  .page {
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    grid-template-rows: auto minmax(14rem, 40vh) auto auto;
+    grid-template-rows: auto minmax(14rem, 40vh) auto auto auto;
     row-gap: 0.75rem;
+    align-content: start;
+    overflow-y: auto;
+    overscroll-behavior: contain;
   }
   .doll {
     grid-column: 1 / -1;
     grid-row: 2;
   }
-  .left {
-    grid-column: 1;
+  /* The columns stand at their full height here and the page scrolls past
+   * them. Without this they keep the wide layout's `min-height: 0`, the row
+   * they sit in is free to size to nothing, and eight slots pile up in it. */
+  .left,
+  .right {
     grid-row: 3;
     align-content: start;
+    min-height: auto;
+  }
+  .left {
+    grid-column: 1;
   }
   .right {
     grid-column: 2;
-    grid-row: 3;
-    align-content: start;
   }
   .weapons {
+    grid-column: 1 / -1;
     grid-row: 4;
     flex-wrap: wrap;
   }
   .facts {
-    display: none;
+    grid-column: 1 / -1;
+    grid-row: 5;
+    align-self: start;
+    width: auto;
+    max-width: 22rem;
+    padding-top: 0.5rem;
   }
 }

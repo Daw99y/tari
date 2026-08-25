@@ -225,6 +225,11 @@
   position: relative;
   min-width: 0;
   overflow: hidden;
+  /* What the room and the sheet measure themselves against. The window is the
+   * wrong ruler here: with the rail out and the column open, a 1280px window
+   * leaves the stage under 50rem, and a layout keyed to the window would lay
+   * out a wide screen inside a narrow one. */
+  container: stage / inline-size;
 }
 
 .people {

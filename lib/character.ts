@@ -4,6 +4,7 @@
  * own tables — who can be what, and where each race wakes up. Signed in,
  * the same object goes to `characters` through the sync push. */
 
+import { skillSlug } from "./import";
 import type { ClassId } from "./loot";
 import type { Look } from "./use-body";
 
@@ -195,4 +196,44 @@ export function rollName(): string {
   let s = "";
   for (let i = 0; i < n; i++) s += SYLLABLES[Math.floor(Math.random() * SYLLABLES.length)];
   return s[0].toUpperCase() + s.slice(1, 12);
+}
+
+/* ---------------------------------------------------------------------------
+   Trades.
+
+   The addon's `P:` field is every skill line the client reports — the trades,
+   the weapon lines, Defense, the languages, riding, and the class's own trees.
+   The sheet prints one of those groups. A trade is a thing you chose and are
+   working on; the rest is a number that follows you around, and a corner of
+   twenty-four rows reading 300 says nothing about anybody.
+
+   The list is written by hand rather than derived. The client hands over
+   localised names with no flag on a line saying "this one is a profession", so
+   a hand list is the only honest way to know — and it is twelve words that have
+   not changed since 2004. Weapon skills are read elsewhere, by lib/import.ts,
+   where a lagging one is worth a sentence.
+--------------------------------------------------------------------------- */
+
+/** The nine primary trades, then the three anyone can take. The order is the
+    order the sheet prints them in. */
+export const TRADES = [
+  "Alchemy", "Blacksmithing", "Enchanting", "Engineering", "Herbalism",
+  "Leatherworking", "Mining", "Skinning", "Tailoring",
+  "First Aid", "Cooking", "Fishing",
+] as const;
+
+/** Every trade's ceiling in 1.12. What a character can currently train to is
+    lower and the export does not carry it, so the row states the ceiling. */
+export const TRADE_CAP = 300;
+
+const TRADE_ORDER = new Map(TRADES.map((name, i) => [skillSlug(name), i] as const));
+
+/** The `P:` field, down to the trades, in the list's order. */
+export function trades(
+  skills: { name: string; rank: number }[] | undefined
+): { name: string; rank: number }[] {
+  if (!skills) return [];
+  return skills
+    .filter((s) => TRADE_ORDER.has(skillSlug(s.name)))
+    .sort((a, b) => TRADE_ORDER.get(skillSlug(a.name))! - TRADE_ORDER.get(skillSlug(b.name))!);
 }
