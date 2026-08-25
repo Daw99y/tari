@@ -18,6 +18,10 @@ next-env.d.ts
 # scripts/client.mjs. Blizzard's data; re-extracted on demand.
 .dbc-112/
 
+# pfQuest's lua tables, pulled by scripts/map-pins.py. Somebody else's MIT
+# repo; re-fetched on demand. Delete the folder to take a newer cut.
+.pf-cache/
+
 # The wardrobe: 106 MB of Blizzard's item art across 12,459 files, rebuilt by
 # `node scripts/doll-items.mjs` from a local 1.12 client and served in
 # production out of a second repo on GitHub Pages, which
