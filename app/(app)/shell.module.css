@@ -118,15 +118,21 @@
 .rooms {
   list-style: none;
   margin: 0;
-  padding: 0;
+  padding: 0 0.6rem;
+  display: grid;
+  gap: 0.25rem;
 }
 
+/* A row is the landing mockup's card: rounded, floating on the ground,
+ * the room's photograph held down behind the name. */
 .room {
   position: relative;
   display: block;
-  height: 2.9rem;
+  height: 2.6rem;
+  border-radius: 8px;
   overflow: hidden;
   text-decoration: none;
+  isolation: isolate;
 }
 
 /* Dark to light, left to right: the name sits in the dark end and the room's
@@ -135,7 +141,7 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(to right, rgba(6, 6, 10, 0.82) 0%, rgba(6, 6, 10, 0.34) 55%, rgba(6, 6, 10, 0.05) 100%);
+  background: linear-gradient(to right, rgba(6, 6, 10, 0.85) 0%, rgba(6, 6, 10, 0.2) 100%);
 }
 
 .roomArt {
@@ -148,7 +154,7 @@
    * midground, so a centre crop of a 46px strip is mostly murk. Pull the
    * window up into the lit third. */
   object-position: 50% 32%;
-  filter: brightness(0.68) saturate(0.72);
+  filter: brightness(0.6) saturate(0.72);
   transform: scale(1.02);
   transition: filter 260ms ease, transform 420ms cubic-bezier(0.2, 0.7, 0.2, 1);
 }
@@ -159,8 +165,8 @@
   display: flex;
   align-items: center;
   height: 100%;
-  padding: 0 0.95rem;
-  font-size: 0.82rem;
+  padding: 0 0.75rem;
+  font-size: 0.8rem;
   color: rgba(242, 240, 234, 0.76);
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
   transition: color 180ms ease;
@@ -188,16 +194,10 @@
   color: var(--ink);
 }
 
-/* You are in this one. */
-.room[data-current]::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  z-index: 3;
-  width: 2px;
-  background: var(--ink);
+/* You are in this one: a thin keyline around the card, as the mockup draws
+ * it, instead of an edge bar. */
+.room[data-current] {
+  box-shadow: inset 0 0 0 0.5px rgba(242, 240, 234, 0.35);
 }
 
 /* ---- the room, and the column beside it */

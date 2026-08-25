@@ -1,0 +1,22 @@
+/* /lab/map — the dark ground and a measure for the frame. Nothing else. */
+
+.lab {
+  min-height: 100dvh;
+  background: var(--ground);
+  color: var(--ink);
+  font-family: var(--sans);
+  padding: clamp(1.5rem, 4vw, 3rem);
+  -webkit-font-smoothing: antialiased;
+}
+
+.eyebrow {
+  margin: 0 0 1.25rem;
+  font: 400 0.62rem/1 var(--mono);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--mute);
+}
+
+.stage {
+  height: min(72vh, 900px);
+}

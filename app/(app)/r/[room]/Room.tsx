@@ -6,11 +6,14 @@
  * 'use client' line goes on the day the pins arrive, and its place in the
  * tree does not change.
  *
- * What is missing here, and is missing on purpose: the seven bands of §4.3 —
- * the guide, what closes, who came through, the pins, the loot panel. Every
- * one of them needs the pipeline's zone files, which are not in this repo.
- * An empty card that says "coming soon" would be worse than a clean room. */
+ * The map is the first of §4.3's bands to land: framed inside the room,
+ * carrying the authored layer, for the rooms that have a plate. The rest —
+ * the guide, what closes, who came through, the loot panel — still wait on
+ * the pipeline's zone files, and an empty card would be worse than a clean
+ * room. */
 
+import MapDock from "@/components/MapDock";
+import { plateFor } from "@/lib/maps";
 import { CONTINENT_LABEL, roomArt, type Room as RoomType } from "@/lib/rooms";
 
 import styles from "./room.module.css";
@@ -24,6 +27,8 @@ const KIND_WORD: Record<RoomType["kind"], string> = {
 };
 
 export default function Room({ room }: { room: RoomType }) {
+  const plate = plateFor(room.id);
+
   return (
     <article className={styles.room}>
       <img
@@ -35,11 +40,13 @@ export default function Room({ room }: { room: RoomType }) {
         fetchPriority="high"
       />
       <div className={styles.scrim} />
+
+      {plate ? <MapDock plate={plate} title={room.name} /> : null}
       <div className={styles.card}>
-        <h1 className={styles.name}>{room.name}</h1>
         <p className={styles.line}>
           {KIND_WORD[room.kind]} · {CONTINENT_LABEL[room.continent]}
         </p>
+        <h1 className={styles.name}>{room.name}</h1>
       </div>
     </article>
   );
