@@ -207,8 +207,13 @@ its own Neon project, its own Vercel environment, and a sign-in proven end to
 end on `tari-chi.vercel.app`. `docs/CUTOVER.md` records what was done and what
 is still open there.
 
-1. **SPA or App Router** (`TARI.md` §11.1). One persistent shell, not pages —
-   this fights App Router's grain. Blocks the room build.
+1. ~~**SPA or App Router**~~ **Decided 2026-08-25: App Router, no SPA.**
+   The shell is a layout, the room is a page; layouts persist across
+   navigation, which is the behaviour §11.1 wanted. `docs/SHELL.md` has the
+   structure file by file. **Built the same day** — both route groups, the
+   rail over all 75 rooms, ⌘K, and the room page. What it still waits on:
+   Liveblocks, the guide data, and view transitions. See the end of
+   `SHELL.md`.
 2. **The contrast system.** Legible text across ~90 full-bleed backgrounds.
    Blocks the landing page, highest-risk design unknown.
 3. **The fox mark**, and the redrawn SVG icon vocabulary (`TARI.md` §7).

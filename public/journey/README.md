@@ -31,5 +31,9 @@ history is permanent.
 The webp here run 52 KB to 528 KB, roughly a hundredth of their source. That
 gap is why 15 MB is fine in git and 3.2 GB is not.
 
+`rail/` is a second derived layer: the same 75 pictures at 500px, 0.7 MB in
+total, drawn by the rail (`scripts/rail-thumbs.mjs`). Re-run that script after
+any reshoot — nothing checks that the two folders agree.
+
 `door.jpg` is the one file that is not webp. Nothing depends on that; convert
 it if you touch it.

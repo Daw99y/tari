@@ -1,15 +1,10 @@
-/* The landing page's tokens. This is the first vocabulary; design.md records
- * what survives the room (docs/TARI.md §11.4). globals.css stays empty. */
+/* The landing page's own styles. It set the first vocabulary; design.md
+ * records what survives the room (docs/TARI.md §11.4).
+ *
+ * The tokens themselves moved to globals.css the day the shell became the
+ * second surface that needed them. The values did not change. */
 
 .page {
-  --ground: #06060a;
-  --ink: #f2f0ea;
-  --mute: rgba(242, 240, 234, 0.62);
-  --rule: rgba(242, 240, 234, 0.22);
-  --serif: ui-serif, "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
-  --sans: system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
-  --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
-
   position: relative;
   min-height: 100dvh;
   display: flex;

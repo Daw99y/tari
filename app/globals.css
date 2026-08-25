@@ -1,8 +1,20 @@
-/* Deliberately empty apart from the Tailwind import.
+/* The vocabulary, and only what two surfaces now share.
  *
  * The old repo's globals.css reached 385 KB because the design system grew
  * instead of being designed. docs/TARI.md §11.4: the landing page sets the
  * vocabulary, the room stress-tests it, and design.md records only what
- * survived both. Nothing goes in here until it has earned its place. */
+ * survived both. Nothing goes in here until it has earned its place — and
+ * these eight lines earned it the day the shell became the second surface
+ * to need them. Everything else still lives in a module. */
 
 @import "tailwindcss";
+
+:root {
+  --ground: #06060a;
+  --ink: #f2f0ea;
+  --mute: rgba(242, 240, 234, 0.62);
+  --rule: rgba(242, 240, 234, 0.22);
+  --serif: ui-serif, "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  --sans: system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+  --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}

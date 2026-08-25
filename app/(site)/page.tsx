@@ -5,21 +5,11 @@
  * from the 1.12 .m2 file (see /lab). A title card in the lower left. The
  * line is a draft for Kacey to redline (§15.6). */
 
+import FoxMark from "@/components/FoxMark";
 import HeroScene from "@/components/HeroScene";
 import { hasAuth, signIn } from "@/lib/auth";
 
 import styles from "./page.module.css";
-
-/** Placeholder until the fox is drawn (docs/TARI.md §15.3). */
-function FoxMark() {
-  return (
-    <svg className={styles.fox} viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M3 3.5 9 8.5h6l6-5-1 9.5c0 4.4-3 7.4-8 8.5-5-1.1-8-4.1-8-8.5Z" />
-      <circle cx="9.2" cy="13" r="1.1" fill="var(--ground)" />
-      <circle cx="14.8" cy="13" r="1.1" fill="var(--ground)" />
-    </svg>
-  );
-}
 
 function DiscordButton() {
   if (!hasAuth()) {
@@ -68,7 +58,7 @@ export default function Page() {
 
       <header className={styles.bar}>
         <a href="/" className={styles.wordmark} aria-label="Tari, home">
-          <FoxMark />
+          <FoxMark className={styles.fox} />
           <span>Tari</span>
         </a>
         <DiscordButton />

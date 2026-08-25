@@ -1,0 +1,46 @@
+/* The one page in the shell with no photograph behind it. Quiet on purpose:
+ * a missing room should read as a wrong turn, not an error screen. */
+
+.missing {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 1rem;
+  padding: clamp(1.5rem, 6vw, 5rem);
+  max-width: 34rem;
+}
+
+.head {
+  margin: 0;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.body {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--mute);
+}
+
+.out {
+  margin-top: 0.5rem;
+  padding: 0.65rem 1rem;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 0.85rem;
+  transition: border-color 200ms ease, background 200ms ease;
+}
+
+.out:hover {
+  border-color: var(--ink);
+  background: rgba(242, 240, 234, 0.08);
+}
