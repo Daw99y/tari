@@ -241,6 +241,9 @@
 }
 
 .dropName {
+  /* Block, not inline: it now sits inside the tooltip's trigger span and
+   * the ellipsis needs a box to clip against. */
+  display: block;
   font-size: 0.8rem;
   line-height: 1.2;
   letter-spacing: -0.005em;

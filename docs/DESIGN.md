@@ -127,6 +127,37 @@ card or a chip.
 Room art everywhere: `saturate(.9) contrast(1.05) brightness(.95)`. One
 grade, never per-room.
 
+## The plate — settled
+
+The item tooltip (`components/ItemTooltip.tsx`, ported from whelp plz).
+The one surface in the app that is a **quotation rather than a
+description**: a player who has hovered ten thousand items expects the
+game's own plate beside the cursor, and a quotation is either exact or
+wrong. So it does not take the card's surface and it is not a fourth
+ground — it is the game's, held apart:
+
+- Black fill `#05060b`, the game's blue-gray edge `#2a3047`, 6px corners,
+  one shadow. No blur — the game's plate is opaque.
+- The game's palette, pinned: gold item level, green effects, red for an
+  unmet requirement, quality hues at the game's own values on the name
+  (`#1eff00`, `#0070dd`, `#a335ee`, `#ff8000`) — not the panel's lightened
+  set, because there is no white here. Same licence as the quality
+  colours: the game's language, never leaving the plate.
+- Arial, 13px. The one place a second face appears, and it is the
+  quotation's face — ships with every OS, no font is loaded.
+- The icon hangs outside the plate's edge, the way the game hangs it. No
+  quality ring; the name beside it wears the colour.
+- No fact carried by colour alone: the quality is also a word, right-set
+  on the item level line; red requirements still say the level in words.
+- Below the rule the register flips to Tari's own: sources, odds, the
+  kills math, the faction lock — what the game's tooltip never had.
+- One plate at a time; nothing inside it is clickable; hover on 64rem+
+  with a real pointer, tap elsewhere; Escape and anywhere-else close it.
+  Appears placed, instantly — no fade, nothing slides.
+
+Nothing from this plate — the black, the Arial, the pinned hues — may be
+used by any other surface. That is the whole deal.
+
 ## The canvas — settled
 
 The room is a canvas, not a scroll, and it has four places. **Top, centred:
@@ -203,7 +234,8 @@ column with forty names in it says otherwise.
 
 ## What is forbidden
 
-Text-shadow for legibility. Per-room CSS. A third ground. A second font.
+Text-shadow for legibility. Per-room CSS. A third ground. A second font
+(the plate's Arial is a quotation, not a font choice — see "The plate").
 A second accent. Pink on a button. A spinner. A border where a band change
 would do. Anything in `globals.css` that only one surface uses. A row you
 drag with the mouse — the landing's strip was a placeholder and it stays

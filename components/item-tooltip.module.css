@@ -1,0 +1,226 @@
+/* The plate: the game's own tooltip, on Tari's data. docs/DESIGN.md "The
+ * plate" — this is the one surface in the app that is a quotation rather
+ * than a description, so its palette is the game's, pinned, and none of it
+ * ever leaves this file. */
+
+/* The placed element. Position only, so the icon can hang outside the plate
+ * without the plate's own scrolling clipping it. */
+.float {
+  position: fixed;
+  z-index: 60;
+  --plate: #05060b;
+  --edge: #2a3047;
+  --white: #ffffff;
+  --gold: #ffd100;
+  --green: #1eff00;
+  --gray: #9d9d9d;
+  --red: #fe2020;
+}
+
+/* The icon, hung off the plate's edge the way the game hangs it. 48 of well,
+ * 8 of air. No quality ring: the name beside it already wears the colour. */
+.icon {
+  position: absolute;
+  top: 0;
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 5px;
+  background: var(--plate);
+  box-shadow: inset 0 0 0 1px var(--edge);
+  /* The drawn glyph's stroke, when there is no art. */
+  color: rgba(255, 255, 255, 0.28);
+}
+
+.iconL {
+  left: -56px;
+}
+
+.iconR {
+  right: -56px;
+}
+
+.glyph {
+  width: 28px;
+  height: 28px;
+}
+
+/* The slot's frame, reconstructed over the art in four rings of one
+ * box-shadow: bead, body, lit top, sunk bottom. Nothing of Blizzard's UI
+ * ships to draw it. */
+.iconFrame {
+  position: absolute;
+  width: 44px;
+  height: 44px;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.iconFrame img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.iconFrame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  box-shadow:
+    inset 0 0 0 0.5px rgba(255, 255, 255, 0.22),
+    inset 0 0 0 2px rgba(0, 0, 0, 0.82),
+    inset 0 2px 1px -1px rgba(255, 255, 255, 0.14),
+    inset 0 -2px 1px -1px rgba(0, 0, 0, 0.5);
+}
+
+/* The plate. Black fill, the game's blue-gray edge, 6px corners — and a
+ * shadow, the one thing the game has no need of and a card floating over
+ * the room does. Arial because the game's tooltip is set in it: at 13px the
+ * difference between Arial and the system face is the difference between a
+ * quotation and a paraphrase. */
+.plate {
+  width: 19rem;
+  max-width: calc(100vw - 1rem - 56px);
+  padding: 10px 12px 11px;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 1.42;
+  color: var(--white);
+  background: var(--plate);
+  border-radius: 6px;
+  box-shadow:
+    inset 0 0 0 1px var(--edge),
+    0 0 0 1px rgba(0, 0, 0, 0.55),
+    0 8px 28px rgba(0, 0, 0, 0.4);
+  overflow-y: auto;
+  /* A tall plate on a short window scrolls itself, never the room. */
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.22) transparent;
+}
+
+.plate::-webkit-scrollbar {
+  width: 6px;
+}
+
+.plate::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.22);
+  border-radius: 999px;
+}
+
+.plate p {
+  margin: 0;
+}
+
+/* The name: bigger than the body, set in the quality colour — the game's
+ * hues, not the panel's lightened set, because there is no white here. */
+.name {
+  font-size: 16px;
+  line-height: 1.25;
+}
+
+.name[data-quality="Poor"] { color: #9d9d9d; }
+.name[data-quality="Common"] { color: #bdbdbd; }
+.name[data-quality="Uncommon"] { color: #1eff00; }
+.name[data-quality="Rare"] { color: #0070dd; }
+.name[data-quality="Epic"] { color: #a335ee; }
+.name[data-quality="Legendary"] { color: #ff8000; }
+
+/* The game's two-column line: the fact left, its qualifier hard against the
+ * right edge. The device that makes text read as a WoW tooltip. */
+.split {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.split > span:last-child {
+  text-align: right;
+  white-space: nowrap;
+}
+
+.gold { color: var(--gold); }
+.green { color: var(--green); }
+.gray { color: var(--gray); }
+/* The game's red for an unmet requirement — never the only signal; the line
+ * still says the level in words. */
+.red { color: var(--red); }
+
+.tnum {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1;
+}
+
+/* The rule: the game above it, Tari below it. Fainter than the app's
+ * hairline because it is drawn on black. */
+.rule {
+  margin-top: 7px;
+  padding-top: 6px;
+  border-top: 1px solid rgba(255, 255, 255, 0.11);
+}
+
+/* The coins: three gradients, no asset. Rim light, metal, dark edge. */
+.coin {
+  display: inline-block;
+  width: 11px;
+  height: 11px;
+  margin: 0 5px 0 2px;
+  border-radius: 999px;
+  vertical-align: -1px;
+}
+
+.coinGold {
+  background: radial-gradient(circle at 34% 28%, #fff3b0, #e8a80c 58%, #7d5200);
+}
+
+.coinSilver {
+  background: radial-gradient(circle at 34% 28%, #ffffff, #b6bcc4 58%, #656b73);
+}
+
+.coinCopper {
+  background: radial-gradient(circle at 34% 28%, #ffd2b0, #c4733c 58%, #6b3512);
+}
+
+/* The trigger adds no box of its own; a grid or flex parent may still need
+ * it to shrink, so it is allowed to. */
+.trigger {
+  min-width: 0;
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* With a pointer the cursor is the whole hint, the one the game gives. */
+@media (hover: hover) and (min-width: 64rem) {
+  .trigger {
+    cursor: pointer;
+  }
+}
+
+/* Without one, a tappable name says so in the quietest mark the room has. */
+@media (hover: none), (max-width: 63.99rem) {
+  .tap {
+    text-decoration: underline dotted;
+    text-decoration-color: var(--rule);
+    text-underline-offset: 3px;
+  }
+}
+
+/* The focus ring, per docs/DESIGN.md Controls: currentColor, so on an item
+ * name it takes the quality. */
+.trigger:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+  border-radius: 2px;
+}

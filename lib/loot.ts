@@ -32,11 +32,17 @@ export type Source = {
   sourceName: string;
   instance: boolean;
   instanceName?: string;
+  /* Drop only. */
   dropChance?: number;
   sourceLevel?: { min: number; max: number };
   boss?: boolean;
   rare?: boolean;
   elite?: boolean;
+  lootPath?: "direct" | "reference";
+  endgame?: boolean;
+  /* Quest only. `questLevel` is the tuning; `minLevel` the accept gate. */
+  questLevel?: number;
+  minLevel?: number;
   faction?: "alliance" | "horde" | "both";
 };
 
@@ -48,6 +54,18 @@ export type Item = {
   slot: string;
   itemSubclass?: string;
   quality: Quality;
+  /* The plate's fields (lib/tooltip.ts). All present in every room file
+   * except where the game itself has nothing to say. */
+  bind: "pickup" | "equip" | null;
+  unique?: boolean;
+  stats: { type: string; value: number }[];
+  damage?: { min: number; max: number; speed: number };
+  armor?: number;
+  effects?: string[];
+  durability?: number;
+  sellPriceCopper: number;
+  proficiencyLevel: number;
+  archetype: string;
   availableAtLevel: number;
   requiredLevel: number;
   itemLevel: number;

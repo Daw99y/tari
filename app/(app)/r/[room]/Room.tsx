@@ -12,6 +12,7 @@
  * the room files; and the guide, for the rooms with a written one. What
  * closes still waits, and an empty card would be worse than a clean room. */
 
+import { ItemHover } from "@/components/ItemTooltip";
 import MapDock from "@/components/MapDock";
 import { type Card } from "@/lib/guide";
 
@@ -110,7 +111,10 @@ function Lately({ past }: { past: Past }) {
 }
 
 /* What drops here, for you. The same card, under the past layer.
- * Never a list across zones: this file only knows this room. */
+ * Never a list across zones: this file only knows this room.
+ *
+ * Name and icon both open the plate (components/ItemTooltip.tsx) — two
+ * doors, one card, and only the name is a tab stop. */
 function Drops({ drops, cls, level }: { drops: Item[]; cls: ClassId | null; level: number }) {
   return (
     <aside className={styles.drops} aria-label="What drops here">
@@ -126,13 +130,15 @@ function Drops({ drops, cls, level }: { drops: Item[]; cls: ClassId | null; leve
           const icon = iconUrl(item);
           return (
             <li key={item.itemId} className={styles.drop}>
-              <span className={styles.dropIcon} aria-hidden="true">
+              <ItemHover item={item} level={level} focusable={false} className={styles.dropIcon}>
                 {icon ? <img src={icon} alt="" loading="lazy" draggable={false} /> : null}
-              </span>
+              </ItemHover>
               <span className={styles.dropText}>
-                <span className={styles.dropName} data-quality={item.quality}>
-                  {item.name}
-                </span>
+                <ItemHover item={item} level={level} tap>
+                  <span className={styles.dropName} data-quality={item.quality}>
+                    {item.name}
+                  </span>
+                </ItemHover>
                 <span className={styles.dropSource}>{sourceLine(item)}</span>
               </span>
             </li>
