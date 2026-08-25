@@ -84,7 +84,7 @@ export default function Shell({
               <kbd>⌘K</kbd>
             </button>
           </header>
-          <Rail />
+          <Rail signedIn={handle !== null} />
           <footer className={styles.railFoot}>
             <Link href="/you" className={styles.you}>
               You

@@ -57,7 +57,9 @@ export default function People() {
                   className={styles.room}
                 >
                   <img className={styles.roomArt} src={roomThumb(door.id)} alt="" loading="lazy" decoding="async" />
-                  <span className={styles.roomName}>{door.name}</span>
+                  <span className={styles.roomName}>
+                    <span>{door.name}</span>
+                  </span>
                 </Link>
               </li>
             ))}

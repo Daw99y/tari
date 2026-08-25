@@ -119,6 +119,14 @@
   margin: 0;
 }
 
+/* Your pins, above the world. A hairline rather than a heavier device: the
+ * block is already told apart by being the only one that never folds. */
+.group:has(> .pinnedName) {
+  border-bottom: 0.5px solid var(--hair);
+  padding-bottom: 0.55rem;
+  margin-bottom: 0.2rem;
+}
+
 /* The heading stays with its group while the group scrolls under it, so the
  * kind of place you are looking at is never off the top of the screen. */
 .groupName {
@@ -126,12 +134,95 @@
   top: 0;
   z-index: 3;
   margin: 0;
-  padding: 0.95rem 1rem 0.45rem;
   font: 500 0.6rem/1 var(--mono);
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: rgba(242, 240, 234, 0.34);
   background: linear-gradient(to bottom, var(--ground) 62%, rgba(6, 6, 10, 0));
+}
+
+/* The whole row is the control, not the word: a 0.6rem label is a poor thing
+ * to ask anybody to hit. */
+.groupToggle,
+.pinnedName {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.95rem 1rem 0.45rem;
+}
+
+.groupToggle {
+  appearance: none;
+  background: none;
+  border: 0;
+  color: inherit;
+  font: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: color 180ms ease;
+}
+
+.groupToggle:hover {
+  color: var(--mute);
+}
+
+.groupToggle:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: -3px;
+  border-radius: 4px;
+}
+
+.groupLabel {
+  flex: 1;
+  min-width: 0;
+}
+
+/* What is folded away, said before you unfold it. */
+.groupCount {
+  flex: none;
+  letter-spacing: 0.1em;
+  color: rgba(242, 240, 234, 0.26);
+}
+
+.chevron {
+  flex: none;
+  transition: transform 220ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.groupToggle[aria-expanded="true"] .chevron {
+  transform: rotate(90deg);
+}
+
+/* The fold itself. */
+.group[data-open="false"] .rooms {
+  display: none;
+}
+
+/* The strip's own label — see Rail.tsx. Off everywhere the fold works. */
+.groupLabelFlat {
+  display: none;
+}
+
+/* The compass's gold, at heading size (components/map-dock.module.css). */
+.pinMark {
+  flex: none;
+  width: 10px;
+  height: 10px;
+  color: #ffc457;
+  opacity: 0.85;
+}
+
+/* An empty shelf says what puts something on it. */
+.pinHint {
+  margin: 0;
+  padding: 0 1rem 0.15rem;
+  font: 400 0.7rem/1.45 var(--sans);
+  letter-spacing: 0;
+  text-transform: none;
+  color: rgba(242, 240, 234, 0.36);
 }
 
 .rooms {
@@ -140,6 +231,77 @@
   padding: 0 0.6rem;
   display: grid;
   gap: 0.25rem;
+}
+
+/* A row and its star are siblings, so the slot is what holds them together. */
+.slot {
+  position: relative;
+}
+
+/* THE PIN, ON THE CARD. Quiet until you go looking: the rail is 75 rows and
+ * 75 lit stars would be a second list drawn on top of the first. It arrives
+ * under the pointer, stays for the keyboard, and once a room is yours it
+ * stays lit whatever the pointer is doing.
+ *
+ * The full height of the card is the target; the glyph is small. */
+.star {
+  position: absolute;
+  top: 0;
+  right: 0.15rem;
+  z-index: 3;
+  display: grid;
+  place-items: center;
+  width: 2rem;
+  height: 100%;
+  appearance: none;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  color: rgba(242, 240, 234, 0.62);
+  opacity: 0;
+  transition: opacity 180ms ease, color 180ms ease, transform 140ms ease;
+}
+
+/* The lit end of the card's gradient is where the star lands, so the glyph
+ * carries its own shadow rather than trusting the photograph behind it. */
+.star svg {
+  filter: drop-shadow(0 1px 2px rgba(6, 6, 10, 0.85));
+}
+
+.slot:hover .star,
+.star:focus-visible {
+  opacity: 1;
+}
+
+.star:hover {
+  color: var(--ink);
+}
+
+.star:active {
+  transform: scale(0.86);
+}
+
+.star:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: -4px;
+  border-radius: 6px;
+}
+
+.star[data-on] {
+  opacity: 1;
+  color: #ffc457;
+}
+
+.star[data-on]:hover {
+  color: #ffd98c;
+}
+
+/* No pointer, no hover: on a phone an invisible star is a missing one. */
+@media (hover: none) {
+  .star {
+    opacity: 0.5;
+  }
 }
 
 /* A row is the landing mockup's card: rounded, floating on the ground,
@@ -184,11 +346,27 @@
   z-index: 2;
   display: flex;
   align-items: center;
+  min-width: 0;
   height: 100%;
   padding: 0 0.75rem;
   font-size: 0.8rem;
   color: rgba(242, 240, 234, 0.76);
   transition: color 180ms ease;
+}
+
+/* Room on the right for the star, always — reserving it on hover would shunt
+   the name sideways every time the pointer crossed the card. The column next
+   door draws the same row without a star, so it keeps its full width. */
+.slot .roomName {
+  padding-right: 1.9rem;
+}
+
+/* Two rooms in Azeroth are longer than the rail is wide. They end in a dot
+   rather than mid-letter. */
+.roomName span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .room:hover .roomArt {
@@ -418,14 +596,59 @@
     align-items: stretch;
     flex-shrink: 0;
   }
-  .groupName {
+  .groupName,
+  .pinnedName {
     position: static;
     display: flex;
     align-items: center;
+    width: auto;
     padding: 0 0.75rem;
     background: none;
     writing-mode: vertical-rl;
     letter-spacing: 0.14em;
+  }
+  /* A strip this short has nothing to gain by folding, and a vertical word is
+     a poor thing to ask anybody to tap. So the phone reads straight across —
+     pins first, then the world, exactly as the column does. */
+  .group:has(> .pinnedName) {
+    border-bottom: 0;
+    border-right: 0.5px solid var(--hair);
+    padding-bottom: 0;
+    margin-bottom: 0;
+    padding-right: 0.4rem;
+    margin-right: 0.2rem;
+  }
+  .pinHint {
+    display: none;
+  }
+  /* Sideways, nothing folds: five headings you cannot read at a glance and a
+     tap target one letter wide would be a worse rail than the scroll it
+     replaced. The word stays; the control goes. */
+  .groupToggle {
+    display: none;
+  }
+  .groupLabelFlat {
+    display: flex;
+    align-items: center;
+  }
+  .group[data-open="false"] .rooms {
+    display: flex;
+  }
+  /* "Favourites" set on its side needs 104px of a 64px strip. The gold star
+     says the same thing in 12, and the word stays for a screen reader. */
+  .pinnedName .groupLabel,
+  .pinnedName .groupCount {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+  .pinMark {
+    width: 12px;
+    height: 12px;
+    opacity: 1;
   }
   .rooms {
     display: flex;
@@ -449,7 +672,10 @@
 @media (prefers-reduced-motion: reduce) {
   .roomArt,
   .roomName,
-  .ask {
+  .ask,
+  .star,
+  .chevron,
+  .groupToggle {
     transition: none;
   }
   .commandVeil,

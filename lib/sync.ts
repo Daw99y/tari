@@ -16,8 +16,13 @@
  * between two machines belonging to one person and does nothing else.
  */
 
-/** The five mark stores. `equip` is the odd one and see `val` below. */
-export const MARK_KINDS = ["found", "wish", "done", "equip", "been"] as const;
+/** The six mark stores. `equip` is the odd one and see `val` below.
+ *
+ *  `fav` is a room id rather than an item — the rail's pinned list. It rides
+ *  the same table for the same reason the other five do: a starred zone is a
+ *  fact about a character with a time on it, and a sixth table would buy
+ *  nothing but a sixth migration. */
+export const MARK_KINDS = ["found", "wish", "done", "equip", "been", "fav"] as const;
 export type MarkKind = (typeof MARK_KINDS)[number];
 
 /**

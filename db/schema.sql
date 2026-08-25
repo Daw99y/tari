@@ -83,7 +83,7 @@ create table if not exists users (
 create table if not exists marks (
   user_id    bigint      not null references users(id) on delete cascade,
   char_key   text        not null,
-  kind       text        not null,   -- found | wish | done | equip | been
+  kind       text        not null,   -- found | wish | done | equip | been | fav
   subject    text        not null,   -- "12345", "i:scarlet-monastery-library"
   val        text,
   on_mark    boolean     not null,
