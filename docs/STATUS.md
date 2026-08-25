@@ -1,6 +1,6 @@
 # Tari — status and handoff
 
-Updated 2026-08-25.
+Updated 2026-08-25 (evening).
 
 **This doc holds the state. `docs/TARI.md` holds the argument — read its §0
 before anything else.**
@@ -74,9 +74,9 @@ the meantime.
 | | whelp plz | Tari |
 | --- | --- | --- |
 | domain | whelpplz.com | tari.gg (to buy) |
-| Vercel | existing project, untouched | new project, to create |
-| Neon | `main` — keeps running, keeps writing events | `tari-dev` branch (copy-on-write) |
-| Discord OAuth | existing app | **new** application, own client id/secret |
+| Vercel | existing project, untouched | **`tari`** — exists, deploys `main` from GitHub, `tari-chi.vercel.app` |
+| Neon | `main` — keeps running, keeps writing events until it retires | **own project**, own console. The branch plan died: whelp plz's Neon sits in a Vercel-managed org nobody can log in to |
+| Discord OAuth | existing app | **done 2026-08-25** — own application, own client id and secret |
 
 Discord user ids are stable across applications, so accounts still match on
 `provider_id`. **Additive schema changes only; do not rename tables** — at
@@ -167,8 +167,11 @@ page has not seen any of it.
 
 ### What is blocking it
 
-1. **No Vercel project for Tari exists.** Confirmed against the account on
-   2026-08-25: eight projects, none of them Tari, and no `.vercel/` here.
+1. ~~**No Vercel project for Tari exists.**~~ **Created 2026-08-25.** Project
+   `tari` (`prj_ouY6au8NM83RdJaJMeeI5Loa371z`), linked to `Daw99y/tari`,
+   production deploys on every push to `main`. Five deploys so far, all READY.
+   `/lab/doll` renders in production **with the wardrobe** —
+   `NEXT_PUBLIC_WARDROBE_URL` is set and the deployed doll dresses.
 2. ~~**The account is on Hobby**, so Blob is not usable.~~ **Settled 2026-08-25
    by not using Blob.** The wardrobe goes to GitHub Pages instead, which is
    free, needs no card, and costs one more repo rather than one more account.
@@ -199,15 +202,21 @@ normal shape in this niche — the plan above is that shape.
 
 ## 6. Open and blocking
 
+**The plumbing is Tari's own as of 2026-08-25.** Its own Discord application,
+its own Neon project, its own Vercel environment, and a sign-in proven end to
+end on `tari-chi.vercel.app`. `docs/CUTOVER.md` records what was done and what
+is still open there.
+
 1. **SPA or App Router** (`TARI.md` §11.1). One persistent shell, not pages —
    this fights App Router's grain. Blocks the room build.
 2. **The contrast system.** Legible text across ~90 full-bleed backgrounds.
    Blocks the landing page, highest-risk design unknown.
 3. **The fox mark**, and the redrawn SVG icon vocabulary (`TARI.md` §7).
 4. Pricing tiers, moderation policy, landing hero copy.
-5. **Buy `tari.gg`** (~$130/yr — `.com`/`.io`/`.app` all taken) and
-   `taretha.com` ($11.25) as a lore redirect.
-6. **Tag `v1-whelpplz`** on the old repo if not already done.
+5. **Buy `tari.gg`** ($129.99/yr via Vercel, checked 2026-08-25 — `.com`/`.io`/
+   `.app` all taken) and `taretha.com` ($11.25) as a lore redirect. Both
+   available.
+6. ~~**Tag `v1-whelpplz`** on the old repo.~~ Done — the tag exists.
 7. **§7.1 and the doll.** A character viewer puts far more of Blizzard's art on
    screen than a spell plate does. Deploying it publicly is the deliberate
    decision `TARI.md` §7.1 asks for, and it has not been taken — only deferred
