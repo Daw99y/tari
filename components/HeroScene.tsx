@@ -122,11 +122,12 @@ export default function HeroScene({
               camera={{ yaw: 0, pitch: -0.08 }}
               zoom={1.6}
               style={{
-                left: box.left + (head.x - 0.5) * box.w * 0.62,
+                left: box.left + (head.x - 0.5) * box.w * 0.62 + 40,
                 /* The sprite's hearts sit low in their own frame, so centring
                  * the box on the helm socket lands them at her waist. Raised
-                 * until the cluster starts at the crown of her bowed head. */
-                top: box.top - box.w + (head.y - 0.26) * box.w,
+                 * until the cluster starts at the crown of her bowed head,
+                 * then nudged 40px up and right to taste. */
+                top: box.top - box.w + (head.y - 0.26) * box.w - 40,
                 width: box.w * 0.55,
                 height: box.w * 0.55,
               }}
