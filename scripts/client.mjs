@@ -8,6 +8,7 @@
  */
 
 import { execFileSync, spawn } from "node:child_process";
+import { existsSync, mkdirSync } from "node:fs";
 import { cpus } from "node:os";
 import { join } from "node:path";
 
@@ -18,6 +19,26 @@ export const DBC = "/Users/daw99y/Documents/FLYFE/CPLUS/data/raw/dbc-all";
 
 /* Patches override the base archives, so they are searched first. */
 export const ARCHIVES = ["patch-2.MPQ", "patch.MPQ", "model.MPQ", "texture.MPQ", "interface.MPQ"];
+
+/* Where the client tables live. `dbc.MPQ` holds the copies the client
+ * shipped with at release; every patch since carries a full replacement, so
+ * the copy left standing after `patch-2.MPQ` is the one a 1.12 client reads.
+ * Reading the base alone hands you the launch-day table — the mistake behind
+ * the old 28,911 display-id ceiling (see doll-items.mjs). */
+const DBC_ARCHIVES = ["patch-2.MPQ", "patch.MPQ", "dbc.MPQ"];
+
+/** The 1.12 copy of one client table: `DBFilesClient\<name>.dbc` lifted out
+ *  of the patch chain, cached under `.dbc-112/`. Delete the folder to force a
+ *  fresh pull. */
+export function dbc112(name) {
+  const path = join(".dbc-112", "DBFilesClient", `${name}.dbc`);
+  if (!existsSync(path)) {
+    mkdirSync(".dbc-112", { recursive: true });
+    extract([`DBFilesClient\\${name}.dbc`], ".dbc-112", DBC_ARCHIVES);
+  }
+  if (!existsSync(path)) throw new Error(`${name}.dbc did not come out of any archive in ${DATA}`);
+  return path;
+}
 
 /** The last segment of a game path. These use backslashes, which node's
  *  `basename` does not split on, so it cannot do this job. */

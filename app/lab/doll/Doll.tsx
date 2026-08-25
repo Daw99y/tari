@@ -27,11 +27,12 @@ import {
   type Region,
 } from "@/lib/doll";
 import { parseM2, type M2Mesh } from "@/lib/m2";
-import { loadTexture, MODEL_TO_SCENE, Piece, type GlTextures } from "@/lib/m2-gl";
+import { loadTexture, MODEL_TO_SCENE, Piece, texKey, type GlTextures } from "@/lib/m2-gl";
 import {
   dress,
   itemsBySlot,
   loadCatalogue,
+  namedTextureUrl,
   WARDROBE,
   type Catalogue,
   type Dressed,
@@ -500,7 +501,20 @@ export default function Doll() {
             const itemRuntime = new Map<number, THREE.Texture>();
             if (model.textureUrl) itemRuntime.set(2, await loadTexture(model.textureUrl));
             if (!live) return;
-            const piece = new Piece(mesh, new Map(), { runtime: itemRuntime });
+            // Textures the model names for itself: the mod2x sheen on raid
+            // shoulders, a hardcoded skin on some monster weapons. One that
+            // is not on disk skips its batch rather than drawing grey.
+            const itemNamed: GlTextures = new Map();
+            for (const path of mesh.textures) {
+              if (!path) continue;
+              try {
+                itemNamed.set(texKey(path), await loadTexture(namedTextureUrl(path)));
+              } catch {
+                console.warn(`doll: ${model.url} names ${path}, which is not in the wardrobe`);
+              }
+              if (!live) return;
+            }
+            const piece = new Piece(mesh, itemNamed, { runtime: itemRuntime });
             piece.object.matrixAutoUpdate = false;
             piece.update(0, mesh.sequences[0] ?? null);
             disposables.push(piece);
@@ -816,11 +830,12 @@ export default function Doll() {
                 client. Placeholders, balance tests and deprecated rows are real entries in the item table and are
                 held back until asked for.
               </p>
-              <p className={styles.railNote}>
-                A further {catalogue.untrusted.toLocaleString()} are missing: the item database points them at a
-                look from a later client, which either does not exist in 1.12 or is somebody else&rsquo;s armour.
-                Drawing those would be worse than leaving them out.
-              </p>
+              {catalogue.untrusted ? (
+                <p className={styles.railNote}>
+                  A further {catalogue.untrusted.toLocaleString()} are missing: the item table names a look the
+                  client&rsquo;s files do not carry, so there is nothing honest to draw.
+                </p>
+              ) : null}
             </>
           )}
         </section>

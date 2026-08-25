@@ -19,11 +19,11 @@
  */
 
 import { execSync } from "node:child_process";
-import { copyFileSync, existsSync, mkdirSync, readdirSync, rmSync, statSync, writeFileSync } from "node:fs";
+import { copyFileSync, existsSync, mkdirSync, readdirSync, readFileSync, rmSync, statSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 
 import { readDbc } from "./dbc.mjs";
-import { ARCHIVES, convertBlps, DBC, extract, leaf, outName, parentOf } from "./client.mjs";
+import { convertBlps, DATA, dbc112, extract, leaf, outName, parentOf } from "./client.mjs";
 
 const DUMP = "/Users/daw99y/Documents/FLYFE/CPLUS/classic-db/Full_DB/ClassicDB_1_12_1_z2815.sql.gz";
 const OUT = "public/lab/doll/items";
@@ -33,21 +33,26 @@ const TMP = ".doll-tmp/items";
  * rest is stats, loot and vendor data this bench has no use for. */
 const COL = { entry: 0, class: 1, subclass: 2, name: 3, displayId: 4, quality: 5, inventoryType: 10, itemLevel: 13 };
 
-/* The two halves of this join are not the same vintage, and the seam is a
- * number.
+/* The display table has to be the client's own patched copy, and for a while
+ * it was not — that is the whole story of the old 28,911 ceiling.
  *
- * ClassicDB's `displayid` values above roughly 28.9k come from a later client.
- * Most of them have no row in a 1.12 `ItemDisplayInfo.dbc` at all, which costs
- * about 2,600 items — the Fiery War Axe and the tier-one helms among them.
- * Worse are the ones that do land on a row, because the row is the wrong one:
- * they draw somebody else's armour under the right name, and a wrong look
- * reads as correct.
+ * An earlier build read `ItemDisplayInfo` from a dump that had been extracted
+ * out of `dbc.MPQ` alone. That archive holds the table the client shipped
+ * with at release — 23,852 rows, ceiling 29,059 — and every patch since has
+ * carried a full replacement copy in `patch.MPQ` / `patch-2.MPQ`. Held against
+ * the launch table, ClassicDB's display ids above ~28.9k looked like a later
+ * client's: most had no row at all (the Fiery War Axe, the tier-one helms),
+ * and the few that landed on one landed on the wrong armour. The ids were
+ * 1.12's all along; the table was 1.0's. VMaNGOS, maintained independently
+ * for 1.12.1 clients, agrees with ClassicDB on 2,295 of the 2,326 items the
+ * ceiling used to drop.
  *
- * CPLUS ran the sweep that found the boundary (see its
- * `scripts/load_item_icons.py`): every id at or below 28911 agrees with
- * Wowhead and every id above it disagrees, with nothing in use between 28911
- * and 28934. Anything above the line is dropped rather than drawn wrong. */
-const MAX_TRUSTED_DISPLAY_ID = 28911;
+ * So there is no trusted-id ceiling any more. An item is drawable when its
+ * display id has a row in the patched table, and whatever still misses is
+ * counted and named rather than silently dropped. The same misread is baked
+ * into CPLUS (`load_item_icons.py`, MAX_TRUSTED_DISPLAY_ID) and its icon
+ * overlay exists to route around it; that is CPLUS's to unwind. */
+const LAUNCH_CEILING = 29059;
 
 /* Developer leftovers. The client's item table still carries placeholders,
  * balance tests, deprecated rows and the tier-test greens, and they sort into
@@ -167,16 +172,11 @@ function readItems() {
     encoding: "utf8",
   });
   const items = [];
-  let untrusted = 0;
   for (const t of tuples(sql)) {
     const inventoryType = +t[COL.inventoryType];
     const displayId = +t[COL.displayId];
     const where = INVENTORY[inventoryType];
     if (!where || !displayId) continue;
-    if (displayId > MAX_TRUSTED_DISPLAY_ID) {
-      untrusted++;
-      continue;
-    }
     const name = t[COL.name];
     items.push({
       entry: +t[COL.entry],
@@ -188,9 +188,7 @@ function readItems() {
       leftover: LEFTOVER.test(name) ? 1 : 0,
     });
   }
-  const sorted = items.sort((a, b) => a.name.localeCompare(b.name) || a.entry - b.entry);
-  sorted.untrusted = untrusted;
-  return sorted;
+  return items.sort((a, b) => a.name.localeCompare(b.name) || a.entry - b.entry);
 }
 
 /** Every file under `dir`, indexed by the two keys the lookups need: the
@@ -221,6 +219,26 @@ function indexFiles(dir) {
   return { byPath, models };
 }
 
+/** Every texture path an M2 names for itself: the type-0 entries of its
+ *  texture table. Offsets are the vanilla layout `lib/m2.ts` reads — count at
+ *  0x5c, offset at 0x60, 16-byte entries of type, flags, name length, name
+ *  offset. */
+function m2NamedTextures(file) {
+  const b = readFileSync(file);
+  if (b.length < 0x64 || b.toString("latin1", 0, 4) !== "MD20") return [];
+  const n = b.readUInt32LE(0x5c);
+  const o = b.readUInt32LE(0x60);
+  const out = [];
+  for (let i = 0; i < n; i++) {
+    const e = o + i * 16;
+    if (e + 16 > b.length || b.readUInt32LE(e) !== 0) continue;
+    const len = b.readUInt32LE(e + 8);
+    const ofs = b.readUInt32LE(e + 12);
+    if (len && ofs + len <= b.length) out.push(b.toString("latin1", ofs, ofs + len).replace(/\0+$/, ""));
+  }
+  return out;
+}
+
 function main() {
   rmSync(TMP, { recursive: true, force: true });
   mkdirSync(join(OUT, "m2"), { recursive: true });
@@ -231,12 +249,21 @@ function main() {
   const items = readItems();
   const wanted = new Set(items.map((i) => i.displayId));
   console.log(`wardrobe  ${items.length} items across ${wanted.size} looks`);
-  console.log(`dropped   ${items.untrusted} whose display id is above ${MAX_TRUSTED_DISPLAY_ID} — later client, wrong art`);
 
-  const idi = readDbc(join(DBC, "ItemDisplayInfo.dbc"));
-  const hgv = readDbc(join(DBC, "HelmetGeosetVisData.dbc"));
+  const idi = readDbc(dbc112("ItemDisplayInfo"));
+  const hgv = readDbc(dbc112("HelmetGeosetVisData"));
+  const maxId = idi.rows.reduce((n, r) => Math.max(n, r[0]), 0);
+  if (maxId <= LAUNCH_CEILING)
+    throw new Error(
+      `ItemDisplayInfo tops out at ${maxId} — that is the launch table, not 1.12's. ` +
+        `Delete .dbc-112/ and check the patch archives in ${DATA}.`,
+    );
+  console.log(`display   ${idi.nRec} rows in the patched ItemDisplayInfo, ceiling ${maxId}`);
+
   const rows = new Map(idi.rows.filter((r) => wanted.has(r[0])).map((r) => [r[0], r]));
-  console.log(`display   ${rows.size} of them have a row in ItemDisplayInfo`);
+  const orphans = items.filter((i) => !rows.has(i.displayId));
+  console.log(`display   ${rows.size} looks found; ${orphans.length} items name a row the client does not have`);
+  for (const i of orphans.slice(0, 8)) console.log(`  ! ${i.name} wants display ${i.displayId}`);
 
   /* --- lift the art out of the archives --- */
   // Three whole subtrees rather than a folder list: the extractor's pattern
@@ -294,11 +321,17 @@ function main() {
       const paths = files.models.get(bare);
       if (!paths?.length) continue;
       for (const path of paths) {
+        const src = join(TMP, ...path.split("\\"));
         const dst = join(OUT, "m2", leaf(path));
         if (!existsSync(dst)) {
-          copyFileSync(join(TMP, ...path.split("\\")), dst);
+          copyFileSync(src, dst);
           copied++;
         }
+        // Textures the model names for itself — the mod2x sheen on raid
+        // shoulders, a hardcoded skin on some monster weapons. The DBC never
+        // mentions these, so they are read out of the file and converted
+        // beside the rest; the page derives their URLs from the same paths.
+        for (const t of m2NamedTextures(src)) want(t, "tex");
       }
       // A head is `Helm_Leather_A_01_HuM.m2`; everything else is the bare
       // name. The page appends the suffix, so the catalogue stores the stem.
@@ -382,7 +415,7 @@ function main() {
           const row = [i.entry, i.displayId, i.inventoryType, i.quality, i.itemLevel, i.name];
           return i.leftover ? [...row, 1] : row;
         }),
-      untrusted: items.untrusted,
+      untrusted: orphans.length,
       display,
       // Five race bitmasks per row: hair, beard, moustache, sideburns, ears.
       helmetVis: Object.fromEntries(hgv.rows.map((r) => [r[0], [r[1], r[2], r[3], r[4], r[5]]])),

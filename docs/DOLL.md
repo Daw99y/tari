@@ -1,8 +1,8 @@
 # Doll — a character wearing gear, out of the 1.12 client
 
 `/lab/doll` builds any playable vanilla character — eight races, both genders,
-every skin, face, hair and beard — and puts any of 6,903 items on them, all
-read from the same client `/lab` reads spell visuals from. The panel offers the
+every skin, face, hair and beard — and puts any of some 9,200 items on them,
+all read from the same client `/lab` reads spell visuals from. The panel offers the
 five choices the game's own creation screen offers, in the same order, and the
 figure stands in Goldshire rather than a void.
 Written 2026-08-24. The wardrobe went in the same day.
@@ -25,11 +25,11 @@ app/lab/doll/            the page
 Run `node scripts/doll-build.mjs` for the bodies and `node
 scripts/doll-items.mjs` for the gear. Both skip anything already converted, so
 a re-run after a rule change costs seconds. The first item build takes about
-five minutes and writes 72 MB.
+five minutes and writes on the order of 90 MB.
 
 **The wardrobe is not in git.** It is Blizzard's item art, `docs/TARI.md` §7.1
 says putting their work in front of users is a decision to take on purpose, and
-72 MB of it would double the repo. `.gitignore` covers
+90 MB of it would double the repo. `.gitignore` covers
 `public/lab/doll/items/`; run the script and it appears.
 
 ## Three mechanisms, not one
@@ -163,6 +163,17 @@ loses that group while the helm is on.
   Head models also carry a race and gender suffix, `Helm_Leather_A_01_HuM.m2`.
   Body texture names carry `_M`, `_F` or `_U`; try the gendered name, then
   unisex.
+- **An item can layer a texture the DBC never names, in a blend mode the
+  character art never uses.** Bloodfang's shoulders draw their leather from
+  the item slot, then a `ShoulderReflect01` pass over the same triangles in
+  blend 6 — multiply-by-two, the fixed-function sheen. Two fixes in one:
+  blends 5 and 6 had to become real (unimplemented, they fell through to
+  opaque, and the sheen drew as a lit grey slab over the armour), and the
+  build has to convert the textures named *inside* the model files, not just
+  the ones `ItemDisplayInfo` lists. A modulation layer is unlit by
+  definition — it multiplies art that is already lit — and a self-named
+  texture that still misses now skips its batch instead of painting grey
+  over the piece.
 
 ## The wardrobe
 
@@ -172,27 +183,53 @@ rather than in the client — there is no `Item.dbc` until 2.0. So the catalogue
 is a join: display rows from the client, names and slots from the ClassicDB
 `item_template` dump that CPLUS already carries.
 
-`scripts/doll-items.mjs` writes `items/catalogue.json`, about 1.4 MB: 6,903
-items, 6,332 looks, the file names each look needs, and the
+`scripts/doll-items.mjs` writes `items/catalogue.json`: every equippable item
+whose look the client carries — about 9,200, across some 8,200 looks; the build
+prints the exact counts — the file names each look needs, and the
 `HelmetGeosetVisData` table so the page can work out what a helm bares on a
 night elf as against a dwarf. Model and texture names repeat hard across the
 wardrobe — one `Mail_A_01Red` dresses dozens of looks — so the catalogue stores
 indices into a string pool.
 
-### The two halves are not the same vintage
+### The vintage scare, and what it actually was
 
-ClassicDB `displayid` values above roughly 28.9k come from a later client.
-Around 2,300 of them have no row in a 1.12 `ItemDisplayInfo.dbc` at all, which
-is where the Fiery War Axe and the tier-one helms went. The dangerous ones are
-those that do land on a row, because the row is the wrong one: they draw
-somebody else's armour under the right name, and a wrong look reads as correct.
+For a day this doc said the two halves of the join were not the same vintage:
+ClassicDB `displayid` values above roughly 28.9k had no row in
+`ItemDisplayInfo.dbc` (the Fiery War Axe, the tier-one helms — about 2,300
+items), the ones that did land drew somebody else's armour, and CPLUS's sweep
+(`scripts/load_item_icons.py`) had pinned the boundary at **28911**, with
+nothing in use between 28911 and 28934. The build dropped everything above the
+line as a later client's data.
 
-CPLUS ran the sweep that found the line, in its `scripts/load_item_icons.py`:
-every id at or below **28911** agrees with Wowhead and every id above it
-disagrees, with nothing in use between 28911 and 28934. The build drops
-anything above it and the panel says how many. Recovering them needs an item
-database with 1.12 display ids, and matching on the icon does not do it — of
-2,646 orphans only 17 have an icon that names exactly one candidate row.
+The vintage mismatch was real; the blame was backwards. The table both
+pipelines were reading had been extracted from `dbc.MPQ` alone — and that
+archive holds the tables the client *shipped* with, ceiling 29,059. Every
+patch since carries a full replacement copy, and a 1.12 client reads the one
+`patch-2.MPQ` leaves standing. The item ids were 1.12's all along; the table
+was launch-day's. That is also why the boundary sat just under the launch
+ceiling with a dead zone above it, and why the "wrong armour" rows below it
+were wrong — later patches replaced row content too.
+
+Three things pin it. VMaNGOS, maintained independently for 1.12.1 clients,
+agrees with ClassicDB on 2,295 of the 2,326 dropped items, on display ids
+running to 37,266 — ids a 1.12 client demonstrably renders. Wowhead agrees
+with both, which is what the CPLUS sweep was measuring from the other side.
+And the Turtle dump that seemed to confirm the low ceiling lives in a repo
+folder literally named `dbc.MPQ/` — the same unpatched base, not a second
+witness.
+
+So the build now lifts `ItemDisplayInfo` and `HelmetGeosetVisData` out of the
+patch chain itself (`dbc112()` in `scripts/client.mjs`, cached under
+`.dbc-112/`, gitignored), refuses to run against a table that tops out at the
+launch ceiling, and has no trusted-id line at all: an item is drawable when
+its display id has a row, and the handful that still miss are counted and
+named. CPLUS still carries the old reading — its `MAX_TRUSTED_DISPLAY_ID` and
+the item-id icon overlay exist to route around it — and unwinding that is
+CPLUS's own errand.
+
+The bodies build still reads the pre-extracted CPLUS dump for the character
+tables. Nothing has surfaced to suggest those drifted between launch and 1.12,
+but the same `dbc112()` path is there if something does.
 
 ### Developer leftovers
 

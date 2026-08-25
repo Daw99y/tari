@@ -58,6 +58,11 @@ export class Piece {
 
   private readonly posed: Float32Array;
   private readonly normals: Float32Array;
+  /** Batches that name their own texture and did not get it. Never drawn: a
+   *  modulation layer with no texture would land as a solid slab over the art
+   *  beneath it. The runtime slots keep the loud grey instead — a missing item
+   *  texture is a fault worth seeing. */
+  private readonly unresolved: boolean[] = [];
   private geosets: Set<number> | null;
   private pose: Pose | null = null;
 
@@ -75,14 +80,20 @@ export class Piece {
     g.setIndex(new THREE.BufferAttribute(mesh.indices, 1));
     this.geometry = g;
 
-    this.materials = mesh.batches.map((b) => {
+    this.materials = mesh.batches.map((b, i) => {
       const named = b.texture ? textures.get(texKey(b.texture)) : null;
       const map = b.textureType === 0 ? named : (opts.runtime?.get(b.textureType) ?? named);
-      const m = new THREE.MeshLambertMaterial({
+      this.unresolved[i] = b.textureType === 0 && !!b.texture && !map;
+      // Blends 5 (mod) and 6 (mod2x) multiply what is already drawn — the
+      // fixed-function sheen on raid shoulders. Lighting a modulation layer
+      // would darken the armour beneath it twice, so those are unlit.
+      const mod = b.blend === 5 || b.blend === 6;
+      const params = {
         map: map ?? null,
         color: map ? 0xffffff : 0x888888,
         side: opts.doubleSided || b.flags & 0x4 ? THREE.DoubleSide : THREE.FrontSide,
-      });
+      };
+      const m = mod ? new THREE.MeshBasicMaterial(params) : new THREE.MeshLambertMaterial(params);
       // Blend 1 is a hard alpha key — the cutouts in hair and cloth. Blend 2
       // is real translucency. 3 and 4 are additive; nothing on a character
       // uses them, but an item's glow might.
@@ -101,6 +112,13 @@ export class Piece {
         m.transparent = true;
         m.blending = THREE.AdditiveBlending;
         m.depthWrite = false;
+      } else if (mod) {
+        m.transparent = true;
+        m.depthWrite = false;
+        m.blending = THREE.CustomBlending;
+        m.blendSrc = THREE.DstColorFactor;
+        // 5 is dst·src. 6 doubles it, by adding the same product twice.
+        m.blendDst = b.blend === 6 ? THREE.SrcColorFactor : THREE.ZeroFactor;
       }
       return m;
     });
@@ -115,6 +133,7 @@ export class Piece {
   private applyGeosets() {
     this.geometry.clearGroups();
     this.mesh.batches.forEach((b, i) => {
+      if (this.unresolved[i]) return;
       if (this.geosets && !this.geosets.has(b.geoset)) return;
       this.geometry.addGroup(b.start, b.count, i);
     });
@@ -197,7 +216,7 @@ function skinNormals(mesh: M2Mesh, pose: Pose, out: Float32Array) {
 /** The key a texture is filed under: the whole game path flattened, matching
  *  what the build script writes. Keying on the file name alone collides —
  *  every race ships its own `Character\<Race>\Hair00_00.blp`. */
-function texKey(path: string): string {
+export function texKey(path: string): string {
   return path.toLowerCase().replace(/\.[a-z0-9]+$/, "").replace(/[^a-z0-9]+/g, "_") + ".webp";
 }
 
