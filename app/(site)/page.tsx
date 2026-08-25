@@ -6,6 +6,7 @@
  * paragraph about it. The feed ends. So does the page. */
 
 import Debuff from "@/components/Debuff";
+import DragStrip from "@/components/DragStrip";
 import FoxMark from "@/components/FoxMark";
 import HeroScene from "@/components/HeroScene";
 import { hasAuth, signIn } from "@/lib/auth";
@@ -56,6 +57,13 @@ const HERE = [
   ["Sibyl", "60 Mage", "Gehennas"],
   ["Ordo", "22 Warlock", "Whitemane"],
 ];
+
+/* Six of the seventy-five: one city, one dungeon, one raid, and the weather
+ * in between. The whole sheet lives in the app's rail — 75 stamps on a
+ * landing page sells none of them. */
+const SHOWN = ["stranglethorn-vale", "stratholme", "winterspring", "ironforge", "moonglade", "molten-core"].map(
+  (id) => getRoom(id)!,
+);
 
 /* §13. Each one is something a growth team ships. */
 const REFUSALS = [
@@ -223,13 +231,27 @@ export default function Page() {
             them.
           </p>
         </div>
-        <ul className={styles.sheet} role="list" aria-label="Every room">
-          {ROOMS.map((r) => (
-            <li key={r.id} className={styles.sheetRoom} title={r.name}>
-              <img src={roomThumb(r.id)} alt={r.name} loading="lazy" />
-            </li>
+
+        <DragStrip
+          className={styles.strip}
+          label={`Six of the ${ROOMS.length} rooms. Drag or scroll sideways.`}
+        >
+          {SHOWN.map((r) => (
+            <figure key={r.id} className={styles.slide}>
+              <img
+                src={roomArt(r.id)}
+                alt={r.name}
+                loading="lazy"
+                draggable={false}
+                className={styles.slideArt}
+              />
+              <figcaption className={styles.slideName}>
+                <span className={styles.slideRoom}>{r.name}</span>
+                <span className={styles.slideMeta}>{r.kind}</span>
+              </figcaption>
+            </figure>
           ))}
-        </ul>
+        </DragStrip>
       </section>
 
       {/* ================= the refusals */}
