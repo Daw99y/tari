@@ -1,6 +1,6 @@
 # Tari — status and handoff
 
-Updated 2026-08-23.
+Updated 2026-08-25.
 
 **This doc holds the state. `docs/TARI.md` holds the argument — read its §0
 before anything else.**
@@ -115,8 +115,9 @@ the repo.
   one re-anchors the rebuild to the app being replaced.
 - Every page and component. All rebuilt.
 
-**`npm run dev` will fail** — there is no `app/page.tsx`, `layout.tsx` or
-`globals.css`. That is correct. The landing page is built on an empty canvas.
+**`npm run dev` failed at the time** — no `app/page.tsx`, `layout.tsx` or
+`globals.css`, which was correct: the landing page was to be built on an empty
+canvas. All three exist now, along with the hero, `/lab` and `/lab/doll`.
 
 **Escape hatch** if something is needed from the old project later:
 
@@ -128,16 +129,54 @@ git checkout old/main -- path/to/file   # one file, no history entanglement
 
 ---
 
-## 5. Next actions
+## 5. The doll, and where the deploy got to
 
-1. **Buy `tari.gg`** (~$130/yr — `.com`/`.io`/`.app` all taken) and
-   `taretha.com` ($11.25) as a lore redirect.
-2. **`du -sh` the art folders** in `undiscovered`: `relit-images`,
-   `ReLit-WoW-Zone-images`, `art-sources`. **This number decides whether the
-   art goes in git or in blob storage (Vercel Blob / R2).** Over a couple of
-   hundred MB, it must not go in git.
-3. **Tag `v1-whelpplz`** on the old repo if not already done.
-4. **The landing page** — the next real work. See `TARI.md` §14 step 3.
+`/lab/doll` builds any of the sixteen playable bodies and puts any of **9,723**
+items on them. `docs/DOLL.md` holds the whole of it; this is only the state.
+
+**Three commits sit on `main`, local and unpushed as of 2026-08-25:**
+
+```
+a683831  feat(doll): serve the wardrobe from a Blob store so it survives a deploy
+5c00583  fix(doll): read the patched item table, not the one the client shipped with
+0deaf4e  Merge feat/doll-wardrobe  (this one IS pushed)
+```
+
+**Two build steps, neither in git.** `node scripts/doll-build.mjs` writes the
+bodies, `node scripts/doll-items.mjs` writes the wardrobe. Both need the 1.12
+client at `~/Downloads/WoW Classic`. The wardrobe is 12,460 files and 103 MB
+under `public/lab/doll/items/`, which `.gitignore` covers.
+
+**It cannot go in the repo.** Vercel fails a build above 15,000 source files
+and the repo plus the art comes to 16,712. That is a wall, not a preference.
+So the art goes to object storage and `NEXT_PUBLIC_WARDROBE_URL` points at it;
+unset, the page falls back to the local build. `scripts/doll-upload.mjs` does
+the upload and is written and untested — no store exists yet.
+
+### What is blocking it
+
+1. **No Vercel project for Tari exists.** Confirmed against the account on
+   2026-08-25: eight projects, none of them Tari, and no `.vercel/` here.
+2. **The account is on Hobby** (team `Kevin Withnell's Projects`,
+   `team_LnzGBP7LErEkuyuCpZWudEmS`). Two problems. The initial upload is 12,460
+   advanced operations against 10,000/month included on Pro and an unpublished,
+   lower number on Hobby — and exceeding it on Hobby **pauses Blob for 30 days**
+   rather than billing. And Vercel's fair-use terms restrict Hobby to
+   non-commercial use, which Tari is not (§6 pricing tiers).
+   **Recommendation on the table: take the free Pro trial, do the upload, then
+   decide.** Cloudflare R2 stays the free-forever alternative — 1M writes and
+   unmetered egress — at the cost of one more account.
+3. **CORS is unverified.** Every overlay is drawn into the canvas that becomes
+   the body texture, so cross-origin art without the right headers taints it,
+   WebGL refuses the upload, and the armour vanishes silently. The client side
+   is handled; the store's headers have never been seen.
+
+### How the neighbours do it
+
+Checked on 2026-08-25: sixtyupgrades.com serves its own art from an S3 bucket
+behind `cdn.sixtyupgrades.com` (`REACT_APP_S3_ASSETS_URL`, us-west-2, Cognito).
+Not Wowhead's CDN. Object storage plus a CDN, art out of the app repo, is the
+normal shape in this niche — the plan above is that shape.
 
 ---
 
@@ -149,6 +188,14 @@ git checkout old/main -- path/to/file   # one file, no history entanglement
    Blocks the landing page, highest-risk design unknown.
 3. **The fox mark**, and the redrawn SVG icon vocabulary (`TARI.md` §7).
 4. Pricing tiers, moderation policy, landing hero copy.
+5. **Buy `tari.gg`** (~$130/yr — `.com`/`.io`/`.app` all taken) and
+   `taretha.com` ($11.25) as a lore redirect.
+6. **Tag `v1-whelpplz`** on the old repo if not already done.
+7. **§7.1 and the doll.** A character viewer puts far more of Blizzard's art on
+   screen than a spell plate does. Deploying it publicly is the deliberate
+   decision `TARI.md` §7.1 asks for, and it has not been taken — only deferred
+   by the fact that nothing is deployed. Hobby offers Vercel Authentication as
+   the only protection; password protection is a Pro add-on.
 
 ---
 
