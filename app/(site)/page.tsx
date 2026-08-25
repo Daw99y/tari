@@ -40,10 +40,10 @@ function DiscordButton({ onPaper = false }: { onPaper?: boolean }) {
 
 /* The status effects, read the other way round (§7). */
 const STOPPED = [
-  { kind: "seduced", name: "Seduced", note: "You stood there. You didn't mind." },
-  { kind: "sapped", name: "Sapped", note: "You stopped and looked." },
-  { kind: "rooted", name: "Rooted", note: "You stayed somewhere." },
-  { kind: "rested", name: "Rested", note: "The game pays you to stop. It agrees with us." },
+  { kind: "seduced", name: "Seduced", note: "You stood there and didn't mind." },
+  { kind: "sapped", name: "Sapped", note: "You stopped to look." },
+  { kind: "rooted", name: "Rooted", note: "You stayed." },
+  { kind: "rested", name: "Rested", note: "The game pays you to stop. It always has." },
 ] as const;
 
 /* What the mock shell shows. Real rooms; the people are invented. */
@@ -67,12 +67,12 @@ const SHOWN = ["stranglethorn-vale", "stratholme", "winterspring", "ironforge", 
 
 /* §13. Each one is something a growth team ships. */
 const REFUSALS = [
-  ["No notifications while you're playing.", "Tari will never pull you out."],
-  ["No streaks.", "Nothing punishes a week off."],
-  ["No infinite scroll.", "The feed ends, the way the evening ends."],
-  ["No ranking of players against each other.", ""],
+  ["No notifications while you play.", "Tari never pulls you out of the game."],
+  ["No streaks.", "A week off costs you nothing."],
+  ["No infinite scroll.", "The feed ends. So can the evening."],
+  ["No leaderboards.", ""],
   ["No number that only goes up.", "No karma, no followers, no points."],
-  ["No route, no arrow, no waypoint.", "No clock that counts up."],
+  ["No routes, no arrows, no waypoints.", "No timer under anything."],
 ];
 
 export default function Page() {
@@ -113,9 +113,9 @@ export default function Page() {
             You've been stopped.
           </h1>
           <p className={styles.lede}>
-            Every tool for this game moves you through it faster.
+            Every other tool for this game hurries you through it.
             <br />
-            Tari is the one where you stay a while.
+            Tari is where you stand still, and see who else did.
           </p>
         </div>
 
@@ -126,8 +126,8 @@ export default function Page() {
       <section className={styles.section} aria-labelledby="idea-h">
         <div className={styles.copy}>
           <h2 id="idea-h" className={styles.h2}>
-            In the game, being stopped is a loss of control.
-            <span className={styles.h2Mute}> In Tari, it's what you came for.</span>
+            The game calls it a debuff.
+            <span className={styles.h2Mute}> You came here for it.</span>
           </h2>
         </div>
         <ul className={styles.effects} role="list">
@@ -137,7 +137,7 @@ export default function Page() {
             </li>
           ))}
         </ul>
-        <p className={styles.caption}>The debuff bar, the other way round. It fills. It stays full.</p>
+        <p className={styles.caption}>The status bar, read the other way round. These ones don't wear off.</p>
       </section>
 
       {/* ================= the room */}
@@ -145,11 +145,11 @@ export default function Page() {
         <div className={styles.copy}>
           <h2 id="room-h" className={styles.h2}>
             Every zone is a room.
-            <span className={styles.h2Mute}> Everyone standing in it is there with you.</span>
+            <span className={styles.h2Mute}> Walk in and see who's there.</span>
           </h2>
           <p className={styles.body}>
-            Classic is three hundred realms that can't see each other. Tari is the one Azeroth
-            where they can — every realm, every region, both factions, live.
+            Classic scatters its players across three hundred realms that can't hear each other.
+            Tari puts them back in one Azeroth: every realm, every region, both factions, live.
           </p>
         </div>
 
@@ -188,20 +188,21 @@ export default function Page() {
             </aside>
           </div>
         </div>
-        <p className={styles.caption}>A quiet room points next door instead of showing you a zero.</p>
+        <p className={styles.caption}>A quiet room points you next door. It never shows you a zero.</p>
       </section>
 
       {/* ================= the pin */}
       <section className={styles.section} aria-labelledby="pin-h">
         <div className={styles.copy}>
           <h2 id="pin-h" className={styles.h2}>
-            One person. One spot. One sentence.
-            <span className={styles.h2Mute}> It stays.</span>
+            One&nbsp;person. One&nbsp;spot. One&nbsp;sentence.
+            <span className={styles.h2Mute}> Left for whoever comes next.</span>
           </h2>
           <p className={styles.body}>
-            The next player to reach that spot at that level sees it. No order, no path between
-            pins, nothing to collect. It points at something with no reward attached — and it's
-            worth more next year, when more people get there.
+            A pin is a sentence tied to the place where you noticed something. The next player
+            to reach that spot, at that level, finds it waiting. There's no path between pins
+            and nothing to collect. A pin only says <em>look</em>, and it grows more valuable
+            every year, as more players arrive where you stood.
           </p>
         </div>
 
@@ -215,7 +216,7 @@ export default function Page() {
             </span>
           </div>
         </div>
-        <p className={styles.caption}>Tari states the fact. Another player waves at it.</p>
+        <p className={styles.caption}>Grubnuk stated a fact. Someone will stand on the bridge because of it.</p>
       </section>
 
       {/* ================= the world */}
@@ -223,12 +224,12 @@ export default function Page() {
         <div className={styles.copy}>
           <h2 id="world-h" className={styles.h2}>
             {ROOMS.length} rooms.
-            <span className={styles.h2Mute}> Photographed, not rendered.</span>
+            <span className={styles.h2Mute}> Every one photographed from inside the game.</span>
           </h2>
           <p className={styles.body}>
             Every zone, dungeon, raid and city in the old world, shot in-game at the right hour.
-            When the new world opens, its rooms fill the same day — by the people standing in
-            them.
+            When fresh realms open a world nobody has mapped, the new rooms fill the same day,
+            by the players standing in them.
           </p>
         </div>
 
@@ -258,7 +259,7 @@ export default function Page() {
       <section className={styles.section} aria-labelledby="no-h">
         <div className={styles.copy}>
           <h2 id="no-h" className={styles.h2}>
-            What Tari won't do.
+            What Tari refuses to build.
             <span className={styles.h2Mute}> A growth team would be fired for this list.</span>
           </h2>
         </div>
@@ -280,17 +281,18 @@ export default function Page() {
             Thrall called her Tari.
           </h2>
           <p className={styles.body}>
-            Taretha Foxton grew up beside him at Durnholde, taught him to read in secret, and
-            helped him out. She noticed, remembered, and helped without being asked, across the
-            widest divide in the setting. A companion. The mark is a fox.
+            Taretha Foxton grew up beside a captive orc at Durnholde and taught him to read, in
+            secret, across the widest divide in the setting. She noticed things, remembered
+            them, and helped without being asked. That's the whole job description. The mark is
+            a fox.
           </p>
           <div className={styles.endCta}>
             <DiscordButton onPaper />
           </div>
         </div>
         <p className={styles.small}>
-          Open before the fresh realms are. Not affiliated with Blizzard Entertainment — World of
-          Warcraft and its art are theirs. The room is ours.
+          Open before the fresh realms are. Not affiliated with Blizzard Entertainment. World of
+          Warcraft and its art belong to them. The room belongs to us.
         </p>
       </section>
     </main>
