@@ -8,6 +8,7 @@
 import FoxMark from "@/components/FoxMark";
 import HeroScene from "@/components/HeroScene";
 import { hasAuth, signIn } from "@/lib/auth";
+import { FIRST_ROOM } from "@/lib/rooms";
 
 import styles from "./page.module.css";
 
@@ -23,7 +24,9 @@ function DiscordButton() {
     <form
       action={async () => {
         "use server";
-        await signIn("discord");
+        /* Straight into the shell. Coming back to the landing page signed in
+           would be a door that opens onto the doorstep. */
+        await signIn("discord", { redirectTo: FIRST_ROOM });
       }}
     >
       <button type="submit" className={styles.button}>

@@ -132,6 +132,19 @@ export const ROOMS: Room[] = [
   { id: "ratchet", name: "Ratchet", kind: "place", continent: KAL },
 ];
 
+/**
+ * Where the door opens onto.
+ *
+ * Signing in on the landing page lands here, and so does anyone who asks for
+ * a room that does not exist. Duskwood because `docs/SHELL.md` names it, and
+ * because a first look at Tari should be a place with weather in it rather
+ * than a capital city full of menus.
+ *
+ * One constant, so the answer to "where does a reader start" is in one file
+ * on the day it stops being Duskwood.
+ */
+export const FIRST_ROOM = "/r/duskwood";
+
 const BY_ID = new Map(ROOMS.map((room) => [room.id, room]));
 
 export function getRoom(id: string): Room | undefined {

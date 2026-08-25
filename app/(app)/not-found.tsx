@@ -4,6 +4,8 @@
 
 import Link from "next/link";
 
+import { FIRST_ROOM } from "@/lib/rooms";
+
 import styles from "./missing.module.css";
 
 export default function NotFound() {
@@ -14,7 +16,7 @@ export default function NotFound() {
         Nothing in Azeroth answers to that name. Pick a place from the rail, or
         press ⌘K and type.
       </p>
-      <Link href="/r/duskwood" className={styles.out}>
+      <Link href={FIRST_ROOM} className={styles.out}>
         Go to Duskwood
       </Link>
     </div>
