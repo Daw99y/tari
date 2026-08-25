@@ -49,14 +49,17 @@ export default function Page() {
       <HeroScene
         className={styles.scene}
         imageClassName={styles.room}
+        figureClassName={styles.figure}
         effectClassName={styles.effect}
+        shadowClassName={styles.figureShadow}
         src="/RLextras/trainer-hall.webp"
         width={2560}
         height={1429}
         alt=""
-        anchor={{ x: 0.29, y: 0.4 }}
-        size={0.5}
-        zoom={1.6}
+        anchor={{ x: 0.3, y: 0.82 }}
+        size={0.24}
+        portraitAnchor={{ x: 0.2, y: 0.73 }}
+        portraitSize={0.15}
         portraitPosition={{ x: 0.16, y: 0.5 }}
         effectSrc="/lab/m2/Seduction_State_Head.m2"
       />
@@ -78,7 +81,7 @@ export default function Page() {
         <p className={styles.line}>Hearth home.</p>
       </section>
 
-      <p className={styles.credit}>Seduction_State_Head.m2 · read live from the 1.12 client</p>
+      <p className={styles.credit}>HumanFemale.m2, Stun · Seduction_State_Head.m2 · read live from the 1.12 client</p>
     </main>
   );
 }

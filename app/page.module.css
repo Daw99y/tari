@@ -52,6 +52,33 @@
   filter: saturate(0.9) contrast(1.05) brightness(0.95);
 }
 
+/* The seduced rogue. The box is anchored by her feet; everything inside it
+ * fades in together once her first frame exists. */
+.figure {
+  position: absolute;
+  transform: translate(-50%, -100%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 1200ms ease 300ms;
+}
+
+.figure[data-ready="true"] {
+  opacity: 1;
+}
+
+/* A pool of dark under her boots, so she stands on the floor instead of
+ * hovering over it. */
+.figureShadow {
+  position: absolute;
+  left: 50%;
+  bottom: -1.5%;
+  width: 74%;
+  height: 7%;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: radial-gradient(50% 50% at 50% 50%, rgba(6, 6, 10, 0.55) 0%, rgba(6, 6, 10, 0) 70%);
+}
+
 /* The Seduction hearts. The canvas paints on black; `screen` keeps the light. */
 .effect {
   position: absolute;
@@ -218,6 +245,7 @@
   .card {
     animation: none;
   }
+  .figure,
   .effect {
     transition: none;
   }
