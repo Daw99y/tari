@@ -19,6 +19,7 @@ import * as THREE from "three";
 
 import { composeBody, LAYER_ORDER, visibleGeosets, type BodyLayer, type Region } from "@/lib/doll";
 import { parseM2, type M2Mesh } from "@/lib/m2";
+import { bodyFile, parseTbody } from "@/lib/tbody";
 import { loadTexture, MODEL_TO_SCENE, Piece, texKey } from "@/lib/m2-gl";
 import { dress, namedTextureUrl, type Catalogue, type Item } from "@/lib/wardrobe";
 
@@ -69,7 +70,8 @@ function cachedModel(url: string): Promise<M2Mesh> {
   if (hit) return hit;
   const load = fetch(url).then(async (r) => {
     if (!r.ok) throw new Error(`${url}: ${r.status}`);
-    return parseM2(await r.arrayBuffer());
+    const buf = await r.arrayBuffer();
+    return url.endsWith(".tbody") ? parseTbody(buf) : parseM2(buf);
   });
   meshes.set(url, load);
   load.catch(() => meshes.delete(url));
@@ -152,13 +154,19 @@ export default function SeducedFigure({ height, left, top, onHead, className, sh
     let bodyTex: THREE.Texture | null = null;
 
     (async () => {
-      const [manifest, catalogue] = await Promise.all([
-        loadJson<{ races: { race: number; genders: GenderBlock[] }[] }>(`${BASE}/manifest.json`),
-        loadJson<Catalogue>("/lab/doll/items/catalogue.json"),
-      ]);
+      /* The manifest names the body file, so it goes first; the body and the
+       * catalogue then race each other. Fetching the catalogue before the
+       * body put 277 KB of wardrobe in front of the only thing on the
+       * critical path, on the page a first-time visitor lands on. */
+      const manifest = await loadJson<{ races: { race: number; genders: GenderBlock[] }[] }>(
+        `${BASE}/manifest.json`,
+      );
       const g = manifest.races.find((x) => x.race === RACE)?.genders.find((x) => x.gender === GENDER);
       if (!g) throw new Error("no body in the manifest");
-      const body = await cachedModel(`${BASE}/m2/${g.model}`);
+      const [body, catalogue] = await Promise.all([
+        cachedModel(`${BASE}/body/${bodyFile(g.model)}`),
+        loadJson<Catalogue>("/lab/doll/items/catalogue.json"),
+      ]);
       if (!live) return;
 
       /* --- the look, resolved the way the bench resolves it --- */

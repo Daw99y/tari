@@ -142,8 +142,18 @@ a683831  feat(doll): serve the wardrobe from a Blob store so it survives a deplo
 0deaf4e  Merge feat/doll-wardrobe  (this one IS pushed)
 ```
 
-**Two build steps, neither in git.** `node scripts/doll-build.mjs` writes the
-bodies, `node scripts/doll-items.mjs` writes the wardrobe. Both need the 1.12
+**The bodies are stripped, as of 2026-08-25.** A character `.m2` carries 126
+to 143 animations and the page plays two, Stand and Stun. `npm run doll:strip`
+writes `public/lab/doll/body/*.tbody` — 46.7 MB down to 3.4 MB, and 2.0 MB
+down to 127 KB gzipped on the human female the landing page draws.
+`doll-strip-check.mjs` poses every bone of every body against the original and
+the difference is zero. `docs/DOLL.md` §"The animations nothing plays" has it.
+The unstripped `.m2` is now gitignored; run `git rm -r --cached
+public/lab/doll/m2` once to untrack the 47 MB already committed.
+
+**Three build steps, none in git.** `node scripts/doll-build.mjs` writes the
+bodies, `npm run doll:strip` cuts them down, `node scripts/doll-items.mjs`
+writes the wardrobe. Both need the 1.12
 client at `~/Downloads/WoW Classic`. The wardrobe is 12,460 files and 103 MB
 under `public/lab/doll/items/`, which `.gitignore` covers.
 

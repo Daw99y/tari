@@ -27,10 +27,30 @@ const SECURITY = [
   },
 ];
 
+/**
+ * Art caching. Next serves everything in public/ with `max-age=0,
+ * must-revalidate`, so a returning visitor pays a round trip per file for a
+ * 304 on art that has not changed since 2004 — and a dressed character is a
+ * couple of dozen files.
+ *
+ * A day of hard freshness, then a month of stale-while-revalidate: inside a
+ * day nothing is requested at all, and after it the cached copy is served
+ * instantly while the browser refreshes it behind the paint. A rebuild
+ * reaches a returning visitor on their second load rather than their first,
+ * which is the right trade for files whose names never move.
+ */
+const ART = "public, max-age=86400, stale-while-revalidate=2592000";
+
+/** Every public/ subtree that is art and nothing else. */
+const ART_PATHS = ["/lab/:path*", "/journey/:path*", "/Maps/:path*", "/brand/:path*", "/pane/:path*"];
+
 export default {
   agentRules: false,
   env: { NEXT_PUBLIC_APP_VERSION: version },
   async headers() {
-    return [{ source: "/:path*", headers: SECURITY }];
+    return [
+      { source: "/:path*", headers: SECURITY },
+      ...ART_PATHS.map((source) => ({ source, headers: [{ key: "Cache-Control", value: ART }] })),
+    ];
   },
 };

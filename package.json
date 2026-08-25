@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "doll:strip": "node scripts/doll-strip.mjs && node scripts/doll-strip-check.mjs"
   },
   "dependencies": {
     "@types/three": "^0.185.4",

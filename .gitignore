@@ -33,6 +33,15 @@ public/lab/doll/items/m2/
 public/lab/doll/items/tex/
 public/lab/doll/items/icons/
 
+# The unstripped bodies, 47 MB across sixteen files. `doll-build.mjs` writes
+# them here from a local 1.12 client and `doll-strip.mjs` turns them into
+# public/lab/doll/body/*.tbody — 3 MB, tracked, and the only thing the
+# browser ever fetches. Keeping the raw .m2 out of git keeps 44 MB out of
+# every clone and stops Vercel deploying files nothing requests.
+#
+#   git rm -r --cached public/lab/doll/m2      (once, to untrack them)
+public/lab/doll/m2/
+
 # Art sources. The rule inherited from whelp plz and worth keeping: raw and
 # regraded captures stay on the machine that made them, and only the
 # web-ready files under public/ ever ship. Add the folders back as they
@@ -43,5 +52,10 @@ relit-images/
 ReLit-WoW-Zone-images/
 layered-cities/
 
-# Masters never go in git (see public/journey/README.md); this one is 26 MB.
-public/RLextras/RatchetBank.png
+# Masters never go in git (see public/journey/README.md), and nothing under
+# public/ should be a master, because everything under public/ deploys. Three
+# unreferenced ones moved to art-sources/ on 2026-08-25: `Maps/EPL MAP.png`
+# (11.3 MB), `brand/tari-mark-source.png` (1.3 MB) and
+# `RLextras/RatchetBank.png` (26 MB). Untrack the first two:
+#
+#   git rm --cached "public/Maps/EPL MAP.png" public/brand/tari-mark-source.png

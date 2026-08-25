@@ -26,6 +26,7 @@ import {
   type Region,
 } from "@/lib/doll";
 import { parseM2, type M2Mesh } from "@/lib/m2";
+import { bodyFile, parseTbody } from "@/lib/tbody";
 import { loadTexture, MODEL_TO_SCENE, Piece, texKey } from "@/lib/m2-gl";
 import { dress, loadCatalogue, namedTextureUrl, type Catalogue, type Dressed, type Item as WardrobeItem } from "@/lib/wardrobe";
 
@@ -87,10 +88,14 @@ export function fitLook(look: Look, options: Options): Look {
 
 export const wrap = (i: number, n: number) => (n === 0 ? 0 : ((i % n) + n) % n);
 
+/* Bodies arrive as `.tbody` — the same model with the 130-odd animations
+ * nothing plays taken out (`scripts/doll-strip.mjs`). Worn items are small
+ * and stay `.m2`. */
 async function fetchModel(url: string): Promise<M2Mesh> {
   const r = await fetch(url);
   if (!r.ok) throw new Error(`${url}: ${r.status}`);
-  return parseM2(await r.arrayBuffer());
+  const buf = await r.arrayBuffer();
+  return url.endsWith(".tbody") ? parseTbody(buf) : parseM2(buf);
 }
 
 /* Parsed models and uploaded textures, kept for the life of the page and
@@ -236,7 +241,7 @@ export function useBody({ race, gender, look, equipped, regionMap = false, showA
     setBody(null);
     (async () => {
       try {
-        const mesh = await cachedModel(`${BASE}/m2/${g.model}`);
+        const mesh = await cachedModel(`${BASE}/body/${bodyFile(g.model)}`);
         if (live) setBody(mesh);
       } catch (e) {
         if (live) setError(e instanceof Error ? e.message : String(e));

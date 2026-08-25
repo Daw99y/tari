@@ -14,17 +14,21 @@ scripts/doll-build.mjs   the bodies:  DBC → MPQ → public/lab/doll/{m2,tex}
 scripts/doll-items.mjs   the wardrobe: + item_template → …/items/
 scripts/client.mjs       where the client is, how to lift files out of it
 scripts/doll-upload.mjs  the wardrobe → a Vercel Blob store, for deploys
+scripts/doll-strip.mjs   the bodies again: → public/lab/doll/body/*.tbody
+scripts/doll-strip-check.mjs  proves a stripped body draws what the .m2 drew
 scripts/blp.py           BLP2 → PNG, including the alpha Pillow drops
 scripts/dbc.mjs          the WDBC table reader
 lib/m2.ts                the M2 reader, now with normals, geosets, attachments
+lib/tbody.ts             the .tbody reader — the same M2Mesh, a tenth the bytes
 lib/m2-gl.ts             three.js drawing, CPU skinning
 lib/doll.ts              the dressing rules: regions, sockets, geosets
 lib/wardrobe.ts          one item, resolved against the body wearing it
 app/lab/doll/            the page
 ```
 
-Run `node scripts/doll-build.mjs` for the bodies and `node
-scripts/doll-items.mjs` for the gear. Both skip anything already converted, so
+Run `node scripts/doll-build.mjs` for the bodies, `npm run doll:strip` to cut
+them down to what the page plays, and `node scripts/doll-items.mjs` for the
+gear. Both skip anything already converted, so
 a re-run after a rule change costs seconds. The first item build takes about
 five minutes and writes on the order of 90 MB.
 
@@ -503,12 +507,11 @@ hides hair and the hair comes through the cap, exactly as asked.
 
 ## Not done yet
 
-- 74 MB of bodies in git: 4,060 textures at 27 MB and 16 models at 47 MB. The models
-  dominate and are mostly animation — a character file carries 142 sequences
-  and the bench plays one. Stripping the rest would need a rewriter that fixes
-  every absolute offset in the header, which is why it has not been done. The
-  browser only ever fetches the one body it is showing, so this is repo weight,
-  not page weight.
+- 27 MB of body textures in git across 4,060 files. Only a handful are fetched
+  for any one body, so this is repo weight and Vercel file count rather than
+  page weight — but it is 4,060 of the 15,000 files Vercel will build, and the
+  wardrobe is already outside the repo for the same reason. Moving `tex/` out
+  the same way is the obvious next step and has not been needed yet.
 - Held items sit on the right sockets but keep their own orientation. The Stand
   animation is the unarmed one, so a drawn sword follows a relaxed hand.
   Sheathed and drawn positions use different sockets (26 to 28 for sheathed)
@@ -523,6 +526,57 @@ hides hair and the hair comes through the cap, exactly as asked.
   skirt) and against plate. Shirt shares the chest families on the grounds that
   nearly every shirt reads 0/0/0 and only repaints; no shirt has been found that
   disagrees, which is not the same as none existing.
+
+## The animations nothing plays
+
+A vanilla character file carries 126 to 143 sequences. Tari draws two: Stand
+(`AnimationData` id 0) in `use-body.ts`, and Stun (id 14) on the landing
+figure. The other 140 were being fetched, parsed and discarded on every visit,
+and on a night elf female they were 94% of the file — 5.24 MB of keyframes.
+Float keys barely compress, so it was wire time and not repo weight: gzipped,
+the human female the landing page loads was **2.0 MB before anything else
+could start**.
+
+`scripts/doll-strip.mjs` writes `public/lab/doll/body/*.tbody` instead.
+Rewriting an `.m2` in place means fixing every absolute offset in its header,
+which is what stopped this before; the way past it is to stop writing an `.m2`.
+The `.tbody` is flat and sequential — every array follows the count that sizes
+it, nothing holds an offset — and carries exactly the fields `M2Mesh` has:
+view 0 already resolved into batches, bones with only the keys the two
+sequences sample, and none of the LOD views, bounding volume or lookup tables
+the game needs and this does not. `lib/tbody.ts` reads it back into the same
+shape `parseM2` returns, so `m2-gl.ts`, `m2-render.ts` and `doll.ts` did not
+change. `parseM2` still handles spell visuals and worn items, which are small
+(20 KB on average) and 0.4% animation.
+
+```
+sixteen bodies      46.7 MB  ->  3.44 MB       raw
+                    28.4 MB  ->  1.41 MB       gzipped
+HumanFemale, gz      2.0 MB  ->  127 KB        16x, on the landing page
+NightElfFemale, gz   3.4 MB  ->  100 KB        35x
+parse, HumanFemale   2.9 ms  ->  0.3 ms
+```
+
+**An id can appear more than once.** Vanilla ships several takes of Stand and
+the game picks between them at random. Nothing here does — both call sites
+take the first match — so the rest are keys nobody samples. Keeping them cost
+1.4 MB across the sixteen bodies for nothing; `--variants` keeps them if a
+reason ever appears.
+
+**A track on a global sequence ignores sequence windows**, loops on its own
+clock, and is therefore kept whole. Filtering one by window would have emptied
+it.
+
+**Proving it.** `doll-strip-check.mjs` poses every bone of all sixteen bodies
+with the project's own `poseBones` and `skin`, 61 frames across each kept
+sequence, and compares every skinned vertex against the same pose taken from
+the `.m2`. Geometry, batches, textures, attachments and sequence windows are
+compared outright. The difference is zero — not small, zero — which is what
+you want from a change that only removes bytes. Run it after any rebuild.
+
+The unstripped `.m2` stays on the machine that built it and is gitignored:
+44 MB out of every clone, and 16 files Vercel no longer deploys that nothing
+requested.
 
 ## Provenance
 
