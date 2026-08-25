@@ -11,7 +11,7 @@
  * mount, what this body offers, and what the machine is doing. Nothing in
  * here renders a control. */
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import * as THREE from "three";
 
 import {
@@ -171,6 +171,13 @@ export function useBody({ race, gender, look, equipped, regionMap = false, showA
   const [catalogue, setCatalogue] = useState<Catalogue | null>(null);
   const [wardrobeFault, setWardrobeFault] = useState<string | null>(null);
   const [tris, setTris] = useState(0);
+
+  /* Turning the figure without the mouse. The creator puts a pair of arrows
+   * under the name, the way the game does; dragging the canvas already moves
+   * the same value. */
+  const spin = useCallback((by: number) => {
+    view.current.yaw += by;
+  }, []);
 
   const r = useMemo(() => manifest?.races.find((x) => x.race === race) ?? null, [manifest, race]);
   const g = useMemo(() => r?.genders.find((x) => x.gender === gender) ?? r?.genders[0] ?? null, [r, gender]);
@@ -537,5 +544,5 @@ export function useBody({ race, gender, look, equipped, regionMap = false, showA
     };
   }, [g, body, dressed, shown, showAll, regionMap, chosen]);
 
-  return { hostRef, manifest, roster, r, g, body, options, fitted, catalogue, wardrobeFault, error, tris, families, hidden, ruled, shown };
+  return { hostRef, spin, manifest, roster, r, g, body, options, fitted, catalogue, wardrobeFault, error, tris, families, hidden, ruled, shown };
 }

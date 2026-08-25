@@ -82,6 +82,42 @@ export const RACE_NAME: Record<number, string> = {
   8: "Troll",
 };
 
+/** The same eight, as file names. `scripts/create-icons.py` writes the
+ *  client's own portraits under these. */
+export const RACE_SLUG: Record<number, string> = {
+  1: "human",
+  2: "orc",
+  3: "dwarf",
+  4: "night-elf",
+  5: "undead",
+  6: "tauren",
+  7: "gnome",
+  8: "troll",
+};
+
+/* The creation screen's own art, lifted out of a 1.12 client by
+ * `scripts/create-icons.py`. The client draws its race, class and sex marks
+ * from three atlases; these are those cells, one file each, with Blizzard's
+ * dark rounded border already painted in — which is why nothing here draws a
+ * frame around them. */
+const CREATE_ART = "/create";
+
+export function racePortrait(race: number, sex: number): string {
+  return `${CREATE_ART}/race-${RACE_SLUG[race] ?? "human"}-${sex === 1 ? "female" : "male"}.webp`;
+}
+
+export function classIcon(cls: ClassId): string {
+  return `${CREATE_ART}/class-${cls}.webp`;
+}
+
+export function sexIcon(sex: number): string {
+  return `${CREATE_ART}/sex-${sex === 1 ? "female" : "male"}.webp`;
+}
+
+export function crestIcon(faction: "alliance" | "horde"): string {
+  return `${CREATE_ART}/crest-${faction}.webp`;
+}
+
 /** The addon's `A:` token (UnitRace's second return) → race id. */
 export const RACE_TOKEN: Record<string, number> = {
   Human: 1,
@@ -196,6 +232,9 @@ export function readWho(cookie: string | undefined): { cls: string; level: numbe
   const level = Number(lv);
   return cls && Number.isInteger(level) ? { cls, level } : null;
 }
+
+/** The ceiling in 1.12. Nothing in Tari goes past it. */
+export const MAX_LEVEL = 60;
 
 /** A name the game would accept: 2–12 letters, one word. */
 export function validName(name: string): boolean {

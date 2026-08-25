@@ -37,25 +37,39 @@ or orc, warrior) and the rail. Reopened from `/you` any time.
 
 ## The creator
 
-Modelled on the game's own creation screen, in Tari's register.
+The game's own creation screen, place for place. Its icons too: the race
+portraits, the class marks and the two sex signs are lifted straight out of a
+1.12 client by `scripts/create-icons.py` — 29 files, 117 KB, in
+`public/create/`. What is *not* lifted is the finish. The gold plate, the
+parchment and the carved banners are dropped for the room's own dark card
+(`docs/CONTRAST.md`, surface B), which leaves Blizzard's icons as the only
+colour on the screen.
 
 | game | Tari |
 | --- | --- |
-| Alliance blue / Horde red banners, race portraits | two columns of race chips (CONTRAST surface C), faction as the heading, in the game's order |
-| male / female | two chips |
-| class icons | class chips; a class the race cannot be is not shown |
-| the doll on the starting zone | the doll (WebGL, `app/lab/doll`) full-bleed on `roomArt(startZone(race))` — the room's own scrim under it |
-| race and class blurbs on the right | one placard (the guide's) — the race's two sentences, then the class's; the same voice as a room card |
-| skin / face / hair / colour / facial sliders | five stepped rows, `‹ ›`, under the chips; labels from `ROW_LABELS` |
-| Name, Randomize, Accept | name field (mono, one word, the game's rules: 2–12 letters, no spaces); *Roll* and *Accept*; Accept is the room's button on the art |
+| Alliance blue / Horde red banners, race portraits | the same two columns, the same order, the client's own portraits — the banner is the side's colour at card weight, and the chosen race names itself above its portrait |
+| male / female | the client's two sex signs, same tile |
+| class icons | the client's class marks; a class the race cannot be is not drawn |
+| the doll on the starting zone | the doll (WebGL, `app/lab/doll`) on `roomArt(startZone(race))` — the room's own scrim under it |
+| race and class blurbs on the right | two placards, portrait and mark in the header, the guide's two sentences under it |
+| skin / face / hair / colour / facial sliders | five stepped rows, `‹ ›`; labels from `ROW_LABELS`. A sixth row above them is Tari's: **Level** |
+| Randomize (look), Name, Randomize (name), the turn arrows | all four, where the client puts them |
+| Accept, Back | under the placards; Back only when there is a character to go back to |
+| the WoW logo, top right | nothing — the shell already carries the mark |
 
-Four places, like the room: chips left, doll centre, placard right, name and
-buttons bottom-centre. Nothing else. Changing race cross-fades the backdrop.
+Every block is a card, both columns, and each column's stack is centred in
+its own height. Changing race cross-fades the backdrop.
 
-Import is a text field above the race chips: paste, and everything the
-string knows is set and greyed (class, level, name, realm, gear on the
-doll); race and sex too (`A:`/`X:`), which whelp plz never had. The reader
-then picks the look and accepts.
+Import is the card at the top of the left column: paste, and everything the
+string knows is set and greyed (class, name, realm, gear on the doll); race
+and sex too (`A:`/`X:`), which whelp plz never had.
+
+**Level and sex are always editable**, imported or not. The client never asks
+for either because it already knows them; Tari has to, and a character levels.
+Race, class and name stay locked once the game has stated them — those are
+facts, not choices. Opening the creator with a character already on the
+browser is an *edit*: every field fills in and Accept saves back to the same
+key rather than making a second character.
 
 ## The data
 

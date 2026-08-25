@@ -1,27 +1,45 @@
 "use client";
 
-/* THE CREATOR. Modelled on the game's own creation screen, in Tari's
+/* THE CREATOR. The game's own creation screen, place for place, in Tari's
  * register (docs/CHARACTER.md, "The creator").
  *
- * Four places, like the room: who you are on the left (race, body, class,
- * the five rows), the doll in the middle on the race's starting zone, one
- * placard on the right, the name and Accept at the bottom. Import is a
- * field above the races: paste the addon's string and everything it knows
- * is set. */
+ * The client's layout, kept: one panel down the left holding the two faction
+ * columns, the sex marks, the class row and the stepped look rows, with
+ * Randomize at its foot; the figure in the middle on the race's starting
+ * zone; two placards down the right with Accept and Back under them; the name
+ * centred at the bottom with the turn arrows below it.
+ *
+ * The icons are Blizzard's — the race portraits, the class marks and the two
+ * sex signs come straight out of a 1.12 client (`scripts/create-icons.py`).
+ * The frames around them are not: the ornate gold plate is dropped for the
+ * room's own dark card (docs/CONTRAST.md, surface B), which leaves the icons
+ * as the only colour on the panel.
+ *
+ * Two things the game has no screen for, because the game knows them already:
+ * level and sex are editable here, on an imported character as well as a made
+ * one. Import is the field at the top of the panel: paste the addon's string
+ * and everything it knows is set. */
 
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
 
 import { QUALITY, ROW_LABELS } from "@/lib/doll";
 import {
+  classIcon,
   CLASS_LINE,
   CLASS_NAME,
   CLASSES_OF,
+  crestIcon,
   FACTION_OF,
+  loadCharacter,
+  MAX_LEVEL,
+  racePortrait,
   RACE_LINE,
   RACE_TOKEN,
   rollName,
   saveCharacter,
+  sexIcon,
   SHEET_SLOTS,
   START_ROOM,
   validName,
@@ -31,11 +49,19 @@ import { parseImport, type ParsedCharacter } from "@/lib/import";
 import type { ClassId } from "@/lib/loot";
 import { getRoom, roomArt } from "@/lib/rooms";
 import { DEFAULT_LOOK, useBody, wrap, type Look } from "@/lib/use-body";
-import { handedFor, itemsByEntry, type Item as WardrobeItem } from "@/lib/wardrobe";
+import {
+  handedFor,
+  itemsByEntry,
+  type Item as WardrobeItem,
+} from "@/lib/wardrobe";
 
 import styles from "./creator.module.css";
 
 const NO_GEAR = new Map<string, WardrobeItem>();
+const NO_ITEMS: number[] = [];
+
+const clampLevel = (n: number) => Math.min(MAX_LEVEL, Math.max(1, n));
+const readLevel = (text: string) => clampLevel(Number.parseInt(text, 10) || 1);
 
 export default function Creator() {
   const router = useRouter();
@@ -44,12 +70,39 @@ export default function Creator() {
   const [cls, setCls] = useState<ClassId>("warrior");
   const [look, setLook] = useState<Look>(DEFAULT_LOOK);
   const [name, setName] = useState("");
+  /* Level is held as what was typed, so the field can be empty mid-edit
+   * without snapping back to 1 under the cursor. */
+  const [levelText, setLevelText] = useState("1");
   const [imported, setImported] = useState<ParsedCharacter | null>(null);
+  /* The character already on this browser, if there is one. Opening the
+   * creator from /you is an edit, not a second character: the same key is
+   * saved back. */
+  const [existing, setExisting] = useState<Character | null>(null);
   const [paste, setPaste] = useState("");
   const [pasteFault, setPasteFault] = useState<string | null>(null);
   const [equipped, setEquipped] = useState<Map<string, WardrobeItem>>(NO_GEAR);
 
-  const { hostRef, roster, r, options, fitted, catalogue, error } = useBody({ race, gender, look, equipped });
+  const { hostRef, spin, roster, r, options, fitted, catalogue, error } =
+    useBody({ race, gender, look, equipped });
+
+  const level = readLevel(levelText);
+  /* Stepped off the field's own value rather than off `level`, so a run of
+   * clicks inside one render each counts. */
+  const stepLevel = (by: number) =>
+    setLevelText((text) => String(clampLevel(readLevel(text) + by)));
+
+  /* Editing: fill every field from the character on this browser. */
+  useEffect(() => {
+    const me = loadCharacter();
+    if (!me) return;
+    setExisting(me);
+    setRace(me.race);
+    setGender(me.sex);
+    setCls(me.cls);
+    setLook(me.look);
+    setName(me.name);
+    setLevelText(String(me.level));
+  }, []);
 
   /* A class the race cannot be falls back to the first it can. */
   const classes = CLASSES_OF[race] ?? [];
@@ -57,30 +110,42 @@ export default function Creator() {
     if (!classes.includes(cls)) setCls(classes[0]);
   }, [classes, cls]);
 
-  /* The wardrobe by item id, for import. Built once per catalogue. */
-  const byEntry = useMemo(() => (catalogue ? itemsByEntry(catalogue) : new Map<number, WardrobeItem>()), [catalogue]);
+  /* The wardrobe by item id, for the gear an import or an edit carries. */
+  const byEntry = useMemo(
+    () =>
+      catalogue ? itemsByEntry(catalogue) : new Map<number, WardrobeItem>(),
+    [catalogue],
+  );
 
-  /* The imported gear, in the order a character sheet reads it: the ranged
-   * slot is not in that order, so a bow is neither listed nor hung off a hand
-   * that is already holding a blade (lib/character.ts, SHEET_BOTTOM). Kept as
-   * a list rather than the map below because a character wears two rings and
-   * two trinkets, and a map keyed by slot only remembers the second of each. */
+  const gear = imported?.gear ?? existing?.gear ?? NO_ITEMS;
+
+  /** True once the game itself has told us who this is. Race, class and name
+   *  are then facts rather than choices, so they lock. Level and sex do not:
+   *  a character levels, and the doll's sex is the reader's to set. */
+  const fromGame = !!imported || !!existing?.importedAt;
+
+  /* The gear, in the order a character sheet reads it: the ranged slot is not
+   * in that order, so a bow is neither listed nor hung off a hand that is
+   * already holding a blade (lib/character.ts, SHEET_BOTTOM). Kept as a list
+   * rather than the map below because a character wears two rings and two
+   * trinkets, and a map keyed by slot only remembers the second of each. */
   const worn = useMemo(() => {
-    if (!imported || byEntry.size === 0) return [];
+    if (gear.length === 0 || byEntry.size === 0) return [];
     const out: { at: number; item: WardrobeItem }[] = [];
     for (const at of SHEET_SLOTS) {
-      const id = imported.gear[at - 1] ?? 0;
+      const id = gear[at - 1] ?? 0;
       const item = id ? byEntry.get(id) : undefined;
       if (item) out.push({ at, item: handedFor(at, item) });
     }
     return out;
-  }, [imported, byEntry]);
+  }, [gear, byEntry]);
 
   /* Dressed once the wardrobe is in. The slots that draw nothing — the neck,
    * the rings, the trinkets — collapse here and it costs nothing: they have no
    * model, no overlay and no geoset to lose. */
   useEffect(() => {
-    if (worn.length) setEquipped(new Map(worn.map(({ item }) => [item.slot, item])));
+    if (worn.length)
+      setEquipped(new Map(worn.map(({ item }) => [item.slot, item])));
   }, [worn]);
 
   const backdrop = getRoom(START_ROOM[race] ?? "elwynn-forest");
@@ -88,7 +153,7 @@ export default function Creator() {
   const step = (key: keyof Look, by: number, count: number) =>
     setLook((prev) => ({ ...prev, [key]: wrap(fitted[key] + by, count) }));
 
-  const roll = () => {
+  const rollLook = () => {
     const pick = (n: number) => (n ? Math.floor(Math.random() * n) : 0);
     setLook({
       skin: pick(options.skin.length),
@@ -97,7 +162,6 @@ export default function Creator() {
       hairColor: pick(options.hairColor.length),
       beard: pick(options.beard.length),
     });
-    if (!imported) setName(rollName());
   };
 
   const readPaste = (raw: string) => {
@@ -115,40 +179,61 @@ export default function Creator() {
     setPasteFault(null);
     setImported(c);
     setCls(c.cls);
+    setLevelText(String(clampLevel(c.level)));
     if (c.name) setName(c.name);
     if (c.race && RACE_TOKEN[c.race]) setRace(RACE_TOKEN[c.race]);
     if (c.sex) setGender(c.sex === 3 ? 1 : 0);
   };
 
   const ok = validName(name) && classes.includes(cls);
+  /* An imported name is the character's real one. Nothing here may reroll it. */
+  const nameLocked = fromGame && !!(imported?.name ?? existing?.name);
 
   const accept = () => {
     if (!ok) return;
+    const key =
+      existing?.key ??
+      (imported?.realm && imported.name
+        ? `${imported.realm}/${imported.name}`
+        : `local/${crypto.randomUUID()}`);
     const character: Character = {
-      key: imported?.realm && imported.name ? `${imported.realm}/${imported.name}` : `local/${crypto.randomUUID()}`,
+      key,
       name,
-      realm: imported?.realm ?? null,
+      realm: imported?.realm ?? existing?.realm ?? null,
       race,
       sex: gender === 1 ? 1 : 0,
       cls,
       faction: FACTION_OF[race],
-      level: imported?.level ?? 1,
+      level,
       look: fitted,
-      gear: imported?.gear ?? [],
-      importedAt: imported ? new Date().toISOString() : null,
-      guild: imported?.guild ?? null,
-      played: imported?.played ?? null,
-      copper: imported?.copper ?? null,
-      hearth: imported?.hearth ?? null,
-      zone: imported?.zone ?? null,
-      professions: imported?.professions ?? [],
+      gear: [...gear],
+      importedAt: imported
+        ? new Date().toISOString()
+        : (existing?.importedAt ?? null),
+      guild: imported?.guild ?? existing?.guild ?? null,
+      played: imported?.played ?? existing?.played ?? null,
+      copper: imported?.copper ?? existing?.copper ?? null,
+      hearth: imported?.hearth ?? existing?.hearth ?? null,
+      zone: imported?.zone ?? existing?.zone ?? null,
+      professions: imported?.professions ?? existing?.professions ?? [],
     };
     saveCharacter(character);
     router.push(`/r/${START_ROOM[race]}?class=${cls}&at=${character.level}`);
   };
 
-  const rows: { key: keyof Look; label: string; count: number; hex?: string; note?: string }[] = [
-    { key: "skin", label: "Skin", count: options.skin.length, hex: options.skin[fitted.skin]?.hex },
+  const rows: {
+    key: keyof Look;
+    label: string;
+    count: number;
+    hex?: string;
+    note?: string;
+  }[] = [
+    {
+      key: "skin",
+      label: "Skin",
+      count: options.skin.length,
+      hex: options.skin[fitted.skin]?.hex,
+    },
     { key: "face", label: "Face", count: options.face.length },
     {
       key: "hair",
@@ -156,160 +241,337 @@ export default function Creator() {
       count: options.hair.length,
       note: options.hair[fitted.hair]?.geoset === 0 ? "bald" : undefined,
     },
-    { key: "hairColor", label: `${ROW_LABELS[race]?.hair ?? "Hair"} colour`, count: options.hairColor.length, hex: options.hairColor[fitted.hairColor]?.hex },
+    {
+      key: "hairColor",
+      label: `${ROW_LABELS[race]?.hair ?? "Hair"} colour`,
+      count: options.hairColor.length,
+      hex: options.hairColor[fitted.hairColor]?.hex,
+    },
     {
       key: "beard",
       label: ROW_LABELS[race]?.facial ?? "Facial hair",
       count: options.beard.length,
-      note: options.beard[fitted.beard]?.geosets.every((x) => x === 0) ? "none" : undefined,
+      note: options.beard[fitted.beard]?.geosets.every((x) => x === 0)
+        ? "none"
+        : undefined,
     },
   ];
 
+  const sexName = r?.genders.find((x) => x.gender === gender)?.name ?? "Body";
+
   return (
     <div className={styles.creator}>
-      {backdrop ? <img key={backdrop.id} className={styles.art} src={roomArt(backdrop.id)} alt="" /> : null}
+      {backdrop ? (
+        <img
+          key={backdrop.id}
+          className={styles.art}
+          src={roomArt(backdrop.id)}
+          alt=""
+        />
+      ) : null}
       <div className={styles.scrim} />
       <div ref={hostRef} className={styles.doll} />
 
-      {/* ---- left: who you are */}
-      <section className={styles.who} aria-label="Who you are">
-        <label className={styles.paste}>
-          <span className={styles.eyebrow}>Import</span>
-          <input
-            type="text"
-            value={paste}
-            placeholder="Paste what /tari gave you"
-            spellCheck={false}
-            onChange={(e) => readPaste(e.currentTarget.value)}
-          />
-          {pasteFault ? <span className={styles.fault}>{pasteFault}</span> : null}
-          {imported ? (
-            <span className={styles.note}>
-              {imported.name ?? "Your character"}, {imported.level} {CLASS_NAME[imported.cls]}
-              {imported.realm ? ` · ${imported.realm}` : ""}. Pick a look.
-            </span>
-          ) : null}
-        </label>
+      {/* ---- left: the panel, top to bottom as the client stacks it */}
+      <section className={styles.panel} aria-label="Who you are">
+        <div className={styles.choices}>
+          <label className={`${styles.card} ${styles.paste}`}>
+            <span className={styles.eyebrow}>Import</span>
+            <input
+              type="text"
+              value={paste}
+              placeholder="Paste what /tari gave you"
+              spellCheck={false}
+              onChange={(e) => readPaste(e.currentTarget.value)}
+            />
+            {pasteFault ? (
+              <span className={styles.fault}>{pasteFault}</span>
+            ) : null}
+          </label>
 
-        {(["Alliance", "Horde"] as const).map((side) => (
-          <div key={side} className={styles.side} data-side={side.toLowerCase()}>
-            <p className={styles.eyebrow}>{side}</p>
-            <div className={styles.chips}>
-              {roster[side].map((x) => (
-                <button
-                  key={x.race}
-                  type="button"
-                  className={styles.chip}
-                  aria-pressed={x.race === race}
-                  disabled={!!imported?.race}
-                  onClick={() => setRace(x.race)}
-                >
-                  {x.name}
-                </button>
-              ))}
+          <div className={`${styles.card} ${styles.banners}`}>
+            {(["Alliance", "Horde"] as const).map((side) => (
+              <div
+                key={side}
+                className={styles.banner}
+                data-side={side.toLowerCase()}
+              >
+                <p className={styles.bannerHead}>
+                  <img
+                    src={crestIcon(side.toLowerCase() as "alliance" | "horde")}
+                    alt=""
+                    width={16}
+                    height={16}
+                  />
+                  {side}
+                </p>
+                <div className={styles.column}>
+                  {roster[side].map((x) => (
+                    <button
+                      key={x.race}
+                      type="button"
+                      className={styles.portrait}
+                      aria-label={x.name}
+                      aria-pressed={x.race === race}
+                      disabled={fromGame}
+                      onClick={() => setRace(x.race)}
+                    >
+                      <img
+                        src={racePortrait(x.race, gender)}
+                        alt=""
+                        width={64}
+                        height={64}
+                        draggable={false}
+                      />
+                      {x.race === race ? (
+                        <span className={styles.pickName}>{x.name}</span>
+                      ) : null}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className={`${styles.card} ${styles.body}`}>
+            <div className={styles.group}>
+              <p className={styles.groupHead}>{sexName}</p>
+              <div className={styles.marks}>
+                {r?.genders.map((x) => (
+                  <button
+                    key={x.gender}
+                    type="button"
+                    className={styles.mark}
+                    aria-label={x.name}
+                    aria-pressed={x.gender === gender}
+                    onClick={() => setGender(x.gender)}
+                  >
+                    <img
+                      src={sexIcon(x.gender)}
+                      alt=""
+                      width={64}
+                      height={64}
+                      draggable={false}
+                    />
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <div className={styles.group}>
+              <p className={styles.groupHead}>{CLASS_NAME[cls]}</p>
+              <div className={styles.marks}>
+                {classes.map((c) => (
+                  <button
+                    key={c}
+                    type="button"
+                    className={styles.mark}
+                    aria-label={CLASS_NAME[c]}
+                    aria-pressed={c === cls}
+                    disabled={fromGame}
+                    onClick={() => setCls(c)}
+                  >
+                    <img
+                      src={classIcon(c)}
+                      alt=""
+                      width={64}
+                      height={64}
+                      draggable={false}
+                    />
+                  </button>
+                ))}
+              </div>
             </div>
           </div>
-        ))}
 
-        <div className={styles.row}>
-          <p className={styles.eyebrow}>Body</p>
-          <div className={styles.chips}>
-            {r?.genders.map((x) => (
+          <ul className={`${styles.card} ${styles.steps}`}>
+            {/* Level is Tari's row, not the game's: the client never asks,
+                because it already knows. */}
+            <li className={styles.step}>
+              <span className={styles.stepBody}>
+                <span className={styles.stepLabel}>Level</span>
+                <input
+                  className={styles.levelField}
+                  type="text"
+                  inputMode="numeric"
+                  value={levelText}
+                  aria-label="Level"
+                  onChange={(e) =>
+                    setLevelText(
+                      e.currentTarget.value.replace(/\D/g, "").slice(0, 2),
+                    )
+                  }
+                  onBlur={() => setLevelText(String(level))}
+                />
+              </span>
               <button
-                key={x.gender}
                 type="button"
-                className={styles.chip}
-                aria-pressed={x.gender === gender}
-                disabled={!!imported?.sex}
-                onClick={() => setGender(x.gender)}
+                className={styles.arrow}
+                onClick={() => stepLevel(-1)}
+                aria-label="Lower the level"
               >
-                {x.name}
+                ‹
               </button>
-            ))}
-          </div>
-        </div>
-
-        <div className={styles.row}>
-          <p className={styles.eyebrow}>Class</p>
-          <div className={styles.chips}>
-            {classes.map((c) => (
               <button
-                key={c}
                 type="button"
-                className={styles.chip}
-                aria-pressed={c === cls}
-                disabled={!!imported}
-                onClick={() => setCls(c)}
+                className={styles.arrow}
+                onClick={() => stepLevel(1)}
+                aria-label="Raise the level"
               >
-                {CLASS_NAME[c]}
+                ›
               </button>
-            ))}
-          </div>
-        </div>
-
-        <ul className={styles.steps}>
-          {rows.map((row) => (
-            <li key={row.key} className={styles.step}>
-              <span className={styles.stepLabel}>{row.label}</span>
-              {row.count === 0 ? (
-                <span className={styles.stepEmpty}>none for this body</span>
-              ) : (
-                <>
-                  {row.hex ? <span className={styles.swatch} style={{ background: row.hex }} /> : null}
-                  {row.note ? <span className={styles.stepNote}>{row.note}</span> : null}
-                  <span className={styles.stepCount}>
-                    {fitted[row.key] + 1}/{row.count}
-                  </span>
-                  <button type="button" className={styles.arrow} onClick={() => step(row.key, -1, row.count)} aria-label={`Previous ${row.label}`}>
-                    ‹
-                  </button>
-                  <button type="button" className={styles.arrow} onClick={() => step(row.key, 1, row.count)} aria-label={`Next ${row.label}`}>
-                    ›
-                  </button>
-                </>
-              )}
             </li>
-          ))}
-        </ul>
-      </section>
 
-      {/* ---- right: the placard */}
-      <aside className={styles.placard} aria-label="About this choice">
-        <p className={styles.eyebrow}>{r?.name ?? ""}</p>
-        <p className={styles.line}>{RACE_LINE[race]}</p>
-        <p className={`${styles.eyebrow} ${styles.later}`}>{CLASS_NAME[cls]}</p>
-        <p className={styles.line}>{CLASS_LINE[cls]}</p>
-        {backdrop ? <p className={styles.where}>You wake up in {backdrop.name}.</p> : null}
-        {worn.length > 0 ? (
-          <ul className={styles.worn}>
-            {worn.map(({ at, item }) => (
-              <li key={at} style={{ color: QUALITY[item.quality] }}>
-                {item.name}
+            {rows.map((row) => (
+              <li key={row.key} className={styles.step}>
+                <span className={styles.stepBody}>
+                  <span className={styles.stepLabel}>{row.label}</span>
+                  {row.hex ? (
+                    <span
+                      className={styles.swatch}
+                      style={{ background: row.hex }}
+                    />
+                  ) : null}
+                  {row.note ? (
+                    <span className={styles.stepNote}>{row.note}</span>
+                  ) : null}
+                  <span className={styles.stepCount}>
+                    {row.count === 0
+                      ? "—"
+                      : `${fitted[row.key] + 1}/${row.count}`}
+                  </span>
+                </span>
+                <button
+                  type="button"
+                  className={styles.arrow}
+                  disabled={row.count === 0}
+                  onClick={() => step(row.key, -1, row.count)}
+                  aria-label={`Previous ${row.label}`}
+                >
+                  ‹
+                </button>
+                <button
+                  type="button"
+                  className={styles.arrow}
+                  disabled={row.count === 0}
+                  onClick={() => step(row.key, 1, row.count)}
+                  aria-label={`Next ${row.label}`}
+                >
+                  ›
+                </button>
               </li>
             ))}
           </ul>
-        ) : null}
+        </div>
+
+        <button type="button" className={styles.quiet} onClick={rollLook}>
+          Randomize look
+        </button>
+      </section>
+
+      {/* ---- right: the two placards, and the two buttons under them. Where
+           the client puts its logo, the shell already has Tari's. */}
+      <aside className={styles.side}>
+        <div className={styles.placards}>
+          <article className={`${styles.card} ${styles.placard}`}>
+            <header className={styles.placardHead}>
+              <img
+                className={styles.badge}
+                src={racePortrait(race, gender)}
+                alt=""
+                width={64}
+                height={64}
+              />
+              <h2 className={styles.placardName}>{r?.name ?? ""}</h2>
+            </header>
+            <p className={styles.line}>{RACE_LINE[race]}</p>
+            {backdrop ? (
+              <p className={styles.where}>You wake up in {backdrop.name}.</p>
+            ) : null}
+          </article>
+
+          <article className={`${styles.card} ${styles.placard}`}>
+            <header className={styles.placardHead}>
+              <img
+                className={styles.badge}
+                src={classIcon(cls)}
+                alt=""
+                width={64}
+                height={64}
+              />
+              <h2 className={styles.placardName}>{CLASS_NAME[cls]}</h2>
+            </header>
+            <p className={styles.line}>{CLASS_LINE[cls]}</p>
+            {worn.length > 0 ? (
+              <ul className={styles.worn}>
+                {worn.map(({ at, item }) => (
+                  <li key={at} style={{ color: QUALITY[item.quality] }}>
+                    {item.name}
+                  </li>
+                ))}
+              </ul>
+            ) : null}
+          </article>
+        </div>
+
+        <div className={styles.buttons}>
+          <button
+            type="button"
+            className={styles.accept}
+            disabled={!ok}
+            onClick={accept}
+          >
+            Accept
+          </button>
+          {existing ? (
+            <Link href="/you" className={styles.quiet}>
+              Back
+            </Link>
+          ) : null}
+        </div>
       </aside>
 
-      {/* ---- bottom: the name */}
+      {/* ---- bottom centre: the name, and the two turn arrows */}
       <footer className={styles.foot}>
+        <p className={styles.eyebrow}>Name</p>
         <input
           className={styles.name}
           type="text"
           value={name}
           maxLength={12}
-          placeholder="Name"
+          placeholder="Unnamed"
           spellCheck={false}
           autoComplete="off"
-          readOnly={!!imported?.name}
-          onChange={(e) => setName(e.currentTarget.value.replace(/[^A-Za-zÀ-ÿ]/g, ""))}
+          readOnly={nameLocked}
+          onChange={(e) =>
+            setName(e.currentTarget.value.replace(/[^A-Za-zÀ-ÿ]/g, ""))
+          }
         />
-        <div className={styles.buttons}>
-          <button type="button" className={styles.quiet} onClick={roll}>
-            Roll
+        {nameLocked ? null : (
+          <button
+            type="button"
+            className={styles.quiet}
+            onClick={() => setName(rollName())}
+          >
+            Randomize name
           </button>
-          <button type="button" className={styles.accept} disabled={!ok} onClick={accept}>
-            Accept
+        )}
+        <div className={styles.turn}>
+          <button
+            type="button"
+            className={styles.arrow}
+            onClick={() => spin(-0.4)}
+            aria-label="Turn left"
+          >
+            ‹
+          </button>
+          <button
+            type="button"
+            className={styles.arrow}
+            onClick={() => spin(0.4)}
+            aria-label="Turn right"
+          >
+            ›
           </button>
         </div>
         {error ? <p className={styles.fault}>{error}</p> : null}
