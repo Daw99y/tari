@@ -29,26 +29,31 @@ const BASE = "/lab/doll";
 const RACE = 1; // human
 const GENDER = 1; // female
 const LOOK = {
-  skinColor: 2,
-  faceVariation: 2,
+  skinColor: 3,
+  faceVariation: 6,
   /** CharHairGeosets variation; the geoset comes from the manifest row. */
-  hairVariation: 5,
-  hairColor: 5,
+  hairVariation: 14,
+  hairColor: 7,
+  /** Facial style 2 of 7: the earrings. Pure geosets, no texture rows. */
+  facialGeosets: [0, 0, 2] as [number, number, number],
 };
 
-/** Level 30–40 rogue gear, good gear: SM-era leather and an epic dagger.
+/** The level 29 twink rogue, best in slot: Warcraft Tavern's list, Alliance
+ *  side. Zealot Blade and Vendetta in the hands.
  *  `attach` overrides the socket for the off-hand blade — the catalogue files
  *  every one-hander under the right hand. */
 const OUTFIT: { entry: number; attach?: number }[] = [
-  { entry: 13132 }, // Skeletal Shoulders
-  { entry: 5257 }, // Dark Hooded Cape
-  { entry: 13110 }, // Wolffear Harness
-  { entry: 18238 }, // Shadowskin Gloves
-  { entry: 4262 }, // Gem-studded Leather Belt
-  { entry: 9625 }, // Dual Reinforced Leggings
-  { entry: 20188 }, // Defiler's Leather Boots
-  { entry: 1982 }, // Nightblade, main hand
-  { entry: 10761, attach: 2 }, // Coldrage Dagger, forced to the left hand
+  // No hat: her hair shows. The list is otherwise the guide's.
+  { entry: 2264 }, // Mantle of Thieves
+  { entry: 13108 }, // Tigerstrike Mantle
+  { entry: 4119 }, // Raptor Hunter Tunic
+  { entry: 9455 }, // Emissary Cuffs
+  { entry: 6727 }, // Razzeric's Racing Grips
+  { entry: 20117 }, // Highlander's Leather Girdle
+  { entry: 9624 }, // Triprunner Dungarees
+  { entry: 20114 }, // Highlander's Leather Boots
+  { entry: 13033 }, // Zealot Blade, main hand
+  { entry: 776, attach: 2 }, // Vendetta, forced to the left hand
 ];
 
 /** Animation 14 in AnimationData: Stun. The dazed CC sway. */
@@ -246,7 +251,7 @@ export default function SeducedFigure({ height, left, top, onHead, className, sh
 
       const shown = visibleGeosets({
         hairGeoset: hairStyle?.geoset ?? 0,
-        facialHair: [0, 0, 0],
+        facialHair: LOOK.facialGeosets,
         items: dressed.map((d) => d.worn),
       });
 
