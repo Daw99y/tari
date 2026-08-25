@@ -19,8 +19,8 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
 
-export default function MapPage() {
-  const plate = plateFor("eastern-plaguelands");
+export default async function MapPage() {
+  const plate = await plateFor("eastern-plaguelands");
   if (!plate) notFound();
   return (
     <main className={styles.lab}>

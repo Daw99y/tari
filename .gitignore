@@ -22,6 +22,10 @@ next-env.d.ts
 # repo; re-fetched on demand. Delete the folder to take a newer cut.
 .pf-cache/
 
+# Where scripts/map-plates-client.py unpacks the client's map tiles before
+# compositing them. Blizzard's art; re-extracted on demand.
+.map-tmp/
+
 # The wardrobe: 106 MB of Blizzard's item art across 12,459 files, rebuilt by
 # `node scripts/doll-items.mjs` from a local 1.12 client and served in
 # production out of a second repo on GitHub Pages, which

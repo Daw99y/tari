@@ -14,7 +14,12 @@ alone can draw the map. Coordinates never come from ClassicDB: its spawn
 positions are world coordinates, and converting them needs the map bounds
 this pipeline is trying to avoid trusting.
 
-    python3 scripts/map-pins.py duskwood 10
+    python3 scripts/map-pins.py duskwood   # one room
+    python3 scripts/map-pins.py            # every room in scripts/zones.py
+
+The room's area id and display name are looked up rather than typed: the
+crossing between Tari's id, the client's name and pfQuest's area id lives in
+scripts/zones.py.
 
 Writes lib/maps/<room-id>.json. The lua tables are cached under .pf-cache/;
 delete the folder to pull fresh ones.
@@ -30,6 +35,8 @@ import urllib.request
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
+sys.path.insert(0, HERE)
+from zones import ZONES, room_names  # noqa: E402
 CACHE = os.path.join(ROOT, ".pf-cache")
 OUT = os.path.join(ROOT, "lib", "maps")
 DUMP = "/Users/daw99y/Documents/FLYFE/CPLUS/classic-db/Full_DB/ClassicDB_1_12_1_z2815.sql.gz"
@@ -195,8 +202,8 @@ def thin(points):
     return [points[int(i * step)] for i in range(MAX_POINTS)]
 
 
-def build(room, zone, name):
-    units, qs, titles, cs = units_coords(), quests(), quest_titles(), creatures()
+def build(room, zone, name, sources):
+    units, qs, titles, cs = sources
 
     starts, ends = {}, {}
     for qid, q in qs.items():
@@ -268,7 +275,13 @@ def build(room, zone, name):
 
 
 if __name__ == "__main__":
-    if len(sys.argv) < 3:
-        sys.exit(__doc__)
-    room, zone = sys.argv[1], int(sys.argv[2])
-    build(room, zone, sys.argv[3] if len(sys.argv) > 3 else room.replace("-", " ").title())
+    only = sys.argv[1] if len(sys.argv) > 1 else None
+    if only and only not in ZONES:
+        sys.exit(f"{only} is not in scripts/zones.py")
+    rooms = [only] if only else list(ZONES)
+    names = room_names()
+    # The four tables are the slow part and none of them depend on the zone,
+    # so they are read once and handed to every room.
+    sources = (units_coords(), quests(), quest_titles(), creatures())
+    for r in rooms:
+        build(r, ZONES[r][1], names.get(r, r.replace("-", " ").title()), sources)

@@ -19,7 +19,7 @@ import { type Card } from "@/lib/guide";
 import Guide from "./Guide";
 import { age, lineParts, type Past } from "@/lib/live";
 import { iconUrl, sourceLine, type ClassId, type Item } from "@/lib/loot";
-import { plateFor } from "@/lib/maps";
+import type { ZonePlate } from "@/lib/plate";
 import { CONTINENT_LABEL, roomArt, type Room as RoomType } from "@/lib/rooms";
 
 import styles from "./room.module.css";
@@ -39,11 +39,10 @@ type Props = {
   cls: ClassId | null;
   level: number;
   guide: Card[];
+  plate: ZonePlate | undefined;
 };
 
-export default function Room({ room, past, drops, cls, level, guide }: Props) {
-  const plate = plateFor(room.id);
-
+export default function Room({ room, past, drops, cls, level, guide, plate }: Props) {
   return (
     <article className={styles.room}>
       <img

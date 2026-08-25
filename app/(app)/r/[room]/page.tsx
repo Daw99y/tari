@@ -16,6 +16,7 @@ import { readWho, WHO_COOKIE } from "@/lib/character";
 import { guideFor } from "@/lib/guide";
 import { pastIn } from "@/lib/live";
 import { clampLevel, defaultLevel, isClassId, lootFor, panelFor } from "@/lib/loot";
+import { plateFor } from "@/lib/maps";
 import { getRoom, ROOMS } from "@/lib/rooms";
 
 import Room from "./Room";
@@ -55,5 +56,10 @@ export default async function RoomPage({ params, searchParams }: Props) {
   // Nothing held back: every card, in the file's order.
   const guide = guideFor(room.id)?.cards ?? [];
 
-  return <Room room={room} past={past} drops={drops} cls={cls} level={level} guide={guide} />;
+  // Read here so Room stays plain HTML: the marks are a file, not a render.
+  const plate = await plateFor(room.id);
+
+  return (
+    <Room room={room} past={past} drops={drops} cls={cls} level={level} guide={guide} plate={plate} />
+  );
 }

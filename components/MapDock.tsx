@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 
 import Compass from "@/components/Compass";
 import ZoneMap from "@/components/ZoneMap";
-import type { ZonePlate } from "@/lib/maps";
+import type { ZonePlate } from "@/lib/plate";
 
 import styles from "./map-dock.module.css";
 

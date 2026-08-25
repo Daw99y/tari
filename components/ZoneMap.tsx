@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState, type PointerEvent } from "react";
 
-import { plateSrc, type Pin, type PinKind, type ZonePlate } from "@/lib/maps";
+import { plateSrc, type Pin, type PinKind, type ZonePlate } from "@/lib/plate";
 
 import styles from "./zone-map.module.css";
 
@@ -110,7 +110,10 @@ export default function ZoneMap({ plate, title }: { plate: ZonePlate; title: str
   const [aw, ah] = plate.aspect;
 
   return (
-    <div className={styles.stage} style={{ ["--aspect" as string]: `${aw} / ${ah}` }}>
+    <div
+      className={styles.stage}
+      style={{ ["--aspect" as string]: `${aw} / ${ah}`, ["--ar" as string]: aw / ah }}
+    >
       <div
         ref={frame}
         className={styles.frame}

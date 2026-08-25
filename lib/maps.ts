@@ -1,50 +1,60 @@
-/* The map plates, and what stands on them.
+/* The map plates: which rooms have one, what picture it is, and how the
+ * marks land on it.
  *
  * A plate is an image plus a coordinate space. Pins arrive in 1.12 map
- * percent (pfQuest, the CPLUS dump) and are placed through `reg`, the affine
- * that carries that space onto the plate. Fix the space once and the art is
- * swappable per zone with a file drop — PHASE-MAP-1 §3. */
+ * percent (pfQuest, via scripts/map-pins.py) and are placed through `reg`,
+ * the affine that carries that space onto the picture. Fix the space once
+ * and the art is swappable per zone with a file drop — PHASE-MAP-1 §3.
+ *
+ * SERVER ONLY. The pins are loaded by dynamic import rather than named at
+ * the top of the file, so a room's marks are read when that room is asked
+ * for instead of all forty-six zones riding along in the bundle. Anything
+ * that runs in the browser takes its types and its URL from lib/plate.ts.
+ */
 
-import duskwood from "./maps/duskwood.json";
-import easternPlaguelands from "./maps/eastern-plaguelands.json";
-import undercity from "./maps/undercity.json";
+import type { Area, PlateSpec, Pin, ZonePlate } from "./plate";
 
-export type PinKind = "giver" | "turnin" | "rare";
+export type { Area, Pin, PinKind, PlateSpec, ZonePlate } from "./plate";
+export { plateSrc } from "./plate";
 
-export type Pin = {
-  id: number;
-  name: string;
-  kind: PinKind;
-  lvl: [number, number];
-  x: number;
-  y: number;
-  quests: { id: number; title: string; lvl: number }[];
+/* The client's own sheet: 1002x668, twelve BLP tiles and one overlay per
+ * subzone, composited by scripts/map-plates-client.py. It is the exact
+ * space pfQuest records in, so the affine is the identity and nothing had
+ * to be fitted. One width, because 1002px is all there is — the plate goes
+ * soft past about 2x, and the fix is better art, not a bigger re-encode. */
+const CLIENT: Omit<PlateSpec, "id"> = {
+  widths: [1002],
+  aspect: [1002, 668],
+  reg: { sx: 1, ox: 0, sy: 1, oy: 0 },
 };
 
-export type Area = { quest: number; title: string; name: string; points: [number, number][] };
+/** Every vanilla zone and capital, minus the three below that have better
+ *  art. A room absent from both lists has no map, and the room simply does
+ *  not draw a compass. */
+const FROM_CLIENT = [
+  "stormwind-city", "ironforge", "darnassus", "orgrimmar", "thunder-bluff",
+  "alterac-mountains", "arathi-highlands", "badlands", "blasted-lands",
+  "burning-steppes", "deadwind-pass", "dun-morogh", "elwynn-forest",
+  "hillsbrad-foothills", "loch-modan", "redridge-mountains", "searing-gorge",
+  "silverpine-forest", "stranglethorn-vale", "swamp-of-sorrows",
+  "the-hinterlands", "tirisfal-glades", "western-plaguelands", "westfall",
+  "wetlands", "ashenvale", "azshara", "darkshore", "desolace", "durotar",
+  "dustwallow-marsh", "felwood", "feralas", "moonglade", "mulgore",
+  "silithus", "stonetalon-mountains", "tanaris", "teldrassil", "the-barrens",
+  "thousand-needles", "un-goro-crater", "winterspring",
+];
 
-export type ZonePlate = {
-  /** Room id, and the plate's file stem under /public/maps. */
-  id: string;
-  widths: number[];
-  aspect: [number, number];
-  /** 1.12 map percent → plate percent. */
-  reg: { sx: number; ox: number; sy: number; oy: number };
-  pins: Pin[];
-  areas: Area[];
-};
-
-const PLATES: Record<string, ZonePlate> = {
+/* The three that have art of their own, sourced and upscaled to 4K. Each
+ * one of these is what every plate above is waiting to become. */
+const SOURCED: Record<string, PlateSpec> = {
   "eastern-plaguelands": {
     id: "eastern-plaguelands",
     widths: [2048, 3072, 4096],
     aspect: [4096, 2737],
-    // The 4K plate is the Cataclysm-era illustration, whose map bounds differ
-    // from 1.12's. Fitted on six landmarks (Light's Hope 81,59 → 75,52 and so
-    // on); residuals under 1.6%.
+    // This one is the Cataclysm-era illustration, whose map bounds differ
+    // from 1.12's. Fitted on six landmarks (Light's Hope 81,59 → 75,52 and
+    // so on); residuals under 1.6%.
     reg: { sx: 0.9468, ox: -1.29, sy: 0.9818, oy: -5.34 },
-    pins: easternPlaguelands.pins as unknown as Pin[],
-    areas: easternPlaguelands.areas as unknown as Area[],
   },
   duskwood: {
     id: "duskwood",
@@ -53,8 +63,6 @@ const PLATES: Record<string, ZonePlate> = {
     // The 1.12 plate, upscaled: same framing, same bounds, so pfQuest
     // percent is plate percent and the affine is the identity.
     reg: { sx: 1, ox: 0, sy: 1, oy: 0 },
-    pins: duskwood.pins as unknown as Pin[],
-    areas: duskwood.areas as unknown as Area[],
   },
   undercity: {
     id: "undercity",
@@ -63,15 +71,24 @@ const PLATES: Record<string, ZonePlate> = {
     // As Duskwood. The Royal Quarter sits below the drawn ring, on bare
     // parchment — that is where the client puts it too, not a bad fit.
     reg: { sx: 1, ox: 0, sy: 1, oy: 0 },
-    pins: undercity.pins as unknown as Pin[],
-    areas: undercity.areas as unknown as Area[],
   },
 };
 
-export function plateFor(roomId: string): ZonePlate | undefined {
-  return PLATES[roomId];
-}
+const SPECS: Record<string, PlateSpec> = {
+  ...SOURCED,
+  ...Object.fromEntries(FROM_CLIENT.map((id) => [id, { id, ...CLIENT }])),
+};
 
-export function plateSrc(plate: ZonePlate, width: number): string {
-  return `/maps/${plate.id}-${width}.webp`;
+/** The plate, with its marks. The import is a variable path on purpose: the
+ *  bundler turns lib/maps/*.json into one lazily-read group instead of
+ *  forty-six eager ones. */
+export async function plateFor(roomId: string): Promise<ZonePlate | undefined> {
+  const spec = SPECS[roomId];
+  if (!spec) return undefined;
+  const loaded = await import(`./maps/${roomId}.json`);
+  const data = ((loaded as { default?: unknown }).default ?? loaded) as {
+    pins: Pin[];
+    areas: Area[];
+  };
+  return { ...spec, pins: data.pins, areas: data.areas };
 }
