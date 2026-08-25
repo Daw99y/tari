@@ -147,29 +147,46 @@ bodies, `node scripts/doll-items.mjs` writes the wardrobe. Both need the 1.12
 client at `~/Downloads/WoW Classic`. The wardrobe is 12,460 files and 103 MB
 under `public/lab/doll/items/`, which `.gitignore` covers.
 
-**It cannot go in the repo.** Vercel fails a build above 15,000 source files
+**It cannot go in *this* repo.** Vercel fails a build above 15,000 source files
 and the repo plus the art comes to 16,712. That is a wall, not a preference.
-So the art goes to object storage and `NEXT_PUBLIC_WARDROBE_URL` points at it;
-unset, the page falls back to the local build. `scripts/doll-upload.mjs` does
-the upload and is written and untested — no store exists yet.
+So the art is served from elsewhere and `NEXT_PUBLIC_WARDROBE_URL` points at
+it; unset, the page falls back to the local build.
+
+Two scripts fill that variable. `scripts/doll-publish.mjs` pushes the art to a
+second repo for GitHub Pages, which is free and is the route taken on
+2026-08-25. `scripts/doll-upload.mjs` puts it in a Vercel Blob store, which
+needs a paid plan and is written but still untested. The page cannot tell the
+difference, so switching later is one variable and a redeploy.
+
+**The wardrobe is live.** `https://daw99y.github.io/tari-wardrobe` serves
+12,459 files and 106 MB, against the 1 GB Pages allows. Checked on 2026-08-25
+against real files rather than the root: `.webp` comes back as `image/webp`,
+`.m2` as `application/octet-stream`, and all of it with
+`access-control-allow-origin: *`. Nothing is set on Vercel yet, so the deployed
+page has not seen any of it.
 
 ### What is blocking it
 
 1. **No Vercel project for Tari exists.** Confirmed against the account on
    2026-08-25: eight projects, none of them Tari, and no `.vercel/` here.
-2. **The account is on Hobby** (team `Kevin Withnell's Projects`,
-   `team_LnzGBP7LErEkuyuCpZWudEmS`). Two problems. The initial upload is 12,460
-   advanced operations against 10,000/month included on Pro and an unpublished,
-   lower number on Hobby — and exceeding it on Hobby **pauses Blob for 30 days**
-   rather than billing. And Vercel's fair-use terms restrict Hobby to
-   non-commercial use, which Tari is not (§6 pricing tiers).
-   **Recommendation on the table: take the free Pro trial, do the upload, then
-   decide.** Cloudflare R2 stays the free-forever alternative — 1M writes and
-   unmetered egress — at the cost of one more account.
-3. **CORS is unverified.** Every overlay is drawn into the canvas that becomes
-   the body texture, so cross-origin art without the right headers taints it,
-   WebGL refuses the upload, and the armour vanishes silently. The client side
-   is handled; the store's headers have never been seen.
+2. ~~**The account is on Hobby**, so Blob is not usable.~~ **Settled 2026-08-25
+   by not using Blob.** The wardrobe goes to GitHub Pages instead, which is
+   free, needs no card, and costs one more repo rather than one more account.
+   Blob would have been 12,460 advanced operations against an unpublished
+   Hobby ceiling, and exceeding it **pauses the store for 30 days** rather than
+   billing. Vercel's fair-use terms also restrict Hobby to non-commercial use,
+   which Tari is not (§6 pricing tiers). Both problems belong to a store Tari
+   no longer needs. Cloudflare R2 stays the upgrade if Pages disappoints:
+   unmetered egress and a year of cache instead of ten minutes.
+3. ~~**CORS is unverified.**~~ **Checked 2026-08-25.** GitHub Pages answers
+   with `access-control-allow-origin: *`, which is the header the composed body
+   texture needs: every overlay is drawn into that canvas, and cross-origin art
+   without it taints the canvas, WebGL refuses the upload, and the armour
+   vanishes with no error worth reading. Pages also sends `cache-control:
+   max-age=600`, so art older than ten minutes costs a revalidating round trip
+   per file rather than a download. Both headers were read off a live Pages
+   response, not off the documentation. Still unproven **on Tari's own art**
+   until the first deploy.
 
 ### How the neighbours do it
 

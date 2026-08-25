@@ -41,10 +41,52 @@ nothing, and it belongs beside the code that reads it.
 
 ## Deploying it
 
-Locally the page reads the art from `public/`. In production it reads it from a
-Vercel Blob store, and `NEXT_PUBLIC_WARDROBE_URL` is the switch. Unset, the
-page falls back to the local path, so a checkout with neither draws a naked
+Locally the page reads the art from `public/`. In production it reads it from
+somewhere else, and `NEXT_PUBLIC_WARDROBE_URL` is the switch. Unset, the page
+falls back to the local path, so a checkout with neither draws a naked
 character and says why rather than showing a blank page.
+
+That variable is the whole interface. Two scripts fill it, they do the same
+job, and moving between them costs one environment variable and a redeploy.
+
+### GitHub Pages (free)
+
+The art cannot live in *this* repo, but it can live in a second one, because
+Vercel never builds that one. GitHub serves a repo as static files over a CDN
+at no charge, with the CORS header the canvas needs already set.
+
+```
+1  node scripts/doll-publish.mjs                      copies + commits ../tari-wardrobe
+2  gh repo create tari-wardrobe --public --source ../tari-wardrobe --remote origin --push
+3  gh api -X POST "repos/:owner/tari-wardrobe/pages" \
+     -f "source[branch]=main" -f "source[path]=/"
+4  node scripts/doll-publish.mjs                      prints the URL
+5  set NEXT_PUBLIC_WARDROBE_URL to it, then redeploy
+```
+
+Quote the fields in step 3. zsh treats `[` and `]` as a glob and refuses the
+line with `no matches found` before `gh` ever runs.
+
+After the first time it is step 1 and nothing else. Files are compared by size
+before they are copied and git sends only what changed, so a rebuild that
+touches forty files pushes forty files. `--prune` drops what the build no
+longer makes, `--dry-run` says what it would do, and `--repo` puts the
+wardrobe somewhere other than a sibling directory.
+
+Against the 1 GB Pages is willing to serve, the wardrobe is 106 MB. Against
+100 GB of monthly transfer, a visitor pulls about 1 MB.
+
+**What it costs that a paid store does not.** Pages sends `max-age=600` on
+everything and cannot be talked out of it. A repeat visit inside ten minutes is
+free either way. After that the browser revalidates and gets a 304 on art that
+has not changed, so it pays a round trip per file rather than a download. That
+is fine for 12,460 small files on a warm CDN. It stops being fine if the
+wardrobe ever has to arrive in one paint.
+
+### Vercel Blob (paid plan)
+
+`scripts/doll-upload.mjs` does the same thing against a Blob store, with a
+year of `max-age` instead of ten minutes.
 
 ```
 1  Vercel dashboard → Storage → Create → Blob        (once)
@@ -53,25 +95,23 @@ character and says why rather than showing a blank page.
 4  set NEXT_PUBLIC_WARDROBE_URL to the base it prints, then redeploy
 ```
 
-Re-running step 3 lists the store first and skips anything already there at the
-same size, so a rebuild that changes forty files uploads forty files. `--prune`
-deletes what the build no longer makes; `--dry-run` says what it would do.
-
-**Why Blob and not the repo, in money.** Storage is 0.1 GB against 5 GB
-included. The one-time upload is 12,460 advanced operations against 10,000
-included — about a penny. A visitor pulls roughly 1 MB, against 100 GB of
-included transfer, which is on the order of 100,000 visits a month before
-anything is charged. On Hobby the limits are lower and Vercel *cuts off access*
-rather than billing, so the wardrobe would stop loading for thirty days; on Pro
-it bills by usage.
+Storage is 0.1 GB against 5 GB included. The one-time upload is 12,460 advanced
+operations against 10,000 included, roughly a penny. A visitor pulls about 1 MB
+against 100 GB of included transfer, which is on the order of 100,000 visits a
+month before anything is charged. On Hobby the limits are lower and Vercel
+*cuts off access* rather than billing, so the wardrobe would stop loading for
+thirty days. On Pro it bills by usage.
 
 **The one that will waste an evening.** Every item overlay is drawn into the
 canvas that becomes the body texture. An image fetched cross-origin without
 `crossOrigin` taints that canvas, WebGL refuses the upload, and the armour
 disappears with no error worth reading. `loadImage` in `lib/doll.ts` sets it
 unconditionally; three.js's `TextureLoader` already defaults to it. If a
-deployed page draws a naked character while the same build works locally, check
-the store's CORS headers before anything else.
+deployed page draws a naked character while the same build works locally, read
+the response headers on one piece of art before anything else. GitHub Pages
+answers `access-control-allow-origin: *` on everything, checked against a live
+response on 2026-08-25, so a naked character on Pages is more likely a 404 than
+a CORS fault. Look at what the network tab actually returned.
 
 ## Three mechanisms, not one
 
@@ -295,6 +335,44 @@ this before.
 page try them in turn works and costs a 404 for every overlay on every change of
 gear, so the build records which exist as a bitmask and the page asks for one
 file.
+
+## Two effects, not one
+
+Changing a helm used to take one to three seconds. The cost was not the
+triangles — it was that the scene and the gear lived in the same React effect,
+so equipping anything threw away the WebGL context, the canvas and every
+listener and built them again.
+
+The split is by lifetime. The renderer, camera, lights and frame loop belong to
+the **body** and are rebuilt only when it changes. The pieces belong to the
+**outfit** and change constantly. A ref called `rig` joins them: the dressing
+effect writes its pieces into it, the frame loop draws whatever it finds, and
+an empty rig draws an empty stage rather than nothing at all — so the camera
+stays live under the pointer while gear loads.
+
+Three things came with it.
+
+**Load the outfit at once.** Awaiting each texture in turn cost a round trip of
+latency per file even when every one was a cache hit, and a set of plate is a
+dozen files. One `Promise.all` covers the skin, the hair, the cape, the model's
+own textures and every worn model.
+
+**Cache what survives a swap.** Parsed `M2Mesh`es and uploaded `THREE.Texture`s
+are kept for the life of the page, keyed by URL. Taking a helm off and putting
+it back used to re-fetch, re-parse and re-upload it; the bytes were in the
+browser's cache every time, the work after them was not. Sharing a texture is
+safe because `Piece.dispose` disposes materials and not their maps, so no piece
+frees a texture another is drawing. `lib/doll.ts` keeps the decoded overlays
+for the same reason — recomposing the skin touches a dozen or two of them.
+
+**Swap at the end, not the start.** The old figure stays on screen until the new
+one is built, then both go in one step. Tearing the pieces down in the effect's
+cleanup — which runs *before* the next effect body — blinked the character out
+for as long as the load took.
+
+Measured on a human male, cold cache and warm: **78 ms and 68 ms**, against one
+to three seconds before, with no new WebGL context and no growth in the heap
+across ten rapid swaps.
 
 ## Why WebGL
 

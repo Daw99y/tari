@@ -27,7 +27,7 @@ import {
   type Region,
 } from "@/lib/doll";
 import { parseM2, type M2Mesh } from "@/lib/m2";
-import { loadTexture, MODEL_TO_SCENE, Piece, texKey, type GlTextures } from "@/lib/m2-gl";
+import { loadTexture, MODEL_TO_SCENE, Piece, texKey } from "@/lib/m2-gl";
 import {
   dress,
   itemsBySlot,
@@ -82,6 +82,68 @@ async function fetchModel(url: string): Promise<M2Mesh> {
   const r = await fetch(url);
   if (!r.ok) throw new Error(`${url}: ${r.status}`);
   return parseM2(await r.arrayBuffer());
+}
+
+/* Parsed models and uploaded textures, kept for the life of the page.
+ *
+ * Taking a helm off and putting it back on used to re-fetch it, re-parse it
+ * and re-upload its texture to the GPU. The bytes were in the browser's cache
+ * every time; the work after them was not. Both maps are keyed by URL, which
+ * already carries the race and gender suffix, so two bodies wearing the same
+ * helm still get their own file.
+ *
+ * A shared texture is safe here because `Piece.dispose` disposes materials and
+ * not their maps — a piece never frees a texture another piece is drawing. */
+const meshes = new Map<string, Promise<M2Mesh>>();
+const textures = new Map<string, Promise<THREE.Texture>>();
+
+function cachedModel(url: string): Promise<M2Mesh> {
+  const hit = meshes.get(url);
+  if (hit) return hit;
+  const load = fetchModel(url);
+  meshes.set(url, load);
+  load.catch(() => meshes.delete(url));
+  return load;
+}
+
+function cachedTexture(url: string): Promise<THREE.Texture> {
+  const hit = textures.get(url);
+  if (hit) return hit;
+  const load = loadTexture(url);
+  textures.set(url, load);
+  load.catch(() => textures.delete(url));
+  return load;
+}
+
+/** One worn model and everything it needs to draw, or null if the client does
+ *  not ship it for this body. Loaded as a unit so the whole outfit can be
+ *  fetched at once rather than one piece at a time. */
+async function loadWorn(model: { url: string; textureUrl: string | null; attach: number }) {
+  try {
+    const mesh = await cachedModel(model.url);
+    const [own, named] = await Promise.all([
+      model.textureUrl ? cachedTexture(model.textureUrl) : null,
+      // Textures the model names for itself: the mod2x sheen on raid
+      // shoulders, a hardcoded skin on some monster weapons. One that is not
+      // on disk skips its batch rather than drawing grey.
+      Promise.all(
+        mesh.textures.filter((path): path is string => !!path).map(async (path) => {
+          try {
+            return [texKey(path), await cachedTexture(namedTextureUrl(path))] as const;
+          } catch {
+            console.warn(`doll: ${model.url} names ${path}, which is not in the wardrobe`);
+            return null;
+          }
+        }),
+      ),
+    ]);
+    return { mesh, own, named: named.filter((x): x is readonly [string, THREE.Texture] => x !== null), attach: model.attach };
+  } catch (e) {
+    // A head model the client does not ship for this race and gender is a gap
+    // in the art, not a fault worth stopping for.
+    console.warn(`doll: ${model.url} did not load`, e);
+    return null;
+  }
 }
 
 const wrap = (i: number, n: number) => (n === 0 ? 0 : ((i % n) + n) % n);
@@ -319,15 +381,31 @@ export default function Doll() {
     }));
   }, [body]);
 
-  /* ---------- the scene ---------- */
+  /* ---------- the scene ----------
+   *
+   * Two effects, not one. The renderer, the camera, the lights and the frame
+   * loop belong to the body: build them once and they last until the body
+   * changes. What the character is wearing changes far more often and needs
+   * nothing but new pieces in the same scene.
+   *
+   * Both used to sit in one effect, so equipping a helm threw away the WebGL
+   * context, the canvas and every listener and built them again — one to three
+   * seconds of teardown for a change worth a few thousand triangles.
+   *
+   * `rig` is the join. The dressing effect writes its pieces into it; the frame
+   * loop draws whatever it finds there. */
+  const rig = useRef<{
+    stage: THREE.Group | null;
+    bodyPiece: Piece | null;
+    attached: { piece: Piece; attach: number }[];
+    bodyTex: THREE.Texture | null;
+  }>({ stage: null, bodyPiece: null, attached: [], bodyTex: null });
 
   useEffect(() => {
     const host = hostRef.current;
-    if (!host || !g || !body) return;
+    if (!host || !body) return;
 
-    let live = true;
     let frame = 0;
-    const disposables: Piece[] = [];
 
     // Transparent: the stage paints Elwynn behind the canvas, and the figure
     // composites over it the way the game's own creation screen does.
@@ -341,6 +419,7 @@ export default function Doll() {
     const stage = new THREE.Group();
     stage.rotation.copy(MODEL_TO_SCENE);
     scene.add(stage);
+    rig.current.stage = stage;
 
     // A key light high and to the front, a cool fill from behind, and enough
     // ambient that the shaded side keeps its texture. Vanilla art was painted
@@ -410,6 +489,66 @@ export default function Doll() {
     observer.observe(host);
     resize();
 
+    const stand = body.sequences.find((s) => s.id === 0) ?? body.sequences[0] ?? null;
+    const span = stand ? Math.max(1, stand.end - stand.start) : 1000;
+    const start = performance.now();
+    const socketMatrix = new THREE.Matrix4();
+
+    // The loop runs from the moment the body is parsed, with or without a
+    // figure in it. Undressed frames are the half-second before the skin is
+    // composed, and drawing an empty stage beats not drawing at all: the
+    // camera stays live under the pointer while the gear loads.
+    const tick = () => {
+      frame = requestAnimationFrame(tick);
+      const { bodyPiece, attached } = rig.current;
+      if (bodyPiece) {
+        bodyPiece.update((stand?.start ?? 0) + ((performance.now() - start) % span), stand);
+        for (const a of attached) {
+          const m = bodyPiece.attachmentMatrix(a.attach, socketMatrix);
+          if (m) a.piece.object.matrix.copy(m);
+        }
+      }
+      const target = targetFor(dist);
+      const { yaw, pitch } = view.current;
+      camera.position.set(
+        Math.sin(yaw) * Math.cos(pitch) * dist,
+        target + Math.sin(pitch) * dist,
+        Math.cos(yaw) * Math.cos(pitch) * dist,
+      );
+      camera.lookAt(0, target, 0);
+      renderer.render(scene, camera);
+    };
+    tick();
+
+    return () => {
+      cancelAnimationFrame(frame);
+      observer.disconnect();
+      renderer.domElement.removeEventListener("pointerdown", onDown);
+      renderer.domElement.removeEventListener("pointermove", onMove);
+      renderer.domElement.removeEventListener("pointerup", onUp);
+      renderer.domElement.removeEventListener("wheel", onWheel);
+      const { bodyPiece, attached, bodyTex } = rig.current;
+      bodyPiece?.dispose();
+      for (const a of attached) a.piece.dispose();
+      // The composed skin is this page's own canvas and nothing else holds it.
+      // A cached texture belongs to every piece that shares it, so it stays.
+      if (bodyTex instanceof THREE.CanvasTexture) bodyTex.dispose();
+      rig.current = { stage: null, bodyPiece: null, attached: [], bodyTex: null };
+      renderer.dispose();
+      host.removeChild(renderer.domElement);
+    };
+  }, [body]);
+
+  /* ---------- dressing the figure ----------
+   *
+   * Everything this needs is fetched at once. Awaiting each texture in turn
+   * cost a round trip of latency per file even when every one of them was a
+   * cache hit, and a full set of plate is a dozen files. */
+  useEffect(() => {
+    const stage = rig.current.stage;
+    if (!stage || !g || !body) return;
+    let live = true;
+
     (async () => {
       /* --- the body texture --- */
       const layers: BodyLayer[] = [];
@@ -441,137 +580,80 @@ export default function Doll() {
       // gendered, unisex and bare candidates; the first that loads wins.
       for (const d of dressed) layers.push(...d.layers);
 
-      let bodyTex: THREE.Texture;
-      if (regionMap) {
-        bodyTex = await loadTexture(`${BASE}/tex/_regionmap.png`);
-      } else {
-        const canvas = await composeBody(`${BASE}/tex/${chosen.skin.skin ?? ""}`, layers);
-        if (!live) return;
-        const canvasTex = new THREE.CanvasTexture(canvas);
-        canvasTex.colorSpace = THREE.SRGBColorSpace;
-        canvasTex.flipY = false;
-        bodyTex = canvasTex;
+      // A cloak has no model. It is geoset family 15 on the character itself,
+      // painted from texture slot 2 — the slot the game leaves for an item's
+      // own art — so the cape goes on the body piece, not beside it.
+      const cape = dressed.find((d) => d.capeUrl)?.capeUrl;
+
+      const [skin, hairTex, extraTex, capeTex, namedPairs, worn] = await Promise.all([
+        regionMap
+          ? cachedTexture(`${BASE}/tex/_regionmap.png`)
+          : composeBody(`${BASE}/tex/${chosen.skin.skin ?? ""}`, layers).then((canvas) => {
+              const t = new THREE.CanvasTexture(canvas);
+              t.colorSpace = THREE.SRGBColorSpace;
+              t.flipY = false;
+              return t as THREE.Texture;
+            }),
+        chosen.hairTexture ? cachedTexture(`${BASE}/tex/${chosen.hairTexture}`) : null,
+        chosen.skin.extra ? cachedTexture(`${BASE}/tex/${chosen.skin.extra}`) : null,
+        cape ? cachedTexture(cape) : null,
+        // Textures the model names for itself: the eye glow on a night elf or
+        // an undead, a second skin on the gnome male.
+        Promise.all(
+          Object.entries(g.namedTextures).map(
+            async ([k, file]) => [k, await cachedTexture(`${BASE}/tex/${file}`)] as const,
+          ),
+        ),
+        Promise.all(dressed.flatMap((d) => d.models.map((m) => loadWorn(m)))),
+      ]);
+
+      if (!live) {
+        if (skin instanceof THREE.CanvasTexture) skin.dispose();
+        return;
       }
-      if (!live) return;
 
       // Slot 1 is the composed body. Slot 6 is the hair. Slot 8 is the skin's
       // extra sheet, named by the same CharSections row as the skin itself —
       // a tauren's mane and braids and the furred parts of his body read it,
       // so it follows the skin colour, not the hair colour.
-      const runtime = new Map<number, THREE.Texture>([[1, bodyTex]]);
-      if (chosen.hairTexture) {
-        const hairTex = await loadTexture(`${BASE}/tex/${chosen.hairTexture}`);
-        if (!live) return;
-        runtime.set(6, hairTex);
-      }
-      if (chosen.skin.extra) {
-        const extraTex = await loadTexture(`${BASE}/tex/${chosen.skin.extra}`);
-        if (!live) return;
-        runtime.set(8, extraTex);
-      }
-      // A cloak has no model. It is geoset family 15 on the character itself,
-      // painted from texture slot 2 — the slot the game leaves for an item's
-      // own art — so the cape goes on the body piece, not beside it.
-      const cape = dressed.find((d) => d.capeUrl)?.capeUrl;
-      if (cape) {
-        const capeTex = await loadTexture(cape);
-        if (!live) return;
-        runtime.set(2, capeTex);
-      }
+      const runtime = new Map<number, THREE.Texture>([[1, skin]]);
+      if (hairTex) runtime.set(6, hairTex);
+      if (extraTex) runtime.set(8, extraTex);
+      if (capeTex) runtime.set(2, capeTex);
 
-      // Textures the model names for itself: the eye glow on a night elf or
-      // an undead, a second skin on the gnome male.
-      const named: GlTextures = new Map();
-      for (const [key, file] of Object.entries(g.namedTextures)) {
-        named.set(key, await loadTexture(`${BASE}/tex/${file}`));
-        if (!live) return;
-      }
+      const bodyPiece = new Piece(body, new Map(namedPairs), { geosets: showAll ? null : shown, runtime });
+      const attached = worn.filter((w) => w !== null).map((w) => {
+        const piece = new Piece(w.mesh, new Map(w.named), { runtime: new Map(w.own ? [[2, w.own]] : []) });
+        piece.object.matrixAutoUpdate = false;
+        piece.update(0, w.mesh.sequences[0] ?? null);
+        return { piece, attach: w.attach };
+      });
 
-      const bodyPiece = new Piece(body, named, { geosets: showAll ? null : shown, runtime });
-      disposables.push(bodyPiece);
+      /* Swap in one go, and only now. The old figure has stayed on screen the
+       * whole time this was loading, so changing a helm never blinks the
+       * character out — which is what a cleanup that tore the pieces down
+       * before the new ones existed used to do. */
+      const previous = rig.current;
+      if (previous.bodyPiece) stage.remove(previous.bodyPiece.object);
+      for (const a of previous.attached) stage.remove(a.piece.object);
       stage.add(bodyPiece.object);
+      for (const a of attached) stage.add(a.piece.object);
+      rig.current = { stage, bodyPiece, attached, bodyTex: skin };
 
-      /* --- worn models --- */
-      const attached: { piece: Piece; attach: number }[] = [];
-      for (const d of dressed)
-        for (const model of d.models) {
-          try {
-            const mesh = await fetchModel(model.url);
-            if (!live) return;
-            const itemRuntime = new Map<number, THREE.Texture>();
-            if (model.textureUrl) itemRuntime.set(2, await loadTexture(model.textureUrl));
-            if (!live) return;
-            // Textures the model names for itself: the mod2x sheen on raid
-            // shoulders, a hardcoded skin on some monster weapons. One that
-            // is not on disk skips its batch rather than drawing grey.
-            const itemNamed: GlTextures = new Map();
-            for (const path of mesh.textures) {
-              if (!path) continue;
-              try {
-                itemNamed.set(texKey(path), await loadTexture(namedTextureUrl(path)));
-              } catch {
-                console.warn(`doll: ${model.url} names ${path}, which is not in the wardrobe`);
-              }
-              if (!live) return;
-            }
-            const piece = new Piece(mesh, itemNamed, { runtime: itemRuntime });
-            piece.object.matrixAutoUpdate = false;
-            piece.update(0, mesh.sequences[0] ?? null);
-            disposables.push(piece);
-            stage.add(piece.object);
-            attached.push({ piece, attach: model.attach });
-          } catch (e) {
-            // A head model that the client does not ship for this race and
-            // gender is a gap in the art, not a fault worth stopping for.
-            console.warn(`doll: ${model.url} did not load`, e);
-          }
-        }
+      previous.bodyPiece?.dispose();
+      for (const a of previous.attached) a.piece.dispose();
+      if (previous.bodyTex instanceof THREE.CanvasTexture) previous.bodyTex.dispose();
 
       setTris(
         body.batches.reduce((n, b) => n + (showAll || shown.has(b.geoset) ? b.count / 3 : 0), 0) +
           attached.reduce((n, a) => n + a.piece.mesh.triangleCount, 0),
       );
-
-      const stand = body.sequences.find((s) => s.id === 0) ?? body.sequences[0] ?? null;
-      const span = stand ? Math.max(1, stand.end - stand.start) : 1000;
-      const start = performance.now();
-      const socketMatrix = new THREE.Matrix4();
-
-      const tick = () => {
-        if (!live) return;
-        frame = requestAnimationFrame(tick);
-        const t = (stand?.start ?? 0) + ((performance.now() - start) % span);
-        bodyPiece.update(t, stand);
-        for (const a of attached) {
-          const m = bodyPiece.attachmentMatrix(a.attach, socketMatrix);
-          if (m) a.piece.object.matrix.copy(m);
-        }
-        const target = targetFor(dist);
-        const { yaw, pitch } = view.current;
-        camera.position.set(
-          Math.sin(yaw) * Math.cos(pitch) * dist,
-          target + Math.sin(pitch) * dist,
-          Math.cos(yaw) * Math.cos(pitch) * dist,
-        );
-        camera.lookAt(0, target, 0);
-        renderer.render(scene, camera);
-      };
-      tick();
     })().catch((e) => {
       if (live) setError(e instanceof Error ? e.message : String(e));
     });
 
     return () => {
       live = false;
-      cancelAnimationFrame(frame);
-      observer.disconnect();
-      renderer.domElement.removeEventListener("pointerdown", onDown);
-      renderer.domElement.removeEventListener("pointermove", onMove);
-      renderer.domElement.removeEventListener("pointerup", onUp);
-      renderer.domElement.removeEventListener("wheel", onWheel);
-      for (const p of disposables) p.dispose();
-      renderer.dispose();
-      host.removeChild(renderer.domElement);
     };
   }, [g, body, dressed, shown, showAll, regionMap, chosen]);
 

@@ -18,11 +18,13 @@ next-env.d.ts
 # scripts/client.mjs. Blizzard's data; re-extracted on demand.
 .dbc-112/
 
-# The wardrobe: 103 MB of Blizzard's item art across 12,460 files, rebuilt by
-# `node scripts/doll-items.mjs` from a local 1.12 client and served from Vercel
-# Blob in production. Out of git for two reasons: docs/TARI.md §7.1 on putting
-# their work in front of users, and a hard one — Vercel fails a build above
-# 15,000 files and the repo plus this art comes to 16,712.
+# The wardrobe: 106 MB of Blizzard's item art across 12,459 files, rebuilt by
+# `node scripts/doll-items.mjs` from a local 1.12 client and served in
+# production out of a second repo on GitHub Pages, which
+# `scripts/doll-publish.mjs` pushes. Out of *this* repo for two reasons:
+# docs/TARI.md §7.1 on putting their work in front of users, and a hard one —
+# Vercel fails a build above 15,000 files and the repo plus this art comes
+# to 16,712.
 #
 # catalogue.json is the exception and stays tracked. It is one file, the CDN
 # compresses it to about 200 KB for free, and it belongs beside the code that

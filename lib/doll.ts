@@ -314,17 +314,33 @@ export async function firstImage(urls: string[]): Promise<HTMLImageElement | nul
   return null;
 }
 
+/** Decoded overlays, kept for the life of the page.
+ *
+ *  Recomposing the skin touches a dozen or two of these, and doing it on every
+ *  change of gear meant a dozen decodes each time — the browser had the bytes
+ *  cached and was decoding them again anyway. An `HTMLImageElement` can be
+ *  drawn any number of times, so one per URL is enough for everyone. */
+const decoded = new Map<string, Promise<HTMLImageElement>>();
+
 /** `crossOrigin` is not optional here. Every one of these is drawn into the
  *  canvas that becomes the body texture, and a cross-origin image fetched
  *  without it taints that canvas — WebGL then refuses the upload and the
  *  armour vanishes with no error worth reading. It costs nothing same-origin,
  *  so it is set unconditionally rather than guessed at from the URL. */
 function loadImage(url: string): Promise<HTMLImageElement> {
-  return new Promise((resolve, reject) => {
+  const hit = decoded.get(url);
+  if (hit) return hit;
+  const load = new Promise<HTMLImageElement>((resolve, reject) => {
     const img = new Image();
     img.crossOrigin = "anonymous";
     img.onload = () => resolve(img);
     img.onerror = () => reject(new Error(`image failed: ${url}`));
     img.src = url;
   });
+  decoded.set(url, load);
+  // A miss is a real answer worth keeping — the suffix candidates mean some
+  // of these are meant to fail — but a network blip should not poison the
+  // entry for the rest of the session.
+  load.catch(() => decoded.delete(url));
+  return load;
 }
