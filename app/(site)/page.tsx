@@ -103,7 +103,6 @@ export default function Page() {
         <header className={styles.bar}>
           <a href="/" className={styles.wordmark} aria-label="Tari, home">
             <FoxMark className={styles.fox} />
-            <span>Tari</span>
           </a>
           <DiscordButton />
         </header>
@@ -284,7 +283,7 @@ export default function Page() {
             Taretha Foxton grew up beside a captive orc at Durnholde and taught him to read, in
             secret, across the widest divide in the setting. She noticed things, remembered
             them, and helped without being asked. That's the whole job description. The mark is
-            a fox.
+            a T with a fox's tail.
           </p>
           <div className={styles.endCta}>
             <DiscordButton onPaper />

@@ -63,9 +63,8 @@ export default function Shell({
       <div className={styles.shell}>
         <div className={styles.railColumn}>
           <header className={styles.railHead}>
-            <Link href="/" className={styles.wordmark}>
+            <Link href="/" className={styles.wordmark} aria-label="Tari, home">
               <FoxMark className={styles.fox} />
-              Tari
             </Link>
             <button
               type="button"

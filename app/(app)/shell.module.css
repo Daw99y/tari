@@ -38,22 +38,20 @@
   border-bottom: 1px solid var(--hair);
 }
 
+/* The mark stands alone here — no word beside it, so no type properties. */
 .wordmark {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
   color: var(--ink);
   text-decoration: none;
-  font-family: var(--display);
-  font-weight: 600;
-  font-size: 1.05rem;
-  line-height: 1;
-  letter-spacing: -0.02em;
 }
 
+/* Height, not width: the mark's viewBox is its own bounding box and it runs
+ * about 1.4x wider than tall. The rail is narrow, so this sits just above the
+ * ~32px floor where the outlined keyline starts closing up. */
 .fox {
-  width: 1.05rem;
-  height: 1.05rem;
+  height: 1.75rem;
+  width: auto;
   fill: var(--ink);
 }
 
@@ -365,8 +363,8 @@
     border-bottom: 0;
     border-right: 1px solid var(--hair);
   }
-  .wordmark {
-    font-size: 1rem;
+  .fox {
+    height: 1.5rem;
   }
   .rail {
     display: flex;

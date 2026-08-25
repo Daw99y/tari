@@ -76,8 +76,8 @@ this document.**
 
 ## 1. The name
 
-**Tari.** `tari.gg`. `taretha.com` as a lore redirect. **The mark is a fox** —
-Tari is still Taretha *Foxton*.
+**Tari.** `tari.gg`. `taretha.com` as a lore redirect. **The mark is a T with a
+fox's tail** — Tari is still Taretha *Foxton*.
 
 Taretha Foxton grew up alongside Thrall at Durnholde Keep, secretly taught him
 to read, and helped him escape. Blackmoore executed her for it. **Thrall
