@@ -79,6 +79,7 @@ export default function Guide({ cards }: Props) {
 
   return (
     <section className={styles.guide} aria-label="The guide">
+      <div className={styles.haze} aria-hidden="true" />
       <div
         className={styles.loop}
         data-holding={holding || undefined}
@@ -115,8 +116,6 @@ export default function Guide({ cards }: Props) {
           <div ref={first}>{copy("a")}</div>
           <div aria-hidden="true">{copy("b")}</div>
         </div>
-        <div className={styles.veilTop} aria-hidden="true" />
-        <div className={styles.veilBottom} aria-hidden="true" />
       </div>
 
       {holding ? (

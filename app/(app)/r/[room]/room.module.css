@@ -283,8 +283,8 @@
   transition:
     opacity 240ms ease,
     visibility 0s;
-  width: min(48rem, 58%);
-  height: 50%;
+  width: min(70rem, 80%);
+  height: 26%;
   display: grid;
   grid-template-rows: minmax(0, 1fr) auto;
   pointer-events: none;
@@ -304,20 +304,46 @@
     visibility 0s 200ms;
 }
 
-/* The column's own ground: a soft vertical band so ink survives the middle
- * of a bright room. Not the scrim; it travels with the text. */
+/* The column's ground: the room itself, blurred and dimmed, with no edge
+ * anywhere. It sits behind the text and outside the loop's own mask — a
+ * backdrop-filter inside a masked element has nothing left to sample. The
+ * oval mask is what keeps it from reading as a panel. */
+.haze {
+  position: absolute;
+  inset: -140% -18%;
+  z-index: 0;
+  pointer-events: none;
+  background: rgba(6, 6, 10, 0.46);
+  /* Unprefixed only. Lightning CSS adds the -webkit- line itself; writing
+   * both by hand makes it keep the prefixed one alone. */
+  backdrop-filter: blur(20px) saturate(0.85) brightness(0.84);
+  /* The falloff is finished at 62% of a box far larger than the text, so
+   * the edge of the blur is nowhere near anything a reader is looking at.
+   * Many stops, because two would band into a visible ring. */
+  mask-image: radial-gradient(
+    46% 40% at 50% 50%,
+    #000 0%,
+    rgba(0, 0, 0, 0.94) 22%,
+    rgba(0, 0, 0, 0.78) 34%,
+    rgba(0, 0, 0, 0.54) 44%,
+    rgba(0, 0, 0, 0.3) 52%,
+    rgba(0, 0, 0, 0.12) 58%,
+    transparent 62%
+  );
+}
+
 .loop {
   position: relative;
+  z-index: 1;
   height: 100%;
   overflow: hidden;
   pointer-events: auto;
   cursor: pointer;
   user-select: none;
   touch-action: none;
-  background: linear-gradient(to right, rgba(6, 6, 10, 0) 0%, rgba(6, 6, 10, 0.34) 18%, rgba(6, 6, 10, 0.34) 82%, rgba(6, 6, 10, 0) 100%);
-  /* The dissolve: long, so the text is only ever fully there in the middle. */
-  mask-image: linear-gradient(to bottom, transparent 0%, #000 32%, #000 68%, transparent 100%);
-  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 32%, #000 68%, transparent 100%);
+  /* The dissolve. Shorter box, so the ends fade over less of it: a card is
+   * fully there for longer than it is arriving. */
+  mask-image: linear-gradient(to bottom, transparent 0%, #000 20%, #000 80%, transparent 100%);
 }
 
 .loop[data-holding] {
@@ -330,46 +356,22 @@
 
 .column {
   will-change: transform;
-  padding-top: 18vh;
-}
-
-/* The blur at the ends: it sits above the text and softens what is under it. */
-.veilTop,
-.veilBottom {
-  position: absolute;
-  left: 0;
-  right: 0;
-  height: 36%;
-  pointer-events: none;
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-}
-
-.veilTop {
-  top: 0;
-  mask-image: linear-gradient(to bottom, #000 0%, transparent 100%);
-  -webkit-mask-image: linear-gradient(to bottom, #000 0%, transparent 100%);
-}
-
-.veilBottom {
-  bottom: 0;
-  mask-image: linear-gradient(to top, #000 0%, transparent 100%);
-  -webkit-mask-image: linear-gradient(to top, #000 0%, transparent 100%);
+  padding-top: 8vh;
 }
 
 /* One card of the loop. Centred, and airy enough that each reads alone. */
 .ghost {
   display: grid;
   justify-items: center;
-  gap: 0.45rem;
-  padding: 0 2rem clamp(2.25rem, 6vh, 4rem);
+  gap: 0.2rem;
+  padding: 0 1.5rem clamp(0.9rem, 2vh, 1.5rem);
   text-align: center;
 }
 
 .ghostKind {
   margin: 0;
-  font: 500 0.55rem/1 var(--mono);
-  letter-spacing: 0.3em;
+  font: 500 0.5rem/1 var(--mono);
+  letter-spacing: 0.28em;
   text-transform: uppercase;
   color: rgba(242, 240, 234, 0.38);
 }
@@ -382,38 +384,40 @@
   margin: 0;
   font-family: var(--display);
   font-weight: 600;
-  font-size: clamp(1.6rem, 2.6vw, 2.6rem);
-  line-height: 1;
+  font-size: clamp(1.1rem, 1.65vw, 1.55rem);
+  line-height: 1.05;
   letter-spacing: -0.035em;
-  color: rgba(242, 240, 234, 0.82);
-  text-shadow: 0 0 24px rgba(242, 240, 234, 0.12);
+  color: rgba(242, 240, 234, 0.8);
+  text-shadow:
+    0 0 30px rgba(242, 240, 234, 0.16),
+    0 0 2px rgba(6, 6, 10, 0.5);
   text-wrap: balance;
 }
 
 .ghostTitle {
   margin: 0;
-  max-width: 30rem;
-  font-size: clamp(0.9rem, 1.05vw, 1rem);
-  line-height: 1.3;
+  max-width: 42rem;
+  font-size: clamp(0.78rem, 0.85vw, 0.88rem);
+  line-height: 1.2;
   letter-spacing: -0.01em;
-  color: rgba(242, 240, 234, 0.66);
+  color: rgba(242, 240, 234, 0.72);
   text-wrap: balance;
 }
 
 .ghostBody {
   margin: 0;
-  max-width: 34rem;
-  font-size: 0.82rem;
-  line-height: 1.45;
+  max-width: 48rem;
+  font-size: 0.72rem;
+  line-height: 1.35;
   letter-spacing: 0;
-  color: rgba(242, 240, 234, 0.46);
+  color: rgba(242, 240, 234, 0.56);
   text-wrap: pretty;
 }
 
 /* The state, as one quiet word under the dissolve. */
 .holdNote {
   margin: 0;
-  padding-top: 0.75rem;
+  padding-top: 0.5rem;
   text-align: center;
   font: 400 0.55rem/1 var(--mono);
   letter-spacing: 0.3em;
@@ -423,7 +427,8 @@
 
 @media (max-width: 64rem) {
   .guide {
-    width: min(100%, 86%);
+    width: min(100%, 94%);
+    height: 34%;
   }
 }
 
