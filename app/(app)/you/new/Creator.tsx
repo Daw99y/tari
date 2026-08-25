@@ -33,12 +33,16 @@ import {
   crestIcon,
   FACTION_OF,
   loadCharacter,
+  loadRoster,
   MAX_LEVEL,
   racePortrait,
   RACE_LINE,
+  RACE_NAME,
   RACE_TOKEN,
+  removeCharacter,
   rollName,
   saveCharacter,
+  selectCharacter,
   sexIcon,
   SHEET_SLOTS,
   START_ROOM,
@@ -74,10 +78,12 @@ export default function Creator() {
    * without snapping back to 1 under the cursor. */
   const [levelText, setLevelText] = useState("1");
   const [imported, setImported] = useState<ParsedCharacter | null>(null);
-  /* The character already on this browser, if there is one. Opening the
-   * creator from /you is an edit, not a second character: the same key is
-   * saved back. */
+  /* The character this screen is currently on, if it is one already saved.
+   * Null means the screen is making a new one. */
   const [existing, setExisting] = useState<Character | null>(null);
+  /* Everyone on this browser. Named `mine` because `roster` below is the
+   * manifest's races by faction, and the two are not the same list. */
+  const [mine, setMine] = useState<Character[]>([]);
   const [paste, setPaste] = useState("");
   const [pasteFault, setPasteFault] = useState<string | null>(null);
   const [equipped, setEquipped] = useState<Map<string, WardrobeItem>>(NO_GEAR);
@@ -91,18 +97,59 @@ export default function Creator() {
   const stepLevel = (by: number) =>
     setLevelText((text) => String(clampLevel(readLevel(text) + by)));
 
-  /* Editing: fill every field from the character on this browser. */
+  /** Put a saved character on the screen. Every field, including the paste
+   *  box, which belongs to whoever was on the screen before. */
+  const open = (c: Character) => {
+    setExisting(c);
+    setRace(c.race);
+    setGender(c.sex);
+    setCls(c.cls);
+    setLook(c.look);
+    setName(c.name);
+    setLevelText(String(c.level));
+    setImported(null);
+    setPaste("");
+    setPasteFault(null);
+  };
+
+  /** Clear the screen down to a fresh human warrior. */
+  const startNew = () => {
+    setExisting(null);
+    setRace(1);
+    setGender(0);
+    setCls("warrior");
+    setLook(DEFAULT_LOOK);
+    setName("");
+    setLevelText("1");
+    setImported(null);
+    setPaste("");
+    setPasteFault(null);
+    setEquipped(NO_GEAR);
+  };
+
+  /* Arriving: the roster, and whoever was last in play. */
   useEffect(() => {
+    setMine(loadRoster());
     const me = loadCharacter();
-    if (!me) return;
-    setExisting(me);
-    setRace(me.race);
-    setGender(me.sex);
-    setCls(me.cls);
-    setLook(me.look);
-    setName(me.name);
-    setLevelText(String(me.level));
+    if (me) open(me);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  /** Drop one, and land the screen on whoever is left. */
+  const drop = (key: string) => {
+    const next = removeCharacter(key);
+    setMine(loadRoster());
+    if (existing?.key !== key) return;
+    if (next) open(next);
+    else startNew();
+  };
+
+  /** Switch to another saved character, and make it the one the rest of the
+   *  app is looking at — the rail and the room read the active one. */
+  const switchTo = (c: Character) => {
+    selectCharacter(c.key);
+    open(c);
+  };
 
   /* A class the race cannot be falls back to the first it can. */
   const classes = CLASSES_OF[race] ?? [];
@@ -144,9 +191,16 @@ export default function Creator() {
    * the rings, the trinkets — collapse here and it costs nothing: they have no
    * model, no overlay and no geoset to lose. */
   useEffect(() => {
-    if (worn.length)
-      setEquipped(new Map(worn.map(({ item }) => [item.slot, item])));
-  }, [worn]);
+    /* Guarded on the wardrobe rather than on `worn`: an empty list is a real
+     * answer once the catalogue is in — it is what switching to a character
+     * who wears nothing looks like — and the figure has to undress for it. */
+    if (byEntry.size === 0) return;
+    setEquipped(
+      worn.length
+        ? new Map(worn.map(({ item }) => [item.slot, item]))
+        : NO_GEAR,
+    );
+  }, [worn, byEntry]);
 
   const backdrop = getRoom(START_ROOM[race] ?? "elwynn-forest");
 
@@ -512,6 +566,64 @@ export default function Creator() {
               </ul>
             ) : null}
           </article>
+
+          {mine.length > 0 ? (
+            <section
+              className={`${styles.card} ${styles.roster}`}
+              aria-label="Your characters"
+            >
+              <p className={styles.eyebrow}>Characters</p>
+              <ul className={styles.crew}>
+                {mine.map((c) => (
+                  <li
+                    key={c.key}
+                    className={styles.crewRow}
+                    data-on={c.key === existing?.key || undefined}
+                  >
+                    <button
+                      type="button"
+                      className={styles.crewPick}
+                      aria-label={`Play ${c.name}, level ${c.level} ${RACE_NAME[c.race]} ${CLASS_NAME[c.cls]}`}
+                      aria-pressed={c.key === existing?.key}
+                      onClick={() => switchTo(c)}
+                    >
+                      <img
+                        src={classIcon(c.cls)}
+                        alt=""
+                        width={64}
+                        height={64}
+                        draggable={false}
+                      />
+                      <span className={styles.crewText}>
+                        <span className={styles.crewName}>{c.name}</span>
+                        <span className={styles.crewMeta}>
+                          Level {c.level} {RACE_NAME[c.race]}{" "}
+                          {CLASS_NAME[c.cls]}
+                          {c.realm ? ` · ${c.realm}` : ""}
+                        </span>
+                      </span>
+                    </button>
+                    <button
+                      type="button"
+                      className={styles.crewDrop}
+                      onClick={() => drop(c.key)}
+                      aria-label={`Remove ${c.name}`}
+                    >
+                      ×
+                    </button>
+                  </li>
+                ))}
+              </ul>
+              <button
+                type="button"
+                className={styles.crewNew}
+                data-on={!existing || undefined}
+                onClick={startNew}
+              >
+                New character
+              </button>
+            </section>
+          ) : null}
         </div>
 
         <div className={styles.buttons}>

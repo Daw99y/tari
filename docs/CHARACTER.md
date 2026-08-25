@@ -35,6 +35,10 @@ first visit, or first sign-in with no character
 The creator is shown once. Skippable: "Later" gives a default body (human
 or orc, warrior) and the rail. Reopened from `/you` any time.
 
+A reader has as many characters as they play. The creator's roster card is
+where they are made, switched between and dropped; everywhere else in the app
+is looking at exactly one of them, the active one.
+
 ## The creator
 
 The game's own creation screen, place for place. Its icons too: the race
@@ -54,6 +58,7 @@ colour on the screen.
 | race and class blurbs on the right | two placards, portrait and mark in the header, the guide's two sentences under it |
 | skin / face / hair / colour / facial sliders | five stepped rows, `‹ ›`; labels from `ROW_LABELS`. A sixth row above them is Tari's: **Level** |
 | Randomize (look), Name, Randomize (name), the turn arrows | all four, where the client puts them |
+| — | the roster: every character on this browser, as the bottom card on the right |
 | Accept, Back | under the placards; Back only when there is a character to go back to |
 | the WoW logo, top right | nothing — the shell already carries the mark |
 
@@ -63,6 +68,16 @@ its own height. Changing race cross-fades the backdrop.
 Import is the card at the top of the left column: paste, and everything the
 string knows is set and greyed (class, name, realm, gear on the doll); race
 and sex too (`A:`/`X:`), which whelp plz never had.
+
+The roster is the bottom card on the right: everyone on this browser, each
+with their class mark, name and `Level 29 Night Elf Rogue · Firemaw`. Click a
+row to put that character on the screen and in play; `New character` clears
+it down to a fresh human warrior; the `×` on a row drops it. The browser
+holds the list under `tari:characters` and whose key is active under
+`tari:active`, and `loadCharacter()` still answers with one character — the
+active one — which is why the rail, the shell and the sheet did not have to
+learn about any of this. A browser that predates the roster has its single
+`tari:character` moved into the list on first read.
 
 **Level and sex are always editable**, imported or not. The client never asks
 for either because it already knows them; Tari has to, and a character levels.

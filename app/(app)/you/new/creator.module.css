@@ -551,6 +551,157 @@
   gap: 0.45rem;
 }
 
+/* ---- the roster: everyone on this browser, above the two placards */
+
+.roster {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.crew {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.15rem;
+}
+
+.crewRow {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  border-radius: 8px;
+  transition: background 200ms ease;
+}
+
+.crewRow:hover {
+  background: rgba(242, 240, 234, 0.04);
+}
+
+.crewRow[data-on] {
+  background: rgba(242, 240, 234, 0.09);
+}
+
+.crewPick {
+  appearance: none;
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  min-width: 0;
+  padding: 0.35rem 0.4rem;
+  border: 0;
+  border-radius: 8px;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.crewPick img {
+  flex: none;
+  width: 1.9rem;
+  height: 1.9rem;
+  border-radius: 5px;
+}
+
+.crewText {
+  display: grid;
+  gap: 0.12rem;
+  min-width: 0;
+}
+
+.crewName {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 0.86rem;
+  letter-spacing: -0.015em;
+  color: rgba(242, 240, 234, 0.72);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.crewRow[data-on] .crewName {
+  color: var(--ink);
+}
+
+.crewMeta {
+  font: 400 0.55rem/1.3 var(--mono);
+  letter-spacing: 0.06em;
+  color: rgba(242, 240, 234, 0.45);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Out of the way until the row is under the pointer, because dropping a
+ * character is the one thing on this card nobody came here to do. */
+.crewDrop {
+  appearance: none;
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-right: 0.15rem;
+  border: 0;
+  border-radius: 999px;
+  background: none;
+  color: rgba(242, 240, 234, 0.4);
+  font: 400 0.95rem/1 var(--sans);
+  cursor: pointer;
+  opacity: 0;
+  transition:
+    opacity 150ms ease,
+    color 150ms ease;
+}
+
+.crewRow:hover .crewDrop,
+.crewDrop:focus-visible {
+  opacity: 1;
+}
+
+.crewDrop:hover {
+  color: rgba(255, 79, 139, 0.9);
+}
+
+@media (hover: none) {
+  .crewDrop {
+    opacity: 1;
+  }
+}
+
+.crewNew {
+  appearance: none;
+  width: 100%;
+  padding: 0.45rem 0.6rem;
+  border: 0.5px dashed rgba(242, 240, 234, 0.28);
+  border-radius: 8px;
+  background: none;
+  color: rgba(242, 240, 234, 0.6);
+  font: 500 0.72rem/1 var(--sans);
+  cursor: pointer;
+  transition:
+    border-color 200ms ease,
+    color 200ms ease;
+}
+
+.crewNew:hover {
+  border-color: var(--ink);
+  color: var(--ink);
+}
+
+.crewNew[data-on] {
+  border-style: solid;
+  border-color: rgba(242, 240, 234, 0.5);
+  color: var(--ink);
+}
+
+.crewPick:focus-visible,
+.crewNew:focus-visible,
+.crewDrop:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+}
+
 /* ---- bottom centre: the name and the two turn arrows */
 
 .foot {

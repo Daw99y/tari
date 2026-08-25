@@ -202,26 +202,119 @@ export const CLASS_LINE: Record<ClassId, string> = {
   druid: "Four shapes and a bag of seeds. The only class that can be everything, briefly.",
 };
 
-const KEY = "tari:character";
+/* ---------------------------------------------------------------------------
+   The roster.
+
+   A reader has as many characters as they play, the way an account has as
+   many as it rolled, and the app is always looking at exactly one of them.
+   So the browser holds two things: the list, and whose key is in play.
+
+   Everything outside this file still asks `loadCharacter()` for one character
+   and gets the active one, which is why the rail, the shell and the sheet did
+   not have to learn about any of this.
+--------------------------------------------------------------------------- */
+
+/** Where a single character lived before there was a roster. Read once, moved
+ *  into the list, and deleted, so it cannot come back after the last character
+ *  is dropped. */
+const LEGACY = "tari:character";
+const ROSTER = "tari:characters";
+const ACTIVE = "tari:active";
+
 /** What the server needs to draw a room for you: class and level. The rest
  *  stays in the browser. A year, because a character does not expire. */
 export const WHO_COOKIE = "tari_who";
 
+function readList(): Character[] {
+  const raw = localStorage.getItem(ROSTER);
+  if (raw) {
+    const list: unknown = JSON.parse(raw);
+    return Array.isArray(list) ? (list as Character[]) : [];
+  }
+  /* First read on a browser that predates the roster. */
+  const one = localStorage.getItem(LEGACY);
+  if (!one) return [];
+  const c = JSON.parse(one) as Character;
+  localStorage.setItem(ROSTER, JSON.stringify([c]));
+  localStorage.setItem(ACTIVE, c.key);
+  localStorage.removeItem(LEGACY);
+  return [c];
+}
+
+/** The cookie the room reads on the server. Written whenever the active
+ *  character changes, because that is the only thing it says. */
+function markActive(c: Character | null): void {
+  if (c) {
+    localStorage.setItem(ACTIVE, c.key);
+    document.cookie = `${WHO_COOKIE}=${c.cls}:${c.level}; path=/; max-age=31536000; samesite=lax`;
+  } else {
+    localStorage.removeItem(ACTIVE);
+    document.cookie = `${WHO_COOKIE}=; path=/; max-age=0; samesite=lax`;
+  }
+}
+
+/** Every character on this browser, oldest first. */
+export function loadRoster(): Character[] {
+  try {
+    return readList();
+  } catch {
+    return [];
+  }
+}
+
+/** The one in play. Falls back to the first in the list rather than to null:
+ *  a roster with nobody active is a reader staring at the creator for no
+ *  reason. */
 export function loadCharacter(): Character | null {
   try {
-    const raw = localStorage.getItem(KEY);
-    return raw ? (JSON.parse(raw) as Character) : null;
+    const list = readList();
+    if (list.length === 0) return null;
+    const key = localStorage.getItem(ACTIVE);
+    return list.find((c) => c.key === key) ?? list[0];
   } catch {
     return null;
   }
 }
 
+/** Add or replace one character by key, and put it in play. */
 export function saveCharacter(c: Character): void {
   try {
-    localStorage.setItem(KEY, JSON.stringify(c));
-    document.cookie = `${WHO_COOKIE}=${c.cls}:${c.level}; path=/; max-age=31536000; samesite=lax`;
+    const list = readList();
+    const at = list.findIndex((x) => x.key === c.key);
+    if (at === -1) list.push(c);
+    else list[at] = c;
+    localStorage.setItem(ROSTER, JSON.stringify(list));
+    markActive(c);
   } catch {
     // A browser with storage off still gets the room; it just forgets.
+  }
+}
+
+/** Put one of the saved characters in play. */
+export function selectCharacter(key: string): Character | null {
+  try {
+    const c = readList().find((x) => x.key === key) ?? null;
+    if (c) markActive(c);
+    return c;
+  } catch {
+    return null;
+  }
+}
+
+/** Drop one character. Returns whoever is in play afterwards, which is the
+ *  next one along, or nobody once the list is empty. */
+export function removeCharacter(key: string): Character | null {
+  try {
+    const list = readList().filter((c) => c.key !== key);
+    localStorage.setItem(ROSTER, JSON.stringify(list));
+    const active = localStorage.getItem(ACTIVE);
+    if (active === key || !list.some((c) => c.key === active)) {
+      markActive(list[0] ?? null);
+      return list[0] ?? null;
+    }
+    return list.find((c) => c.key === active) ?? null;
+  } catch {
+    return null;
   }
 }
 
