@@ -521,22 +521,38 @@ export function drawFrame(
     return;
   }
 
-  // 1. Opaque and alpha-blended batches, painter's order, straight on.
+  // 1. Opaque and alpha-blended batches, painter's order, straight on — but
+  //    only at full opacity. A batch mid-fade goes through the scratch layer
+  //    below instead: its grown triangles overlap on purpose (see `paint`),
+  //    and painting the overlaps straight on at partial alpha double-blends
+  //    every shared edge into a visible line — the hearts read as wireframe
+  //    while they pulse.
+  const layer = layerFor(canvas);
   const direct: Tri[] = [];
+  const faded: number[] = [];
   mesh.batches.forEach((bt, bi) => {
-    if (!isAdd(bt.blend) && !isMod(bt.blend)) direct.push(...perBatch[bi]);
+    if (isAdd(bt.blend) || isMod(bt.blend)) return;
+    if (batchA[bi] > 0.998) direct.push(...perBatch[bi]);
+    else if (perBatch[bi].length) faded.push(bi);
   });
   direct.sort((p1, p2) => p1.depth - p2.depth);
   ctx.globalCompositeOperation = "source-over";
-  for (const tri of direct) {
-    ctx.globalAlpha = batchA[tri.batch];
-    paint(ctx, tri);
+  for (const tri of direct) paint(ctx, tri);
+  for (const bi of faded) {
+    const list = perBatch[bi];
+    list.sort((p1, p2) => p1.depth - p2.depth);
+    layer.setTransform(1, 0, 0, 1, 0, 0);
+    layer.globalCompositeOperation = "source-over";
+    layer.globalAlpha = 1;
+    layer.clearRect(0, 0, W, H);
+    for (const tri of list) paint(layer, tri);
+    ctx.globalAlpha = batchA[bi];
+    ctx.drawImage(layer.canvas, 0, 0);
   }
   ctx.globalAlpha = 1;
 
   // 2. Additive and modulate batches: each on its own layer (source-over,
   //    so a batch never doubles against itself), then blended once.
-  const layer = layerFor(canvas);
   mesh.batches.forEach((bt, bi) => {
     if (!isAdd(bt.blend) && !isMod(bt.blend)) return;
     const list = perBatch[bi];
