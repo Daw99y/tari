@@ -38,7 +38,21 @@ export const GEAR_SLOTS = [
 /** The paperdoll's columns, as the game lays them out: slot ids. */
 export const SHEET_LEFT = [1, 2, 3, 15, 5, 4, 19, 9];
 export const SHEET_RIGHT = [10, 6, 7, 8, 11, 12, 13, 14];
-export const SHEET_BOTTOM = [16, 17, 18];
+
+/** The row under the doll. Melee only — main hand and off hand.
+ *
+ *  Slot 18, the ranged one, is deliberately absent. A bow, a gun and a wand
+ *  all hang off a hand socket, and so does an off-hand weapon, so drawing the
+ *  ranged slot alongside the other two gives a character three weapons and two
+ *  hands to hold them in. The game solves this by animating one set at a time;
+ *  the sheet has no animation to switch, so it draws what the character is
+ *  swinging. */
+export const SHEET_BOTTOM = [16, 17];
+
+/** Every slot the sheet draws, in no particular order. What the figure wears
+ *  comes from this list rather than from all 19, so a slot the sheet leaves
+ *  out is also a model the doll does not hang. */
+export const SHEET_SLOTS = [...SHEET_LEFT, ...SHEET_RIGHT, ...SHEET_BOTTOM];
 
 /** 1234567 copper → "123g 45s 67c". */
 export function money(copper: number): string {

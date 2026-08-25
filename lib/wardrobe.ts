@@ -129,7 +129,12 @@ export function namedTextureUrl(gamePath: string): string {
 }
 
 export async function loadCatalogue(): Promise<Catalogue> {
-  const r = await fetch(CATALOGUE);
+  /* Always ask whether this is still the current list. The header on the file
+   * says the same thing (next.config.mjs, CATALOGUE_PATH), but a browser that
+   * was handed the old one still holds it for a day and will not ask — so a
+   * rebuilt wardrobe would not reach a returning reader without a hard
+   * refresh. Asking from this side does not care what is already cached. */
+  const r = await fetch(CATALOGUE, { cache: "no-cache" });
   if (!r.ok) throw new Error(`no wardrobe: run \`node scripts/doll-items.mjs\` (${r.status})`);
   return r.json();
 }
@@ -173,6 +178,26 @@ export function itemsBySlot(cat: Catalogue): Map<string, Item[]> {
     }
   }
   return bySlot;
+}
+
+/** Every item, keyed by its id. `itemsBySlot` lists a one-hander twice, once
+ *  per hand, under the one id; the copy that matches its own inventory type is
+ *  the one kept here, and the caller says which hand through `handedFor`. */
+export function itemsByEntry(cat: Catalogue): Map<number, Item> {
+  const map = new Map<number, Item>();
+  for (const [slot, rows] of itemsBySlot(cat)) for (const item of rows) if (item.slot === slot) map.set(item.entry, item);
+  return map;
+}
+
+/** The gear slot a character's second weapon comes out of. */
+const OFF_HAND = 17;
+
+/** The same item, told which hand it is in. A one-hander files as a main-hand
+ *  weapon whichever hand holds it, so gear slot 17 is re-slotted rather than
+ *  taken at its word — take it at its word and both blades land on the one
+ *  socket, and the character draws a single weapon instead of two. */
+export function handedFor(at: number, item: Item): Item {
+  return at === OFF_HAND && item.slot === "mainhand" ? { ...item, slot: "offhand" } : item;
 }
 
 /** One equipped item, resolved against the body wearing it. Everything here

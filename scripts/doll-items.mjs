@@ -79,6 +79,10 @@ const LEFTOVER = /^\[ph\]|^\(?old\)?[^a-z]|deprecated|unused|\btest\b|^\d+ (gree
  * hand and given its own row rather than fighting the main hand for one. */
 const INVENTORY = {
   1: { slot: "head", attach: [11] },
+  // Necks, rings and trinkets are jewellery: no model, no overlay, no geoset.
+  // They are here for their names and their icons, which is all a character
+  // sheet asks of them, and having no `attach` is what keeps them off the body.
+  2: { slot: "neck" },
   3: { slot: "shoulder", attach: [6, 5] },
   4: { slot: "shirt" },
   5: { slot: "chest" },
@@ -87,6 +91,8 @@ const INVENTORY = {
   8: { slot: "feet" },
   9: { slot: "wrist" },
   10: { slot: "hands" },
+  11: { slot: "finger" },
+  12: { slot: "trinket" },
   13: { slot: "mainhand", attach: [1] },
   14: { slot: "offhand", attach: [0] },
   15: { slot: "ranged", attach: [2] },
@@ -166,9 +172,9 @@ function* tuples(sql) {
   }
 }
 
-/** Every equippable item, newest definition wins. Rows with no display id or
- *  an inventory type nothing can draw — necks, rings, trinkets, bags — never
- *  reach the wardrobe. */
+/** Every equippable item, newest definition wins. Rows with no display id, or
+ *  an inventory type no character sheet has a slot for — bags, ammo, quivers —
+ *  never reach the wardrobe. */
 function readItems() {
   const sql = execSync(`gzcat ${JSON.stringify(DUMP)} | grep '^INSERT INTO .item_template.'`, {
     maxBuffer: 1 << 30,

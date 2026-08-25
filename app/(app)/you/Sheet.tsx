@@ -1,7 +1,7 @@
 "use client";
 
 /* THE SHEET. The game's paperdoll, in Tari's register: the body in the
- * middle, the gear down both sides in the game's own order, the weapons
+ * middle, the gear down both sides in the game's own order, the melee weapons
  * under it, and the facts the import carried in the corner. Nothing here
  * is invented: a slot with no import is empty, a panel with no fact is
  * not drawn, and the corner prints the trades rather than every skill line
@@ -20,6 +20,7 @@ import {
   SHEET_BOTTOM,
   SHEET_LEFT,
   SHEET_RIGHT,
+  SHEET_SLOTS,
   START_ROOM,
   TRADE_CAP,
   trades,
@@ -28,7 +29,7 @@ import {
 import { QUALITY } from "@/lib/doll";
 import { getRoom, roomArt } from "@/lib/rooms";
 import { DEFAULT_LOOK, useBody } from "@/lib/use-body";
-import { itemsBySlot, WARDROBE, type Item as WardrobeItem } from "@/lib/wardrobe";
+import { handedFor, itemsByEntry, WARDROBE, type Item as WardrobeItem } from "@/lib/wardrobe";
 
 import styles from "./sheet.module.css";
 
@@ -47,18 +48,19 @@ export default function Sheet() {
   });
 
   /* The wardrobe by item id, so the 19 slots can find their rows. */
-  const byEntry = useMemo(() => {
-    const map = new Map<number, WardrobeItem>();
-    if (catalogue) for (const rows of itemsBySlot(catalogue).values()) for (const item of rows) map.set(item.entry, item);
-    return map;
-  }, [catalogue]);
+  const byEntry = useMemo(() => (catalogue ? itemsByEntry(catalogue) : new Map<number, WardrobeItem>()), [catalogue]);
 
   useEffect(() => {
     if (!me || byEntry.size === 0) return;
+    /* Only the slots the sheet draws get worn, so the ranged weapon the sheet
+     * leaves out is not hung off a hand the character is already using. */
     const worn = new Map<string, WardrobeItem>();
-    for (const id of me.gear) {
+    for (const slot of SHEET_SLOTS) {
+      const id = me.gear[slot - 1] ?? 0;
       const item = id ? byEntry.get(id) : undefined;
-      if (item) worn.set(item.slot, item);
+      if (!item) continue;
+      const handed = handedFor(slot, item);
+      worn.set(handed.slot, handed);
     }
     setEquipped(worn);
   }, [me, byEntry]);

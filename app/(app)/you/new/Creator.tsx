@@ -22,6 +22,7 @@ import {
   RACE_TOKEN,
   rollName,
   saveCharacter,
+  SHEET_SLOTS,
   START_ROOM,
   validName,
   type Character,
@@ -30,7 +31,7 @@ import { parseImport, type ParsedCharacter } from "@/lib/import";
 import type { ClassId } from "@/lib/loot";
 import { getRoom, roomArt } from "@/lib/rooms";
 import { DEFAULT_LOOK, useBody, wrap, type Look } from "@/lib/use-body";
-import { itemsBySlot, type Item as WardrobeItem } from "@/lib/wardrobe";
+import { handedFor, itemsByEntry, type Item as WardrobeItem } from "@/lib/wardrobe";
 
 import styles from "./creator.module.css";
 
@@ -57,22 +58,30 @@ export default function Creator() {
   }, [classes, cls]);
 
   /* The wardrobe by item id, for import. Built once per catalogue. */
-  const byEntry = useMemo(() => {
-    const map = new Map<number, WardrobeItem>();
-    if (catalogue) for (const rows of itemsBySlot(catalogue).values()) for (const item of rows) map.set(item.entry, item);
-    return map;
-  }, [catalogue]);
+  const byEntry = useMemo(() => (catalogue ? itemsByEntry(catalogue) : new Map<number, WardrobeItem>()), [catalogue]);
 
-  /* Imported gear, dressed once the wardrobe is in. */
-  useEffect(() => {
-    if (!imported || byEntry.size === 0) return;
-    const worn = new Map<string, WardrobeItem>();
-    for (const id of imported.gear) {
+  /* The imported gear, in the order a character sheet reads it: the ranged
+   * slot is not in that order, so a bow is neither listed nor hung off a hand
+   * that is already holding a blade (lib/character.ts, SHEET_BOTTOM). Kept as
+   * a list rather than the map below because a character wears two rings and
+   * two trinkets, and a map keyed by slot only remembers the second of each. */
+  const worn = useMemo(() => {
+    if (!imported || byEntry.size === 0) return [];
+    const out: { at: number; item: WardrobeItem }[] = [];
+    for (const at of SHEET_SLOTS) {
+      const id = imported.gear[at - 1] ?? 0;
       const item = id ? byEntry.get(id) : undefined;
-      if (item) worn.set(item.slot, item);
+      if (item) out.push({ at, item: handedFor(at, item) });
     }
-    setEquipped(worn);
+    return out;
   }, [imported, byEntry]);
+
+  /* Dressed once the wardrobe is in. The slots that draw nothing — the neck,
+   * the rings, the trinkets — collapse here and it costs nothing: they have no
+   * model, no overlay and no geoset to lose. */
+  useEffect(() => {
+    if (worn.length) setEquipped(new Map(worn.map(({ item }) => [item.slot, item])));
+  }, [worn]);
 
   const backdrop = getRoom(START_ROOM[race] ?? "elwynn-forest");
 
@@ -271,11 +280,11 @@ export default function Creator() {
         <p className={`${styles.eyebrow} ${styles.later}`}>{CLASS_NAME[cls]}</p>
         <p className={styles.line}>{CLASS_LINE[cls]}</p>
         {backdrop ? <p className={styles.where}>You wake up in {backdrop.name}.</p> : null}
-        {equipped.size > 0 ? (
+        {worn.length > 0 ? (
           <ul className={styles.worn}>
-            {[...equipped.values()].map((i) => (
-              <li key={i.entry} style={{ color: QUALITY[i.quality] }}>
-                {i.name}
+            {worn.map(({ at, item }) => (
+              <li key={at} style={{ color: QUALITY[item.quality] }}>
+                {item.name}
               </li>
             ))}
           </ul>

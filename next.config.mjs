@@ -44,6 +44,20 @@ const ART = "public, max-age=86400, stale-while-revalidate=2592000";
 /** Every public/ subtree that is art and nothing else. */
 const ART_PATHS = ["/lab/:path*", "/journey/:path*", "/Maps/:path*", "/brand/:path*", "/pane/:path*"];
 
+/**
+ * The wardrobe catalogue is the one file under /lab whose name stays put while
+ * its contents change: every `node scripts/doll-items.mjs` rewrites it in
+ * place. A day of hard freshness is the right trade for art, whose file names
+ * move when the bytes do — it is the wrong one here, because it leaves a
+ * reader holding yesterday's item list with no way to ask for this one short
+ * of a hard refresh, and a rebuild that adds items looks like a rebuild that
+ * did nothing.
+ *
+ * `no-cache` is not `no-store`: the browser keeps the copy and asks whether it
+ * is still good. Unchanged, that is a 304 and about two hundred bytes.
+ */
+const CATALOGUE_PATH = "/lab/doll/items/catalogue.json";
+
 export default {
   agentRules: false,
   env: { NEXT_PUBLIC_APP_VERSION: version },
@@ -51,6 +65,8 @@ export default {
     return [
       { source: "/:path*", headers: SECURITY },
       ...ART_PATHS.map((source) => ({ source, headers: [{ key: "Cache-Control", value: ART }] })),
+      // After the art rule, so it wins the /lab/:path* match above.
+      { source: CATALOGUE_PATH, headers: [{ key: "Cache-Control", value: "public, no-cache" }] },
     ];
   },
 };
