@@ -92,11 +92,43 @@ export type ParsedCharacter = {
       name comes from. */
   name: string | null;
   realm: string | null;
+  /** TA1 (docs/CHARACTER.md). Race token as the client spells it ("Gnome",
+      "Scourge"), sex as the client counts it (2 male, 3 female), the guild,
+      and seconds played. Null from any older string. */
+  race: string | null;
+  sex: 2 | 3 | null;
+  guild: string | null;
+  played: number | null;
+  /** The journal: what happened, where, at what level, when. Empty from any
+      addon older than TA1. `time` is unix seconds. */
+  journal: JournalEntry[];
 };
 
+export type JournalKind = "l" | "z" | "d" | "q";
+export type JournalEntry = { kind: JournalKind; zone: string; level: number; time: number };
+
 /** Every prefix this site reads, and it never drops one. SW1 is WP1 under the
-    addon's old name; WP1 is WP2 without the five fields WP2 added. */
-const KNOWN_VERSIONS = new Set(["WP2", "WP1", "SW1"]);
+    addon's old name; WP1 is WP2 without the five fields WP2 added; TA1 is
+    WP2 under Tari's name with five more. */
+const KNOWN_VERSIONS = new Set(["TA1", "WP2", "WP1", "SW1"]);
+
+const JOURNAL_KINDS = new Set(["l", "z", "d", "q"]);
+
+/** `kind|zone|level|time36` entries, dot-separated. A bad entry is dropped,
+    not fatal: one garbled line is not a reason to lose the character. */
+function readJournal(value: string): JournalEntry[] {
+  if (!value) return [];
+  const out: JournalEntry[] = [];
+  for (const entry of value.split(".")) {
+    const [kind, zone, level, time] = entry.split("|");
+    if (!JOURNAL_KINDS.has(kind) || zone === undefined) continue;
+    const lv = Number(level);
+    const t = parseInt(time ?? "", 36);
+    if (!Number.isInteger(lv) || lv < 1 || lv > 60 || !Number.isFinite(t) || t <= 0) continue;
+    out.push({ kind: kind as JournalKind, zone, level: lv, time: t });
+  }
+  return out;
+}
 
 export type ParseResult =
   | { ok: true; character: ParsedCharacter }
@@ -128,10 +160,10 @@ export function parseImport(raw: string): ParseResult {
 
     const fields = line.split(";");
     const version = fields[0]?.trim().toUpperCase() ?? "";
-    if (!/^(WP|SW)\d+$/.test(version))
+    if (!/^(TA|WP|SW)\d+$/.test(version))
       return {
         ok: false,
-        error: "Not a Whelp Plz export — the string starts with WP2.",
+        error: "Not an export — the string /tari gives you starts with TA1.",
       };
     /* Every version this site has ever emitted, and it keeps reading all of
        them: the fields are keyed, so an older string is simply one with fewer
@@ -141,7 +173,7 @@ export function parseImport(raw: string): ParseResult {
     if (!KNOWN_VERSIONS.has(version))
       return {
         ok: false,
-        error: `This is a ${version} string from a newer addon; this site reads WP2.`,
+        error: `This is a ${version} string from a newer addon; this site reads TA1.`,
       };
 
     const cls = CLASS_TOKENS[fields[1]?.trim().toUpperCase() ?? ""];
@@ -176,6 +208,11 @@ export function parseImport(raw: string): ParseResult {
       zone: null,
       name: null,
       realm: null,
+      race: null,
+      sex: null,
+      guild: null,
+      played: null,
+      journal: [],
     };
 
     /* The tail: `K:value` fields in any order. An unknown key is skipped and a
@@ -258,6 +295,23 @@ export function parseImport(raw: string): ParseResult {
           break;
         case "E":
           character.realm = value || null;
+          break;
+        case "A":
+          character.race = value || null;
+          break;
+        case "X":
+          character.sex = value === "2" ? 2 : value === "3" ? 3 : null;
+          break;
+        case "U":
+          character.guild = value || null;
+          break;
+        case "W": {
+          const n = Number(value);
+          character.played = Number.isFinite(n) && n >= 0 ? Math.round(n) : null;
+          break;
+        }
+        case "J":
+          character.journal = readJournal(value);
           break;
         case "M": {
           const n = Number(value);

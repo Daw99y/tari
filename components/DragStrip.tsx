@@ -41,6 +41,9 @@ export default function DragStrip({ className, label, children }: Props) {
         // Mouse and pen only. Touch already drags, and stealing it would
         // kill the flick.
         if (e.pointerType === "touch" || !el.current) return;
+        // A press on a link or button is a click, not a drag; capturing
+        // the pointer here would steal it.
+        if ((e.target as Element).closest("a, button")) return;
         from.current = { x: e.clientX, left: el.current.scrollLeft, dragging: true };
         el.current.setPointerCapture(e.pointerId);
         el.current.dataset.drag = "holding";

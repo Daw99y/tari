@@ -6,321 +6,33 @@
  * five choices the game's own creation screen offers, in the same order. On
  * the right, what the machine is doing — what they are wearing, and every mesh
  * chunk the file holds, so a wrong dressing rule is visible rather than
- * mysterious. */
+ * mysterious.
+ *
+ * The figure itself is lib/use-body.ts, shared with the creator. This file
+ * is only the panels. */
 
-import { useCallback, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
-import * as THREE from "three";
+import { useCallback, useMemo, useState, type ReactNode } from "react";
 
-import {
-  composeBody,
-  familyOf,
-  FACTION,
-  GEOSET_FAMILY,
-  hiddenGroups,
-  LAYER_ORDER,
-  QUALITY,
-  ROW_LABELS,
-  SLOT_LABEL,
-  SLOT_ORDER,
-  visibleGeosets,
-  type BodyLayer,
-  type Region,
-} from "@/lib/doll";
-import { parseM2, type M2Mesh } from "@/lib/m2";
-import { loadTexture, MODEL_TO_SCENE, Piece, texKey } from "@/lib/m2-gl";
-import {
-  dress,
-  itemsBySlot,
-  loadCatalogue,
-  namedTextureUrl,
-  WARDROBE,
-  type Catalogue,
-  type Dressed,
-  type Item as WardrobeItem,
-} from "@/lib/wardrobe";
+import { QUALITY, ROW_LABELS, SLOT_LABEL, SLOT_ORDER } from "@/lib/doll";
+import { DEFAULT_LOOK, useBody, wrap, type Look } from "@/lib/use-body";
+import { itemsBySlot, WARDROBE, type Item as WardrobeItem } from "@/lib/wardrobe";
 
 import styles from "./doll.module.css";
 
-const BASE = "/lab/doll";
-
-/** The three CharSections texture columns, named. Which column does what
- *  depends on the kind: a hair row is the hair mesh's texture and the two
- *  halves of the scalp; a face row is the lower and upper halves. */
-type Section = {
-  kind: string;
-  variation: number;
-  color: number;
-  files: Partial<
-    Record<"skin" | "extra" | "lower" | "upper" | "hair" | "scalpLower" | "scalpUpper" | "pelvis" | "torso", string>
-  >;
-};
-
-type GenderBlock = {
-  gender: number;
-  name: string;
-  model: string;
-  namedTextures: Record<string, string>;
-  hairStyles: { variation: number; geoset: number; showScalp: boolean }[];
-  facialStyles: { variation: number; geosets: number[] }[];
-  hairColors: (string | null)[];
-  skinColors: (string | null)[];
-  sections: Section[];
-};
-
-type RaceBlock = { race: number; name: string; facialLabel: string; genders: GenderBlock[] };
-type Manifest = { races: RaceBlock[] };
-
-/** The whole appearance, as indices into the option lists below. Indices
- *  rather than values so switching body only has to clamp, never translate. */
-type Look = { skin: number; face: number; hair: number; hairColor: number; beard: number };
-
-async function fetchM2(file: string): Promise<M2Mesh> {
-  return fetchModel(`${BASE}/m2/${file}`);
-}
-
-async function fetchModel(url: string): Promise<M2Mesh> {
-  const r = await fetch(url);
-  if (!r.ok) throw new Error(`${url}: ${r.status}`);
-  return parseM2(await r.arrayBuffer());
-}
-
-/* Parsed models and uploaded textures, kept for the life of the page.
- *
- * Taking a helm off and putting it back on used to re-fetch it, re-parse it
- * and re-upload its texture to the GPU. The bytes were in the browser's cache
- * every time; the work after them was not. Both maps are keyed by URL, which
- * already carries the race and gender suffix, so two bodies wearing the same
- * helm still get their own file.
- *
- * A shared texture is safe here because `Piece.dispose` disposes materials and
- * not their maps — a piece never frees a texture another piece is drawing. */
-const meshes = new Map<string, Promise<M2Mesh>>();
-const textures = new Map<string, Promise<THREE.Texture>>();
-
-function cachedModel(url: string): Promise<M2Mesh> {
-  const hit = meshes.get(url);
-  if (hit) return hit;
-  const load = fetchModel(url);
-  meshes.set(url, load);
-  load.catch(() => meshes.delete(url));
-  return load;
-}
-
-function cachedTexture(url: string): Promise<THREE.Texture> {
-  const hit = textures.get(url);
-  if (hit) return hit;
-  const load = loadTexture(url);
-  textures.set(url, load);
-  load.catch(() => textures.delete(url));
-  return load;
-}
-
-/** One worn model and everything it needs to draw, or null if the client does
- *  not ship it for this body. Loaded as a unit so the whole outfit can be
- *  fetched at once rather than one piece at a time. */
-async function loadWorn(model: { url: string; textureUrl: string | null; attach: number }) {
-  try {
-    const mesh = await cachedModel(model.url);
-    const [own, named] = await Promise.all([
-      model.textureUrl ? cachedTexture(model.textureUrl) : null,
-      // Textures the model names for itself: the mod2x sheen on raid
-      // shoulders, a hardcoded skin on some monster weapons. One that is not
-      // on disk skips its batch rather than drawing grey.
-      Promise.all(
-        mesh.textures.filter((path): path is string => !!path).map(async (path) => {
-          try {
-            return [texKey(path), await cachedTexture(namedTextureUrl(path))] as const;
-          } catch {
-            console.warn(`doll: ${model.url} names ${path}, which is not in the wardrobe`);
-            return null;
-          }
-        }),
-      ),
-    ]);
-    return { mesh, own, named: named.filter((x): x is readonly [string, THREE.Texture] => x !== null), attach: model.attach };
-  } catch (e) {
-    // A head model the client does not ship for this race and gender is a gap
-    // in the art, not a fault worth stopping for.
-    console.warn(`doll: ${model.url} did not load`, e);
-    return null;
-  }
-}
-
-const wrap = (i: number, n: number) => (n === 0 ? 0 : ((i % n) + n) % n);
-
 export default function Doll() {
-  const hostRef = useRef<HTMLDivElement>(null);
-  /* Where the camera is pointing, kept outside the scene effect. Every option
-   * change rebuilds the scene, and losing the framing each time makes
-   * comparing two beards up close impossible. `dist` is a fraction of the
-   * model's height so it survives a switch to a taller body. */
-  const view = useRef({ yaw: Math.PI / 2, pitch: 0.06, zoom: 2.6 });
-  const [manifest, setManifest] = useState<Manifest | null>(null);
   const [race, setRace] = useState(1);
   const [gender, setGender] = useState(0);
-  const [body, setBody] = useState<M2Mesh | null>(null);
-  const [error, setError] = useState<string | null>(null);
-  const [overrides, setOverrides] = useState<Map<number, boolean>>(new Map());
-  /* The wardrobe: every equippable item in the client, and what this character
-   * currently has on. Kept as whole items rather than ids so the rail can
-   * print a name without a second lookup. */
-  const [catalogue, setCatalogue] = useState<Catalogue | null>(null);
-  const [wardrobeFault, setWardrobeFault] = useState<string | null>(null);
+  const [look, setLook] = useState<Look>(DEFAULT_LOOK);
   const [equipped, setEquipped] = useState<Map<string, WardrobeItem>>(new Map());
+  const [overrides, setOverrides] = useState<Map<number, boolean>>(new Map());
   const [picking, setPicking] = useState<string | null>(null);
   const [query, setQuery] = useState("");
   const [leftovers, setLeftovers] = useState(false);
-  const [tris, setTris] = useState(0);
   const [regionMap, setRegionMap] = useState(false);
   const [showAll, setShowAll] = useState(false);
-  const [look, setLook] = useState<Look>({ skin: 0, face: 0, hair: 1, hairColor: 0, beard: 0 });
 
-  const r = useMemo(() => manifest?.races.find((x) => x.race === race) ?? null, [manifest, race]);
-  const g = useMemo(() => r?.genders.find((x) => x.gender === gender) ?? r?.genders[0] ?? null, [r, gender]);
-
-  /* The creation screen splits the roster by faction, so this does too. */
-  const roster = useMemo(() => {
-    const by = { Alliance: [] as RaceBlock[], Horde: [] as RaceBlock[] };
-    for (const x of manifest?.races ?? []) by[FACTION[x.race] ?? "Alliance"].push(x);
-    return by;
-  }, [manifest]);
-
-  /** Every geoset the loaded model actually carries. */
-  const carried = useMemo(() => new Set((body?.batches ?? []).map((b) => b.geoset)), [body]);
-
-  /* What this body offers. A human female has 19 hairstyles and no beards; a
-   * male has 12 and 8. The panel reads its lengths from here — and drops the
-   * styles the model cannot draw. Human male beard styles 3 and 8 ask for
-   * geosets 103 and 203, and the file stops at variant 2, so offering them
-   * gives you a clean-shaven face and no clue why. */
-  const options = useMemo(() => {
-    if (!g) return { skin: [], face: [], hair: [], hairColor: [], beard: [] };
-    // The three values target families 1, 2 and 3, and most races only use
-    // one of them — an orc's piercings are all family 1, a troll's tusks all
-    // family 3 — so the unused slots naming a mesh that is not there is
-    // normal. A style is only useless when none of its parts can draw.
-    const drawable = (variants: number[]) =>
-      variants.every((v) => v === 0) || variants.some((v, i) => v !== 0 && carried.has((i + 1) * 100 + v));
-    const variations = (kind: string) =>
-      [...new Set(g.sections.filter((s) => s.kind === kind).map((s) => s.variation))].sort((a, b) => a - b);
-    const colours = (list: (string | null)[]) =>
-      list.map((hex, i) => ({ hex, i })).filter((c): c is { hex: string; i: number } => !!c.hex);
-    return {
-      skin: colours(g.skinColors),
-      face: variations("face"),
-      // Until the model is parsed there is nothing to check against, and
-      // filtering on an empty set would collapse both lists to one entry.
-      hair: carried.size ? g.hairStyles.filter((h) => h.geoset === 0 || carried.has(h.geoset)) : g.hairStyles,
-      hairColor: colours(g.hairColors),
-      beard: carried.size ? g.facialStyles.filter((f) => drawable(f.geosets)) : g.facialStyles,
-    };
-  }, [g, carried]);
-
-  useEffect(() => {
-    let live = true;
-    (async () => {
-      try {
-        const m: Manifest = await (await fetch(`${BASE}/manifest.json`)).json();
-        if (!live) return;
-        setManifest(m);
-      } catch (e) {
-        if (live) setError(e instanceof Error ? e.message : String(e));
-      }
-    })();
-    return () => {
-      live = false;
-    };
-  }, []);
-
-  /* The wardrobe. A separate build from the bodies and a separate fetch: it
-   * is 90 MB of item art that is not in git, so a checkout without it should
-   * still draw a naked character rather than a blank page. */
-  useEffect(() => {
-    let live = true;
-    loadCatalogue().then(
-      (c) => live && setCatalogue(c),
-      (e) => live && setWardrobeFault(e instanceof Error ? e.message : String(e)),
-    );
-    return () => {
-      live = false;
-    };
-  }, []);
-
-  /* The character model, reloaded when the body changes. */
-  useEffect(() => {
-    if (!g) return;
-    let live = true;
-    setBody(null);
-    (async () => {
-      try {
-        const mesh = await fetchM2(g.model);
-        if (live) setBody(mesh);
-      } catch (e) {
-        if (live) setError(e instanceof Error ? e.message : String(e));
-      }
-    })();
-    return () => {
-      live = false;
-    };
-  }, [g]);
-
-  /* Clamp every index when the lists change, so switching to a body with
-   * fewer hairstyles cannot leave a choice pointing past the end. */
-  useEffect(() => {
-    // An empty list means the manifest has not arrived yet, not that the body
-    // has no choices — clamping against it would pin everything to zero.
-    const fit = (i: number, n: number) => (n ? Math.min(i, n - 1) : i);
-    setLook((prev) => ({
-      skin: fit(prev.skin, options.skin.length),
-      face: fit(prev.face, options.face.length),
-      hair: fit(prev.hair, options.hair.length),
-      hairColor: fit(prev.hairColor, options.hairColor.length),
-      beard: fit(prev.beard, options.beard.length),
-    }));
-  }, [options]);
-
-  /* Resolve the indices into meshes and textures. Hair takes two tables that
-   * have to agree — one names the mesh, the other the paint — so they are
-   * looked up together and never carried apart. */
-  const chosen = useMemo(() => {
-    const hair = options.hair[look.hair];
-    const beard = options.beard[look.beard];
-    const skinColor = options.skin[look.skin]?.i ?? 0;
-    const hairColor = options.hairColor[look.hairColor]?.i ?? 0;
-    const faceVariation = options.face[look.face] ?? 0;
-    const section = (kind: string, variation: number, color: number) =>
-      g?.sections.find((s) => s.kind === kind && s.variation === variation && s.color === color);
-    const hairRow = section("hair", hair?.variation ?? 0, hairColor)?.files ?? {};
-    return {
-      hairGeoset: hair?.geoset ?? 0,
-      showScalp: hair?.showScalp ?? false,
-      beardGeosets: beard?.geosets ?? [0, 0, 0],
-      skin: section("skin", 0, skinColor)?.files ?? {},
-      face: section("face", faceVariation, skinColor)?.files ?? {},
-      underwear: section("underwear", 0, skinColor)?.files ?? {},
-      hair: hairRow,
-      beard: section("facialHair", beard?.variation ?? 0, hairColor)?.files ?? {},
-      // A tauren's hair row names no usable hair texture — the male's slot
-      // points at a face texture — and none is needed: nothing on a tauren
-      // samples the hair slot. His mane reads the skin's extra sheet and his
-      // horns read the body skin itself.
-      hairTexture: hairRow.hair && !/face/i.test(hairRow.hair) ? hairRow.hair : undefined,
-    };
-  }, [g, options, look]);
-
-  /* What every equipped item does to this body. Race and gender are part of
-   * it: a helm is a different file per body and bares a night elf's ears
-   * without touching a dwarf's beard. Ordered so the overlays stack the way
-   * gear layers — gloves over sleeves, a belt over both. */
-  const dressed = useMemo(() => {
-    if (!catalogue) return [] as Dressed[];
-    return [...equipped.values()]
-      .sort((a, b) => LAYER_ORDER.indexOf(a.slot) - LAYER_ORDER.indexOf(b.slot))
-      .map((item) => dress(catalogue, item, race, gender))
-      .filter((d): d is Dressed => d !== null);
-  }, [catalogue, equipped, race, gender]);
-
-  const wornItems = useMemo(() => dressed.map((d) => d.worn), [dressed]);
+  const { hostRef, roster, r, options, fitted, catalogue, wardrobeFault, error, tris, families, hidden, ruled, shown } =
+    useBody({ race, gender, look, equipped, regionMap, showAll, overrides });
 
   /* Every item that fits each slot, so the picker only has to filter by name. */
   const bySlot = useMemo(() => (catalogue ? itemsBySlot(catalogue) : new Map()), [catalogue]);
@@ -336,332 +48,16 @@ export default function Doll() {
     return { rows: hits.slice(0, 120), total: hits.length, hidden: named.length - hits.length };
   }, [bySlot, picking, query, leftovers]);
 
-  /** What each slot offers, counted the way the picker will show it. */
   const slotCount = useCallback(
     (slot: string) => (bySlot.get(slot) ?? []).filter((i: WardrobeItem) => leftovers || !i.leftover).length,
     [bySlot, leftovers],
   );
 
-  /* What the gear takes off. A helm that hides hair hides every style, so
-   * ticking one on below forces it past a rule rather than fixing a bug. */
-  const hidden = useMemo(() => hiddenGroups(wornItems), [wornItems]);
-
-  /* What the rules alone draw. Anything shown that is not in here was forced
-   * by hand. */
-  const ruled = useMemo(
-    () => visibleGeosets({ hairGeoset: chosen.hairGeoset, facialHair: chosen.beardGeosets, items: wornItems }),
-    [chosen, wornItems],
-  );
-
-  const shown = useMemo(() => {
-    const set = new Set(ruled);
-    for (const [geoset, on] of overrides) {
-      if (on) set.add(geoset);
-      else set.delete(geoset);
-    }
-    return set;
-  }, [ruled, overrides]);
-
-  /* Every geoset the file carries, grouped by family, with what each costs. */
-  const families = useMemo(() => {
-    if (!body) return [];
-    const byGeoset = new Map<number, number>();
-    for (const b of body.batches) byGeoset.set(b.geoset, (byGeoset.get(b.geoset) ?? 0) + b.count / 3);
-    const grouped = new Map<number, { geoset: number; tris: number }[]>();
-    for (const [geoset, t] of [...byGeoset].sort((a, b) => a[0] - b[0])) {
-      const f = familyOf(geoset);
-      if (!grouped.has(f)) grouped.set(f, []);
-      grouped.get(f)!.push({ geoset, tris: t });
-    }
-    return [...grouped].map(([family, rows]) => ({
-      family,
-      name: GEOSET_FAMILY[family] ?? `family ${family}`,
-      rows,
-      max: Math.max(...rows.map((r) => r.tris)),
-    }));
-  }, [body]);
-
-  /* ---------- the scene ----------
-   *
-   * Two effects, not one. The renderer, the camera, the lights and the frame
-   * loop belong to the body: build them once and they last until the body
-   * changes. What the character is wearing changes far more often and needs
-   * nothing but new pieces in the same scene.
-   *
-   * Both used to sit in one effect, so equipping a helm threw away the WebGL
-   * context, the canvas and every listener and built them again — one to three
-   * seconds of teardown for a change worth a few thousand triangles.
-   *
-   * `rig` is the join. The dressing effect writes its pieces into it; the frame
-   * loop draws whatever it finds there. */
-  const rig = useRef<{
-    stage: THREE.Group | null;
-    bodyPiece: Piece | null;
-    attached: { piece: Piece; attach: number }[];
-    bodyTex: THREE.Texture | null;
-  }>({ stage: null, bodyPiece: null, attached: [], bodyTex: null });
-
-  useEffect(() => {
-    const host = hostRef.current;
-    if (!host || !body) return;
-
-    let frame = 0;
-
-    // Transparent: the stage paints Elwynn behind the canvas, and the figure
-    // composites over it the way the game's own creation screen does.
-    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-    renderer.setPixelRatio(Math.min(2, window.devicePixelRatio || 1));
-    renderer.setClearColor(0x000000, 0);
-    host.appendChild(renderer.domElement);
-
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(32, 1, 0.05, 100);
-    const stage = new THREE.Group();
-    stage.rotation.copy(MODEL_TO_SCENE);
-    scene.add(stage);
-    rig.current.stage = stage;
-
-    // A key light high and to the front, a cool fill from behind, and enough
-    // ambient that the shaded side keeps its texture. Vanilla art was painted
-    // with its own light already in it, so this stays gentle.
-    scene.add(new THREE.AmbientLight(0xffffff, 1.15));
-    const key = new THREE.DirectionalLight(0xfff2dd, 1.5);
-    key.position.set(-3, 5, 4);
-    scene.add(key);
-    const rim = new THREE.DirectionalLight(0x8899cc, 0.55);
-    rim.position.set(3, 2, -4);
-    scene.add(rim);
-
-    // The model faces +X, which the Z-up-to-Y-up rotation sends to +X in the
-    // scene, so the camera stands on +X for a front view. Framing comes from
-    // the model's own bounds: a tauren is half again a gnome's height, and a
-    // fixed distance either crops one or strands the other.
-    const height = Math.max(0.5, body.bounds.max[2] - body.bounds.min[2]);
-    let dist = height * view.current.zoom;
-    // Zooming in rises toward the head. Holding the camera on the chest makes
-    // the face — the thing four of the five choices change — unreachable.
-    const near = height * 0.4;
-    const far = height * 6;
-    const wide = height * 2.6; // the distance that frames the whole body
-    const targetFor = (d: number) => {
-      const t = Math.min(1, Math.max(0, (d - near) / (wide - near)));
-      return height * (0.94 - 0.42 * t);
-    };
-    let dragging = false;
-    let lastX = 0;
-    let lastY = 0;
-
-    const onDown = (e: PointerEvent) => {
-      dragging = true;
-      lastX = e.clientX;
-      lastY = e.clientY;
-      renderer.domElement.setPointerCapture(e.pointerId);
-    };
-    const onMove = (e: PointerEvent) => {
-      if (!dragging) return;
-      view.current.yaw -= (e.clientX - lastX) * 0.008;
-      view.current.pitch = Math.max(-0.7, Math.min(0.7, view.current.pitch + (e.clientY - lastY) * 0.005));
-      lastX = e.clientX;
-      lastY = e.clientY;
-    };
-    const onUp = () => {
-      dragging = false;
-    };
-    const onWheel = (e: WheelEvent) => {
-      e.preventDefault();
-      dist = Math.max(near, Math.min(far, dist + e.deltaY * 0.004));
-      view.current.zoom = dist / height;
-    };
-    renderer.domElement.addEventListener("pointerdown", onDown);
-    renderer.domElement.addEventListener("pointermove", onMove);
-    renderer.domElement.addEventListener("pointerup", onUp);
-    renderer.domElement.addEventListener("wheel", onWheel, { passive: false });
-
-    const resize = () => {
-      const w = host.clientWidth;
-      const h = host.clientHeight;
-      if (!w || !h) return;
-      renderer.setSize(w, h);
-      camera.aspect = w / h;
-      camera.updateProjectionMatrix();
-    };
-    const observer = new ResizeObserver(resize);
-    observer.observe(host);
-    resize();
-
-    const stand = body.sequences.find((s) => s.id === 0) ?? body.sequences[0] ?? null;
-    const span = stand ? Math.max(1, stand.end - stand.start) : 1000;
-    const start = performance.now();
-    const socketMatrix = new THREE.Matrix4();
-
-    // The loop runs from the moment the body is parsed, with or without a
-    // figure in it. Undressed frames are the half-second before the skin is
-    // composed, and drawing an empty stage beats not drawing at all: the
-    // camera stays live under the pointer while the gear loads.
-    const tick = () => {
-      frame = requestAnimationFrame(tick);
-      const { bodyPiece, attached } = rig.current;
-      if (bodyPiece) {
-        bodyPiece.update((stand?.start ?? 0) + ((performance.now() - start) % span), stand);
-        for (const a of attached) {
-          const m = bodyPiece.attachmentMatrix(a.attach, socketMatrix);
-          if (m) a.piece.object.matrix.copy(m);
-        }
-      }
-      const target = targetFor(dist);
-      const { yaw, pitch } = view.current;
-      camera.position.set(
-        Math.sin(yaw) * Math.cos(pitch) * dist,
-        target + Math.sin(pitch) * dist,
-        Math.cos(yaw) * Math.cos(pitch) * dist,
-      );
-      camera.lookAt(0, target, 0);
-      renderer.render(scene, camera);
-    };
-    tick();
-
-    return () => {
-      cancelAnimationFrame(frame);
-      observer.disconnect();
-      renderer.domElement.removeEventListener("pointerdown", onDown);
-      renderer.domElement.removeEventListener("pointermove", onMove);
-      renderer.domElement.removeEventListener("pointerup", onUp);
-      renderer.domElement.removeEventListener("wheel", onWheel);
-      const { bodyPiece, attached, bodyTex } = rig.current;
-      bodyPiece?.dispose();
-      for (const a of attached) a.piece.dispose();
-      // The composed skin is this page's own canvas and nothing else holds it.
-      // A cached texture belongs to every piece that shares it, so it stays.
-      if (bodyTex instanceof THREE.CanvasTexture) bodyTex.dispose();
-      rig.current = { stage: null, bodyPiece: null, attached: [], bodyTex: null };
-      renderer.dispose();
-      host.removeChild(renderer.domElement);
-    };
-  }, [body]);
-
-  /* ---------- dressing the figure ----------
-   *
-   * Everything this needs is fetched at once. Awaiting each texture in turn
-   * cost a round trip of latency per file even when every one of them was a
-   * cache hit, and a full set of plate is a dozen files. */
-  useEffect(() => {
-    const stage = rig.current.stage;
-    if (!stage || !g || !body) return;
-    let live = true;
-
-    (async () => {
-      /* --- the body texture --- */
-      const layers: BodyLayer[] = [];
-      const push = (region: Region, file?: string) => {
-        if (file) layers.push({ region, urls: [`${BASE}/tex/${file}`] });
-      };
-      // The face first, then the hairline and the beard on top of it, then the
-      // underwear, whose pelvis shares the leg-upper rectangle. Armour last.
-      push("faceLower", chosen.face.lower);
-      push("faceUpper", chosen.face.upper);
-      // The scalp always goes on: the hair covering the skull is paint, and
-      // the hair mesh is only the part that stands off it — a night elf's
-      // ponytail leaves a bare pink crown without this. The same two sheets
-      // are a bald man's shaved head and a tauren's horn colours. The
-      // `showScalp` flag is not a display switch; it marks the bald rows a
-      // helm swaps in, which this bench does not do.
-      push("faceLower", chosen.hair.scalpLower);
-      push("faceUpper", chosen.hair.scalpUpper);
-      // A style with no geosets is a clean shave, and its texture row is not
-      // a blank one — human male style 2 draws no mesh but its texture still
-      // has a beard painted on it. Skip the paint when there is no geometry.
-      if (chosen.beardGeosets.some((v) => v !== 0)) {
-        push("faceLower", chosen.beard.lower);
-        push("faceUpper", chosen.beard.upper);
-      }
-      push("legUpper", chosen.underwear.pelvis);
-      push("torsoUpper", chosen.underwear.torso);
-      // Armour last, already in layering order. Each overlay carries its
-      // gendered, unisex and bare candidates; the first that loads wins.
-      for (const d of dressed) layers.push(...d.layers);
-
-      // A cloak has no model. It is geoset family 15 on the character itself,
-      // painted from texture slot 2 — the slot the game leaves for an item's
-      // own art — so the cape goes on the body piece, not beside it.
-      const cape = dressed.find((d) => d.capeUrl)?.capeUrl;
-
-      const [skin, hairTex, extraTex, capeTex, namedPairs, worn] = await Promise.all([
-        regionMap
-          ? cachedTexture(`${BASE}/tex/_regionmap.png`)
-          : composeBody(`${BASE}/tex/${chosen.skin.skin ?? ""}`, layers).then((canvas) => {
-              const t = new THREE.CanvasTexture(canvas);
-              t.colorSpace = THREE.SRGBColorSpace;
-              t.flipY = false;
-              return t as THREE.Texture;
-            }),
-        chosen.hairTexture ? cachedTexture(`${BASE}/tex/${chosen.hairTexture}`) : null,
-        chosen.skin.extra ? cachedTexture(`${BASE}/tex/${chosen.skin.extra}`) : null,
-        cape ? cachedTexture(cape) : null,
-        // Textures the model names for itself: the eye glow on a night elf or
-        // an undead, a second skin on the gnome male.
-        Promise.all(
-          Object.entries(g.namedTextures).map(
-            async ([k, file]) => [k, await cachedTexture(`${BASE}/tex/${file}`)] as const,
-          ),
-        ),
-        Promise.all(dressed.flatMap((d) => d.models.map((m) => loadWorn(m)))),
-      ]);
-
-      if (!live) {
-        if (skin instanceof THREE.CanvasTexture) skin.dispose();
-        return;
-      }
-
-      // Slot 1 is the composed body. Slot 6 is the hair. Slot 8 is the skin's
-      // extra sheet, named by the same CharSections row as the skin itself —
-      // a tauren's mane and braids and the furred parts of his body read it,
-      // so it follows the skin colour, not the hair colour.
-      const runtime = new Map<number, THREE.Texture>([[1, skin]]);
-      if (hairTex) runtime.set(6, hairTex);
-      if (extraTex) runtime.set(8, extraTex);
-      if (capeTex) runtime.set(2, capeTex);
-
-      const bodyPiece = new Piece(body, new Map(namedPairs), { geosets: showAll ? null : shown, runtime });
-      const attached = worn.filter((w) => w !== null).map((w) => {
-        const piece = new Piece(w.mesh, new Map(w.named), { runtime: new Map(w.own ? [[2, w.own]] : []) });
-        piece.object.matrixAutoUpdate = false;
-        piece.update(0, w.mesh.sequences[0] ?? null);
-        return { piece, attach: w.attach };
-      });
-
-      /* Swap in one go, and only now. The old figure has stayed on screen the
-       * whole time this was loading, so changing a helm never blinks the
-       * character out — which is what a cleanup that tore the pieces down
-       * before the new ones existed used to do. */
-      const previous = rig.current;
-      if (previous.bodyPiece) stage.remove(previous.bodyPiece.object);
-      for (const a of previous.attached) stage.remove(a.piece.object);
-      stage.add(bodyPiece.object);
-      for (const a of attached) stage.add(a.piece.object);
-      rig.current = { stage, bodyPiece, attached, bodyTex: skin };
-
-      previous.bodyPiece?.dispose();
-      for (const a of previous.attached) a.piece.dispose();
-      if (previous.bodyTex instanceof THREE.CanvasTexture) previous.bodyTex.dispose();
-
-      setTris(
-        body.batches.reduce((n, b) => n + (showAll || shown.has(b.geoset) ? b.count / 3 : 0), 0) +
-          attached.reduce((n, a) => n + a.piece.mesh.triangleCount, 0),
-      );
-    })().catch((e) => {
-      if (live) setError(e instanceof Error ? e.message : String(e));
-    });
-
-    return () => {
-      live = false;
-    };
-  }, [g, body, dressed, shown, showAll, regionMap, chosen]);
-
   /* ---------- controls ---------- */
 
   const step = useCallback(
-    (key: keyof Look, by: number, count: number) => setLook((prev) => ({ ...prev, [key]: wrap(prev[key] + by, count) })),
-    [],
+    (key: keyof Look, by: number, count: number) => setLook((prev) => ({ ...prev, [key]: wrap(fitted[key] + by, count) })),
+    [fitted],
   );
 
   const randomise = () => {
@@ -689,27 +85,25 @@ export default function Doll() {
     });
 
   const rows: { key: keyof Look; label: string; count: number; value: ReactNode }[] = [
-    { key: "skin", label: "Skin", count: options.skin.length, value: <Swatch hex={options.skin[look.skin]?.hex} /> },
+    { key: "skin", label: "Skin", count: options.skin.length, value: <Swatch hex={options.skin[fitted.skin]?.hex} /> },
     { key: "face", label: "Face", count: options.face.length, value: null },
     {
       key: "hair",
       label: ROW_LABELS[race]?.hair ?? "Hair",
       count: options.hair.length,
-      value: options.hair[look.hair]?.geoset === 0 ? <span className={styles.stepNote}>bald</span> : null,
+      value: options.hair[fitted.hair]?.geoset === 0 ? <span className={styles.stepNote}>bald</span> : null,
     },
     {
       key: "hairColor",
       label: `${ROW_LABELS[race]?.hair ?? "Hair"} colour`,
       count: options.hairColor.length,
-      value: <Swatch hex={options.hairColor[look.hairColor]?.hex} />,
+      value: <Swatch hex={options.hairColor[fitted.hairColor]?.hex} />,
     },
     {
       key: "beard",
       label: ROW_LABELS[race]?.facial ?? "Facial hair",
       count: options.beard.length,
-      // The same row is a beard, a set of tusks or a tauren's hair, so the
-      // empty option cannot be called "shaven".
-      value: options.beard[look.beard]?.geosets.every((x) => x === 0) ? (
+      value: options.beard[fitted.beard]?.geosets.every((x) => x === 0) ? (
         <span className={styles.stepNote}>none</span>
       ) : null,
     },
@@ -765,7 +159,7 @@ export default function Doll() {
                     <>
                       {row.value}
                       <span className={styles.stepCount}>
-                        {look[row.key] + 1}/{row.count}
+                        {fitted[row.key] + 1}/{row.count}
                       </span>
                       <button
                         type="button"

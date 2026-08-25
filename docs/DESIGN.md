@@ -1,11 +1,10 @@
 # Design — what has survived so far
 
-Started 2026-08-25. `TARI.md` §11.4 says this file is written last and records
-only what the landing page set and the room kept. The landing exists; the room
-does not. So this is a first cut, deliberately open, and every section below
+Started 2026-08-25; v2 the same day, after the room. `TARI.md` §11.4 says this
+file records only what the landing page set and the room kept. Every section
 is marked **settled** or **open**. Settled means the code already does it and
 nothing is allowed to drift from it. Open means the landing page's answer is
-the default until the room gives a reason to change it.
+the default until a surface gives a reason to change it.
 
 Add to this file when a second surface needs a thing. Not before.
 
@@ -107,16 +106,40 @@ The frame: `--ground`, radius `clamp(14px, 1.6vw, 24px)`, 16:10 (21:10 wide,
 inside one; it is never drawn directly on paper.
 
 The card, on the art: `rgba(6,6,10,.86)`, blur 24px, 0.5px `--rule`, radius
-12px. `.86` is measured, not chosen (`CONTRAST.md`). Do not lower it.
+12px, `--mute` raised to `.74` inside. `.86` is measured, not chosen
+(`CONTRAST.md`). Do not lower it. **The room proved there is one card.** The
+past layer, the loot panel and the pin text are the same element with
+different rows in it; a new panel does not get a new surface.
 
-The chip: same ground, blur 12px, radius 999px, `0.25rem 0.6rem`. For single
-words on the art — pins, cursors, names.
+The chip: same ground, blur 12px, radius 999px. For single words on the
+art — pins, cursors, names, and the guide's subjects. The current chip is
+turned over: ink ground, dark text. A chip that is a link and not a state
+has a dashed hairline.
 
-The scrim: three gradients, bottom 26% and left 46%. Bare ink lives only
-inside it. Do not make it heavier for a bright room; recrop the room.
+The scrim: four gradients — bottom 26%, left 46%, a radial weight at the
+edges, and the landing hero's top band (35% to 0 at 18%). Bare ink lives
+only inside it. Do not make it heavier for a bright room; recrop the room.
+
+Bare ink (`CONTRAST.md` surface A) is used exactly once in the app: the
+guide's placard, in the left band. Nothing else on the art goes without a
+card or a chip.
 
 Room art everywhere: `saturate(.9) contrast(1.05) brightness(.95)`. One
 grade, never per-room.
+
+## The canvas — settled
+
+The room is a canvas, not a scroll, and it has four places. **Top, centred:
+the name** — eyebrow and title, the way a gallery wall names a room.
+**Bottom-left: reading** — the guide's placard and its chips, bare ink.
+**Bottom-right: objects** — the cards, stacked, `min(21rem, 34%)` wide.
+**Top-right: the compass**, which unfolds the map. The middle of the
+photograph is empty on purpose. Anything new has to take one of the four
+places or make the case for a fifth.
+
+Small under large: a placard's eyebrow (mono, tracked) sits over its subject
+(display, up to 4.75rem), then a one-line title, then two sentences. The
+things that choose it (the chips) sit under it, never beside it.
 
 ## Controls — settled
 
@@ -152,6 +175,17 @@ background. Not built. Until it is, room changes cut.
 the fox mark is placeholder; the aggro `!` pin marker is a pink dot. Redraw as
 one set, 1.5px stroke, on the same 24 grid as the debuffs. STATUS §6.3.
 
+**The map and the objects.** The open map plate lands top-right, over the
+objects' column. Either the objects fold while the map is open, or the
+plate takes the middle. Decide on the 5K.
+
+**Narrow.** Under 64rem the objects hide and the guide takes the width. That
+is a placeholder, not a layout. The room has not been designed for a phone.
+
+**Item quality colours.** The loot panel uses the game's four (green, blue,
+purple, orange), lightened for the dark ground. They are the game's
+language, not a second accent; they never leave an item name.
+
 **Paper inside the app.** Nothing in the shell is light today. If a settings
 page or a profile needs paper, it uses the paper tokens above unchanged — the
 question is only whether it should exist.
@@ -171,4 +205,7 @@ column with forty names in it says otherwise.
 
 Text-shadow for legibility. Per-room CSS. A third ground. A second font.
 A second accent. Pink on a button. A spinner. A border where a band change
-would do. Anything in `globals.css` that only one surface uses.
+would do. Anything in `globals.css` that only one surface uses. A row you
+drag with the mouse — the landing's strip was a placeholder and it stays
+there; in the app a set of things is chips, or it is a list. Naming a thing
+the reader is not allowed to read yet.

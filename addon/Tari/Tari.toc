@@ -1,0 +1,7 @@
+## Interface: 11507
+## Title: Tari
+## Notes: /tari exports your character for tari.gg
+## Author: Kacey
+## Version: 0.1.0
+## SavedVariablesPerCharacter: TariChar
+Tari.lua

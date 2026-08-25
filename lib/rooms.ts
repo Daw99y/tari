@@ -26,6 +26,9 @@ export type Room = {
   name: string;
   kind: RoomKind;
   continent: Continent;
+  /** A wing that has not been photographed yet borrows its building's
+   *  picture. Absent means the room's own file, named by its id. */
+  art?: string;
 };
 
 /** The order the rail draws its groups in: where people are, then where
@@ -100,6 +103,8 @@ export const ROOMS: Room[] = [
   { id: "winterspring", name: "Winterspring", kind: "zone", continent: KAL },
 
   { id: "blackrock-depths", name: "Blackrock Depths", kind: "dungeon", continent: EK },
+  { id: "lower-blackrock-spire", name: "Lower Blackrock Spire", kind: "dungeon", continent: EK, art: "blackrock-mountain" },
+  { id: "upper-blackrock-spire", name: "Upper Blackrock Spire", kind: "dungeon", continent: EK, art: "blackrock-mountain" },
   { id: "gnomeregan", name: "Gnomeregan", kind: "dungeon", continent: EK },
   { id: "scarlet-monastery", name: "Scarlet Monastery", kind: "dungeon", continent: EK },
   { id: "scholomance", name: "Scholomance", kind: "dungeon", continent: EK },
@@ -110,7 +115,9 @@ export const ROOMS: Room[] = [
   { id: "the-temple-of-atal-hakkar", name: "The Temple of Atal'Hakkar", kind: "dungeon", continent: EK },
   { id: "uldaman", name: "Uldaman", kind: "dungeon", continent: EK },
   { id: "blackfathom-deeps", name: "Blackfathom Deeps", kind: "dungeon", continent: KAL },
-  { id: "dire-maul", name: "Dire Maul", kind: "dungeon", continent: KAL },
+  { id: "dire-maul-east", name: "Dire Maul East", kind: "dungeon", continent: KAL, art: "dire-maul" },
+  { id: "dire-maul-west", name: "Dire Maul West", kind: "dungeon", continent: KAL, art: "dire-maul" },
+  { id: "dire-maul-north", name: "Dire Maul North", kind: "dungeon", continent: KAL, art: "dire-maul" },
   { id: "maraudon", name: "Maraudon", kind: "dungeon", continent: KAL },
   { id: "ragefire-chasm", name: "Ragefire Chasm", kind: "dungeon", continent: KAL },
   { id: "razorfen-downs", name: "Razorfen Downs", kind: "dungeon", continent: KAL },
@@ -153,14 +160,14 @@ export function getRoom(id: string): Room | undefined {
 
 /** The full-bleed ground: the shipped master, 52 KB to 528 KB. */
 export function roomArt(id: string): string {
-  return `/journey/${id}.webp`;
+  return `/journey/${BY_ID.get(id)?.art ?? id}.webp`;
 }
 
 /** The rail's copy of the same picture, 500px wide. The rail draws all 75
  *  rooms at once — at full size that is 14 MB before the reader has clicked
  *  anything. Written by `scripts/rail-thumbs.mjs`. */
 export function roomThumb(id: string): string {
-  return `/journey/rail/${id}.webp`;
+  return `/journey/rail/${BY_ID.get(id)?.art ?? id}.webp`;
 }
 
 /** The rail's groups, in KIND_ORDER, each in the order written above —

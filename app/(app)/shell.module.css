@@ -79,9 +79,28 @@
 .railFoot {
   padding: 0.8rem 1rem;
   border-top: 0.5px solid var(--hair);
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem;
   font: 400 0.6rem/1.3 var(--mono);
   letter-spacing: 0.08em;
   color: rgba(242, 240, 234, 0.34);
+}
+
+/* The sheet's door: the one link in the rail that is not a room. */
+.you {
+  font: 500 0.78rem/1 var(--sans);
+  letter-spacing: -0.005em;
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 0.5px solid rgba(242, 240, 234, 0.3);
+  padding-bottom: 0.15rem;
+  transition: border-color 180ms ease;
+}
+
+.you:hover {
+  border-color: var(--ink);
 }
 
 /* ---- Azeroth as a list */
@@ -227,6 +246,17 @@
   font-size: 0.8rem;
   line-height: 1.55;
   color: var(--mute);
+}
+
+/* A second heading further down the column. */
+.columnNameLater {
+  margin-top: 1.5rem;
+}
+
+/* The rail's rows, reused: .rooms pads for the rail's gutter, and the
+ * column already has its own. */
+.people .rooms {
+  padding: 0;
 }
 
 /* ---- ⌘K */

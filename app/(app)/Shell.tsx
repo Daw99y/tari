@@ -15,11 +15,12 @@
  *
  * The current room comes from the URL, read once here and handed down. */
 
-import { usePathname, useSelectedLayoutSegments } from "next/navigation";
+import { usePathname, useRouter, useSelectedLayoutSegments } from "next/navigation";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
 import FoxMark from "@/components/FoxMark";
+import { loadCharacter } from "@/lib/character";
 
 import Command from "./Command";
 import People from "./People";
@@ -37,7 +38,15 @@ export default function Shell({
   const segments = useSelectedLayoutSegments();
   const roomId = segments[0] === "r" && segments[1] ? segments[1] : null;
   const pathname = usePathname();
+  const router = useRouter();
   const [asking, setAsking] = useState(false);
+
+  /* The doorstep, once (docs/CHARACTER.md): no character yet means the
+     creator, whatever room was asked for. Every visit after goes straight
+     through. */
+  useEffect(() => {
+    if (pathname !== "/you/new" && !loadCharacter()) router.replace("/you/new");
+  }, [pathname, router]);
 
   /* ⌘K anywhere in the shell. Ctrl+K too, because half the readers are on a
      gaming PC. */
@@ -77,7 +86,10 @@ export default function Shell({
           </header>
           <Rail />
           <footer className={styles.railFoot}>
-            {handle ? `Signed in as ${handle}` : "Not signed in"}
+            <Link href="/you" className={styles.you}>
+              You
+            </Link>
+            <span>{handle ? `Signed in as ${handle}` : "Not signed in"}</span>
           </footer>
         </div>
 

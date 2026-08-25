@@ -1,0 +1,320 @@
+/* The sheet. The game's paperdoll layout on the room's grammar: art, scrim,
+ * the body in the middle, gear down both sides as cards. */
+
+.sheet {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background: var(--ground);
+  color: var(--ink);
+  font-family: var(--sans);
+  display: grid;
+  grid-template-columns: minmax(14rem, 18rem) minmax(0, 1fr) minmax(14rem, 18rem);
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  column-gap: clamp(1rem, 2vw, 2rem);
+  padding: clamp(1.25rem, 3vh, 2rem) clamp(1.25rem, 3vw, 2.25rem);
+}
+
+.art {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0.7) contrast(1.05) brightness(0.7);
+}
+
+.scrim {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(to bottom, rgba(6, 6, 10, 0.5) 0%, rgba(6, 6, 10, 0.1) 30%),
+    radial-gradient(90% 80% at 50% 50%, rgba(6, 6, 10, 0) 40%, rgba(6, 6, 10, 0.7) 100%),
+    linear-gradient(to top, rgba(6, 6, 10, 0.85) 0%, rgba(6, 6, 10, 0) 40%);
+}
+
+/* ---- top: the name */
+
+.head {
+  grid-column: 1 / -1;
+  grid-row: 1;
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  display: grid;
+  gap: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.line {
+  margin: 0;
+  font: 400 0.66rem/1 var(--mono);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--mute);
+}
+
+.realm {
+  color: rgba(242, 240, 234, 0.38);
+}
+
+.name {
+  margin: 0;
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+}
+
+/* ---- the body */
+
+.doll {
+  grid-column: 2;
+  grid-row: 2;
+  position: relative;
+  min-width: 0;
+  min-height: 0;
+  cursor: grab;
+}
+
+.doll:active {
+  cursor: grabbing;
+}
+
+.doll canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* ---- the columns: eight slots each, the game's order */
+
+.column {
+  grid-row: 2;
+  position: relative;
+  z-index: 2;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  align-content: center;
+  gap: 0.35rem;
+  min-height: 0;
+}
+
+.left {
+  grid-column: 1;
+}
+
+.right {
+  grid-column: 3;
+}
+
+.weapons {
+  grid-column: 1 / -1;
+  grid-row: 3;
+  position: relative;
+  z-index: 2;
+  list-style: none;
+  margin: 0;
+  padding: 0.75rem 0 0;
+  display: flex;
+  justify-content: center;
+  gap: 0.35rem;
+}
+
+/* One slot: docs/CONTRAST.md surface B, a square for the icon. */
+.slot {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  min-width: 0;
+  padding: 0.4rem 0.6rem 0.4rem 0.4rem;
+  border-radius: 10px;
+  background: rgba(6, 6, 10, 0.86);
+  border: 0.5px solid var(--rule);
+  backdrop-filter: blur(24px) saturate(1.1);
+  -webkit-backdrop-filter: blur(24px) saturate(1.1);
+}
+
+.slot[data-align="right"] {
+  flex-direction: row-reverse;
+  text-align: right;
+  padding: 0.4rem 0.4rem 0.4rem 0.6rem;
+}
+
+.slot[data-empty] {
+  background: rgba(6, 6, 10, 0.5);
+}
+
+.weapons .slot {
+  width: 13rem;
+}
+
+.icon {
+  flex: none;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 6px;
+  overflow: hidden;
+  background: rgba(242, 240, 234, 0.05);
+  box-shadow: inset 0 0 0 0.5px var(--rule);
+}
+
+.icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.slotText {
+  display: grid;
+  gap: 0.15rem;
+  min-width: 0;
+}
+
+.slotLabel {
+  font: 400 0.55rem/1 var(--mono);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(242, 240, 234, 0.4);
+}
+
+.slotItem {
+  font-size: 0.78rem;
+  line-height: 1.2;
+  letter-spacing: -0.005em;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: var(--ink);
+}
+
+/* ---- the facts, bottom-left, over the weapons row's corner */
+
+.facts {
+  position: absolute;
+  left: clamp(1.25rem, 3vw, 2.25rem);
+  bottom: clamp(1.25rem, 3vh, 2rem);
+  z-index: 3;
+  width: min(16rem, 30%);
+  display: grid;
+  gap: 0.3rem;
+}
+
+.fact {
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: 0.78rem;
+  line-height: 1.3;
+}
+
+.factKey {
+  color: rgba(242, 240, 234, 0.5);
+}
+
+.factVal {
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+}
+
+.costume {
+  margin: 0 0 0.25rem;
+  font-size: 0.78rem;
+  line-height: 1.45;
+  color: var(--mute);
+}
+
+.mono {
+  font: 400 0.7rem/1 var(--mono);
+}
+
+.again {
+  justify-self: start;
+  margin-top: 0.4rem;
+  font: 500 0.72rem/1 var(--sans);
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 0.5px solid rgba(242, 240, 234, 0.4);
+  padding-bottom: 0.15rem;
+}
+
+.again:hover {
+  border-color: var(--ink);
+}
+
+.fault {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  margin: 0;
+  font-size: 0.8rem;
+  color: rgba(255, 79, 139, 0.9);
+}
+
+/* ---- nobody yet */
+
+.none {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-content: center;
+  gap: 1rem;
+  text-align: center;
+  color: var(--ink);
+}
+
+.noneLine {
+  margin: 0;
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 1.6rem;
+  letter-spacing: -0.03em;
+}
+
+.noneLink {
+  justify-self: center;
+  font: 500 0.85rem/1 var(--sans);
+  color: var(--ground);
+  background: var(--ink);
+  text-decoration: none;
+  padding: 0.7rem 1.15rem;
+  border-radius: 999px;
+}
+
+@media (max-width: 64rem) {
+  .sheet {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-rows: auto minmax(14rem, 40vh) auto auto;
+    row-gap: 0.75rem;
+  }
+  .doll {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+  .left {
+    grid-column: 1;
+    grid-row: 3;
+    align-content: start;
+  }
+  .right {
+    grid-column: 2;
+    grid-row: 3;
+    align-content: start;
+  }
+  .weapons {
+    grid-row: 4;
+    flex-wrap: wrap;
+  }
+  .facts {
+    display: none;
+  }
+}
