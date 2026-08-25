@@ -11,7 +11,7 @@
  * which overlays and which geoset groups one item hands them.
  */
 
-import { SLOT_FAMILIES, type BodyLayer, type Region, type Worn } from "@/lib/doll";
+import { ATTACH, SLOT_FAMILIES, type BodyLayer, type Region, type Worn } from "@/lib/doll";
 
 /** Where the item art is served from.
  *
@@ -134,6 +134,20 @@ export async function loadCatalogue(): Promise<Catalogue> {
   return r.json();
 }
 
+/* A one-hander files as inventory type 13, and that type names one slot: the
+ * main hand. In the game a rogue holds one in each hand, so the picker offers
+ * every one-hander in the off hand as well, as a second copy of the item whose
+ * slot says which hand it is going in. The socket has to follow — the
+ * catalogue's own attach for type 13 is the right hand — so the left one is
+ * named here and `dress` prefers it for the off-hand copy.
+ *
+ * Two-handers and main-hand-only weapons are not in this table: neither can be
+ * held in the off hand, and the shields, tomes and off-hand blades that carry
+ * their own off-hand inventory type do not need it. */
+const ALSO_OFFHAND: Record<number, number[]> = {
+  13: [ATTACH.handLeft],
+};
+
 /** Every item, keyed by the slot it goes in. Sorted by name already, so the
  *  picker only has to filter. */
 export function itemsBySlot(cat: Catalogue): Map<string, Item[]> {
@@ -153,8 +167,10 @@ export function itemsBySlot(cat: Catalogue): Map<string, Item[]> {
       icon: icon ? cat.pool[icon] : null,
       leftover: leftover === 1,
     };
-    if (!bySlot.has(slot)) bySlot.set(slot, []);
-    bySlot.get(slot)!.push(item);
+    for (const s of ALSO_OFFHAND[inventoryType] ? [slot, "offhand"] : [slot]) {
+      if (!bySlot.has(s)) bySlot.set(s, []);
+      bySlot.get(s)!.push(s === slot ? item : { ...item, slot: s });
+    }
   }
   return bySlot;
 }
@@ -182,7 +198,9 @@ export function dress(cat: Catalogue, item: Item, race: number, gender: number):
   const suffix = `_${RACE_CODE[race] ?? "Hu"}${gender === 0 ? "M" : "F"}`;
 
   const models: Dressed["models"] = [];
-  const sockets = where?.attach ?? [];
+  /* The off-hand copy of a one-hander goes on the left socket; everything else
+   * goes where its inventory type says. */
+  const sockets = (item.slot !== where?.slot ? ALSO_OFFHAND[item.inventoryType] : where?.attach) ?? [];
   (d.m ?? []).forEach((stem, i) => {
     if (!stem || !sockets.length) return;
     const name = cat.pool[stem] + (d.r ? suffix : "");

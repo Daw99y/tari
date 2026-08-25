@@ -71,7 +71,10 @@ const LEFTOVER = /^\[ph\]|^\(?old\)?[^a-z]|deprecated|unused|\btest\b|^\d+ (gree
  * for the slots that are paint and geometry only.
  *
  * Sheathed and drawn positions use different sockets and are not wired up, so
- * everything held is drawn. A bow has nowhere honest to go — its drawn pose is
+ * everything held is drawn. A one-hander files under the main hand here
+ * because that is the only slot its inventory type names; offering it in the
+ * off hand as well is a wardrobe rule, and lives in `ALSO_OFFHAND` in
+ * lib/wardrobe.ts. A bow has nowhere honest to go — its drawn pose is
  * two-handed and its sheathed pose is the back — so it is parked in the free
  * hand and given its own row rather than fighting the main hand for one. */
 const INVENTORY = {
