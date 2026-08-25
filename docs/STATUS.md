@@ -75,8 +75,8 @@ the meantime.
 | --- | --- | --- |
 | domain | whelpplz.com | tari.gg (to buy) |
 | Vercel | existing project, untouched | **`tari`** — exists, deploys `main` from GitHub, `tari-chi.vercel.app` |
-| Neon | `main` — keeps running, keeps writing events until it retires | **own project**, own console. The branch plan died: whelp plz's Neon sits in a Vercel-managed org nobody can log in to |
-| Discord OAuth | existing app | **done 2026-08-25** — own application, own client id and secret |
+| Neon | `main` — keeps running, keeps writing events | `tari-dev` branch (copy-on-write) |
+| Discord OAuth | existing app | **new** application, own client id/secret |
 
 Discord user ids are stable across applications, so accounts still match on
 `provider_id`. **Additive schema changes only; do not rename tables** — at
@@ -202,20 +202,19 @@ normal shape in this niche — the plan above is that shape.
 
 ## 6. Open and blocking
 
-**The plumbing is Tari's own as of 2026-08-25.** Its own Discord application,
-its own Neon project, its own Vercel environment, and a sign-in proven end to
-end on `tari-chi.vercel.app`. `docs/CUTOVER.md` records what was done and what
-is still open there.
+**Plumbing is now Tari's own** (own Discord app, `tari-dev` Neon branch,
+Vercel env) — `docs/CUTOVER.md`. Domain purchase and the production
+database switch are postponed on purpose until there is something to launch.
 
 1. ~~**SPA or App Router**~~ **Decided 2026-08-25: App Router, no SPA.**
    The shell is a layout, the room is a page; layouts persist across
    navigation, which is the behaviour §11.1 wanted. `docs/SHELL.md` has the
-   structure file by file. **Built the same day** — both route groups, the
-   rail over all 75 rooms, ⌘K, and the room page. What it still waits on:
-   Liveblocks, the guide data, and view transitions. See the end of
-   `SHELL.md`.
-2. **The contrast system.** Legible text across ~90 full-bleed backgrounds.
-   Blocks the landing page, highest-risk design unknown.
+   structure file by file. Room build is unblocked on this axis.
+2. ~~**The contrast system.**~~ **Decided 2026-08-25, from measurement.**
+   All 77 backgrounds rendered as the CSS renders them: the title is ≥10:1
+   everywhere with the existing scrim; the open canvas is not, so text above
+   the scrim goes on a card or chip at `rgba(6,6,10,.86)` + blur. Dark ink on
+   the art never passes. `docs/CONTRAST.md`; rerun `scripts/contrast.py`.
 3. **The fox mark**, and the redrawn SVG icon vocabulary (`TARI.md` §7).
 4. Pricing tiers, moderation policy, landing hero copy.
 5. **Buy `tari.gg`** ($129.99/yr via Vercel, checked 2026-08-25 — `.com`/`.io`/

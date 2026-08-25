@@ -44,10 +44,11 @@
   gap: 0.5rem;
   color: var(--ink);
   text-decoration: none;
-  font-family: var(--serif);
-  font-size: 1.15rem;
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 1.05rem;
   line-height: 1;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em;
 }
 
 .fox {

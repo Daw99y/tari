@@ -10,6 +10,8 @@
 
 import { useLayoutEffect, useRef, useState } from "react";
 
+import Debuff from "./Debuff";
+
 import M2Sprite from "./M2Sprite";
 import SeducedFigure from "./SeducedFigure";
 
@@ -33,6 +35,9 @@ type Props = {
   position?: { x: number; y: number };
   portraitPosition?: { x: number; y: number };
   effectSrc: string;
+  /** The debuff frame that rides beside her head. */
+  chip?: { name: string; note: string };
+  chipClassName?: string;
   className?: string;
   imageClassName?: string;
   figureClassName?: string;
@@ -52,6 +57,8 @@ export default function HeroScene({
   effectSrc,
   position = CENTER,
   portraitPosition = position,
+  chip,
+  chipClassName,
   className,
   imageClassName,
   figureClassName,
@@ -130,6 +137,17 @@ export default function HeroScene({
                 top: box.top - box.w + (head.y - 0.26) * box.w - 40,
                 width: box.w * 0.55,
                 height: box.w * 0.55,
+              }}
+            />
+          ) : null}
+          {chip && head ? (
+            <Debuff
+              name={chip.name}
+              note={chip.note}
+              className={chipClassName}
+              style={{
+                left: box.left + (head.x - 0.5) * box.w * 0.62 + box.w * 0.42,
+                top: box.top - box.w + head.y * box.w - box.w * 0.34,
               }}
             />
           ) : null}

@@ -14,7 +14,10 @@
   --ink: #f2f0ea;
   --mute: rgba(242, 240, 234, 0.62);
   --rule: rgba(242, 240, 234, 0.22);
-  --serif: ui-serif, "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
-  --sans: system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+  /* One family. Display is the same sans, set tight and heavy. SF Pro on a
+   * Mac, Inter where it exists, Helvetica after that. */
+  --sans: -apple-system, "SF Pro Text", Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --display: -apple-system, "SF Pro Display", Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --serif: var(--display); /* retired name; the lab still reads it */
   --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
 }

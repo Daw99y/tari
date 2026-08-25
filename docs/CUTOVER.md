@@ -7,8 +7,7 @@ application** and reads **whelp plz's live database**. Fine on a laptop. Not
 fine in public. These are the steps that fix it, in the order to do them, with
 what each one is *for* — because "cutover" on its own means nothing.
 
-Nothing here touches whelp plz. It keeps running and keeps writing events
-until it retires, which happens when Tari launches or before.
+Nothing here touches whelp plz. It keeps running and keeps writing events.
 
 ---
 
@@ -58,79 +57,37 @@ loses anything.
    `AUTH_SECRET` (`openssl rand -base64 32`). **Do not reuse whelp plz's
    `AUTH_SECRET`** — separate signing keys mean a Tari session cookie is not
    a whelp plz one.
-6. Redeploy. Sign in on localhost once and check the consent screen says
-   Tari.
-
-The deployed site cannot take a sign-in yet, and that is step 3's fault rather
-than this one's. `hasAuth()` in `lib/auth.ts` also requires `DATABASE_URL`, and
-step 3.4 leaves Production's empty on purpose, so `/api/auth/*` answers 404 on
-`tari-chi.vercel.app` until the branch exists. The route means it: see the note
-at the top of `app/api/auth/[...nextauth]/route.ts`.
+6. Redeploy. Sign in on the deployed site once.
 
 Feedback webhook (`DISCORD_FEEDBACK_WEBHOOK`) can stay pointed at the same
 forum channel for now; it is a channel, not an identity.
 
-- [x] done — 2026-08-25. Local handshake checked: the authorize URL carries
-  client id `…451986` and `scope=identify`. Vercel holds the same two values
-  plus its own `AUTH_SECRET`.
+- [x] done — 2026-08-25
 
-## 3. Neon — Tari's own database
+## 3. Neon — a database branch to build on
 
-**Why:** whelp plz writes real events into its database every day, and the
-schema rule is *additive only, never rename*. Tari needs somewhere it can break
-things. `app/api/account/route.ts` runs `delete from users`; testing that once
-against live data removes a real person.
+**Why:** whelp plz writes real events into `main` every day and the schema
+rule is *additive only, never rename*. A branch is a copy-on-write clone: free
+to break, and at launch Tari points back at `main` and inherits everything
+written in between.
 
-**The branch plan died on 2026-08-25.** whelp plz's database lives in a
-Vercel-managed Neon org, and the only door into it is *Open in Neon* on the
-Vercel integration page. That flow asks for an email verification that never
-arrives. No console, no branch.
+1. console.neon.tech → the project → *Branches* → **Create branch**.
+   Name `tari-dev`, parent `main`, include data.
+2. Copy its **pooled** connection string (the host with `-pooler` in it —
+   `lib/db.ts` insists on it).
+3. `.env.local`: replace `DATABASE_URL`. The other `PG*`/`POSTGRES_*` lines
+   are Vercel-template leftovers; nothing in the repo reads them. Delete or
+   leave.
+4. Vercel → tari → Environment Variables: `DATABASE_URL` = the `tari-dev`
+   pooled string, for **Preview and Development only**. Leave Production
+   empty for now — the site has no data surface yet, and an empty
+   `DATABASE_URL` makes `lib/db.ts` report "no database" rather than crash.
 
-**What replaced it:** Tari has a Neon project of its own, in KC's personal Neon
-org rather than the Vercel-managed one.
+**At launch:** Production `DATABASE_URL` = `main`'s pooled string. That is the
+whole cutover of the data.
 
-| | |
-| --- | --- |
-| org | Kevin (Free) |
-| project | Tari |
-| region | AWS `us-east-1`, matching whelp plz |
-| Postgres | 18 |
-| default branch | `production` (Neon's own name, not `main`) |
-| database | `neondb` |
-| endpoint | `ep-weathered-king-avqln87b-pooler.c-11.us-east-1.aws.neon.tech` |
-
-Done on 2026-08-25:
-
-- `.env.local` `DATABASE_URL` points at that pooled endpoint.
-- `db/schema.sql` ran against it. Five tables exist and hold nothing:
-  `characters`, `events`, `marks`, `users`, `waves`.
-- Local `/api/auth/providers` answers 200, so `hasAuth()` can see a database.
-
-On Vercel, project **tari** → Environment Variables, `DATABASE_URL` = that
-pooled string, ticked for **Preview** and **Development**. Done 2026-08-25.
-
-**This project holds the real data.** whelp plz retires when Tari launches or
-before, so there is no second writer to share a database with and nothing to
-switch over to on launch day. Production points here as well, and whelp plz's
-`events` rows get copied across once, before the old site goes dark. Reading
-whelp plz's connection string needs no Neon console when that day comes: it sits
-in the **whelpplz** Vercel project's own Environment Variables.
-
-That leaves one thing to split later. Production and development share the
-`production` branch today, which costs nothing while every table is empty. Make
-a `dev` branch off it before the event log lands, then point `.env.local` and
-Vercel's Preview and Development at the branch instead. Branching works in this
-project, unlike whelp plz's: KC owns it and the console opens.
-
-Leftovers: `DATABASE_URL_UNPOOLED`, `PGHOST`, `POSTGRES_URL` and the rest of
-that block in `.env.local` still carry whelp plz's live credentials. Nothing in
-the repo reads any of them. Delete the block next time you open the file.
-
-- [x] Tari's Neon project made, schema applied, `.env.local` pointed at it
-- [x] Vercel `tari`: `DATABASE_URL` on Preview and Development
-- [x] Vercel `tari`: `DATABASE_URL` on Production too
-- [ ] a `dev` branch, before the event log lands
-- [ ] copy whelp plz's `events` across, before whelp plz goes dark
+- [x] done — 2026-08-25. Production still has no `DATABASE_URL`; whelp plz
+  keeps `main`. Postponed until launch, deliberately.
 
 ## 4. Domain — tari.gg
 
@@ -149,9 +106,7 @@ already listed). For `taretha.com`, add it to the same project and set it to
 Not urgent until there is a landing page worth sending anyone to. Buy it
 before someone else does; wire it when the page exists.
 
-Deferred on 2026-08-25. KC is not buying yet.
-
-- [ ] bought
+- [ ] bought — postponed, deliberately (2026-08-25)
 - [ ] attached
 
 ## 5. Housekeeping
@@ -159,10 +114,6 @@ Deferred on 2026-08-25. KC is not buying yet.
 - [x] `v1-whelpplz` tag on the old repo — exists.
 - [ ] `git remote -v` in `undiscovered` still says `whelpplz`? Fine. Do not
   rename; Vercel's `whelpplz` project is linked to it.
-- [ ] whelp plz's Neon console is shut: *Open in Neon* asks for an email
-  verification that never arrives. Nothing needs it today, and the launch
-  connection string can be read off the whelpplz Vercel project instead. Chase
-  Neon support before something real depends on it.
 - [ ] Decide `docs/TARI.md` §7.1 for the doll: it is public on
   `tari-chi.vercel.app/lab/doll` right now, `noindex` but reachable. Either
   accept that, or turn on **Vercel Authentication** (Settings → Deployment
