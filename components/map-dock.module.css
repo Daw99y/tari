@@ -3,12 +3,32 @@
  * two things swapping. Gold is the compass's own metal; nothing else on the
  * page borrows it. */
 
+/* The room behind an open map: dimmed, and a click target. Anywhere that is
+ * not the plate means "put it away" — the same thing the compass means, so
+ * it is the same call, not a second idea. The dim is what makes that
+ * readable; without it the map floats and nothing says the room stepped
+ * back. Escape does it too (MapDock.tsx). */
+.veil {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  background: rgba(4, 4, 7, 0.5);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 320ms ease;
+}
+.veil[data-open] {
+  opacity: 1;
+  pointer-events: auto;
+}
+
 .panel {
   position: absolute;
   left: clamp(1.25rem, 3.5vw, 3rem);
   right: clamp(1.25rem, 3.5vw, 3rem);
   top: clamp(6.5rem, 13vh, 8rem);
   bottom: clamp(6.5rem, 13vh, 8rem);
+  z-index: 4;
   transform-origin: 100% 0;
   opacity: 0;
   transform: scale(0.94) translateY(-6px);
@@ -33,6 +53,9 @@
 }
 
 @media (max-width: 64rem) {
+  .veil {
+    display: none;
+  }
   .panel {
     position: relative;
     inset: auto;
@@ -52,7 +75,7 @@
   position: absolute;
   top: 0.35rem;
   right: 0.6rem;
-  z-index: 2;
+  z-index: 5;
   appearance: none;
   border: 0;
   padding: 0.4rem;
@@ -63,11 +86,14 @@
   -webkit-tap-highlight-color: transparent;
 }
 
-.compass img {
+.compass .rose {
   position: relative;
   width: clamp(38px, 4vw, 50px);
   height: auto;
   display: block;
+  /* The mark is one colour throughout, and this is where that colour is
+   * decided — the same gold the halo below breathes out. */
+  color: #ffc457;
   filter: drop-shadow(0 6px 18px rgba(0, 0, 0, 0.55));
   transform-origin: 50% 60%;
   transition:
@@ -87,30 +113,30 @@
   pointer-events: none;
 }
 
-.compass:hover img,
-.compass:focus-visible img {
+.compass:hover .rose,
+.compass:focus-visible .rose {
   transform: scale(1.07) rotate(-6deg);
 }
 .compass:hover .halo,
 .compass:focus-visible .halo {
   opacity: 1;
 }
-.compass:active img {
+.compass:active .rose {
   transform: scale(0.98);
 }
 
-.compass[data-open] img {
+.compass[data-open] .rose {
   transform: scale(0.82);
 }
-.compass[data-open]:hover img,
-.compass[data-open]:focus-visible img {
+.compass[data-open]:hover .rose,
+.compass[data-open]:focus-visible .rose {
   transform: scale(0.9) rotate(-6deg);
 }
 
 .compass[data-fresh] .halo {
   animation: glint 3.4s ease-in-out 1.2s 3;
 }
-.compass[data-fresh] img {
+.compass[data-fresh] .rose {
   animation: beckon 3.4s ease-in-out 1.2s 3;
 }
 
@@ -172,7 +198,7 @@
     transform: none;
     filter: none;
   }
-  .compass img,
+  .compass .rose,
   .halo,
   .word {
     transition: none;

@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 
+import Compass from "@/components/Compass";
 import ZoneMap from "@/components/ZoneMap";
 import type { ZonePlate } from "@/lib/maps";
 
@@ -30,15 +31,32 @@ export default function MapDock({ plate, title }: { plate: ZonePlate; title: str
     mounted.current = true;
   }, []);
 
-  function toggle() {
-    const next = !open;
+  function set(next: boolean) {
     setOpen(next);
     setFresh(false);
     localStorage.setItem(KEY, next ? "open" : "closed");
   }
 
+  // Two ways out of the map, both meaning the same thing: anywhere that is
+  // not the plate, and the key everyone already presses to leave something.
+  useEffect(() => {
+    if (!open) return;
+    function onKey(e: KeyboardEvent) {
+      if (e.key === "Escape") set(false);
+    }
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [open]);
+
   return (
     <>
+      <div
+        className={styles.veil}
+        data-open={open || undefined}
+        aria-hidden="true"
+        onClick={() => set(false)}
+      />
+
       <div className={styles.panel} data-open={open || undefined} aria-hidden={!open} inert={!open}>
         <ZoneMap plate={plate} title={title} />
       </div>
@@ -50,10 +68,10 @@ export default function MapDock({ plate, title }: { plate: ZonePlate; title: str
         data-fresh={fresh || undefined}
         aria-pressed={open}
         aria-label={open ? "Fold the map" : "Open the map"}
-        onClick={toggle}
+        onClick={() => set(!open)}
       >
         <span className={styles.halo} aria-hidden="true" />
-        <img src="/WoW%20Compass.png" alt="" draggable={false} />
+        <Compass className={styles.rose} />
         <span className={styles.word}>{open ? "Fold the map" : "Open the map"}</span>
       </button>
     </>
