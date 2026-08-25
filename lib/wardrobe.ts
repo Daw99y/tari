@@ -13,7 +13,22 @@
 
 import { SLOT_FAMILIES, type BodyLayer, type Region, type Worn } from "@/lib/doll";
 
-export const WARDROBE = "/lab/doll/items";
+/** Where the item art is served from.
+ *
+ *  The art is 12,460 files and does not go in the repo — Vercel fails a build
+ *  above 15,000 of them — so in production it sits in a Blob store and this is
+ *  that store's public base. Unset, it falls back to the local build, which is
+ *  what `node scripts/doll-items.mjs` writes and what dev reads. A checkout
+ *  with neither draws a naked character and says so.
+ *
+ *  Next inlines `NEXT_PUBLIC_` vars at build time, so changing this needs a
+ *  redeploy rather than only a restart. */
+export const WARDROBE = process.env.NEXT_PUBLIC_WARDROBE_URL?.replace(/\/+$/, "") || "/lab/doll/items";
+
+/** The catalogue stays in the repo whatever the art does. It is one file, the
+ *  CDN compresses it from 1.2 MB to about 200 KB at no charge, and shipping it
+ *  beside the code that reads it means the two cannot drift apart. */
+const CATALOGUE = "/lab/doll/items/catalogue.json";
 
 /** A look's record, as the catalogue stores it. Short keys and pooled string
  *  indices: there are eight thousand of these and the page fetches the lot. */
@@ -45,7 +60,9 @@ export type Catalogue = {
   items: [number, number, number, number, number, string, number?][];
   display: Record<string, Display>;
   helmetVis: Record<string, number[]>;
-  /** How many items were dropped for naming a look from a later client. */
+  /** How many items name a look the client's patched display table does not
+   *  carry. Once ~2,300 strong, when the build compared against the launch-day
+   *  table out of `dbc.MPQ` instead of the patched one — see doll-items.mjs. */
   untrusted: number;
 };
 
@@ -101,8 +118,18 @@ function texFile(folder: string, name: string): string {
   return `${folder}_${name}`.toLowerCase().replace(/[^a-z0-9]+/g, "_") + ".webp";
 }
 
+/** Where a texture an item model names for itself landed — the mod2x sheen
+ *  on raid shoulders, a hardcoded skin on some monster weapons. The build
+ *  reads these names out of the model files and converts them beside the
+ *  DBC-named art, so the URL is derived from the game path alone. */
+export function namedTextureUrl(gamePath: string): string {
+  const parts = gamePath.split("\\");
+  const name = parts[parts.length - 1].replace(/\.[a-z0-9]+$/i, "");
+  return `${WARDROBE}/tex/${texFile(parts[parts.length - 2] ?? "", name)}`;
+}
+
 export async function loadCatalogue(): Promise<Catalogue> {
-  const r = await fetch(`${WARDROBE}/catalogue.json`);
+  const r = await fetch(CATALOGUE);
   if (!r.ok) throw new Error(`no wardrobe: run \`node scripts/doll-items.mjs\` (${r.status})`);
   return r.json();
 }

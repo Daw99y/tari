@@ -314,9 +314,15 @@ export async function firstImage(urls: string[]): Promise<HTMLImageElement | nul
   return null;
 }
 
+/** `crossOrigin` is not optional here. Every one of these is drawn into the
+ *  canvas that becomes the body texture, and a cross-origin image fetched
+ *  without it taints that canvas — WebGL then refuses the upload and the
+ *  armour vanishes with no error worth reading. It costs nothing same-origin,
+ *  so it is set unconditionally rather than guessed at from the URL. */
 function loadImage(url: string): Promise<HTMLImageElement> {
   return new Promise((resolve, reject) => {
     const img = new Image();
+    img.crossOrigin = "anonymous";
     img.onload = () => resolve(img);
     img.onerror = () => reject(new Error(`image failed: ${url}`));
     img.src = url;

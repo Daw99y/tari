@@ -14,11 +14,22 @@ next-env.d.ts
 # Where the doll build scripts unpack the archives before converting.
 .doll-tmp/
 
-# The wardrobe: 90 MB of Blizzard's item art, rebuilt by
-# `node scripts/doll-items.mjs` from a local 1.12 client. Out of git on
-# purpose — see docs/DOLL.md, and docs/TARI.md §7.1 on putting their work in
-# front of users.
-public/lab/doll/items/
+# The client's own patched DBC tables, lifted by dbc112() in
+# scripts/client.mjs. Blizzard's data; re-extracted on demand.
+.dbc-112/
+
+# The wardrobe: 103 MB of Blizzard's item art across 12,460 files, rebuilt by
+# `node scripts/doll-items.mjs` from a local 1.12 client and served from Vercel
+# Blob in production. Out of git for two reasons: docs/TARI.md §7.1 on putting
+# their work in front of users, and a hard one — Vercel fails a build above
+# 15,000 files and the repo plus this art comes to 16,712.
+#
+# catalogue.json is the exception and stays tracked. It is one file, the CDN
+# compresses it to about 200 KB for free, and it belongs beside the code that
+# reads it.
+public/lab/doll/items/m2/
+public/lab/doll/items/tex/
+public/lab/doll/items/icons/
 
 # Art sources. The rule inherited from whelp plz and worth keeping: raw and
 # regraded captures stay on the machine that made them, and only the

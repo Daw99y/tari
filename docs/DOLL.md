@@ -13,6 +13,7 @@ Written 2026-08-24. The wardrobe went in the same day.
 scripts/doll-build.mjs   the bodies:  DBC → MPQ → public/lab/doll/{m2,tex}
 scripts/doll-items.mjs   the wardrobe: + item_template → …/items/
 scripts/client.mjs       where the client is, how to lift files out of it
+scripts/doll-upload.mjs  the wardrobe → a Vercel Blob store, for deploys
 scripts/blp.py           BLP2 → PNG, including the alpha Pillow drops
 scripts/dbc.mjs          the WDBC table reader
 lib/m2.ts                the M2 reader, now with normals, geosets, attachments
@@ -27,10 +28,50 @@ scripts/doll-items.mjs` for the gear. Both skip anything already converted, so
 a re-run after a rule change costs seconds. The first item build takes about
 five minutes and writes on the order of 90 MB.
 
-**The wardrobe is not in git.** It is Blizzard's item art, `docs/TARI.md` §7.1
-says putting their work in front of users is a decision to take on purpose, and
-90 MB of it would double the repo. `.gitignore` covers
-`public/lab/doll/items/`; run the script and it appears.
+**The wardrobe is not in git**, for two reasons that point the same way.
+`docs/TARI.md` §7.1 says putting Blizzard's work in front of users is a
+decision to take on purpose. And a hard one: **Vercel fails a build above
+15,000 source files**, and the repo plus 12,460 pieces of item art comes to
+16,712. A committed wardrobe does not deploy at all.
+
+`.gitignore` covers the three art folders under `public/lab/doll/items/`. Run
+the script and they appear. `catalogue.json` is the exception and stays
+tracked — one file, which the CDN compresses from 1.2 MB to about 200 KB for
+nothing, and it belongs beside the code that reads it.
+
+## Deploying it
+
+Locally the page reads the art from `public/`. In production it reads it from a
+Vercel Blob store, and `NEXT_PUBLIC_WARDROBE_URL` is the switch. Unset, the
+page falls back to the local path, so a checkout with neither draws a naked
+character and says why rather than showing a blank page.
+
+```
+1  Vercel dashboard → Storage → Create → Blob        (once)
+2  vercel env pull .env.local                        (gets BLOB_READ_WRITE_TOKEN)
+3  node scripts/doll-upload.mjs                       ~20 min, 12,460 files
+4  set NEXT_PUBLIC_WARDROBE_URL to the base it prints, then redeploy
+```
+
+Re-running step 3 lists the store first and skips anything already there at the
+same size, so a rebuild that changes forty files uploads forty files. `--prune`
+deletes what the build no longer makes; `--dry-run` says what it would do.
+
+**Why Blob and not the repo, in money.** Storage is 0.1 GB against 5 GB
+included. The one-time upload is 12,460 advanced operations against 10,000
+included — about a penny. A visitor pulls roughly 1 MB, against 100 GB of
+included transfer, which is on the order of 100,000 visits a month before
+anything is charged. On Hobby the limits are lower and Vercel *cuts off access*
+rather than billing, so the wardrobe would stop loading for thirty days; on Pro
+it bills by usage.
+
+**The one that will waste an evening.** Every item overlay is drawn into the
+canvas that becomes the body texture. An image fetched cross-origin without
+`crossOrigin` taints that canvas, WebGL refuses the upload, and the armour
+disappears with no error worth reading. `loadImage` in `lib/doll.ts` sets it
+unconditionally; three.js's `TextureLoader` already defaults to it. If a
+deployed page draws a naked character while the same build works locally, check
+the store's CORS headers before anything else.
 
 ## Three mechanisms, not one
 
