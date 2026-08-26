@@ -1,0 +1,147 @@
+/* Bottom-centre of the photograph: the one thing down here addressed to
+ * the whole room. It rests as a single quiet star and opens on approach —
+ * a row of five buttons sitting on the art permanently would be a toolbar,
+ * and this room does not have toolbars. */
+
+.moments {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: clamp(1.5rem, 4.5vh, 2.75rem);
+  z-index: 3;
+  display: grid;
+  justify-items: center;
+  pointer-events: none;
+  transition:
+    opacity 200ms ease,
+    visibility 0s;
+}
+
+/* ---- what rises. Its own layer, tall enough to carry a mark clear of
+   the scrim and into the open canvas before it goes. */
+
+.sky {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 2.5rem;
+  height: 46vh;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.mark {
+  position: absolute;
+  bottom: 0;
+  font-size: 1.35rem;
+  line-height: 1;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.5));
+  animation: rise 2800ms cubic-bezier(0.25, 0.6, 0.35, 1) both;
+}
+
+@keyframes rise {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 0) scale(0.6);
+  }
+  14% {
+    opacity: 1;
+    transform: translate(-50%, -12vh) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(calc(-50% + var(--sway, 0px)), -42vh) scale(0.9);
+  }
+}
+
+/* ---- the affordance */
+
+.rail {
+  position: relative;
+  pointer-events: auto;
+  display: grid;
+  place-items: center;
+  height: 2rem;
+}
+
+.rest {
+  font-size: 0.8rem;
+  line-height: 1;
+  color: rgba(242, 240, 234, 0.32);
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+  transition:
+    opacity 220ms ease,
+    color 220ms ease;
+}
+
+.rail:hover .rest,
+.rail:focus-within .rest {
+  opacity: 0;
+}
+
+/* docs/CONTRAST.md surface C, run long: same ground, same hairline. */
+.marks {
+  position: absolute;
+  display: flex;
+  gap: 0.15rem;
+  padding: 0.25rem;
+  border-radius: 999px;
+  background: rgba(6, 6, 10, 0.86);
+  border: 0.5px solid var(--rule);
+  backdrop-filter: blur(12px) saturate(1.1);
+  -webkit-backdrop-filter: blur(12px) saturate(1.1);
+  opacity: 0;
+  transform: translateY(6px) scale(0.94);
+  pointer-events: none;
+  transition:
+    opacity 240ms cubic-bezier(0.2, 0.7, 0.2, 1),
+    transform 300ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.rail:hover .marks,
+.rail:focus-within .marks {
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+}
+
+.pick {
+  appearance: none;
+  border: 0;
+  background: none;
+  width: 1.9rem;
+  height: 1.9rem;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  font-size: 0.95rem;
+  line-height: 1;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition:
+    background-color 160ms ease,
+    transform 200ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.pick:hover,
+.pick:focus-visible {
+  background: rgba(242, 240, 234, 0.1);
+  transform: translateY(-2px);
+  outline: none;
+}
+
+.pick:active {
+  transform: translateY(0) scale(0.92);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mark {
+    animation-duration: 2800ms;
+    animation-timing-function: linear;
+  }
+
+  .marks,
+  .pick {
+    transition: none;
+  }
+}

@@ -498,6 +498,22 @@
     visibility 0s 200ms;
 }
 
+/* The chat and the cursors step aside for whatever is on the stage, the
+ * same way the guide above does — unless the reader is mid-sentence, in
+ * which case taking the field away would be taking their words. Both are
+ * matched by attribute rather than by class: they live in their own CSS
+ * modules, and a class name written here would hash to something neither
+ * of them wears. */
+.room:has([data-stage]) [data-chat]:not([data-open]),
+.room:has([data-stage]) [data-moments],
+.room:has([data-stage]) [data-cursors] {
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 200ms ease,
+    visibility 0s 200ms;
+}
+
 /* The column's ground: the room itself, blurred and dimmed, with no edge
  * anywhere. It sits behind the text and outside the loop's own mask — a
  * backdrop-filter inside a masked element has nothing left to sample. The

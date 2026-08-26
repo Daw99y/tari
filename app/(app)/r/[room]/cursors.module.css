@@ -1,0 +1,67 @@
+/* The layer covers the whole photograph and touches nothing: it is a thing
+ * to look through, not at. */
+
+.layer {
+  position: absolute;
+  inset: 0;
+  z-index: 6;
+  pointer-events: none;
+  overflow: hidden;
+  transition:
+    opacity 200ms ease,
+    visibility 0s;
+}
+
+.pointer {
+  position: absolute;
+  /* The batch interval is 100ms (lib/ably.ts). A transition slightly
+   * longer than it turns the steps into a glide with no lag worth
+   * feeling. Linear, because easing each hop reads as a stutter. */
+  transition:
+    left 120ms linear,
+    top 120ms linear;
+  will-change: left, top;
+  animation: appear 240ms ease both;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.arrow {
+  display: block;
+  filter: drop-shadow(0 3px 8px rgba(0, 0, 0, 0.5));
+}
+
+/* docs/CONTRAST.md surface C: a name on the art at an arbitrary position
+ * is a chip, and the hairline is what stops it reading as a smudge. */
+.tag {
+  position: absolute;
+  left: 14px;
+  top: 15px;
+  white-space: nowrap;
+  padding: 0.2rem 0.5rem;
+  border-radius: 999px;
+  background: rgba(6, 6, 10, 0.86);
+  border: 0.5px solid var(--rule);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  font: 500 0.66rem/1 var(--mono);
+  letter-spacing: 0.02em;
+  /* The class colour is set inline, per cursor. It holds against this
+     ground for all nine — the chip is .86 over the art, and the game's
+     palette is light throughout. */
+  color: var(--ink);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pointer {
+    transition: none;
+    animation: none;
+  }
+}

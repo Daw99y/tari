@@ -89,6 +89,29 @@ whole cutover of the data.
 - [x] done — 2026-08-25. Production still has no `DATABASE_URL`; whelp plz
   keeps `main`. Postponed until launch, deliberately.
 
+## 3.5 Ably — the live layer's key
+
+One variable, `ABLY_API_KEY`, and it is the whole of the plumbing: the raw
+key stays on the server and `/api/ably` mints per-browser tokens from it,
+scoped to `tari:*` with a narrow op list. A deploy without it is not a
+broken deploy — the connection fails, `useLive().up` goes false and every
+surface reads as it did before the live layer existed.
+
+1. Ably dashboard → the Tari app → **API Keys**.
+2. The key needs `publish`, `subscribe`, `presence`, `history`, the two
+   `annotation-*` ops, `message-update-own`, `message-delete-own` — and
+   **`channel-metadata`**, which is the one that is easy to miss. Without it
+   `/api/ably/occupancy` cannot enumerate channels, the next-door head
+   counts silently stay at zero, and nothing logs an error in production.
+   Resource `tari:*` is enough for all of it.
+3. `.env.local`: `ABLY_API_KEY=appId.keyId:secret`.
+4. Vercel → tari → Environment Variables: the same, all three environments.
+
+**Rename the Ably app to Tari** if it was created as anything else — it is
+cosmetic, but it is the name on every dashboard and log line from here on.
+
+- [ ] not done — dev only as of 2026-08-26.
+
 ## 4. Domain — tari.gg
 
 Both available on 2026-08-25, via Vercel's registrar:

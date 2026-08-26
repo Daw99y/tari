@@ -1,0 +1,198 @@
+/* Chat sits in the room's bottom-left, which docs/CONTRAST.md measured as
+ * surface A: the scrim already holds ≥10:1 there on all 77 rooms, so ink
+ * goes bare on the art. No card, no bubble, no border. The one thing that
+ * carries a ground is the input, because a text field the reader is aiming
+ * at has to look like an object. */
+
+.chat {
+  position: absolute;
+  left: clamp(1.25rem, 3vw, 2.25rem);
+  bottom: clamp(1.5rem, 4.5vh, 2.75rem);
+  z-index: 3;
+  width: min(30rem, 40%);
+  display: grid;
+  gap: 0.4rem;
+  animation: chatRise 1100ms cubic-bezier(0.2, 0.7, 0.2, 1) 600ms both;
+}
+
+@keyframes chatRise {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* A closed room shows the last few lines and lets the rest go. Opening it
+ * is the only thing that turns a glance into a backlog. */
+.scroll {
+  max-height: 8.5rem;
+  overflow: hidden;
+  /* The fade is the whole reason there is no panel: the column ends in the
+   * photograph instead of against an edge. */
+  mask-image: linear-gradient(to top, #000 62%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to top, #000 62%, transparent 100%);
+  transition:
+    max-height 380ms cubic-bezier(0.16, 1, 0.3, 1),
+    mask-image 240ms ease;
+}
+
+.chat[data-open] .scroll {
+  max-height: min(22rem, 38vh);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: none;
+  mask-image: linear-gradient(to top, #000 88%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to top, #000 88%, transparent 100%);
+}
+
+.scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.lines {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.22rem;
+}
+
+.line {
+  font-size: 0.82rem;
+  line-height: 1.45;
+  /* A wrapped sentence hangs under its own text, not under the name. */
+  padding-left: 0.1rem;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.55);
+  animation: said 420ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+@keyframes said {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* The game's class colours (lib/class-color.ts), quoted. They hold here
+ * because the scrim keeps this corner dark on every room in the set. */
+.who {
+  color: var(--ink);
+  font-weight: 550;
+}
+
+.who::after {
+  content: " ";
+}
+
+.said {
+  color: rgba(242, 240, 234, 0.92);
+  overflow-wrap: anywhere;
+}
+
+.typing {
+  margin: 0;
+  min-height: 0.9rem;
+  font: 400 0.66rem/1.35 var(--mono);
+  letter-spacing: 0.02em;
+  color: rgba(242, 240, 234, 0.5);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.55);
+}
+
+/* ---- the line you type on. The one carded thing down here: a field has
+   to read as somewhere to aim. docs/CONTRAST.md surface C, widened. */
+
+.bar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem 0.75rem;
+  border-radius: 999px;
+  background: rgba(6, 6, 10, 0.86);
+  border: 0.5px solid var(--rule);
+  backdrop-filter: blur(12px) saturate(1.1);
+  -webkit-backdrop-filter: blur(12px) saturate(1.1);
+  animation: said 260ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+.caret {
+  font: 500 0.85rem/1 var(--mono);
+  color: rgba(242, 240, 234, 0.45);
+}
+
+.field {
+  flex: 1;
+  min-width: 0;
+  appearance: none;
+  background: none;
+  border: 0;
+  padding: 0;
+  color: var(--ink);
+  font-family: inherit;
+  font-size: 0.84rem;
+  line-height: 1.4;
+}
+
+.field:focus {
+  outline: none;
+}
+
+.field::placeholder {
+  color: rgba(242, 240, 234, 0.34);
+}
+
+/* ---- the invitation. Quiet enough to ignore, present enough to learn
+   once. It is a button as well as a hint because a pointer-only reader
+   never finds a keyboard contract. */
+
+.hint {
+  justify-self: start;
+  appearance: none;
+  border: 0;
+  background: none;
+  padding: 0.2rem 0.1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  cursor: pointer;
+  font: 400 0.66rem/1 var(--mono);
+  letter-spacing: 0.06em;
+  color: rgba(242, 240, 234, 0.42);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.55);
+  transition: color 180ms ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.hint:hover,
+.hint:focus-visible {
+  color: rgba(242, 240, 234, 0.78);
+  outline: none;
+}
+
+.hint kbd {
+  display: grid;
+  place-items: center;
+  min-width: 1.1rem;
+  height: 1.1rem;
+  padding: 0 0.25rem;
+  border-radius: 5px;
+  border: 0.5px solid var(--rule);
+  background: rgba(6, 6, 10, 0.6);
+  font: inherit;
+  font-size: 0.7rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .chat,
+  .line,
+  .bar {
+    animation: none;
+  }
+}

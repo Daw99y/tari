@@ -5,13 +5,12 @@
  * Everything in this file is here because it must survive a room change:
  * the rail, the people column, ⌘K, and — when it lands — the one socket.
  *
- * THE LIVEBLOCKS SEAM. docs/SHELL.md puts a single <LiveblocksProvider>
- * right here and a <RoomProvider> down in the room's page, so changing room
- * is a message on an open socket rather than a fresh handshake. The package
- * is not installed and the account is not bought (docs/TARI.md §8 flags the
- * per-user pricing as a thing to price first), so the provider is not faked.
- * It wraps <div className={styles.shell}> on the day it arrives, and no
- * other file in this folder has to move.
+ * THE LIVE LAYER lives in <Live>, wrapped around the three columns below.
+ * It is Ably, not Liveblocks — §8 said price it first, and the price turned
+ * out to be a hard cap of 10 connections per room on every Liveblocks plan
+ * worth buying, against a product whose premise is a whole zone standing in
+ * one room. Ably bills per message instead of per seat. One connection for
+ * the life of the shell; the room's scope is swapped by name inside it.
  *
  * The current room comes from the URL, read once here and handed down. */
 
@@ -23,6 +22,7 @@ import FoxMark from "@/components/FoxMark";
 import { loadCharacter } from "@/lib/character";
 
 import Command from "./Command";
+import Live from "./Live";
 import People from "./People";
 import Rail from "./Rail";
 import { RoomProvider } from "./room-context";
@@ -69,34 +69,36 @@ export default function Shell({
 
   return (
     <RoomProvider id={roomId}>
-      <div className={styles.shell}>
-        <div className={styles.railColumn}>
-          <header className={styles.railHead}>
-            <Link href="/" className={styles.wordmark} aria-label="Tari, home">
-              <FoxMark className={styles.fox} />
-            </Link>
-            <button
-              type="button"
-              className={styles.ask}
-              onClick={() => setAsking(true)}
-              aria-label="Go to a room"
-            >
-              <kbd>⌘K</kbd>
-            </button>
-          </header>
-          <Rail signedIn={handle !== null} />
-          <footer className={styles.railFoot}>
-            <Link href="/you" className={styles.you}>
-              You
-            </Link>
-            <span>{handle ? `Signed in as ${handle}` : "Not signed in"}</span>
-          </footer>
+      <Live roomId={roomId}>
+        <div className={styles.shell}>
+          <div className={styles.railColumn}>
+            <header className={styles.railHead}>
+              <Link href="/" className={styles.wordmark} aria-label="Tari, home">
+                <FoxMark className={styles.fox} />
+              </Link>
+              <button
+                type="button"
+                className={styles.ask}
+                onClick={() => setAsking(true)}
+                aria-label="Go to a room"
+              >
+                <kbd>⌘K</kbd>
+              </button>
+            </header>
+            <Rail signedIn={handle !== null} />
+            <footer className={styles.railFoot}>
+              <Link href="/you" className={styles.you}>
+                You
+              </Link>
+              <span>{handle ? `Signed in as ${handle}` : "Not signed in"}</span>
+            </footer>
+          </div>
+
+          <main className={styles.stage}>{children}</main>
+
+          <People />
         </div>
-
-        <main className={styles.stage}>{children}</main>
-
-        <People />
-      </div>
+      </Live>
       <Command open={asking} onClose={() => setAsking(false)} />
     </RoomProvider>
   );

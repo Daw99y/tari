@@ -219,6 +219,52 @@ under them in mono, no ring, no bar, no dial. The plate stays a quotation
 Every source is a door: the card turns over to the creature at its camps or
 the quest and its giver, and back.
 
+## The live layer — settled
+
+Built 2026-08-26 on Ably (docs/TARI.md §8). Three surfaces, and none of
+them is a panel: the room is a photograph before it is an app, and every
+one of these had to earn its place on the art rather than beside it.
+
+**Chat is bottom-left, bare on the art.** docs/CONTRAST.md measured that
+corner as surface A — the scrim already holds ≥10:1 there on all 77 rooms —
+so the lines need no card, no bubble, no border and get none. The column
+ends in a mask that fades it into the photograph instead of against an
+edge. The name wears the game's class colour, the sentence wears ink. The
+one carded thing down here is the input, because a field a reader is aiming
+at has to read as an object.
+
+**Enter opens it, Enter sends it, Escape drops it.** The game's own
+contract. There is no permanent text box, because a reader looking at
+Duskwood should be looking at Duskwood; a mono `↵ to talk` sits where the
+line will appear, quiet enough to ignore and learned once. Losing focus
+closes an empty line and keeps a written one.
+
+**Cursors are surface C.** The arrow is a vector with its own dark outline
+and needs no chip; the name beside it is a chip and gets one. Both carry
+the class colour, so a person reads as the same person in the cursor, the
+chat line and the people column. Positions are normalised 0–1 against the
+room, so everyone points at the same part of the same photograph whatever
+their window is.
+
+**The moments rail is bottom-centre**, because it is the one thing down
+here addressed to the whole room rather than to one reader — chat holds the
+left, the objects hold the right, and the middle is what everyone is
+already looking at. It rests as a single ✦ and opens on approach; five
+marks, no picker, and what is sent rises through the middle of the
+photograph and is gone in under three seconds. Nothing is kept. The event
+log is where things are kept.
+
+**All three step aside for the stage**, the way the guide does — matched by
+attribute rather than class, because they live in their own CSS modules and
+a class name written in `room.module.css` would hash to something none of
+them wears. The exception is a chat line mid-sentence: taking the field
+away would be taking the reader's words.
+
+**The people column is not on the art** and is not bound by CONTRAST — it
+keeps the shell's inks, with the class colour on the name only. It names up
+to thirty and then counts, because a city is a number and a dungeon is a
+guest list.
+
 ## Open — the landing's answer is the default
 
 **Motion continuity.** §11.3 wants the rail thumbnail to become the room

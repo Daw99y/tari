@@ -1,10 +1,12 @@
 /* THE ROOM. The one full-bleed surface in the product (docs/TARI.md §11.2).
  *
- * Not a client component yet, on purpose. docs/SHELL.md has it as one
- * because cursors and the pins layer live in it; neither exists until the
- * live layer does, and until then this is HTML the server streams. The
- * 'use client' line goes on the day the pins arrive, and its place in the
- * tree does not change.
+ * Still not a client component, and now permanently. docs/SHELL.md
+ * expected the 'use client' line to arrive with the cursors; it did not
+ * have to. The live layer is three leaves — the chat, the cursors and the
+ * moments — each its own client component, mounted at the bottom of this
+ * file. Everything above them stays HTML the server streams, which is the
+ * thing SHELL.md says a SPA cannot do: server does the guide, client does
+ * the live, on the same page.
  *
  * Four of §4.3's bands have landed: the map, framed inside the room for
  * the rooms that have a plate; the past layer — what happened here lately,
@@ -20,9 +22,12 @@ import Dock from "@/components/Dock";
 import { type Card } from "@/lib/guide";
 import type { HuntSpot } from "@/lib/hunt";
 
+import Chat from "./Chat";
+import Cursors from "./Cursors";
 import Drops from "./Drops";
 import Guide from "./Guide";
 import Kit from "./Kit";
+import Moments from "./Moments";
 import { age, lineParts, type Past } from "@/lib/live";
 import { type ClassId, type Item } from "@/lib/loot";
 import type { ZonePlate } from "@/lib/plate";
@@ -86,6 +91,13 @@ export default function Room({ room, past, drops, cls, level, guide, plate, hunt
           <h1 className={styles.name}>{room.name}</h1>
         </div>
       </Dock>
+
+      {/* The live layer, over everything and asking for nothing when there
+          is nobody here: each of the three renders null without a
+          connection (app/(app)/Live.tsx). */}
+      <Chat />
+      <Moments />
+      <Cursors />
     </article>
   );
 }

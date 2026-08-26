@@ -11,7 +11,7 @@ and is not true now. App Router's rule is exactly the one we want:
 > A **layout** mounts once and keeps its state. Only the **page** segment
 > under it re-renders on navigation.
 
-So the rail, the people column and the Liveblocks connection live in a
+So the rail, the people column and the live connection live in a
 layout; the room is the page. Changing room is a segment swap inside a frame
 that never unmounts. That is the Linear/Discord shape, and it is the default
 behaviour, not a workaround.
@@ -45,11 +45,15 @@ is the place.
 ```
 app/(app)/
   layout.tsx          server component. Reads session, hands it to <Shell>.
-  Shell.tsx           'use client'. The three columns + LiveblocksProvider.
+  Shell.tsx           'use client'. The three columns, wrapped in <Live>.
+  Live.tsx            'use client'. THE ONE SOCKET — Ably. One Realtime
+                      connection, a ChatClient and a Spaces client on it,
+                      and the current room's scope around all three columns.
   Rail.tsx            'use client'. Azeroth as a list. Highlights via
                       useSelectedLayoutSegment('room'). Prefetches on hover.
-  People.tsx          'use client'. Who's in the room. Reads Liveblocks
-                      presence for the *current* room id.
+  People.tsx          'use client'. Who's in the room. Reads chat presence
+                      for the *current* room id, deduplicated by clientId,
+                      plus a REST roll-up for the rooms next door.
   room-context.tsx    the current room id, set by the page, read by the
                       columns. A plain React context — the URL is the source
                       of truth, this is just a cheap mirror for the columns.
@@ -57,15 +61,31 @@ app/(app)/
 app/(app)/r/[room]/
   page.tsx            server component. Fetches the room's guide, art, loot
                       panel. Wraps the client bits in <RoomProvider id=…>.
-  Room.tsx            'use client'. Full-bleed art, framed map, pins layer.
+  Room.tsx            server component still — see below. Full-bleed art,
+                      framed map, and three client leaves on top of it:
+                      Chat.tsx, Cursors.tsx, Moments.tsx.
 ```
 
-**One `LiveblocksProvider`, in `Shell.tsx`. One `RoomProvider` per room, in
-`page.tsx`.** The provider is the socket; it lives in the layout and is
-never torn down. `RoomProvider` is a subscription on that socket; swapping
-it on room change is a message, not a re-handshake. That is the whole
-"live feeling survives navigation" requirement, and it falls out of putting
-the two providers at the two levels App Router already gives us.
+**One connection, in `Live.tsx`, under `Shell.tsx`. The room's scope inside
+it, also in the shell.** The connection lives in the layout and is never
+torn down. The room scope is a subscription on it; swapping it on a room
+change is a message, not a re-handshake. That is the whole "live feeling
+survives navigation" requirement.
+
+**Amended 2026-08-26.** This said the per-room provider belonged down in
+`r/[room]/page.tsx`. It does not, and the reason is the shape of the shell
+rather than anything about the vendor: the people column is a *sibling* of
+the room, not a child of it, and it needs the same room's presence. One
+scope wrapped around both columns and the stage is the only place both can
+read it. `roomId` is already derived in `Shell.tsx` from the layout
+segments, so nothing new had to be computed to move it.
+
+**The room did not have to become a client component.** SHELL.md expected
+`'use client'` to arrive with the cursors. It did not: the live layer is
+three leaves — `Chat`, `Cursors`, `Moments` — each its own client
+component, and everything above them stays HTML the server streams. Server
+does the guide, client does the live, on the same page, which is the thing
+this document says a SPA cannot do.
 
 ## Rules the structure enforces
 
@@ -92,8 +112,9 @@ we lean on an experimental flag; it degrades to a cut, not a break.
 
 **Server does the guide, client does the live.** Guide cards, loot panel,
 "what closes" are RSC in `page.tsx` — HTML, streamed, cached. Cursors, pins,
-presence, chat are client components inside the same page reading
-Liveblocks. The page is both at once, which is the thing a SPA cannot do.
+presence, chat are client components inside the same page reading Ably.
+The page is both at once, which is the thing a SPA cannot do — and it did
+not cost `Room.tsx` its `'use client'`; the three live leaves carry it.
 
 ## What this means for the other pieces
 
@@ -139,10 +160,12 @@ add on that day.
 
 ### Still open, and known
 
-**The live layer.** No Liveblocks — not installed, no account, and §8 says
-price it first. The seam is one wrap of `<div className={styles.shell}>` in
-`Shell.tsx`; nothing else in the folder moves. The people column says so in
-words rather than drawing a zero.
+**The live layer — landed 2026-08-26.** Ably, not Liveblocks; §8.1 has the
+price that decided it. The seam turned out to be exactly one wrap of `<div
+className={styles.shell}>`, as predicted. `ABLY_API_KEY` is the only new
+environment variable; without it `/api/ably` answers 503, the connection
+fails, `useLive().up` goes false and every surface reads exactly as it did
+before — including the people column, which still refuses to draw a zero.
 
 **The guide.** `r/[room]/page.tsx` renders the photograph and the name. The
 seven bands of §4.3 need the pipeline's zone files, which are not in this

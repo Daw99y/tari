@@ -528,6 +528,78 @@
   padding: 0;
 }
 
+/* ---- who is standing here. The column is not on the art, so it is not
+   bound by docs/CONTRAST.md — these are the shell's own inks. */
+
+.hereCount {
+  margin: 0 0 0.7rem;
+  font: 500 0.6rem/1 var(--mono);
+  letter-spacing: 0.12em;
+  font-variant-numeric: tabular-nums;
+  color: rgba(242, 240, 234, 0.5);
+}
+
+.heads {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.05rem;
+}
+
+.head {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  min-width: 0;
+  height: 1.55rem;
+  animation: arrive 420ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+@keyframes arrive {
+  from {
+    opacity: 0;
+    transform: translateX(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* The class colours are the game's own (lib/class-color.ts). They are
+   quoted here rather than chosen, and they only work because this column
+   is dark — a priest's white and a rogue's yellow vanish on paper. */
+.headName {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 0.8rem;
+}
+
+.headBand {
+  flex: none;
+  margin-left: auto;
+  font: 500 0.6rem/1 var(--mono);
+  letter-spacing: 0.04em;
+  font-variant-numeric: tabular-nums;
+  text-transform: capitalize;
+  color: rgba(242, 240, 234, 0.3);
+}
+
+.hereMore {
+  margin: 0.5rem 0 0;
+  font-size: 0.75rem;
+  color: rgba(242, 240, 234, 0.4);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .head {
+    animation: none;
+  }
+}
+
 /* ---- ⌘K */
 
 .commandVeil {

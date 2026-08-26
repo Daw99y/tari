@@ -56,7 +56,8 @@ one is usable without the next:
    step from §6.2 for *one* room. Do it by hand for the first room.
 5. **Since you were last here.** Reads `events` for this place. Exists.
 6. **Pins.** §14 step 6. The atom. Only after 1–5 are on one screen.
-7. **Presence + cursors.** §14 step 7. Liveblocks.
+7. **Presence + cursors.** §14 step 7. Ably — built 2026-08-26, with
+   chat, typing, room reactions and the occupancy roll-up beside them.
 
 Then the path (`/you`), which is `lib/plan.ts` with the sentences rewritten.
 

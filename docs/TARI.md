@@ -220,7 +220,7 @@ only thing that makes a place you already know worth reopening.
 > 6. **What they left** — the pins
 > 7. **What drops here for you** — a panel, never a list across zones
 
-**Emphasis, not a queue.** Full-bleed with Liveblocks across the whole surface
+**Emphasis, not a queue.** Full-bleed with the live layer across the whole surface
 means it is a canvas, not a scroll. Nobody scrolls past lore to find drops.
 
 **Two presence layers.** Cursors are ephemeral; log presence anyway and the
@@ -291,7 +291,7 @@ synthesise and rewrite, cite sources, stay off verbatim Wowhead. The curation
 
 ### 6.4 Co-authored, live
 
-Liveblocks storage and Yjs mean the guide can be written together in real
+A shared document layer means the guide can be written together in real
 time, cursors in the text. **A living wiki people author together while
 standing in the room it describes does not exist for any game** — and during
 the §0 window it is the only way the new world gets documented at all.
@@ -338,22 +338,64 @@ visuals in the M2 files.
 
 ## 8. The live layer
 
-Liveblocks, ~$30/month. Chat is the boring 1/10 use. **It runs across the
-entire room page, not inside a widget on it** — cursors move over Azeroth
-itself.
+**Ably.** Chat is the boring 1/10 use. **It runs across the entire room
+page, not inside a widget on it** — cursors move over Azeroth itself.
 
-| primitive | what it becomes |
-| --- | --- |
-| Presence + cursors | someone hovers a spot and you watch it happen |
-| Comments / Threads | pins, pinned to coordinates, permanent, level-indexed |
-| Broadcast | someone dings 60 and it crosses every screen |
-| Storage + Yjs | §6.4 |
-| Notifications | waiting when you get back, **never while playing** |
+### 8.1 Why not Liveblocks (priced 2026-08-26)
+
+This section said Liveblocks and said "price it before going deep". Priced,
+and it fails on one number: **10 simultaneous connections per room**, on
+Free and on Pro. Team is 50 at $500/month, Enterprise 100. Liveblocks is
+built for six people in a Figma file. Tari's premise is a whole zone
+standing in one room, and the bar below starts at 5–50 and wants 500 — the
+low end of our own target is unreachable on any plan worth buying. Pins
+would also have been metered per comment.
+
+Ably charges per message rather than per seat, which is the shape this
+product actually is: thousands of readers, most of them quiet. Free is
+200 concurrent connections and 6M messages a month; Standard is $29 plus
+usage, 10k connections, 5k presence members per channel. Cloudflare
+Durable Objects stay the cheapest-at-scale escape hatch (that is where
+PartyKit went) and the room server here is thin enough that moving is a
+swap, not a rewrite.
+
+### 8.2 What each primitive became
+
+| primitive | what it becomes | state |
+| --- | --- | --- |
+| Chat presence | who is standing here, by name and class colour | built |
+| Spaces cursors | someone hovers a spot and you watch it happen | built |
+| Chat messages + history | the room is already talking when you walk in | built |
+| Typing | you can see Fiend thinking | built |
+| Room reactions | someone dings 60 and it crosses every screen | built |
+| Occupancy roll-up | a quiet dungeon points next door (§4.1) | built |
+| Threads | pins, pinned to coordinates, permanent, level-indexed | next |
+| Notifications | waiting when you get back, **never while playing** | later |
 
 **The bar:** at 5–50 online it feels like a tight community; at 500 it feels
 like a gold mine someone just found. Different designs, both true.
 
-**Pricing risk:** billed per monthly active user. Price it before going deep.
+### 8.3 Cursors stop at 24 people, and that is a design decision
+
+Ably's own guidance is at most 20 members streaming cursors before the
+screen stops helping. The cost agrees and is louder about it: every mover's
+batch fans out to every watcher, so cursors are N² and a full Orgrimmar is
+thousands of messages a second for an effect that reads as confetti. Above
+`CURSOR_CAP` (`lib/ably.ts`) the cursor layer unmounts whole and the room
+keeps presence and chat.
+
+Which is the right answer anyway. The bar above describes two different
+rooms: cursors are the tight-community end, and a crowd wants to be counted,
+not drawn.
+
+**The rate limit is real and it bites in development.** Ably refuses past 50
+messages a second on one channel. The first build hit it from a single
+browser, because the Spaces React hooks hand back `space.enter.bind(space)`
+— a new function every render — and an incoming cursor causes a render. An
+effect keyed on it becomes a loop: render, enter, presence message, render.
+`Cursors.tsx` takes the space handle off the context instead and drives
+enter, subscribe and set by hand. Anything else built on those hooks should
+assume the same trap.
 
 ---
 
@@ -419,7 +461,7 @@ eventually **Discord Activity** — the room running inside a voice channel.
 
 Linear, Figma, Discord and Notion never *navigate* — the frame mounts once and
 content swaps inside it. Rail, canvas and people column never blink. Changing
-room is a state change, not a page load. **Liveblocks connections persist
+room is a state change, not a page load. **The live connection persists
 across room changes**, or you re-handshake every move and the live feeling
 dies.
 
@@ -533,7 +575,7 @@ so the discovery layer already has people in it when the new world lands.
    spoiler shield, the loot panel, the adjacency line.
 5. **`design.md` v2**, recording what survived 3 and 4.
 6. **Pins.** The atom. Give it to five people.
-7. **Presence + cursors.** Liveblocks across the whole room page.
+7. **Presence + cursors.** Ably across the whole room page. Built 2026-08-26.
 8. **The Tauri client**, including §9.1.
 9. **The wake.** The level-indexed layer.
 10. **Scrape → curate → shot list → shoot**, per §6.2.

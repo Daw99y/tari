@@ -1,6 +1,6 @@
 # Tari — status and handoff
 
-Updated 2026-08-25 (evening).
+Updated 2026-08-26 (evening).
 
 **This doc holds the state. `docs/TARI.md` holds the argument — read its §0
 before anything else.**
@@ -8,6 +8,47 @@ before anything else.**
 Both docs now live in this repo and **the repo copy is canonical.** They were
 previously only inside a Claude project, which meant no local session could
 see them. Earlier references to `FOXTON.md` mean `docs/TARI.md`.
+
+---
+
+## 0. Latest — the live layer, 2026-08-26
+
+**The room is live.** Ably, not Liveblocks: §8.1 of `docs/TARI.md` carries
+the price that decided it (Liveblocks caps a room at 10 simultaneous
+connections on every plan worth buying). `ABLY_API_KEY` is the one new
+environment variable — it must be set in Vercel before this deploys, and
+the key needs **`channel-metadata`** among its capabilities or the
+next-door head counts silently return `{}`. Add it to `docs/CUTOVER.md`'s
+checklist.
+
+Built and clicked through in two live connections on Duskwood:
+
+- `lib/ably.ts` — the wire names, the `Who` on presence, `CURSOR_CAP`.
+- `app/api/ably/route.ts` — mints scoped tokens. Signed in, the clientId is
+  the account handle and the browser gets no say; signed out it is the
+  browser's own key, prefixed `g:`. The raw key never leaves the server.
+- `app/api/ably/occupancy/route.ts` — the §4.1 roll-up, two steps: enumerate
+  live channels, then ask each for its occupancy. **The `by=value` form of
+  Ably's enumeration is not served on this plan** — it silently returns bare
+  channel names, which is a `{}` and a lost afternoon. Cached 12s.
+- `app/(app)/Live.tsx` — one connection for the life of the shell; the
+  room's scope swapped by name inside it. Presence is entered here, not in
+  the chat: you are in Duskwood the moment you arrive.
+- `app/(app)/People.tsx` — names the room, **deduplicated by clientId** (a
+  reader with two tabs is one person), plus counts beside next door.
+- `r/[room]/Chat.tsx`, `Cursors.tsx`, `Moments.tsx` — bottom-left,
+  everywhere, bottom-centre. `docs/DESIGN.md` "The live layer — settled".
+
+**Two traps, both hit and both fixed, both worth remembering.** Ably refuses
+past 50 messages a second on one channel, and the Spaces React hooks return
+`.bind()`ed functions that are new on every render — an effect keyed on one
+becomes a render→enter→message→render loop that blows that limit from a
+single browser. And chat history overlaps the live listener, so lines are
+merged and ordered by `serial` rather than appended.
+
+**Not done:** typing indicators are built but were untestable from one
+signed-in account (a reader's own typing is filtered out) — check them with
+two real people. Pins are next.
 
 ---
 
