@@ -31,6 +31,7 @@ import ItemStage from "@/components/ItemStage";
 import ZoneMap from "@/components/ZoneMap";
 import type { HuntSpot } from "@/lib/hunt";
 import type { Item } from "@/lib/loot";
+import type { Pin } from "@/lib/pins";
 import type { ZonePlate } from "@/lib/plate";
 
 import styles from "./dock.module.css";
@@ -91,6 +92,8 @@ export default function Dock({
   hunt,
   drops,
   room,
+  roomId,
+  pins,
   level,
   kit,
   children,
@@ -104,6 +107,10 @@ export default function Dock({
   /** The rows the room drew, for the stage's source face and the map. */
   drops: Item[];
   room: string;
+  /** The id the wire and the pins table use (`duskwood`). */
+  roomId: string;
+  /** What people left on this room's map (docs/PINS.md). */
+  pins: Pin[];
   level: number;
   /** The kit's face (app/(app)/r/[room]/Kit.tsx), handed in so the kit's
    *  contents stay beside the room that owns them. */
@@ -224,10 +231,13 @@ export default function Dock({
       {plate ? (
         <div className={styles.map} data-open={onMap || undefined} aria-hidden={!onMap} inert={!onMap}>
           <ZoneMap
+            key={roomId}
             plate={plate}
             title={room}
+            roomId={roomId}
             hunt={hunt}
             drops={drops}
+            pins={pins}
             level={level}
             focus={focus}
             onOpenItem={(item) => openItem(item, undefined)}

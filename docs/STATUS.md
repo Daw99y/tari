@@ -11,7 +11,49 @@ see them. Earlier references to `FOXTON.md` mean `docs/TARI.md`.
 
 ---
 
-## 0. Latest — the live layer, 2026-08-26
+## 0. Latest — pins, the atom, 2026-08-26 (night)
+
+**The atom is built** (docs/PINS.md — the shape; docs/TARI.md §2.2 — the
+argument). A pin: one person, standing in one spot, saying one thing, and
+it stays. Signed-in characters write; everyone reads; replies are one
+level deep; all pins render with near-level ones louder (three rulings,
+Kacey, 2026-08-26). The face is the hero's Seduced widget carried into
+the room; the marker is the aggro `!`, drawn, in the pin pink.
+
+- `db/schema.sql` — `pins` table, additive, tombstoned (`removed_at`),
+  cascades off `users`. **Run it against Neon before this deploys.**
+- `lib/pins.ts` / `lib/pins-db.ts` — the shape and the table read.
+- `app/api/pins/route.ts` — GET public (stamps `mine`), POST 401 for
+  strangers + rate-limited, DELETE tombstones your own. A landed pin is
+  also published on `tari:<room>::pins` — the table is the history, the
+  wire is the moment. No new env: the token capability (`tari:*`) and the
+  occupancy roll-up (filters to `::$chat`) both already hold.
+- `components/PinChip.tsx` — the face. `components/ZoneMap.tsx` — the
+  layer, the thread rail, the composer ("Leave a pin" in the layer bar;
+  press the plate to set the spot). Its authored POI layer renamed
+  `poi`/`Poi` so "pin" means only the atom.
+- `app/(app)/Live.tsx` — exposes the realtime handle; the map watches
+  pins land on the one socket. ZoneMap is keyed by room in Dock now —
+  it was keeping state across room changes.
+
+Clicked through live 2026-08-26 (night, Kacey's dev server): leave,
+hover, thread, reply, the landing echo. Three fixes from that pass: POI
+and hunt-mark clicks now clear an open thread (the rail looked stuck —
+"the map went non-interactive"); the rail at rest shows the room's pins
+as a feed (`Feed` in ZoneMap) instead of the empty explainer (Kacey's
+call); the `!` mark sits on a small dark-glass plate — the bare glyph
+was invisible on light parchment. Then (same night, Kacey's ruling) the
+pin's icon became **the game's treasure map** (`INV_Misc_Map_01` →
+`public/pins/map-x.png`), worn everywhere the pin appears — mark, chip,
+"Leave a pin" — familiarity of the game's own objects over drawn
+vocabulary; PINS.md and DESIGN.md record the §7.1 amendment. Also:
+`_to_delete/` is excluded in tsconfig now, and `/lab/map` passes the new
+required `roomId`. Still wants a second account to see
+`mine` stay private, and a second browser for the live landing.
+
+---
+
+## 0.1 Earlier that day — the live layer, 2026-08-26
 
 **The room is live.** Ably, not Liveblocks: §8.1 of `docs/TARI.md` carries
 the price that decided it (Liveblocks caps a room at 10 simultaneous

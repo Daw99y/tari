@@ -72,9 +72,12 @@ type LiveState = {
   me: Who | null;
   /** Our own clientId, so a room can tell our cursor from everyone else's. */
   meId: string | null;
+  /** The connection itself, for a leaf that needs a channel the providers
+   *  do not carry — the pins layer watches `::pins` on it. */
+  realtime: Ably.Realtime | null;
 };
 
-const LiveContext = createContext<LiveState>({ up: false, me: null, meId: null });
+const LiveContext = createContext<LiveState>({ up: false, me: null, meId: null, realtime: null });
 
 export function useLive(): LiveState {
   return useContext(LiveContext);
@@ -145,7 +148,7 @@ export default function Live({ roomId, children }: { roomId: string | null; chil
   }, [has]);
 
   const value = useMemo<LiveState>(
-    () => ({ up: !!clients && !failed, me, meId }),
+    () => ({ up: !!clients && !failed, me, meId, realtime: clients?.realtime ?? null }),
     [clients, failed, me, meId]
   );
 

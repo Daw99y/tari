@@ -26,7 +26,7 @@ export default async function MapPage() {
     <main className={styles.lab}>
       <p className={styles.eyebrow}>Tari · lab · Eastern Plaguelands · {plate.pins.length} pins from pfQuest</p>
       <div className={styles.stage}>
-        <ZoneMap plate={plate} title="Eastern Plaguelands" />
+        <ZoneMap plate={plate} title="Eastern Plaguelands" roomId="eastern-plaguelands" />
       </div>
     </main>
   );

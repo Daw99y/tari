@@ -30,6 +30,7 @@ import Kit from "./Kit";
 import Moments from "./Moments";
 import { age, lineParts, type Past } from "@/lib/live";
 import { type ClassId, type Item } from "@/lib/loot";
+import type { Pin } from "@/lib/pins";
 import type { ZonePlate } from "@/lib/plate";
 import { CONTINENT_LABEL, roomArt, type Room as RoomType } from "@/lib/rooms";
 
@@ -52,9 +53,10 @@ type Props = {
   guide: Card[];
   plate: ZonePlate | undefined;
   hunt: HuntSpot[];
+  pins: Pin[];
 };
 
-export default function Room({ room, past, drops, cls, level, guide, plate, hunt }: Props) {
+export default function Room({ room, past, drops, cls, level, guide, plate, hunt, pins }: Props) {
   return (
     <article className={styles.room}>
       <img
@@ -72,6 +74,8 @@ export default function Room({ room, past, drops, cls, level, guide, plate, hunt
         hunt={hunt}
         drops={drops}
         room={room.name}
+        roomId={room.id}
+        pins={pins}
         level={level}
         kit={drops.length > 0 ? <Kit drops={drops} cls={cls} level={level} room={room.name} /> : undefined}
       >

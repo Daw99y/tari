@@ -271,8 +271,22 @@ guest list.
 background. Not built. Until it is, room changes cut.
 
 **The icon vocabulary.** The debuff glyphs exist (`components/Debuff.tsx`);
-the fox mark is placeholder; the aggro `!` pin marker is a pink dot. Redraw as
-one set, 1.5px stroke, on the same 24 grid as the debuffs. STATUS §6.3.
+the aggro `!` is drawn now (`components/PinChip.tsx`, on the debuffs' 24
+grid) and stands on the map as the pin marker. The fox mark is still
+placeholder. Redraw what remains as one set, 1.5px stroke. STATUS §6.3.
+
+**The pin — settled (2026-08-26, docs/PINS.md).** The pin's face is the
+Seduced widget carried into the room (Kacey, explicitly): the glass chip,
+the bar that fills and never drains — permanence made visible. The pin's
+object is **the game's treasure map icon** (`INV_Misc_Map_01`) worn
+everywhere the pin appears — map mark (hunt-mark frame), chip slot,
+"Leave a pin" (Kacey: the app should feel like the world; familiarity of
+the game's own objects over drawn vocabulary here — a ruled amendment to
+§7.1 for this one marker). Outside PIN_BAND of the reader's level the
+mark quietens to 0.55 and never hides. Hover is the chip, press is the
+thread, the rail holds the composer; pressed marks ring in `--seduce`,
+which is within the rule above. The rail at rest is the room's pins as a
+feed ("Left here.").
 
 **Narrow.** Under 64rem the objects hide and the guide takes the width. That
 is a placeholder, not a layout. The room has not been designed for a phone.

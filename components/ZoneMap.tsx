@@ -4,9 +4,15 @@ import { useEffect, useMemo, useRef, useState, type PointerEvent } from "react";
 
 import type { HuntSpot } from "@/lib/hunt";
 import { iconUrl, type Item } from "@/lib/loot";
-import { plateSrc, type Pin, type PinKind, type ZonePlate } from "@/lib/plate";
+import { plateSrc, type Pin as Poi, type PinKind as PoiKind, type ZonePlate } from "@/lib/plate";
+
+import { useLive } from "@/app/(app)/Live";
+import { loadCharacter } from "@/lib/character";
+import { CLASS_COLOR } from "@/lib/class-color";
+import { PIN_BAND, PIN_MAX, pinAge, pinsChannel, readPin, type Pin, type PinReply } from "@/lib/pins";
 
 import { ItemHover } from "./ItemTooltip";
+import PinChip, { PinFace } from "./PinChip";
 import styles from "./zone-map.module.css";
 
 /* The map, framed inside the room, carrying two layers. The authored one
@@ -16,19 +22,19 @@ import styles from "./zone-map.module.css";
  * whose stays legible. Nothing on either orders, joins, or says where to
  * go next. */
 
-type Cluster = { key: string; x: number; y: number; pins: Pin[] };
+type Cluster = { key: string; x: number; y: number; pins: Poi[] };
 
-const KINDS: { id: PinKind; label: string }[] = [
+const KINDS: { id: PoiKind; label: string }[] = [
   { id: "giver", label: "Quests" },
   { id: "turnin", label: "Turn-ins" },
   { id: "rare", label: "Rares" },
 ];
 
-const WORD: Record<PinKind, string> = { giver: "Quest giver", turnin: "Turn-in", rare: "Rare" };
+const WORD: Record<PoiKind, string> = { giver: "Quest giver", turnin: "Turn-in", rare: "Rare" };
 
 // Grid clustering in plate percent; the cell shrinks with zoom so clusters
 // split as you push in. Neighbours the grid seam divided are merged after.
-function cluster(pins: Pin[], zoom: number, px: (x: number) => number, py: (y: number) => number): Cluster[] {
+function cluster(pins: Poi[], zoom: number, px: (x: number) => number, py: (y: number) => number): Cluster[] {
   const cell = 4.2 / zoom;
   const grid = new Map<string, Cluster>();
   for (const p of pins) {
@@ -63,33 +69,48 @@ function clampPan(p: { x: number; y: number }, z: number, el: DOMRect) {
 export default function ZoneMap({
   plate,
   title,
+  roomId,
   hunt = [],
   drops = [],
+  pins = [],
   level = 60,
   focus = null,
   onOpenItem,
 }: {
   plate: ZonePlate;
   title: string;
+  /** The room as the wire and the table say it (`duskwood`). */
+  roomId: string;
   /** The hunt layer: where the drawn rows' sources stand. */
   hunt?: HuntSpot[];
   /** The rows themselves, so a mark can name what it holds. */
   drops?: Item[];
+  /** What people left here (docs/PINS.md), read on the server. */
+  pins?: Pin[];
   level?: number;
   /** A spot the stage lent the map — looked at once, then let go. */
   focus?: { x: number; y: number } | null;
   /** Put an item on the stage, from a mark. */
   onOpenItem?: (item: Item) => void;
 }) {
-  const [layers, setLayers] = useState<Record<PinKind, boolean>>({ giver: true, turnin: true, rare: true });
+  const [layers, setLayers] = useState<Record<PoiKind, boolean>>({ giver: true, turnin: true, rare: true });
   const [areas, setAreas] = useState(true);
   const [hunting, setHunting] = useState(true);
   const [zoom, setZoom] = useState(1);
   const [pan, setPan] = useState({ x: 0, y: 0 });
   const [active, setActive] = useState<Cluster | null>(null);
   const [quarry, setQuarry] = useState<HuntSpot | null>(null);
+  /* THE PINS. Server-read to start, and the room's own channel lands the
+     rest as they are said (docs/PINS.md — the table is the history, the
+     wire is the moment). */
+  const [said, setSaid] = useState<Pin[]>(pins);
+  const [thread, setThread] = useState<number | null>(null);
+  const [placing, setPlacing] = useState(false);
+  const [draft, setDraft] = useState<{ x: number; y: number } | null>(null);
+  const { realtime } = useLive();
   const drag = useRef<{ x: number; y: number; px: number; py: number; moved: boolean } | null>(null);
   const frame = useRef<HTMLDivElement>(null);
+  const sheet = useRef<HTMLDivElement>(null);
 
   const { reg } = plate;
   const px = (x: number) => x * reg.sx + reg.ox;
@@ -117,6 +138,30 @@ export default function ZoneMap({
     node.addEventListener("wheel", onWheel, { passive: false });
     return () => node.removeEventListener("wheel", onWheel);
   }, []);
+
+  /* A pin landing anywhere — this browser or another — arrives here. Own
+     pins come back from the POST too; merging by id keeps the echo quiet. */
+  useEffect(() => {
+    if (!realtime) return;
+    const chan = realtime.channels.get(pinsChannel(roomId));
+    const onPin = (msg: { data?: unknown }) => {
+      const p = readPin(msg.data);
+      if (!p) return;
+      setSaid((was) => {
+        if (p.parent !== null)
+          return was.map((t) =>
+            t.id === p.parent && !t.replies.some((r) => r.id === p.id)
+              ? { ...t, replies: [...t.replies, { id: p.id, body: p.body, who: p.who, cls: p.cls, level: p.level, at: p.at, mine: false }] }
+              : t
+          );
+        if (was.some((t) => t.id === p.id)) return was;
+        const { parent: _drop, ...pin } = p;
+        return [pin, ...was];
+      });
+    };
+    void chan.subscribe("pin", onPin);
+    return () => chan.unsubscribe("pin", onPin);
+  }, [realtime, roomId]);
 
   /* A lent map looks where it was pointed: pushed in, centred on the spot,
      the hunt layer on. The reader takes it from there. */
@@ -149,12 +194,33 @@ export default function ZoneMap({
     if (Math.abs(dx) + Math.abs(dy) > 3) d.moved = true;
     setPan(clampPan({ x: d.px + dx, y: d.py + dy }, zoom, frame.current!.getBoundingClientRect()));
   }
-  function onUp() {
-    if (drag.current && !drag.current.moved) {
-      setActive(null);
-      setQuarry(null);
-    }
+  function onUp(e: PointerEvent) {
+    const tapped = drag.current && !drag.current.moved;
     drag.current = null;
+    if (!tapped) return;
+    /* Placing: the press is the spot. The click's place on the transformed
+       sheet is already pan- and zoom-aware, because getBoundingClientRect
+       measures the transform. */
+    if (placing) {
+      const el = sheet.current?.getBoundingClientRect();
+      setPlacing(false);
+      if (el) {
+        const mx = (((e.clientX - el.left) / el.width) * 100 - reg.ox) / reg.sx;
+        const my = (((e.clientY - el.top) / el.height) * 100 - reg.oy) / reg.sy;
+        if (mx >= 0 && mx <= 100 && my >= 0 && my <= 100) {
+          setDraft({ x: mx, y: my });
+          setThread(null);
+          setActive(null);
+          setQuarry(null);
+          return;
+        }
+      }
+      return;
+    }
+    setActive(null);
+    setQuarry(null);
+    setThread(null);
+    setDraft(null);
   }
 
   const [aw, ah] = plate.aspect;
@@ -167,12 +233,13 @@ export default function ZoneMap({
       <div
         ref={frame}
         className={styles.frame}
+        data-placing={placing || undefined}
         onPointerDown={onDown}
         onPointerMove={onMove}
         onPointerUp={onUp}
         onPointerCancel={onUp}
       >
-        <div className={styles.plate} style={{ transform: `translate(${pan.x}px, ${pan.y}px) scale(${zoom})` }}>
+        <div ref={sheet} className={styles.plate} style={{ transform: `translate(${pan.x}px, ${pan.y}px) scale(${zoom})` }}>
           <img
             src={plateSrc(plate, plate.widths[0])}
             srcSet={plate.widths.map((w) => `${plateSrc(plate, w)} ${w}w`).join(", ")}
@@ -220,7 +287,7 @@ export default function ZoneMap({
             return (
               <button
                 key={c.key}
-                className={styles.pin}
+                className={styles.poi}
                 data-kind={one ? one.kind : "cluster"}
                 aria-pressed={active?.key === c.key}
                 aria-label={one ? one.name : `${c.pins.length} here`}
@@ -228,6 +295,8 @@ export default function ZoneMap({
                 onPointerDown={(e) => e.stopPropagation()}
                 onClick={() => {
                   setQuarry(null);
+                  setThread(null);
+                  setDraft(null);
                   setActive(active?.key === c.key ? null : c);
                 }}
               >
@@ -256,6 +325,8 @@ export default function ZoneMap({
                     onPointerDown={(e) => e.stopPropagation()}
                     onClick={() => {
                       setActive(null);
+                      setThread(null);
+                      setDraft(null);
                       setQuarry(quarry === h ? null : h);
                     }}
                   >
@@ -280,6 +351,44 @@ export default function ZoneMap({
                 );
               })
             : null}
+
+          {/* THE PINS (docs/PINS.md): what people left, standing where it was
+              said. The aggro `!` in the pin pink — you noticed something.
+              Near the reader's level it stands full; far from it, quiet.
+              Hover is the chip; press is the thread in the rail. */}
+          {said.map((p) => (
+            <button
+              key={`pin-${p.id}`}
+              className={styles.pinMark}
+              data-near={Math.abs(p.level - level) <= PIN_BAND || undefined}
+              aria-pressed={thread === p.id}
+              aria-label={`${p.who} left a pin here`}
+              style={{ left: `${px(p.x)}%`, top: `${py(p.y)}%`, transform: `translate(-50%, -88%) scale(${1 / zoom})` }}
+              onPointerDown={(e) => e.stopPropagation()}
+              onClick={() => {
+                setActive(null);
+                setQuarry(null);
+                setDraft(null);
+                setThread(thread === p.id ? null : p.id);
+              }}
+            >
+              <PinFace className={styles.pinGlyph} />
+              <span className={styles.pinHover} data-flip={py(p.y) < 30 || undefined} aria-hidden="true">
+                <PinChip body={p.body} who={p.who} cls={p.cls} level={p.level} at={p.at} />
+              </span>
+            </button>
+          ))}
+
+          {draft ? (
+            <span
+              className={styles.pinMark}
+              data-ghost
+              aria-hidden="true"
+              style={{ left: `${px(draft.x)}%`, top: `${py(draft.y)}%`, transform: `translate(-50%, -88%) scale(${1 / zoom})` }}
+            >
+              <PinFace className={styles.pinGlyph} />
+            </span>
+          ) : null}
 
           {focus ? (
             <span
@@ -309,15 +418,55 @@ export default function ZoneMap({
               <MarkGlyph /> Drops for you
             </button>
           ) : null}
+          <button
+            className={styles.chip}
+            data-pin
+            aria-pressed={placing}
+            onClick={() => {
+              setPlacing(!placing);
+              setDraft(null);
+            }}
+          >
+            <PinFace className={styles.chipFace} /> Leave a pin
+          </button>
           <span className={styles.zoom}>{zoom.toFixed(1)}×</span>
         </div>
       </div>
 
       <aside className={styles.rail}>
-        {quarry ? (
+        {draft ? (
+          <Say
+            roomId={roomId}
+            at={draft}
+            onDone={(p) => {
+              setSaid((was) => (was.some((t) => t.id === p.id) ? was : [p, ...was]));
+              setDraft(null);
+              setThread(p.id);
+            }}
+            onCancel={() => setDraft(null)}
+          />
+        ) : thread !== null && said.some((p) => p.id === thread) ? (
+          <Thread
+            pin={said.find((p) => p.id === thread)!}
+            roomId={roomId}
+            onReply={(id, r) =>
+              setSaid((was) =>
+                was.map((t) =>
+                  t.id === id && !t.replies.some((x) => x.id === r.id) ? { ...t, replies: [...t.replies, r] } : t
+                )
+              )
+            }
+            onTakeBack={(id) => {
+              setSaid((was) => was.filter((t) => t.id !== id));
+              setThread(null);
+            }}
+          />
+        ) : quarry ? (
           <Quarry h={quarry} drops={drops} level={level} onOpenItem={onOpenItem} />
         ) : active ? (
           <Rail c={active} />
+        ) : said.length > 0 ? (
+          <Feed title={title} pins={said} onOpen={(id) => setThread(id)} />
         ) : (
           <Empty title={title} />
         )}
@@ -326,7 +475,7 @@ export default function ZoneMap({
   );
 }
 
-function Glyph({ kind }: { kind: PinKind }) {
+function Glyph({ kind }: { kind: PoiKind }) {
   if (kind === "rare")
     return (
       <svg viewBox="0 0 12 12" aria-hidden="true">
@@ -443,6 +592,221 @@ function Empty({ title }: { title: string }) {
         Press a mark to read what stands there. Scroll to push in; drag to move. A mark is a noun — no arrows, no
         order, no next.
       </p>
+    </>
+  );
+}
+
+/* THE COMPOSER. One field, one thing, said once (docs/PINS.md). Signing in
+ * is asked for only at the moment it matters, and in the register of the
+ * record — never a wall. */
+function Say({
+  roomId,
+  at,
+  onDone,
+  onCancel,
+}: {
+  roomId: string;
+  at: { x: number; y: number };
+  onDone: (p: Pin) => void;
+  onCancel: () => void;
+}) {
+  const [text, setText] = useState("");
+  const [state, setState] = useState<"idle" | "busy" | "signin" | "lost">("idle");
+
+  async function send() {
+    const body = text.trim();
+    if (!body || state === "busy") return;
+    const c = loadCharacter();
+    if (!c) {
+      setState("signin");
+      return;
+    }
+    setState("busy");
+    try {
+      const res = await fetch("/api/pins", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({
+          room: roomId,
+          x: at.x,
+          y: at.y,
+          body,
+          who: { name: c.name, cls: c.cls, level: c.level },
+        }),
+      });
+      if (res.status === 401) return setState("signin");
+      if (!res.ok) return setState("lost");
+      const json = (await res.json()) as { pin: Pin };
+      onDone(json.pin);
+    } catch {
+      setState("lost");
+    }
+  }
+
+  return (
+    <>
+      <p className={styles.eyebrow}>Right here</p>
+      <h2 className={styles.h2}>Say one thing.</h2>
+      <textarea
+        className={styles.say}
+        maxLength={PIN_MAX}
+        rows={4}
+        placeholder="What made you stop?"
+        value={text}
+        autoFocus
+        onChange={(e) => setText(e.target.value)}
+        onKeyDown={(e) => {
+          if (e.key === "Enter" && (e.metaKey || e.ctrlKey)) void send();
+        }}
+      />
+      {state === "signin" ? (
+        <p className={styles.copy}>A pin goes on the permanent record — sign in on the Character tab first.</p>
+      ) : null}
+      {state === "lost" ? <p className={styles.copy}>It did not take. Say it once more.</p> : null}
+      <div className={styles.sayRow}>
+        <button className={styles.sayBtn} disabled={!text.trim() || state === "busy"} onClick={() => void send()}>
+          Leave it
+        </button>
+        <button className={styles.sayQuiet} onClick={onCancel}>
+          Never mind
+        </button>
+      </div>
+      <p className={styles.copy}>It stays. The next one through sees it.</p>
+    </>
+  );
+}
+
+/* One pin, opened: the chip, the answers under it, and a line to add one.
+ * Your own pin carries the one quiet undo the record allows. */
+function Thread({
+  pin,
+  roomId,
+  onReply,
+  onTakeBack,
+}: {
+  pin: Pin;
+  roomId: string;
+  onReply: (id: number, r: PinReply) => void;
+  onTakeBack: (id: number) => void;
+}) {
+  const [text, setText] = useState("");
+  const [state, setState] = useState<"idle" | "busy" | "signin" | "lost">("idle");
+
+  async function send() {
+    const body = text.trim();
+    if (!body || state === "busy") return;
+    const c = loadCharacter();
+    if (!c) {
+      setState("signin");
+      return;
+    }
+    setState("busy");
+    try {
+      const res = await fetch("/api/pins", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({
+          room: roomId,
+          x: pin.x,
+          y: pin.y,
+          body,
+          parent: pin.id,
+          who: { name: c.name, cls: c.cls, level: c.level },
+        }),
+      });
+      if (res.status === 401) return setState("signin");
+      if (!res.ok) return setState("lost");
+      const json = (await res.json()) as { pin: PinReply };
+      onReply(pin.id, { id: json.pin.id, body, who: c.name, cls: c.cls, level: c.level, at: new Date().toISOString(), mine: true });
+      setText("");
+      setState("idle");
+    } catch {
+      setState("lost");
+    }
+  }
+
+  async function takeBack() {
+    const res = await fetch(`/api/pins?id=${pin.id}`, { method: "DELETE" });
+    if (res.ok) onTakeBack(pin.id);
+  }
+
+  return (
+    <>
+      <p className={styles.eyebrow}>Someone stopped here</p>
+      <PinChip body={pin.body} who={pin.who} cls={pin.cls} level={pin.level} at={pin.at} className={styles.railChip} />
+      {pin.replies.length > 0 ? (
+        <ul className={styles.replies}>
+          {pin.replies.map((r) => (
+            <li key={r.id} className={styles.reply}>
+              <span className={styles.replyWho} style={{ color: CLASS_COLOR[r.cls] }}>
+                {r.who}
+              </span>
+              <span className={styles.replyBody}>{r.body}</span>
+              <span className={styles.replyAge}>{pinAge(r.at)}</span>
+            </li>
+          ))}
+        </ul>
+      ) : null}
+      <textarea
+        className={styles.say}
+        maxLength={PIN_MAX}
+        rows={2}
+        placeholder="Answer"
+        value={text}
+        onChange={(e) => setText(e.target.value)}
+        onKeyDown={(e) => {
+          if (e.key === "Enter" && (e.metaKey || e.ctrlKey)) void send();
+        }}
+      />
+      {state === "signin" ? (
+        <p className={styles.copy}>An answer goes on the record too — sign in on the Character tab first.</p>
+      ) : null}
+      {state === "lost" ? <p className={styles.copy}>It did not take. Say it once more.</p> : null}
+      <div className={styles.sayRow}>
+        <button className={styles.sayBtn} disabled={!text.trim() || state === "busy"} onClick={() => void send()}>
+          Reply
+        </button>
+        {pin.mine ? (
+          <button className={styles.sayQuiet} onClick={() => void takeBack()}>
+            Take it back
+          </button>
+        ) : null}
+      </div>
+    </>
+  );
+}
+
+/* THE RAIL AT REST. When nobody has pressed anything, the room's pins are
+ * what the rail holds — the record is the default reading, not a hidden
+ * layer (Kacey, 2026-08-26). Press one and the map is unchanged; only the
+ * rail turns to the thread. */
+function Feed({
+  title,
+  pins,
+  onOpen,
+}: {
+  title: string;
+  pins: Pin[];
+  onOpen: (id: number) => void;
+}) {
+  return (
+    <>
+      <p className={styles.eyebrow}>{title}</p>
+      <h2 className={styles.h2}>Left here.</h2>
+      <ul className={styles.feed}>
+        {pins.map((p) => (
+          <li key={p.id}>
+            <button type="button" className={styles.feedRow} onClick={() => onOpen(p.id)}>
+              <PinChip body={p.body} who={p.who} cls={p.cls} level={p.level} at={p.at} />
+              {p.replies.length > 0 ? (
+                <span className={styles.feedMeta}>
+                  {p.replies.length} {p.replies.length === 1 ? "answer" : "answers"}
+                </span>
+              ) : null}
+            </button>
+          </li>
+        ))}
+      </ul>
     </>
   );
 }

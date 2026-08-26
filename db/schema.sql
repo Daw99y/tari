@@ -108,3 +108,35 @@ create table if not exists characters (
   primary key (user_id, char_key)
 );
 create index if not exists characters_user_at on characters (user_id, updated_at);
+
+-- ===========================================================================
+-- PINS — the atom. docs/PINS.md; the argument is docs/TARI.md §2.2.
+--
+-- One person, standing in one spot, saying one thing. It stays: rows are
+-- never deleted, only taken back (`removed_at` — the tombstone tradition,
+-- same as marks' on_mark). A reply is a pin with a `parent`, one level deep;
+-- the API refuses a reply to a reply.
+--
+-- x/y are map coordinates in the same 0–100 space the spots files use, so a
+-- pin renders through the plate's registration like every other mark. The
+-- author's character facts are copied in at writing time on purpose: the pin
+-- says who stood there that day, at what level — not who they became.
+-- ===========================================================================
+create table if not exists pins (
+  id         bigserial   primary key,
+  room       text        not null,
+  x          real        not null,
+  y          real        not null,
+  body       text        not null,
+  parent     bigint      references pins(id) on delete cascade,
+  user_id    bigint      not null references users(id) on delete cascade,
+  who        text        not null,   -- character name, a claim (see api/ably)
+  cls        text        not null,
+  level      int         not null,
+  removed_at timestamptz,
+  created_at timestamptz not null default now()
+);
+-- The room's read: everything said here, oldest first under its spot.
+create index if not exists pins_room_at on pins (room, created_at desc);
+-- A thread's replies.
+create index if not exists pins_parent on pins (parent);

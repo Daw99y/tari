@@ -1,0 +1,83 @@
+/* The debuff frame, once more (components/debuff.module.css is the source
+ * of this shape). Differences on purpose: it sizes to its place instead of
+ * absolute, lands without the hero's 1.4s delay, and the bar arrives
+ * already full — in the room, permanence is a fact, not a reveal. */
+
+.frame {
+  --chip-ink: #f2f0ea;
+  --chip-mute: rgba(242, 240, 234, 0.64);
+
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.7rem;
+  align-items: start;
+  min-width: 0;
+  padding: 0.6rem 0.8rem 0.6rem 0.6rem;
+  border-radius: 12px;
+  background: rgba(6, 6, 10, 0.86);
+  border: 0.5px solid rgba(242, 240, 234, 0.18);
+  backdrop-filter: blur(12px) saturate(1.1);
+  -webkit-backdrop-filter: blur(12px) saturate(1.1);
+  color: var(--chip-ink);
+  font-family: var(--sans);
+}
+
+.icon {
+  display: grid;
+  place-items: center;
+  width: 1.9rem;
+  height: 1.9rem;
+  border-radius: 8px;
+  background: rgba(242, 240, 234, 0.08);
+  color: #ff4f8b;
+}
+
+.icon svg {
+  width: 1.2rem;
+  height: 1.2rem;
+  fill: currentColor;
+}
+
+/* The game's own object, in the game's own frame register: edge to edge,
+ * rounded by the slot. */
+.face {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
+  display: block;
+}
+
+.text {
+  display: grid;
+  gap: 0.3rem;
+  min-width: 0;
+}
+
+.said {
+  margin: 0;
+  font: 600 0.82rem/1.35 var(--sans);
+  letter-spacing: -0.01em;
+  overflow-wrap: break-word;
+}
+
+.note {
+  margin: 0;
+  font: 400 0.7rem/1.2 var(--sans);
+  color: var(--chip-mute);
+}
+
+.bar {
+  display: block;
+  height: 2px;
+  border-radius: 999px;
+  background: rgba(242, 240, 234, 0.14);
+  overflow: hidden;
+}
+
+.fill {
+  display: block;
+  height: 100%;
+  width: 100%;
+  background: #ff4f8b;
+}

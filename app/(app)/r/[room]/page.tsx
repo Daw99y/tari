@@ -12,11 +12,13 @@ import type { Metadata } from "next";
 import { cookies } from "next/headers";
 import { notFound } from "next/navigation";
 
+import { auth, hasAuth } from "@/lib/auth";
 import { readWho, WHO_COOKIE } from "@/lib/character";
 import { guideFor } from "@/lib/guide";
 import { pastIn } from "@/lib/live";
 import { clampLevel, defaultLevel, isClassId, lootFor, panelFor } from "@/lib/loot";
 import { plateFor } from "@/lib/maps";
+import { pinsIn } from "@/lib/pins-db";
 import { huntFor } from "@/lib/spots";
 import { getRoom, ROOMS } from "@/lib/rooms";
 
@@ -63,7 +65,12 @@ export default async function RoomPage({ params, searchParams }: Props) {
   // Where the drawn rows' sources stand — the hunt layer and the crop.
   const hunt = await huntFor(room.id, drops, plate);
 
+  // What people left here. The uid only stamps `mine` — a stranger reads
+  // the record exactly as a member does (docs/PINS.md).
+  const session = hasAuth() ? ((await auth()) as { uid?: number | null } | null) : null;
+  const pins = plate ? await pinsIn(room.id, typeof session?.uid === "number" ? session.uid : null) : [];
+
   return (
-    <Room room={room} past={past} drops={drops} cls={cls} level={level} guide={guide} plate={plate} hunt={hunt} />
+    <Room room={room} past={past} drops={drops} cls={cls} level={level} guide={guide} plate={plate} hunt={hunt} pins={pins} />
   );
 }

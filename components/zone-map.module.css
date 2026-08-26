@@ -63,7 +63,11 @@
   transform-origin: center;
   will-change: transform;
 }
-.plate img {
+/* The art only — a child selector on purpose. A bare `.plate img` grabs
+ * every img in every layer (a mark's face, the pin chip's icon) and pins
+ * it absolute against its nearest positioned ancestor, which for the pin's
+ * hover chip was the whole card. */
+.plate > img {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -143,7 +147,7 @@
 }
 
 /* The pin: a small white card on the plate. Pressed, it takes the accent. */
-.pin {
+.poi {
   position: absolute;
   width: 24px;
   height: 24px;
@@ -160,12 +164,12 @@
   cursor: pointer;
   transition: box-shadow 150ms ease;
 }
-.pin svg {
+.poi svg {
   width: 12px;
   height: 12px;
   fill: currentColor;
 }
-.pin[data-kind="cluster"] {
+.poi[data-kind="cluster"] {
   width: 30px;
 }
 .count {
@@ -173,19 +177,19 @@
   font-weight: 600;
   font-variant-numeric: tabular-nums;
 }
-.pin:hover {
+.poi:hover {
   box-shadow:
     0 0 0 0.5px rgba(0, 0, 0, 0.14),
     0 4px 10px rgba(0, 0, 0, 0.3);
 }
-.pin[aria-pressed="true"] {
+.poi[aria-pressed="true"] {
   color: var(--seduce);
   box-shadow:
     0 0 0 1.5px var(--seduce),
     0 0 0 5px rgba(255, 79, 139, 0.22),
     0 2px 6px rgba(0, 0, 0, 0.22);
 }
-.pin:focus-visible {
+.poi:focus-visible {
   outline: 2px solid var(--seduce);
   outline-offset: 2px;
 }
@@ -465,3 +469,269 @@
 .quarryName[data-quality="Rare"] { color: #4f9cff; }
 .quarryName[data-quality="Epic"] { color: #b877f5; }
 .quarryName[data-quality="Legendary"] { color: #ff9a3c; }
+
+/* =========================================================================
+ * THE PINS (docs/PINS.md). The aggro `!`, in the pin pink, standing where
+ * someone stopped. Near the reader's level it is full; past PIN_BAND it
+ * quietens but never hides. The pulse is DESIGN.md's stated 2.6s.
+ * ========================================================================= */
+
+/* The hunt marks' own frame, worn by the pin: the game's treasure map, X
+ * out. Pressed, the frame rings in the pin pink like every other mark. */
+.pinMark {
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  padding: 0;
+  border: 0;
+  border-radius: 7px;
+  display: grid;
+  place-items: center;
+  background: rgba(6, 6, 10, 0.92);
+  color: var(--seduce);
+  box-shadow:
+    0 0 0 1px rgba(6, 6, 10, 0.8),
+    0 0 0 1.5px rgba(242, 240, 234, 0.5),
+    0 2px 8px rgba(0, 0, 0, 0.45);
+  cursor: pointer;
+  transform-origin: 50% 88%;
+  transition: box-shadow 150ms ease;
+}
+
+.pinMark:hover {
+  box-shadow:
+    0 0 0 1px rgba(6, 6, 10, 0.8),
+    0 0 0 1.5px rgba(242, 240, 234, 0.8),
+    0 3px 10px rgba(0, 0, 0, 0.5);
+}
+
+.pinMark[aria-pressed="true"] {
+  box-shadow:
+    0 0 0 1px rgba(6, 6, 10, 0.8),
+    0 0 0 1.5px var(--seduce),
+    0 0 0 5px rgba(255, 79, 139, 0.22),
+    0 2px 8px rgba(0, 0, 0, 0.45);
+}
+
+.pinGlyph {
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  object-fit: cover;
+  display: block;
+}
+
+.pinMark[data-near] .pinGlyph {
+  animation: pinPulse 2600ms cubic-bezier(0.2, 0.7, 0.2, 1) infinite;
+}
+
+.pinMark:not([data-near]):not([data-ghost]) {
+  opacity: 0.55;
+}
+
+@keyframes pinPulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.14);
+  }
+}
+
+.pinMark:hover,
+.pinMark[aria-pressed="true"] {
+  opacity: 1;
+}
+
+.pinMark:focus-visible {
+  outline: 2px solid var(--seduce);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+/* A draft: where the next one will stand, waiting on its words. */
+.pinMark[data-ghost] .pinGlyph {
+  animation: pinPulse 1300ms cubic-bezier(0.2, 0.7, 0.2, 1) infinite;
+}
+
+/* Hover is the chip — the quotation grammar the plate set. It rides inside
+ * the mark so it counter-scales with it; near the top edge it flips under. */
+.pinHover {
+  position: absolute;
+  bottom: calc(100% + 4px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 15rem;
+  display: none;
+  pointer-events: none;
+  text-align: left;
+  z-index: 6;
+}
+
+.pinMark:hover .pinHover,
+.pinMark:focus-visible .pinHover {
+  display: block;
+}
+
+.pinMark[aria-pressed="true"] .pinHover {
+  display: none;
+}
+
+.pinHover[data-flip] {
+  bottom: auto;
+  top: calc(100% + 4px);
+}
+
+.frame[data-placing] {
+  cursor: crosshair;
+}
+
+.chipFace {
+  width: 13px;
+  height: 13px;
+  border-radius: 3px;
+  object-fit: cover;
+  display: block;
+}
+
+/* The rail's composer and thread. */
+
+.railChip {
+  margin: 0.35rem 0 0.8rem;
+}
+
+.say {
+  width: 100%;
+  margin: 0.5rem 0 0.6rem;
+  padding: 0.55rem 0.65rem;
+  border-radius: 8px;
+  background: rgba(242, 240, 234, 0.06);
+  border: 0.5px solid var(--rule);
+  color: var(--ink);
+  font: inherit;
+  resize: none;
+}
+
+.say:focus-visible {
+  outline: 2px solid var(--seduce);
+  outline-offset: 1px;
+}
+
+.sayRow {
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+  margin: 0.2rem 0 0.7rem;
+}
+
+.sayBtn {
+  appearance: none;
+  border: 0;
+  border-radius: 8px;
+  padding: 0.45rem 0.9rem;
+  background: var(--seduce);
+  color: #14060c;
+  font: 600 0.8rem/1 var(--sans);
+  cursor: pointer;
+}
+
+.sayBtn:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.sayBtn:focus-visible,
+.sayQuiet:focus-visible {
+  outline: 2px solid var(--seduce);
+  outline-offset: 2px;
+}
+
+.sayQuiet {
+  appearance: none;
+  border: 0;
+  background: none;
+  padding: 0.45rem 0.2rem;
+  color: var(--mute);
+  font: inherit;
+  cursor: pointer;
+}
+
+.sayQuiet:hover {
+  color: var(--ink);
+}
+
+.replies {
+  list-style: none;
+  margin: 0 0 0.6rem;
+  padding: 0;
+  display: grid;
+  gap: 0.45rem;
+}
+
+.reply {
+  display: grid;
+  gap: 0.1rem;
+}
+
+.replyWho {
+  font-weight: 600;
+  font-size: 0.72rem;
+}
+
+.replyBody {
+  overflow-wrap: break-word;
+}
+
+.replyAge {
+  color: var(--mute);
+  font-size: 0.7rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pinMark .pinGlyph {
+    animation: none;
+  }
+}
+
+/* The rail at rest: the pins, as a feed. The chip does the talking; the
+ * row is only a door. */
+
+.feed {
+  list-style: none;
+  margin: 0.35rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 0.55rem;
+}
+
+.feedRow {
+  appearance: none;
+  border: 0;
+  background: none;
+  padding: 0;
+  width: 100%;
+  display: grid;
+  gap: 0.25rem;
+  text-align: left;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+.feedRow:hover,
+.feedRow:focus-visible {
+  filter: brightness(1.12);
+}
+
+.feedRow:focus-visible {
+  outline: 2px solid var(--seduce);
+  outline-offset: 2px;
+  border-radius: 12px;
+}
+
+.feedMeta {
+  color: var(--mute);
+  font-size: 0.7rem;
+  padding-left: 0.2rem;
+}
