@@ -287,3 +287,181 @@
     max-height: 40vh;
   }
 }
+
+/* ---- the hunt layer (docs/DROPS.md) ----
+ * Yours, not the atlas's: the mark is the app's dark against the curated
+ * paper, so one glance says which layer drew a thing. */
+
+/* A lesser spawn of a marked creature: presence, not a target. */
+.camp {
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgba(6, 6, 10, 0.55);
+  box-shadow: 0 0 0 1.5px rgba(242, 240, 234, 0.4);
+  pointer-events: none;
+}
+
+.mark {
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: 0;
+  border-radius: 7px;
+  display: grid;
+  place-items: center;
+  background: rgba(6, 6, 10, 0.92);
+  color: rgba(242, 240, 234, 0.92);
+  box-shadow:
+    0 0 0 1px rgba(6, 6, 10, 0.8),
+    0 0 0 1.5px rgba(242, 240, 234, 0.5),
+    0 2px 8px rgba(0, 0, 0, 0.45);
+  cursor: pointer;
+  transition: box-shadow 150ms ease;
+}
+.mark > svg {
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
+}
+
+/* The face: the item's own icon fills the mark. */
+.markFace {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  overflow: hidden;
+}
+.markFace img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* More than one thing stands here. */
+.markCount {
+  position: absolute;
+  top: -5px;
+  right: -6px;
+  min-width: 13px;
+  height: 13px;
+  padding: 0 3px;
+  border-radius: 7px;
+  display: grid;
+  place-items: center;
+  background: rgba(242, 240, 234, 0.95);
+  color: rgba(6, 6, 10, 0.9);
+  font: 600 8.5px/1 var(--mono);
+  font-variant-numeric: tabular-nums;
+  box-shadow: 0 0 0 1.5px rgba(6, 6, 10, 0.8);
+}
+
+/* The giver's mark wears the quest ring at its shoulder. */
+.markRing {
+  position: absolute;
+  bottom: -5px;
+  right: -6px;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: rgba(6, 6, 10, 0.92);
+  color: rgba(242, 240, 234, 0.95);
+  box-shadow: 0 0 0 1.5px rgba(6, 6, 10, 0.8);
+}
+.markRing svg {
+  width: 9px;
+  height: 9px;
+}
+.mark:hover {
+  box-shadow:
+    0 0 0 0.5px rgba(242, 240, 234, 0.55),
+    0 4px 10px rgba(0, 0, 0, 0.4);
+}
+.mark[aria-pressed="true"] {
+  color: var(--seduce);
+  box-shadow:
+    0 0 0 1.5px var(--seduce),
+    0 0 0 5px rgba(255, 79, 139, 0.22),
+    0 2px 6px rgba(0, 0, 0, 0.3);
+}
+.mark:focus-visible {
+  outline: 2px solid var(--seduce);
+  outline-offset: 2px;
+}
+
+/* Where the stage pointed a lent map: one breath, not a beacon. */
+.lent {
+  position: absolute;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(242, 240, 234, 0.85);
+  box-shadow: 0 0 0 1px rgba(6, 6, 10, 0.4), inset 0 0 0 1px rgba(6, 6, 10, 0.4);
+  pointer-events: none;
+  animation: lent-breathe 2.2s ease-in-out infinite;
+}
+@keyframes lent-breathe {
+  0%, 100% { opacity: 0.45; }
+  50% { opacity: 0.95; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .lent { animation: none; }
+}
+
+/* The hunt's rows in the rail: hover is the plate, press is the stage. */
+.quarryRow {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.15rem 0;
+  cursor: pointer;
+  text-align: left;
+  font: inherit;
+  color: inherit;
+  border-radius: 6px;
+}
+.quarryRow:focus-visible {
+  outline: 2px solid var(--seduce);
+  outline-offset: 2px;
+}
+.quarryIcon {
+  flex: none;
+  width: 1.7rem;
+  height: 1.7rem;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: inset 0 0 0 0.5px var(--rule);
+  background: rgba(6, 6, 10, 0.08);
+}
+.quarryIcon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.quarryName {
+  flex: 1;
+  font-weight: 500;
+  line-height: 1.25;
+}
+.quarryRow:hover .quarryName {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 0.5px;
+}
+
+/* The game's four, lightened for the dark rail — on a name, never elsewhere. */
+.quarryName[data-quality="Uncommon"] { color: #4ade5b; }
+.quarryName[data-quality="Rare"] { color: #4f9cff; }
+.quarryName[data-quality="Epic"] { color: #b877f5; }
+.quarryName[data-quality="Legendary"] { color: #ff9a3c; }

@@ -206,7 +206,7 @@
   display: none;
 }
 
-/* The compass's gold, at heading size (components/map-dock.module.css). */
+/* The compass's gold, at heading size (components/dock.module.css). */
 .pinMark {
   flex: none;
   width: 10px;

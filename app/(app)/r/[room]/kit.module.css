@@ -1,0 +1,326 @@
+/* The kit's face. The card itself — ground, blur, hairline, radius — is
+ * the dock's (components/dock.module.css); this is what stands inside it.
+ * Type carries every fact: no bars, no rings, no badges. The row is a
+ * ledger line — slot, worn, offered — and the 5K is the design width. */
+
+.kit {
+  height: 100%;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  gap: clamp(1.1rem, 2.2vh, 1.5rem);
+  padding: clamp(1.4rem, 3vh, 2.1rem) clamp(1.4rem, 3vw, 2.6rem);
+  color: var(--ink);
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* ---- the head ---- */
+
+.head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: start;
+  gap: 1rem;
+}
+
+.said {
+  display: grid;
+  gap: 0.35rem;
+  min-width: 0;
+}
+
+.eyebrow {
+  margin: 0;
+  font: 500 0.55rem/1 var(--mono);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(242, 240, 234, 0.5);
+}
+
+.title {
+  margin: 0;
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: clamp(1.35rem, 2.4vw, 1.9rem);
+  line-height: 1.02;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+}
+
+.sub {
+  margin: 0;
+  font-size: 0.8rem;
+  line-height: 1.35;
+  color: var(--mute);
+}
+
+.close {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  padding: 0.25rem 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  cursor: pointer;
+  font: 400 0.58rem/1 var(--mono);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(242, 240, 234, 0.55);
+  transition: color 200ms ease;
+}
+.close:hover {
+  color: var(--ink);
+}
+.close:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.esc {
+  padding: 0.15rem 0.3rem;
+  border-radius: 4px;
+  border: 0.5px solid var(--rule);
+  font-size: 0.52rem;
+  letter-spacing: 0.12em;
+}
+
+/* ---- the ledger ---- */
+
+.rows {
+  list-style: none;
+  margin: 0;
+  padding: 0 0.25rem 0.25rem 0;
+  display: grid;
+  align-content: start;
+  overflow-y: auto;
+  min-height: 0;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: var(--rule) transparent;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 9.5rem 15rem minmax(0, 1fr);
+  gap: clamp(1rem, 2.5vw, 2rem);
+  align-items: start;
+  padding: clamp(0.85rem, 1.8vh, 1.15rem) 0;
+  border-top: 0.5px solid var(--rule);
+}
+
+.slot {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  min-width: 0;
+}
+
+.slotGlyph {
+  flex: none;
+  width: 1.15rem;
+  height: 1.15rem;
+  color: rgba(242, 240, 234, 0.45);
+  fill: none;
+  stroke-width: 1.5;
+}
+
+.slotName {
+  font: 500 0.6rem/1.2 var(--mono);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(242, 240, 234, 0.6);
+}
+
+/* What is on the character now: the bar the offers are read against. */
+.wearing {
+  display: grid;
+  gap: 0.2rem;
+  min-width: 0;
+}
+
+.wearK {
+  font: 500 0.52rem/1 var(--mono);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(242, 240, 234, 0.38);
+}
+
+.wearV {
+  font-size: 0.85rem;
+  line-height: 1.3;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+.wearV[data-quality="Uncommon"] { color: #4ade5b; }
+.wearV[data-quality="Rare"] { color: #4f9cff; }
+.wearV[data-quality="Epic"] { color: #b877f5; }
+.wearV[data-quality="Legendary"] { color: #ff9a3c; }
+
+.wearNone {
+  font-size: 0.85rem;
+  line-height: 1.3;
+  color: rgba(242, 240, 234, 0.42);
+}
+
+/* ---- the offers ---- */
+
+.offers {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.55rem;
+}
+
+.offer {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7rem;
+  min-width: 0;
+}
+
+.offer[data-found] {
+  opacity: 0.45;
+}
+.offer[data-found] .offerName {
+  text-decoration: line-through;
+  text-decoration-thickness: 0.5px;
+  text-decoration-color: rgba(242, 240, 234, 0.5);
+}
+
+.tick {
+  appearance: none;
+  flex: none;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+  border-radius: 6px;
+  -webkit-tap-highlight-color: transparent;
+}
+.tick:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+.icon {
+  position: relative;
+  display: block;
+  flex: none;
+  width: 2.1rem;
+  height: 2.1rem;
+  border-radius: 6px;
+  overflow: hidden;
+  background: rgba(242, 240, 234, 0.06);
+  box-shadow: inset 0 0 0 0.5px var(--rule);
+}
+.icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.tickMark {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 60%;
+  height: 60%;
+  color: var(--ink);
+  filter: drop-shadow(0 0 3px rgba(4, 4, 7, 0.9));
+}
+.tick[aria-pressed="true"] .icon img {
+  filter: grayscale(0.7) brightness(0.6);
+}
+
+.offerDoor {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  min-width: 0;
+  flex: 1;
+  display: grid;
+  gap: 0.18rem;
+  cursor: pointer;
+  text-align: left;
+  font: inherit;
+  color: inherit;
+  border-radius: 6px;
+}
+.offerDoor:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}
+
+.offerName {
+  font-size: 0.95rem;
+  line-height: 1.2;
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+}
+.offerDoor:hover .offerName {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 0.5px;
+}
+.offerName[data-quality="Uncommon"] { color: #4ade5b; }
+.offerName[data-quality="Rare"] { color: #4f9cff; }
+.offerName[data-quality="Epic"] { color: #b877f5; }
+.offerName[data-quality="Legendary"] { color: #ff9a3c; }
+
+.offerSource {
+  font: 400 0.58rem/1.3 var(--mono);
+  letter-spacing: 0.08em;
+  color: rgba(242, 240, 234, 0.5);
+}
+
+/* Worn → this, said in the room's smallest voice. Plain ink both ways:
+ * a gain is not a prize and a loss is not a warning. */
+.offerTrade {
+  font-size: 0.78rem;
+  line-height: 1.4;
+  color: var(--mute);
+  font-variant-numeric: tabular-nums;
+}
+
+.wish {
+  appearance: none;
+  flex: none;
+  border: 0;
+  padding: 0.3rem;
+  margin: -0.3rem 0 0;
+  background: transparent;
+  cursor: pointer;
+  color: rgba(242, 240, 234, 0.3);
+  border-radius: 5px;
+  transition: color 180ms ease;
+  -webkit-tap-highlight-color: transparent;
+}
+.wish svg {
+  display: block;
+  width: 12px;
+  height: 12px;
+}
+.wish:hover {
+  color: rgba(242, 240, 234, 0.7);
+}
+.wish[aria-pressed="true"] {
+  color: var(--ink);
+}
+.wish:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+@media (max-width: 64rem) {
+  .row {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.6rem;
+  }
+}

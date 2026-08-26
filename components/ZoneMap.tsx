@@ -2,13 +2,19 @@
 
 import { useEffect, useMemo, useRef, useState, type PointerEvent } from "react";
 
+import type { HuntSpot } from "@/lib/hunt";
+import { iconUrl, type Item } from "@/lib/loot";
 import { plateSrc, type Pin, type PinKind, type ZonePlate } from "@/lib/plate";
 
+import { ItemHover } from "./ItemTooltip";
 import styles from "./zone-map.module.css";
 
-/* The map, framed inside the room, carrying the authored layer
- * (docs/TARI.md §11.2). Pins are nouns: a thing is at this spot. Nothing
- * here orders them, joins them, or says where to go next. */
+/* The map, framed inside the room, carrying two layers. The authored one
+ * (docs/TARI.md §11.2): pins are nouns — a thing is at this spot. And the
+ * hunt (docs/DROPS.md): where the room's drops stand for *this* reader,
+ * drawn in the app's own dark against the curated paper so whose layer is
+ * whose stays legible. Nothing on either orders, joins, or says where to
+ * go next. */
 
 type Cluster = { key: string; x: number; y: number; pins: Pin[] };
 
@@ -54,12 +60,34 @@ function clampPan(p: { x: number; y: number }, z: number, el: DOMRect) {
   return { x: Math.min(mx, Math.max(-mx, p.x)), y: Math.min(my, Math.max(-my, p.y)) };
 }
 
-export default function ZoneMap({ plate, title }: { plate: ZonePlate; title: string }) {
+export default function ZoneMap({
+  plate,
+  title,
+  hunt = [],
+  drops = [],
+  level = 60,
+  focus = null,
+  onOpenItem,
+}: {
+  plate: ZonePlate;
+  title: string;
+  /** The hunt layer: where the drawn rows' sources stand. */
+  hunt?: HuntSpot[];
+  /** The rows themselves, so a mark can name what it holds. */
+  drops?: Item[];
+  level?: number;
+  /** A spot the stage lent the map — looked at once, then let go. */
+  focus?: { x: number; y: number } | null;
+  /** Put an item on the stage, from a mark. */
+  onOpenItem?: (item: Item) => void;
+}) {
   const [layers, setLayers] = useState<Record<PinKind, boolean>>({ giver: true, turnin: true, rare: true });
   const [areas, setAreas] = useState(true);
+  const [hunting, setHunting] = useState(true);
   const [zoom, setZoom] = useState(1);
   const [pan, setPan] = useState({ x: 0, y: 0 });
   const [active, setActive] = useState<Cluster | null>(null);
+  const [quarry, setQuarry] = useState<HuntSpot | null>(null);
   const drag = useRef<{ x: number; y: number; px: number; py: number; moved: boolean } | null>(null);
   const frame = useRef<HTMLDivElement>(null);
 
@@ -90,6 +118,25 @@ export default function ZoneMap({ plate, title }: { plate: ZonePlate; title: str
     return () => node.removeEventListener("wheel", onWheel);
   }, []);
 
+  /* A lent map looks where it was pointed: pushed in, centred on the spot,
+     the hunt layer on. The reader takes it from there. */
+  useEffect(() => {
+    if (!focus) return;
+    const el = frame.current?.getBoundingClientRect();
+    if (!el) return;
+    const z = 2.6;
+    setHunting(true);
+    setZoom(z);
+    setPan(
+      clampPan(
+        { x: (-(px(focus.x) - 50) / 100) * el.width * z, y: (-(py(focus.y) - 50) / 100) * el.height * z },
+        z,
+        el
+      )
+    );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [focus]);
+
   function onDown(e: PointerEvent) {
     drag.current = { x: e.clientX, y: e.clientY, px: pan.x, py: pan.y, moved: false };
     (e.target as HTMLElement).setPointerCapture?.(e.pointerId);
@@ -103,7 +150,10 @@ export default function ZoneMap({ plate, title }: { plate: ZonePlate; title: str
     setPan(clampPan({ x: d.px + dx, y: d.py + dy }, zoom, frame.current!.getBoundingClientRect()));
   }
   function onUp() {
-    if (drag.current && !drag.current.moved) setActive(null);
+    if (drag.current && !drag.current.moved) {
+      setActive(null);
+      setQuarry(null);
+    }
     drag.current = null;
   }
 
@@ -148,6 +198,22 @@ export default function ZoneMap({ plate, title }: { plate: ZonePlate; title: str
             </svg>
           ) : null}
 
+          {/* The hunt: other spawns first, quiet, so the marks land on top. */}
+          {hunting
+            ? hunt.map((h) =>
+                h.kind === "drop" && zoom > 1.6
+                  ? h.p.slice(1).map(([sx, sy], i) => (
+                      <span
+                        key={`${h.creatureId}-${i}`}
+                        className={styles.camp}
+                        style={{ left: `${px(sx)}%`, top: `${py(sy)}%`, transform: `translate(-50%, -50%) scale(${1 / zoom})` }}
+                        aria-hidden="true"
+                      />
+                    ))
+                  : null,
+              )
+            : null}
+
           {/* Pins counter-scale so they stay one size at every zoom */}
           {clusters.map((c) => {
             const one = c.pins.length === 1 ? c.pins[0] : null;
@@ -160,12 +226,68 @@ export default function ZoneMap({ plate, title }: { plate: ZonePlate; title: str
                 aria-label={one ? one.name : `${c.pins.length} here`}
                 style={{ left: `${c.x}%`, top: `${c.y}%`, transform: `translate(-50%, -50%) scale(${1 / zoom})` }}
                 onPointerDown={(e) => e.stopPropagation()}
-                onClick={() => setActive(active?.key === c.key ? null : c)}
+                onClick={() => {
+                  setQuarry(null);
+                  setActive(active?.key === c.key ? null : c);
+                }}
               >
                 {one ? <Glyph kind={one.kind} /> : <span className={styles.count}>{c.pins.length}</span>}
               </button>
             );
           })}
+
+          {/* The hunt's marks: the things themselves, standing where they
+              drop. The face is the best item's own icon — a glance says
+              what, hover says everything, press opens the list. A giver's
+              mark wears the quest ring so "kill for it" and "run an errand
+              for it" stay tellable apart. */}
+          {hunting
+            ? hunt.map((h) => {
+                const face = drops.find((d) => d.itemId === h.itemIds[0]);
+                const icon = face ? iconUrl(face) : null;
+                return (
+                  <button
+                    key={`${h.kind}${h.creatureId ?? h.name}-${h.x}`}
+                    className={styles.mark}
+                    data-giver={h.kind === "giver" || undefined}
+                    aria-pressed={quarry === h}
+                    aria-label={`${h.name} — drops for you`}
+                    style={{ left: `${px(h.x)}%`, top: `${py(h.y)}%`, transform: `translate(-50%, -50%) scale(${1 / zoom})` }}
+                    onPointerDown={(e) => e.stopPropagation()}
+                    onClick={() => {
+                      setActive(null);
+                      setQuarry(quarry === h ? null : h);
+                    }}
+                  >
+                    {face && icon ? (
+                      <ItemHover item={face} level={level} focusable={false} className={styles.markFace}>
+                        <img src={icon} alt="" loading="lazy" draggable={false} />
+                      </ItemHover>
+                    ) : (
+                      <MarkGlyph giver={h.kind === "giver"} />
+                    )}
+                    {h.itemIds.length > 1 ? (
+                      <span className={styles.markCount}>{h.itemIds.length}</span>
+                    ) : null}
+                    {h.kind === "giver" ? (
+                      <span className={styles.markRing} aria-hidden="true">
+                        <svg viewBox="0 0 12 12">
+                          <circle cx="6" cy="6" r="4" fill="none" stroke="currentColor" strokeWidth="1.8" />
+                        </svg>
+                      </span>
+                    ) : null}
+                  </button>
+                );
+              })
+            : null}
+
+          {focus ? (
+            <span
+              className={styles.lent}
+              style={{ left: `${px(focus.x)}%`, top: `${py(focus.y)}%`, transform: `translate(-50%, -50%) scale(${1 / zoom})` }}
+              aria-hidden="true"
+            />
+          ) : null}
         </div>
 
         <div className={styles.layers} onPointerDown={(e) => e.stopPropagation()}>
@@ -182,11 +304,24 @@ export default function ZoneMap({ plate, title }: { plate: ZonePlate; title: str
           <button className={styles.chip} aria-pressed={areas} onClick={() => setAreas(!areas)}>
             Objectives
           </button>
+          {hunt.length > 0 ? (
+            <button className={styles.chip} data-hunt aria-pressed={hunting} onClick={() => setHunting(!hunting)}>
+              <MarkGlyph /> Drops for you
+            </button>
+          ) : null}
           <span className={styles.zoom}>{zoom.toFixed(1)}×</span>
         </div>
       </div>
 
-      <aside className={styles.rail}>{active ? <Rail c={active} /> : <Empty title={title} />}</aside>
+      <aside className={styles.rail}>
+        {quarry ? (
+          <Quarry h={quarry} drops={drops} level={level} onOpenItem={onOpenItem} />
+        ) : active ? (
+          <Rail c={active} />
+        ) : (
+          <Empty title={title} />
+        )}
+      </aside>
     </div>
   );
 }
@@ -208,6 +343,63 @@ function Glyph({ kind }: { kind: PinKind }) {
     <svg viewBox="0 0 12 12" aria-hidden="true">
       <circle cx="6" cy="6" r="4" />
     </svg>
+  );
+}
+
+/* The hunt's own glyph: a ring with a centre — here, exactly. The giver's
+ * variant carries the quest circle inside it so the two read as kin. */
+function MarkGlyph({ giver = false }: { giver?: boolean }) {
+  return (
+    <svg viewBox="0 0 12 12" aria-hidden="true">
+      <circle cx="6" cy="6" r="4.4" fill="none" stroke="currentColor" strokeWidth="1.1" />
+      {giver ? (
+        <circle cx="6" cy="6" r="1.9" fill="none" stroke="currentColor" strokeWidth="1.1" />
+      ) : (
+        <circle cx="6" cy="6" r="1.6" />
+      )}
+    </svg>
+  );
+}
+
+/* One source, pressed: what it holds for the reader. Hover a name for the
+ * plate; press it and the item takes the stage. */
+function Quarry({
+  h,
+  drops,
+  level,
+  onOpenItem,
+}: {
+  h: HuntSpot;
+  drops: Item[];
+  level: number;
+  onOpenItem?: (item: Item) => void;
+}) {
+  const holds = drops.filter((d) => h.itemIds.includes(d.itemId));
+  return (
+    <>
+      <p className={styles.eyebrow}>{h.kind === "giver" ? "Quest giver" : "Drops for you"}</p>
+      <h2 className={styles.h2}>{h.name}</h2>
+      {h.kind === "drop" && h.p.length > 1 ? (
+        <p className={styles.copy}>{h.p.length} spots recorded — the mark is the busiest.</p>
+      ) : null}
+      <ul className={styles.list}>
+        {holds.map((d) => {
+          const icon = iconUrl(d);
+          return (
+            <li key={d.itemId}>
+              <button type="button" className={styles.quarryRow} onClick={() => onOpenItem?.(d)}>
+                <ItemHover item={d} level={level} focusable={false} className={styles.quarryIcon}>
+                  {icon ? <img src={icon} alt="" loading="lazy" draggable={false} /> : null}
+                </ItemHover>
+                <span className={styles.quarryName} data-quality={d.quality}>
+                  {d.name}
+                </span>
+              </button>
+            </li>
+          );
+        })}
+      </ul>
+    </>
   );
 }
 

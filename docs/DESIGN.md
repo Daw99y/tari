@@ -197,6 +197,28 @@ Everything above is off under `prefers-reduced-motion`.
 
 Nothing ever spins. Loading is the architecture's problem, not the UI's.
 
+## The stage — settled
+
+The middle of the photograph is where a thing you opened stands, and only
+one thing stands on it at a time (docs/DROPS.md). Two subjects — the map and
+an item — one mechanism (`components/Dock.tsx`): a veil that dims the room,
+Escape, anywhere-out. The objects column sits behind the veil and dims; it
+does not move. That closes the old "map and the objects" question: the plate
+takes the middle, decided on the 5K, shipped 2026-08-26.
+
+The map is *lent*, not lost — an item over an open map gives it back when it
+closes, and only closing a map the reader opened writes the remembered
+preference. Lending runs both ways: the stage's crop opens the real map
+centred on the spot (a breathing ring, nothing written), and the map's hunt
+marks open the stage. The crop (`components/Crop.tsx`) is a photograph of a
+place on the map, never a second map: no pan, no zoom, no layers.
+
+On the stage nothing is a score — the odds are type at display size, kills
+under them in mono, no ring, no bar, no dial. The plate stays a quotation
+(hover); the stage is Tari's register (press); a press means one thing.
+Every source is a door: the card turns over to the creature at its camps or
+the quest and its giver, and back.
+
 ## Open — the landing's answer is the default
 
 **Motion continuity.** §11.3 wants the rail thumbnail to become the room
@@ -205,10 +227,6 @@ background. Not built. Until it is, room changes cut.
 **The icon vocabulary.** The debuff glyphs exist (`components/Debuff.tsx`);
 the fox mark is placeholder; the aggro `!` pin marker is a pink dot. Redraw as
 one set, 1.5px stroke, on the same 24 grid as the debuffs. STATUS §6.3.
-
-**The map and the objects.** The open map plate lands top-right, over the
-objects' column. Either the objects fold while the map is open, or the
-plate takes the middle. Decide on the 5K.
 
 **Narrow.** Under 64rem the objects hide and the guide takes the width. That
 is a placeholder, not a layout. The room has not been designed for a phone.

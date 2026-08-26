@@ -60,6 +60,8 @@ const CATALOGUE_PATH = "/lab/doll/items/catalogue.json";
 
 export default {
   agentRules: false,
+  // The item dictionary is read from disk at runtime; trace it into the route.
+  outputFileTracingIncludes: { "/api/items": ["./reference/items.json"] },
   env: { NEXT_PUBLIC_APP_VERSION: version },
   async headers() {
     return [

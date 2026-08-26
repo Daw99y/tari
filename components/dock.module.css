@@ -1,0 +1,332 @@
+/* The dock: the compass, the fold, and the stage they both land on. Was
+ * map-dock.module.css; the map's half is unchanged to the pixel, and the
+ * item's half below it borrows its timing so the two subjects arrive the
+ * same way. Gold is the compass's own metal; the kit's emblem answers in the upgrade green. */
+
+/* The room behind an open subject: dimmed, and a click target. Anywhere
+ * that is not the thing on the stage means "put it away" — the same thing
+ * the compass means and the same thing Escape means, so it is one call and
+ * not three ideas. The dim is what makes that readable; without it the
+ * subject floats and nothing says the room stepped back. */
+.veil {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  background: rgba(4, 4, 7, 0.5);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 320ms ease;
+}
+.veil[data-stage] {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ---- the map, folding out of the corner the compass holds ---- */
+
+.map {
+  position: absolute;
+  left: clamp(1.25rem, 3.5vw, 3rem);
+  right: clamp(1.25rem, 3.5vw, 3rem);
+  top: clamp(6.5rem, 13vh, 8rem);
+  bottom: clamp(6.5rem, 13vh, 8rem);
+  z-index: 4;
+  transform-origin: 100% 0;
+  opacity: 0;
+  transform: scale(0.94) translateY(-6px);
+  filter: blur(6px);
+  visibility: hidden;
+  transition:
+    opacity 320ms cubic-bezier(0.2, 0.7, 0.2, 1),
+    transform 380ms cubic-bezier(0.2, 0.7, 0.2, 1),
+    filter 320ms cubic-bezier(0.2, 0.7, 0.2, 1),
+    visibility 0s 380ms;
+}
+.map[data-open] {
+  opacity: 1;
+  transform: none;
+  filter: none;
+  visibility: visible;
+  transition:
+    opacity 380ms cubic-bezier(0.2, 0.7, 0.2, 1),
+    transform 440ms cubic-bezier(0.16, 1, 0.3, 1),
+    filter 380ms cubic-bezier(0.2, 0.7, 0.2, 1),
+    visibility 0s;
+}
+
+/* ---- the item, growing out of the column it was pressed in ----
+ *
+ * The map folds toward the compass because that is where it lives. An item
+ * has no corner: it comes from a row at the lower right, so it grows from
+ * there and settles in the middle. The frame is a full-inset grid rather
+ * than a positioned box so the card can be centred without a transform the
+ * fold-out would then have to undo. */
+.stage {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  display: grid;
+  place-items: center;
+  padding: clamp(1.25rem, 4vh, 3rem) clamp(1.25rem, 3.5vw, 3rem);
+  pointer-events: none;
+  visibility: hidden;
+  transition: visibility 0s 380ms;
+}
+.stage[data-open] {
+  visibility: visible;
+  transition: visibility 0s;
+}
+
+.card {
+  width: min(100%, 48rem);
+  max-height: 100%;
+  overflow: auto;
+  overscroll-behavior: contain;
+  pointer-events: auto;
+  /* docs/DESIGN.md, Surfaces: there is one card, and .86 is measured. */
+  background: rgba(6, 6, 10, 0.86);
+  border: 0.5px solid var(--rule);
+  border-radius: 12px;
+  backdrop-filter: blur(24px) saturate(1.1);
+  -webkit-backdrop-filter: blur(24px) saturate(1.1);
+  --mute: rgba(242, 240, 234, 0.74);
+  box-shadow: 0 30px 80px -30px rgba(0, 0, 0, 0.55);
+  transform-origin: 86% 84%;
+  opacity: 0;
+  transform: scale(0.94) translateY(8px);
+  filter: blur(6px);
+  transition:
+    opacity 320ms cubic-bezier(0.2, 0.7, 0.2, 1),
+    transform 380ms cubic-bezier(0.2, 0.7, 0.2, 1),
+    filter 320ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.stage[data-open] .card {
+  opacity: 1;
+  transform: none;
+  filter: none;
+  transition:
+    opacity 380ms cubic-bezier(0.2, 0.7, 0.2, 1),
+    transform 440ms cubic-bezier(0.16, 1, 0.3, 1),
+    filter 380ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.card:focus {
+  outline: none;
+}
+.card:focus-visible {
+  /* The dialog holds focus for Escape; the ring belongs to its controls. */
+  outline: none;
+}
+
+@media (max-width: 64rem) {
+  .veil {
+    display: none;
+  }
+  .map {
+    position: relative;
+    inset: auto;
+    padding: 4.5rem 1.25rem 10rem;
+    overflow: auto;
+    height: 100%;
+    transform-origin: calc(100% - 2rem) 1.5rem;
+  }
+  .map:not([data-open]) {
+    display: none;
+  }
+  /* The objects column does not exist under this width, so nothing can be
+     pressed to reach the stage. It stays out rather than half-arriving. */
+  .stage {
+    display: none;
+  }
+}
+
+/* The compass. It holds the corner in both states; open, it steps back a
+ * little so the plate is the loudest thing in the room. */
+.compass {
+  position: absolute;
+  top: 0.35rem;
+  right: 0.6rem;
+  z-index: 5;
+  appearance: none;
+  border: 0;
+  padding: 0.4rem;
+  background: transparent;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.compass .rose {
+  position: relative;
+  width: clamp(38px, 4vw, 50px);
+  height: auto;
+  display: block;
+  /* The mark is one colour throughout, and this is where that colour is
+   * decided — the same gold the halo below breathes out. */
+  color: #ffc457;
+  filter: drop-shadow(0 6px 18px rgba(0, 0, 0, 0.55));
+  transform-origin: 50% 60%;
+  transition:
+    transform 380ms cubic-bezier(0.16, 1, 0.3, 1),
+    filter 380ms ease;
+}
+
+/* The halo: the compass's own gold, breathed outward. Quiet until hover;
+ * on a first visit it glints a few slow times, then rests. */
+.halo {
+  position: absolute;
+  inset: -20%;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(255, 196, 87, 0.4), rgba(255, 196, 87, 0));
+  opacity: 0;
+  transition: opacity 380ms ease;
+  pointer-events: none;
+}
+
+.compass:hover .rose,
+.compass:focus-visible .rose {
+  transform: scale(1.07) rotate(-6deg);
+}
+.compass:hover .halo,
+.compass:focus-visible .halo {
+  opacity: 1;
+}
+.compass:active .rose {
+  transform: scale(0.98);
+}
+
+.compass[data-open] .rose {
+  transform: scale(0.82);
+}
+.compass[data-open]:hover .rose,
+.compass[data-open]:focus-visible .rose {
+  transform: scale(0.9) rotate(-6deg);
+}
+
+.compass[data-fresh] .halo {
+  animation: glint 3.4s ease-in-out 1.2s 3;
+}
+.compass[data-fresh] .rose {
+  animation: beckon 3.4s ease-in-out 1.2s 3;
+}
+
+@keyframes glint {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.9;
+  }
+}
+@keyframes beckon {
+  0%,
+  100% {
+    transform: none;
+  }
+  35% {
+    transform: scale(1.08) rotate(-5deg);
+  }
+  55% {
+    transform: scale(1.04) rotate(3deg);
+  }
+}
+
+/* The word rides under the compass, mono like every other label. */
+.word {
+  position: absolute;
+  top: calc(100% + 0.1rem);
+  right: 0.15rem;
+  transform: translateY(-4px);
+  white-space: nowrap;
+  font: 400 0.58rem/1 var(--mono);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--mute);
+  opacity: 0;
+  transition:
+    opacity 240ms ease,
+    transform 240ms cubic-bezier(0.2, 0.7, 0.2, 1);
+  pointer-events: none;
+}
+.compass:hover .word,
+.compass:focus-visible .word {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.compass:focus-visible {
+  outline: 2px solid rgba(255, 196, 87, 0.85);
+  outline-offset: 4px;
+  border-radius: 50%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .map,
+  .map[data-open],
+  .kit,
+  .kit[data-open],
+  .card,
+  .stage[data-open] .card {
+    transition: opacity 200ms ease, visibility 0s;
+    transform: none;
+    filter: none;
+  }
+  .compass .rose,
+  .halo,
+  .word {
+    transition: none;
+    animation: none !important;
+  }
+}
+
+/* ---- the kit, wearing the map's frame ----
+ *
+ * The two big subjects share one geometry, so swapping between them reads
+ * as turning a page, not changing rooms. The map folds toward the compass
+ * (top right); the kit folds toward its own emblem (bottom right). */
+.kit {
+  position: absolute;
+  left: clamp(1.25rem, 3.5vw, 3rem);
+  right: clamp(1.25rem, 3.5vw, 3rem);
+  top: clamp(6.5rem, 13vh, 8rem);
+  bottom: clamp(6.5rem, 13vh, 8rem);
+  z-index: 4;
+  transform-origin: 100% 100%;
+  opacity: 0;
+  transform: scale(0.94) translateY(6px);
+  filter: blur(6px);
+  visibility: hidden;
+  transition:
+    opacity 320ms cubic-bezier(0.2, 0.7, 0.2, 1),
+    transform 380ms cubic-bezier(0.2, 0.7, 0.2, 1),
+    filter 320ms cubic-bezier(0.2, 0.7, 0.2, 1),
+    visibility 0s 380ms;
+}
+.kit[data-open] {
+  opacity: 1;
+  transform: none;
+  filter: none;
+  visibility: visible;
+  transition:
+    opacity 380ms cubic-bezier(0.2, 0.7, 0.2, 1),
+    transform 440ms cubic-bezier(0.16, 1, 0.3, 1),
+    filter 380ms cubic-bezier(0.2, 0.7, 0.2, 1),
+    visibility 0s;
+}
+
+.kitCard {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: rgba(6, 6, 10, 0.86);
+  border: 0.5px solid var(--rule);
+  border-radius: 12px;
+  backdrop-filter: blur(24px) saturate(1.1);
+  -webkit-backdrop-filter: blur(24px) saturate(1.1);
+  --mute: rgba(242, 240, 234, 0.74);
+  box-shadow: 0 30px 80px -30px rgba(0, 0, 0, 0.55);
+}
+.kitCard:focus {
+  outline: none;
+}

@@ -17,6 +17,7 @@ import { guideFor } from "@/lib/guide";
 import { pastIn } from "@/lib/live";
 import { clampLevel, defaultLevel, isClassId, lootFor, panelFor } from "@/lib/loot";
 import { plateFor } from "@/lib/maps";
+import { huntFor } from "@/lib/spots";
 import { getRoom, ROOMS } from "@/lib/rooms";
 
 import Room from "./Room";
@@ -59,7 +60,10 @@ export default async function RoomPage({ params, searchParams }: Props) {
   // Read here so Room stays plain HTML: the marks are a file, not a render.
   const plate = await plateFor(room.id);
 
+  // Where the drawn rows' sources stand — the hunt layer and the crop.
+  const hunt = await huntFor(room.id, drops, plate);
+
   return (
-    <Room room={room} past={past} drops={drops} cls={cls} level={level} guide={guide} plate={plate} />
+    <Room room={room} past={past} drops={drops} cls={cls} level={level} guide={guide} plate={plate} hunt={hunt} />
   );
 }

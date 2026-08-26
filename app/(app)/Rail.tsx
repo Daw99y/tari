@@ -238,7 +238,7 @@ function Card({
 }
 
 /* Hollow until it is yours, and then the compass's gold — the one warm
- * colour this app has already chosen (components/map-dock.module.css). */
+ * colour this app has already chosen (components/dock.module.css). */
 function Star({ on, className }: { on: boolean; className?: string }) {
   return (
     <svg

@@ -1,0 +1,529 @@
+/* The item's half of the stage. The card itself — ground, blur, hairline,
+ * radius — is the dock's (components/dock.module.css); this is only what
+ * stands inside it. Type does all the work: there is no bar, no ring, no
+ * badge and no colour carrying a fact on its own. */
+
+.stage {
+  display: grid;
+  gap: clamp(1.25rem, 2.6vh, 1.9rem);
+  padding: clamp(1.4rem, 3vh, 2.1rem) clamp(1.4rem, 3vw, 2.2rem);
+  color: var(--ink);
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* ---- who it is ---- */
+
+.head {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: start;
+  gap: clamp(0.9rem, 1.6vw, 1.25rem);
+}
+
+.icon {
+  flex: none;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 7px;
+  overflow: hidden;
+  background: rgba(242, 240, 234, 0.06);
+  box-shadow: inset 0 0 0 0.5px var(--rule);
+  display: grid;
+  place-items: center;
+}
+
+.icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.glyph {
+  width: 62%;
+  height: 62%;
+  color: rgba(242, 240, 234, 0.45);
+  fill: none;
+  stroke-width: 1.5;
+}
+
+.said {
+  display: grid;
+  gap: 0.3rem;
+  min-width: 0;
+}
+
+.eyebrow {
+  margin: 0;
+  font: 500 0.55rem/1 var(--mono);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(242, 240, 234, 0.5);
+}
+
+.name {
+  margin: 0;
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: clamp(1.35rem, 2.4vw, 1.9rem);
+  line-height: 1.02;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+}
+
+/* The game's four, lightened for the dark ground. docs/DESIGN.md: the
+   game's language, never a second accent, and never off an item's name. */
+.name[data-quality="Uncommon"] { color: #4ade5b; }
+.name[data-quality="Rare"] { color: #4f9cff; }
+.name[data-quality="Epic"] { color: #b877f5; }
+.name[data-quality="Legendary"] { color: #ff9a3c; }
+
+.game {
+  margin: 0;
+  font-size: 0.8rem;
+  line-height: 1.35;
+  letter-spacing: -0.005em;
+  color: var(--mute);
+}
+
+/* Quiet text at 70%, not greyed chrome (docs/DESIGN.md, Controls). */
+.close {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  padding: 0.25rem 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  cursor: pointer;
+  font: 400 0.58rem/1 var(--mono);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(242, 240, 234, 0.55);
+  transition: color 200ms ease;
+}
+.close:hover {
+  color: var(--ink);
+}
+.close:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.esc {
+  padding: 0.15rem 0.3rem;
+  border-radius: 4px;
+  border: 0.5px solid var(--rule);
+  font-size: 0.52rem;
+  letter-spacing: 0.12em;
+}
+
+/* ---- where it is ---- */
+
+.body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: clamp(1.1rem, 2.4vh, 1.6rem) clamp(1.5rem, 4vw, 3rem);
+  align-items: start;
+  border-top: 0.5px solid var(--rule);
+  padding-top: clamp(1.1rem, 2.4vh, 1.6rem);
+}
+
+.route {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: clamp(0.85rem, 1.8vh, 1.15rem);
+}
+
+/* Each node is a dot, a mono kicker and the thing itself. The hairline
+   runs from one dot to the next and stops at the last, so the list reads
+   as three stops rather than a line pointing somewhere. */
+.node {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  column-gap: 0.85rem;
+  row-gap: 0.1rem;
+  align-items: baseline;
+}
+
+.node:not(:last-child)::before {
+  content: "";
+  position: absolute;
+  left: 2.5px;
+  top: 1.05em;
+  bottom: calc(-1 * clamp(0.85rem, 1.8vh, 1.15rem) - 0.1em);
+  width: 0.5px;
+  background: var(--rule);
+}
+
+.dot {
+  grid-row: 1 / span 2;
+  align-self: start;
+  margin-top: 0.42em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(242, 240, 234, 0.42);
+  box-shadow: 0 0 0 0.5px rgba(6, 6, 10, 0.6);
+}
+
+/* Where the reader is standing in the story, and the only filled dot. */
+.dot[data-you] {
+  background: var(--ink);
+}
+
+.nodeK {
+  grid-column: 2;
+  font: 500 0.52rem/1 var(--mono);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(242, 240, 234, 0.42);
+}
+
+.nodeV {
+  grid-column: 2;
+  font-size: 0.95rem;
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+  text-wrap: pretty;
+}
+
+.nodeSub {
+  grid-column: 2;
+  font-size: 0.75rem;
+  line-height: 1.3;
+  color: rgba(242, 240, 234, 0.55);
+}
+
+/* ---- what it costs ---- */
+
+.aside {
+  display: grid;
+  gap: 0.6rem;
+  justify-items: end;
+  text-align: right;
+}
+
+.odds {
+  display: grid;
+  gap: 0.2rem;
+  justify-items: end;
+}
+
+.fig {
+  margin: 0;
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: clamp(1.6rem, 3vw, 2.35rem);
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  font-variant-numeric: tabular-nums;
+}
+
+.cap {
+  margin: 0;
+  font: 400 0.55rem/1 var(--mono);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(242, 240, 234, 0.5);
+}
+
+.lock {
+  margin: 0;
+  font-size: 0.78rem;
+  color: var(--mute);
+}
+
+/* ---- and where else ---- */
+
+.also {
+  grid-column: 1 / -1;
+  display: grid;
+  gap: 0.5rem;
+  border-top: 0.5px solid var(--rule);
+  padding-top: clamp(0.9rem, 2vh, 1.25rem);
+}
+
+.alsoHead {
+  margin: 0;
+  font: 500 0.55rem/1 var(--mono);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(242, 240, 234, 0.42);
+}
+
+.alsoList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.35rem;
+  font-size: 0.82rem;
+  line-height: 1.35;
+  color: var(--mute);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Every other source is a door to its own face. */
+.alsoDoor {
+  appearance: none;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+  border-radius: 4px;
+  transition: color 180ms ease;
+}
+.alsoDoor:hover {
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 0.5px;
+}
+.alsoDoor:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}
+
+@media (max-width: 78rem) {
+  .body {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .aside {
+    justify-items: start;
+    text-align: left;
+  }
+  .odds {
+    justify-items: start;
+  }
+}
+
+/* ---- the crop: the route's first node is the plate ---- */
+
+.cropDoor {
+  grid-column: 2;
+  appearance: none;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  margin-top: 0.55rem;
+  display: grid;
+  gap: 0.4rem;
+  justify-items: start;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+  border-radius: 8px;
+}
+.cropDoor:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}
+
+.crop {
+  width: min(100%, 21rem);
+  aspect-ratio: 16 / 10;
+  transition: box-shadow 200ms ease;
+}
+.cropDoor:hover .crop {
+  box-shadow: inset 0 0 0 0.5px rgba(242, 240, 234, 0.4);
+}
+
+.cropWord {
+  font: 500 0.52rem/1 var(--mono);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(242, 240, 234, 0.42);
+  transition: color 200ms ease;
+}
+.cropDoor:hover .cropWord {
+  color: rgba(242, 240, 234, 0.75);
+}
+
+/* ---- the source's name is a door ---- */
+
+.srcDoor {
+  grid-column: 2;
+  appearance: none;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  justify-self: start;
+  cursor: pointer;
+  font-size: 0.95rem;
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+  font-family: inherit;
+  color: var(--ink);
+  text-align: left;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 0.5px;
+  text-decoration-color: rgba(242, 240, 234, 0.35);
+  transition: text-decoration-color 200ms ease;
+  border-radius: 4px;
+}
+.srcDoor:hover {
+  text-decoration-color: currentColor;
+}
+.srcDoor:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}
+
+/* ---- worn → this ---- */
+
+.worn {
+  grid-column: 1 / -1;
+  display: grid;
+  gap: 0.5rem;
+  border-top: 0.5px solid var(--rule);
+  padding-top: clamp(0.9rem, 2vh, 1.25rem);
+}
+
+.wornLine {
+  margin: 0;
+  font-size: 0.88rem;
+  line-height: 1.45;
+  color: var(--mute);
+  font-variant-numeric: tabular-nums;
+}
+
+.wornName {
+  color: var(--ink);
+  font-weight: 500;
+}
+.wornName[data-quality="Uncommon"] { color: #4ade5b; }
+.wornName[data-quality="Rare"] { color: #4f9cff; }
+.wornName[data-quality="Epic"] { color: #b877f5; }
+.wornName[data-quality="Legendary"] { color: #ff9a3c; }
+
+.wornArrow {
+  color: rgba(242, 240, 234, 0.42);
+}
+
+/* ---- the card, turned over: the source ---- */
+
+.srcBody {
+  display: grid;
+  gap: clamp(1.1rem, 2.4vh, 1.6rem);
+  border-top: 0.5px solid var(--rule);
+  padding-top: clamp(1.1rem, 2.4vh, 1.6rem);
+}
+
+/* In the source face the door is the row, not the route's second column. */
+.srcBody > .cropDoor {
+  grid-column: 1;
+  margin-top: 0;
+  justify-items: stretch;
+  width: 100%;
+}
+
+.srcCrop {
+  width: 100%;
+  aspect-ratio: 21 / 9;
+}
+
+.holds {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.holdList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.3rem;
+}
+
+.holdRow {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.2rem 0;
+  cursor: pointer;
+  text-align: left;
+  font: inherit;
+  color: inherit;
+  border-radius: 6px;
+}
+.holdRow:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}
+
+.holdIcon {
+  flex: none;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 6px;
+  overflow: hidden;
+  background: rgba(242, 240, 234, 0.06);
+  box-shadow: inset 0 0 0 0.5px var(--rule);
+}
+.holdIcon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.holdName {
+  font-size: 0.92rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+.holdRow:hover .holdName {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 0.5px;
+}
+.holdName[data-quality="Uncommon"] { color: #4ade5b; }
+.holdName[data-quality="Rare"] { color: #4f9cff; }
+.holdName[data-quality="Epic"] { color: #b877f5; }
+.holdName[data-quality="Legendary"] { color: #ff9a3c; }
+
+.holdBack {
+  font: 400 0.55rem/1 var(--mono);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(242, 240, 234, 0.42);
+}
+
+.back {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  justify-self: start;
+  padding: 0.25rem 0;
+  cursor: pointer;
+  font: 400 0.62rem/1 var(--mono);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(242, 240, 234, 0.55);
+  transition: color 200ms ease;
+  border-radius: 4px;
+}
+.back:hover {
+  color: var(--ink);
+}
+.back:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}

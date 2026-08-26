@@ -67,3 +67,7 @@ layered-cities/
 # `RLextras/RatchetBank.png` (26 MB). Untrack the first two:
 #
 #   git rm --cached "public/Maps/EPL MAP.png" public/brand/tari-mark-source.png
+
+# Session parking for files on their way out, and python's droppings.
+_to_delete/
+__pycache__/

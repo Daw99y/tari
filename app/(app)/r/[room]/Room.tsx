@@ -10,15 +10,21 @@
  * the rooms that have a plate; the past layer — what happened here lately,
  * read from the event log whelp plz is still writing; what drops here, from
  * the room files; and the guide, for the rooms with a written one. What
- * closes still waits, and an empty card would be worse than a clean room. */
+ * closes still waits, and an empty card would be worse than a clean room.
+ *
+ * The dock (components/Dock.tsx) wraps all of it: the map and an opened
+ * item are two subjects on one stage — the middle of the photograph — and
+ * only one stands there at a time. docs/DROPS.md has the argument. */
 
-import { ItemHover } from "@/components/ItemTooltip";
-import MapDock from "@/components/MapDock";
+import Dock from "@/components/Dock";
 import { type Card } from "@/lib/guide";
+import type { HuntSpot } from "@/lib/hunt";
 
+import Drops from "./Drops";
 import Guide from "./Guide";
+import Kit from "./Kit";
 import { age, lineParts, type Past } from "@/lib/live";
-import { iconUrl, sourceLine, type ClassId, type Item } from "@/lib/loot";
+import { type ClassId, type Item } from "@/lib/loot";
 import type { ZonePlate } from "@/lib/plate";
 import { CONTINENT_LABEL, roomArt, type Room as RoomType } from "@/lib/rooms";
 
@@ -40,9 +46,10 @@ type Props = {
   level: number;
   guide: Card[];
   plate: ZonePlate | undefined;
+  hunt: HuntSpot[];
 };
 
-export default function Room({ room, past, drops, cls, level, guide, plate }: Props) {
+export default function Room({ room, past, drops, cls, level, guide, plate, hunt }: Props) {
   return (
     <article className={styles.room}>
       <img
@@ -55,23 +62,30 @@ export default function Room({ room, past, drops, cls, level, guide, plate }: Pr
       />
       <div className={styles.scrim} />
 
-      {plate ? <MapDock plate={plate} title={room.name} /> : null}
+      <Dock
+        plate={plate}
+        hunt={hunt}
+        drops={drops}
+        room={room.name}
+        level={level}
+        kit={drops.length > 0 ? <Kit drops={drops} cls={cls} level={level} room={room.name} /> : undefined}
+      >
+        {guide.length > 0 ? <Guide key={`guide-${room.id}`} cards={guide} /> : null}
 
-      {guide.length > 0 ? <Guide key={`guide-${room.id}`} cards={guide} /> : null}
+        {past.rows.length > 0 || drops.length > 0 ? (
+          <div className={styles.objects}>
+            {past.rows.length > 0 ? <Lately past={past} /> : null}
+            {drops.length > 0 ? <Drops drops={drops} cls={cls} level={level} /> : null}
+          </div>
+        ) : null}
 
-      {past.rows.length > 0 || drops.length > 0 ? (
-        <div className={styles.objects}>
-          {past.rows.length > 0 ? <Lately past={past} /> : null}
-          {drops.length > 0 ? <Drops drops={drops} cls={cls} level={level} /> : null}
+        <div className={styles.card}>
+          <p className={styles.line}>
+            {KIND_WORD[room.kind]} · {CONTINENT_LABEL[room.continent]}
+          </p>
+          <h1 className={styles.name}>{room.name}</h1>
         </div>
-      ) : null}
-
-      <div className={styles.card}>
-        <p className={styles.line}>
-          {KIND_WORD[room.kind]} · {CONTINENT_LABEL[room.continent]}
-        </p>
-        <h1 className={styles.name}>{room.name}</h1>
-      </div>
+      </Dock>
     </article>
   );
 }
@@ -101,45 +115,6 @@ function Lately({ past }: { past: Past }) {
                 {tail}
               </span>
               <span className={styles.latelyAge}>{age(row.ageSeconds)}</span>
-            </li>
-          );
-        })}
-      </ol>
-    </aside>
-  );
-}
-
-/* What drops here, for you. The same card, under the past layer.
- * Never a list across zones: this file only knows this room.
- *
- * Name and icon both open the plate (components/ItemTooltip.tsx) — two
- * doors, one card, and only the name is a tab stop. */
-function Drops({ drops, cls, level }: { drops: Item[]; cls: ClassId | null; level: number }) {
-  return (
-    <aside className={styles.drops} aria-label="What drops here">
-      <p className={styles.latelyHead}>
-        Drops here
-        <span className={styles.latelyCount}>
-          {" · "}
-          {cls ? `for a ${cls} at ${level}` : `at ${level}`}
-        </span>
-      </p>
-      <ol className={styles.dropList}>
-        {drops.map((item) => {
-          const icon = iconUrl(item);
-          return (
-            <li key={item.itemId} className={styles.drop}>
-              <ItemHover item={item} level={level} focusable={false} className={styles.dropIcon}>
-                {icon ? <img src={icon} alt="" loading="lazy" draggable={false} /> : null}
-              </ItemHover>
-              <span className={styles.dropText}>
-                <ItemHover item={item} level={level} tap>
-                  <span className={styles.dropName} data-quality={item.quality}>
-                    {item.name}
-                  </span>
-                </ItemHover>
-                <span className={styles.dropSource}>{sourceLine(item)}</span>
-              </span>
             </li>
           );
         })}

@@ -103,8 +103,9 @@
   }
 }
 
-/* The map now lives in the dock (components/map-dock.module.css): the
- * compass holds the corner and the frame folds in and out of it. */
+/* The map and an opened item both live in the dock
+ * (components/dock.module.css): the compass holds the corner, and the
+ * middle of the photograph is the stage they take turns on. */
 
 /* ---- the past layer, bottom-left. docs/CONTRAST.md surface B: .86 is
    measured, do not lower it. */
@@ -198,79 +199,228 @@
   width: auto;
 }
 
-.drops {
-  composes: lately;
-}
+/* ---- the summons: an instrument, not a card (docs/DROPS.md) ----
+ * The game's upgrade arrow, redrawn, in its own green — the one colour
+ * every player already reads as "better than what you have". Hover
+ * breathes out the preview; the press opens the kit in the map's frame. */
 
-.dropList {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: grid;
-  gap: 0.5rem;
-}
-
-.drop {
+.upgrades {
   display: flex;
-  align-items: center;
-  gap: 0.65rem;
-  min-width: 0;
+  justify-content: flex-end;
 }
 
-.dropIcon {
+.upWrap {
+  position: relative;
+}
+
+.up {
+  position: relative;
+  appearance: none;
+  border: 0;
+  padding: 0.55rem;
+  background: transparent;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.upGlyph {
+  position: relative;
+  width: clamp(28px, 3vw, 38px);
+  height: auto;
+  display: block;
+  color: #4ade5b;
+  filter: drop-shadow(0 6px 18px rgba(0, 0, 0, 0.55));
+  transform-origin: 50% 55%;
+  transition:
+    transform 380ms cubic-bezier(0.16, 1, 0.3, 1),
+    filter 380ms ease;
+}
+
+.upHalo {
+  position: absolute;
+  inset: -14%;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(74, 222, 91, 0.35), rgba(74, 222, 91, 0));
+  opacity: 0;
+  transition: opacity 380ms ease;
+  pointer-events: none;
+}
+
+.upWrap:hover .upGlyph,
+.up:focus-visible .upGlyph {
+  transform: scale(1.07) translateY(-1px);
+}
+.upWrap:hover .upHalo,
+.up:focus-visible .upHalo {
+  opacity: 1;
+}
+.up:active .upGlyph {
+  transform: scale(0.98);
+}
+.up:focus-visible {
+  outline: 2px solid rgba(74, 222, 91, 0.85);
+  outline-offset: 4px;
+  border-radius: 50%;
+}
+
+/* The breath: docs/CONTRAST.md surface B, anchored over the emblem's
+ * shoulder. Hover holds it open so its faces can be asked about. */
+.upCard {
+  position: absolute;
+  right: 0;
+  bottom: calc(100% + 0.6rem);
+  width: 19.5rem;
+  display: grid;
+  gap: 0.65rem;
+  padding: 1.05rem 1.15rem 1rem;
+  border-radius: 12px;
+  background: rgba(6, 6, 10, 0.86);
+  border: 0.5px solid var(--rule);
+  backdrop-filter: blur(24px) saturate(1.1);
+  -webkit-backdrop-filter: blur(24px) saturate(1.1);
+  box-shadow: 0 24px 60px -24px rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  transform: translateY(6px) scale(0.98);
+  transform-origin: 88% 100%;
+  filter: blur(4px);
+  pointer-events: none;
+  transition:
+    opacity 280ms cubic-bezier(0.2, 0.7, 0.2, 1),
+    transform 320ms cubic-bezier(0.16, 1, 0.3, 1),
+    filter 280ms ease;
+}
+.upWrap:hover .upCard,
+.upWrap:focus-within .upCard {
+  opacity: 1;
+  transform: none;
+  filter: none;
+  pointer-events: auto;
+}
+
+.upEyebrow {
+  margin: 0;
+  font: 500 0.55rem/1 var(--mono);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(242, 240, 234, 0.5);
+}
+
+/* The one number, display size — how many are still out there. */
+.upFig {
+  margin: 0;
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 2rem;
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+}
+.upFigCap {
+  font-family: var(--sans);
+  font-weight: 400;
+  font-size: 0.8rem;
+  letter-spacing: -0.005em;
+  color: var(--mute);
+}
+
+.upSub {
+  margin: -0.25rem 0 0;
+  font-size: 0.75rem;
+  line-height: 1.35;
+  color: rgba(242, 240, 234, 0.55);
+}
+
+.upFaces {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.upFace {
+  display: block;
   flex: none;
-  width: 1.75rem;
-  height: 1.75rem;
-  border-radius: 5px;
+}
+
+.upIcon {
+  position: relative;
+  display: block;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 6px;
   overflow: hidden;
   background: rgba(242, 240, 234, 0.06);
   box-shadow: inset 0 0 0 0.5px var(--rule);
 }
-
-.dropIcon img {
+.upIcon img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
 }
-
-.dropText {
-  display: grid;
-  gap: 0.15rem;
-  min-width: 0;
+.upIcon[data-found] {
+  opacity: 0.5;
+}
+.upIcon[data-found] img {
+  filter: grayscale(0.7) brightness(0.6);
 }
 
-.dropName {
-  /* Block, not inline: it now sits inside the tooltip's trigger span and
-   * the ellipsis needs a box to clip against. */
-  display: block;
-  font-size: 0.8rem;
-  line-height: 1.2;
-  letter-spacing: -0.005em;
-  font-weight: 500;
+.upTick {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 60%;
+  height: 60%;
   color: var(--ink);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  filter: drop-shadow(0 0 3px rgba(4, 4, 7, 0.9));
 }
 
-/* The game's own colours for quality. Not the accent; the reader already
- * reads these. */
-.dropName[data-quality="Uncommon"] { color: #4ade5b; }
-.dropName[data-quality="Rare"] { color: #4f9cff; }
-.dropName[data-quality="Epic"] { color: #b877f5; }
-.dropName[data-quality="Legendary"] { color: #ff9a3c; }
-
-.dropSource {
-  font: 400 0.58rem/1.2 var(--mono);
-  letter-spacing: 0.08em;
-  color: rgba(242, 240, 234, 0.5);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+.upWord {
+  margin: 0;
+  font: 500 0.55rem/1.4 var(--mono);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(242, 240, 234, 0.42);
 }
 
+/* The cleared corner: one line and the stamp, until the window moves. */
+.clearedLine {
+  margin: 0;
+  display: flex;
+  align-items: baseline;
+  gap: 0.55rem;
+  font-size: 0.8rem;
+  line-height: 1.4;
+  color: rgba(242, 240, 234, 0.68);
+}
+.clearedStamp {
+  flex: none;
+  width: 1.15rem;
+  height: 1.15rem;
+  display: grid;
+  place-items: center;
+  align-self: center;
+  border-radius: 50%;
+  border: 0.5px solid rgba(242, 240, 234, 0.4);
+  font-size: 0.6rem;
+  color: var(--ink);
+}
 
+/* The summons holds its breath while a subject stands on the stage. */
+.room:has([data-stage]) .upCard {
+  opacity: 0;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .upGlyph,
+  .upHalo,
+  .upCard {
+    transition: none;
+  }
+}
 
 /* ---- the guide: a ghost. One centred column of text drifting upward
    forever, dissolving at both ends. No scrollbar, no end. Click holds it;
@@ -294,12 +444,12 @@
   animation: rise 1400ms cubic-bezier(0.2, 0.7, 0.2, 1) 500ms both;
 }
 
-/* The guide steps aside for the map. Both want the middle of the room, and
- * a reader who has opened the map is reading the map — a ghost drifting
- * across the plate is two things asking for the same eye. The compass
- * button is the one element that knows, so the room asks it rather than
- * keeping a second copy of the state. */
-.room:has(button[data-open]) .guide {
+/* The guide steps aside for whatever is on the stage. Both want the middle
+ * of the room, and a reader who has opened something is reading it — a
+ * ghost drifting across it is two things asking for the same eye. The
+ * veil is the one element that knows which subject stands there, so the
+ * room asks it rather than keeping a second copy of the state. */
+.room:has([data-stage]) .guide {
   opacity: 0;
   visibility: hidden;
   transition:

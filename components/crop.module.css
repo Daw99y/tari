@@ -1,0 +1,57 @@
+/* The crop's frame. The sheet is the plate at zoom×; its own transform
+ * centres the spot, so the frame only has to clip. */
+
+.crop {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  background: rgba(4, 4, 7, 0.6);
+  box-shadow: inset 0 0 0 0.5px var(--rule);
+}
+
+.sheet {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+}
+
+.sheet img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  user-select: none;
+}
+
+/* One quiet dot per other spawn — presence, not instruction. */
+.spawn {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: rgba(242, 240, 234, 0.55);
+  box-shadow: 0 0 0 2px rgba(4, 4, 7, 0.35);
+  transform: translate(-50%, -50%);
+}
+
+/* The spot itself. Ink, not an accent: a place, not a reward. */
+.here {
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--ink, #f2f0ea);
+  box-shadow:
+    0 0 0 2.5px rgba(4, 4, 7, 0.55),
+    0 0 0 3px rgba(242, 240, 234, 0.4),
+    0 0 18px 2px rgba(242, 240, 234, 0.25);
+  transform: translate(-50%, -50%);
+}
+
+/* The frame's own edge darkens over the art so the rule reads on any plate. */
+.vignette {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  box-shadow: inset 0 0 34px rgba(4, 4, 7, 0.5);
+}
