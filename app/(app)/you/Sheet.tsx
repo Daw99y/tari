@@ -5,10 +5,29 @@
  * under it, and the facts the import carried in the corner. Nothing here
  * is invented: a slot with no import is empty, a panel with no fact is
  * not drawn, and the corner prints the trades rather than every skill line
- * the client reports (lib/character.ts, trades). docs/CHARACTER.md. */
+ * the client reports (lib/character.ts, trades). docs/CHARACTER.md.
+ *
+ * AND THE PATH. docs/DROPS.md step 6: the letter's line under the name, and
+ * the upgrade arrow on any slot the level has left behind — pressed, it names
+ * the rooms that answer it, and those names are doors. That is the whole
+ * cross-zone surface. There is no page of them, no ranking and no order to
+ * walk them in; §2.1 allows a doorway back into places and nothing else.
+ *
+ * THE ARROW ONLY STANDS WHERE THERE IS AN ANSWER. It is the summons' own
+ * green arrow (components/UpArrow.tsx), which means one thing everywhere in
+ * the app — "better than what you have, here". A slot that is behind and
+ * that no room in your window answers gets nothing, because an arrow that
+ * opened an empty list would be the app pointing at a door with no room
+ * behind it. The letter's first sentence still counts every behind slot,
+ * which is why the arrows can be fewer than the number it says.
+ *
+ * IT DOES NOT WAIT FOR AN IMPORT. A made body wears nothing, and nothing is
+ * behind everything — sixteen arrows is the honest answer to a naked level
+ * 24, and the most useful first look at the world Tari can give. The corner
+ * still says the import is missing; that is a different fact. */
 
 import Link from "next/link";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 
 import {
   CLASS_NAME,
@@ -26,14 +45,19 @@ import {
   trades,
   type Character,
 } from "@/lib/character";
+import UpArrow from "@/components/UpArrow";
 import { QUALITY } from "@/lib/doll";
+import { isOn, useMarks } from "@/lib/marks";
+import { letter, readPath, type BehindSlot } from "@/lib/path";
 import { getRoom, roomArt } from "@/lib/rooms";
 import { DEFAULT_LOOK, useBody } from "@/lib/use-body";
 import { handedFor, itemsByEntry, WARDROBE, type Item as WardrobeItem } from "@/lib/wardrobe";
+import type { WornItem } from "@/lib/worn";
 
 import styles from "./sheet.module.css";
 
 const NO_GEAR = new Map<string, WardrobeItem>();
+const NO_PATH: BehindSlot[] = [];
 
 export default function Sheet() {
   const [me, setMe] = useState<Character | null | undefined>(undefined);
@@ -65,6 +89,56 @@ export default function Sheet() {
     setEquipped(worn);
   }, [me, byEntry]);
 
+  /* What the dictionary says about what is worn — the plate's own fields for
+   * the 19 ids, one fetch. The wardrobe knows the models; only this knows
+   * the levels, and the path is a question about levels. */
+  const [dict, setDict] = useState<Record<string, WornItem> | null>(null);
+  useEffect(() => {
+    if (!me) return;
+    const ids = [...new Set(me.gear.filter((id) => id > 0))];
+    /* Nothing worn is not nothing to say: an empty answer lets the path run
+       on sixteen empty slots rather than waiting forever for a fetch that
+       has no ids to make. */
+    if (ids.length === 0) {
+      setDict({});
+      return;
+    }
+    let gone = false;
+    fetch(`/api/items?ids=${ids.join(",")}`)
+      .then((r) => (r.ok ? r.json() : null))
+      .then((d: Record<string, WornItem> | null) => {
+        if (!gone && d) setDict(d);
+      })
+      .catch(() => {});
+    return () => {
+      gone = true;
+    };
+  }, [me]);
+
+  const marks = useMarks();
+  const path = useMemo(
+    () => (me ? readPath(me.gear, dict, me.cls, me.level, (itemId) => isOn(marks, me.key, "found", String(itemId))) : NO_PATH),
+    [me, dict, marks]
+  );
+  const behind = useMemo(() => new Map(path.map((s) => [s.at, s])), [path]);
+  const lines = useMemo(() => letter(path), [path]);
+
+  /* One slot's rooms at a time. Escape and a press anywhere else put it away. */
+  const [open, setOpen] = useState<number | null>(null);
+  useEffect(() => {
+    if (open === null) return;
+    const away = (e: Event) => {
+      if (e.type === "keydown" && (e as KeyboardEvent).key !== "Escape") return;
+      setOpen(null);
+    };
+    window.addEventListener("keydown", away);
+    window.addEventListener("pointerdown", away);
+    return () => {
+      window.removeEventListener("keydown", away);
+      window.removeEventListener("pointerdown", away);
+    };
+  }, [open]);
+
   if (me === undefined) return null;
   if (me === null) {
     return (
@@ -81,7 +155,15 @@ export default function Sheet() {
   const worked = trades(me.professions);
   const slot = (id: number) => {
     const itemId = me.gear[id - 1] ?? 0;
-    return { id, label: GEAR_SLOTS[id - 1], item: itemId ? byEntry.get(itemId) ?? null : null, itemId };
+    return {
+      id,
+      label: GEAR_SLOTS[id - 1],
+      item: itemId ? byEntry.get(itemId) ?? null : null,
+      itemId,
+      behind: behind.get(id - 1)?.rooms.length ? behind.get(id - 1)! : null,
+      open: open === id - 1,
+      onOpen: () => setOpen((was) => (was === id - 1 ? null : id - 1)),
+    };
   };
 
   return (
@@ -97,6 +179,15 @@ export default function Sheet() {
             {me.guild ? <span className={styles.realm}> · &lt;{me.guild}&gt;</span> : null}
           </p>
           <h1 className={styles.name}>{me.name}</h1>
+          {lines.length ? (
+            <div className={styles.letter}>
+              {lines.map((l) => (
+                <p key={l} className={styles.letterLine}>
+                  {l}
+                </p>
+              ))}
+            </div>
+          ) : null}
         </header>
 
         <ul className={`${styles.column} ${styles.left}`} aria-label="Worn, left">
@@ -156,9 +247,44 @@ export default function Sheet() {
   );
 }
 
-function Slot({ label, item, itemId, align }: { label: string; item: WardrobeItem | null; itemId: number; align?: "right" }) {
+function Slot({
+  label,
+  item,
+  itemId,
+  align,
+  behind,
+  open,
+  onOpen,
+}: {
+  label: string;
+  item: WardrobeItem | null;
+  itemId: number;
+  align?: "right";
+  behind: BehindSlot | null;
+  open: boolean;
+  onOpen: () => void;
+}) {
+  const stop = (e: React.PointerEvent) => e.stopPropagation();
+
+  /* The list dissolves at the bottom while there is more of it, the way the
+     chat's scrollback does — no scrollbar, and no fade once you are at the
+     end of a list that never needed one. */
+  const list = useRef<HTMLUListElement>(null);
+  const [more, setMore] = useState(false);
+  useEffect(() => {
+    const el = list.current;
+    if (!open || !el) {
+      setMore(false);
+      return;
+    }
+    const check = () => setMore(el.scrollTop + el.clientHeight < el.scrollHeight - 1);
+    check();
+    el.addEventListener("scroll", check, { passive: true });
+    return () => el.removeEventListener("scroll", check);
+  }, [open]);
+
   return (
-    <li className={styles.slot} data-align={align} data-empty={!item || undefined}>
+    <li className={styles.slot} data-align={align} data-empty={!item || undefined} data-behind={behind ? "" : undefined}>
       <span className={styles.icon} aria-hidden="true">
         {item?.icon ? <img src={`${WARDROBE}/icons/${item.icon}`} alt="" width={40} height={40} draggable={false} /> : null}
       </span>
@@ -172,6 +298,36 @@ function Slot({ label, item, itemId, align }: { label: string; item: WardrobeIte
           <span className={styles.slotItem}>#{itemId}</span>
         ) : null}
       </span>
+
+      {behind ? (
+        <>
+          <button
+            type="button"
+            className={styles.press}
+            aria-expanded={open}
+            aria-label={`${label}: an upgrade waits in ${behind.rooms.length} ${
+              behind.rooms.length === 1 ? "room" : "rooms"
+            }`}
+            onPointerDown={stop}
+            onClick={onOpen}
+          />
+          <UpArrow className={styles.mark} />
+          {open ? (
+            <div className={styles.rooms} onPointerDown={stop}>
+              <p className={styles.roomsHead}>{behind.empty ? "Fills in" : "Better in"}</p>
+              <ul ref={list} className={styles.roomsList} data-more={more ? "" : undefined}>
+                {behind.rooms.map((id) => (
+                  <li key={id}>
+                    <Link href={`/r/${id}`} className={styles.roomLink}>
+                      {getRoom(id)?.name ?? id}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ) : null}
+        </>
+      ) : null}
     </li>
   );
 }

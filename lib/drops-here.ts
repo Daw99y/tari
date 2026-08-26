@@ -22,8 +22,41 @@
  * If the two ever disagree, this file is wrong and the corner is right.
  */
 
-import { DROP_CLASSES, ROOM_DROPS } from "./room-drops";
+import { DROP_CLASSES, ROOM_DROPS, type DropRow } from "./room-drops";
 import { PANEL_CEILING, WINDOW_ABOVE, WINDOW_BELOW } from "./window";
+
+/**
+ * The rows the corner would draw, in the corner's own order: the first
+ * PANEL_CEILING that survive the class filter and the window.
+ *
+ * Split out when the path arrived (lib/path.ts, docs/DROPS.md step 6), which
+ * asks the same index a different question — not "how many are open here" but
+ * "which of my slots does this place answer". Two readers, one filter, so the
+ * rail's badge, the room's card and /you's letter cannot drift apart.
+ */
+export function panelRows(roomId: string, cls: string | null, level: number): DropRow[] {
+  const rows = ROOM_DROPS[roomId];
+  if (!rows) return [];
+
+  const at = cls ? DROP_CLASSES.indexOf(cls as (typeof DROP_CLASSES)[number]) : -1;
+  /* A class the mask has never heard of is not "every item" — it is a bad
+     argument, and answering it with the unfiltered count would tell the reader
+     that every zone is full. */
+  if (cls && at < 0) return [];
+  const bit = at < 0 ? 0 : 1 << at;
+
+  const low = level - WINDOW_BELOW;
+  const high = level + WINDOW_ABOVE;
+
+  const out: DropRow[] = [];
+  for (const row of rows) {
+    if (bit && !(row[2] & bit)) continue;
+    if (row[1] < low || row[1] > high) continue;
+    out.push(row);
+    if (out.length === PANEL_CEILING) break;
+  }
+  return out;
+}
 
 /**
  * The count the rail prints. Zero for a room with nothing in the window, for a
@@ -42,28 +75,9 @@ export function dropsHere(
   level: number,
   found: (itemId: number) => boolean,
 ): number {
-  const rows = ROOM_DROPS[roomId];
-  if (!rows) return 0;
-
-  const at = cls ? DROP_CLASSES.indexOf(cls as (typeof DROP_CLASSES)[number]) : -1;
-  /* A class the mask has never heard of is not "every item" — it is a bad
-     argument, and answering it with the unfiltered count would tell the reader
-     that every zone is full. */
-  if (cls && at < 0) return 0;
-  const bit = at < 0 ? 0 : 1 << at;
-
-  const low = level - WINDOW_BELOW;
-  const high = level + WINDOW_ABOVE;
-
-  let taken = 0;
+  /* The cap counts what the panel would have shown, not what is open: eight
+     drops with three ticked off is five still waiting, not eight. */
   let open = 0;
-  for (const [itemId, avail, mask] of rows) {
-    if (bit && !(mask & bit)) continue;
-    if (avail < low || avail > high) continue;
-    if (!found(itemId)) open++;
-    /* The cap counts what the panel would have shown, not what is open: eight
-       drops with three ticked off is five still waiting, not eight. */
-    if (++taken === PANEL_CEILING) break;
-  }
+  for (const [itemId] of panelRows(roomId, cls, level)) if (!found(itemId)) open++;
   return open;
 }

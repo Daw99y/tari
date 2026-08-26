@@ -2,7 +2,9 @@
 
 /* THE SUMMONS. The corner holds an instrument now, not a card: the game's
  * own upgrade arrow — the green one every player already reads — redrawn
- * as our vector (§7.1: redraw the theme icons, rip only content). The
+ * as our vector (§7.1: redraw the theme icons, rip only content), and since
+ * the sheet's behind slots wear the same mark it lives in components/
+ * UpArrow.tsx rather than here. The
  * compass opens the place; this opens what the place can do for you.
  * Hover breathes out a preview — the count, the faces, what is already
  * crossed off — and the press opens the kit, wearing the map's frame.
@@ -14,6 +16,7 @@ import { useEffect, useState } from "react";
 
 import { useDock } from "@/components/Dock";
 import { ItemHover } from "@/components/ItemTooltip";
+import UpArrow from "@/components/UpArrow";
 import { loadCharacter } from "@/lib/character";
 import { iconUrl, topQuality, type ClassId, type Item } from "@/lib/loot";
 import { isOn, useMarks } from "@/lib/marks";
@@ -51,15 +54,7 @@ export default function Drops({ drops, cls, level }: { drops: Item[]; cls: Class
           onClick={() => dock?.openKit()}
         >
           <span className={styles.upHalo} aria-hidden="true" />
-          <svg className={styles.upGlyph} viewBox="0 0 24 24" aria-hidden="true">
-            <path
-              d="M12 2.4 20.4 11.2 H15.6 V19.8 Q15.6 21.4 14 21.4 H10 Q8.4 21.4 8.4 19.8 V11.2 H3.6 Z"
-              fill="currentColor"
-              stroke="rgba(4, 10, 5, 0.55)"
-              strokeWidth="1"
-              strokeLinejoin="round"
-            />
-          </svg>
+          <UpArrow className={styles.upGlyph} />
           {open.length > 0 ? (
             <span className={styles.upCount} data-quality={best ?? undefined}>
               {open.length}

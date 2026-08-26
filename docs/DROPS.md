@@ -298,7 +298,78 @@ Each step is usable before the next one exists.
    and **the source face** (`ItemStage`'s second face: a creature at its
    camps or a quest and its giver, and what it holds for you here — every
    source a door, nothing a dead grey line).
-6. **The path.** `/you`'s letter line and the sheet's slot marks.
+6. ~~**The path.**~~ **Done 2026-08-26.** `lib/path.ts` + the sheet.
+
+   The index grew a fourth number. `scripts/rooms-from-zones.py` now writes
+   the slot alongside the id, the level and the class mask (`DROP_SLOTS`,
+   an index rather than the word — nineteen words repeated 2,320 times);
+   `lib/room-drops.ts` goes 36 KB → 42 KB for it. The path's question is per
+   slot, not per room, and the rail's own index was three quarters of the
+   answer already.
+
+   `lib/drops-here.ts` gave up its filter as `panelRows`. The rail's badge,
+   the room's card and the letter now run the same window and the same cap
+   through one function, because a letter that promises Stranglethorn fills
+   your legs, over a Stranglethorn card that does not draw them, is the app
+   lying about its own room.
+
+   **Behind is measured against the window, not against a new number.** A
+   room offers you things from five levels below you up; what you are
+   wearing has fallen out of the bottom of that (`il < level − 5`). Nothing
+   worn at all is behind by the same argument. Three slots are out of the
+   question entirely: the shirt and the tabard are worn rather than
+   equipped, and the sheet does not draw the ranged socket. An empty off
+   hand under a two-hander is the weapon's doing and not a gap, so it is
+   skipped — the game greys that slot for the same reason.
+
+   **The letter names one place, or two.** The first draft named three and
+   then said "and in ten more places", which is the shopping list §2.1
+   refuses wearing a comma. It names where the most of your gaps close at
+   once — a fact about a place, not a verdict on it — and where two places
+   do that equally the rail's order picks, because the order you pass
+   through the world is nobody's opinion. Two sentences, and the second one
+   is dropped when nothing answers.
+
+   > Two of your slots are older than your level, and one is empty.
+   > Two of them fill in Wetlands and Hillsbrad Foothills.
+
+   Wearing nothing at all is one fact rather than sixteen failures, so it is
+   said once and the second sentence names the slots itself:
+
+   > Nothing worn yet.
+   > Nine of your slots fill in Shadowfang Keep.
+
+   **The mark is the summons' own arrow.** First built as a hollow ring —
+   this file's own "register of the hollow tick" — and ruled wrong by Kacey
+   on sight: the green up arrow already means *better than what you have*
+   in the room's corner, on the kit's rows and in the game itself, and the
+   sheet inventing a second, quieter word for it made the most useful thing
+   on the page look like a footnote. So `components/UpArrow.tsx` now holds
+   the path and both surfaces wear it; DESIGN.md §7.1's green is the one
+   colour that carries this meaning, and gold is still the compass's alone.
+
+   **The arrow only stands where there is an answer.** A slot that is behind
+   and that no room in your window answers gets nothing — an arrow that
+   opened an empty list would be the app pointing at a door with no room
+   behind it. The letter's first sentence counts every behind slot, so the
+   arrows can be fewer than the number it says. Nelfy, a made level 24
+   druid wearing nothing, gets thirteen of sixteen: head and both trinkets
+   have nothing in the window at that level.
+
+   **It does not wait for an import** — the second thing ruled out on sight.
+   The first build refused to draw a path for a body that was made rather
+   than imported, on the grounds that accusing sixteen empty slots was
+   reading the creator's blank form as neglect. It reads as the feature
+   being broken, and it throws away the best first look at the world Tari
+   has: sixteen empty slots *is* sixteen honest answers. The letter says it
+   once instead of sixteen times — `Nothing worn yet.` — and the corner
+   still says the import is missing, which is a different fact.
+
+   Until `/api/items` answers there is no path at all, rather than half a
+   judgement drawn now and corrected a moment later; a character with no
+   ids to ask about is handed an empty dictionary so it does not wait
+   forever for a fetch it never made. A gear id the dictionary has never
+   heard of is skipped.
 7. **DESIGN.md.** Record the stage as settled, and close the "map and objects"
    open question.
 

@@ -321,6 +321,177 @@
   border-radius: 999px;
 }
 
+/* ---- the path: the letter's line, and the marks on the slots.
+ *
+ * docs/DROPS.md step 6. The letter sits under the name because it is about
+ * this character and nothing else on the page is. The mark is the hollow
+ * tick's register — a ring, not a badge, and never a number: the sheet says
+ * *that* a slot is behind, and the panel it opens says where it fills. */
+
+.letter {
+  margin: 0.2rem auto 0;
+  max-width: 32rem;
+  display: grid;
+  gap: 0.1rem;
+}
+
+.letterLine {
+  margin: 0;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  letter-spacing: -0.005em;
+  color: rgba(242, 240, 234, 0.55);
+  text-wrap: balance;
+}
+
+.letterLine:first-child {
+  color: rgba(242, 240, 234, 0.85);
+}
+
+/* The slot has to hold the mark, and the panel hangs off it. */
+.slot {
+  position: relative;
+}
+
+.slot[data-behind] {
+  padding-right: 1.5rem;
+}
+
+.slot[data-behind][data-align="right"] {
+  padding-right: 0.4rem;
+  padding-left: 1.5rem;
+}
+
+.weapons .slot[data-behind] {
+  padding-right: 1.5rem;
+}
+
+/* The whole card is the press, so the mark does not have to be a target. */
+.press {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  appearance: none;
+  border: 0;
+  background: none;
+  border-radius: inherit;
+  cursor: pointer;
+}
+
+.press:focus-visible {
+  outline: 1.5px solid rgba(74, 222, 91, 0.8);
+  outline-offset: 2px;
+}
+
+/* The mark is the summons' arrow at a slot's size — one glyph for one
+   meaning, everywhere in the app. */
+.mark {
+  position: absolute;
+  top: 50%;
+  right: 0.45rem;
+  width: 14px;
+  height: auto;
+  margin-top: -7px;
+  display: block;
+  color: #4ade5b;
+  filter: drop-shadow(0 2px 7px rgba(0, 0, 0, 0.55));
+  pointer-events: none;
+  transform-origin: 50% 55%;
+  transition: transform 0.24s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.slot[data-align="right"] .mark {
+  right: auto;
+  left: 0.45rem;
+}
+
+.slot[data-behind]:hover .mark,
+.press[aria-expanded="true"] ~ .mark {
+  transform: scale(1.12) translateY(-1px);
+}
+
+/* The rooms. Doors, in the rail's order — not a ranking and not a route.
+ *
+ * The head stays put and the list is what moves, so the panel never shows a
+ * scrollbar: it dissolves at the bottom while there is more of it and stops
+ * dissolving at the end, which is the chat's scrollback's own manner. */
+.rooms {
+  position: absolute;
+  z-index: 4;
+  top: -0.4rem;
+  left: calc(100% + 0.45rem);
+  width: 10.5rem;
+  padding: 0.5rem 0.55rem 0.45rem;
+  border-radius: 12px;
+  background: rgba(6, 6, 10, 0.86);
+  border: 0.5px solid var(--rule);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(24px) saturate(1.1);
+  -webkit-backdrop-filter: blur(24px) saturate(1.1);
+  text-align: left;
+}
+
+.slot[data-align="right"] .rooms {
+  left: auto;
+  right: calc(100% + 0.45rem);
+}
+
+.weapons .rooms {
+  top: auto;
+  bottom: calc(100% + 0.45rem);
+  left: 0;
+}
+
+.roomsHead {
+  margin: 0 0 0.35rem;
+  font: 400 0.55rem/1 var(--mono);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(242, 240, 234, 0.4);
+}
+
+.roomsList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.05rem;
+  max-height: 13.5rem;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: none;
+}
+
+.roomsList::-webkit-scrollbar {
+  display: none;
+}
+
+.roomsList[data-more] {
+  mask-image: linear-gradient(to top, transparent 0%, #000 16%);
+  -webkit-mask-image: linear-gradient(to top, transparent 0%, #000 16%);
+}
+
+.roomLink {
+  display: block;
+  padding: 0.2rem 0.35rem;
+  margin: 0 -0.35rem;
+  border-radius: 7px;
+  font-size: 0.78rem;
+  line-height: 1.3;
+  color: rgba(242, 240, 234, 0.72);
+  text-decoration: none;
+  transition:
+    color 0.12s ease,
+    background-color 0.12s ease;
+}
+
+.roomLink:hover,
+.roomLink:focus-visible {
+  color: var(--ink);
+  background: rgba(242, 240, 234, 0.08);
+  outline: none;
+}
+
 /* The stage too narrow to hold three columns open: the body on top, the gear
  * in two columns under it, and the corner's facts back in the flow at the
  * bottom. It is taller than the stage, so this is the one layout that
