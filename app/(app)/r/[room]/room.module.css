@@ -238,6 +238,42 @@
     filter 380ms ease;
 }
 
+/* The tally: the number still on the table, riding the arrow's shoulder in
+ * the colour of the best thing it counts. No pill — a badge would fight the
+ * glyph; a bare numeral over its own dark shadow sits behind it. */
+.upCount {
+  position: absolute;
+  top: -0.05rem;
+  right: -0.05rem;
+  z-index: 1;
+  font: 600 clamp(0.6rem, 0.9vw, 0.72rem)/1 var(--mono);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.01em;
+  color: #4ade5b;
+  text-shadow:
+    0 0 3px rgba(4, 6, 4, 0.95),
+    0 1px 4px rgba(0, 0, 0, 0.85);
+  pointer-events: none;
+  transition: transform 380ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.upCount[data-quality="Rare"] { color: #4f9cff; }
+.upCount[data-quality="Epic"] { color: #b877f5; }
+.upCount[data-quality="Legendary"] { color: #ff9a3c; }
+.upCount[data-quality="Common"],
+.upCount[data-quality="Poor"] { color: rgba(242, 240, 234, 0.72); }
+
+.upWrap:hover .upCount,
+.up:focus-visible .upCount {
+  transform: translate(1px, -1px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .upCount {
+    transition: none;
+  }
+}
+
 .upHalo {
   position: absolute;
   inset: -14%;

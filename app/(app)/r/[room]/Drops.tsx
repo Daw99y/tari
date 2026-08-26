@@ -15,7 +15,7 @@ import { useEffect, useState } from "react";
 import { useDock } from "@/components/Dock";
 import { ItemHover } from "@/components/ItemTooltip";
 import { loadCharacter } from "@/lib/character";
-import { iconUrl, type ClassId, type Item } from "@/lib/loot";
+import { iconUrl, topQuality, type ClassId, type Item } from "@/lib/loot";
 import { isOn, useMarks } from "@/lib/marks";
 
 import styles from "./room.module.css";
@@ -29,9 +29,13 @@ export default function Drops({ drops, cls, level }: { drops: Item[]; cls: Class
   useEffect(() => setChar(loadCharacter()?.key ?? null), []);
 
   const found = (item: Item) => (char ? isOn(marks, char, "found", String(item.itemId)) : false);
-  const done = drops.filter(found).length;
+  const open = drops.filter((d) => !found(d));
+  const done = drops.length - open.length;
   const cleared = drops.length > 0 && done === drops.length;
   const slots = new Set(drops.map((d) => d.slot)).size;
+  /* The tally wears the best colour still on the table: the reader learns
+     "how many" and "how good" in one look, without opening anything. */
+  const best = topQuality(open);
 
   return (
     <aside className={styles.upgrades} aria-label="What drops here">
@@ -39,7 +43,11 @@ export default function Drops({ drops, cls, level }: { drops: Item[]; cls: Class
         <button
           type="button"
           className={styles.up}
-          aria-label={`Your kit — ${drops.length} drops here`}
+          aria-label={
+            open.length > 0
+              ? `Your kit — ${open.length} of ${drops.length} drops still to find here`
+              : `Your kit — all ${drops.length} drops crossed off here`
+          }
           onClick={() => dock?.openKit()}
         >
           <span className={styles.upHalo} aria-hidden="true" />
@@ -52,6 +60,11 @@ export default function Drops({ drops, cls, level }: { drops: Item[]; cls: Class
               strokeLinejoin="round"
             />
           </svg>
+          {open.length > 0 ? (
+            <span className={styles.upCount} data-quality={best ?? undefined}>
+              {open.length}
+            </span>
+          ) : null}
         </button>
 
         {/* The breath: what pressing it opens, in one glance. */}
@@ -66,7 +79,7 @@ export default function Drops({ drops, cls, level }: { drops: Item[]; cls: Class
           ) : (
             <>
               <p className={styles.upFig}>
-                {drops.length - done}
+                {open.length}
                 <span className={styles.upFigCap}>
                   {cls ? ` for a ${cls} at ${level}` : ` at ${level}`}
                 </span>

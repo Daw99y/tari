@@ -99,6 +99,15 @@ export function byRank(a: Item, b: Item): number {
   return QUALITY_RANK[b.quality] - QUALITY_RANK[a.quality] || b.itemLevel - a.itemLevel || a.name.localeCompare(b.name);
 }
 
+/** The best colour in a pile. A count of drops wears the rarity of the
+    finest thing it counts, the way the game colours a name. */
+export function topQuality(items: Item[]): Quality | null {
+  return items.reduce<Quality | null>(
+    (best, i) => (best === null || QUALITY_RANK[i.quality] > QUALITY_RANK[best] ? i.quality : best),
+    null,
+  );
+}
+
 /** The panel's rows: for this class if one is given, in the window around
     this level, best first, capped. */
 export function panelFor(file: LootFile, cls: ClassId | null, level: number): Item[] {
