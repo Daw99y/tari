@@ -3,6 +3,13 @@
 /* THE RAIL. Discord's rail is a list of servers you joined; Tari's rail is
  * Azeroth (docs/TARI.md §11.2).
  *
+ * WHICH MEANS IT IS ORDERED LIKE THE WORLD AND NOT LIKE AN INDEX. Zones and
+ * dungeons run low band to high inside each continent, and every one of those
+ * rows carries its band. Alphabetical asked the reader to already know that
+ * Duskwood is where a level 24 goes — the one thing somebody opening this for
+ * the first time cannot know. See roomsByKind and bandOf in lib/rooms.ts for
+ * why cities, raids and places are left in their written order instead.
+ *
  * So every row carries the room's own photograph rather than an icon of it.
  * The art is held down dark and lifts under the pointer — the list reads as
  * a column of places at dusk, and each one has its own colour before you
@@ -27,9 +34,19 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
-import { loadCharacter } from "@/lib/character";
+import { loadCharacter, type Character } from "@/lib/character";
+import { dropsHere } from "@/lib/drops-here";
 import { setMark, silence, subjectsOn, sync, useMarks } from "@/lib/marks";
-import { KIND_LABEL, ROOMS, type Room, type RoomKind, roomThumb, roomsByKind } from "@/lib/rooms";
+import {
+  CONTINENT_LABEL,
+  KIND_LABEL,
+  ROOMS,
+  bandLabel,
+  type Room,
+  type RoomKind,
+  roomThumb,
+  roomsByKind,
+} from "@/lib/rooms";
 
 import { useRoomId } from "./room-context";
 import styles from "./shell.module.css";
@@ -61,11 +78,15 @@ export default function Rail({ signedIn }: { signedIn: boolean }) {
   /* Stars belong to a character, so there are none before there is one. The
      shell sends a reader with no character to the creator, which makes this
      a doorstep state rather than a lasting one. */
-  const [char, setChar] = useState<string | null>(null);
+  /* The whole character now, not only its key: the stars need the key and the
+     drop counts need the class and the level, and reading the roster twice for
+     two fields of one record would be the same lookup done twice a page. */
+  const [me, setMe] = useState<Character | null>(null);
+  const char = me?.key ?? null;
   const [open, setOpen] = useState<Open>({});
 
   useEffect(() => {
-    setChar(loadCharacter()?.key ?? null);
+    setMe(loadCharacter());
   }, [pathname]);
 
   /* One pull on arrival: whatever the reader starred on the other machine is
@@ -104,6 +125,19 @@ export default function Rail({ signedIn }: { signedIn: boolean }) {
   }
 
   const starred = char ? new Set(subjectsOn(marks, char, "fav")) : new Set<string>();
+  /* One set for the whole rail rather than one per row: seventy-five rows ask
+     this, and the found record is the same record for all of them. */
+  const found = char ? new Set(subjectsOn(marks, char, "found")) : new Set<string>();
+  const isFound = (itemId: number) => found.has(String(itemId));
+
+  /* WHAT IS WAITING FOR YOU IN THERE, on the row rather than behind it.
+     Zones only, which is the ask and also the honest limit: a zone is the one
+     kind of room you pick off a list because of what drops in it. A dungeon is
+     picked because it is a dungeon, a capital because you are already going,
+     and a raid because it is Tuesday. Widening it is one line, and the badge
+     hides itself at zero either way — see dropsHere. */
+  const countFor = (room: Room) =>
+    me && room.kind === "zone" ? dropsHere(room.id, me.cls, me.level, isFound) : 0;
   /* ROOMS is written continent by continent inside kind, and the pinned block
      reads in that same order — so a starred room never moves once it is up
      there, and never sorts itself out from under the pointer. */
@@ -122,6 +156,7 @@ export default function Rail({ signedIn }: { signedIn: boolean }) {
         starred={starred.has(room.id)}
         canStar={char !== null}
         onStar={star}
+        drops={countFor(room)}
       />
     );
   }
@@ -172,7 +207,22 @@ export default function Rail({ signedIn }: { signedIn: boolean }) {
                   of the two is always display:none, so only one is read. */}
               <span className={styles.groupLabelFlat}>{KIND_LABEL[group.kind]}</span>
             </h2>
-            <ul className={styles.rooms}>{group.rooms.map(card)}</ul>
+            {group.sections ? (
+              /* Two lists under one heading, and the continent is a caption
+                 rather than a second fold: the kinds are what a reader shuts,
+                 and offering to shut half of Azeroth would be a fold inside a
+                 fold for no question anybody asks. */
+              group.sections.map((section) => (
+                <div key={section.continent} className={styles.continent}>
+                  <p className={styles.continentName}>
+                    {CONTINENT_LABEL[section.continent]}
+                  </p>
+                  <ul className={styles.rooms}>{section.rooms.map(card)}</ul>
+                </div>
+              ))
+            ) : (
+              <ul className={styles.rooms}>{group.rooms.map(card)}</ul>
+            )}
           </section>
         );
       })}
@@ -189,14 +239,18 @@ function Card({
   starred,
   canStar,
   onStar,
+  drops,
 }: {
   room: Room;
   current: boolean;
   starred: boolean;
   canStar: boolean;
   onStar: (room: Room, on: boolean) => void;
+  /** Still waiting in there for this character. Zero draws nothing. */
+  drops: number;
 }) {
   const router = useRouter();
+  const band = bandLabel(room);
 
   return (
     <li className={styles.slot}>
@@ -207,6 +261,13 @@ function Card({
         className={styles.room}
         data-current={current || undefined}
         aria-current={current ? "page" : undefined}
+        /* The badge is aria-hidden — a bare numeral read out after a place
+           name is noise — so the row says the whole thing once, here. */
+        aria-label={
+          drops > 0
+            ? `${room.name} — ${drops} still to find`
+            : undefined
+        }
       >
         {/* The small copy, not the master: 75 rows of full-bleed art is 14 MB
             of pictures nobody has asked for yet. See scripts/rail-thumbs.mjs. */}
@@ -218,7 +279,29 @@ function Card({
           decoding="async"
         />
         <span className={styles.roomName}>
+          {/* THE SUMMONS, AT RAIL SIZE. The same arrow the room's own corner
+              draws (app/(app)/r/[room]/Drops.tsx) and the same green, at a
+              twelfth of the size: a reader who has learned what it means in
+              the corner reads it here without being told twice. The count
+              rides its shoulder the way the big one does, and neither the
+              glyph nor the figure appears at all when there is nothing
+              waiting — an arrow saying nought is a row with a nought on it. */}
+          {drops > 0 ? (
+            <span className={styles.roomDrops} aria-hidden="true">
+              <svg className={styles.roomUp} viewBox="0 0 24 24">
+                <path
+                  d="M12 2.4 20.4 11.2 H15.6 V19.8 Q15.6 21.4 14 21.4 H10 Q8.4 21.4 8.4 19.8 V11.2 H3.6 Z"
+                  fill="currentColor"
+                />
+              </svg>
+              <span className={styles.roomUpCount}>{drops}</span>
+            </span>
+          ) : null}
           <span>{room.name}</span>
+          {/* The one thing a name cannot say. Held well back — it is what you
+              check, not what you read — and absent rather than approximated on
+              the kinds that have no honest number. See bandOf. */}
+          {band ? <span className={styles.roomBand}>{band}</span> : null}
         </span>
       </Link>
       {canStar && (

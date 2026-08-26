@@ -13,7 +13,17 @@
  * adjacency. Those arrive with the pipeline's zone JSON (`lib/types.ts`),
  * and inventing them here would mean two sources of truth on the day the
  * real one lands.
+ *
+ * The rule held and the ranges arrived anyway. `lib/room-bands.ts` is
+ * generated out of the same pipeline pass that writes the loot files, so the
+ * bands this file now sorts by are read rather than invented — the rule was
+ * against a second opinion, not against knowing. It is a separate module from
+ * the loot for one reason: the rail is a client component, and importing
+ * `loot-files.ts` to read one field per room would ship 2,320 items to
+ * everybody who loads a sidebar.
  */
+
+import { ROOM_BANDS, type Band } from "./room-bands";
 
 /** Four kinds of room (§4.1), plus the towns and hubs the art shoot caught
  *  on the way past. A `place` is somewhere you stand that is not a zone. */
@@ -172,9 +182,89 @@ export function roomThumb(id: string): string {
 
 /** The rail's groups, in KIND_ORDER, each in the order written above —
  *  which is continent, then alphabetical inside it. */
-export function roomsByKind(): { kind: RoomKind; rooms: Room[] }[] {
-  return KIND_ORDER.map((kind) => ({
-    kind,
-    rooms: ROOMS.filter((room) => room.kind === kind),
-  }));
+/**
+ * THE BAND, WHERE THERE IS ONE.
+ *
+ * Three of the five kinds have no useful answer and get null rather than a
+ * number, because a wrong-looking figure on a row is worse than a bare name:
+ *
+ * A city states 1–60. True, and it means "any time" rather than "now" — it
+ * would sort every capital into the middle of the list and print a range no
+ * reader could act on.
+ *
+ * A raid states 60–63. The 63 is a boss's level, not a player's; every raid in
+ * the game is level 60 content and printing three flavours of "60" beside them
+ * would be the rail inventing a distinction the game does not make.
+ *
+ * A place — Ratchet, Northshire — has no band at all and should not grow one.
+ *
+ * Zones and dungeons are the two where the number is a real fact about where
+ * you should be, and they are the two the rail sorts and labels.
+ */
+const BANDED: RoomKind[] = ["zone", "dungeon"];
+
+export function bandOf(room: Room): Band | null {
+  return BANDED.includes(room.kind) ? (ROOM_BANDS[room.id] ?? null) : null;
+}
+
+/** "20–30", en dash, or null. What a row prints beside its name. */
+export function bandLabel(room: Room): string | null {
+  const b = bandOf(room);
+  return b ? `${b.min}–${b.max}` : null;
+}
+
+/**
+ * The rail's groups, and for two of them the order the world is in rather than
+ * the order the alphabet is.
+ *
+ * ALPHABETICAL WAS A LIST OF WORDS. It reads as an index — fine if you already
+ * know that Duskwood is where a level 24 goes and that Badlands is not, which
+ * is precisely the knowledge somebody opening this for the first time does not
+ * have. Forty names with nothing but names on them asks the reader to bring the
+ * map with them. The bands were sitting in the pipeline the whole time.
+ *
+ * CONTINENTS STAY WHOLE. Sorting all forty by level alone would put Elwynn,
+ * Durotar, Dun Morogh, Mulgore and Tirisfal in one block, which answers "what
+ * is for my level" and destroys the thing the rail actually is — Azeroth as a
+ * list (§11.2), not a difficulty ladder. So each continent is a section and the
+ * levels run bottom to top inside it. A reader sees where they are and what is
+ * above it without having to hold the map themselves.
+ *
+ * Cities, raids and places keep the order they were written in. See bandOf for
+ * why none of the three has a level worth sorting on.
+ */
+export type RailGroup = {
+  kind: RoomKind;
+  rooms: Room[];
+  /** Split by continent, low band first, for the kinds that have one. Null
+   *  when the group is one undivided list in its written order. */
+  sections: { continent: Continent; rooms: Room[] }[] | null;
+};
+
+const CONTINENT_ORDER: Continent[] = ["eastern-kingdoms", "kalimdor"];
+
+export function roomsByKind(): RailGroup[] {
+  return KIND_ORDER.map((kind) => {
+    const rooms = ROOMS.filter((room) => room.kind === kind);
+    if (!BANDED.includes(kind)) return { kind, rooms, sections: null };
+
+    const sections = CONTINENT_ORDER.map((continent) => ({
+      continent,
+      rooms: rooms
+        .filter((room) => room.continent === continent)
+        /* Low band first, widest last among equals — Ashenvale 18–30 sits
+           under Stonetalon 16–26 and above Thousand Needles 26–34, which is
+           the order you actually pass through them. A room the pipeline gave
+           no band falls to the end rather than to the top, where a zero would
+           put it. */
+        .sort((a, b) => {
+          const x = ROOM_BANDS[a.id];
+          const y = ROOM_BANDS[b.id];
+          if (!x || !y) return (x ? 0 : 1) - (y ? 0 : 1) || a.name.localeCompare(b.name);
+          return x.min - y.min || x.max - y.max || a.name.localeCompare(b.name);
+        }),
+    })).filter((section) => section.rooms.length > 0);
+
+    return { kind, rooms: sections.flatMap((s) => s.rooms), sections };
+  });
 }

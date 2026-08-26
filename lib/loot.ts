@@ -6,6 +6,7 @@
  * room, which is what keeps the panel from becoming a route. */
 
 import { LOOT_FILES } from "./loot-files";
+import { PANEL_CEILING, WINDOW_ABOVE, WINDOW_BELOW } from "./window";
 
 export type ClassId =
   | "warrior"
@@ -88,10 +89,10 @@ export function lootFor(roomId: string): LootFile | undefined {
   return LOOT_FILES[roomId];
 }
 
-/* The window, as whelp plz drew it: five below, three above. */
-export const WINDOW_BELOW = 5;
-export const WINDOW_ABOVE = 3;
-export const PANEL_CEILING = 8;
+/* The window, as whelp plz drew it: five below, three above. Defined in
+   lib/window.ts and re-exported here, so the rail can count without pulling
+   the loot in behind it — see that file. Every importer here is unchanged. */
+export { WINDOW_ABOVE, WINDOW_BELOW, PANEL_CEILING } from "./window";
 
 const QUALITY_RANK: Record<Quality, number> = { Legendary: 5, Epic: 4, Rare: 3, Uncommon: 2, Common: 1, Poor: 0 };
 

@@ -243,8 +243,13 @@
  * glyph; a bare numeral over its own dark shadow sits behind it. */
 .upCount {
   position: absolute;
-  top: -0.05rem;
-  right: -0.05rem;
+  /* On the glyph's own corner, not the button's. The button carries 0.55rem of
+     padding for the tap target, and hanging the numeral off that edge put it a
+     clear gap from the thing it counts — two marks in the corner rather than
+     one instrument. These land it just outside the arrowhead's right slope,
+     which is empty in the path and is the shoulder this always meant to ride. */
+  top: 0.42rem;
+  right: 0.28rem;
   z-index: 1;
   font: 600 clamp(0.6rem, 0.9vw, 0.72rem)/1 var(--mono);
   font-variant-numeric: tabular-nums;

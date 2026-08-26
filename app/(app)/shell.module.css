@@ -196,9 +196,32 @@
   transform: rotate(90deg);
 }
 
-/* The fold itself. */
-.group[data-open="false"] .rooms {
+/* The fold itself. The caption goes with the list it captions — it lives
+   outside .rooms so that the two read as one block, which means the fold has
+   to name it too or a shut group keeps two headings with no rows under them. */
+.group[data-open="false"] .rooms,
+.group[data-open="false"] .continentName {
   display: none;
+}
+
+/* THE CONTINENT, INSIDE A KIND. A caption rather than a heading: the kind
+ * above it is what the reader folds, and this only says which half of the
+ * world the next dozen rows are in. So it sits a step quieter than
+ * .groupName — no sticky, no count, no control — and takes the indent of the
+ * rows it introduces rather than the heading's. */
+.continentName {
+  margin: 0.7rem 0 0.35rem;
+  padding: 0 1rem;
+  font: 500 0.55rem/1 var(--mono);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(242, 240, 234, 0.22);
+}
+
+/* The first one sits directly under the heading, which carries its own
+   bottom padding; the ones after a list need the full gap. */
+.continent:first-of-type .continentName {
+  margin-top: 0.15rem;
 }
 
 /* The strip's own label — see Rail.tsx. Off everywhere the fold works. */
@@ -363,10 +386,73 @@
 
 /* Two rooms in Azeroth are longer than the rail is wide. They end in a dot
    rather than mid-letter. */
-.roomName span {
+.roomName > span:first-child {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+/* THE SUMMONS AT RAIL SIZE. The room's corner draws this arrow at 28–38px as
+ * the instrument of the screen; here it is 11px and it is a mark, not an
+ * instrument — it says "something in here" and the row it sits on says what
+ * to do about it. Same path, same green, no halo and no shadow: the corner's
+ * drop shadow exists to lift a control off a photograph, and at this size it
+ * would only smear.
+ *
+ * Before the name rather than after it. The band already owns the right edge,
+ * and a row that ends in two numbers is a row you have to parse. This reads
+ * left to right as: something is here, it is called this, it is for level
+ * that. */
+.roomDrops {
+  flex: none;
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-right: 0.45rem;
+  color: #4ade5b;
+}
+
+.roomUp {
+  width: 11px;
+  height: 11px;
+  display: block;
+  transition: transform 260ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+/* On the arrow's shoulder, exactly as the corner's tally sits on its own —
+ * tight to the glyph, because at this size any gap at all reads as two
+ * separate marks. */
+.roomUpCount {
+  font: 600 0.56rem/1 var(--mono);
+  font-variant-numeric: tabular-nums;
+  margin-left: 0.05rem;
+  align-self: flex-start;
+  margin-top: 0.05rem;
+}
+
+/* The row lifts its art under the pointer; the mark lifts with it. */
+.room:hover .roomUp,
+.room[data-current] .roomUp {
+  transform: translateY(-1px);
+}
+
+/* THE BAND. It rides the right edge of the row, in the mono the headings use,
+ * held to a third of the name's weight. A long zone name takes the space it
+ * needs and the figure holds its own — `flex: none` rather than a fight. */
+.roomBand {
+  flex: none;
+  margin-left: auto;
+  padding-left: 0.6rem;
+  font: 500 0.6rem/1 var(--mono);
+  letter-spacing: 0.04em;
+  font-variant-numeric: tabular-nums;
+  color: rgba(242, 240, 234, 0.3);
+  transition: color 180ms ease;
+}
+
+.room:hover .roomBand,
+.room[data-current] .roomBand {
+  color: rgba(242, 240, 234, 0.55);
 }
 
 .room:hover .roomArt {
@@ -633,6 +719,16 @@
   }
   .group[data-open="false"] .rooms {
     display: flex;
+  }
+  /* Sideways, the wrapper dissolves so both continents' rows stay on the one
+     line the strip is, and the caption goes entirely: a word set vertically in
+     a 64px strip costs more height than the rows it labels. The order still
+     holds, which is the half of this worth having on a phone. */
+  .continent {
+    display: contents;
+  }
+  .continentName {
+    display: none;
   }
   /* "Favourites" set on its side needs 104px of a 64px strip. The gold star
      says the same thing in 12, and the word stays for a screen reader. */
