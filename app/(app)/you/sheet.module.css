@@ -131,7 +131,9 @@
   padding: 0.75rem 0 0;
   display: flex;
   justify-content: center;
-  gap: 0.35rem;
+  /* Wide enough for the main hand's summons to stand between the two cards
+     rather than on top of the off hand's. */
+  gap: 3.4rem;
 }
 
 /* One slot: docs/CONTRAST.md surface B, a square for the icon. */
@@ -161,7 +163,7 @@
 .weapons .slot {
   flex: 1 1 0;
   min-width: 0;
-  max-width: 13rem;
+  max-width: 11rem;
 }
 
 .icon {
@@ -333,6 +335,11 @@
   max-width: 32rem;
   display: grid;
   gap: 0.1rem;
+  align-content: start;
+  /* Three lines and their two gaps: the most it can ever say (behind, where
+     it fills, and what is yours). Reserved rather than measured, so the
+     columns beneath it never move. */
+  min-height: 4.025rem;
 }
 
 .letterLine {
@@ -353,19 +360,6 @@
   position: relative;
 }
 
-.slot[data-behind] {
-  padding-right: 1.5rem;
-}
-
-.slot[data-behind][data-align="right"] {
-  padding-right: 0.4rem;
-  padding-left: 1.5rem;
-}
-
-.weapons .slot[data-behind] {
-  padding-right: 1.5rem;
-}
-
 /* The whole card is the press, so the mark does not have to be a target. */
 .press {
   position: absolute;
@@ -378,49 +372,118 @@
   cursor: pointer;
 }
 
+/* The card opens the drawer; the summons beside it opens the room's gear. */
 .press:focus-visible {
-  outline: 1.5px solid rgba(74, 222, 91, 0.8);
+  outline: 1.5px solid rgba(242, 240, 234, 0.7);
   outline-offset: 2px;
 }
 
-/* The mark is the summons' arrow at a slot's size — one glyph for one
-   meaning, everywhere in the app. */
-.mark {
+/* THE SUMMONS. The room's own instrument, standing beside the card rather
+ * than inside it (Kacey, 2026-08-26).
+ *
+ * A SQUARE, THE SAME SQUARE EVERYWHERE. It was a pill and it breathed with
+ * the number in it — 1 was narrow, 17 was wide, and a column of them read as
+ * a bar chart of something nobody had measured. A key is a key whatever is
+ * written on it, so it is a fixed 2.15rem square on every slot and the digits
+ * change inside it.
+ *
+ * SOFT, NOT MOULDED. It had a hard second-tone base under it and a dark line
+ * across its bottom edge — the arcade-key treatment — and at a slot's size
+ * that read as two stacked objects rather than one. One face, one gentle
+ * gradient, one soft shadow under it. Plush, not embossed.
+ *
+ * DESIGN.md's "Controls — settled" says one button, glass on the art. This is
+ * the exception and the only one: the summons' green already means "better
+ * than what you have, here" everywhere in the app, and this is that meaning
+ * with a number on it. Nothing else on the sheet may take this treatment. */
+.summons {
   position: absolute;
   top: 50%;
-  right: 0.45rem;
-  width: 14px;
-  height: auto;
-  margin-top: -7px;
-  display: block;
-  color: #4ade5b;
-  filter: drop-shadow(0 2px 7px rgba(0, 0, 0, 0.55));
-  pointer-events: none;
-  transform-origin: 50% 55%;
-  transition: transform 0.24s cubic-bezier(0.16, 1, 0.3, 1);
+  right: -2.95rem;
+  transform: translateY(-50%);
+  z-index: 3;
+  appearance: none;
+  width: 2.15rem;
+  height: 2.15rem;
+  flex: none;
+  padding: 0;
+  border: 0;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 0.04rem;
+  border-radius: 11px;
+  background: linear-gradient(180deg, #5fdd70 0%, #41c253 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.38),
+    0 2px 10px rgba(0, 0, 0, 0.38);
+  color: #06280d;
+  cursor: pointer;
+  transition:
+    transform 0.14s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.14s ease;
 }
 
-.slot[data-align="right"] .mark {
+.slot[data-align="right"] .summons {
   right: auto;
-  left: 0.45rem;
+  left: -2.95rem;
 }
 
-.slot[data-behind]:hover .mark,
-.press[aria-expanded="true"] ~ .mark {
-  transform: scale(1.12) translateY(-1px);
+.summons:hover {
+  filter: brightness(1.07);
+  transform: translateY(-50%) scale(1.06);
 }
 
-/* The rooms. Doors, in the rail's order — not a ranking and not a route.
+.summons:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+.summons:focus-visible {
+  outline: 2px solid rgba(242, 240, 234, 0.9);
+  outline-offset: 3px;
+}
+
+.summonsMark {
+  display: block;
+  width: 11px;
+  height: auto;
+  color: #06280d;
+}
+
+.summonsCount {
+  font: 700 0.66rem/1 var(--sans);
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .summons {
+    transition: none;
+  }
+  .summons:hover,
+  .summons:active {
+    transform: translateY(-50%);
+  }
+}
+
+/* THE PANEL. One surface, two questions.
+ *
+ * The arrow opens what the world is holding for this slot; the card opens
+ * everything that fits it. DESIGN.md's "there is one card" — so it is written
+ * once and both use it, rather than the drawer being the rooms panel with a
+ * different width and a second chance to drift.
  *
  * The head stays put and the list is what moves, so the panel never shows a
  * scrollbar: it dissolves at the bottom while there is more of it and stops
  * dissolving at the end, which is the chat's scrollback's own manner. */
-.rooms {
+.panel {
   position: absolute;
-  z-index: 4;
+  z-index: 5;
   top: -0.4rem;
-  left: calc(100% + 0.45rem);
-  width: 10.5rem;
+  /* Clear of the summons, which stands in this gutter. A panel that opened
+     over its own button would leave it peeking out of the edge. */
+  left: calc(100% + 3.55rem);
+  width: 17rem;
   padding: 0.5rem 0.55rem 0.45rem;
   border-radius: 12px;
   background: rgba(6, 6, 10, 0.86);
@@ -431,12 +494,14 @@
   text-align: left;
 }
 
-.slot[data-align="right"] .rooms {
+.slot[data-align="right"] .panel {
   left: auto;
-  right: calc(100% + 0.45rem);
+  right: calc(100% + 3.55rem);
 }
 
-.weapons .rooms {
+/* The weapons' summons sits to the right of its card, not in the way, so the
+   panel opens straight up from the card's own edge. */
+.weapons .panel {
   top: auto;
   bottom: calc(100% + 0.45rem);
   left: 0;
@@ -450,25 +515,47 @@
   color: rgba(242, 240, 234, 0.4);
 }
 
-.roomsList {
+.list {
   list-style: none;
   margin: 0;
   padding: 0;
   display: grid;
+  /* A bare `auto` column sizes to max-content, which lets a long item name
+     push the star and the slot glyph out past the panel's edge instead of
+     ellipsising. The rows are the panel's width and the name is what gives. */
+  grid-template-columns: minmax(0, 1fr);
   gap: 0.05rem;
-  max-height: 13.5rem;
+  max-height: 17rem;
   overflow-y: auto;
   overscroll-behavior: contain;
   scrollbar-width: none;
 }
 
-.roomsList::-webkit-scrollbar {
+.list::-webkit-scrollbar {
   display: none;
 }
 
-.roomsList[data-more] {
+.list[data-more] {
   mask-image: linear-gradient(to top, transparent 0%, #000 16%);
   -webkit-mask-image: linear-gradient(to top, transparent 0%, #000 16%);
+}
+
+/* A room, with what it is holding under it. The name is still the door
+   §2.1 allows; the objects standing in it are Kacey's 2026-08-26 ruling —
+   an arrow that named places without naming what for. */
+.group + .group {
+  margin-top: 0.35rem;
+  padding-top: 0.35rem;
+  border-top: 0.5px solid rgba(242, 240, 234, 0.1);
+}
+
+.groupList {
+  list-style: none;
+  margin: 0.1rem 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.05rem;
 }
 
 .roomLink {
@@ -476,19 +563,16 @@
   padding: 0.2rem 0.35rem;
   margin: 0 -0.35rem;
   border-radius: 7px;
-  font-size: 0.78rem;
-  line-height: 1.3;
-  color: rgba(242, 240, 234, 0.72);
+  font: 400 0.55rem/1 var(--mono);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(242, 240, 234, 0.45);
   text-decoration: none;
-  transition:
-    color 0.12s ease,
-    background-color 0.12s ease;
 }
 
 .roomLink:hover,
 .roomLink:focus-visible {
   color: var(--ink);
-  background: rgba(242, 240, 234, 0.08);
   outline: none;
 }
 
@@ -537,4 +621,219 @@
     max-width: 22rem;
     padding-top: 0.5rem;
   }
+}
+
+/* ---- the dressing room. docs/DRESSING.md.
+ *
+ * The card is the drawer's press; the summons stands outside it and opens
+ * the room's gear (see .summons above).
+ *
+ * A slot the reader dressed by hand wears a ring on its icon. Not the accent:
+ * DESIGN.md spends the pink twice a screen and nineteen slots is not twice.
+ * The letter's third sentence carries the count in words; this carries the
+ * fact on the object. */
+
+.slot[data-planned] .icon {
+  box-shadow: inset 0 0 0 1px rgba(242, 240, 234, 0.55);
+}
+
+.drawerHead {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.4rem;
+}
+
+/* Quiet text at the card's weight, not a second button on a panel that is
+   already one press deep. */
+.takeOff {
+  appearance: none;
+  border: 0;
+  background: none;
+  padding: 0;
+  font: 500 0.7rem/1 var(--sans);
+  color: rgba(242, 240, 234, 0.55);
+  cursor: pointer;
+}
+
+.takeOff:hover,
+.takeOff:focus-visible {
+  color: var(--ink);
+  outline: none;
+}
+
+/* The one carded thing in here, for the reason the chat's field is one: a
+   field the reader is aiming at has to read as an object. */
+.search {
+  width: 100%;
+  appearance: none;
+  margin: 0 0 0.4rem;
+  padding: 0.35rem 0.5rem;
+  border-radius: 8px;
+  border: 0.5px solid var(--rule);
+  background: rgba(242, 240, 234, 0.06);
+  color: var(--ink);
+  font: 400 0.78rem/1.3 var(--sans);
+  letter-spacing: -0.005em;
+}
+
+.search::placeholder {
+  color: rgba(242, 240, 234, 0.35);
+}
+
+.search:focus-visible {
+  outline: none;
+  border-color: rgba(242, 240, 234, 0.45);
+}
+
+.search::-webkit-search-cancel-button {
+  appearance: none;
+}
+
+/* ONE ROW. Four targets, one meaning each (app/(app)/you/Row.tsx): the
+   picture, the name that is a door, the wish star, and the slot's own
+   silhouette, which puts it on. The row itself is not a button — three
+   controls inside one would not be a row, it would be a nested press. */
+.wear {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  gap: 0.35rem;
+  padding: 0.2rem 0.35rem;
+  margin: 0 -0.35rem;
+  border-radius: 7px;
+}
+
+.wear:hover {
+  background: rgba(242, 240, 234, 0.06);
+}
+
+.wear[data-on] {
+  background: rgba(242, 240, 234, 0.07);
+}
+
+.wearIcon {
+  flex: none;
+  width: 1.4rem;
+  height: 1.4rem;
+  border-radius: 4px;
+  overflow: hidden;
+  background: rgba(242, 240, 234, 0.05);
+  box-shadow: inset 0 0 0 0.5px var(--rule);
+}
+
+.wearIcon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* The door. Shut when nothing in the window drops it — the arrow's rule:
+   never point at a room that is not there. */
+.wearDoor {
+  flex: 1 1 auto;
+  min-width: 0;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.wearDoor[data-shut] {
+  cursor: default;
+}
+
+.wearDoor:not([data-shut]):hover .wearName {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-thickness: 0.5px;
+}
+
+.wearDoor:focus-visible {
+  outline: 1.5px solid rgba(242, 240, 234, 0.7);
+  outline-offset: 2px;
+}
+
+.wearName {
+  display: block;
+  font-size: 0.76rem;
+  line-height: 1.25;
+  letter-spacing: -0.005em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* The item level, in the mono the sheet keeps for meta. A number, not a
+   score: no bar, no ring, nothing that ranks it against the row above. */
+.wearLevel {
+  flex: none;
+  font: 400 0.6rem/1 var(--mono);
+  color: rgba(242, 240, 234, 0.3);
+  font-variant-numeric: tabular-nums;
+}
+
+/* The two marks. Same star the room's kit row wears, same manner: quiet at
+   rest, ink when it is on. */
+.wish,
+.put {
+  appearance: none;
+  flex: none;
+  border: 0;
+  padding: 0.25rem;
+  margin: 0;
+  background: transparent;
+  border-radius: 5px;
+  cursor: pointer;
+  color: rgba(242, 240, 234, 0.34);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.wish svg {
+  display: block;
+  width: 12px;
+  height: 12px;
+}
+
+/* The slot's own silhouette, at a row's size. SlotGlyph is drawn for the
+   plate's fallback at 48px and its 1.25 stroke disappears down here, so the
+   stroke is set from the outside — a presentation attribute, so CSS wins. */
+.put svg {
+  display: block;
+  width: 17px;
+  height: 17px;
+}
+
+.put svg path {
+  stroke-width: 2.8;
+}
+
+.wish:hover,
+.put:hover {
+  color: rgba(242, 240, 234, 0.75);
+}
+
+.wish[aria-pressed="true"],
+.put[aria-pressed="true"] {
+  color: var(--ink);
+}
+
+.wish:focus-visible,
+.put:focus-visible {
+  outline: 1.5px solid currentColor;
+  outline-offset: 1px;
+}
+
+.drawerNote {
+  margin: 0.4rem 0 0.1rem;
+  font-size: 0.72rem;
+  line-height: 1.4;
+  color: rgba(242, 240, 234, 0.45);
+}
+
+/* The off hand under a two-hander. The game greys it; so does this. The item
+   is still named — it is still what you own — it is just not in your hand. */
+.slot[data-idle] .icon,
+.slot[data-idle] .slotItem {
+  opacity: 0.4;
 }

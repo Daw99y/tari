@@ -39,20 +39,32 @@ export const GEAR_SLOTS = [
 export const SHEET_LEFT = [1, 2, 3, 15, 5, 4, 19, 9];
 export const SHEET_RIGHT = [10, 6, 7, 8, 11, 12, 13, 14];
 
-/** The row under the doll. Melee only — main hand and off hand.
+/** The row under the doll: main hand, off hand, and the third slot.
  *
- *  Slot 18, the ranged one, is deliberately absent. A bow, a gun and a wand
- *  all hang off a hand socket, and so does an off-hand weapon, so drawing the
- *  ranged slot alongside the other two gives a character three weapons and two
- *  hands to hold them in. The game solves this by animating one set at a time;
- *  the sheet has no animation to switch, so it draws what the character is
- *  swinging. */
-export const SHEET_BOTTOM = [16, 17];
+ *  Slot 18 was absent until Kacey asked for it back (2026-08-26). A bow, a gun
+ *  and a wand all hang off a hand socket, and so does an off-hand weapon, so a
+ *  character drawn wearing all three has three weapons and two hands to hold
+ *  them in — the game solves that by animating one set at a time and the sheet
+ *  has no animation to switch. So the slot is drawn and read, and the figure
+ *  does not wear it: see WORN_SLOTS. */
+export const SHEET_BOTTOM = [16, 17, 18];
 
-/** Every slot the sheet draws, in no particular order. What the figure wears
- *  comes from this list rather than from all 19, so a slot the sheet leaves
- *  out is also a model the doll does not hang. */
+/** Every slot the sheet draws, in no particular order. */
 export const SHEET_SLOTS = [...SHEET_LEFT, ...SHEET_RIGHT, ...SHEET_BOTTOM];
+
+/** The third slot's gear index — the one the doll never hangs. */
+export const RANGED = 17;
+
+/** What the figure actually wears. Everything the sheet draws except the
+ *  third slot, for the reason above. */
+export const WORN_SLOTS = SHEET_SLOTS.filter((id) => id !== RANGED + 1);
+
+/** What the game calls the third slot for this class. Hunters and the casters
+ *  keep a weapon there; a paladin, a shaman and a druid carry a relic, and the
+ *  client's own paperdoll says so. */
+export function thirdSlot(cls: ClassId | null): string {
+  return cls === "paladin" || cls === "shaman" || cls === "druid" ? "Relic" : "Ranged";
+}
 
 /** 1234567 copper → "123g 45s 67c". */
 export function money(copper: number): string {

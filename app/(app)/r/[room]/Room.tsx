@@ -54,9 +54,11 @@ type Props = {
   plate: ZonePlate | undefined;
   hunt: HuntSpot[];
   pins: Pin[];
+  /** `?item=` — a door from the sheet, landing on one card. */
+  open?: number;
 };
 
-export default function Room({ room, past, drops, cls, level, guide, plate, hunt, pins }: Props) {
+export default function Room({ room, past, drops, cls, level, guide, plate, hunt, pins, open }: Props) {
   return (
     <article className={styles.room}>
       <img
@@ -77,6 +79,7 @@ export default function Room({ room, past, drops, cls, level, guide, plate, hunt
         roomId={room.id}
         pins={pins}
         level={level}
+        open={open}
         kit={drops.length > 0 ? <Kit drops={drops} cls={cls} level={level} room={room.name} /> : undefined}
       >
         {guide.length > 0 ? <Guide key={`guide-${room.id}`} cards={guide} /> : null}

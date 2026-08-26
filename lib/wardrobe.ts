@@ -192,6 +192,14 @@ export function itemsByEntry(cat: Catalogue): Map<number, Item> {
 /** The gear slot a character's second weapon comes out of. */
 const OFF_HAND = 17;
 
+/** INVTYPE_2HWEAPON. A weapon that occupies both hands, which is a fact the
+ *  sheet has to know before it hangs anything off the second one.
+ *
+ *  IT IS NOT THE 17 ABOVE. `OFF_HAND` is a gear slot id and this is an
+ *  inventory type; the two number systems collide on 17 by coincidence and
+ *  nothing may be copied between them. */
+export const TWO_HANDED = 17;
+
 /** The same item, told which hand it is in. A one-hander files as a main-hand
  *  weapon whichever hand holds it, so gear slot 17 is re-slotted rather than
  *  taken at its word — take it at its word and both blades land on the one

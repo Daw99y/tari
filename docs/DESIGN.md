@@ -265,6 +265,49 @@ keeps the shell's inks, with the class colour on the name only. It names up
 to thirty and then counts, because a city is a number and a dungeon is a
 guest list.
 
+## The dressing room — settled
+
+Built 2026-08-26 (docs/DRESSING.md). Press a gear slot on `/you` and a drawer
+opens beside it — the rooms panel's own surface and position, one item wider,
+because a row here carries an icon, a name and a number where a room carries a
+name. It is the card, not a fourth ground.
+
+**The press moved and the arrow became a button, off the card.** The card
+opens the drawer, because a slot on a paperdoll means "change this". The
+summons stands outside the card in the gutter, as a green pill carrying the
+arrow and the number of upgrades behind it, and opens the gear those rooms are
+holding.
+
+That pill is **the one exception to "Controls — settled"**, and it is allowed
+because it is not a new colour: the summons' green already means "better than
+what you have, here" in the room's corner and on the rail. It is that meaning
+with a number on it, drawn as the game draws a button — a lit face, a dark rim,
+a shadow under it — because a control that opens something has to read as a
+control. Nothing else on any surface may take this treatment; a second green
+button is a second accent.
+
+**The plate is on the sheet.** Hovering a row's picture or its name asks for
+the game's own tooltip, the way it does in a room — a reader choosing between
+two cloaks is choosing on numbers. It is asked for `quiet`: the game's half
+only. The sheet holds the item dictionary and not the world, and the half of
+the plate that says where a thing comes from belongs to the room that has it.
+The row's name is the door there.
+
+**A slot the reader dressed by hand wears a ring on its icon** — ink at `.55`,
+the hollow tick's register. Not the accent: the pink is spent twice a screen
+and nineteen slots is not twice. The count is carried in words instead, by the
+letter's third line.
+
+**The drawer's numbers are not scores.** The item level sits in the meta mono
+at `.35`, right-set. No bar, no ring, nothing that ranks a row against the one
+above it — the stage's rule, and for the same reason.
+
+**What the app says about a character it says about the character on the
+screen.** The plan is read by the doll, the slots, the letter, the arrows, the
+room's kit and the stage, and every one of those either says so or is one
+press from the sentence that does. A surface that reads the plan and does not
+admit it is the app quietly describing somebody who does not exist.
+
 ## Open — the landing's answer is the default
 
 **Motion continuity.** §11.3 wants the rail thumbnail to become the room

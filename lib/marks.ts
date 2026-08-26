@@ -103,6 +103,17 @@ export function useMarks(): MarkStore {
   return useSyncExternalStore(subscribe, snapshot, serverSnapshot);
 }
 
+/** The record as it stands, outside React. The sheet and the room's cards
+ *  read it through `useMarks`; the stage asks a question once, in an effect,
+ *  and has nothing to subscribe. Same object either way. */
+export function marksNow(): MarkStore {
+  try {
+    return snapshot();
+  } catch {
+    return EMPTY;
+  }
+}
+
 export function isOn(store: MarkStore, char: string, kind: MarkKind, subject: string): boolean {
   return store.on[char]?.[kind]?.[subject] !== undefined;
 }

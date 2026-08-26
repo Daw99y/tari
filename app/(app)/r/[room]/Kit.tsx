@@ -16,15 +16,17 @@
  * Hover is the plate, press is the stage, the picture is the found tick,
  * the star hunts — the same four gestures as everywhere else. */
 
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 import { useDock } from "@/components/Dock";
 import { ItemHover } from "@/components/ItemTooltip";
 import SlotGlyph from "@/components/SlotGlyph";
-import { loadCharacter } from "@/lib/character";
+import WishStar from "@/components/WishStar";
+import { loadCharacter, type Character } from "@/lib/character";
 import { bestSource } from "@/lib/hunt";
 import { iconUrl, sourceLine, type ClassId, type Item } from "@/lib/loot";
 import { isOn, setMark, useMarks } from "@/lib/marks";
+import { gearFrom, planKey } from "@/lib/plan";
 import { deltaParts, gearIndices, type WornItem } from "@/lib/worn";
 
 import styles from "./kit.module.css";
@@ -51,22 +53,26 @@ export default function Kit({
 }) {
   const dock = useDock();
   const marks = useMarks();
-  const [char, setChar] = useState<string | null>(null);
+  const [me, setMe] = useState<Character | null>(null);
+  const char = me?.key ?? null;
   /* The dictionary rows for what the character wears, one fetch for the
      whole kit. Absent until it lands; the rows read fine without it. */
   const [dict, setDict] = useState<Record<string, WornItem> | null>(null);
-  const [gear, setGear] = useState<number[]>([]);
+  useEffect(() => setMe(loadCharacter()), []);
+
+  /* What the character is wearing, the dressing room's plan included
+     (docs/DRESSING.md): there is one character and it wears what the reader
+     told it to, and a plan that lands mid-session reaches these rows.
+     Held by the plan's signature, not the store — see lib/plan.ts. */
+  const key = planKey(marks, char);
+  const gear = useMemo(() => gearFrom(marks, me), [me, key]); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
-    const c = loadCharacter();
-    setChar(c?.key ?? null);
-    const g = c?.gear ?? [];
-    setGear(g);
     const ids = [
       ...new Set(
         drops
           .flatMap((d) => gearIndices(d.slot))
-          .map((i) => g[i])
+          .map((i) => gear[i])
           .filter((id): id is number => typeof id === "number" && id > 0)
       ),
     ];
@@ -81,7 +87,7 @@ export default function Kit({
     return () => {
       gone = true;
     };
-  }, [drops]);
+  }, [drops, gear]);
 
   const found = (item: Item) => (char ? isOn(marks, char, "found", String(item.itemId)) : false);
   const wished = (item: Item) => (char ? isOn(marks, char, "wish", String(item.itemId)) : false);
@@ -234,15 +240,7 @@ function Offer({
           aria-label={wished ? `${item.name}: stop hunting` : `${item.name}: hunt this`}
           onClick={() => setMark(char, "wish", id, !wished)}
         >
-          <svg viewBox="0 0 12 12" aria-hidden="true">
-            <path
-              d="M6 1.4 7.4 4.5 10.8 4.9 8.3 7.2 9 10.6 6 8.9 3 10.6 3.7 7.2 1.2 4.9 4.6 4.5Z"
-              fill={wished ? "currentColor" : "none"}
-              stroke="currentColor"
-              strokeWidth="0.9"
-              strokeLinejoin="round"
-            />
-          </svg>
+          <WishStar on={wished} />
         </button>
       ) : null}
     </li>

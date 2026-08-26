@@ -23,15 +23,17 @@
  * The number is the number, at the size the number deserves, with the kills
  * it comes to underneath it. */
 
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
-import { loadCharacter } from "@/lib/character";
+import { loadCharacter, type Character } from "@/lib/character";
 import { spotOf, bestSource, type HuntSpot } from "@/lib/hunt";
 import { iconUrl, type Item, type Source } from "@/lib/loot";
 import { exclusiveFaction, oneSourceLine, riskWords } from "@/lib/tooltip";
 import { FACTION_LABEL } from "@/lib/faction";
 import { bindLine, itemLevelLine, requiredLevelLine, subclassLine } from "@/lib/tooltip";
 import type { ZonePlate } from "@/lib/plate";
+import { useMarks, type MarkStore } from "@/lib/marks";
+import { gearFrom, plannedAt, planKey } from "@/lib/plan";
 import { deltaParts, gearIndices, type WornItem } from "@/lib/worn";
 
 import Crop from "./Crop";
@@ -46,13 +48,17 @@ function pct(rate: number): string {
 }
 
 /** What the character wears where this item would go. Two of a slot (rings,
- *  trinkets, hands) compare against the weaker one — the honest bar. */
-function wornIds(item: Item): number[] {
-  const gear = loadCharacter()?.gear;
-  if (!gear?.length) return [];
+ *  trinkets, hands) compare against the weaker one — the honest bar.
+ *
+ *  The dressing room's plan counts (docs/DRESSING.md) — so the card says
+ *  which it is pricing against rather than quietly calling a plan a fact. */
+function wornIds(item: Item, marks: MarkStore, me: Character | null): { id: number; planned: boolean }[] {
+  const gear = gearFrom(marks, me);
+  if (!gear.length) return [];
+  const plan = plannedAt(marks, me?.key ?? null);
   return gearIndices(item.slot)
-    .map((i) => gear[i])
-    .filter((id): id is number => typeof id === "number" && id > 0);
+    .map((i) => ({ id: gear[i], planned: plan.has(i) }))
+    .filter((w): w is { id: number; planned: boolean } => typeof w.id === "number" && w.id > 0);
 }
 
 export default function ItemStage({
@@ -80,6 +86,10 @@ export default function ItemStage({
 }) {
   /* The card's second face: a source, opened. Pressing the creature or the
      quest turns the card over; the item is one press back. */
+  const marks = useMarks();
+  /* Whoever is in play when this card opened. The stage is a leaf that lives
+     for one press; the roster does not change under it. */
+  const me = useMemo(() => loadCharacter(), []);
   const [source, setSource] = useState<Source | null>(null);
   useEffect(() => setSource(null), [item.itemId]);
 
@@ -115,30 +125,40 @@ export default function ItemStage({
      the character on this machine, priced by the dictionary on the server. */
   const [worn, setWorn] = useState<WornItem | null>(null);
   const [bare, setBare] = useState(false);
+  const [yours, setYours] = useState(false);
+  const key = planKey(marks, me?.key ?? null);
   useEffect(() => {
     setWorn(null);
     setBare(false);
-    const ids = wornIds(item);
-    if (!loadCharacter()) return;
-    if (ids.length === 0) {
+    setYours(false);
+    const held = wornIds(item, marks, me);
+    if (!me) return;
+    if (held.length === 0) {
       setBare(true);
       return;
     }
     let gone = false;
-    fetch(`/api/items?ids=${ids.join(",")}`)
+    fetch(`/api/items?ids=${held.map((w) => w.id).join(",")}`)
       .then((r) => (r.ok ? r.json() : null))
       .then((dict: Record<string, WornItem> | null) => {
         if (gone || !dict) return;
-        const rows = ids.map((id) => dict[id]).filter(Boolean);
+        const rows = held.map((w) => ({ ...w, row: dict[w.id] })).filter((r) => r.row);
         if (rows.length === 0) return setBare(true);
-        rows.sort((a, b) => (a.il ?? 0) - (b.il ?? 0));
-        setWorn(rows[0]);
+        /* Two of a slot compare against the weaker one, so whether this line
+           is pricing a plan or a fact is decided by *that* row, not by
+           whether either of the pair happens to be planned. */
+        rows.sort((a, b) => (a.row.il ?? 0) - (b.row.il ?? 0));
+        setYours(rows[0].planned);
+        setWorn(rows[0].row);
       })
       .catch(() => {});
     return () => {
       gone = true;
     };
-  }, [item]);
+    /* Keyed on the plan's signature, not the marks store: the store is
+       replaced whenever anything anywhere is starred, and this fetch has no
+       business re-running for that. lib/plan.ts. */
+  }, [item, me, key]); // eslint-disable-line react-hooks/exhaustive-deps
 
   /* The first source is the route's second node; listing it again under
      "also from" would be the card naming one creature twice. Each of the
@@ -253,7 +273,7 @@ export default function ItemStage({
 
         {worn || bare ? (
           <section className={styles.worn}>
-            <p className={styles.alsoHead}>Against what you wear</p>
+            <p className={styles.alsoHead}>{yours ? "Against what you plan to wear" : "Against what you wear"}</p>
             {worn ? <WornLine worn={worn} item={item} /> : (
               <p className={styles.wornLine}>Nothing in that slot yet — this fills it.</p>
             )}

@@ -96,6 +96,7 @@ export default function Dock({
   pins,
   level,
   kit,
+  open,
   children,
 }: {
   /** Absent for the twenty-nine rooms with no plate. The dock still stands:
@@ -115,6 +116,11 @@ export default function Dock({
   /** The kit's face (app/(app)/r/[room]/Kit.tsx), handed in so the kit's
    *  contents stay beside the room that owns them. */
   kit?: ReactNode;
+  /** An item the URL asked for (`?item=`), so a row on the sheet can be a
+   *  door to its card rather than only to the room it stands in
+   *  (docs/DRESSING.md). Only ever one of `drops` — the room shows eight
+   *  things and this opens one of them, never a ninth. */
+  open?: number;
   children: ReactNode;
 }) {
   const [subject, setSubject] = useState<Subject | null>(null);
@@ -136,10 +142,18 @@ export default function Dock({
   const kitCard = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    /* The URL wins over the remembered map: a reader who followed a door to
+       an item asked for the item, not for where they left the room. */
+    const asked = open ? drops.find((d) => d.itemId === open) : undefined;
+    if (asked) {
+      setSubject({ kind: "item", item: asked });
+      setHeld(asked);
+      return;
+    }
     const saved = localStorage.getItem(KEY);
     if (saved === "open" && plate) setSubject({ kind: "map" });
     else if (saved === null && plate) setFresh(true);
-  }, [plate]);
+  }, [plate, open, drops]);
 
   const setMap = useCallback((next: boolean) => {
     beneath.current = null;

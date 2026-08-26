@@ -26,7 +26,7 @@ import Room from "./Room";
 
 type Props = {
   params: Promise<{ room: string }>;
-  searchParams: Promise<{ class?: string; at?: string }>;
+  searchParams: Promise<{ class?: string; at?: string; item?: string }>;
 };
 
 /** 75 rooms, all known at build time and none of them changing between
@@ -70,7 +70,13 @@ export default async function RoomPage({ params, searchParams }: Props) {
   const session = hasAuth() ? ((await auth()) as { uid?: number | null } | null) : null;
   const pins = plate ? await pinsIn(room.id, typeof session?.uid === "number" ? session.uid : null) : [];
 
+  /* `?item=` — the sheet's rows are doors to a card, and the card lives in
+     the room that holds the thing (docs/DRESSING.md). An id this room does
+     not offer opens nothing; the room is still the right place to have
+     landed. */
+  const open = /^\d+$/.test(sp.item ?? "") ? Number(sp.item) : undefined;
+
   return (
-    <Room room={room} past={past} drops={drops} cls={cls} level={level} guide={guide} plate={plate} hunt={hunt} pins={pins} />
+    <Room room={room} past={past} drops={drops} cls={cls} level={level} guide={guide} plate={plate} hunt={hunt} pins={pins} open={open} />
   );
 }

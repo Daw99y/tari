@@ -1,6 +1,6 @@
 # Tari — status and handoff
 
-Updated 2026-08-26 (evening).
+Updated 2026-08-26 (late night).
 
 **This doc holds the state. `docs/TARI.md` holds the argument — read its §0
 before anything else.**
@@ -11,7 +11,101 @@ see them. Earlier references to `FOXTON.md` mean `docs/TARI.md`.
 
 ---
 
-## 0. Latest — pins, the atom, 2026-08-26 (night)
+## 0. Latest — the dressing room, 2026-08-26 (late night)
+
+**Gear can be put on by hand.** `docs/DRESSING.md` — the shape and the five
+rulings; press a slot on `/you` and a drawer opens beside it with everything
+that class and level can wear there, strongest first.
+
+- `lib/proficiency.ts` — who wears what and swings what in 1.12, written by
+  hand. Two level steps (plate at 40, mail at 40) and dual wield (warrior 20,
+  rogue 10, hunter 20 — nobody else, which `gearIndices` cannot express since
+  it sends every one-hander to both hands).
+- `app/api/wardrobe/route.ts` — the second door onto `reference/items.json`,
+  beside `/api/items`. One slot, one class, one level, optional name; answers
+  with ids and the count it did not send. Cached a day, no new env, no schema.
+  **Rows with no required level are read at item level minus five** — 1,870 of
+  10,532 carry none, 856 of those are 40-plus gear, and without it Naxxramas
+  sat at the top of a level 24's drawer.
+- `lib/plan.ts` — the overlay. The `equip` mark finally has its store: subject
+  is the gear index, `val` is the item id, un-equipping is the same tombstone
+  the other five use. **The import is never written on.** `planKey` is the
+  load-bearing bit — `useMarks` returns a new store on every commit anywhere,
+  and a plan memo keyed on it rebuilt every mesh on the figure per star.
+- `app/(app)/you/Drawer.tsx`, `Sheet.tsx`, `sheet.module.css` — the surface.
+- Read everywhere and admitted everywhere: `lib/path.ts`'s letter gains a
+  third line ("Two slots are yours, not the game's."), each planned slot wears
+  an ink ring, and `ItemStage.tsx` says "Against what you plan to wear" when
+  that is what it is pricing against. `Kit.tsx` reads the plan too.
+- Two consequences worth knowing: **the card's press is the drawer's now** and
+  the upgrade arrow got a 1.6rem target of its own (DROPS.md step 6 said the
+  whole card was the arrow's press; it cannot be); and **a two-hander is in
+  both hands** — the sheet hangs nothing off the second one, dims it, and the
+  drawer for it says so.
+
+`tsc --noEmit` clean, `next build` compiles/typechecks/prerenders all 93 pages,
+and **clicked through on Kacey's dev server** (Nelfy, level 24 night elf druid,
+2026-08-26 late night — put back as found afterwards, console clean):
+
+- Chest drawer at 24: every row item level 29, cloth and leather only, no mail
+  or plate. `total: 252`, 200 sent, "56 more. Search by name."
+- Picked Brawnhide Armor → the figure redressed, the slot took the icon, the
+  green name and the ring, its arrow went, and the letter went from "Nothing
+  worn yet. / Nine of your slots fill in Shadowfang Keep." to "15 of your
+  slots are empty. / Eight of them fill in Shadowfang Keep. / **One slot is
+  yours, not the game's.**"
+- Main hand: daggers, maces and staves. No swords, no axes — correct for a
+  druid. Off hand: orbs and tomes only, no weapons and no shield — correct,
+  a druid neither dual wields nor holds a shield.
+- Magician Staff in the main hand → the off-hand drawer says "Both hands are
+  on Magician Staff." and offers nothing; the off-hand arrow goes with it.
+- Shadowfang Keep's kit read the plan ("WEARING Magician Staff", "WEARING
+  Brawnhide Armor") and priced its drops against it; the stage's line read
+  **"AGAINST WHAT YOU PLAN TO WEAR"**.
+- Take off on both → back to "Nothing worn yet. / Nine of your slots fill in
+  Shadowfang Keep.", third line gone, arrows back. The import was never
+  touched.
+
+**Second pass the same night, on Kacey's four notes, all clicked through:**
+
+- **The summons came off the card.** The arrow opened a list of zone names; it
+  opens the *gear* now, grouped under the room holding each, and it is a green
+  pill outside the card carrying the count. `BehindSlot.answers` in lib/path.ts
+  is the new half; DESIGN.md records the one exception to "Controls — settled".
+- **Every row grew a wish star, an equip glyph, a door and a plate.**
+  `app/(app)/you/Row.tsx` is the one row both panels use;
+  `components/WishStar.tsx` is the kit's star, lifted so there is one;
+  `lib/plate-item.ts` joins a dictionary row to what `ItemTooltip` reads, and
+  `ItemHover` gained `quiet` — the game's half of the plate only, since the
+  sheet holds the dictionary and not the world. A row's name is a door to
+  `/r/<room>?item=<id>`, which is a new (tiny) deep link on the room.
+- **Nothing moves.** The letter is always drawn and always reserved at three
+  lines; a header that changed height was re-centring both gear columns.
+- **Two traps.** A `max-age=86400` on a route still being written kept serving
+  cloaks and necks at item level 60 to a level 24 long after the arithmetic was
+  fixed — the route says 60s now and the drawer asks `no-cache`, the posture
+  `loadCatalogue` already takes. And a grid column left at `auto` sizes to
+  max-content, which pushed the star and the glyph off the panel's edge rather
+  than ellipsising the name; `minmax(0, 1fr)` is the fix.
+
+**Third pass, same night:** the summons became **a fixed square** on every
+slot (a pill that breathed with its number read as a bar chart) and lost its
+two-tone base; **the third slot is back** — `SHEET_SLOTS` is what the sheet
+draws and the new `WORN_SLOTS` is what the figure wears, differing by exactly
+the ranged id, and `thirdSlot()` names it Relic for a paladin, shaman or druid.
+Which surfaced that the wardrobe catalogue has no art for idols, librams or
+totems at all, so `lib/plate-item.ts` gained `RowItem` and a row is now named
+from the catalogue where it has art and the dictionary where it has not. And
+the drawer draws sixty rows rather than two hundred: two `ItemHover`s a row is
+four hundred components laid out on one press, and the page locked up.
+
+**Still untried:** a re-import over a plan (the interesting one — it should
+leave every choice standing), a level 40 body watching plate arrive, and a
+warrior at 19 then 20 watching dual wield open. **Uncommitted.**
+
+---
+
+## 0.1 Earlier — pins, the atom, 2026-08-26 (night)
 
 **The atom is built** (docs/PINS.md — the shape; docs/TARI.md §2.2 — the
 argument). A pin: one person, standing in one spot, saying one thing, and
@@ -53,7 +147,7 @@ required `roomId`. Still wants a second account to see
 
 ---
 
-## 0.1 Earlier that day — the live layer, 2026-08-26
+## 0.2 Earlier that day — the live layer, 2026-08-26
 
 **The room is live.** Ably, not Liveblocks: §8.1 of `docs/TARI.md` carries
 the price that decided it (Liveblocks caps a room at 10 simultaneous

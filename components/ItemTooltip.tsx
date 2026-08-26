@@ -134,6 +134,13 @@ export function ItemHover({
   /** The dotted mark a touch device gets in place of a cursor. On the name
    *  only, which is type; never the icon. */
   tap = false,
+  /** Drop Tari's half of the plate — the sources, the odds, the faction lock.
+   *  The sheet (docs/DRESSING.md) reads items out of the dictionary, which
+   *  carries the game's words and nothing about where a thing comes from, and
+   *  a plate that answered "Source unrecorded" for every cloak in the game
+   *  would be stating the sheet's ignorance as a fact about the item. The
+   *  quotation is the half that belongs on /you; the room keeps the rest. */
+  quiet = false,
   className,
   children,
 }: {
@@ -142,6 +149,7 @@ export function ItemHover({
   inLink?: boolean;
   focusable?: boolean;
   tap?: boolean;
+  quiet?: boolean;
   className?: string;
   children: React.ReactNode;
 }) {
@@ -316,7 +324,7 @@ export function ItemHover({
                 className={styles.plate}
                 style={{ maxHeight: at ? at.maxHeight : undefined }}
               >
-                <TooltipBody item={item} level={level} />
+                <TooltipBody item={item} level={level} quiet={quiet} />
               </div>
             </div>,
             document.body,
@@ -404,7 +412,7 @@ const COIN_CLASS: Record<Coin["unit"], string> = {
 /* The plate's contents, in the game's order and the game's words. Almost
  * every line is optional — a ring has no speed, a quest reward no
  * durability — and each renders nothing when its answer is null. */
-export function TooltipBody({ item, level }: { item: Item; level: number }) {
+export function TooltipBody({ item, level, quiet = false }: { item: Item; level: number; quiet?: boolean }) {
   const side = exclusiveFaction(item);
   const prof = proficiencyLine(item, level);
 
@@ -475,14 +483,16 @@ export function TooltipBody({ item, level }: { item: Item; level: number }) {
 
       {/* The rule earns its place: above it the game's tooltip, below it
           what Tari knows that the game does not. */}
-      <div className={`${styles.rule} ${styles.gray}`}>
-        {sourceLines(item, level).map((line) => (
-          <p key={line} className={styles.tnum}>
-            {line}
-          </p>
-        ))}
-        {side ? <p>{FACTION_LABEL[side]} only</p> : null}
-      </div>
+      {quiet ? null : (
+        <div className={`${styles.rule} ${styles.gray}`}>
+          {sourceLines(item, level).map((line) => (
+            <p key={line} className={styles.tnum}>
+              {line}
+            </p>
+          ))}
+          {side ? <p>{FACTION_LABEL[side]} only</p> : null}
+        </div>
+      )}
     </div>
   );
 }
