@@ -314,6 +314,50 @@ one import, which is one better than duplicating them and one worse than a
 `.deck` they each compose — the same debt `.drawer` and `.rooms` owe a
 `.panel`. The day a fourth deck arrives, lift it.
 
+## The telling's table — settled 2026-08-30
+
+**The stack is seen face-on.** The two sleeves under the top card used to fan
+down and to the right on two different rotations, which put three
+differently-angled edges against the photograph and read as clutter rather than
+as depth. A deck on a table is square to you: same shape, slightly smaller,
+showing a sliver at the foot. No rotation, nothing off to one side, and the
+sleeve's border drops to the hairline — **the only hard edge on the table
+belongs to the card being read.**
+
+**A rename belongs to the room's title, and is drawn once.** Four rooms so far
+were called something else first: Brightwood, Lordaeron, Silverlaine Keep,
+Kalidar. Two attempts got this wrong before it settled.
+
+The first put the old name on the telling's title card with a red rule hand-
+placed across it — a colour the palette does not have, at an angle that needed
+a magic number, and the actual point left for the reader to infer from the
+room's heading elsewhere on the page. The second set the pair properly but set
+it *in the card*, which printed the current name twice on one photograph: once
+as the room's own heading and again, the same size, two inches under it.
+
+**The name is rendered once.** `subject` is what it was, `now` is what is on
+the map, and the former name is set immediately above the room's own title
+(`Room.tsx`) — attached to the thing it used to be. A renamed room's title card
+draws no heading at all, because both its names are already at the top of the
+photograph. A room that was never renamed carries no `now`, keeps its card
+heading, and nothing is drawn over its title — Zul'Gurub has always been
+Zul'Gurub.
+
+**And the line is drawn, not declared.** `text-decoration: line-through` looks
+like what it is: a default, hugging the glyphs, stopping flush with the last
+letter. A crossing-out somebody actually made overshoots the word and thins as
+it leaves it — so the rule is a pseudo-element with a gradient fading at both
+tips, run 0.42em past the text on either side, centred by transform rather than
+by a magic percentage. It **draws itself**, left to right, once, after the
+title has finished arriving: a static label becomes the small piece of
+narrative it actually is. The letterspacing opens to 0.08em, which is how a
+name no longer in use gets set — engraved rather than spoken. Under
+`prefers-reduced-motion` the line is simply already there.
+
+**A card may wear no object.** The tile is skipped and the rail slot wears a
+dot rather than an empty frame, which is what lets a room be written before its
+art exists. Same answer the kit gives (`public/kit/README.md`).
+
 ## The unwritten room — settled 2026-08-30
 
 Two rooms out of seventy-nine have a guide file. The rest drew a photograph, a

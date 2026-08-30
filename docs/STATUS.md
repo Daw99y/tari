@@ -98,6 +98,56 @@ merged fast-forward at 08:59. Untracked and deliberate: `Sound/`,
   The rule it produces: **nothing Tari puts back into the game may move you.**
   §9.2 now points at it.
 
+**Then a dungeon and a raid — all four room kinds proved:**
+
+- **`reference/guide/shadowfang-keep.json`** (17 cards) and
+  **`reference/guide/zul-gurub.json`** (19 cards), researched from
+  warcraft.wiki.gg and rewritten (§6.3). Both cite their sources in the file.
+  **Vanilla 1.12 only** — SFK's Gilneas/Godfrey framing and ZG's Cataclysm
+  rework are both retcons and neither appears.
+- **The telling no longer needs a map.** `Room.tsx` gated the guide deck on a
+  plate, and `plateFor` returns nothing for the thirty-three rooms that have
+  none — every dungeon and every raid, which §4.1 calls the guide's own
+  showcase. `Story` now takes `plate?`; it only ever read it to find where a
+  rare stands, and `door()` already drew nothing without a spot. Neither
+  instance file carries a `road` or an `at` on any card.
+- **A card can stand with no object.** The rail draws a dot rather than an
+  empty frame for a card with no `icon`, which is what lets a room be written
+  before its art exists — the order the remaining seventy-five will need.
+  `public/story/README.md` lists what the two new rooms still want.
+
+**Then the cities and the rest of the seeds:**
+
+- **Five city guide files** — `stormwind-city` (13), `ironforge` (11),
+  `orgrimmar` (12), `thunder-bluff` (10), `darnassus` (12). Researched from
+  warcraft.wiki.gg, sources cited in each file, **vanilla 1.12 only** (no
+  Cataclysm harbour or Park destruction, no Council of Three Hammers, no
+  Garrosh rebuild, no Baine, no burning tree). **Nine of seventy-nine rooms
+  are now written, and all nine wear card art** — `public/story/<room>/`,
+  converted out of the wardrobe build, `public/story/README.md` has the
+  provenance and what is still a stand-in.
+- **All seventy-nine rooms have a seed.** `reference/seeds.json` went from 35
+  to 79 — every zone, dungeon, raid, city and place. Re-run
+  `node scripts/seed-pins.mjs` to plant the 44 new ones; it is idempotent, so
+  the 35 already standing are left alone.
+- **The two new city files carry renames** (`now`): New Stormwind → Stormwind,
+  Kalidar → Teldrassil. The other three were never renamed and draw plainly.
+
+**Then the six starting zones:**
+
+- `elwynn-forest` (13), `dun-morogh` (13), `teldrassil` (13), `durotar` (11),
+  `mulgore` (11), `tirisfal-glades` (12) — all researched, all sourced in the
+  file, all with card art. **Fifteen of seventy-nine rooms are written.**
+- **Renames:** the Kalidar → Teldrassil card moved to the zone, where it
+  belongs; Darnassus's title is Nordrassil now and draws plainly.
+- **The nav no longer moves.** `.slot` in `story.module.css` holds a height
+  taller than the tallest card, so the turns row underneath is fixed —
+  measured, not guessed: across 111 cards the median renders at six lines and
+  the p90 at seven, so the slot is sized for nine. The two cards that exceeded
+  it (Corrupted Blood at fifteen, the Atal'ai at eleven) were breaking §6's own
+  "a few short lines" and were cut rather than designed around. The pin card in
+  `left.module.css` got the same treatment, since its pager sits under it too.
+
 **Outstanding from this pass:**
 
 - **The Neon alter**, above. Nothing else in the schema moved.

@@ -466,11 +466,10 @@ one nobody has left anything. So:
 
 Which makes the order:
 
-1. **A dungeon and a raid.** Four room kinds proved (§4.1: zones, dungeons,
-   raids, cities — Duskwood and Undercity are two). A raid has almost no
-   presence and a dungeon's boss table wants to become the exhaustive thing
-   §4.2 forbids; both will test the card forms in ways the first two did not.
-   Then stop designing rooms.
+1. ~~A dungeon and a raid.~~ **Done 2026-08-30** — Shadowfang Keep and
+   Zul'Gurub. All four room kinds are proved and the format held; what it cost
+   was making the telling work without a map, and letting a card stand with no
+   object. Both were structural, not editorial, which is the good outcome.
 2. **The seeds** (§2.2). Every room, one to three sentences, signed Tari. An
    evening, and no room opens empty.
 3. **The welcome** (§1–§5). Small next to seventy-seven rooms, and it is what
