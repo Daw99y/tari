@@ -1,43 +1,240 @@
 {
-  "_": "THE SEEDS. docs/PINS.md, docs/WELCOME.md §2. One pin Tari leaves in a room so its deck opens holding something. Signed Tari, spotless, level-less, replyable. Kacey's copy to redline — this is the app speaking in its own name and every line should sound like him, not like a generator.",
-
-  "stormwind-city": ["You can fish the canals. Most people have run past them a thousand times and never once cast."],
-  "ironforge": ["There is a museum in the Hall of Explorers and a plaque under everything in it. Nobody reads them."],
-  "orgrimmar": ["Thrall is upstairs in Grommash Hold and will be there all expansion. Worth walking up once while he still is."],
-  "darnassus": ["Almost nobody enters the Temple of the Moon unless a quest sends them. Go in and look up."],
-  "thunder-bluff": ["The lifts are slow. Ride one facing out."],
-  "undercity": ["The ring is one loop and every quarter hangs off it. Walk it once without opening the map."],
-
-  "elwynn-forest": ["You will out-level this in a weekend and never come back. Take one lap first."],
-  "dun-morogh": ["It snows the entire time you are here and nobody ever mentions it."],
-  "durotar": ["Red rock, no shade, and a coastline most people never see."],
-  "mulgore": ["The most peaceful zone in the game, and the one people leave fastest."],
-  "teldrassil": ["You are inside a tree. It stops being obvious after an hour, so notice it in the first one."],
-  "tirisfal-glades": ["The sky here is a colour that exists nowhere else in the game."],
-
-  "darkshore": ["The coast is the zone. Walk the shoreline instead of the road, once."],
-  "loch-modan": ["The dam is the landmark. The loch is the zone. Fish it."],
-  "silverpine-forest": ["Everything is grey on purpose. Turn the music up."],
-  "westfall": ["Sit through one sunset here. It costs nothing and it is the best in the game."],
-  "the-barrens": ["Everybody remembers the chat and nobody remembers the zone. Ride it end to end once with the sound on."],
-
-  "redridge-mountains": ["Stand on the bridge once and look at where you are. Then go back to killing gnolls."],
-  "stonetalon-mountains": ["There is a peak at the top of this zone with half of Kalimdor under it."],
-  "ashenvale": ["It is enormous and almost nobody walks the north half."],
-  "duskwood": ["The fog never lifts and it never gets brighter. Somebody chose that."],
-  "hillsbrad-foothills": ["Southshore and Tarren Mill are twenty seconds apart. That is the entire story of this zone."],
-  "wetlands": ["Everyone sprints the road because of the raptors. Walk it once instead."],
-  "thousand-needles": ["The mesas are the point. Look up rather than forward."],
-  "alterac-mountains": ["Barely anybody quests here, which is a reason to come rather than a reason to skip it."],
-  "arathi-highlands": ["Open, windy and mostly empty. Bring a fishing pole."],
-  "desolace": ["It is named honestly. Come anyway, once."],
-
-  "ragefire-chasm": ["Twenty minutes, directly under Orgrimmar, and most players never set foot in it."],
-  "the-deadmines": ["The ship at the end is a real ship. People kill Cookie and leave without ever looking up at it."],
-  "wailing-caverns": ["Everybody gets lost in here. Getting lost is most of it."],
-  "shadowfang-keep": ["Do not pull the courtyard from the ramp."],
-  "blackfathom-deeps": ["Half of it is underwater, and the underwater half is the reason to come."],
-  "razorfen-kraul": ["A maze made out of thorns. The wrong turns are the good part."],
-  "the-stockade": ["It is under the Stormwind canals, it takes fifteen minutes, and most players never go in."],
-  "gnomeregan": ["Everybody hates it. Do it once anyway, slowly, and read the names on the machines."]
+  "_": "THE SEEDS. docs/PINS.md, docs/WELCOME.md §2. One pin Tari leaves in a room so its deck opens holding something. Signed Tari, spotless, level-less, replyable. All seventy-nine rooms covered as of 2026-08-30. Kacey's copy to redline — this is the app speaking in its own name and every line should sound like him, not like a generator.",
+  "stormwind-city": [
+    "You can fish the canals. Most people have run past them a thousand times and never once cast."
+  ],
+  "ironforge": [
+    "There is a museum in the Hall of Explorers and a plaque under everything in it. Nobody reads them."
+  ],
+  "orgrimmar": [
+    "Thrall is upstairs in Grommash Hold and will be there all expansion. Worth walking up once while he still is."
+  ],
+  "darnassus": [
+    "Almost nobody enters the Temple of the Moon unless a quest sends them. Go in and look up."
+  ],
+  "thunder-bluff": [
+    "The lifts are slow. Ride one facing out."
+  ],
+  "undercity": [
+    "The ring is one loop and every quarter hangs off it. Walk it once without opening the map."
+  ],
+  "elwynn-forest": [
+    "You will out-level this in a weekend and never come back. Take one lap first."
+  ],
+  "dun-morogh": [
+    "It snows the entire time you are here and nobody ever mentions it."
+  ],
+  "durotar": [
+    "Red rock, no shade, and a coastline most people never see."
+  ],
+  "mulgore": [
+    "The most peaceful zone in the game, and the one people leave fastest."
+  ],
+  "teldrassil": [
+    "You are inside a tree. It stops being obvious after an hour, so notice it in the first one."
+  ],
+  "tirisfal-glades": [
+    "The sky here is a colour that exists nowhere else in the game."
+  ],
+  "darkshore": [
+    "The coast is the zone. Walk the shoreline instead of the road, once."
+  ],
+  "loch-modan": [
+    "The dam is the landmark. The loch is the zone. Fish it."
+  ],
+  "silverpine-forest": [
+    "Everything is grey on purpose. Turn the music up."
+  ],
+  "westfall": [
+    "Sit through one sunset here. It costs nothing and it is the best in the game."
+  ],
+  "the-barrens": [
+    "Everybody remembers the chat and nobody remembers the zone. Ride it end to end once with the sound on."
+  ],
+  "redridge-mountains": [
+    "Stand on the bridge once and look at where you are. Then go back to killing gnolls."
+  ],
+  "stonetalon-mountains": [
+    "There is a peak at the top of this zone with half of Kalimdor under it."
+  ],
+  "ashenvale": [
+    "It is enormous and almost nobody walks the north half."
+  ],
+  "duskwood": [
+    "The fog never lifts and it never gets brighter. Somebody chose that."
+  ],
+  "hillsbrad-foothills": [
+    "Southshore and Tarren Mill are twenty seconds apart. That is the entire story of this zone."
+  ],
+  "wetlands": [
+    "Everyone sprints the road because of the raptors. Walk it once instead."
+  ],
+  "thousand-needles": [
+    "The mesas are the point. Look up rather than forward."
+  ],
+  "alterac-mountains": [
+    "Barely anybody quests here, which is a reason to come rather than a reason to skip it."
+  ],
+  "arathi-highlands": [
+    "Open, windy and mostly empty. Bring a fishing pole."
+  ],
+  "desolace": [
+    "It is named honestly. Come anyway, once."
+  ],
+  "ragefire-chasm": [
+    "Twenty minutes, directly under Orgrimmar, and most players never set foot in it."
+  ],
+  "the-deadmines": [
+    "The ship at the end is a real ship. People kill Cookie and leave without ever looking up at it."
+  ],
+  "wailing-caverns": [
+    "Everybody gets lost in here. Getting lost is most of it."
+  ],
+  "shadowfang-keep": [
+    "Do not pull the courtyard from the ramp."
+  ],
+  "blackfathom-deeps": [
+    "Half of it is underwater, and the underwater half is the reason to come."
+  ],
+  "razorfen-kraul": [
+    "A maze made out of thorns. The wrong turns are the good part."
+  ],
+  "the-stockade": [
+    "It is under the Stormwind canals, it takes fifteen minutes, and most players never go in."
+  ],
+  "gnomeregan": [
+    "Everybody hates it. Do it once anyway, slowly, and read the names on the machines."
+  ],
+  "stranglethorn-vale": [
+    "Everybody remembers this zone for the ganking. Ride the coast road south once instead of the inland one and see what it was supposed to be."
+  ],
+  "scarlet-monastery": [
+    "Four wings, and most people only ever run two of them. The Library is the one worth slowing down in."
+  ],
+  "badlands": [
+    "Nothing grows here and the sky is enormous. It is the emptiest ground in the Eastern Kingdoms and it rewards crossing slowly."
+  ],
+  "dustwallow-marsh": [
+    "Barely anybody quests here and the zone is nearly empty. That is exactly why it is worth an afternoon."
+  ],
+  "swamp-of-sorrows": [
+    "It rains the whole time and nobody stays. Stay."
+  ],
+  "razorfen-downs": [
+    "The same thorns as the Kraul, gone bad. Look at what happened to the place between the two."
+  ],
+  "feralas": [
+    "The greenest zone in the game, and half of it is coastline nobody has any reason to visit."
+  ],
+  "uldaman": [
+    "This is where the dwarves found out where dwarves came from. Read what is on the walls before you leave."
+  ],
+  "tanaris": [
+    "A pirate town, a dinosaur graveyard and a hole in time. Most people only ever see the road between them."
+  ],
+  "the-hinterlands": [
+    "The gryphon riders live up here. Go and see where they keep them."
+  ],
+  "searing-gorge": [
+    "The sky is orange and it never changes. Stand still for a second before you get to work."
+  ],
+  "zul-farrak": [
+    "The top of the pyramid is worth stopping on. Everybody runs straight down the steps."
+  ],
+  "azshara": [
+    "The most beautiful zone almost nobody has a reason to enter. That is the reason."
+  ],
+  "blasted-lands": [
+    "This ground is what a portal does when it opens too wide. The Portal is still standing at the end of it."
+  ],
+  "maraudon": [
+    "The purple half and the orange half are two different places. Do not skip the purple."
+  ],
+  "felwood": [
+    "It was Ashenvale once. You can still see the shape of the forest under what happened to it."
+  ],
+  "un-goro-crater": [
+    "Dinosaurs in a volcano crater, and a crystal puzzle almost nobody finishes. Take the long way round the rim."
+  ],
+  "the-temple-of-atal-hakkar": [
+    "The Atal'ai built it, Ysera dropped it into the marsh, and they carried on using it anyway."
+  ],
+  "blackrock-depths": [
+    "It is a city, not a dungeon. There is a working bar in it. Buy a drink before you fight anybody."
+  ],
+  "burning-steppes": [
+    "This was a forest until a dwarf summoned something he could not hold. The Ironforge story ends here."
+  ],
+  "moonglade": [
+    "No quests worth rushing and almost nothing to kill. The only zone in the game built for standing still."
+  ],
+  "western-plaguelands": [
+    "Look at the farms. Every one of them has a name and used to belong to somebody."
+  ],
+  "dire-maul-east": [
+    "The elves who lived here starved for magic and made themselves worse. The place is still beautiful."
+  ],
+  "eastern-plaguelands": [
+    "The Scarlet Crusade and the Scourge are both in this zone and both want you dead. Nobody here is on your side."
+  ],
+  "silithus": [
+    "The war effort ended here. Whatever your whole server carried, it was carried to this zone."
+  ],
+  "winterspring": [
+    "It snows without stopping. Everyone comes for the mine and leaves; the frostsabers are worth the walk."
+  ],
+  "deadwind-pass": [
+    "One road, no town, no quests, and a tower nobody has ever been inside. Ride through it slowly."
+  ],
+  "dire-maul-north": [
+    "The tribute run is the thing everybody talks about and almost nobody actually does."
+  ],
+  "dire-maul-west": [
+    "Somebody wrote every book in here. Open one."
+  ],
+  "lower-blackrock-spire": [
+    "The biggest dungeon most people never finish. Two hours if you take it properly."
+  ],
+  "stratholme": [
+    "This is the city Arthas culled. You are walking through the crime."
+  ],
+  "scholomance": [
+    "It is a school. Read the names of the rooms."
+  ],
+  "upper-blackrock-spire": [
+    "Somebody in the group has to have earned the key. Look out over the mountain once before you pull anything."
+  ],
+  "molten-core": [
+    "Forty people and a great deal of waiting. The waiting was most of it, and most people remember it fondly."
+  ],
+  "blackwing-lair": [
+    "Nefarian is running his father's experiments again. The eggs are the evidence."
+  ],
+  "ahn-qiraj": [
+    "A war was fought to open this gate, by the whole server, over weeks. Nobody has ever had to do that again."
+  ],
+  "naxxramas": [
+    "Hardly anybody saw the inside of this before it was taken away. You are early."
+  ],
+  "onyxia-s-lair": [
+    "She is the one who was standing next to the throne in Stormwind."
+  ],
+  "ruins-of-ahn-qiraj": [
+    "The open half. Twenty people, and the only raid you walk into under the sky."
+  ],
+  "zul-gurub": [
+    "Bring a fishing pole into a raid once. There is a boss down there that will not come up any other way."
+  ],
+  "blackrock-mountain": [
+    "Both factions keep a camp inside the same mountain. Go and stand on the chain and look down."
+  ],
+  "gadgetzan": [
+    "Neutral ground in the middle of a desert. Alliance and Horde use the same bank and nobody says anything."
+  ],
+  "northshire": [
+    "Everybody started somewhere like this. Come back at sixty and look at how small it is."
+  ],
+  "ratchet": [
+    "The first neutral town most Horde players ever see, and the boat off Kalimdor. People wait here."
+  ]
 }
