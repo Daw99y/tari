@@ -8,7 +8,7 @@
  * slow push-in is CSS; the figure rides inside the same transform so she
  * stays on her spot. */
 
-import { useLayoutEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 
 import Debuff from "./Debuff";
 
@@ -71,6 +71,30 @@ export default function HeroScene({
   /* Her head, as fractions of the figure box, reported once the pose exists.
    * Until then the hearts wait unmounted rather than hover over a guess. */
   const [head, setHead] = useState<{ x: number; y: number } | null>(null);
+  /* The cursor, -1..1 from screen centre. The figure leans toward it in its
+   * own render loop; the hearts and the debuff frame drift here, each on a
+   * slow transition so they trail her like things that float. */
+  const [tilt, setTilt] = useState({ x: 0, y: 0 });
+
+  useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    let raf = 0;
+    const onMove = (e: PointerEvent) => {
+      if (raf) return;
+      raf = requestAnimationFrame(() => {
+        raf = 0;
+        setTilt({
+          x: Math.round(((e.clientX / window.innerWidth) * 2 - 1) * 50) / 50,
+          y: Math.round(((e.clientY / window.innerHeight) * 2 - 1) * 50) / 50,
+        });
+      });
+    };
+    window.addEventListener("pointermove", onMove);
+    return () => {
+      window.removeEventListener("pointermove", onMove);
+      cancelAnimationFrame(raf);
+    };
+  }, []);
 
   useLayoutEffect(() => {
     const el = ref.current;
@@ -129,14 +153,16 @@ export default function HeroScene({
               camera={{ yaw: 0, pitch: -0.08 }}
               zoom={1.6}
               style={{
-                left: box.left + (head.x - 0.5) * box.w * 0.62 + 40,
+                left: box.left + (head.x - 0.5) * box.w * 0.85 + box.w * 0.1,
                 /* The sprite's hearts sit low in their own frame, so centring
                  * the box on the helm socket lands them at her waist. Raised
                  * until the cluster starts at the crown of her bowed head,
                  * then nudged 40px up and right to taste. */
-                top: box.top - box.w + (head.y - 0.26) * box.w - 40,
-                width: box.w * 0.55,
-                height: box.w * 0.55,
+                top: box.top - box.w + (head.y - 0.26) * box.w + box.w * 0.05,
+                width: box.w * 0.4,
+                height: box.w * 0.4,
+                translate: `${tilt.x * 10}px ${tilt.y * 6}px`,
+                transition: "translate 600ms cubic-bezier(0.2, 0.6, 0.3, 1)",
               }}
             />
           ) : null}
@@ -146,8 +172,10 @@ export default function HeroScene({
               note={chip.note}
               className={chipClassName}
               style={{
-                left: box.left + (head.x - 0.5) * box.w * 0.62 + box.w * 0.42,
-                top: box.top - box.w + head.y * box.w - box.w * 0.34,
+                left: box.left + (head.x - 0.5) * box.w * 0.85 + box.w * 0.28,
+                top: box.top - box.w + head.y * box.w - box.w * 0.06,
+                translate: `${tilt.x * 18}px ${tilt.y * 10}px`,
+                transition: "translate 900ms cubic-bezier(0.2, 0.6, 0.3, 1)",
               }}
             />
           ) : null}

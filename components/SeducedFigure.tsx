@@ -154,6 +154,7 @@ export default function SeducedFigure({ height, left, top, onHead, className, sh
     let bodyPiece: Piece | null = null;
     let attached: { piece: Piece; attach: number }[] = [];
     let bodyTex: THREE.Texture | null = null;
+    let cleanupPointer: (() => void) | null = null;
 
     (async () => {
       /* Everything she needs to know — her gender block out of the manifest,
@@ -267,7 +268,7 @@ export default function SeducedFigure({ height, left, top, onHead, className, sh
       host.appendChild(renderer.domElement);
 
       const scene = new THREE.Scene();
-      const camera = new THREE.PerspectiveCamera(26, 0.62, 0.05, 100);
+      const camera = new THREE.PerspectiveCamera(26, 0.85, 0.05, 100);
       const stage = new THREE.Group();
       stage.rotation.copy(MODEL_TO_SCENE);
       scene.add(stage);
@@ -300,16 +301,21 @@ export default function SeducedFigure({ height, left, top, onHead, className, sh
        * land on the anchor. She faces the camera turned a little toward the
        * title. */
       const bodyH = Math.max(0.5, body.bounds.max[2] - body.bounds.min[2]);
-      const dist = bodyH * 2.28;
-      const target = bodyH * 0.5;
-      const yaw = Math.PI / 2 - 0.35;
+      const dist = bodyH * 2.6;
+      const target = bodyH * 0.48;
+      const yaw = Math.PI / 2 - 0.35 - Math.PI / 4;
       const pitch = 0.03;
-      camera.position.set(
-        Math.sin(yaw) * Math.cos(pitch) * dist,
-        target + Math.sin(pitch) * dist,
-        Math.cos(yaw) * Math.cos(pitch) * dist,
-      );
-      camera.lookAt(0, target, 0);
+      const aim = (yawOff = 0, pitchOff = 0) => {
+        const ya = yaw + yawOff;
+        const pa = pitch + pitchOff;
+        camera.position.set(
+          Math.sin(ya) * Math.cos(pa) * dist,
+          target + Math.sin(pa) * dist,
+          Math.cos(ya) * Math.cos(pa) * dist,
+        );
+        camera.lookAt(0, target, 0);
+      };
+      aim();
 
       const resize = () => {
         if (!renderer) return;
@@ -330,9 +336,22 @@ export default function SeducedFigure({ height, left, top, onHead, className, sh
       const socketMatrix = new THREE.Matrix4();
       const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+      /* She notices the cursor: the camera eases a few degrees toward it,
+       * which reads as her turning to look. Off with reduced motion. */
+      const pointer = { tx: 0, ty: 0, x: 0, y: 0 };
+      const onPointer = (e: PointerEvent) => {
+        pointer.tx = (e.clientX / window.innerWidth) * 2 - 1;
+        pointer.ty = (e.clientY / window.innerHeight) * 2 - 1;
+      };
+      if (!reduce) window.addEventListener("pointermove", onPointer);
+      cleanupPointer = () => window.removeEventListener("pointermove", onPointer);
+
       let headSent = false;
       const draw = (t: number) => {
         if (!renderer || !bodyPiece) return;
+        pointer.x += (pointer.tx - pointer.x) * 0.06;
+        pointer.y += (pointer.ty - pointer.y) * 0.06;
+        aim(pointer.x * 0.22, -pointer.y * 0.05);
         bodyPiece.update(t, stun);
         for (const a of attached) {
           const m = bodyPiece.attachmentMatrix(a.attach, socketMatrix);
@@ -369,6 +388,7 @@ export default function SeducedFigure({ height, left, top, onHead, className, sh
 
     return () => {
       live = false;
+      cleanupPointer?.();
       cancelAnimationFrame(frame);
       observer?.disconnect();
       bodyPiece?.dispose();
@@ -390,7 +410,7 @@ export default function SeducedFigure({ height, left, top, onHead, className, sh
   const style: CSSProperties = {
     left,
     top,
-    width: height * 0.62,
+    width: height * 0.85,
     height,
   };
 

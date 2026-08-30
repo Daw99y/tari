@@ -86,12 +86,12 @@ export default function Page() {
           figureClassName={styles.figure}
           effectClassName={styles.effect}
           shadowClassName={styles.figureShadow}
-          src="/RLextras/trainer-hall.webp"
-          width={2560}
-          height={1429}
+          src="/RLextras/Hillsbrad Hero.png"
+          width={5504}
+          height={3072}
           alt=""
-          anchor={{ x: 0.3, y: 0.82 }}
-          size={0.24}
+          anchor={{ x: 0.36, y: 0.8 }}
+          size={0.3}
           portraitAnchor={{ x: 0.24, y: 0.8 }}
           portraitSize={0.15}
           portraitPosition={{ x: 0.16, y: 0.5 }}
