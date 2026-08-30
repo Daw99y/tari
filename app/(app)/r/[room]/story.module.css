@@ -1,13 +1,23 @@
-/* THE STORY, drifting past. No frame, no art of its own — the room's
- * photograph is already the ground, and this surface is glass laid on it:
- * a looping band of encounter cards, staggered like things standing at
- * different distances from the road. The kind colors are the guide's own
- * vocabulary and the only color here. */
+/* THE STORY, one card at a time. A deck on a table: the top card stands
+ * still, two sleeves of the deck peek out from under it, and the whole
+ * run sits below as a rail of the client's own icons. The kind colors
+ * are the guide's vocabulary and the only color on the surface. */
 
+/* The room is one absolute stage; the story stands dead centre of it.
+ * The section itself lets clicks through — only its pieces catch them. */
 .story {
+  position: absolute;
+  inset: 0;
   display: grid;
-  gap: 1.4rem;
-  width: 100%;
+  gap: 1.3rem;
+  align-content: center;
+  justify-items: center;
+  padding-inline: clamp(1rem, 3vw, 2rem);
+  pointer-events: none;
+}
+
+.story > * {
+  pointer-events: auto;
 }
 
 /* ---- the header: the zone's old name, struck through ---- */
@@ -15,10 +25,8 @@
 .head {
   display: grid;
   gap: 0.45rem;
-  justify-items: start;
-  width: min(100%, 72rem);
-  margin-inline: auto;
-  padding-inline: clamp(1rem, 3vw, 2rem);
+  justify-items: center;
+  text-align: center;
 }
 
 .wasWord {
@@ -51,80 +59,89 @@
   text-shadow: 0 1px 12px rgba(6, 6, 10, 0.8);
 }
 
-/* ---- the band ---- */
+/* ---- the table the deck sits on ---- */
 
-.band {
+.table {
   position: relative;
-  overflow: hidden;
-  padding-block: 2.2rem;
-  cursor: grab;
-  touch-action: pan-y;
-  user-select: none;
-  /* the band fades in from either edge, like the road out of the fog */
-  mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
+  width: min(100%, 30rem);
 }
 
-.band:active {
-  cursor: grabbing;
+/* The deck under the card: the rest of the zone, visibly waiting. */
+.deck {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
 }
 
-.band:focus-visible {
-  outline: 2px solid var(--ink);
-  outline-offset: -2px;
-}
-
-.track {
-  display: flex;
-  width: max-content;
-  will-change: transform;
-}
-
-.pass {
-  display: flex;
-  align-items: flex-start;
-  gap: clamp(1.2rem, 2.4vw, 2.2rem);
-  padding-inline: clamp(0.6rem, 1.2vw, 1.1rem);
-}
-
-/* ---- the cards: dark glass, staggered off one line ---- */
-
-.card,
-.rare {
-  display: flex;
-  gap: 0.7rem;
-  align-items: flex-start;
-  flex: none;
-  padding: 0.9rem 1.05rem;
-  border-radius: 12px;
-  /* no backdrop-filter: on a fast-moving transform Chromium repaints it a
-     frame late and the card flashes empty. Solid glass instead. */
-  background: rgba(6, 6, 10, 0.82);
+.sleeve {
+  position: absolute;
+  inset: 0 0 3.2rem 0; /* stops above the turns row */
+  border-radius: 14px;
   border: 0.5px solid var(--rule);
+  background: rgba(6, 6, 10, 0.6);
 }
+
+.sleeve[data-under="1"] {
+  transform: translate(0.8rem, 0.8rem) rotate(1deg);
+}
+
+.sleeve[data-under="2"] {
+  transform: translate(1.6rem, 1.6rem) rotate(2.1deg);
+  opacity: 0.55;
+}
+
+.slot {
+  position: relative;
+  margin-bottom: 0.9rem;
+  touch-action: pan-y;
+}
+
+/* ---- the top card ---- */
 
 .card {
-  width: clamp(17rem, 22vw, 21rem);
+  display: flex;
+  gap: 0.8rem;
+  align-items: flex-start;
+  min-height: 11rem;
+  padding: 1.1rem 1.25rem;
+  border-radius: 14px;
+  background: rgba(6, 6, 10, 0.85);
+  border: 0.5px solid var(--rule);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
+  animation: deal 0.32s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
-.rare {
-  width: clamp(14rem, 18vw, 17rem);
-  background: rgba(6, 6, 10, 0.66);
+/* Dealt from the deck's corner, the way a hand would. */
+@keyframes deal {
+  from {
+    opacity: 0;
+    transform: translate(0.9rem, 0.9rem) rotate(1.4deg);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
 
-/* three distances from the road */
-.card[data-lift="1"],
-.rare[data-lift="1"] {
-  transform: translateY(1.6rem);
+.card[data-dir="-1"] {
+  animation-name: dealBack;
 }
-.card[data-lift="2"],
-.rare[data-lift="2"] {
-  transform: translateY(-1.2rem);
+
+@keyframes dealBack {
+  from {
+    opacity: 0;
+    transform: translate(-0.9rem, 0.6rem) rotate(-1.2deg);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 .tile {
   flex: none;
-  width: 2.4rem;
-  height: 2.4rem;
+  width: 2.6rem;
+  height: 2.6rem;
   border-radius: 8px;
   overflow: hidden;
   border: 0.5px solid var(--rule);
@@ -140,9 +157,9 @@
 
 .diamond {
   flex: none;
-  width: 1rem;
-  height: 1rem;
-  margin-top: 0.15rem;
+  width: 1.1rem;
+  height: 1.1rem;
+  margin-top: 0.2rem;
 }
 
 .diamond svg {
@@ -156,7 +173,7 @@
 
 .text {
   display: grid;
-  gap: 0.35rem;
+  gap: 0.38rem;
   min-width: 0;
 }
 
@@ -175,7 +192,7 @@
 .name {
   font-family: var(--display);
   font-weight: 600;
-  font-size: 1.02rem;
+  font-size: 1.15rem;
   line-height: 1.05;
   letter-spacing: -0.02em;
   color: var(--ink);
@@ -190,7 +207,7 @@
 
 .lines {
   display: grid;
-  gap: 0.2rem;
+  gap: 0.22rem;
 }
 
 /* The spoiler shield, shrunk to a veil over the words alone. */
@@ -202,8 +219,8 @@
 }
 
 .line {
-  font-size: 0.86rem;
-  line-height: 1.35;
+  font-size: 0.9rem;
+  line-height: 1.4;
   letter-spacing: -0.01em;
   color: var(--ink);
 }
@@ -211,7 +228,7 @@
 .acts {
   display: flex;
   gap: 0.8rem;
-  margin-top: 0.15rem;
+  margin-top: 0.2rem;
 }
 
 .acts:empty {
@@ -236,7 +253,7 @@
   text-decoration-color: var(--ink);
 }
 
-/* ---- the yell: the client's raid warning, typed inside his card ---- */
+/* ---- the yell ---- */
 
 .yell {
   display: grid;
@@ -255,25 +272,152 @@
   min-height: 1em;
   font-family: var(--display);
   font-weight: 750;
-  font-size: 1.05rem;
+  font-size: 1.1rem;
   line-height: 1;
   letter-spacing: 0.02em;
   color: #e5473b;
   text-shadow: 0 0 16px rgba(229, 71, 59, 0.4);
 }
 
+/* ---- the turns: the road's two ends ---- */
+
+.turns {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.turn {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.45rem;
+  border: 0;
+  padding: 0.3rem 0;
+  background: none;
+  cursor: pointer;
+  font: 500 0.66rem/1 var(--mono);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--mute);
+  text-shadow: 0 1px 10px rgba(6, 6, 10, 0.8);
+  transition: color 0.15s ease;
+}
+
+.turn:hover {
+  color: var(--ink);
+}
+
+.turnGlyph {
+  font-family: var(--sans);
+  transition: transform 0.15s ease;
+}
+
+.turn:hover .turnGlyph {
+  transform: translateX(-3px);
+}
+
+.turn[data-east=""]:hover .turnGlyph {
+  transform: translateX(3px);
+}
+
+.count {
+  font: 500 0.62rem/1 var(--mono);
+  letter-spacing: 0.14em;
+  color: var(--ink);
+  text-shadow: 0 1px 10px rgba(6, 6, 10, 0.8);
+}
+
+.countOf {
+  color: var(--mute);
+}
+
+/* ---- the rail: the whole run, west to east ---- */
+
+.rail {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  flex-wrap: nowrap;
+  max-width: 100%;
+}
+
+.railStop,
+.railRare {
+  display: grid;
+  place-items: center;
+  border: 0.5px solid var(--rule);
+  padding: 0;
+  cursor: pointer;
+  background: rgba(6, 6, 10, 0.7);
+  transition: transform 0.15s ease, border-color 0.15s ease, opacity 0.15s ease;
+  opacity: 0.62;
+}
+
+.railStop {
+  width: 1.9rem;
+  height: 1.9rem;
+  border-radius: 7px;
+  overflow: hidden;
+}
+
+.railStop img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  image-rendering: pixelated;
+}
+
+.railRare {
+  width: 1.4rem;
+  height: 1.4rem;
+  border-radius: 999px;
+}
+
+.railRare svg {
+  width: 0.7rem;
+  height: 0.7rem;
+  fill: rgba(228, 230, 238, 0.85);
+}
+
+.railStop:hover,
+.railRare:hover {
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+.railStop[data-live],
+.railRare[data-live] {
+  opacity: 1;
+  border-color: rgba(242, 240, 234, 0.65);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+}
+
+.railStop:focus-visible,
+.railRare:focus-visible,
+.turn:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card {
+    animation: none;
+  }
+  .railStop,
+  .railRare,
+  .turnGlyph {
+    transition: none;
+  }
+}
+
 @media (max-width: 44rem) {
-  .card,
-  .rare {
-    width: min(19rem, 78vw);
+  .table {
+    width: 100%;
   }
-  .card[data-lift="1"],
-  .rare[data-lift="1"],
-  .card[data-lift="2"],
-  .rare[data-lift="2"] {
-    transform: none;
-  }
-  .band {
-    padding-block: 1rem;
+  .sleeve[data-under="2"] {
+    display: none;
   }
 }
