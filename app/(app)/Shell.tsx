@@ -25,14 +25,20 @@ import Command from "./Command";
 import Live from "./Live";
 import People from "./People";
 import Rail from "./Rail";
+import You from "./You";
 import { RoomProvider } from "./room-context";
 import styles from "./shell.module.css";
 
 export default function Shell({
   handle,
+  canSignIn,
   children,
 }: {
   handle: string | null;
+  /** Whether this deploy has a door at all (lib/auth.ts, hasAuth). No door
+   *  means the foot draws the character and nothing else — a sign-in offer
+   *  that cannot work is worse than no offer. */
+  canSignIn: boolean;
   children: React.ReactNode;
 }) {
   const segments = useSelectedLayoutSegments();
@@ -86,12 +92,7 @@ export default function Shell({
               </button>
             </header>
             <Rail signedIn={handle !== null} />
-            <footer className={styles.railFoot}>
-              <Link href="/you" className={styles.you}>
-                You
-              </Link>
-              <span>{handle ? `Signed in as ${handle}` : "Not signed in"}</span>
-            </footer>
+            <You handle={handle} canSignIn={canSignIn} />
           </div>
 
           <main className={styles.stage}>{children}</main>

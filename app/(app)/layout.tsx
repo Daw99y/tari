@@ -21,5 +21,9 @@ export default async function AppLayout({ children }: { children: ReactNode }) {
   const session = hasAuth() ? await auth() : null;
   const handle = (session as { handle?: string | null } | null)?.handle ?? null;
 
-  return <Shell handle={handle}>{children}</Shell>;
+  return (
+    <Shell handle={handle} canSignIn={hasAuth()}>
+      {children}
+    </Shell>
+  );
 }
