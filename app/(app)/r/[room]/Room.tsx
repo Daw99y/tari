@@ -25,6 +25,7 @@ import type { HuntSpot } from "@/lib/hunt";
 
 import Chat from "./Chat";
 import Cursors from "./Cursors";
+import Decks from "./Decks";
 import Drops from "./Drops";
 import Left from "./Left";
 import Kit from "./Kit";
@@ -86,21 +87,27 @@ export default function Room({ room, past, drops, cls, level, guide, plate, hunt
         open={open}
         kit={drops.length > 0 ? <Kit drops={drops} cls={cls} level={level} room={room.name} /> : undefined}
       >
-        {guide && guide.cards.length > 0 && plate ? (
-          <Story key={`story-${room.id}`} file={guide} plate={plate} roomId={room.id} room={room.name} />
-        ) : (
-          /* Nobody has written this one, so the room shows what the people
-             in it wrote instead — and takes the next one from whoever is
-             standing here (Left.tsx). */
-          <Left
-            key={`left-${room.id}`}
-            room={room}
-            band={ROOM_BANDS[room.id]}
-            inside={outside(room.id)}
-            plated={plate !== undefined}
-            pins={pins}
-          />
-        )}
+        {/* TWO DECKS, ONE TABLE. What we wrote and what the room wrote are
+            different things and are never shuffled together; Decks.tsx holds
+            the switch between them and the third answer, which is neither. */}
+        <Decks
+          pins={pins.length}
+          telling={
+            guide && guide.cards.length > 0 && plate ? (
+              <Story key={`story-${room.id}`} file={guide} plate={plate} roomId={room.id} room={room.name} />
+            ) : null
+          }
+          left={
+            <Left
+              key={`left-${room.id}`}
+              room={room}
+              band={ROOM_BANDS[room.id]}
+              inside={outside(room.id)}
+              plated={plate !== undefined}
+              pins={pins}
+            />
+          }
+        />
 
         {past.rows.length > 0 || drops.length > 0 ? (
           <div className={styles.objects}>

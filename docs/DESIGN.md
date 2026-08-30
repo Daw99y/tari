@@ -216,6 +216,34 @@ ground — it is the game's, held apart:
 Nothing from this plate — the black, the Arial, the pinned hues — may be
 used by any other surface. That is the whole deal.
 
+## Two decks, one table — settled 2026-08-30
+
+What we wrote and what the room wrote are different things and are never
+shuffled together. Duskwood already deals fifteen guide cards; the day it also
+holds twenty pins, one mixed stack of thirty-five is not a deck, it is a pile.
+
+One control, three exclusive answers, as chips under the room's name
+(`Decks.tsx`): **The telling · Left here · Just the room**. A room with no
+guide file draws two.
+
+- Chips rather than two switches, because you are reading the guide, or the
+  room, or neither — and three states in one object is learnable at a glance.
+- **"Just the room" is a real answer, not a hide button.** A companion whose
+  argument is that it slows you down has to be able to get out of the way of
+  the place.
+- Under the name, because that is the one spot on the canvas already about the
+  room as a whole — and the one that must stay reachable when the reader has
+  cleared everything else off the screen.
+- The current chip is turned over: ink ground, dark text, the way the house
+  already draws a chip that is a state (see Surfaces). **No accent** — choosing
+  what to read is not something anybody left for you.
+- The choice is the reader's and it follows them (`tari:deck`). A reader
+  holding "the telling" who walks into a room with no guide gets the room's
+  own deck; their choice was not wrong, there is just nothing to honour it
+  with.
+- Both decks stay mounted and the inactive one is hidden, so the room's pin
+  channel is still listening while you read the guide.
+
 ## The unwritten room — settled 2026-08-30
 
 Two rooms out of seventy-nine have a guide file. The rest drew a photograph, a
