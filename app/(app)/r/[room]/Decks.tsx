@@ -22,9 +22,11 @@
  *
  * "Just the room" is not a hide button dressed as a slot. It is the third
  * real answer, and it is the product's own argument: a companion that slows
- * you down has to be able to get out of the way of the place. Its icon is the
- * spyglass, because the answer to "show me nothing" is "look at where you
- * are".
+ * you down has to be able to get out of the way of the place. Its face is
+ * Vanish — Kacey asked for stealth, and of that family this is the one that
+ * means exactly what the control does and the only one that survives 27px.
+ * `ability_stealth` is a hooded face; at this size a face is mud, while
+ * Vanish's smoke reads as absence, which is the answer being offered.
  *
  * BOTH DECKS STAY MOUNTED. The inactive one is hidden rather than unmounted,
  * so the room's pin channel is still listening while you read the guide and
@@ -41,7 +43,7 @@ type Choice = "telling" | "left" | "none";
 /** The three, in the order a reader meets them: what we wrote, what they
  *  wrote, and the room with neither on it. The faces are the client's own
  *  (docs/TARI.md §7.1 — the game's objects before drawn ones): a tome, the
- *  treasure map the pin already wears everywhere, and a spyglass. */
+ *  treasure map the pin already wears everywhere, and Vanish. */
 const FACE: Record<Choice, string> = {
   telling: "/deck/telling.jpg",
   left: "/pins/map-x.png",

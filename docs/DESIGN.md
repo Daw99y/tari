@@ -236,21 +236,31 @@ The first pass at this was three word-chips: correct, and dead.
 
 The faces are the client's, per §7.1's preference for the game's own objects
 over drawn ones: a tome for the telling, the treasure map the pin already
-wears everywhere for what people left, and a spyglass for just the room —
-because the answer to "show me nothing" is "look at where you are".
+wears everywhere for what people left, and **Vanish** for just the room. Of
+the stealth family it is the one that means what the control does, and the
+only one that survives 27px — `ability_stealth` is a hooded face, and at this
+size a face is mud.
+
+**It holds the top-left corner**, opposite the compass. The room has four
+places and the compass had one of them; the corner across from it was the one
+part of the photograph nothing had ever claimed. Two instruments, two top
+corners: this says what is on the table, that unfolds the map. It used to sit
+under the room's name, which made a gallery label look like a toolbar.
+
+**Small, and quiet until asked.** At rest the row is drained and half-lit,
+with the one you are holding a step brighter than the two you are not —
+enough to read your own state at a glance, not enough to compete with the
+room. The pointer brings all three up, not only the one under it: you cannot
+choose between things you cannot see. The word arrives with them.
 
 - **One word under the row, not a label per slot.** It says what the pointer
   is on, or what you are holding when the pointer is elsewhere. That is the
-  compass's own device (`dock.module.css`, `.word`) used three times, and it
-  holds its line so the deck below never moves.
+  compass's own device (`dock.module.css`, `.word`) used three times.
 - **The tally rides the bottom-right corner of the slot**, in mono over its
   own shadow, where the client puts a stack count. Never a badge.
 - **"Just the room" is a real answer, not a hide button.** A companion whose
   argument is that it slows you down has to be able to get out of the way of
   the place.
-- Under the name, because that is the one spot on the canvas already about the
-  room as a whole — and the one that must stay reachable when the reader has
-  cleared everything else off the screen.
 - The lit border is **ink, not the accent** — choosing what to read is not
   something anybody left for you.
 - Neither deck may rise into the name or the switch. `.room [data-deck]`

@@ -487,14 +487,13 @@
 
 /* NEITHER DECK RISES INTO THE ROOM'S NAME. Both centre themselves on the
  * whole photograph, which is right on a tall stage and wrong on a short one —
- * there the head of the telling climbs into the switch under the title. The
- * clearance is the title block plus the switch, so a deck can use every pixel
- * under it and none above. Matched by attribute, like everything else that
- * lives in another module: `data-deck` is the two decks, `data-story` is
- * those plus the switch, which steps aside for the stage with them but must
- * not be pushed down by this. */
+ * there the head of the telling climbs into the title. The clearance is the
+ * title block, so a deck can use every pixel under it and none above.
+ * Matched by attribute, like everything else that lives in another module:
+ * `data-deck` is the two decks, `data-story` is those plus the switch, which
+ * steps aside for the stage with them but must not be pushed down by this. */
 .room [data-deck] {
-  padding-top: clamp(7rem, 4vw + 5.4rem, 9.5rem);
+  padding-top: clamp(5.2rem, 4vw + 3.5rem, 7.2rem);
 }
 
 /* The telling steps aside for whatever is on the stage. Both want the
