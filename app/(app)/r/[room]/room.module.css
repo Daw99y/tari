@@ -494,6 +494,15 @@
  * steps aside for the stage with them but must not be pushed down by this. */
 .room [data-deck] {
   padding-top: clamp(5.2rem, 4vw + 3.5rem, 7.2rem);
+  /* AND THE SAME OFF THE BOTTOM (2026-08-30, Kacey: "close but a little low").
+   * The decks are `align-content: center`, so a clearance on one side only
+   * centres them in the space *under* the title rather than on the
+   * photograph — half the top clearance, about 40px, of drift downward that
+   * reads as a mistake rather than a margin. The bottom of the room is
+   * claimed too (chat bottom-left, the objects bottom-right, moments
+   * bottom-centre), so the symmetric figure is the honest one: the deck is
+   * centred between what holds the top and what holds the foot. */
+  padding-bottom: clamp(5.2rem, 4vw + 3.5rem, 7.2rem);
 }
 
 /* The telling steps aside for whatever is on the stage. Both want the
