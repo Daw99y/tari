@@ -8,7 +8,7 @@ import { plateSrc, type Pin as Poi, type PinKind as PoiKind, type ZonePlate } fr
 
 import { useLive } from "@/app/(app)/Live";
 import { loadCharacter } from "@/lib/character";
-import { CLASS_COLOR } from "@/lib/class-color";
+import { authorColor } from "@/lib/class-color";
 import { PIN_BAND, PIN_MAX, onTheMap, pinAge, pinsChannel, readPin, type Pin, type PinReply } from "@/lib/pins";
 
 import { ItemHover } from "./ItemTooltip";
@@ -741,7 +741,7 @@ function Thread({
         <ul className={styles.replies}>
           {pin.replies.map((r) => (
             <li key={r.id} className={styles.reply}>
-              <span className={styles.replyWho} style={{ color: CLASS_COLOR[r.cls] }}>
+              <span className={styles.replyWho} style={{ color: authorColor(r.cls) }}>
                 {r.who}
               </span>
               <span className={styles.replyBody}>{r.body}</span>

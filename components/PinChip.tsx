@@ -8,8 +8,8 @@
  * the app should feel like the world; the more of the game's own objects,
  * the better). The drawn aggro `!` stays in the file for the vocabulary. */
 
-import { CLASS_COLOR } from "@/lib/class-color";
-import { pinAge } from "@/lib/pins";
+import { authorColor } from "@/lib/class-color";
+import { byTari, pinAge, type PinClass } from "@/lib/pins";
 import type { ClassId } from "@/lib/types";
 
 import styles from "./pin-chip.module.css";
@@ -38,7 +38,7 @@ export default function PinChip({
 }: {
   body: string;
   who: string;
-  cls: ClassId;
+  cls: PinClass;
   level: number;
   at: string;
   className?: string;
@@ -51,8 +51,9 @@ export default function PinChip({
       <div className={styles.text}>
         <p className={styles.said}>{body}</p>
         <p className={styles.note}>
-          <span style={{ color: CLASS_COLOR[cls] }}>{who}</span>
-          {` · ${level} · ${pinAge(at)}`}
+          <span style={{ color: authorColor(cls) }}>{who}</span>
+          {/* Tari has no level and says so by saying nothing. */}
+          {byTari({ cls }) ? ` · ${pinAge(at)}` : ` · ${level} · ${pinAge(at)}`}
         </p>
         <span className={styles.bar} aria-hidden="true">
           <span className={styles.fill} />

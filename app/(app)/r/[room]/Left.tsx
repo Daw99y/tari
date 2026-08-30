@@ -28,8 +28,8 @@ import { useEffect, useRef, useState } from "react";
 import { useDock } from "@/components/Dock";
 import { PinFace } from "@/components/PinChip";
 import { loadCharacter } from "@/lib/character";
-import { CLASS_COLOR } from "@/lib/class-color";
-import { PIN_MAX, onTheMap, pinAge, pinsChannel, readPin, type Pin } from "@/lib/pins";
+import { authorColor } from "@/lib/class-color";
+import { PIN_MAX, byTari, onTheMap, pinAge, pinsChannel, readPin, type Pin } from "@/lib/pins";
 import type { Band } from "@/lib/room-bands";
 import type { Room } from "@/lib/rooms";
 
@@ -46,11 +46,14 @@ type Props = {
    *  only ever be left here. */
   plated: boolean;
   pins: Pin[];
+  /** Arrived from the kit's last card, which ends in front of the composer
+   *  rather than in front of a blank deck (docs/WELCOME.md §2.3). */
+  say?: boolean;
 };
 
 type Sending = "idle" | "busy" | "signin" | "lost";
 
-export default function Left({ room, band, inside, plated, pins }: Props) {
+export default function Left({ room, band, inside, plated, pins, say }: Props) {
   const dock = useDock();
   const { realtime } = useLive();
 
@@ -58,7 +61,7 @@ export default function Left({ room, band, inside, plated, pins }: Props) {
      said. Newest first, which is the order pinsIn already returns. */
   const [said, setSaid] = useState<Pin[]>(pins);
   const [at, setAt] = useState(0);
-  const [writing, setWriting] = useState(false);
+  const [writing, setWriting] = useState(say ?? false);
 
   /* A pin landing anywhere — this browser, another reader, or the map two
      inches away — arrives here. Merging by id keeps our own echo quiet. */
@@ -170,9 +173,9 @@ function Card({ pin, onMap }: { pin: Pin; onMap: (() => void) | null }) {
     <article className={styles.card}>
       <p className={styles.who}>
         <PinFace className={styles.whoFace} />
-        <strong style={{ color: CLASS_COLOR[pin.cls] }}>{pin.who}</strong>
+        <strong style={{ color: authorColor(pin.cls) }}>{pin.who}</strong>
         <span className={styles.whoMeta}>
-          {pin.level} {pin.cls} · {pinAge(pin.at)}
+          {byTari(pin) ? pinAge(pin.at) : `${pin.level} ${pin.cls} · ${pinAge(pin.at)}`}
         </span>
       </p>
       <p className={styles.body}>{pin.body}</p>

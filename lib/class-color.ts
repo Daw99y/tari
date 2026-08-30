@@ -1,3 +1,4 @@
+import type { PinClass } from "./pins";
 import type { ClassId } from "./types";
 
 /**
@@ -20,3 +21,13 @@ export const CLASS_COLOR: Record<ClassId, string> = {
   warlock: "#8788ee",
   druid: "#ff7c0a",
 };
+
+/**
+ * A pin's author, in colour. Tari is not a class and takes the accent — the
+ * app speaking in its own name, in the one colour that belongs to the app
+ * rather than to the game. Every surface that names a pin's author goes
+ * through here, so "tari" can never fall through as an undefined lookup.
+ */
+export function authorColor(cls: PinClass): string {
+  return cls === "tari" ? "var(--accent)" : CLASS_COLOR[cls];
+}

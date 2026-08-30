@@ -51,6 +51,47 @@ It stays. The next person who reaches that spot around that level sees it.
 Everything else in the live layer is a variation on it; this is the one
 thing in the product that is new to the world.
 
+## The seeds — 2026-08-30
+
+*The unwritten room* (DESIGN.md) made a room nobody has written draw the deck
+of what people left there. On day one that is nothing, seventy-seven times
+over — and the same decision that freed the launch from the guide files put
+the whole launch on pins. **A seed is one pin Tari leaves in a room so its
+deck opens holding something.**
+
+It is a **real row in `pins`**, not a rendered decoration. It sits in the deck,
+it can be replied to, and it appreciates like any other. Four things make it
+Tari's rather than a player's, and each of them is a refusal to invent:
+
+| field | value | why |
+| --- | --- | --- |
+| `who` | `Tari` | the app in its own name |
+| `cls` | `tari` | **not a class.** Dressing the app as a warrior is the lie the field exists to avoid |
+| `level` | `0` | Tari never stood anywhere at a level, so it says nothing rather than something false |
+| `x` / `y` | `null` | **spotless.** Tari did not stand on a coordinate, and inventing one would put a mark on the map nobody made |
+
+That last one is the same rule the rares answer to in `lib/guide.ts`: a place
+in the telling is not a place on the map.
+
+`authorColor()` (`lib/class-color.ts`) is the one door onto a pin author's
+colour, so `tari` can never fall through as an undefined lookup — it takes the
+accent, the one colour that belongs to the app rather than to the game. The
+chip and the room's card both drop the level for a seed.
+
+**Nobody signs in as Tari**, so `mine` is false for every reader and a seed
+cannot be taken back. That is correct, and it came free.
+
+- `reference/seeds.json` — the copy, one room to a key. **Kacey's to redline;
+  this is the app speaking in its own name.**
+- `scripts/seed-pins.mjs` — plants them. Idempotent on `(room, Tari, body)`, so
+  running it twice plants nothing twice and editing a line plants the new one
+  rather than rewriting the old. `--dry` writes nothing at all. **Run it from
+  your own terminal — the Cowork bridge's VM has no egress to Neon.**
+
+First pass is the **week-one rooms**: the six cities and everything whose band
+starts at 30 or below — thirty-five of seventy-nine. Nobody is in Blackwing
+Lair on day one.
+
 ## The three rulings (Kacey, 2026-08-26)
 
 1. **Signed-in characters leave pins.** A pin is permanent and carries a

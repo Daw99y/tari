@@ -18,11 +18,36 @@ export const PIN_BAND = 5;
 /** How many threads a room hands over in one read. */
 export const PIN_LIMIT = 200;
 
+/* ---- THE SEEDS. docs/PINS.md, docs/WELCOME.md §2.
+ *
+ * A room nobody has written draws the deck of what people left there, which
+ * on day one is nothing, seventy-seven times over. A seed is one pin Tari
+ * leaves in a room so the deck opens holding something — a real row in the
+ * table, replyable like any other, and never an invented player.
+ *
+ * `cls` is "tari" and it is not a class. The alternative was to dress the app
+ * as a warrior, which is the lie the field exists to avoid. `level` is 0 for
+ * the same reason: Tari never stood anywhere at a level, so it says nothing
+ * rather than something false. And a seed is SPOTLESS on purpose — Tari did
+ * not stand on a coordinate, and inventing one would put a mark on the map
+ * that nobody made (the same rule the rares' `t` answers to, lib/guide.ts).
+ *
+ * Nobody signs in as Tari, so `mine` is false for every reader and a seed
+ * cannot be taken back — which is correct, and free. */
+export const TARI = "Tari";
+
+/** What a pin's author was. A class, or the app itself. */
+export type PinClass = ClassId | "tari";
+
+export function byTari(p: { cls: PinClass }): boolean {
+  return p.cls === "tari";
+}
+
 export type PinReply = {
   id: number;
   body: string;
   who: string;
-  cls: ClassId;
+  cls: PinClass;
   level: number;
   at: string;
   mine: boolean;
@@ -41,7 +66,7 @@ export type Pin = {
   y: number | null;
   body: string;
   who: string;
-  cls: ClassId;
+  cls: PinClass;
   level: number;
   at: string;
   mine: boolean;
@@ -70,7 +95,7 @@ export function readPin(v: unknown): (Pin & { parent: number | null }) | null {
     y: spotted ? (p.y as number) : null,
     body: p.body.slice(0, PIN_MAX),
     who: typeof p.who === "string" ? p.who.slice(0, 24) : "someone",
-    cls: (typeof p.cls === "string" ? p.cls : "warrior") as ClassId,
+    cls: (typeof p.cls === "string" ? p.cls : "warrior") as PinClass,
     level: typeof p.level === "number" ? p.level : 1,
     at: typeof p.at === "string" ? p.at : new Date().toISOString(),
     mine: false,
