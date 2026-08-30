@@ -1,0 +1,312 @@
+{
+  "room": "undercity",
+  "sources": [
+    "https://warcraft.wiki.gg/wiki/Undercity",
+    "https://warcraft.wiki.gg/wiki/Ruins_of_Lordaeron",
+    "https://warcraft.wiki.gg/wiki/Apothecarium",
+    "https://warcraft.wiki.gg/wiki/Royal_Apothecary_Society",
+    "https://warcraft.wiki.gg/wiki/Sewers",
+    "https://warcraft.wiki.gg/wiki/Lady_Sylvanas_Windrunner",
+    "https://warcraft.wiki.gg/wiki/Varimathras",
+    "https://warcraft.wiki.gg/wiki/Parqual_Fintallas",
+    "https://warcraft.wiki.gg/wiki/Aelthalyste",
+    "https://warcraft.wiki.gg/wiki/Cult_of_Forgotten_Shadows",
+    "https://warcraft.wiki.gg/wiki/Jeremiah_Payson",
+    "https://warcraft.wiki.gg/wiki/Tyler",
+    "https://warcraft.wiki.gg/wiki/Brother_Malach",
+    "https://warcraft.wiki.gg/wiki/Ophelia_Montague",
+    "https://warcraft.wiki.gg/wiki/In-jokes_and_references/Eastern_Kingdoms",
+    "https://www.wowhead.com/classic/npc=8403/jeremiah-payson",
+    "https://www.wowhead.com/classic/npc=10181/lady-sylvanas-windrunner",
+    "https://www.wowhead.com/classic/npc=4550/ophelia-montague",
+    "https://blessingoffish.wordpress.com/2010/04/24/things-you-might-not-know-undercity/"
+  ],
+  "roadEnds": [
+    "The Ruins",
+    "Royal Quarter"
+  ],
+  "cards": [
+    {
+      "id": "lordaeron",
+      "kind": "before",
+      "form": "title",
+      "subject": "Lordaeron",
+      "tag": "Before",
+      "lines": [
+        "Arthas set his minions digging under his father's floor.",
+        "Then the Lich King called him north, and Sylvanas took the hole."
+      ],
+      "spoiler": false
+    },
+    {
+      "id": "throne-room",
+      "kind": "story",
+      "form": "yell",
+      "subject": "Arthas",
+      "tag": "The throne room · one floor up",
+      "icon": "crown",
+      "yell": "SUCCEEDING YOU, FATHER.",
+      "lines": [
+        "The blood on the flagstones is where the crown rolled.",
+        "Rose petals from his homecoming parade are still down the hall."
+      ],
+      "spoiler": false,
+      "t": 0.03,
+      "at": [
+        65.5,
+        7
+      ],
+      "seed": {
+        "body": "Stand in the throne room with your sound up. The room still plays Warcraft III at you."
+      }
+    },
+    {
+      "id": "the-lift",
+      "kind": "beware",
+      "form": "chip",
+      "subject": "The lift",
+      "tag": "The front door · four storeys of drop",
+      "icon": "lift",
+      "lines": [
+        "When the server hitches, the floor stops catching you.",
+        "Hardcore characters have died here standing still."
+      ],
+      "spoiler": false,
+      "t": 0.1,
+      "at": [
+        65.5,
+        14
+      ]
+    },
+    {
+      "id": "montague",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "The Montagues",
+      "tag": "Four bankers, one family",
+      "icon": "montague",
+      "lines": [
+        "Randolph, Mortimer, William, Ophelia.",
+        "Surname out of Romeo and Juliet. First names out of Trading Places.",
+        "Ophelia is the only one Blizzard made a ghost."
+      ],
+      "spoiler": false,
+      "t": 0.2,
+      "at": [
+        65.2,
+        44
+      ]
+    },
+    {
+      "id": "payson",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "Jeremiah Payson",
+      "tag": "Cockroach vendor · under the stairs",
+      "icon": "roach",
+      "lines": [
+        "Born Felstone. He changed it to bury the man who wore it.",
+        "The roach does nothing. It walks behind you.",
+        "Alliance had no vendor, so the Horde resold them neutral."
+      ],
+      "spoiler": false,
+      "t": 0.28,
+      "at": [
+        67.6,
+        44.2
+      ],
+      "seed": {
+        "body": "45 silver. Everyone says it is a waste and nobody deletes theirs."
+      }
+    },
+    {
+      "id": "upper-floor",
+      "kind": "look",
+      "form": "chip",
+      "subject": "The floor above the city",
+      "tag": "Runways and balconies · no stairs to them",
+      "icon": "slow-fall",
+      "lines": [
+        "A whole level sits over your head. Nothing sends you there.",
+        "Players get up there on slow fall and walk it."
+      ],
+      "spoiler": false,
+      "t": 0.35,
+      "at": [
+        65,
+        43
+      ]
+    },
+    {
+      "id": "fight-club",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "Tyler and Edward",
+      "tag": "War Quarter · the pit",
+      "icon": "fight-club",
+      "lines": [
+        "Brother Malach feeds them captives, then a ghoul, then an abomination.",
+        "Tyler Durden and Edward Norton. Marla watches from the ring."
+      ],
+      "spoiler": false,
+      "t": 0.43,
+      "at": [
+        47,
+        16
+      ]
+    },
+    {
+      "id": "aelthalyste",
+      "kind": "story",
+      "form": "chip",
+      "subject": "Aelthalyste",
+      "tag": "War Quarter · high priestess",
+      "icon": "forgotten-shadow",
+      "lines": [
+        "They kept the shape of the Light and cut out its middle.",
+        "The Forgotten Shadow puts you in the centre of it.",
+        "She trains the young ones. She is a banshee."
+      ],
+      "spoiler": false,
+      "t": 0.5,
+      "at": [
+        49,
+        18.3
+      ]
+    },
+    {
+      "id": "fintallas",
+      "kind": "story",
+      "form": "grave",
+      "subject": "Parqual Fintallas",
+      "tag": "On the bridge into the Apothecarium",
+      "icon": "lore-books",
+      "lines": [
+        "Lordaeron's historian, with a wife and a daughter in Capital City.",
+        "The Forsaken forbid looking back. They took his library.",
+        "Every errand he gives you is one of his own books, coming home."
+      ],
+      "spoiler": false,
+      "t": 0.58,
+      "at": [
+        57.8,
+        65.4
+      ]
+    },
+    {
+      "id": "the-thing",
+      "kind": "look",
+      "form": "chip",
+      "subject": "The thing in the Apothecarium",
+      "tag": "Stitched, buckled down, fed by tube",
+      "icon": "the-thing",
+      "lines": [
+        "It hangs over a hole in the floor and drips green into it.",
+        "Get under it and you can see teeth.",
+        "The best guess anyone has: a Plaguelands maggot, cut apart."
+      ],
+      "spoiler": false,
+      "t": 0.65,
+      "at": [
+        49.5,
+        68.5
+      ]
+    },
+    {
+      "id": "faranell",
+      "kind": "story",
+      "form": "grave",
+      "subject": "Master Apothecary Faranell",
+      "tag": "Royal Apothecary Society",
+      "icon": "new-plague",
+      "lines": [
+        "Downstairs: surgery tables, gibbet hooks, pieces of abomination.",
+        "Nobody down there wants a cure. They want a better plague.",
+        "It kills Scourge and living alike. They set it off at the Wrathgate."
+      ],
+      "spoiler": true,
+      "t": 0.72,
+      "at": [
+        48.8,
+        69.3
+      ]
+    },
+    {
+      "id": "rogues-chapel",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "The chapel in the Rogues' Quarter",
+      "tag": "A church, in the thieves' district",
+      "icon": "chapel",
+      "lines": [
+        "No trainer stands in it. No quest points at it.",
+        "The thieves built it anyway. It is the biggest room they have."
+      ],
+      "spoiler": false,
+      "t": 0.79,
+      "at": [
+        84,
+        70
+      ]
+    },
+    {
+      "id": "sewers",
+      "kind": "beware",
+      "form": "chip",
+      "subject": "The Sewers",
+      "tag": "The back way · west of the gate",
+      "icon": "sewers",
+      "lines": [
+        "A pipe runs out to Tirisfal with two abominations still on it.",
+        "Alliance raids came up it to reach Sylvanas. No front door."
+      ],
+      "spoiler": false,
+      "t": 0.86,
+      "at": [
+        22,
+        30
+      ],
+      "seed": {
+        "body": "If your city is quiet and the guards at the lift are alive, check the sewers."
+      }
+    },
+    {
+      "id": "varimathras",
+      "kind": "beware",
+      "form": "chip",
+      "subject": "Varimathras",
+      "tag": "Dreadlord · at her right hand",
+      "icon": "varimathras",
+      "lines": [
+        "A demon stands in a Horde capital because he begged and she let him.",
+        "Raids that reached the throne found he hits harder than she does."
+      ],
+      "spoiler": false,
+      "t": 0.92,
+      "at": [
+        56.3,
+        92.2
+      ]
+    },
+    {
+      "id": "sylvanas",
+      "kind": "story",
+      "form": "chip",
+      "subject": "Lady Sylvanas Windrunner",
+      "tag": "Royal Quarter · Banshee Queen",
+      "icon": "sylvanas",
+      "lines": [
+        "Arthas killed Silvermoon's Ranger-General and raised her to serve him.",
+        "She slipped the leash, took the crypt he dug, kept her own face.",
+        "Rogues who picked her pocket got mushroom food and three silver."
+      ],
+      "spoiler": false,
+      "t": 0.97,
+      "at": [
+        58.1,
+        91.8
+      ]
+    }
+  ],
+  "seedWho": "Tari"
+}

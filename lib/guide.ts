@@ -14,6 +14,7 @@
  * on the road, and the reader digs it up by hand. */
 
 import duskwood from "../reference/guide/duskwood.json";
+import undercity from "../reference/guide/undercity.json";
 
 export type CardKind = "notice" | "look" | "story" | "before" | "beware";
 
@@ -84,6 +85,7 @@ export type GuideFile = {
 
 const GUIDES: Record<string, GuideFile> = {
   duskwood: duskwood as GuideFile,
+  undercity: undercity as GuideFile,
 };
 
 export function guideFor(roomId: string): GuideFile | undefined {
