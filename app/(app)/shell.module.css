@@ -82,6 +82,24 @@
 /* The palette's key. It reads as a key now — a raised face on the panel
  * rather than an outline drawn on it — because that is the shape of the thing
  * the reader is being told to press. */
+/* The kit sits beside ⌘K. Neither is a place on the rail — they are the two
+   ways out of the room you are standing in — so they share the head's right
+   side and the same pill (docs/WELCOME.md §1: the kit stays reachable for
+   good, because a packing list you can only see once is a tutorial). */
+.railActs {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.kitLink {
+  composes: ask;
+  font: 600 0.62rem / 1 var(--app-sans);
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
 .ask {
   appearance: none;
   border: 0;

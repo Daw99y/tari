@@ -61,9 +61,11 @@ type Props = {
   pins: Pin[];
   /** `?item=` — a door from the sheet, landing on one card. */
   open?: number;
+  /** `?say=1` — the kit's door. docs/WELCOME.md §2.3. */
+  say?: boolean;
 };
 
-export default function Room({ room, past, drops, cls, level, guide, plate, hunt, pins, open }: Props) {
+export default function Room({ room, past, drops, cls, level, guide, plate, hunt, pins, open, say }: Props) {
   return (
     <article className={styles.room}>
       <img
@@ -91,6 +93,7 @@ export default function Room({ room, past, drops, cls, level, guide, plate, hunt
             different things and are never shuffled together; Decks.tsx holds
             the switch between them and the third answer, which is neither. */}
         <Decks
+          say={say}
           pins={pins.length}
           telling={
             guide && guide.cards.length > 0 && plate ? (
@@ -100,6 +103,7 @@ export default function Room({ room, past, drops, cls, level, guide, plate, hunt
           left={
             <Left
               key={`left-${room.id}`}
+              say={say}
               room={room}
               band={ROOM_BANDS[room.id]}
               inside={outside(room.id)}

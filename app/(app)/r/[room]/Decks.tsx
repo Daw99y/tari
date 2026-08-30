@@ -60,11 +60,16 @@ export default function Decks({
   telling,
   left,
   pins,
+  say,
 }: {
   /** The guide's deck, or nothing when this room has no file yet. */
   telling: ReactNode;
   left: ReactNode;
   pins: number;
+  /** The kit's last card sends a reader here to leave their first pin
+   *  (docs/WELCOME.md §2.3). It arrives holding the room's own deck
+   *  whatever they were holding last, and does not overwrite that choice. */
+  say?: boolean;
 }) {
   const has = telling !== null && telling !== undefined;
 
@@ -72,19 +77,20 @@ export default function Decks({
      default and the reader's choice arrives on mount. Rendering the default
      first is the honest order: a guide that flickers away is worse than a
      guide that arrives. */
-  const [choice, setChoice] = useState<Choice>(has ? "telling" : "left");
+  const [choice, setChoice] = useState<Choice>(say ? "left" : has ? "telling" : "left");
   /* What the pointer is over, which is what the word says. Nothing under the
      pointer and the word falls back to what you are holding. */
   const [over, setOver] = useState<Choice | null>(null);
 
   useEffect(() => {
+    if (say) return;
     const saved = localStorage.getItem(KEY);
     if (saved === "telling" || saved === "left" || saved === "none") {
       /* A reader who left the guide open walks into a room with no guide.
          Their choice is not wrong; there is just nothing to honour it with. */
       setChoice(saved === "telling" && !has ? "left" : saved);
     }
-  }, [has]);
+  }, [has, say]);
 
   function choose(next: Choice) {
     setChoice(next);

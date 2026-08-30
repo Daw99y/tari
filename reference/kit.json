@@ -1,0 +1,124 @@
+{
+  "_": "THE KIT. docs/WELCOME.md §1. A packing list, not a tutorial — hints and nods from someone who has played this before. Nothing here describes a feature of Tari except the first two cards, which earn the exception because they are the argument for the rest (TARI.md §2.3). `icon` is a file under public/kit/, or an absolute path when the art already lives somewhere else. Kacey's copy to redline.",
+  "cards": [
+    {
+      "id": "other-screen",
+      "eyebrow": "Before anything else",
+      "subject": "The other screen",
+      "tag": "Why this doesn't run in the game",
+      "lines": [
+        "This doesn't run inside the game, on purpose.",
+        "An addon sits in the corner of your eye and you follow it without ever taking your hands off the keys — which is how people arrive at 60 having seen nothing.",
+        "Tari costs you a look away. That second, where your character stands still in the world while you read something, is the whole product."
+      ],
+      "icon": "inv_misc_orb_04.webp"
+    },
+    {
+      "id": "addon-listens",
+      "eyebrow": "Before anything else",
+      "subject": "The addon only listens",
+      "tag": "It is a sensor, never a display",
+      "lines": [
+        "It tells Tari where you're standing.",
+        "Tari never tells you where to go."
+      ],
+      "icon": "inv_misc_enggizmos_10.webp"
+    },
+    {
+      "id": "pole",
+      "eyebrow": "Worth carrying",
+      "subject": "A fishing pole",
+      "tag": "Any trade goods vendor",
+      "lines": [
+        "Cheap, and every lake in the world becomes somewhere to sit for ten minutes.",
+        "We'll say something when you're near water worth sitting at."
+      ],
+      "icon": "inv_fishingpole_01.webp"
+    },
+    {
+      "id": "bait",
+      "eyebrow": "Worth carrying",
+      "subject": "Bait",
+      "tag": "And the patience to use it",
+      "lines": [
+        "Shiny Bauble, five silver, twenty minutes of better luck."
+      ],
+      "icon": "trade_fishing.webp"
+    },
+    {
+      "id": "bag-slot",
+      "eyebrow": "Worth carrying",
+      "subject": "One empty bag slot",
+      "tag": "Kept empty on purpose",
+      "lines": [
+        "For the thing you keep because it's strange, not because it sells."
+      ],
+      "icon": "inv_misc_bag_10.webp"
+    },
+    {
+      "id": "hearth",
+      "eyebrow": "Worth carrying",
+      "subject": "A hearthstone somewhere you like",
+      "tag": "Not the fastest inn",
+      "lines": [
+        "The one you'd want to wake up in."
+      ],
+      "icon": "inv_misc_rune_01.webp"
+    },
+    {
+      "id": "shirt",
+      "eyebrow": "Worth carrying",
+      "subject": "A white shirt",
+      "tag": "No stats, no reason",
+      "lines": [
+        "You'll want it eventually."
+      ],
+      "icon": "inv_shirt_white_01.webp"
+    },
+    {
+      "id": "sit",
+      "eyebrow": "Worth carrying",
+      "subject": "Somewhere to sit",
+      "tag": "A campfire counts",
+      "lines": [
+        "Basic Campfire is level 1 cooking and nobody ever takes it."
+      ],
+      "icon": "spell_fire_fire.webp"
+    },
+    {
+      "id": "lap",
+      "eyebrow": "Worth doing",
+      "subject": "A lap",
+      "tag": "The rares are not likelier to drop anything",
+      "lines": [
+        "Every zone has rares walking it. They aren't likelier to drop anything good — that's the point.",
+        "Kill two or three on a slow circuit and one of them hands you something you'd never have known existed.",
+        "The upgrade isn't the reward. The afternoon is."
+      ],
+      "icon": "inv_misc_spyglass_03.webp"
+    },
+    {
+      "id": "quest-text",
+      "eyebrow": "Worth doing",
+      "subject": "The quest text",
+      "tag": "Forty seconds",
+      "lines": [
+        "Twelve murlocs is twelve murlocs either way.",
+        "Reading why is the difference between playing Azeroth and clearing it."
+      ],
+      "icon": "inv_scroll_02.webp"
+    },
+    {
+      "id": "leave-one",
+      "eyebrow": "One last thing",
+      "subject": "Leave something",
+      "tag": "For whoever stands there next",
+      "lines": [
+        "Everything anyone knows about a place in here was left by somebody who stopped.",
+        "You don't need to know anything yet to start."
+      ],
+      "door": "pin",
+      "icon": "/pins/map-x.png"
+    }
+  ]
+}

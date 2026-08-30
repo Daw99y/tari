@@ -1,0 +1,160 @@
+/* The kit's own frame. The deck itself is story.module.css — one grammar,
+   three uses (the telling, the room's card stack, and this) — so nothing
+   about a card is restated here. What is here is the page around it. */
+
+.kit {
+  /* The room's own shape (room.module.css): absolute against the stage, so the
+     page is exactly as tall as the stage and the art has something to fill.
+     `min-height: 100%` on a grid child resolves against a parent that has no
+     definite height for it, which is what left the deck sitting at the top. */
+  position: absolute;
+  inset: 0;
+  /* The art and the scrim sit at negative depth, so nothing below needs a
+     z-index of its own (the room does the same with a stacking context). */
+  isolation: isolate;
+  display: grid;
+  /* CENTRED, and centred symmetrically — the same correction the room's decks
+     took on 2026-08-30. Equal padding top and bottom, so `center` means the
+     middle of the picture rather than the middle of whatever is left. */
+  align-content: center;
+  justify-items: center;
+  gap: 2rem;
+  padding: clamp(3rem, 7vh, 5rem) 1.5rem;
+}
+
+/* PLACEHOLDER ART. `RLextras/wishlist.webp` until the kit has a photograph of
+   its own — Kacey's call, 2026-08-30. It is deliberately not a room: the kit
+   is about the reader rather than a place (docs/TARI.md §5), so whatever ends
+   up here should read as a still life rather than somewhere you can stand. */
+.art {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 45%;
+  filter: saturate(0.9) contrast(1.05) brightness(0.9);
+}
+
+/* Heavier through the middle than the room's, because the kit's words are
+   centred rather than tucked into a corner (docs/CONTRAST.md — rerun
+   scripts/contrast.py if the copy moves). */
+.scrim {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    linear-gradient(to bottom, rgba(6, 6, 10, 0.6) 0%, rgba(6, 6, 10, 0.2) 24%),
+    radial-gradient(115% 85% at 50% 46%, rgba(6, 6, 10, 0.3) 0%, rgba(6, 6, 10, 0.72) 100%),
+    linear-gradient(to top, rgba(6, 6, 10, 0.85) 0%, rgba(6, 6, 10, 0.35) 18%, rgba(6, 6, 10, 0.12) 36%);
+}
+
+.head {
+  display: grid;
+  justify-items: center;
+  gap: 0.5rem;
+  max-width: 44rem;
+  text-align: center;
+}
+
+.eyebrow {
+  color: var(--accent);
+  font: 600 0.72rem / 1 var(--app-sans);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.h1 {
+  margin: 0;
+  color: var(--ink);
+  font: 600 clamp(1.7rem, 3.4vw, 2.4rem) / 1.1 var(--app-display);
+  letter-spacing: -0.02em;
+}
+
+.lede {
+  margin: 0;
+  max-width: 34rem;
+  color: var(--mute);
+  font: 400 1rem / 1.55 var(--app-sans);
+}
+
+.stage {
+  width: min(100%, 46rem);
+}
+
+/* THE DECK, HELD STILL. Three overrides on story.module.css's own classes,
+   applied by putting both class names on the same element.
+
+   The telling's deck lives on a room's photograph, tucked left of centre with
+   the art to its right, and it is sized by whichever card is on top. Neither
+   is right here: the kit stands on nothing to be tucked against, and a reader
+   turning eleven cards should never have to chase the button that turns them.
+
+   `.table` is 30rem inside a 46rem stage and was sitting flush left. */
+.table {
+  margin-inline: auto;
+}
+
+/* The slot is taller than the tallest card, so the turns row underneath does
+   not move when a one-line card replaces a five-line one. The card stretches
+   to fill it rather than floating in it, which keeps the deal animation and
+   the sleeves behind reading as one object. */
+.slot {
+  display: flex;
+  justify-content: center;
+  min-height: 14.5rem;
+}
+
+.card {
+  width: 100%;
+}
+
+/* The two argument cards carry no object (public/kit/README.md). In the rail
+   that leaves an empty frame, which reads as a picture that failed to load
+   rather than a card with nothing to wear — so it wears a dot instead. */
+.railDot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--rule);
+}
+
+/* The door on the last card. The accent is spent here and nowhere else on
+   this page: it is the one thing the kit asks the reader to do. */
+.door {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.4rem;
+  padding: 0.55rem 1rem;
+  border: 0;
+  border-radius: var(--r-pill);
+  background: var(--accent);
+  color: var(--accent-ink);
+  font: 600 0.86rem / 1 var(--app-sans);
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.18s var(--pop);
+}
+
+.door:hover {
+  transform: translateY(-1px);
+}
+
+.doorFace {
+  width: 16px;
+  height: 16px;
+}
+
+/* Leaving without reading it all is allowed and should look allowed. */
+.out {
+  color: var(--mute);
+  font: 400 0.85rem / 1 var(--app-sans);
+  text-decoration: none;
+}
+
+.out:hover {
+  color: var(--ink);
+}

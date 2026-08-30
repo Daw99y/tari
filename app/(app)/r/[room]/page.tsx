@@ -26,7 +26,7 @@ import Room from "./Room";
 
 type Props = {
   params: Promise<{ room: string }>;
-  searchParams: Promise<{ class?: string; at?: string; item?: string }>;
+  searchParams: Promise<{ class?: string; at?: string; item?: string; say?: string }>;
 };
 
 /** 75 rooms, all known at build time and none of them changing between
@@ -83,7 +83,11 @@ export default async function RoomPage({ params, searchParams }: Props) {
      landed. */
   const open = /^\d+$/.test(sp.item ?? "") ? Number(sp.item) : undefined;
 
+  /* `?say=1` — the kit's last card ends in front of the composer rather than
+     in front of a blank deck (docs/WELCOME.md §2.3). */
+  const say = sp.say === "1";
+
   return (
-    <Room room={room} past={past} drops={drops} cls={cls} level={level} guide={guide} plate={plate} hunt={hunt} pins={pins} open={open} />
+    <Room room={room} past={past} drops={drops} cls={cls} level={level} guide={guide} plate={plate} hunt={hunt} pins={pins} open={open} say={say} />
   );
 }

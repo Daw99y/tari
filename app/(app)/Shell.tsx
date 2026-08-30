@@ -82,14 +82,19 @@ export default function Shell({
               <Link href="/" className={styles.wordmark} aria-label="Tari, home">
                 <FoxMark className={styles.fox} />
               </Link>
-              <button
-                type="button"
-                className={styles.ask}
-                onClick={() => setAsking(true)}
-                aria-label="Go to a room"
-              >
-                <kbd>⌘K</kbd>
-              </button>
+              <div className={styles.railActs}>
+                <Link href="/kit" className={styles.kitLink} title="What to carry">
+                  Kit
+                </Link>
+                <button
+                  type="button"
+                  className={styles.ask}
+                  onClick={() => setAsking(true)}
+                  aria-label="Go to a room"
+                >
+                  <kbd>⌘K</kbd>
+                </button>
+              </div>
             </header>
             <Rail signedIn={handle !== null} />
             <You handle={handle} canSignIn={canSignIn} />
