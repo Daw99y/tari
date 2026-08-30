@@ -156,6 +156,44 @@
   color: rgba(255, 79, 139, 0.9);
 }
 
+/* ---- the armory: name and realm asked of Blizzard, dressed as the paste is */
+
+.armoryRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.4rem;
+}
+
+.armoryActions {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.4rem;
+}
+
+.armory select,
+.armory button {
+  appearance: none;
+  border: 0.5px solid var(--rule);
+  border-radius: 8px;
+  background: rgba(6, 6, 10, 0.6);
+  color: var(--ink);
+  font: 400 0.7rem/1.3 var(--mono);
+  padding: 0.42rem 0.6rem;
+  outline: none;
+  transition: border-color 200ms ease;
+  cursor: pointer;
+}
+
+.armory select:focus-visible,
+.armory button:focus-visible {
+  border-color: var(--ink);
+}
+
+.armory button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
 /* ---- the two faction columns */
 
 /* Two narrow columns with air around them, at the client's proportion: the
