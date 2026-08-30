@@ -465,6 +465,19 @@ only. The sheet holds the item dictionary and not the world, and the half of
 the plate that says where a thing comes from belongs to the room that has it.
 The row's name is the door there.
 
+**An empty slot draws its own silhouette** (`components/SlotGlyph.tsx`), the
+way the landing page has drawn one in every empty well since it shipped. The
+sheet drew a blank square nineteen times instead, which is a form and not a
+paperdoll. Held at 30% ink so a worn slot still wins the column.
+
+**The summons is 1.7rem and its count came off its face** (2026-08-30). It was
+a 2.15rem key with the arrow over a digit, and under 64rem — where the two
+columns stand side by side — eight of them met in the middle of the page as a
+green spine down the one thing the sheet is about. They go to the outer edges
+of the two columns there, and the panels open away from the figure with them.
+The count rides the key's shoulder in mono, the way the room's tally rides the
+arrow's and the deck switch's rides its slot. One device, three places.
+
 **A slot the reader dressed by hand wears a ring on its icon** — ink at `.55`,
 the hollow tick's register. Not the accent: the pink is spent twice a screen
 and nineteen slots is not twice. The count is carried in words instead, by the

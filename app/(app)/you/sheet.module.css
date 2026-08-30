@@ -17,7 +17,7 @@
   z-index: 1;
   height: 100%;
   display: grid;
-  grid-template-columns: minmax(14rem, 18rem) minmax(0, 1fr) minmax(14rem, 18rem);
+  grid-template-columns: minmax(11.5rem, 14.5rem) minmax(0, 1fr) minmax(11.5rem, 14.5rem);
   grid-template-rows: auto minmax(0, 1fr) auto;
   column-gap: clamp(1rem, 2vw, 2rem);
   padding: clamp(1.25rem, 3vh, 2rem) clamp(1.25rem, 3vw, 2.25rem);
@@ -167,6 +167,7 @@
 }
 
 .icon {
+  position: relative;
   flex: none;
   width: 2.5rem;
   height: 2.5rem;
@@ -181,6 +182,24 @@
   height: 100%;
   object-fit: cover;
   display: block;
+}
+
+/* WHAT AN EMPTY SLOT DRAWS. The landing page has shown a silhouette in every
+ * empty well since the day it shipped, and the sheet was drawing a blank
+ * square nineteen times — which is a form, not a paperdoll. Held well under
+ * the ink so a worn slot still wins the column: this says "nothing here yet",
+ * not "look at me". */
+.slotGlyph {
+  position: absolute;
+  inset: 0.45rem;
+  width: auto;
+  height: auto;
+  color: rgba(242, 240, 234, 0.3);
+  transition: color 200ms ease;
+}
+
+.slot:hover .slotGlyph {
+  color: rgba(242, 240, 234, 0.55);
 }
 
 .slotText {
@@ -290,7 +309,7 @@
   z-index: 3;
   margin: 0;
   font-size: 0.8rem;
-  color: rgba(255, 79, 139, 0.9);
+  color: #ff5a5a;
 }
 
 /* ---- nobody yet */
@@ -346,8 +365,7 @@
 
 .letterLine {
   margin: 0;
-  font-size: 0.85rem;
-  line-height: 1.5;
+  font: 500 0.86rem/1.5 var(--sans);
   letter-spacing: -0.005em;
   color: rgba(242, 240, 234, 0.55);
   text-wrap: balance;
@@ -394,6 +412,13 @@
  * that read as two stacked objects rather than one. One face, one gentle
  * gradient, one soft shadow under it. Plush, not embossed.
  *
+ * SMALLER, AND THE NUMBER CAME OFF THE FACE (2026-08-30). It was 2.15rem with
+ * the arrow sitting over a digit, and eight of them down the gutter was the
+ * loudest thing on a character sheet — a green spine beside the person the
+ * page is about. It is 1.7rem now, the arrow has the face to itself, and the
+ * count rides the shoulder in mono the way the room's tally rides the arrow's
+ * and the deck switch's rides its slot. One device, three places.
+ *
  * DESIGN.md's "Controls — settled" says one button, glass on the art. This is
  * the exception and the only one: the summons' green already means "better
  * than what you have, here" everywhere in the app, and this is that meaning
@@ -401,20 +426,18 @@
 .summons {
   position: absolute;
   top: 50%;
-  right: -2.95rem;
+  right: -2.6rem;
   transform: translateY(-50%);
   z-index: 3;
   appearance: none;
-  width: 2.15rem;
-  height: 2.15rem;
+  width: 1.7rem;
+  height: 1.7rem;
   flex: none;
   padding: 0;
   border: 0;
   display: grid;
-  place-content: center;
-  justify-items: center;
-  gap: 0.04rem;
-  border-radius: 11px;
+  place-items: center;
+  border-radius: 9px;
   background: linear-gradient(180deg, #cbff5e 0%, var(--accent) 100%);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.38),
@@ -428,7 +451,7 @@
 
 .slot[data-align="right"] .summons {
   right: auto;
-  left: -2.95rem;
+  left: -2.6rem;
 }
 
 .summons:hover {
@@ -447,15 +470,29 @@
 
 .summonsMark {
   display: block;
-  width: 11px;
+  width: 12px;
   height: auto;
   color: var(--accent-ink);
 }
 
+/* On the key's shoulder, outside it, over its own shadow — never a badge.
+ * The room's corner counts this way and so does the deck switch. */
 .summonsCount {
-  font: 700 0.66rem/1 var(--app-sans);
-  letter-spacing: -0.02em;
+  position: absolute;
+  top: -0.32rem;
+  right: -0.3rem;
+  font: 600 0.56rem/1 var(--mono);
   font-variant-numeric: tabular-nums;
+  color: var(--accent);
+  text-shadow:
+    0 0 3px rgba(4, 10, 5, 0.95),
+    0 1px 3px rgba(0, 0, 0, 0.9);
+  pointer-events: none;
+}
+
+.slot[data-align="right"] .summonsCount {
+  right: auto;
+  left: -0.3rem;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -484,7 +521,7 @@
   top: -0.4rem;
   /* Clear of the summons, which stands in this gutter. A panel that opened
      over its own button would leave it peeking out of the edge. */
-  left: calc(100% + 3.55rem);
+  left: calc(100% + 3.2rem);
   width: 17rem;
   padding: 0.5rem 0.55rem 0.45rem;
   border-radius: 12px;
@@ -622,6 +659,45 @@
     width: auto;
     max-width: 22rem;
     padding-top: 0.5rem;
+  }
+
+  /* THE KEYS GO TO THE OUTSIDE. In the wide layout each column's summons
+   * stands in the gutter between it and the figure, which is empty. Here the
+   * two columns are side by side, so both gutters are the same gutter — and
+   * eight lit keys met in the middle of the page as a green spine down the
+   * one thing the sheet is about. Sent to the outer edges they read as a
+   * margin note against each column, which is what they are.
+   *
+   * The padding is what makes room for them. It is the page's own inline
+   * padding plus the key, so nothing hangs off the stage. */
+  .page {
+    padding-inline: 3.2rem;
+  }
+  .left .slot .summons {
+    right: auto;
+    left: -2.6rem;
+  }
+  .right .slot[data-align="right"] .summons {
+    right: -2.6rem;
+    left: auto;
+  }
+  .left .slot .summonsCount {
+    right: auto;
+    left: -0.3rem;
+  }
+  .right .slot[data-align="right"] .summonsCount {
+    right: -0.3rem;
+    left: auto;
+  }
+  /* And the panels follow their keys: each opens away from the figure, into
+   * the width the column is not using. */
+  .left .slot .panel {
+    left: auto;
+    right: calc(100% + 0.6rem);
+  }
+  .right .slot[data-align="right"] .panel {
+    right: auto;
+    left: calc(100% + 0.6rem);
   }
 }
 

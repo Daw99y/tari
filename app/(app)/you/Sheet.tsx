@@ -69,6 +69,7 @@ import {
   trades,
   type Character,
 } from "@/lib/character";
+import SlotGlyph from "@/components/SlotGlyph";
 import UpArrow from "@/components/UpArrow";
 import { QUALITY } from "@/lib/doll";
 import type { ClassId } from "@/lib/loot";
@@ -447,8 +448,17 @@ function Slot({
       data-planned={planned ? "" : undefined}
       data-idle={blocked ? "" : undefined}
     >
+      {/* An empty slot draws its own silhouette, the way the landing page
+          draws it and the way the item plate and the kit already do
+          (components/SlotGlyph.tsx). Nineteen blank squares is a form; a
+          shoulder, a boot and a ring is a paperdoll, and a reader can see
+          what is missing without reading a single label. */}
       <span className={styles.icon} aria-hidden="true">
-        {item?.icon ? <img src={item.icon} alt="" width={40} height={40} draggable={false} /> : null}
+        {item?.icon ? (
+          <img src={item.icon} alt="" width={40} height={40} draggable={false} />
+        ) : (
+          <SlotGlyph slot={label} className={styles.slotGlyph} />
+        )}
       </span>
       <span className={styles.slotText}>
         <span className={styles.slotLabel}>{label}</span>
@@ -490,7 +500,9 @@ function Slot({
           onClick={onRooms}
         >
           <UpArrow className={styles.summonsMark} />
-          <span className={styles.summonsCount}>{behind.answers.length}</span>
+          <span className={styles.summonsCount} aria-hidden="true">
+            {behind.answers.length}
+          </span>
         </button>
       ) : null}
 

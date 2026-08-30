@@ -797,11 +797,11 @@
   border: 0.5px solid rgba(242, 240, 234, 0.28);
   background: rgba(6, 6, 10, 0.4);
   color: var(--ink);
-  font: 500 0.8rem/1 var(--app-sans);
-  letter-spacing: -0.005em;
+  font: 700 0.82rem/1 var(--sans);
+  letter-spacing: 0;
   text-decoration: none;
-  padding: 0.65rem 1.1rem;
-  border-radius: 999px;
+  padding: 0.65rem 1.15rem;
+  border-radius: var(--r-pill);
   cursor: pointer;
   backdrop-filter: blur(12px) saturate(1.2);
   -webkit-backdrop-filter: blur(12px) saturate(1.2);
@@ -809,7 +809,8 @@
     border-color 200ms ease,
     background 200ms ease,
     opacity 200ms ease,
-    transform 200ms ease;
+    box-shadow 220ms ease,
+    transform 240ms var(--pop);
 }
 
 .accept {
@@ -819,7 +820,9 @@
 }
 
 .accept:hover:not(:disabled) {
-  opacity: 0.88;
+  opacity: 0.92;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 26px -12px rgba(0, 0, 0, 0.9);
 }
 
 .accept:disabled {
