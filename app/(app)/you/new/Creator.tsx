@@ -55,6 +55,7 @@ import { getRoom, roomArt } from "@/lib/rooms";
 import { DEFAULT_LOOK, useBody, wrap, type Look } from "@/lib/use-body";
 import {
   handedFor,
+  heldGear,
   itemsByEntry,
   type Item as WardrobeItem,
 } from "@/lib/wardrobe";
@@ -171,11 +172,9 @@ export default function Creator() {
    *  a character levels, and the doll's sex is the reader's to set. */
   const fromGame = !!imported || !!existing?.importedAt;
 
-  /* The gear, in the order a character sheet reads it: the ranged slot is not
-   * in that order, so a bow is neither listed nor hung off a hand that is
-   * already holding a blade (lib/character.ts, SHEET_BOTTOM). Kept as a list
-   * rather than the map below because a character wears two rings and two
-   * trinkets, and a map keyed by slot only remembers the second of each. */
+  /* The gear, in the order a character sheet reads it — the placard's list.
+   * Kept as a list rather than a map because a character wears two rings and
+   * two trinkets, and a map keyed by slot only remembers the second of each. */
   const worn = useMemo(() => {
     if (gear.length === 0 || byEntry.size === 0) return [];
     const out: { at: number; item: WardrobeItem }[] = [];
@@ -187,20 +186,20 @@ export default function Creator() {
     return out;
   }, [gear, byEntry]);
 
-  /* Dressed once the wardrobe is in. The slots that draw nothing — the neck,
-   * the rings, the trinkets — collapse here and it costs nothing: they have no
-   * model, no overlay and no geoset to lose. */
+  /* Dressed once the wardrobe is in. What the placard lists and what the
+   * figure holds are different questions: a bow is read out and not hung, and
+   * neither is an off-hand next to a two-hander — `heldGear` is that rule, and
+   * the sheet asks it the same way. The slots that draw nothing — the neck,
+   * the rings, the trinkets — collapse there and it costs nothing: they have
+   * no model, no overlay and no geoset to lose. */
   useEffect(() => {
-    /* Guarded on the wardrobe rather than on `worn`: an empty list is a real
+    /* Guarded on the wardrobe rather than on the gear: an empty list is a real
      * answer once the catalogue is in — it is what switching to a character
      * who wears nothing looks like — and the figure has to undress for it. */
     if (byEntry.size === 0) return;
-    setEquipped(
-      worn.length
-        ? new Map(worn.map(({ item }) => [item.slot, item]))
-        : NO_GEAR,
-    );
-  }, [worn, byEntry]);
+    const held = heldGear(gear, byEntry);
+    setEquipped(held.size ? held : NO_GEAR);
+  }, [gear, byEntry]);
 
   const backdrop = getRoom(START_ROOM[race] ?? "elwynn-forest");
 
@@ -237,6 +236,68 @@ export default function Creator() {
     if (c.name) setName(c.name);
     if (c.race && RACE_TOKEN[c.race]) setRace(RACE_TOKEN[c.race]);
     if (c.sex) setGender(c.sex === 3 ? 1 : 0);
+  };
+
+  /* The armory: the same import, asked of Blizzard instead of pasted. The
+   * answer is folded into a ParsedCharacter so everything downstream — the
+   * locks, the key, accept — treats both doors identically. */
+  const [armoryName, setArmoryName] = useState("");
+  const [armoryRealm, setArmoryRealm] = useState("");
+  const [armoryRegion, setArmoryRegion] = useState("us");
+  const [armoryBusy, setArmoryBusy] = useState(false);
+  const [armoryFault, setArmoryFault] = useState<string | null>(null);
+
+  const lookUp = async () => {
+    if (!armoryName.trim() || !armoryRealm.trim() || armoryBusy) return;
+    setArmoryBusy(true);
+    setArmoryFault(null);
+    try {
+      const q = new URLSearchParams({
+        region: armoryRegion,
+        realm: armoryRealm.trim(),
+        name: armoryName.trim(),
+      });
+      const res = await fetch(`/api/armory?${q}`);
+      const data = await res.json();
+      if (!res.ok) {
+        setArmoryFault(data.error ?? "The armory did not answer");
+        return;
+      }
+      const c: ParsedCharacter = {
+        cls: data.cls,
+        faction: data.faction,
+        level: data.level,
+        gear: data.gear,
+        questIds: [],
+        spellIds: [],
+        professions: [],
+        copper: null,
+        bagIds: [],
+        talents: [],
+        reputations: [],
+        hearth: null,
+        zone: null,
+        name: data.name,
+        realm: data.realm,
+        race: null,
+        sex: data.sex === 1 ? 3 : 2,
+        guild: data.guild,
+        played: null,
+        journal: [],
+      };
+      setImported(c);
+      setCls(c.cls);
+      setLevelText(String(clampLevel(c.level)));
+      setName(data.name);
+      setRace(data.race);
+      setGender(data.sex);
+      setPaste("");
+      setPasteFault(null);
+    } catch {
+      setArmoryFault("The armory did not answer");
+    } finally {
+      setArmoryBusy(false);
+    }
   };
 
   const ok = validName(name) && classes.includes(cls);
@@ -342,6 +403,47 @@ export default function Creator() {
               <span className={styles.fault}>{pasteFault}</span>
             ) : null}
           </label>
+
+          <div className={`${styles.card} ${styles.paste} ${styles.armory}`}>
+            <span className={styles.eyebrow}>Armory</span>
+            <div className={styles.armoryRow}>
+              <input
+                type="text"
+                value={armoryName}
+                placeholder="Name"
+                spellCheck={false}
+                onChange={(e) => setArmoryName(e.currentTarget.value)}
+                onKeyDown={(e) => e.key === "Enter" && lookUp()}
+              />
+              <input
+                type="text"
+                value={armoryRealm}
+                placeholder="Realm"
+                spellCheck={false}
+                onChange={(e) => setArmoryRealm(e.currentTarget.value)}
+                onKeyDown={(e) => e.key === "Enter" && lookUp()}
+              />
+            </div>
+            <div className={styles.armoryActions}>
+              <select
+                value={armoryRegion}
+                aria-label="Region"
+                onChange={(e) => setArmoryRegion(e.currentTarget.value)}
+              >
+                {["us", "eu", "kr", "tw"].map((rg) => (
+                  <option key={rg} value={rg}>
+                    {rg.toUpperCase()}
+                  </option>
+                ))}
+              </select>
+              <button type="button" onClick={lookUp} disabled={armoryBusy}>
+                {armoryBusy ? "Asking…" : "Look up"}
+              </button>
+            </div>
+            {armoryFault ? (
+              <span className={styles.fault}>{armoryFault}</span>
+            ) : null}
+          </div>
 
           <div className={`${styles.card} ${styles.banners}`}>
             {(["Alliance", "Horde"] as const).map((side) => (

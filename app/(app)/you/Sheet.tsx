@@ -67,7 +67,6 @@ import {
   thirdSlot,
   TRADE_CAP,
   trades,
-  WORN_SLOTS,
   type Character,
 } from "@/lib/character";
 import UpArrow from "@/components/UpArrow";
@@ -79,7 +78,7 @@ import { clearSlot, overlay, planKey, planSlot, plannedAt } from "@/lib/plan";
 import { rowFromPlate, rowFromWardrobe, type RowItem } from "@/lib/plate-item";
 import { getRoom, roomArt } from "@/lib/rooms";
 import { DEFAULT_LOOK, useBody } from "@/lib/use-body";
-import { handedFor, itemsByEntry, TWO_HANDED, type Item as WardrobeItem } from "@/lib/wardrobe";
+import { heldGear, itemsByEntry, TWO_HANDED, type Item as WardrobeItem } from "@/lib/wardrobe";
 import type { WornItem } from "@/lib/worn";
 
 import Drawer from "./Drawer";
@@ -119,24 +118,7 @@ export default function Sheet() {
 
   useEffect(() => {
     if (!me || byEntry.size === 0) return;
-    /* Only the slots the sheet draws get worn, so the ranged weapon the sheet
-     * leaves out is not hung off a hand the character is already using. */
-    const worn = new Map<string, WardrobeItem>();
-    /* A two-hander is in both hands, so nothing hangs off the second one.
-       The game greys that slot for the same reason; before the dressing room
-       an import could not produce the pair, and now a reader can. */
-    const both = byEntry.get(gear[15] ?? 0)?.inventoryType === TWO_HANDED;
-    /* WORN_SLOTS, not SHEET_SLOTS: the third slot is drawn and read but never
-       hung, or the character holds three weapons in two hands. */
-    for (const slot of WORN_SLOTS) {
-      if (slot === 17 && both) continue;
-      const id = gear[slot - 1] ?? 0;
-      const item = id ? byEntry.get(id) : undefined;
-      if (!item) continue;
-      const handed = handedFor(slot, item);
-      worn.set(handed.slot, handed);
-    }
-    setEquipped(worn);
+    setEquipped(heldGear(gear, byEntry));
   }, [me, gear, byEntry]);
 
   /* What the dictionary says about what is worn — the plate's own fields for

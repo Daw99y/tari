@@ -11,6 +11,7 @@
  * which overlays and which geoset groups one item hands them.
  */
 
+import { WORN_SLOTS } from "@/lib/character";
 import { ATTACH, SLOT_FAMILIES, type BodyLayer, type Region, type Worn } from "@/lib/doll";
 
 /** Where the item art is served from.
@@ -189,7 +190,8 @@ export function itemsByEntry(cat: Catalogue): Map<number, Item> {
   return map;
 }
 
-/** The gear slot a character's second weapon comes out of. */
+/** The two gear slots a character's weapons come out of. */
+const MAIN_HAND = 16;
 const OFF_HAND = 17;
 
 /** INVTYPE_2HWEAPON. A weapon that occupies both hands, which is a fact the
@@ -206,6 +208,30 @@ export const TWO_HANDED = 17;
  *  socket, and the character draws a single weapon instead of two. */
 export function handedFor(at: number, item: Item): Item {
   return at === OFF_HAND && item.slot === "mainhand" ? { ...item, slot: "offhand" } : item;
+}
+
+/** The gear the figure actually holds, keyed by the slot each piece dresses.
+ *
+ *  Two rules, and both are about hands. The third slot — a bow, a gun, a wand,
+ *  a relic — hangs off a hand socket like every other weapon, so a character
+ *  wearing one beside a pair of blades has three things and two hands to hold
+ *  them in. The game switches sets as it animates; a standing figure cannot,
+ *  so it carries the pair and leaves the third alone. And a two-hander fills
+ *  both hands, so nothing hangs off the second.
+ *
+ *  Drawing and reading are separate questions. The sheet and the placard still
+ *  list what sits in those slots; this answers only what to hang. */
+export function heldGear(gear: number[], byEntry: Map<number, Item>): Map<string, Item> {
+  const held = new Map<string, Item>();
+  const both = byEntry.get(gear[MAIN_HAND - 1] ?? 0)?.inventoryType === TWO_HANDED;
+  for (const at of WORN_SLOTS) {
+    if (at === OFF_HAND && both) continue;
+    const item = byEntry.get(gear[at - 1] ?? 0);
+    if (!item) continue;
+    const handed = handedFor(at, item);
+    held.set(handed.slot, handed);
+  }
+  return held;
 }
 
 /** One equipped item, resolved against the body wearing it. Everything here
