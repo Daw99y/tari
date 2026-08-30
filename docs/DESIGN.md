@@ -222,21 +222,40 @@ What we wrote and what the room wrote are different things and are never
 shuffled together. Duskwood already deals fifteen guide cards; the day it also
 holds twenty pins, one mixed stack of thirty-five is not a deck, it is a pile.
 
-One control, three exclusive answers, as chips under the room's name
-(`Decks.tsx`): **The telling · Left here · Just the room**. A room with no
-guide file draws two.
+One control, three exclusive answers, under the room's name (`Decks.tsx`):
+**The telling · Left here · Just the room**. A room with no guide file draws
+two.
 
-- Chips rather than two switches, because you are reading the guide, or the
-  room, or neither — and three states in one object is learnable at a glance.
+It is **the game's action bar**, at three slots. Each is one of the client's
+own icons in the client's own button — a square face edge to edge, a dark rim
+outside, a hairline of light along the top inside — and the one you are
+holding is lit and full-strength while the others sit drained on the shelf.
+A player who has spent a thousand hours on an action bar reads a lit slot
+before anybody explains it, and that knowledge is worth more than a label.
+The first pass at this was three word-chips: correct, and dead.
+
+The faces are the client's, per §7.1's preference for the game's own objects
+over drawn ones: a tome for the telling, the treasure map the pin already
+wears everywhere for what people left, and a spyglass for just the room —
+because the answer to "show me nothing" is "look at where you are".
+
+- **One word under the row, not a label per slot.** It says what the pointer
+  is on, or what you are holding when the pointer is elsewhere. That is the
+  compass's own device (`dock.module.css`, `.word`) used three times, and it
+  holds its line so the deck below never moves.
+- **The tally rides the bottom-right corner of the slot**, in mono over its
+  own shadow, where the client puts a stack count. Never a badge.
 - **"Just the room" is a real answer, not a hide button.** A companion whose
   argument is that it slows you down has to be able to get out of the way of
   the place.
 - Under the name, because that is the one spot on the canvas already about the
   room as a whole — and the one that must stay reachable when the reader has
   cleared everything else off the screen.
-- The current chip is turned over: ink ground, dark text, the way the house
-  already draws a chip that is a state (see Surfaces). **No accent** — choosing
-  what to read is not something anybody left for you.
+- The lit border is **ink, not the accent** — choosing what to read is not
+  something anybody left for you.
+- Neither deck may rise into the name or the switch. `.room [data-deck]`
+  carries the clearance; `data-story` is the two decks plus the switch, which
+  steps aside for the stage with them and must not be pushed down by it.
 - The choice is the reader's and it follows them (`tari:deck`). A reader
   holding "the telling" who walks into a room with no guide gets the room's
   own deck; their choice was not wrong, there is just nothing to honour it
@@ -456,10 +475,22 @@ admit it is the app quietly describing somebody who does not exist.
 **Motion continuity.** §11.3 wants the rail thumbnail to become the room
 background. Not built. Until it is, room changes cut.
 
-**The icon vocabulary.** The debuff glyphs exist (`components/Debuff.tsx`);
-the aggro `!` is drawn now (`components/PinChip.tsx`, on the debuffs' 24
-grid) and stands on the map as the pin marker. The fox mark is still
-placeholder. Redraw what remains as one set, 1.5px stroke. STATUS §6.3.
+**The icon vocabulary.** Two marks are drawn and settled, and they share a
+48-unit grid so both land their edges on whole device pixels at the sizes
+they are used: the compass (`components/Compass.tsx`) and the upgrade arrow
+(`components/UpArrow.tsx`, redrawn 2026-08-30 — it was a 24-unit shape with a
+squat head and a flared foot, which at rail size is a bottle). They are not
+the same weight and cannot be: the compass is linework at 38–50px, the arrow
+is a solid mark worn at 11px in the rail and on the sheet, and an outline at
+11px is a smudge. What they share is the grid, the precision, and the rim —
+the arrow's is in its geometry (`paint-order: stroke`), the compass's is four
+zero-blur drop-shadows, because it is built from strokes and has no path to
+put one in.
+
+The debuff glyphs exist (`components/Debuff.tsx`); the aggro `!` is drawn
+(`components/PinChip.tsx`, on the debuffs' 24 grid) and stands on the map as
+the pin marker. The fox mark is still placeholder. Redraw what remains as one
+set, 1.5px stroke. STATUS §6.3.
 
 **The pin — settled (2026-08-26, docs/PINS.md).** The pin's face is the
 Seduced widget carried into the room (Kacey, explicitly): the glass chip,

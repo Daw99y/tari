@@ -85,7 +85,7 @@ export default function Left({ room, band, inside, plated, pins }: Props) {
   const card = said[Math.min(at, said.length - 1)];
 
   return (
-    <section className={styles.left} data-story aria-label={`What people left in ${room.name}`}>
+    <section className={styles.left} data-story data-deck aria-label={`What people left in ${room.name}`}>
       {writing ? (
         <Say roomId={room.id} onDone={landed} onCancel={() => setWriting(false)} />
       ) : said.length === 0 ? (

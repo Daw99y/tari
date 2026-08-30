@@ -1,7 +1,14 @@
-/* The switch. It rides under the room's name, which is the one place on the
- * canvas that is already about the room as a whole rather than about a thing
- * in it — and the one place that has to stay reachable when the reader has
- * chosen "Just the room" and there is nothing else on the screen to press. */
+/* THE SWITCH. Three of the game's icons in the game's own button.
+ *
+ * It rides under the room's name, which is the one place on the canvas
+ * already about the room as a whole rather than about a thing in it — and the
+ * one place that has to stay reachable when the reader has chosen "Just the
+ * room" and there is nothing else on the screen to press.
+ *
+ * The slot is the client's, quoted the way the item plate is quoted: a square
+ * face, a dark rim, a hairline of light along the top edge, and a lit border
+ * when the thing is on. Nothing here is invented — a player who has spent a
+ * thousand hours on an action bar reads a lit slot without being told. */
 
 .switch {
   position: absolute;
@@ -12,10 +19,9 @@
    * clamp and the block grows with it. */
   top: calc(clamp(1.5rem, 4.5vh, 2.75rem) + clamp(3.4rem, 4vw + 2.2rem, 5.4rem));
   z-index: 4;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 0.4rem;
+  display: grid;
+  justify-items: center;
+  gap: 0.34rem;
   padding-inline: clamp(1rem, 3vw, 2rem);
   animation: settle 900ms var(--ease) 500ms both;
 }
@@ -31,77 +37,138 @@
   }
 }
 
-/* The chip: the card's ground, blurred, at pill radius (docs/DESIGN.md,
- * Surfaces). Quiet until the pointer arrives, because a reader who has not
- * asked this question yet should be looking at the room. */
-.chip {
+.bar {
+  display: flex;
+  gap: 0.34rem;
+}
+
+/* One slot. The face fills it edge to edge the way the client's does, and the
+ * frame is drawn on top of the art rather than around it. */
+.slot {
+  position: relative;
   appearance: none;
   border: 0;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  padding: 0.36rem 0.75rem;
-  border-radius: var(--r-pill);
-  background: rgba(6, 6, 10, 0.7);
-  box-shadow: inset 0 0 0 0.5px rgba(242, 240, 234, 0.2);
-  backdrop-filter: blur(12px) saturate(1.1);
-  -webkit-backdrop-filter: blur(12px) saturate(1.1);
-  color: rgba(242, 240, 234, 0.62);
-  font: 600 0.68rem/1 var(--sans);
-  letter-spacing: 0;
+  padding: 0;
+  width: 2.35rem;
+  height: 2.35rem;
+  border-radius: 9px;
+  overflow: hidden;
+  background: var(--panel-deep);
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  /* Off, a slot is on the shelf: darkened and drained, the way the client
+   * greys an ability you cannot use. */
+  filter: saturate(0.5) brightness(0.52);
+  transform: translateY(0) scale(0.94);
   transition:
-    color 180ms ease,
-    background-color 180ms ease,
-    box-shadow 180ms ease,
-    transform 240ms var(--pop);
+    filter 220ms ease,
+    transform 300ms var(--pop),
+    box-shadow 220ms ease;
 }
 
-.chip:hover {
-  color: var(--ink);
-  box-shadow: inset 0 0 0 0.5px rgba(242, 240, 234, 0.42);
-  transform: translateY(-1px);
+.face {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
-.chip:active {
-  transform: scale(0.96);
+/* The frame, over the art: a dark rim outside, a hairline of light along the
+ * top inside. Two lines, no bevel — the client's own button, flattened to
+ * this app's weight. */
+.ring {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  box-shadow:
+    inset 0 0 0 1px rgba(4, 4, 8, 0.85),
+    inset 0 1px 0 rgba(255, 255, 255, 0.14),
+    inset 0 0 0 2px rgba(242, 240, 234, 0.09);
 }
 
-.chip:focus-visible {
+.slot:hover,
+.slot:focus-visible {
+  filter: saturate(0.9) brightness(0.9);
+  transform: translateY(-2px) scale(1);
+}
+
+.slot:active {
+  transform: translateY(0) scale(0.93);
+}
+
+.slot:focus-visible {
   outline: 2px solid var(--ink);
   outline-offset: 3px;
 }
 
-/* The one you are on, turned over. */
-.chip[data-on] {
-  background: var(--ink);
-  color: #0b0a12;
-  box-shadow: 0 6px 18px -8px rgba(0, 0, 0, 0.8);
+/* THE ONE YOU ARE HOLDING. Full colour, full size, and a lit border — the
+ * client's own "this is on" treatment, in the ink rather than the accent,
+ * because choosing what to read is not something anybody left for you
+ * (docs/DESIGN.md, The accent). */
+.slot[data-on] {
+  filter: none;
+  transform: translateY(-2px) scale(1);
+  box-shadow:
+    0 0 0 1.5px rgba(242, 240, 234, 0.85),
+    0 8px 20px -8px rgba(0, 0, 0, 0.9);
 }
 
-.chip[data-on]:hover {
-  color: #0b0a12;
-  box-shadow: 0 10px 22px -10px rgba(0, 0, 0, 0.85);
+.slot[data-on] .ring {
+  box-shadow:
+    inset 0 0 0 1px rgba(4, 4, 8, 0.7),
+    inset 0 1px 0 rgba(255, 255, 255, 0.28),
+    inset 0 0 12px rgba(242, 240, 234, 0.16);
 }
 
-/* How many are on the other side of the chip. Tabular, so a room going from
- * 9 to 10 does not move the word beside it. */
-.count {
-  font: 500 0.6rem/1 var(--mono);
+.slot[data-on]:hover {
+  transform: translateY(-3px) scale(1.03);
+}
+
+/* The stack count, where the client puts a stack count: bottom right, mono,
+ * over its own shadow rather than a badge. */
+.tally {
+  position: absolute;
+  right: 2px;
+  bottom: 1px;
+  font: 600 0.56rem/1 var(--mono);
   font-variant-numeric: tabular-nums;
-  color: rgba(242, 240, 234, 0.42);
+  color: var(--ink);
+  text-shadow:
+    0 0 3px rgba(4, 4, 8, 0.95),
+    0 1px 3px rgba(0, 0, 0, 0.9);
+  pointer-events: none;
 }
 
-.chip[data-on] .count {
-  color: rgba(11, 10, 18, 0.55);
+/* ONE WORD FOR THE ROW. The compass's own device (components/dock.module.css,
+ * `.word`): the mark is the control and the word underneath says what it is.
+ * It holds its line whatever it reads, so the deck below never moves — and it
+ * lifts to full strength while the pointer is choosing. */
+.word {
+  margin: 0;
+  min-height: 1em;
+  font: 500 0.62rem/1 var(--mono);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(242, 240, 234, 0.45);
+  text-shadow: 0 1px 10px rgba(6, 6, 10, 0.9);
+  transition: color 200ms ease;
+  pointer-events: none;
+}
+
+.word[data-hover] {
+  color: rgba(242, 240, 234, 0.9);
 }
 
 @media (prefers-reduced-motion: reduce) {
   .switch {
     animation: none;
   }
-  .chip {
-    transition: none;
+  .slot {
+    transition: filter 200ms ease;
+    transform: none !important;
   }
 }
 

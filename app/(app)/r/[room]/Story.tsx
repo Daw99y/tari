@@ -145,6 +145,7 @@ export default function Story({
     <section
       className={styles.story}
       data-story=""
+      data-deck=""
       aria-label={`The story of ${room}`}
       onKeyDown={onKey}
     >

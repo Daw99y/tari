@@ -481,9 +481,21 @@
   }
 }
 
-/* ---- the telling (Story.tsx, story.module.css): the guide, told on the
-   land. Its styles live in its own module; the room only knows one thing
-   about it, below. */
+/* ---- the telling (Story.tsx, story.module.css) and the room's own deck
+   (Left.tsx): the guide, told on the land, and what people left. Their styles
+   live in their own modules; the room knows two things about them, below. */
+
+/* NEITHER DECK RISES INTO THE ROOM'S NAME. Both centre themselves on the
+ * whole photograph, which is right on a tall stage and wrong on a short one —
+ * there the head of the telling climbs into the switch under the title. The
+ * clearance is the title block plus the switch, so a deck can use every pixel
+ * under it and none above. Matched by attribute, like everything else that
+ * lives in another module: `data-deck` is the two decks, `data-story` is
+ * those plus the switch, which steps aside for the stage with them but must
+ * not be pushed down by this. */
+.room [data-deck] {
+  padding-top: clamp(7rem, 4vw + 5.4rem, 9.5rem);
+}
 
 /* The telling steps aside for whatever is on the stage. Both want the
  * middle of the room, and a reader who has opened something is reading it.
