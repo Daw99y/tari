@@ -58,6 +58,11 @@ const ART_PATHS = ["/lab/:path*", "/journey/:path*", "/Maps/:path*", "/brand/:pa
  */
 const CATALOGUE_PATH = "/lab/doll/items/catalogue.json";
 
+/** The hero figure's baked shopping list (scripts/hero-bake.mjs). Same deal
+ *  as the catalogue: the name stays put while the contents change, so it
+ *  revalidates instead of going stale for a day. */
+const HERO_PATH = "/lab/doll/hero.json";
+
 export default {
   agentRules: false,
   // The item dictionary is read from disk at runtime; trace it into the route.
@@ -69,6 +74,7 @@ export default {
       ...ART_PATHS.map((source) => ({ source, headers: [{ key: "Cache-Control", value: ART }] })),
       // After the art rule, so it wins the /lab/:path* match above.
       { source: CATALOGUE_PATH, headers: [{ key: "Cache-Control", value: "public, no-cache" }] },
+      { source: HERO_PATH, headers: [{ key: "Cache-Control", value: "public, no-cache" }] },
     ];
   },
 };

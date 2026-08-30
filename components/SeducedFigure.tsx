@@ -27,6 +27,8 @@ const BASE = "/lab/doll";
 
 /* ---------- who she is ---------- */
 
+/* The pins below are mirrored in scripts/hero-bake.mjs, which bakes
+ * hero.json from them. Change one, change the other, re-run the bake. */
 const RACE = 1; // human
 const GENDER = 1; // female
 const LOOK = {
@@ -154,19 +156,14 @@ export default function SeducedFigure({ height, left, top, onHead, className, sh
     let bodyTex: THREE.Texture | null = null;
 
     (async () => {
-      /* The manifest names the body file, so it goes first; the body and the
-       * catalogue then race each other. Fetching the catalogue before the
-       * body put 277 KB of wardrobe in front of the only thing on the
-       * critical path, on the page a first-time visitor lands on. */
-      const manifest = await loadJson<{ races: { race: number; genders: GenderBlock[] }[] }>(
-        `${BASE}/manifest.json`,
-      );
-      const g = manifest.races.find((x) => x.race === RACE)?.genders.find((x) => x.gender === GENDER);
-      if (!g) throw new Error("no body in the manifest");
-      const [body, catalogue] = await Promise.all([
-        cachedModel(`${BASE}/body/${bodyFile(g.model)}`),
-        loadJson<Catalogue>("/lab/doll/items/catalogue.json"),
-      ]);
+      /* Everything she needs to know — her gender block out of the manifest,
+       * her ten items out of the catalogue — is baked into one 3 KB file by
+       * `scripts/hero-bake.mjs`. The full manifest and catalogue are 1.9 MB
+       * between them, which is what made a first visit wait. Only the body
+       * geometry follows, and alone. */
+      const hero = await loadJson<{ g: GenderBlock; cat: Catalogue }>(`${BASE}/hero.json`);
+      const { g, cat: catalogue } = hero;
+      const body = await cachedModel(`${BASE}/body/${bodyFile(g.model)}`);
       if (!live) return;
 
       /* --- the look, resolved the way the bench resolves it --- */
