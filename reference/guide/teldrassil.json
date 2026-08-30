@@ -1,0 +1,211 @@
+{
+  "room": "teldrassil",
+  "sources": [
+    "https://warcraft.wiki.gg/wiki/Teldrassil",
+    "https://warcraft.wiki.gg/wiki/Kalidar",
+    "https://warcraft.wiki.gg/wiki/Oracle_Glade",
+    "https://warcraft.wiki.gg/wiki/Lake_Al%27Ameth",
+    "https://warcraft.wiki.gg/wiki/Ban%27ethil_Barrow_Den",
+    "https://warcraft.wiki.gg/wiki/Oben_Rageclaw",
+    "https://warcraft.wiki.gg/wiki/Gnarlpine_tribe"
+  ],
+  "roadEnds": [
+    "Shadowglen",
+    "Rut'theran"
+  ],
+  "seedWho": "Tari",
+  "cards": [
+    {
+      "id": "kalidar",
+      "kind": "before",
+      "form": "title",
+      "subject": "Kalidar",
+      "now": "Teldrassil",
+      "tag": "Before",
+      "lines": [
+        "It was called Kalidar on the preview site, the concept maps and the printed DVD.",
+        "The name was never fully removed — most of the objects you are walking over are still labelled with it in the files."
+      ],
+      "spoiler": false
+    },
+    {
+      "id": "the-refusal",
+      "kind": "before",
+      "form": "chip",
+      "subject": "The tree nobody blessed",
+      "tag": "Why it went wrong",
+      "lines": [
+        "Fandral grew it from Nordrassil's line to win back the immortality the night elves spent at Hyjal.",
+        "Nozdormu refused to bless it as he had blessed the first one.",
+        "The immortality never came. You are walking through a failed copy of a holy thing."
+      ],
+      "spoiler": false,
+      "t": 0.06,
+      "icon": "the-refusal"
+    },
+    {
+      "id": "the-tree",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "The tree you cannot see",
+      "tag": "It was never drawn",
+      "lines": [
+        "Metzen wanted the whole World Tree visible from the zone and the terrain engine could not do it.",
+        "What shipped is a flat playfield on a huge pillar with branches stuck out of the sides. You are not in a canopy, you are on a lid.",
+        "Aldrassil, the tree at Shadowglen, is the stand-in for the enormous one you are supposed to be inside."
+      ],
+      "spoiler": false,
+      "t": 0.14,
+      "icon": "the-tree"
+    },
+    {
+      "id": "no-ore",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "There is nothing under it",
+      "tag": "No mineral deposits at all",
+      "lines": [
+        "Not poor ore. None. There is nowhere in this zone a miner can work.",
+        "You are standing on wood, above an island, above the sea.",
+        "Herbs, on the other hand, are everywhere, because the whole zone is alive."
+      ],
+      "spoiler": false,
+      "t": 0.22,
+      "icon": "no-ore"
+    },
+    {
+      "id": "dew",
+      "kind": "look",
+      "form": "chip",
+      "subject": "The rivers are dew",
+      "tag": "There is no source spring",
+      "lines": [
+        "Every waterway here was made by, and is still fed by, dew the World Tree collects.",
+        "The tree condenses its own weather and the runoff becomes rivers.",
+        "The largest lake on it is a puddle on a leaf."
+      ],
+      "spoiler": false,
+      "t": 0.3,
+      "icon": "dew"
+    },
+    {
+      "id": "oracle-tree",
+      "kind": "look",
+      "form": "chip",
+      "subject": "The Oracle Tree",
+      "tag": "Northwest, in the glade",
+      "lines": [
+        "Its boughs are grown into the shape of a great eagle perched on top of a bear.",
+        "It was not carved. It was grown that way.",
+        "The moonwell beside it is the first and most powerful on the tree — the oldest thing up here."
+      ],
+      "spoiler": false,
+      "t": 0.4,
+      "icon": "oracle-tree"
+    },
+    {
+      "id": "nobody-knows",
+      "kind": "story",
+      "form": "chip",
+      "subject": "Nobody knows why",
+      "tag": "The investigation the game never closes",
+      "lines": [
+        "Furbolgs and grell go mad, satyrs appear, and the druids looking into it never find the cause.",
+        "Two of them are running an open investigation you can join and cannot finish.",
+        "The only physical evidence anybody has is fel moss on the bodies."
+      ],
+      "spoiler": false,
+      "t": 0.5,
+      "icon": "nobody-knows"
+    },
+    {
+      "id": "the-turtles",
+      "kind": "story",
+      "form": "chip",
+      "subject": "The turtles left",
+      "tag": "You can see it from the next zone",
+      "lines": [
+        "As the corruption spread, the giant turtles and threshers in the waters around the tree abandoned them.",
+        "They swam to Darkshore and beached themselves rather than stay.",
+        "The animals in the sea worked it out before the druids in the tree did."
+      ],
+      "spoiler": false,
+      "t": 0.58,
+      "icon": "the-turtles"
+    },
+    {
+      "id": "timberlings",
+      "kind": "look",
+      "form": "chip",
+      "subject": "Timberlings",
+      "tag": "Lake Al'Ameth",
+      "lines": [
+        "The shoreline is full of walking saplings grown from seeds off the trees above them.",
+        "There is a tent by the water where somebody is collecting the seeds, trying to work out what changed.",
+        "This is not something attacking the tree from outside. The tree's own children are what is coming at you."
+      ],
+      "spoiler": false,
+      "t": 0.66,
+      "icon": "timberlings"
+    },
+    {
+      "id": "ferocitas",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "Ferocitas the Dream Eater",
+      "tag": "The name is the only clue",
+      "lines": [
+        "The Gnarlpine have two named leaders. One is called the Mauler. The other is called the Dream Eater.",
+        "Nothing else in the zone points at the Emerald Dream, and this is a mob's name rather than a piece of evidence.",
+        "The furbolgs took the barrow den, which is where the dreaming bodies are."
+      ],
+      "spoiler": false,
+      "t": 0.74,
+      "icon": "ferocitas"
+    },
+    {
+      "id": "barrow-den",
+      "kind": "beware",
+      "form": "chip",
+      "subject": "Ban'ethil Barrow Den",
+      "tag": "Two levels, currently occupied",
+      "lines": [
+        "It was built as a sacred place to hold druids in hibernation.",
+        "The Gnarlpine hold it now, which makes it lethal ground for a night elf on their own.",
+        "This is not a dungeon. It is a bedroom, and somebody else is in it."
+      ],
+      "spoiler": false,
+      "t": 0.84,
+      "icon": "barrow-den"
+    },
+    {
+      "id": "oben",
+      "kind": "story",
+      "form": "grave",
+      "subject": "Oben Rageclaw",
+      "tag": "He is standing beside himself",
+      "lines": [
+        "A sleeping druid speaks to you as a ghost, next to his own body.",
+        "The body is being puppeted by the shaman occupying the den.",
+        "He asks you to destroy it. His spirit is stranded in the Dream and cannot rest until you do."
+      ],
+      "spoiler": true,
+      "t": 0.94,
+      "icon": "oben"
+    },
+    {
+      "id": "kalidar-bg",
+      "kind": "notice",
+      "form": "grave",
+      "subject": "The battleground called Kalidar",
+      "tag": "In the files, never opened",
+      "lines": [
+        "A complete battleground map under the zone's old name sits in the unused files, its satellite imagery intact.",
+        "It never shipped, was never named in-game, and nobody ever queued for it."
+      ],
+      "spoiler": true,
+      "t": 1.0,
+      "icon": "kalidar-bg"
+    }
+  ]
+}

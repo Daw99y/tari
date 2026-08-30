@@ -1,0 +1,188 @@
+{
+  "room": "ironforge",
+  "sources": [
+    "https://warcraft.wiki.gg/wiki/Ironforge",
+    "https://warcraft.wiki.gg/wiki/The_Skull_of_Tyrannistrasz",
+    "https://warcraft.wiki.gg/wiki/Library_(Ironforge)",
+    "https://warcraft.wiki.gg/wiki/Hall_of_Explorers",
+    "https://warcraft.wiki.gg/wiki/Old_Ironforge",
+    "https://warcraft.wiki.gg/wiki/War_of_the_Three_Hammers",
+    "https://warcraft.wiki.gg/wiki/Magni_Bronzebeard",
+    "https://warcraft.wiki.gg/wiki/Deeprun_Tram"
+  ],
+  "roadEnds": [
+    "The gates",
+    "The museum"
+  ],
+  "seedWho": "Tari",
+  "cards": [
+    {
+      "id": "three-clans",
+      "kind": "before",
+      "form": "title",
+      "subject": "A city of three clans",
+      "tag": "Before",
+      "lines": [
+        "Bronzebeard, Wildhammer and Dark Iron all lived in these halls under one high king.",
+        "You are standing in the winner's version of it."
+      ],
+      "spoiler": false
+    },
+    {
+      "id": "the-war",
+      "kind": "story",
+      "form": "chip",
+      "subject": "The War of the Three Hammers",
+      "tag": "It started over an empty throne",
+      "lines": [
+        "When the high king died the Dark Iron tried to take the city. All three clans went to war in these corridors.",
+        "The Bronzebeards won and threw the other two out.",
+        "Ironforge was damaged badly enough that it had to be rebuilt afterwards."
+      ],
+      "spoiler": false,
+      "t": 0.08,
+      "icon": "the-war"
+    },
+    {
+      "id": "thaurissan",
+      "kind": "story",
+      "form": "grave",
+      "subject": "Sorcerer-Thane Thaurissan",
+      "tag": "How Ragnaros got here",
+      "lines": [
+        "Losing the war, he cast a spell to pull fire to himself, and summoned the Firelord by mistake.",
+        "It killed him instantly and blew the land into what is now Blackrock Mountain and the Burning Steppes.",
+        "His clan survived and were enslaved by the thing he called."
+      ],
+      "spoiler": false,
+      "t": 0.16,
+      "icon": "thaurissan"
+    },
+    {
+      "id": "great-forge",
+      "kind": "story",
+      "form": "chip",
+      "subject": "The Great Forge",
+      "tag": "The forge came first",
+      "lines": [
+        "The dwarves built it as an altar to the titan who made them, and the city grew around it afterwards.",
+        "Ironforge is named for the forge, not the other way round.",
+        "Everything else radiates out from it in rings, going deeper as it goes out."
+      ],
+      "spoiler": false,
+      "t": 0.28,
+      "icon": "great-forge"
+    },
+    {
+      "id": "old-ironforge",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "Old Ironforge",
+      "tag": "Sealed, under the throne",
+      "lines": [
+        "There is a chamber below the High Seat that was built into the game and then simply closed.",
+        "The doors do not open. They stay shut for six years.",
+        "The only people who ever saw inside got there by exploit."
+      ],
+      "spoiler": false,
+      "t": 0.36,
+      "icon": "old-ironforge"
+    },
+    {
+      "id": "tinker-town",
+      "kind": "story",
+      "form": "chip",
+      "subject": "Tinker Town",
+      "tag": "A refugee camp with a train station",
+      "lines": [
+        "The gnomes are here because Gnomeregan is gone. They irradiated their own city and Magni gave them room in his.",
+        "The tram station is in their quarter because they are the ones who dug it.",
+        "It is the only district in any capital that belongs to a homeless people."
+      ],
+      "spoiler": false,
+      "t": 0.44,
+      "icon": "tinker-town"
+    },
+    {
+      "id": "the-tram",
+      "kind": "look",
+      "form": "chip",
+      "subject": "The window halfway",
+      "tag": "Stand up on the tram",
+      "lines": [
+        "The middle stretch runs under a lake behind glass, and there is something large out there in the dark.",
+        "Sharks, naga, a giant clam, a shipwreck, and a diver.",
+        "Nearly everybody sits down and looks at the floor for the whole ride."
+      ],
+      "spoiler": false,
+      "t": 0.52,
+      "seed": {
+        "body": "Stand at the glass on the tram instead of sitting. There is a whole scene out there in the water."
+      },
+      "icon": "the-tram"
+    },
+    {
+      "id": "moira",
+      "kind": "story",
+      "form": "grave",
+      "subject": "Moira Bronzebeard",
+      "tag": "The king's only child",
+      "lines": [
+        "She was taken by the Dark Iron emperor and is held in Blackrock Depths.",
+        "When adventurers kill him she refuses to come home. She is carrying his child.",
+        "Magni rules here without an heir who will speak to him."
+      ],
+      "spoiler": true,
+      "t": 0.6,
+      "icon": "moira"
+    },
+    {
+      "id": "the-museum",
+      "kind": "look",
+      "form": "chip",
+      "subject": "The Hall of Explorers",
+      "tag": "Everything in it is labelled",
+      "lines": [
+        "The exhibits are not scenery. They are named objects with plaques, and a curator who looks after them.",
+        "Fossilised eggs, a pterodon skeleton, an astrolabe, a horn that belonged to a specific animal with a name.",
+        "There is also a back room of things not on display."
+      ],
+      "spoiler": false,
+      "t": 0.75,
+      "seed": {
+        "body": "Read the plaques in the Hall of Explorers. They are all written, and almost nobody has ever read one."
+      },
+      "icon": "the-museum"
+    },
+    {
+      "id": "tyrannistrasz",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "The Skull of Tyrannistrasz",
+      "tag": "The dragon skull, and its plaque",
+      "lines": [
+        "It is not a generic dragon. The plaque names him and says he was rumoured to be the elder consort of the Dragonqueen.",
+        "He was dug out of the Wetlands after the battle at Grim Batol.",
+        "His name is misspelled on the exhibit and stays misspelled for years."
+      ],
+      "spoiler": false,
+      "t": 0.85,
+      "icon": "tyrannistrasz"
+    },
+    {
+      "id": "uldaman",
+      "kind": "story",
+      "form": "grave",
+      "subject": "The Uldaman finds",
+      "tag": "Two cases at the back",
+      "lines": [
+        "The Explorers' League digs for dwarven heritage rather than ore, and this is the room the answers come back to.",
+        "Two of the cases hold what they brought out of Uldaman.",
+        "What Uldaman says about where dwarves came from is not the story the dwarves grew up with."
+      ],
+      "spoiler": true,
+      "t": 0.95,
+      "icon": "uldaman"
+    }
+  ]
+}

@@ -1,0 +1,204 @@
+{
+  "room": "orgrimmar",
+  "sources": [
+    "https://warcraft.wiki.gg/wiki/Orgrimmar",
+    "https://warcraft.wiki.gg/wiki/Grommash_Hold",
+    "https://warcraft.wiki.gg/wiki/Valley_of_Wisdom",
+    "https://warcraft.wiki.gg/wiki/Cleft_of_Shadow",
+    "https://warcraft.wiki.gg/wiki/The_Drag",
+    "https://warcraft.wiki.gg/wiki/Ring_of_Valor",
+    "https://warcraft.wiki.gg/wiki/Ragefire_Chasm",
+    "https://warcraft.wiki.gg/wiki/Hall_of_Legends",
+    "https://warcraft.wiki.gg/wiki/Orgrim_Doomhammer",
+    "https://warcraft.wiki.gg/wiki/Durotar",
+    "https://warcraft.wiki.gg/wiki/Doras",
+    "https://warcraft.wiki.gg/wiki/Ahn'Qiraj_War_Effort"
+  ],
+  "roadEnds": [
+    "The gate",
+    "Grommash Hold"
+  ],
+  "seedWho": "Tari",
+  "cards": [
+    {
+      "id": "the-camps",
+      "kind": "before",
+      "form": "title",
+      "subject": "The camps",
+      "tag": "Before",
+      "lines": [
+        "The generation that laid these stones was largely the generation that came out of Alliance internment.",
+        "This is the first city the orcs ever built for themselves on this world."
+      ],
+      "spoiler": false
+    },
+    {
+      "id": "the-names",
+      "kind": "story",
+      "form": "chip",
+      "subject": "Two dead men",
+      "tag": "Durotar · Orgrimmar",
+      "lines": [
+        "Doomhammer died at Hammerfall with a lance through his back plate, breaking orcs out of the camps.",
+        "He handed everything over first: \"Yours is the title of warchief, Thrall, son of Durotan.\"",
+        "The land is named for Thrall's father and the city for his mentor. Both dead, both put into the ground as names."
+      ],
+      "spoiler": false,
+      "t": 0.08,
+      "icon": "the-names"
+    },
+    {
+      "id": "hall-of-legends",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "The Hall of Legends",
+      "tag": "A door almost nobody opened",
+      "lines": [
+        "The officers' hall over the Valley of Strength. In vanilla the portal only admits players above a certain rank.",
+        "Inside: maps of Azeroth, faction representatives at a table, and a book of the old ranks.",
+        "For the whole of vanilla it is a wall to nearly everyone who walks past it."
+      ],
+      "spoiler": false,
+      "t": 0.16,
+      "icon": "hall-of-legends"
+    },
+    {
+      "id": "doras",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "The wind rider master is on a tower",
+      "tag": "No skyway, no roost",
+      "lines": [
+        "The roost people picture does not exist yet. In 1.12 the flight master stands on a wooden zeppelin tower inside the walls.",
+        "No zeppelin ever docks at it.",
+        "The real zeppelins are outside the city, out in Durotar."
+      ],
+      "spoiler": false,
+      "t": 0.24,
+      "icon": "doras"
+    },
+    {
+      "id": "ring-of-valor",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "The Ring of Valor",
+      "tag": "An arena that never held a fight",
+      "lines": [
+        "It is scenery. The developers planned events for it and the events never happened.",
+        "It does not become a real arena for another two expansions.",
+        "People duel in it anyway, because they decided to."
+      ],
+      "spoiler": false,
+      "t": 0.34,
+      "icon": "ring-of-valor"
+    },
+    {
+      "id": "the-drag",
+      "kind": "look",
+      "form": "chip",
+      "subject": "The Drag",
+      "tag": "Never gets sun",
+      "lines": [
+        "It runs against a canyon wall between two valleys and is permanently in shadow. The wiki calls it a less than savoury part of the city.",
+        "Every crafting trade lives down there — leather, alchemy, tailoring, cooking.",
+        "The trades happen in the dark alley, not the plaza."
+      ],
+      "spoiler": false,
+      "t": 0.44,
+      "icon": "the-drag"
+    },
+    {
+      "id": "cleft-of-shadow",
+      "kind": "look",
+      "form": "chip",
+      "subject": "The Cleft of Shadow",
+      "tag": "Look up while you are down there",
+      "lines": [
+        "The rogues, warlocks and mages are in a sunken cleft with a hole at the bottom of it.",
+        "In vanilla the cleft is still open to the air.",
+        "The patch note that closes it later reads, in full: \"No longer see sky.\""
+      ],
+      "spoiler": false,
+      "t": 0.52,
+      "seed": {
+        "body": "Stand at the bottom of the Cleft of Shadow and look straight up. You can still see sky down there. Later you can't."
+      },
+      "icon": "cleft-of-shadow"
+    },
+    {
+      "id": "ragefire",
+      "kind": "story",
+      "form": "chip",
+      "subject": "Ragefire Chasm",
+      "tag": "Under the Valley of Strength",
+      "lines": [
+        "The dungeon is not near the city. It is inside it, through a hole in the Cleft of Shadow.",
+        "The Searing Blade are summoning demons directly beneath the capital.",
+        "Everybody standing in the plaza is standing on it."
+      ],
+      "spoiler": false,
+      "t": 0.6,
+      "icon": "ragefire"
+    },
+    {
+      "id": "neeru",
+      "kind": "story",
+      "form": "grave",
+      "subject": "Neeru Fireblade",
+      "tag": "In the open, beside the hole",
+      "lines": [
+        "The orc standing next to the entrance to Ragefire Chasm leads the cult inside it.",
+        "He sends Thrall's own people down to test the cultists' worthiness.",
+        "Nobody arrests him. He is still there."
+      ],
+      "spoiler": true,
+      "t": 0.68,
+      "icon": "neeru"
+    },
+    {
+      "id": "war-effort",
+      "kind": "story",
+      "form": "chip",
+      "subject": "The war effort",
+      "tag": "The Valley of Spirits, patch 1.9",
+      "lines": [
+        "For a few weeks the whole server hauled tin, mithril, peacebloom, leather, wolf steaks and bandages into one valley of one city.",
+        "An officer took the signets and read out the running totals, and you could ask how Stormwind was doing.",
+        "If you are standing there, that is the room it happened in."
+      ],
+      "spoiler": false,
+      "t": 0.78,
+      "icon": "war-effort"
+    },
+    {
+      "id": "mannoroth",
+      "kind": "look",
+      "form": "chip",
+      "subject": "Mannoroth's armour",
+      "tag": "On a tree outside Thrall's door",
+      "lines": [
+        "The pit lord's armour rests on a tree trunk in the Valley of Wisdom, with a plaque about the escape from the demonic curse.",
+        "Grom Hellscream killed him and died doing it. The hold behind the tree carries Grom's name.",
+        "It is removed in the expansion after this one. Right now it is still hanging there."
+      ],
+      "spoiler": false,
+      "t": 0.9,
+      "icon": "mannoroth"
+    },
+    {
+      "id": "grommash-hold",
+      "kind": "story",
+      "form": "chip",
+      "subject": "Grommash Hold",
+      "tag": "The Valley of Wisdom, not the front gate",
+      "lines": [
+        "Thick stone, no windows, at the far end of the city rather than beside the entrance.",
+        "Thrall holds court inside it in Doomhammer's black plate, carrying Doomhammer's hammer.",
+        "He rules from a room named for one dead man, wearing another's armour, with a third's trophy on the tree outside."
+      ],
+      "spoiler": false,
+      "t": 1.0,
+      "icon": "grommash-hold"
+    }
+  ]
+}

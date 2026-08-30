@@ -1,0 +1,214 @@
+{
+  "room": "dun-morogh",
+  "sources": [
+    "https://warcraft.wiki.gg/wiki/Dun_Morogh",
+    "https://warcraft.wiki.gg/wiki/Coldridge_Valley",
+    "https://warcraft.wiki.gg/wiki/Anvilmar",
+    "https://warcraft.wiki.gg/wiki/Gnomeregan",
+    "https://warcraft.wiki.gg/wiki/Frostmane",
+    "https://warcraft.wiki.gg/wiki/Iceflow_Lake",
+    "https://warcraft.wiki.gg/wiki/Ironforge_Airfield",
+    "https://warcraft.wiki.gg/wiki/Newman%27s_Landing",
+    "https://warcraft.wiki.gg/wiki/Amberstill_Ranch",
+    "https://warcraft.wiki.gg/wiki/Gol%27Bolar_Quarry",
+    "https://warcraft.wiki.gg/wiki/Wendigo_(mob)"
+  ],
+  "roadEnds": [
+    "Coldridge",
+    "North Gate"
+  ],
+  "seedWho": "Tari",
+  "cards": [
+    {
+      "id": "one-zone",
+      "kind": "before",
+      "form": "title",
+      "subject": "One zone, once",
+      "tag": "Before",
+      "lines": [
+        "Dun Morogh and Loch Modan were designed as a single place and then cut in half.",
+        "Walk east through the pass and the snow simply stops."
+      ],
+      "spoiler": false
+    },
+    {
+      "id": "frostmane",
+      "kind": "story",
+      "form": "chip",
+      "subject": "The Frostmane",
+      "tag": "This was their country",
+      "lines": [
+        "They ruled these lands before the dwarven armies came.",
+        "What is left of an empire: a cave, a hovel and a ridge.",
+        "Every troll you kill here is a survivor of a conquest."
+      ],
+      "spoiler": false,
+      "t": 0.08,
+      "icon": "frostmane"
+    },
+    {
+      "id": "coldridge",
+      "kind": "story",
+      "form": "chip",
+      "subject": "There is no gnome starting zone",
+      "tag": "Anvilmar",
+      "lines": [
+        "A gnome opens their eyes in a dwarven hall, in a dwarven valley, and runs the dwarven quests.",
+        "The only concession is a gnome mage and warlock trainer standing among the dwarves.",
+        "They have nowhere else. Their city is behind them and it is full of radiation."
+      ],
+      "spoiler": false,
+      "t": 0.16,
+      "icon": "coldridge"
+    },
+    {
+      "id": "gnomeregan",
+      "kind": "story",
+      "form": "grave",
+      "subject": "Eighty percent, in days",
+      "tag": "What happened under the mountain",
+      "lines": [
+        "Digging woke the troggs, the troggs came up under the city, and the order went out to flood the lower levels with radiation.",
+        "The game's own manual puts it at nearly eighty percent of gnomekind dead within days.",
+        "It empowered many of the troggs rather than killing them. The survivors are the gnomes standing in Ironforge."
+      ],
+      "spoiler": true,
+      "t": 0.24,
+      "icon": "gnomeregan"
+    },
+    {
+      "id": "anvilmar",
+      "kind": "before",
+      "form": "chip",
+      "subject": "Anvilmar",
+      "tag": "Anvil Marr, in the beta",
+      "lines": [
+        "The hall you are born in is probably named for the last king of the united dwarves.",
+        "It has a large forge and no tradeskill trainers at all. The forge is scenery.",
+        "In early beta the name was spelled as two words."
+      ],
+      "spoiler": false,
+      "t": 0.32,
+      "icon": "anvilmar"
+    },
+    {
+      "id": "iceflow",
+      "kind": "look",
+      "form": "chip",
+      "subject": "Somebody keeps the hole open",
+      "tag": "Iceflow Lake",
+      "lines": [
+        "The lake is frozen solid and the dwarves keep one hole clear in it for fresh water and for fishing.",
+        "It is maintained. Someone goes out and breaks it open again.",
+        "There is a wolf pack on the islands in the middle, led by a worg."
+      ],
+      "spoiler": false,
+      "t": 0.4,
+      "icon": "iceflow"
+    },
+    {
+      "id": "grizzled-den",
+      "kind": "beware",
+      "form": "chip",
+      "subject": "The Grizzled Den",
+      "tag": "The name promises bears",
+      "lines": [
+        "It is a cave in the west of the zone and the name is about grizzlies.",
+        "What lives in it are wendigos, which breathe frost.",
+        "Nothing in the zone corrects the name."
+      ],
+      "spoiler": false,
+      "t": 0.48,
+      "icon": "grizzled-den"
+    },
+    {
+      "id": "amberstill",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "Amberstill Ranch",
+      "tag": "The only rams in the world",
+      "lines": [
+        "A stable, a riding trainer and a mount vendor, off the Loch Modan road.",
+        "This is where the rams are, and only dwarves may buy one. Everybody else has to earn Ironforge's trust first.",
+        "She also sells a rabbit in a crate."
+      ],
+      "spoiler": false,
+      "t": 0.56,
+      "icon": "amberstill"
+    },
+    {
+      "id": "vagash",
+      "kind": "beware",
+      "form": "chip",
+      "subject": "Vagash",
+      "tag": "The one taking the rams",
+      "lines": [
+        "The herd is being killed by a single wendigo with a name.",
+        "It is why a ram ranch in a starting zone needs adventurers at level ten."
+      ],
+      "spoiler": false,
+      "t": 0.62,
+      "icon": "vagash"
+    },
+    {
+      "id": "golbolar",
+      "kind": "look",
+      "form": "chip",
+      "subject": "Gol'Bolar Quarry",
+      "tag": "The dig that stopped",
+      "lines": [
+        "The troggs have overrun the excavation and the mine under it.",
+        "The dwarves have not abandoned it. They are still standing there, still calling it a quarry.",
+        "Their own mine is full of what came out of the ground."
+      ],
+      "spoiler": false,
+      "t": 0.7,
+      "icon": "golbolar"
+    },
+    {
+      "id": "the-airfield",
+      "kind": "notice",
+      "form": "grave",
+      "subject": "The airfield",
+      "tag": "It has no name",
+      "lines": [
+        "Northeast of Ironforge, in its own valley: two landing strips, hangars, flying machines, gnomes at work.",
+        "In vanilla it has no subzone name at all. Stand in it and the location text stays blank.",
+        "There is no road and no flight path to it. Getting there means climbing the mountain wall."
+      ],
+      "spoiler": true,
+      "t": 0.82,
+      "icon": "the-airfield"
+    },
+    {
+      "id": "newmans-landing",
+      "kind": "look",
+      "form": "grave",
+      "subject": "Newman's Landing",
+      "tag": "Not drawn on the map",
+      "lines": [
+        "Behind the mountains on the western coast: one dilapidated human house and a dock. No road leads to it.",
+        "There are orc skeletons in piles, and a skull on a signpost with an axe through it.",
+        "The weather there is not the weather anywhere else in the zone."
+      ],
+      "spoiler": true,
+      "t": 0.9,
+      "icon": "newmans-landing"
+    },
+    {
+      "id": "the-snow",
+      "kind": "look",
+      "form": "chip",
+      "subject": "It never stops",
+      "tag": "One of the few zones with permanent snowfall",
+      "lines": [
+        "A distillery, a ram ranch, an open quarry, a lake with a hole cut in it, and a hall where children are handed axes.",
+        "It snows over all of it, without season, the entire time.",
+        "Nobody in the zone remarks on it."
+      ],
+      "spoiler": false,
+      "t": 1.0,
+      "icon": "the-snow"
+    }
+  ]
+}

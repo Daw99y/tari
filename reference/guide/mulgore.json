@@ -1,0 +1,183 @@
+{
+  "room": "mulgore",
+  "sources": [
+    "https://warcraft.wiki.gg/wiki/Mulgore",
+    "https://warcraft.wiki.gg/wiki/Rites_of_the_Earthmother",
+    "https://warcraft.wiki.gg/wiki/Arra%27chea",
+    "https://warcraft.wiki.gg/wiki/Red_Rocks",
+    "https://warcraft.wiki.gg/wiki/Bloodhoof_Village",
+    "https://warcraft.wiki.gg/wiki/Bael%27dun_Digsite",
+    "https://warcraft.wiki.gg/wiki/Ravaged_Caravan",
+    "https://warcraft.wiki.gg/wiki/Wildmane_Water_Well",
+    "https://warcraft.wiki.gg/wiki/Windfury_Ridge"
+  ],
+  "roadEnds": [
+    "Narache",
+    "Red Rocks"
+  ],
+  "seedWho": "Tari",
+  "cards": [
+    {
+      "id": "the-wandering",
+      "kind": "before",
+      "form": "title",
+      "subject": "The wandering",
+      "tag": "Before",
+      "lines": [
+        "Centuries of following the kodo herds with no fixed home, after losing the grassland that is now called Desolace.",
+        "They took this valley back from the centaur with orc help, and stopped."
+      ],
+      "spoiler": false
+    },
+    {
+      "id": "three-rites",
+      "kind": "story",
+      "form": "chip",
+      "subject": "The Rites of the Earthmother",
+      "tag": "The zone is one ceremony",
+      "lines": [
+        "Strength, Vision, Wisdom. They are not a starter chain that ends at level six — they run from two to fourteen, from the mesa to Thunder Bluff.",
+        "Walking Mulgore is the rite.",
+        "All of it was deleted from the modern game. It exists only here now."
+      ],
+      "spoiler": false,
+      "t": 0.08,
+      "icon": "three-rites"
+    },
+    {
+      "id": "arrachea",
+      "kind": "look",
+      "form": "chip",
+      "subject": "Arra'chea",
+      "tag": "The last rite is a hunt",
+      "lines": [
+        "Cairne sends you to kill one specific kodo and bring back his horn.",
+        "Arra'chea does not stand in a camp. He walks a clockwise circuit of the entire valley, which is why people hunt for twenty minutes and decide he is dead.",
+        "The horn was once sought by Cairne himself. You are repeating something he did."
+      ],
+      "spoiler": true,
+      "t": 0.18,
+      "icon": "arrachea"
+    },
+    {
+      "id": "baine",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "Baine, before he was anyone",
+      "tag": "Bloodhoof Village",
+      "lines": [
+        "He hands you the Rite of Vision at level five and tells you to go and talk to the shaman.",
+        "Cairne's son, in a village of maybe fifteen buildings.",
+        "Everything he later becomes is not in this game yet. Stand next to him and he is an NPC with a yellow mark."
+      ],
+      "spoiler": false,
+      "t": 0.28,
+      "icon": "baine"
+    },
+    {
+      "id": "the-dwarves",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "There are dwarves in Mulgore",
+      "tag": "The Bael'dun Digsite",
+      "lines": [
+        "An Explorers' Guild excavation, running supply, in the tauren starting zone.",
+        "The village's answer at level eight is to send a teenager to interfere with it.",
+        "Most tauren players have no memory of dwarves being here at all."
+      ],
+      "spoiler": false,
+      "t": 0.4,
+      "icon": "the-dwarves"
+    },
+    {
+      "id": "kodo-and-drums",
+      "kind": "story",
+      "form": "chip",
+      "subject": "Bloodhoof makes two things",
+      "tag": "A dozen tents on a lake",
+      "lines": [
+        "This is the principal place wild kodo are tamed and sold. Every tauren riding one anywhere in the world got it here.",
+        "It is also known for its drums, which the wiki says are unlike any others.",
+        "A settlement this size supplies the Horde's mounts and its drums."
+      ],
+      "spoiler": false,
+      "t": 0.5,
+      "icon": "kodo-and-drums"
+    },
+    {
+      "id": "harpy-feathers",
+      "kind": "story",
+      "form": "chip",
+      "subject": "What the feathers are for",
+      "tag": "Windfury Ridge",
+      "lines": [
+        "The harpies in the far north drop out of the sky at you, and Thunder Bluff hunts them for their plumage.",
+        "The plumage is used at weddings and feasts.",
+        "The most hostile corner of the most peaceful zone exists so that people can decorate a wedding."
+      ],
+      "spoiler": false,
+      "t": 0.6,
+      "icon": "harpy-feathers"
+    },
+    {
+      "id": "wildmane",
+      "kind": "look",
+      "form": "chip",
+      "subject": "Wildmane Water Well",
+      "tag": "The northernmost sacred well",
+      "lines": [
+        "The Venture Company seized it — not to mine it, to hold the water.",
+        "The tauren ran them off.",
+        "That is the whole northern half of this zone in one sentence: goblins reaching for the water, tauren pushing back."
+      ],
+      "spoiler": false,
+      "t": 0.68,
+      "icon": "wildmane"
+    },
+    {
+      "id": "ravaged-caravan",
+      "kind": "look",
+      "form": "chip",
+      "subject": "The Ravaged Caravan",
+      "tag": "Stonebull Lake",
+      "lines": [
+        "A wrecked Venture Company camp on the shore, still smoking, still defended.",
+        "The tauren destroyed it and nobody cleaned it up.",
+        "It is the only place in Mulgore that looks like something bad happened, and it is on the prettiest lake in the zone."
+      ],
+      "spoiler": false,
+      "t": 0.78,
+      "icon": "ravaged-caravan"
+    },
+    {
+      "id": "one-pass",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "One way out",
+      "tag": "Walled on every side",
+      "lines": [
+        "Mountains all the way round and a single pass east into the Barrens. No boat, no zeppelin, no dungeon, no second exit.",
+        "There is no flight master anywhere but Thunder Bluff. Everything else you walk, and the valley is flat and enormous.",
+        "It is the most peaceful zone in the game and the one people leave fastest, and those are the same fact."
+      ],
+      "spoiler": false,
+      "t": 0.88,
+      "icon": "one-pass"
+    },
+    {
+      "id": "red-rocks",
+      "kind": "look",
+      "form": "grave",
+      "subject": "Red Rocks",
+      "tag": "Where the tauren burn their dead",
+      "lines": [
+        "Only the most valiant are laid to rest here.",
+        "Quilboar had moved in and fouled it, which is why the rite involves clearing them out.",
+        "Your coming of age finishes on the funeral ground."
+      ],
+      "spoiler": false,
+      "t": 1.0,
+      "icon": "red-rocks"
+    }
+  ]
+}

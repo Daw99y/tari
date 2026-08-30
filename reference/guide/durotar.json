@@ -1,0 +1,184 @@
+{
+  "room": "durotar",
+  "sources": [
+    "https://warcraft.wiki.gg/wiki/Durotar",
+    "https://warcraft.wiki.gg/wiki/Durotan",
+    "https://warcraft.wiki.gg/wiki/Zalazane",
+    "https://warcraft.wiki.gg/wiki/Echo_Isles",
+    "https://warcraft.wiki.gg/wiki/Sen%27jin_Village",
+    "https://warcraft.wiki.gg/wiki/Tiragarde_Keep",
+    "https://warcraft.wiki.gg/wiki/Thunder_Ridge",
+    "https://warcraft.wiki.gg/wiki/Valley_of_Trials",
+    "https://warcraft.wiki.gg/wiki/Skull_Rock",
+    "https://warcraft.wiki.gg/wiki/Razor_Hill"
+  ],
+  "roadEnds": [
+    "The Den",
+    "Sen'jin"
+  ],
+  "seedWho": "Tari",
+  "cards": [
+    {
+      "id": "the-barrens",
+      "kind": "before",
+      "form": "title",
+      "subject": "The eastern Barrens",
+      "tag": "Before",
+      "lines": [
+        "This ground had no name of its own. It was the edge of the Barrens, held by quilboar.",
+        "Thrall chose it because the rock was red and cracked and dry, and it looked like Draenor."
+      ],
+      "spoiler": false
+    },
+    {
+      "id": "durotan",
+      "kind": "story",
+      "form": "chip",
+      "subject": "Durotan",
+      "tag": "A man Thrall never met",
+      "lines": [
+        "His father, assassinated by Gul'dan's agents when Thrall was a newborn. The killers cut off his arms so he could not hold his son.",
+        "Durotan was a Frostwolf. A chieftain of snow and ice.",
+        "Thrall named the hottest, driest red rock in Kalimdor after him."
+      ],
+      "spoiler": false,
+      "t": 0.06,
+      "icon": "durotan"
+    },
+    {
+      "id": "valley-of-trials",
+      "kind": "look",
+      "form": "chip",
+      "subject": "The Valley of Trials",
+      "tag": "A demon cult in the nursery",
+      "lines": [
+        "The first place any orc stands in the world has the Burning Blade living in caves at the north end of it.",
+        "It is a proving ground and the terms are not softened: those who fail are left to bake in the sun.",
+        "There is exactly one way out."
+      ],
+      "spoiler": false,
+      "t": 0.14,
+      "icon": "valley-of-trials"
+    },
+    {
+      "id": "the-blade",
+      "kind": "story",
+      "form": "chip",
+      "subject": "They cannot find them",
+      "tag": "The Burning Blade",
+      "lines": [
+        "Cells in the starting valley, cells at Skull Rock, cells burning Thunder Ridge. Skull Rock is only one of several holdouts.",
+        "There is an orc at Razor Hill whose whole job is investigating them, and he never catches up.",
+        "The zone's real antagonist is a demon cult the Horde cannot get out of its own front yard."
+      ],
+      "spoiler": false,
+      "t": 0.24,
+      "icon": "the-blade"
+    },
+    {
+      "id": "thunder-ridge",
+      "kind": "before",
+      "form": "chip",
+      "subject": "Thunder Ridge",
+      "tag": "This was woodland",
+      "lines": [
+        "Ancient forest, with herds of thunder lizards living in it.",
+        "Kul Tiras loggers cut it and the Burning Blade finished the job with demonic magic.",
+        "What is left is bare ridge and lizards with nowhere to be."
+      ],
+      "spoiler": false,
+      "t": 0.34,
+      "icon": "thunder-ridge"
+    },
+    {
+      "id": "razor-hill",
+      "kind": "look",
+      "form": "chip",
+      "subject": "Razor Hill",
+      "tag": "Named for nothing",
+      "lines": [
+        "It is not named after anybody. The name comes from the terrain.",
+        "There were two separate things here in Warcraft III — a meeting point and a barracks north of it — and they were probably merged into one town.",
+        "Its biggest building is still the barracks."
+      ],
+      "spoiler": false,
+      "t": 0.44,
+      "icon": "razor-hill"
+    },
+    {
+      "id": "tiragarde",
+      "kind": "look",
+      "form": "chip",
+      "subject": "Tiragarde Keep",
+      "tag": "Taking orders from a dead man",
+      "lines": [
+        "Daelin Proudmoore built it during his invasion, in breach of the peace. The Horde killed him and took it.",
+        "It is still garrisoned. An officer found special orders among the dead admiral's effects and came back to hold the ruins.",
+        "Kul Tiras marines are patrolling crumbling walls on the Horde's own coast, prosecuting a war whose commander died years ago."
+      ],
+      "spoiler": false,
+      "t": 0.56,
+      "icon": "tiragarde"
+    },
+    {
+      "id": "senjin",
+      "kind": "story",
+      "form": "chip",
+      "subject": "Sen'jin Village",
+      "tag": "A refugee camp with a father's name",
+      "lines": [
+        "Sen'jin was Vol'jin's father. He died saving his people from murlocs, and Vol'jin named the village for him.",
+        "It is not a home. It is where the Darkspear ended up.",
+        "Three very small huts, two small huts, one big one, and a dock."
+      ],
+      "spoiler": false,
+      "t": 0.68,
+      "icon": "senjin"
+    },
+    {
+      "id": "zalazane",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "Zalazane",
+      "tag": "Still standing on the island",
+      "lines": [
+        "The witch doctor who enslaved the Darkspear with voodoo and drove them onto the mainland is alive, on the main isle, surrounded by undead trolls.",
+        "He fooled adventurers for years — the heads brought back were painted rocks, coconuts, or an enslaved Darkspear's.",
+        "Nothing in this game kills him. The Isles are not retaken."
+      ],
+      "spoiler": false,
+      "t": 0.8,
+      "icon": "zalazane"
+    },
+    {
+      "id": "the-swim",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "You have to swim",
+      "tag": "No boat, no flight path, no quest hub",
+      "lines": [
+        "There is no way to the Echo Isles except into the water.",
+        "Most players leave Durotar at ten and never once look south from the dock.",
+        "The Darkspear can see the home they lost from their own beach, every day."
+      ],
+      "spoiler": false,
+      "t": 0.9,
+      "icon": "the-swim"
+    },
+    {
+      "id": "the-coast",
+      "kind": "look",
+      "form": "chip",
+      "subject": "The coast nobody walks",
+      "tag": "The whole eastern edge",
+      "lines": [
+        "The levelling road never touches the water. People run it and leave.",
+        "The two most interesting things in this zone — an Alliance keep and a traitor's island — are both out on a shore most Horde characters never see.",
+        "There is almost nothing here that casts a shadow. Orgrimmar's walls are the first real shade in the zone."
+      ],
+      "spoiler": false,
+      "t": 1.0,
+      "icon": "the-coast"
+    }
+  ]
+}

@@ -1,0 +1,287 @@
+{
+  "room": "shadowfang-keep",
+  "sources": [
+    "https://warcraft.wiki.gg/wiki/Shadowfang_Keep_(Classic)",
+    "https://warcraft.wiki.gg/wiki/Book_of_Ur",
+    "https://warcraft.wiki.gg/wiki/Sorcerer_Ashcrombe",
+    "https://warcraft.wiki.gg/wiki/What_Lies_Beyond",
+    "https://warcraft.wiki.gg/wiki/Tormented_Officer",
+    "https://warcraft.wiki.gg/wiki/Wailing_Guardsman",
+    "https://warcraft.wiki.gg/wiki/Haunted_Servitor",
+    "https://warcraft.wiki.gg/wiki/Fel_Steed",
+    "https://warcraft.wiki.gg/wiki/Deathstalker_Vincent",
+    "https://warcraft.wiki.gg/wiki/Deathsworn_Captain",
+    "https://warcraft.wiki.gg/wiki/Odo_the_Blindwatcher",
+    "https://warcraft.wiki.gg/wiki/Fenrus_the_Devourer",
+    "https://warcraft.wiki.gg/wiki/Archmage_Arugal",
+    "https://warcraft.wiki.gg/wiki/Baron_Silverlaine",
+    "https://warcraft.wiki.gg/wiki/Pyrewood_Village",
+    "https://warcraft.wiki.gg/wiki/Son_of_Arugal"
+  ],
+  "roadEnds": [
+    "The hall",
+    "Arugal"
+  ],
+  "seedWho": "Tari",
+  "cards": [
+    {
+      "id": "silverlaine-keep",
+      "kind": "before",
+      "form": "title",
+      "subject": "Silverlaine Keep",
+      "tag": "Before",
+      "lines": [
+        "It was a nobleman's house, and the man is still in it.",
+        "Shadowfang is the name it got afterwards."
+      ],
+      "spoiler": false,
+      "now": "Shadowfang Keep"
+    },
+    {
+      "id": "book-of-ur",
+      "kind": "story",
+      "form": "chip",
+      "subject": "The Book of Ur",
+      "tag": "A warning, read as a recipe",
+      "lines": [
+        "Ur was a Dalaran mage who catalogued things from outside the world. He studied the worgen and wrote them up.",
+        "His conclusion: no pact may be struck, no secrets learned, no good can come from these beasts.",
+        "Arugal read it and summoned them anyway."
+      ],
+      "spoiler": false,
+      "t": 0.05,
+      "seed": {
+        "body": "The book is in here. Somebody wrote down exactly why not to do this and it did not help at all."
+      },
+      "icon": "book-of-ur"
+    },
+    {
+      "id": "the-household",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "The household",
+      "tag": "Haunted Servitor · Wailing Guardsman · Tormented Officer",
+      "lines": [
+        "Read the names of the things you are killing. The servants, the guards and the officers are all still here, still at their posts.",
+        "The guardsmen still guard. Their scream cuts a spellcast in half.",
+        "That noise in the halls is the staff."
+      ],
+      "spoiler": false,
+      "t": 0.12,
+      "icon": "the-household"
+    },
+    {
+      "id": "forsaken-skills",
+      "kind": "beware",
+      "form": "chip",
+      "subject": "Forsaken Skills",
+      "tag": "Tormented Officer · Classic only",
+      "lines": [
+        "It does not touch your stats. It takes one hundred points off a single skill for five minutes.",
+        "You start missing with your own sword and nothing on your screen says why.",
+        "Retail replaced it with a tidy percentage. This is the original."
+      ],
+      "spoiler": false,
+      "t": 0.18,
+      "icon": "forsaken-skills"
+    },
+    {
+      "id": "ten",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "Ten, not five",
+      "tag": "The cap since patch 1.3.0",
+      "lines": [
+        "Every dungeon up to Maraudon holds ten people.",
+        "Nothing inside scales. Ten is simply ten.",
+        "Almost nobody ever brings them."
+      ],
+      "spoiler": false,
+      "t": 0.24,
+      "icon": "ten"
+    },
+    {
+      "id": "ashcrombe",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "Sorcerer Ashcrombe",
+      "tag": "Kirin Tor · in a cell",
+      "lines": [
+        "The Kirin Tor sent him to check on Arugal. He was caught and locked up.",
+        "He opens the sealed courtyard door in about two seconds.",
+        "On his own cell door: \"Too bad the cell doors weren't locked so haphazardly.\""
+      ],
+      "spoiler": false,
+      "t": 0.3,
+      "icon": "ashcrombe"
+    },
+    {
+      "id": "what-lies-beyond",
+      "kind": "before",
+      "form": "grave",
+      "subject": "What Lies Beyond",
+      "tag": "Cut before release",
+      "lines": [
+        "Ashcrombe had a real quest in beta. It was cut.",
+        "The text was not thrown away — it is the small talk he gives you when you free him.",
+        "Its last line: \"You defeated Rethilgore, perhaps you will survive what lies beyond...\""
+      ],
+      "spoiler": false,
+      "t": 0.36,
+      "icon": "what-lies-beyond"
+    },
+    {
+      "id": "vincent",
+      "kind": "story",
+      "form": "grave",
+      "subject": "Deathstalker Vincent",
+      "tag": "The body on the floor",
+      "lines": [
+        "Two Forsaken were sent in to scout. Adamant was captured. Vincent was not.",
+        "Arugal stood over him and said his remains would serve as a testament to trespassing.",
+        "He is still lying where he was left."
+      ],
+      "spoiler": false,
+      "t": 0.42,
+      "icon": "vincent"
+    },
+    {
+      "id": "fel-steed",
+      "kind": "look",
+      "form": "chip",
+      "subject": "The horses",
+      "tag": "The courtyard · riderless",
+      "lines": [
+        "The courtyard is the only open air in the building, and what is standing in it is a felsteed.",
+        "Both of them are demonic and neither has a rider.",
+        "The Shadow Charger was a felhorse here too. It was not made a skeleton until long after."
+      ],
+      "spoiler": false,
+      "t": 0.5,
+      "icon": "fel-steed"
+    },
+    {
+      "id": "silverlaine",
+      "kind": "before",
+      "form": "chip",
+      "subject": "Baron Silverlaine",
+      "tag": "The man who owned the house",
+      "lines": [
+        "The worgen Arugal called besieged the keep and killed him and everyone in it.",
+        "His ghost is the one that tells you to leave.",
+        "He is still defending his own front rooms."
+      ],
+      "spoiler": false,
+      "t": 0.56,
+      "icon": "silverlaine"
+    },
+    {
+      "id": "odo",
+      "kind": "look",
+      "form": "chip",
+      "subject": "Odo the Blindwatcher",
+      "tag": "Outside the wall",
+      "lines": [
+        "The keep's lookout cannot see.",
+        "He lives in a wooden lean-to hanging off the outside of the building.",
+        "Go outside and look back at it."
+      ],
+      "spoiler": false,
+      "t": 0.62,
+      "icon": "odo"
+    },
+    {
+      "id": "deathsworn-captain",
+      "kind": "look",
+      "form": "chip",
+      "subject": "Deathsworn Captain",
+      "tag": "The only rare in the keep",
+      "lines": [
+        "He was killed defending the place when Arugal came.",
+        "He is still walking the walls he died on.",
+        "Nothing else in here is rare. He is the whole roll-call."
+      ],
+      "spoiler": false,
+      "t": 0.68,
+      "icon": "deathsworn-captain"
+    },
+    {
+      "id": "fenrus",
+      "kind": "notice",
+      "form": "yell",
+      "subject": "Fenrus the Devourer",
+      "tag": "Arugal's pet",
+      "yell": "The roar carries into every room in the keep.",
+      "lines": [
+        "When you open his door he roars, and it is not a local sound.",
+        "Whatever anyone else in the building is doing, they hear it at the same moment you do."
+      ],
+      "spoiler": false,
+      "t": 0.76,
+      "icon": "fenrus"
+    },
+    {
+      "id": "voidwalkers",
+      "kind": "notice",
+      "form": "grave",
+      "subject": "Arugal's Voidwalkers",
+      "tag": "Four of them, after the wolf",
+      "lines": [
+        "Fenrus is not the end of that room. Arugal appears and puts four void demons on the floor.",
+        "They heal each other.",
+        "The man whose entire crime was summoning one thing from somewhere else also keeps demons in the house."
+      ],
+      "spoiler": true,
+      "t": 0.82,
+      "icon": "voidwalkers"
+    },
+    {
+      "id": "arugals-curse",
+      "kind": "beware",
+      "form": "chip",
+      "subject": "Arugal's Curse",
+      "tag": "The last room",
+      "lines": [
+        "He does not summon a worgen at you. He turns one of you into one.",
+        "For ten seconds that player belongs to him and fights the rest of you.",
+        "He says \"Release your rage!\" when it happens."
+      ],
+      "spoiler": false,
+      "t": 0.9,
+      "icon": "arugals-curse"
+    },
+    {
+      "id": "pyrewood",
+      "kind": "story",
+      "form": "chip",
+      "subject": "Pyrewood Village",
+      "tag": "Below the keep · nine at night",
+      "lines": [
+        "The village at the foot of the hill is cursed, and the curse runs on a clock.",
+        "At nine in the evening, server time, every villager turns.",
+        "The armorer will sell to you at noon. At night he is the Moonrage Armorer and he wants you dead."
+      ],
+      "spoiler": false,
+      "t": 0.95,
+      "seed": {
+        "body": "Go down to Pyrewood at 8:55pm server and just stand in the road. Worth doing once."
+      },
+      "icon": "pyrewood"
+    },
+    {
+      "id": "sons",
+      "kind": "beware",
+      "form": "chip",
+      "subject": "Son of Arugal",
+      "tag": "Outside, in Silverpine",
+      "lines": [
+        "It did not stay in the building. He seeded them across the whole forest.",
+        "They are elite, they are level 24 to 25, and the zone around them is built for level 10.",
+        "That is the actual consequence of the book he read."
+      ],
+      "spoiler": false,
+      "t": 1.0,
+      "icon": "sons"
+    }
+  ]
+}

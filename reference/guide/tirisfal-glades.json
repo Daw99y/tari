@@ -1,0 +1,201 @@
+{
+  "room": "tirisfal-glades",
+  "sources": [
+    "https://warcraft.wiki.gg/wiki/Tirisfal_Glades",
+    "https://warcraft.wiki.gg/wiki/Tirisfal_Glades_(Classic)",
+    "https://warcraft.wiki.gg/wiki/Deathknell",
+    "https://warcraft.wiki.gg/wiki/Balnir_Farmstead",
+    "https://warcraft.wiki.gg/wiki/Agamand_Mills",
+    "https://warcraft.wiki.gg/wiki/Scarlet_Monastery",
+    "https://warcraft.wiki.gg/wiki/The_Bulwark",
+    "https://warcraft.wiki.gg/wiki/Whispering_Gardens",
+    "https://warcraft.wiki.gg/wiki/Rot_Hide",
+    "https://warcraft.wiki.gg/wiki/Nightmare_Vale",
+    "https://warcraft.wiki.gg/wiki/Council_of_Tirisfal",
+    "https://warcraft.wiki.gg/wiki/Ruins_of_Lordaeron"
+  ],
+  "roadEnds": [
+    "Deathknell",
+    "The Bulwark"
+  ],
+  "seedWho": "Tari",
+  "cards": [
+    {
+      "id": "council-of-tirisfal",
+      "kind": "before",
+      "form": "title",
+      "subject": "The Council of Tirisfal",
+      "tag": "Before",
+      "lines": [
+        "A secret order of mages took its name from these glades thousands of years ago, and appointed the Guardians.",
+        "Aegwynn was the second to last. Medivh was the last. This was a name in wizard history long before it was a graveyard."
+      ],
+      "spoiler": false
+    },
+    {
+      "id": "the-mindless-ones",
+      "kind": "story",
+      "form": "chip",
+      "subject": "The Mindless Ones",
+      "tag": "The same graveyard you woke in",
+      "lines": [
+        "Every Forsaken starts among open coffins.",
+        "The things shambling around those graves came up out of the same ground and never got their minds back.",
+        "You are the exception, not the rule."
+      ],
+      "spoiler": false,
+      "t": 0.06,
+      "icon": "the-mindless-ones"
+    },
+    {
+      "id": "the-crusade-is-here",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "They are in the starting area",
+      "tag": "Levels one to five",
+      "lines": [
+        "There are living, armed Scarlet Crusaders inside the newbie zone, hunting the newly risen before they can get their names back.",
+        "They were deleted from the modern game.",
+        "In here, somebody is trying to kill you five minutes after you stand up."
+      ],
+      "spoiler": false,
+      "t": 0.14,
+      "icon": "the-crusade-is-here"
+    },
+    {
+      "id": "invincible",
+      "kind": "look",
+      "form": "grave",
+      "subject": "Invincible's grave",
+      "tag": "Balnir Farmstead",
+      "lines": [
+        "The Balnirs bred Lordaeron's white horses. Young Arthas played here, and was there when the colt was born.",
+        "When it died in a riding accident he buried it on the farm. The plaque is still readable.",
+        "The grave is open, and it is empty. He came back with Frostmourne and raised his horse."
+      ],
+      "spoiler": true,
+      "t": 0.26,
+      "icon": "invincible"
+    },
+    {
+      "id": "agamand",
+      "kind": "story",
+      "form": "chip",
+      "subject": "Agamand Mills",
+      "tag": "The son who opened the gate",
+      "lines": [
+        "The patriarch refused to run. He fortified the mills and talked his workers into staying.",
+        "His youngest son killed the watchmen in the night and let the Scourge in. A third of the defenders died in the first assault.",
+        "He is still there, as a skeletal mage. So is the commander who moved into the family crypt and raised their ancestors to fight them."
+      ],
+      "spoiler": false,
+      "t": 0.36,
+      "icon": "agamand"
+    },
+    {
+      "id": "mass-graves",
+      "kind": "look",
+      "form": "chip",
+      "subject": "The Mass Graves",
+      "tag": "A named place on the map",
+      "lines": [
+        "When the plague swept Tirisfal, the bodies went into pits, and the pits are labelled.",
+        "The gnolls crawling over it are animated by an embalming fluid made with warlock and necromantic magic together.",
+        "Somebody invented that fluid on purpose."
+      ],
+      "spoiler": false,
+      "t": 0.46,
+      "icon": "mass-graves"
+    },
+    {
+      "id": "thule",
+      "kind": "story",
+      "form": "grave",
+      "subject": "Thule Ravenclaw",
+      "tag": "A living human",
+      "lines": [
+        "The Rot Hide are not simply plague victims. Their animating fluid was invented by a mage who betrayed his colleagues to join the Scourge.",
+        "He can lay his own curse on you.",
+        "The thread that starts by scraping ichor off gnolls at the pits ends with you killing him a zone away."
+      ],
+      "spoiler": true,
+      "t": 0.54,
+      "icon": "thule"
+    },
+    {
+      "id": "the-old-monastery",
+      "kind": "story",
+      "form": "chip",
+      "subject": "What the Monastery was",
+      "tag": "Before the Crusade",
+      "lines": [
+        "It was a cathedral of the Church of the Holy Light, with real libraries and a seminary for paladins in training.",
+        "The Silver Hand took it back after the Third War as a forward base. It became the Scarlet Monastery only after that order splintered.",
+        "People who farmed all four wings for a year never learn that the Library was a library."
+      ],
+      "spoiler": false,
+      "t": 0.64,
+      "icon": "the-old-monastery"
+    },
+    {
+      "id": "whispering-gardens",
+      "kind": "look",
+      "form": "chip",
+      "subject": "Whispering Gardens",
+      "tag": "The name is literal",
+      "lines": [
+        "A great battle was fought on this hill between the Scourge and the men who became the Scarlet Crusade.",
+        "The fallen can still be heard, faintly, at twilight.",
+        "That is what the place is called and that is what it is."
+      ],
+      "spoiler": false,
+      "t": 0.72,
+      "icon": "whispering-gardens"
+    },
+    {
+      "id": "nightmare-vale",
+      "kind": "look",
+      "form": "chip",
+      "subject": "Nightmare Vale",
+      "tag": "The woodland simply died",
+      "lines": [
+        "Darkhounds and vampire bats have eaten the native wildlife out of this valley entirely.",
+        "There is a rare white bat living in it.",
+        "It is the only colour in a place that has none."
+      ],
+      "spoiler": false,
+      "t": 0.8,
+      "icon": "nightmare-vale"
+    },
+    {
+      "id": "the-green-sky",
+      "kind": "look",
+      "form": "chip",
+      "subject": "The sky",
+      "tag": "It is not weather",
+      "lines": [
+        "Eternally gloomy and tinted a blighted green, with the flora clinging to its last shreds of life.",
+        "It is a deliberate colour cast over the whole zone rather than a passing storm.",
+        "Stand at the lake and look up."
+      ],
+      "spoiler": false,
+      "t": 0.88,
+      "icon": "the-green-sky"
+    },
+    {
+      "id": "the-bulwark",
+      "kind": "beware",
+      "form": "chip",
+      "subject": "The Bulwark",
+      "tag": "A pile of debris and a road",
+      "lines": [
+        "A makeshift wall stacked along the border to turn back wandering undead. It was never meant to survive an assault.",
+        "The Forsaken and the Argent Dawn cooperate here, which they do almost nowhere else.",
+        "This zone is levels one to ten. The one on the other side is fifty-one to fifty-eight. There is no gate."
+      ],
+      "spoiler": false,
+      "t": 1.0,
+      "icon": "the-bulwark"
+    }
+  ]
+}

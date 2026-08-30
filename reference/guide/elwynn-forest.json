@@ -1,0 +1,215 @@
+{
+  "room": "elwynn-forest",
+  "sources": [
+    "https://warcraft.wiki.gg/wiki/Elwynn_Forest",
+    "https://warcraft.wiki.gg/wiki/The_Forest_of_Elwynn_(WC1_Human)",
+    "https://warcraft.wiki.gg/wiki/Northshire_Abbey_(WC1_Human)",
+    "https://warcraft.wiki.gg/wiki/Goldshire",
+    "https://warcraft.wiki.gg/wiki/Kobold",
+    "https://warcraft.wiki.gg/wiki/Hogger",
+    "https://warcraft.wiki.gg/wiki/Heroes%27_Vigil",
+    "https://warcraft.wiki.gg/wiki/Stone_Cairn_Lake",
+    "https://warcraft.wiki.gg/wiki/Tower_of_Azora",
+    "https://warcraft.wiki.gg/wiki/Fargodeep_Mine",
+    "https://warcraft.wiki.gg/wiki/Jerod%27s_Landing"
+  ],
+  "roadEnds": [
+    "Northshire",
+    "Westbrook"
+  ],
+  "seedWho": "Tari",
+  "cards": [
+    {
+      "id": "the-forest-of-elwynn",
+      "kind": "before",
+      "form": "title",
+      "subject": "The Forest of Elwynn",
+      "tag": "Before",
+      "lines": [
+        "It was a battlefield in the first Warcraft game, twenty years before it was anybody's starting zone.",
+        "Much of it burned in the First War. These trees are the regrowth."
+      ],
+      "spoiler": false
+    },
+    {
+      "id": "northshire-abbey",
+      "kind": "before",
+      "form": "chip",
+      "subject": "Northshire Abbey",
+      "tag": "Mission six",
+      "lines": [
+        "The abbey's first recorded battle is a Warcraft I mission, and the besiegers were not orcs.",
+        "\"The monks of Northshire Abbey are under siege by a band of warriors that have been convinced by enemy agents to fight against the crown.\"",
+        "The zone where humans learn to fight opened with humans turned against Stormwind."
+      ],
+      "spoiler": false,
+      "t": 0.05,
+      "icon": "northshire-abbey"
+    },
+    {
+      "id": "goldshire",
+      "kind": "story",
+      "form": "chip",
+      "subject": "Goldshire",
+      "tag": "Named in 1994, on the spot",
+      "lines": [
+        "The name was made up on the fly by one of the designers during the first Warcraft game.",
+        "It has stood ever since, and is now probably the most-visited village in any video game.",
+        "It and Moonbrook were the last two towns to fall in the First War."
+      ],
+      "spoiler": false,
+      "t": 0.12,
+      "icon": "goldshire"
+    },
+    {
+      "id": "candle",
+      "kind": "story",
+      "form": "chip",
+      "subject": "You no take candle",
+      "tag": "The joke is built into the zone",
+      "lines": [
+        "Kobolds wear candles because they are terrified of the dark. Their own word for dying is that the darkness took them.",
+        "The first collection quest most humans ever get sends you into a mine to take exactly those candles.",
+        "The most quoted line in Warcraft is a creature begging you not to steal its only light."
+      ],
+      "spoiler": false,
+      "t": 0.2,
+      "icon": "candle"
+    },
+    {
+      "id": "hogger",
+      "kind": "beware",
+      "form": "chip",
+      "subject": "Hogger",
+      "tag": "666 hit points, and elite",
+      "lines": [
+        "He was given exactly the number of the beast, the same as the other races' starting-zone bosses.",
+        "For most human players he is the first elite tag they ever see, without knowing what it means.",
+        "Killing him at level ten was a thing groups organised."
+      ],
+      "spoiler": false,
+      "t": 0.28,
+      "icon": "hogger"
+    },
+    {
+      "id": "supply-chain",
+      "kind": "story",
+      "form": "grave",
+      "subject": "One chain of command",
+      "tag": "The trash is a plot",
+      "lines": [
+        "The kobolds in the mines were enslaved by the gnolls.",
+        "The gnolls were armed and directed by the Defias.",
+        "Everything you kill in your first ten levels reports, eventually, to the same man."
+      ],
+      "spoiler": true,
+      "t": 0.36,
+      "icon": "supply-chain"
+    },
+    {
+      "id": "stonemasons",
+      "kind": "story",
+      "form": "chip",
+      "subject": "Every bandit is a bricklayer",
+      "tag": "Why the zone is at war",
+      "lines": [
+        "The guild that rebuilt Stormwind was never paid, and was dissolved when it asked.",
+        "The riots that followed killed the Queen, and the Defias came out of them.",
+        "The men robbing the roads here built the walls you spawned behind."
+      ],
+      "spoiler": false,
+      "t": 0.44,
+      "icon": "stonemasons"
+    },
+    {
+      "id": "heroes-vigil",
+      "kind": "look",
+      "form": "chip",
+      "subject": "Heroes' Vigil",
+      "tag": "The island in Stone Cairn Lake",
+      "lines": [
+        "A cairn raised for the First War dead. The lake is named after the monument, not the other way round.",
+        "It is the Defias who describe it as a bastion of faith now forgotten by Stormwind's own soldiers.",
+        "The bandits remember the war dead better than the kingdom does."
+      ],
+      "spoiler": false,
+      "t": 0.52,
+      "icon": "heroes-vigil"
+    },
+    {
+      "id": "stone-cairn-lake",
+      "kind": "look",
+      "form": "chip",
+      "subject": "Stone Cairn Lake",
+      "tag": "A ring of water",
+      "lines": [
+        "One island at the centre, which gives it a shape nothing else in the zone has.",
+        "It also holds the densest copper in Elwynn, so there are usually miners circling a war memorial.",
+        "Murlocs on the south bank, gnolls on the north."
+      ],
+      "spoiler": false,
+      "t": 0.6,
+      "icon": "stone-cairn-lake"
+    },
+    {
+      "id": "azora",
+      "kind": "look",
+      "form": "chip",
+      "subject": "The Tower of Azora",
+      "tag": "The archmage will not see you",
+      "lines": [
+        "A bolt-hole for mages who wanted out of Stormwind's politics, and its master refuses visitors.",
+        "There is an instrument in there for spying on the rival tower across the border in Redridge.",
+        "The tower leaks. The living buckets and the odd wildlife in the fields nearby are blamed on it."
+      ],
+      "spoiler": false,
+      "t": 0.7,
+      "icon": "azora"
+    },
+    {
+      "id": "the-feud",
+      "kind": "look",
+      "form": "chip",
+      "subject": "Stonefield and Maclure",
+      "tag": "Two farms, one grudge",
+      "lines": [
+        "One family keeps the pumpkins, the other the vineyards, and they have been feuding for years.",
+        "Both will send you on errands. Neither mentions the other kindly.",
+        "It is the Hatfields and the McCoys, in a starting zone."
+      ],
+      "spoiler": false,
+      "t": 0.78,
+      "icon": "the-feud"
+    },
+    {
+      "id": "northshire-safe",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "Only one wood is safe",
+      "tag": "Past the wall, it changes",
+      "lines": [
+        "The bears, boars and spiders in Northshire will not touch you. The same animals everywhere else in Elwynn will.",
+        "It is the only walled valley in the zone and the only one where the wildlife was made harmless on purpose.",
+        "Nothing tells you when you cross out of it."
+      ],
+      "spoiler": false,
+      "t": 0.88,
+      "icon": "northshire-safe"
+    },
+    {
+      "id": "jerods-landing",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "Jerod's Landing",
+      "tag": "Most players never see it",
+      "lines": [
+        "A boat landing on the river in the south-east, held by a Defias dockmaster.",
+        "It ran stolen goods down from Redridge into Westfall. Elwynn was the middle of the pipe, not the end of it.",
+        "In vanilla it is reached almost entirely through rogue-only quests. Nobody records who Jerod was."
+      ],
+      "spoiler": false,
+      "t": 1.0,
+      "icon": "jerods-landing"
+    }
+  ]
+}

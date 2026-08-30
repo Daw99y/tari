@@ -1,0 +1,316 @@
+{
+  "room": "zul-gurub",
+  "sources": [
+    "https://warcraft.wiki.gg/wiki/Zul%27Gurub_(original)",
+    "https://warcraft.wiki.gg/wiki/Gurubashi_empire",
+    "https://warcraft.wiki.gg/wiki/Atal%27ai",
+    "https://warcraft.wiki.gg/wiki/Hakkar_the_Soulflayer",
+    "https://warcraft.wiki.gg/wiki/Hakkar_(tactics)",
+    "https://warcraft.wiki.gg/wiki/Gahz%27ranka",
+    "https://warcraft.wiki.gg/wiki/Mudskunk_Lure",
+    "https://warcraft.wiki.gg/wiki/Edge_of_Madness",
+    "https://warcraft.wiki.gg/wiki/Bloodlord_Mandokir_(Classic)",
+    "https://warcraft.wiki.gg/wiki/Jin%27do_the_Hexxer",
+    "https://warcraft.wiki.gg/wiki/Zanza_the_Restless",
+    "https://warcraft.wiki.gg/wiki/Zandalar_tribe",
+    "https://warcraft.wiki.gg/wiki/Temple_of_Bethekk",
+    "https://warcraft.wiki.gg/wiki/The_Heart_of_Hakkar",
+    "https://warcraft.wiki.gg/wiki/Spirit_of_Zandalar",
+    "https://warcraft.wiki.gg/wiki/Swift_Zulian_Tiger",
+    "https://warcraft.wiki.gg/wiki/Swift_Razzashi_Raptor",
+    "https://warcraft.wiki.gg/wiki/Corrupted_Blood_incident"
+  ],
+  "roadEnds": [
+    "The bridge",
+    "Yojamba"
+  ],
+  "seedWho": "Tari",
+  "cards": [
+    {
+      "id": "the-capital",
+      "kind": "before",
+      "form": "title",
+      "subject": "The capital",
+      "tag": "Before",
+      "lines": [
+        "The Gurubashi ruled from here to the Echo Isles.",
+        "Every jungle troll you have ever fought is a piece that broke off this city."
+      ],
+      "spoiler": false
+    },
+    {
+      "id": "the-empire",
+      "kind": "before",
+      "form": "chip",
+      "subject": "The Gurubashi",
+      "tag": "What ended it was not a war with you",
+      "lines": [
+        "The Sundering tore their territory in half and sent one half to Kalimdor.",
+        "What finished them was the argument about Hakkar.",
+        "Bloodscalp, Skullsplitter, Shatterspear, Darkspear — all of them are fragments of this."
+      ],
+      "spoiler": false,
+      "t": 0.05,
+      "icon": "the-empire"
+    },
+    {
+      "id": "the-atalai",
+      "kind": "story",
+      "form": "chip",
+      "subject": "The Atal'ai",
+      "tag": "Why it had to happen here",
+      "lines": [
+        "The trolls called Hakkar for power. When he asked to be brought through bodily, most of his own priesthood refused.",
+        "The splinter that agreed was hunted nearly to extinction, fled north, and built a temple Ysera dropped into the marsh.",
+        "His body can only arrive in one place on Azeroth, so they came home."
+      ],
+      "spoiler": false,
+      "t": 0.1,
+      "icon": "the-atalai"
+    },
+    {
+      "id": "outdoors",
+      "kind": "look",
+      "form": "chip",
+      "subject": "It thinks it is outdoors",
+      "tag": "You can ride your mount in a raid",
+      "lines": [
+        "The game files this city as an outdoor zone, so a mount works inside it.",
+        "The whole place is also built out in the open world behind the gate.",
+        "Stand still for a second when you cross the first bridge. There is sky."
+      ],
+      "spoiler": false,
+      "t": 0.15,
+      "icon": "outdoors"
+    },
+    {
+      "id": "twenty",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "Twenty, every three days",
+      "tag": "Patch 1.7.0",
+      "lines": [
+        "Everything before this was forty people on a weekly lock.",
+        "This was the raid a group of friends could run without being an organisation.",
+        "That is most of why people remember it fondly."
+      ],
+      "spoiler": false,
+      "t": 0.2,
+      "icon": "twenty"
+    },
+    {
+      "id": "the-priests",
+      "kind": "story",
+      "form": "chip",
+      "subject": "The five High Priests",
+      "tag": "Sent here to stop it",
+      "lines": [
+        "Jeklik the bat, Venoxis the snake, Mar'li the spider, Thekal the tiger, Arlokk the panther. Each temple in the city belongs to one of their loa.",
+        "Rastakhan sent them to contain the Soulflayer and he turned them instead.",
+        "Every one you leave alive hands Hakkar one of their powers for the last fight."
+      ],
+      "spoiler": true,
+      "t": 0.28,
+      "icon": "the-priests"
+    },
+    {
+      "id": "thank-you",
+      "kind": "story",
+      "form": "grave",
+      "subject": "\"Serenity, at last\"",
+      "tag": "What the priests say when they die",
+      "lines": [
+        "Venoxis: \"Ssserenity... at lassst!\"",
+        "Thekal: \"Hakkar binds me no more! Peace at last!\"",
+        "Arlokk: \"At last, I am free of the Soulflayer!\"",
+        "They thank you."
+      ],
+      "spoiler": true,
+      "t": 0.33,
+      "icon": "thank-you"
+    },
+    {
+      "id": "bethekk",
+      "kind": "look",
+      "form": "chip",
+      "subject": "The Temple of Bethekk",
+      "tag": "A pyramid you go down into",
+      "lines": [
+        "The panther temple is four floors underground and Arlokk is on the bottom one.",
+        "Her room has cages down both sides and nothing happens until somebody strikes the gong.",
+        "She calls the goddess out loud before she fights."
+      ],
+      "spoiler": false,
+      "t": 0.4,
+      "icon": "bethekk"
+    },
+    {
+      "id": "mandokir",
+      "kind": "beware",
+      "form": "chip",
+      "subject": "Bloodlord Mandokir",
+      "tag": "He levels up on you",
+      "lines": [
+        "He picks somebody and says \"I'm watching you!\" Act while he is watching and he comes.",
+        "Every time he kills raiders he gets visibly bigger, hits harder, and yells DING.",
+        "There are troll spirits chained around the arena. Talk to one while you are dead and it puts you back on your feet."
+      ],
+      "spoiler": false,
+      "t": 0.46,
+      "icon": "mandokir"
+    },
+    {
+      "id": "the-mounts",
+      "kind": "story",
+      "form": "chip",
+      "subject": "The tiger and the raptor",
+      "tag": "Gone since November 2010",
+      "lines": [
+        "Mandokir carried the raptor. Thekal carried the tiger. Off the boss, not a quest, not a vendor.",
+        "The tiger was the first cat the Horde could ride and the raptor was the first raptor the Alliance could ride.",
+        "Nobody will ever get another one."
+      ],
+      "spoiler": false,
+      "t": 0.5,
+      "icon": "the-mounts"
+    },
+    {
+      "id": "gahzranka",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "Gahz'ranka",
+      "tag": "The boss you fish up",
+      "lines": [
+        "The only fight in the game that starts with a fishing rod. You bait a lure with mudskunks and cast it into the pool.",
+        "The mudskunks come from whirlpools in the river ringing Hakkar's island, and the lure comes from Nat Pagle, who will not sell you one until you find the tape measure he left in here.",
+        "Twenty people in a raid and one of them is fishing."
+      ],
+      "spoiler": false,
+      "t": 0.56,
+      "seed": {
+        "body": "Bring a fishing pole into a raid once. There is a boss down there that will not come up any other way."
+      },
+      "icon": "gahzranka"
+    },
+    {
+      "id": "edge-of-madness",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "The Edge of Madness",
+      "tag": "A brazier, and a calendar problem",
+      "lines": [
+        "Past Zanza's Rise there is a lit brazier that does nothing, and a stone tablet behind it that teaches an alchemist how to put it out.",
+        "One of the reagents is Black Lotus.",
+        "Which of the four ghosts answers is fixed by the day your lockout started, so collecting all four is not a raid problem. It is a rota."
+      ],
+      "spoiler": false,
+      "t": 0.62,
+      "icon": "edge-of-madness"
+    },
+    {
+      "id": "hazzarah",
+      "kind": "beware",
+      "form": "grave",
+      "subject": "Hazza'rah",
+      "tag": "One of the four",
+      "lines": [
+        "A seer who could not stop seeing. He puts the entire raid to sleep except one person.",
+        "Then the nightmares walk in, slowly, toward the sleepers.",
+        "Everything rests on whoever is still awake."
+      ],
+      "spoiler": true,
+      "t": 0.66,
+      "icon": "hazzarah"
+    },
+    {
+      "id": "zanza",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "Zanza the Restless",
+      "tag": "A loa who does enchanting",
+      "lines": [
+        "There is a Zandalari loa standing on the rise handing out permanent head enchants.",
+        "His story is that the high elves stole troll enchanting thousands of years ago and made a weaker copy of it.",
+        "The copy is called Arcanum. Every one in the game."
+      ],
+      "spoiler": false,
+      "t": 0.7,
+      "icon": "zanza"
+    },
+    {
+      "id": "zandalar",
+      "kind": "story",
+      "form": "chip",
+      "subject": "The Zandalar Tribe",
+      "tag": "Yojamba Isle",
+      "lines": [
+        "They read their own histories, worked out what was being summoned, and sailed an ocean to stop it happening twice.",
+        "They did not have the numbers, so they did something no troll empire had done and hired outsiders — and offered the same terms to both sides.",
+        "You are paid in coloured glass. Nine colours of bijou, seventy-five reputation each."
+      ],
+      "spoiler": false,
+      "t": 0.74,
+      "icon": "zandalar"
+    },
+    {
+      "id": "jindo",
+      "kind": "beware",
+      "form": "chip",
+      "subject": "Jin'do the Hexxer",
+      "tag": "The one who did it · optional",
+      "lines": [
+        "He is the witch doctor who actually brought Hakkar through, and you can finish this raid without ever meeting him.",
+        "His totems mind-control people and cannot be dispelled. You break the totem or you fight your friend.",
+        "He turns the tank into a frog."
+      ],
+      "spoiler": false,
+      "t": 0.8,
+      "icon": "jindo"
+    },
+    {
+      "id": "poison-yourselves",
+      "kind": "story",
+      "form": "grave",
+      "subject": "How he actually dies",
+      "tag": "The Altar of the Blood God",
+      "lines": [
+        "Hakkar drains the raid to heal himself. So the raid gets poisoned first, on purpose, and lets him drink.",
+        "That is not a gameplay abstraction. It is how the lore says it went.",
+        "With every thought filled with the urge to consume blood, he paid little heed to the tactics of his seemingly harmless enemies."
+      ],
+      "spoiler": true,
+      "t": 0.88,
+      "icon": "poison-yourselves"
+    },
+    {
+      "id": "corrupted-blood",
+      "kind": "story",
+      "form": "grave",
+      "subject": "Corrupted Blood",
+      "tag": "13 September – 8 October 2005",
+      "lines": [
+        "A contagious damage-over-time that was never supposed to leave the building.",
+        "Pets carried it out. City NPCs caught it, did not die, and kept handing it back.",
+        "It took a rollback and two patches to end, and the CDC asked Blizzard for the data."
+      ],
+      "spoiler": false,
+      "t": 0.93,
+      "icon": "corrupted-blood"
+    },
+    {
+      "id": "the-heart",
+      "kind": "story",
+      "form": "grave",
+      "subject": "The Heart of Hakkar",
+      "tag": "The run ends somewhere else",
+      "lines": [
+        "He drops his heart and you carry it out of the instance to the Zandalari on Yojamba Isle.",
+        "They channel on it, banish it, and shout your name across the island.",
+        "Everyone standing on Yojamba and everyone in Booty Bay gets two hours of it. That is why the port used to fill up."
+      ],
+      "spoiler": true,
+      "t": 1.0,
+      "icon": "the-heart"
+    }
+  ]
+}

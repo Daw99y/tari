@@ -1,0 +1,172 @@
+{
+  "room": "thunder-bluff",
+  "sources": [
+    "https://warcraft.wiki.gg/wiki/Thunder_Bluff",
+    "https://warcraft.wiki.gg/wiki/Cairne_Bloodhoof",
+    "https://warcraft.wiki.gg/wiki/Pools_of_Vision",
+    "https://warcraft.wiki.gg/wiki/Magatha_Grimtotem",
+    "https://warcraft.wiki.gg/wiki/Hamuul_Runetotem",
+    "https://warcraft.wiki.gg/wiki/Elder_Rise",
+    "https://warcraft.wiki.gg/wiki/Tauren"
+  ],
+  "roadEnds": [
+    "The lift",
+    "Elder Rise"
+  ],
+  "seedWho": "Tari",
+  "cards": [
+    {
+      "id": "the-great-hunt",
+      "kind": "before",
+      "form": "title",
+      "subject": "The Great Hunt",
+      "tag": "Before",
+      "lines": [
+        "Eleven hundred years of following the kodo herds, moving camp with the seasons, never stopping.",
+        "This city is the end of that sentence."
+      ],
+      "spoiler": false
+    },
+    {
+      "id": "desolace",
+      "kind": "story",
+      "form": "grave",
+      "subject": "What they lost",
+      "tag": "The grassland is called Desolace now",
+      "lines": [
+        "Tauren shamans tried to wake the Earth Mother under their own sacred land, and woke an earth elemental instead. Her regeneration drank the life out of it.",
+        "Cenarius's son came to investigate, fell in love with her, and fathered the centaur. The centaur killed him and drove the tauren out.",
+        "You can walk into that zone. It is still like that."
+      ],
+      "spoiler": false,
+      "t": 0.08,
+      "icon": "desolace"
+    },
+    {
+      "id": "tents",
+      "kind": "look",
+      "form": "chip",
+      "subject": "A permanent city made of tents",
+      "tag": "Hide, rope and poles",
+      "lines": [
+        "They stopped moving and then built it out of the same materials anyway.",
+        "There is almost no stone here and hardly a door in the place.",
+        "The architecture of a people who never stopped anywhere is now the architecture of where they stopped."
+      ],
+      "spoiler": false,
+      "t": 0.18,
+      "icon": "tents"
+    },
+    {
+      "id": "the-lifts",
+      "kind": "look",
+      "form": "chip",
+      "subject": "The lifts",
+      "tag": "The only way up",
+      "lines": [
+        "Rope and wood, hand-built, one engineer keeping both of them and the windmills running.",
+        "The mesas stand several hundred feet over Mulgore and there is no path, no ramp and no stair.",
+        "If the lift is at the top, you wait."
+      ],
+      "spoiler": false,
+      "t": 0.26,
+      "seed": {
+        "body": "Ride the lift facing outward rather than into the rock. It is thirty seconds and it is the best view in the Horde."
+      },
+      "icon": "the-lifts"
+    },
+    {
+      "id": "cairne",
+      "kind": "story",
+      "form": "chip",
+      "subject": "Cairne Bloodhoof",
+      "tag": "High Rise",
+      "lines": [
+        "He met Thrall when the orcs stopped to help tauren who were being run down by centaur, and said afterwards that he was struck by their nobility and their savagery both.",
+        "He guided them across Kalimdor to the Oracle. In return the orcs helped clear the centaur out of Mulgore.",
+        "This city exists because of a favour returned."
+      ],
+      "spoiler": false,
+      "t": 0.4,
+      "icon": "cairne"
+    },
+    {
+      "id": "a-refuge",
+      "kind": "story",
+      "form": "chip",
+      "subject": "A refuge, not a fortress",
+      "tag": "There is no wall",
+      "lines": [
+        "Cairne built it as somewhere tauren of every tribe were welcome, including tribes that had fought each other.",
+        "No gate, no chokepoint, nothing to hold. Compare Orgrimmar, built the same decade, which is all wall.",
+        "The guards here are called Bluffwatchers. They watch."
+      ],
+      "spoiler": false,
+      "t": 0.5,
+      "icon": "a-refuge"
+    },
+    {
+      "id": "four-mesas",
+      "kind": "look",
+      "form": "chip",
+      "subject": "Four separate mesas",
+      "tag": "Never connected ground",
+      "lines": [
+        "It is not one plateau. Every trip between two parts of this city is a trip over open air on a wooden bridge.",
+        "Nothing is fenced and the edges are simply where the ground stops.",
+        "It is the only capital where the main hazard to a level 60 is the floor ending."
+      ],
+      "spoiler": false,
+      "t": 0.6,
+      "icon": "four-mesas"
+    },
+    {
+      "id": "pools-of-vision",
+      "kind": "look",
+      "form": "chip",
+      "subject": "The Pools of Vision",
+      "tag": "Down the hole by the Spirit Rise bridge",
+      "lines": [
+        "Tauren cannot be mages, priests or warlocks. So the people teaching those arts here are Forsaken.",
+        "They work in a cave, in the rock, under the most sacred mesa in the city.",
+        "Twenty minutes of sky and rope bridges, then a hole full of Lordaeron's dead."
+      ],
+      "spoiler": false,
+      "t": 0.72,
+      "seed": {
+        "body": "There is a tunnel by the Spirit Rise bridge. Go down it. It is not what the rest of this city is."
+      },
+      "icon": "pools-of-vision"
+    },
+    {
+      "id": "hamuul",
+      "kind": "story",
+      "form": "chip",
+      "subject": "Hamuul Runetotem",
+      "tag": "Elder Rise",
+      "lines": [
+        "After the Third War he went to Malfurion and asked to be taught. Fandral Staghelm objected to teaching tauren at all.",
+        "Malfurion taught him anyway. He was the first tauren druid in nearly twenty generations.",
+        "Every tauren druid you have ever grouped with comes from that one request."
+      ],
+      "spoiler": false,
+      "t": 0.85,
+      "icon": "hamuul"
+    },
+    {
+      "id": "magatha",
+      "kind": "story",
+      "form": "grave",
+      "subject": "Magatha Grimtotem",
+      "tag": "The same mesa, a few paces away",
+      "lines": [
+        "The Elder Crone leads the Grimtotem and is Cairne's rival for the future of the tauren.",
+        "She took her tribe by marrying its leader, who died shortly after in what was recorded as an unforeseen climbing accident.",
+        "The archdruid and the woman working against the chieftain live on the same rise, and the Horde tolerates both."
+      ],
+      "spoiler": true,
+      "t": 0.95,
+      "icon": "magatha"
+    }
+  ]
+}

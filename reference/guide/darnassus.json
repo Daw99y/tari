@@ -1,0 +1,199 @@
+{
+  "room": "darnassus",
+  "sources": [
+    "https://warcraft.wiki.gg/wiki/Darnassus",
+    "https://warcraft.wiki.gg/wiki/Teldrassil",
+    "https://warcraft.wiki.gg/wiki/Temple_of_the_Moon",
+    "https://warcraft.wiki.gg/wiki/Cenarion_Enclave",
+    "https://warcraft.wiki.gg/wiki/Rut%27theran_Village",
+    "https://warcraft.wiki.gg/wiki/Fandral_Staghelm",
+    "https://warcraft.wiki.gg/wiki/Tyrande_Whisperwind",
+    "https://warcraft.wiki.gg/wiki/Portal:_Darnassus"
+  ],
+  "roadEnds": [
+    "The gate",
+    "The moonwell"
+  ],
+  "seedWho": "Tari",
+  "cards": [
+    {
+      "id": "nordrassil",
+      "kind": "before",
+      "form": "title",
+      "subject": "Nordrassil",
+      "tag": "Before",
+      "lines": [
+        "The first World Tree was spent stopping Archimonde at Hyjal, and the night elves' immortality went with it.",
+        "Everything in this city is an attempt to get that back."
+      ],
+      "spoiler": false
+    },
+    {
+      "id": "the-refusal",
+      "kind": "story",
+      "form": "chip",
+      "subject": "The blessing that was refused",
+      "tag": "Why the tree is here",
+      "lines": [
+        "The druids grew Teldrassil to win back the immortality they spent stopping Archimonde at Hyjal.",
+        "Nozdormu, whose blessing made the first World Tree's gift work, judged the request arrogant and refused it.",
+        "The tree grew anyway. The immortality never came back. This city is built on a request that was denied."
+      ],
+      "spoiler": false,
+      "t": 0.08,
+      "icon": "the-refusal"
+    },
+    {
+      "id": "youngest",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "The youngest capital",
+      "tag": "Nothing here is old",
+      "lines": [
+        "Ironforge and Stormwind are ancient. This island was grown a handful of years before you walked onto it.",
+        "Nothing was built on a site. The ground itself was made first.",
+        "Everyone you pass is older than the earth they are standing on."
+      ],
+      "spoiler": false,
+      "t": 0.18,
+      "icon": "youngest"
+    },
+    {
+      "id": "the-gate",
+      "kind": "look",
+      "form": "chip",
+      "subject": "The Warrior's Terrace",
+      "tag": "Look up before you go in",
+      "lines": [
+        "The city gate is modelled on Namdaemun, the great gate in Seoul.",
+        "The pagoda towers come from a temple in Nara.",
+        "It is the least elf-looking thing in the city and the most specific."
+      ],
+      "spoiler": false,
+      "t": 0.3,
+      "icon": "the-gate"
+    },
+    {
+      "id": "the-tree",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "The tree you cannot see",
+      "tag": "It was never drawn",
+      "lines": [
+        "The engine could not render a World Tree, so the second one in existence is an island with a trunk at one edge.",
+        "Metzen is on record as being disappointed by the compromise.",
+        "You live in branches nobody ever built."
+      ],
+      "spoiler": false,
+      "t": 0.4,
+      "icon": "the-tree"
+    },
+    {
+      "id": "wide-apart",
+      "kind": "look",
+      "form": "chip",
+      "subject": "Open to the sky",
+      "tag": "The buildings are set wide apart",
+      "lines": [
+        "That is the design brief, in the wiki's own words, and it is why this city feels emptier than the others.",
+        "No sewers, no undercity, no roof.",
+        "Everything here is a walk, on purpose."
+      ],
+      "spoiler": false,
+      "t": 0.48,
+      "icon": "wide-apart"
+    },
+    {
+      "id": "one-boat",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "One boat",
+      "tag": "There is no flight master inside the walls",
+      "lines": [
+        "The roost is at the foot of the tree, through the portal, in a village most people run straight past.",
+        "One dock, one boat, to Auberdine. Nothing to Stormwind.",
+        "A mage does not learn the portal here until level fifty. For most of the game, the way in is the long way."
+      ],
+      "spoiler": false,
+      "t": 0.56,
+      "icon": "one-boat"
+    },
+    {
+      "id": "rogues",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "Under the Cenarion Enclave",
+      "tag": "The westernmost bough",
+      "lines": [
+        "The druid quarter is the most open, sky-facing district in the city.",
+        "There is a stairway down under the western bough, and the rogue trainers work in the cellar.",
+        "The one district with nothing to hide has the only basement."
+      ],
+      "spoiler": false,
+      "t": 0.64,
+      "seed": {
+        "body": "There are stairs down under the western bough of the Cenarion Enclave. Almost nobody who isn't a rogue has been down them."
+      },
+      "icon": "rogues"
+    },
+    {
+      "id": "treants",
+      "kind": "look",
+      "form": "chip",
+      "subject": "Darnassian Protectors",
+      "tag": "The Enclave has no Sentinels",
+      "lines": [
+        "Every other district is garrisoned by Sentinels. This one is guarded by treants.",
+        "It is the only place in the city where the guards are the same species as the architecture."
+      ],
+      "spoiler": false,
+      "t": 0.7,
+      "icon": "treants"
+    },
+    {
+      "id": "valstann",
+      "kind": "story",
+      "form": "grave",
+      "subject": "Valstann Staghelm",
+      "tag": "Killed in front of his father",
+      "lines": [
+        "A thousand years before the First War, Fandral led the night elves against the qiraji in Silithus. The qiraji worked out that his son was the weak point.",
+        "A feint drew Valstann into a trap and their general murdered him where Fandral could watch. The line broke.",
+        "The Arch Druid who later insisted on growing a new World Tree is the man that happened to."
+      ],
+      "spoiler": false,
+      "t": 0.8,
+      "icon": "valstann"
+    },
+    {
+      "id": "tyrande",
+      "kind": "story",
+      "form": "chip",
+      "subject": "Tyrande Whisperwind",
+      "tag": "Ruling alone",
+      "lines": [
+        "Malfurion is lost somewhere in the Emerald Dream. She rules the night elves by herself for the whole of this game.",
+        "She and Fandral argue openly over the direction of their people.",
+        "The Temple and the Enclave are two ends of one causeway and two sides of one argument."
+      ],
+      "spoiler": false,
+      "t": 0.9,
+      "icon": "tyrande"
+    },
+    {
+      "id": "the-moonwell",
+      "kind": "look",
+      "form": "chip",
+      "subject": "The Temple of the Moon",
+      "tag": "The statue is standing in water",
+      "lines": [
+        "The centrepiece is not a fountain. It is a moonwell, with the first High Priestess of the Moon standing in it.",
+        "The water is Elune's own and it is used, not looked at.",
+        "There is no palace in this city. The temple is the government as well as the faith."
+      ],
+      "spoiler": false,
+      "t": 1.0,
+      "icon": "the-moonwell"
+    }
+  ]
+}

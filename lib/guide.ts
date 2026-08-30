@@ -13,8 +13,21 @@
  * The spoiler shield (§6.1) is a grave: a spoiler encounter is a tombstone
  * on the road, and the reader digs it up by hand. */
 
+import darnassus from "../reference/guide/darnassus.json";
+import dunMorogh from "../reference/guide/dun-morogh.json";
+import durotar from "../reference/guide/durotar.json";
 import duskwood from "../reference/guide/duskwood.json";
+import elwynnForest from "../reference/guide/elwynn-forest.json";
+import ironforge from "../reference/guide/ironforge.json";
+import mulgore from "../reference/guide/mulgore.json";
+import orgrimmar from "../reference/guide/orgrimmar.json";
+import shadowfangKeep from "../reference/guide/shadowfang-keep.json";
+import stormwindCity from "../reference/guide/stormwind-city.json";
+import teldrassil from "../reference/guide/teldrassil.json";
+import thunderBluff from "../reference/guide/thunder-bluff.json";
+import tirisfalGlades from "../reference/guide/tirisfal-glades.json";
 import undercity from "../reference/guide/undercity.json";
+import zulGurub from "../reference/guide/zul-gurub.json";
 
 export type CardKind = "notice" | "look" | "story" | "before" | "beware";
 
@@ -65,6 +78,13 @@ export type Card = {
    *  door. The telling itself draws no map. */
   at?: [number, number];
   seed?: Seed;
+  /** TITLE CARDS ONLY. What the place is called now, when it was called
+   *  something else first. Three of the four rooms written so far were:
+   *  Brightwood, Lordaeron, Silverlaine Keep. `subject` holds the old name
+   *  and this holds the one on the map, and the head sets the pair as a pair.
+   *  Absent when a room was never renamed — Zul'Gurub has always been
+   *  Zul'Gurub — and then the title is drawn plainly, with nothing struck. */
+  now?: string;
 };
 
 /** One rare: its spot on the road, its client icon, its two lines.
@@ -89,9 +109,27 @@ export type GuideFile = {
   seedWho?: string;
 };
 
+/* Four rooms, one per kind: a zone, a city, a dungeon and a raid (TARI.md
+ * §4.1). The two instances carry no `road`, no `at` on any card and no map —
+ * a dungeon has no plate and never will, which is why Story takes an optional
+ * one. `t` still orders the deck; it is a place in the telling, not a place on
+ * a map (lib/guide.ts, `Rare`). */
 const GUIDES: Record<string, GuideFile> = {
   duskwood: duskwood as GuideFile,
   undercity: undercity as GuideFile,
+  "shadowfang-keep": shadowfangKeep as GuideFile,
+  "zul-gurub": zulGurub as GuideFile,
+  "stormwind-city": stormwindCity as GuideFile,
+  ironforge: ironforge as GuideFile,
+  orgrimmar: orgrimmar as GuideFile,
+  "thunder-bluff": thunderBluff as GuideFile,
+  darnassus: darnassus as GuideFile,
+  "elwynn-forest": elwynnForest as GuideFile,
+  "dun-morogh": dunMorogh as GuideFile,
+  teldrassil: teldrassil as GuideFile,
+  durotar: durotar as GuideFile,
+  mulgore: mulgore as GuideFile,
+  "tirisfal-glades": tirisfalGlades as GuideFile,
 };
 
 export function guideFor(roomId: string): GuideFile | undefined {

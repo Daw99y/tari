@@ -113,7 +113,8 @@
         "When Medivh died, the fel in him went into the ground.",
         "The forest has not seen the sun since."
       ],
-      "spoiler": false
+      "spoiler": false,
+      "now": "Duskwood"
     },
     {
       "id": "raven-hill",

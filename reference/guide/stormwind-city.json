@@ -1,0 +1,221 @@
+{
+  "room": "stormwind-city",
+  "sources": [
+    "https://warcraft.wiki.gg/wiki/Stormwind_City",
+    "https://warcraft.wiki.gg/wiki/Stonemasons_Guild",
+    "https://warcraft.wiki.gg/wiki/Lady_Katrana_Prestor",
+    "https://warcraft.wiki.gg/wiki/Quest:The_Great_Masquerade",
+    "https://warcraft.wiki.gg/wiki/The_Park",
+    "https://warcraft.wiki.gg/wiki/The_Stockade",
+    "https://warcraft.wiki.gg/wiki/The_Slaughtered_Lamb",
+    "https://warcraft.wiki.gg/wiki/Vault_(Stormwind_City)",
+    "https://warcraft.wiki.gg/wiki/Old_Town",
+    "https://warcraft.wiki.gg/wiki/Kingdom_of_Stormwind"
+  ],
+  "roadEnds": [
+    "The bridge",
+    "The throne"
+  ],
+  "seedWho": "Tari",
+  "cards": [
+    {
+      "id": "new-stormwind",
+      "kind": "before",
+      "form": "title",
+      "subject": "New Stormwind",
+      "now": "Stormwind",
+      "tag": "Before",
+      "lines": [
+        "The first city burned in the First War.",
+        "Everything you can see except Old Town is a replacement, built on credit, by men who were never paid."
+      ],
+      "spoiler": false
+    },
+    {
+      "id": "valley-of-heroes",
+      "kind": "look",
+      "form": "chip",
+      "subject": "The Valley of Heroes",
+      "tag": "The bridge you came in on",
+      "lines": [
+        "Turalyon, Alleria, Khadgar, Kurdran, Danath. The expedition that went through the Dark Portal and did not come back.",
+        "The statues honour their sacrifice. The city is certain they are dead.",
+        "Every one of them is alive on the other side."
+      ],
+      "spoiler": false,
+      "t": 0.05,
+      "icon": "valley-of-heroes"
+    },
+    {
+      "id": "stonemasons",
+      "kind": "story",
+      "form": "chip",
+      "subject": "The Stonemasons' Guild",
+      "tag": "Who laid this stone",
+      "lines": [
+        "They rebuilt the city out of ash — the Keep, the Cathedral, all of it, over years.",
+        "The House of Nobles had spent the treasury on the army and could not pay them.",
+        "When their guildmaster demanded the money, the nobles dissolved the guild. His name was Edwin VanCleef."
+      ],
+      "spoiler": false,
+      "t": 0.12,
+      "seed": {
+        "body": "Everything white in this city was built by the men who became the Defias. Nobody in here mentions it."
+      },
+      "icon": "stonemasons"
+    },
+    {
+      "id": "tiffin",
+      "kind": "story",
+      "form": "grave",
+      "subject": "Queen Tiffin Wrynn",
+      "tag": "Killed in her own streets",
+      "lines": [
+        "The masons rioted when the guild was dissolved. The Queen came out to calm them.",
+        "Something thrown from the crowd killed her.",
+        "Anduin's mother. Varian never recovered, and everything after — the Defias, Westfall, the empty throne — runs from that afternoon."
+      ],
+      "spoiler": false,
+      "t": 0.2,
+      "icon": "tiffin"
+    },
+    {
+      "id": "old-town",
+      "kind": "look",
+      "form": "chip",
+      "subject": "Old Town",
+      "tag": "Older than the rebuild",
+      "lines": [
+        "The timber and the crooked streets are the original city. Everywhere else is the reconstruction.",
+        "It is dirtier and poorer on purpose.",
+        "The Alliance's intelligence service keeps its house here rather than in the Keep."
+      ],
+      "spoiler": false,
+      "t": 0.3,
+      "icon": "old-town"
+    },
+    {
+      "id": "the-vault",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "The Vault",
+      "tag": "Never once open",
+      "lines": [
+        "There is a second prison in the canal, ringed by water, gated, with two guards on it.",
+        "It has never opened. Not in alpha, not in beta, not since.",
+        "There is a clock on the roof and it has stopped."
+      ],
+      "spoiler": false,
+      "t": 0.38,
+      "icon": "the-vault"
+    },
+    {
+      "id": "stockade",
+      "kind": "beware",
+      "form": "chip",
+      "subject": "The Stockade",
+      "tag": "Under the canal, mid-riot",
+      "lines": [
+        "The door is a hole in the canal wall and the prison is directly under the city.",
+        "The guards have been driven out and the convicts are running it.",
+        "The man behind it is VanCleef's lieutenant, arrested at the riot that killed the Queen. The Defias reached into the capital's own jail."
+      ],
+      "spoiler": false,
+      "t": 0.46,
+      "icon": "stockade"
+    },
+    {
+      "id": "slaughtered-lamb",
+      "kind": "look",
+      "form": "chip",
+      "subject": "The Slaughtered Lamb",
+      "tag": "Mage Quarter · go downstairs",
+      "lines": [
+        "A shabby pub with a summoning circle in the cellar and three warlock trainers standing round it.",
+        "It is not hidden. It is an official training ground.",
+        "The name is borrowed from An American Werewolf in London."
+      ],
+      "spoiler": false,
+      "t": 0.54,
+      "icon": "slaughtered-lamb"
+    },
+    {
+      "id": "the-park",
+      "kind": "look",
+      "form": "chip",
+      "subject": "The Park",
+      "tag": "The only district built for nothing",
+      "lines": [
+        "Night elves sank a moonwell in the middle of it. Running water and grass inside a stone capital.",
+        "It is the only place on the continent a druid can train, and the only district with no purpose but sitting down.",
+        "It does not survive the expansion after this one. Go and stand in it."
+      ],
+      "spoiler": false,
+      "t": 0.62,
+      "seed": {
+        "body": "Sit in the Park for ten minutes some evening. It is the quietest ground in any capital and it gets deleted later."
+      },
+      "icon": "the-park"
+    },
+    {
+      "id": "no-harbour",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "There is no harbour",
+      "tag": "Nothing sails from here",
+      "lines": [
+        "The tram was cut under the sea so dwarves could reach the humans quickly. It is the only fast way out of this city.",
+        "To reach Kalimdor you ride to Ironforge and run the Wetlands to Menethil.",
+        "The docks that make all of this easy do not exist yet."
+      ],
+      "spoiler": false,
+      "t": 0.72,
+      "icon": "no-harbour"
+    },
+    {
+      "id": "bolvar",
+      "kind": "story",
+      "form": "chip",
+      "subject": "Highlord Bolvar Fordragon",
+      "tag": "Regent for a ten-year-old",
+      "lines": [
+        "The king vanished. The crown went to his son, who is a child, and Bolvar rules in his name.",
+        "He is a good man and the most thoroughly handled person in the building.",
+        "No adult king, a wrecked treasury, and a compromised council. That is the city in 1.12."
+      ],
+      "spoiler": false,
+      "t": 0.85,
+      "icon": "bolvar"
+    },
+    {
+      "id": "prestor",
+      "kind": "notice",
+      "form": "grave",
+      "subject": "Lady Katrana Prestor",
+      "tag": "Stands to the right of the throne",
+      "lines": [
+        "She advises the regent and she talks him out of sending troops to Lakeshire and Duskwood, which is why those zones are on their own.",
+        "She is Onyxia, and she is a black dragon, and she is standing there right now.",
+        "You can walk up and click on her."
+      ],
+      "spoiler": true,
+      "t": 0.95,
+      "icon": "prestor"
+    },
+    {
+      "id": "masquerade",
+      "kind": "story",
+      "form": "grave",
+      "subject": "The Great Masquerade",
+      "tag": "What happens in that room",
+      "lines": [
+        "Marshal Windsor walks from the front gates through the whole city to the throne room, with the guards calling out to him as he passes.",
+        "\"The masquerade is over, Lady Prestor. Or should I call you by your true name... Onyxia...\"",
+        "She kills him in front of the boy king and teleports out. Nothing about the room afterwards says it happened."
+      ],
+      "spoiler": true,
+      "t": 1.0,
+      "icon": "masquerade"
+    }
+  ]
+}
