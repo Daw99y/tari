@@ -551,10 +551,10 @@
 
 .placardName {
   margin: 0;
-  font-family: var(--app-display);
-  font-weight: 600;
-  font-size: 1.02rem;
-  letter-spacing: -0.02em;
+  font-family: var(--round);
+  font-weight: 700;
+  font-size: 1.06rem;
+  letter-spacing: -0.005em;
 }
 
 .line {
@@ -650,10 +650,10 @@
 }
 
 .crewName {
-  font-family: var(--app-display);
-  font-weight: 600;
-  font-size: 0.86rem;
-  letter-spacing: -0.015em;
+  font-family: var(--round);
+  font-weight: 700;
+  font-size: 0.88rem;
+  letter-spacing: 0;
   color: rgba(242, 240, 234, 0.72);
   white-space: nowrap;
   overflow: hidden;
@@ -760,10 +760,10 @@
   border-bottom: 0.5px solid rgba(242, 240, 234, 0.35);
   background: transparent;
   color: var(--ink);
-  font-family: var(--app-display);
-  font-weight: 600;
-  font-size: clamp(1.5rem, 2.4vw, 2.2rem);
-  letter-spacing: -0.03em;
+  font-family: var(--round);
+  font-weight: 700;
+  font-size: clamp(1.55rem, 2.5vw, 2.25rem);
+  letter-spacing: -0.01em;
   text-align: center;
   padding: 0.2rem 0;
   outline: none;

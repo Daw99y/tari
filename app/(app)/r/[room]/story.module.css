@@ -32,11 +32,11 @@
 .wasWord {
   position: relative;
   display: inline-block;
-  font-family: var(--app-display);
-  font-weight: 650;
-  font-size: clamp(1.5rem, 3vw, 2.2rem);
-  line-height: 1;
-  letter-spacing: -0.03em;
+  font-family: var(--round);
+  font-weight: 700;
+  font-size: clamp(1.55rem, 3.1vw, 2.3rem);
+  line-height: 1.05;
+  letter-spacing: -0.015em;
   color: var(--ink);
   text-shadow: 0 2px 16px rgba(6, 6, 10, 0.7);
 }
@@ -190,11 +190,11 @@
 .eyebrow[data-kind="before"] { color: rgba(244, 234, 210, 0.75); }
 
 .name {
-  font-family: var(--app-display);
-  font-weight: 600;
-  font-size: 1.15rem;
-  line-height: 1.05;
-  letter-spacing: -0.02em;
+  font-family: var(--round);
+  font-weight: 700;
+  font-size: 1.2rem;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
   color: var(--ink);
 }
 

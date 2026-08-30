@@ -14,7 +14,10 @@
  * margin, so the drawing's bounding box is the artwork and a CSS width maps
  * to it with no phantom padding.
  *
- * Colour comes from the caller: the whole mark is `currentColor`.
+ * Colour comes from the caller: the whole mark is `currentColor`. So does the
+ * dark rim under it — the mark is built from strokes rather than one filled
+ * path, so the keyline the upgrade arrow carries in its geometry is drawn in
+ * CSS instead (components/dock.module.css, .compass .rose).
  */
 
 const RING = 15.2;

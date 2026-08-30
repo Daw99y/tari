@@ -69,11 +69,11 @@
 
 .name {
   margin: 0;
-  font-family: var(--app-display);
-  font-weight: 600;
-  font-size: clamp(2rem, 4vw, 3.4rem);
-  line-height: 0.95;
-  letter-spacing: -0.04em;
+  font-family: var(--round);
+  font-weight: 700;
+  font-size: clamp(2.1rem, 4.1vw, 3.5rem);
+  line-height: 1;
+  letter-spacing: -0.02em;
 }
 
 /* ---- the body */
@@ -307,10 +307,12 @@
 
 .noneLine {
   margin: 0;
-  font-family: var(--app-display);
-  font-weight: 600;
-  font-size: 1.6rem;
-  letter-spacing: -0.03em;
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: 1.35rem;
+  line-height: 1.35;
+  letter-spacing: 0;
+  text-wrap: balance;
 }
 
 .noneLink {

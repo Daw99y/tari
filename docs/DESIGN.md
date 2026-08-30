@@ -8,102 +8,160 @@ the default until a surface gives a reason to change it.
 
 Add to this file when a second surface needs a thing. Not before.
 
-## The register — settled
+## The register — settled, rewritten 2026-08-30
 
-Museum with a bar in it. Light, generous, quiet, framed everywhere except the
-one surface that isn't. The product is always shown inside a dark frame; the
-page around it is white and says as little as it can.
+**Warm dark, round type, chunky shapes, and the product shown as working
+objects.** The landing page settled this; the app follows it. What came
+before — the light museum with a bar in it, paper below the hero, everything
+framed and quiet — is retired. Kacey called the serif pass an e-book reader
+and they were right: a companion for a twenty-year-old game is not a journal.
 
-Full-bleed exactly once. On the landing that is the hero; in the app it is
-the room. Nothing else touches the edges.
+Three things lie on a warm dark table:
 
-Every section is one framed picture of the product and a headline, not a
-paragraph about it. If a section needs body copy to make sense, the picture
-is wrong.
+| what | ground |
+| --- | --- |
+| the table | `--well` `#0b0a12` |
+| a panel on it — the rail, the people column, a card | `--panel` `#16131f` |
+| a photograph, cropped against its own black | `--ground` `#06060a` |
 
-## Colour — settled
+The gap between them is the divider. There is no hairline separating a column
+from its neighbour on either surface, and putting one back is a regression.
 
-Two grounds, and every surface is one or the other.
+**Full-bleed exactly once is retired too.** It held while the app was one
+photograph wedged between two flat gutters. The landing draws the same
+product as a print — rounded, ringed, weight underneath — and the app draws
+it that way now. The room is still the only thing making noise. It is held
+rather than jammed.
+
+Every section is one picture of the product and a headline, never a paragraph
+about it. If a section needs body copy to make sense, the picture is wrong.
+The product in a picture is real: a live `.m2`, a real `ItemTooltip`, the
+client's own icons off the CDN. Never a screenshot of itself.
+
+## Colour — settled, rewritten 2026-08-30
+
+Nothing is light. The paper tokens are gone; delete any you find.
 
 | token | value | where |
 | --- | --- | --- |
-| `--ground` | `#06060a` | the dark ground: hero, room, shell, every frame |
-| `--ink` | `#f2f0ea` | text on ground |
-| `--mute` | `rgba(242,240,234,.62)` | secondary text on ground |
-| `--rule` | `rgba(242,240,234,.22)` | hairlines on ground |
-| `--paper` | `#ffffff` | the light ground: everything below the hero |
-| `--band` | `#f4f5f7` | alternating section ground; refusal cards |
-| `--text` | `#0b0c10` | text on paper |
-| `--text-mute` | `rgba(11,12,16,.56)` | secondary text on paper |
-| `--text-rule` | `rgba(11,12,16,.1)` | hairlines on paper |
-| `--seduce` | `#ff4f8b` | the accent. See below. |
+| `--ground` | `#06060a` | what a photograph is cropped against: the room, the hero |
+| `--well` | `#0b0a12` | the table everything else stands on |
+| `--panel` | `#16131f` | a panel on the table: the rail, the people column |
+| `--panel-deep` | `#0a0912` | a well inside a panel |
+| `--ink` | `#f2f0ea` | text |
+| `--mute` | `rgba(242,240,234,.62)` | secondary text |
+| `--rule` | `rgba(242,240,234,.22)` | a hairline on a card |
+| `--hair` | `rgba(242,240,234,.09)` | a hairline inside a panel |
+| `--accent` | `#b6ff2e` | see below |
+| `--accent-ink` | `#0d1403` | text on the accent |
+| `--blurple` | `#5865f2` | Discord's, and not ours to restyle |
 
-The ink is warm, the paper is cool. That is on purpose: the dark frames read
-as a different material from the page they sit on.
-
-The first five live in `globals.css` because two surfaces share them. The
-paper tokens still live in `page.module.css`. They move up the day a second
-surface goes light.
+All of them live in `globals.css`, because both surfaces speak them.
 
 Dark ink on the art never passes; the room is ink-on-dark permanently
-(`CONTRAST.md`). The shell's rail and people column are dark too — decided
-2026-08-25. The whole app is one ground; the paper is the marketing site.
+(`CONTRAST.md`).
 
 ### The accent
 
-`--seduce` is the Seduction pink from the hero. It is spent, not used.
+`--accent` is the acid green the client throws for a poison proc. Kacey chose
+it on 2026-08-30, and it replaced two colours at once.
 
-Allowed: the Seduced debuff, the pin marker, a pin or map spot the reader has
-pressed, focus rings inside the room. Forbidden: buttons, links, headings,
-the active rail room, anything that appears on every screen. If the pink is
-on the screen, something has been noticed or chosen. Two places on a page
-is the ceiling.
+It replaced the Seduction pink, which had to hold up over ninety full-bleed
+room photographs and did not. It also swallowed `#4ade5b`, the green the app
+already wore on the room's upgrade arrow, the rail's arrows and the sheet's
+summons key — because a loot table saying "this one is better than yours" and
+a stranger leaving a pin are the same promise, and two greens for one meaning
+is a colour nobody can read.
 
-On paper the accent stays the same hex. There is no light-mode variant; it
-only ever sits on the dark ground or on a dark frame.
+**One green, one meaning: something here is for you.**
 
-## Type — settled
+Allowed: the pin marker and a pressed map spot, the upgrade arrow and its
+tally, the summons key, the compass, focus rings inside the room. Forbidden:
+a plain button, a link, a heading, the room you are already standing in,
+anything that appears on every screen. Two places on a screen is the ceiling.
 
-One family, system sans. `-apple-system, "SF Pro Text", Inter, "Helvetica
-Neue"` for text; the Display cut for headings. No web font is loaded and
-none will be until there is a reason a system face can't give.
+Three greens are **not** the accent and must never be swapped to it:
 
-| role | size | weight | tracking | leading |
+- `#1eff00` — Uncommon on the item plate. The game's, quoted exactly.
+- `#4ade5b` — Uncommon in the app's own panels. The same word, lightened for
+  a dark ground. Never leaves an item name.
+- the Seduced debuff's `#ff4f8b`. A spell's own school colour, not ours.
+
+Early access wears `--blurple`. It is a status and Discord is the door to it;
+it is not something anybody left for you.
+
+## Type — settled, rewritten 2026-08-30
+
+Four faces, and each one has a job. `app/layout.tsx` loads the first two for
+the whole product; `globals.css` names all four.
+
+| token | face | job |
+| --- | --- | --- |
+| `--round` | Baloo 2 | **names things.** A room, a character, an item, an encounter's subject, a headline. |
+| `--sans` | Nunito | **says sentences.** Guide lines, empty states, chat, copy, a control's label. |
+| `--app-sans` | system stack | **is read.** Rail rows, slot grids, presence names, numbers, anything dense. |
+| `--mono` | `ui-monospace` | **is a read-out.** Eyebrows, meta, levels, counts, bands. |
+
+`--app-display` is the system Display cut and survives for one thing: a figure
+set large. A number is not a name, and Baloo's round numerals wobble in a
+column.
+
+The system stack is not a fallback and is not on its way out. Baloo at
+`0.8rem` in a seventy-five-row rail is soup, and the reader's own OS has
+already tuned its interface face for that size on their own screen.
+
+| role | face | size | weight | tracking |
 | --- | --- | --- | --- | --- |
-| h1 (hero) | `clamp(3rem, 7.2vw, 6.75rem)` | 600 | −0.045em | 0.96 |
-| h2 | `clamp(2rem, 4.2vw, 3.5rem)` | 600 | −0.035em | 1.04 |
-| room name (in a frame) | `clamp(1.6rem, 4vw, 3.4rem)` | 600 | −0.04em | 0.95 |
-| lede | `clamp(1.05rem, 1.4vw, 1.35rem)` | 400 | −0.01em | 1.45 |
-| body | `clamp(1.05rem, 1.3vw, 1.25rem)` | 400 | −0.01em | 1.5 |
-| base | 17px on paper, 16px in the shell | 400 | | 1.5 |
-| caption | 0.8rem | 400 | −0.005em | 1.4 |
-| small print | 0.78rem | 400 | | 1.5 |
+| h1 (landing hero) | round | `clamp(3rem, 7.5vw, 6.6rem)` | 800 | −0.02em |
+| h2 (landing) | round | `clamp(2.2rem, 4.6vw, 4rem)` | 800 | −0.015em |
+| room name | round | `clamp(1.7rem, 4.1vw, 3.5rem)` | 700 | −0.02em |
+| character name | round | `clamp(2.1rem, 4.1vw, 3.5rem)` | 700 | −0.02em |
+| a name in a card | round | 1.2rem | 700 | −0.01em |
+| a room in the rail | round | 0.84rem | 600 | 0 |
+| lede / body | sans | `clamp(1rem, 1.25vw, 1.15rem)` | 500–600 | 0 |
+| a row, a name in a list | app-sans | 0.8rem | 500 | −0.005em |
+| base | | 17px landing, 16px shell | | |
 
-Mono (`ui-monospace, "SF Mono", Menlo`) is for eyebrows, meta and credits
-only: 0.55–0.66rem, uppercase, tracked 0.14–0.2em, muted. It is never a
+Baloo carries its own width. The tracking that suited a system Display cut
+at −0.04em closes it up; nothing in the round face goes tighter than −0.02em.
+
+Mono stays 0.55–0.66rem, uppercase, tracked 0.14–0.2em, muted. It is never a
 heading and never body.
 
-Every h2 has two sentences. The second is the turn — muted, on its own line
-(`.h2Mute`). Headlines are `text-wrap: balance`, body is `text-wrap: pretty`.
+Arial appears in exactly one place, the item plate, and that is a quotation
+of the game rather than a fifth choice. See "The plate".
 
-Antialiased, `optimizeLegibility`. Hairlines are 0.5px; on the 5K they are
-real hairlines and that is the point.
+Headlines are `text-wrap: balance`, body is `text-wrap: pretty`. Antialiased,
+`optimizeLegibility`. Hairlines are 0.5px; on the 5K they are real hairlines
+and that is the point.
 
-## Space — settled
+## Space and shape — settled, rewritten 2026-08-30
 
-Section padding `clamp(6rem, 14vh, 11rem)` vertical, `clamp(1.25rem, 4vw,
-3rem)` horizontal. Row gap inside a section `clamp(2.5rem, 5vh, 4rem)`. Copy
-column 46rem, body column 34rem, both centred. Frames `min(100%, 72rem)`.
+| token | value | what takes it |
+| --- | --- | --- |
+| `--r-lg` | 24px (28px on the landing) | a frame around a picture of the product: the rail, the people column, the stage, ⌘K |
+| `--r-md` | 14px (18px on the landing) | a card inside one |
+| `--r-sm` | 9px | a row, a slot, a well |
+| `--r-pill` | 999px | a button, a chip |
 
-Sections alternate paper and band. No section rule, no divider; the band
-change is the divider.
+The shell is a 0.6rem gap and 0.6rem of padding. That gap is the only
+divider between its three panels.
+
+Landing section padding `clamp(5rem, 12vh, 9rem)` vertical, `clamp(1.25rem,
+4vw, 3rem)` horizontal. Row gap inside a section `clamp(2.25rem, 5vh,
+3.5rem)`. Copy column 44rem, body column 32rem, both centred. Frames
+`min(100%, 72rem)`.
+
+Sections do not alternate any more. There is one ground and the tone colour
+is what changes.
 
 ## Surfaces — settled
 
-The frame: `--ground`, radius `clamp(14px, 1.6vw, 24px)`, 16:10 (21:10 wide,
-4:5 narrow), a 0.5px ring at 12% and one soft shadow
-(`0 30px 80px -30px` at 35%). One per section. The product is always shown
-inside one; it is never drawn directly on paper.
+The frame: radius `--r-lg`, a 1px ring at 7–12% and one soft shadow
+(`0 30px 70px -30px` at 85%). The room takes `--ground` because a photograph
+is cropped against black; the rail and the people column take `--panel`,
+because a list of places you can go is an object and not a hole in the
+screen.
 
 The card, on the art: `rgba(6,6,10,.86)`, blur 24px, 0.5px `--rule`, radius
 12px, `--mute` raised to `.74` inside. `.86` is measured, not chosen
@@ -164,7 +222,9 @@ The room is a canvas, not a scroll, and it has four places. **Top, centred:
 the name** — eyebrow and title, the way a gallery wall names a room.
 **Bottom-left: reading** — the guide's placard and its chips, bare ink.
 **Bottom-right: objects** — the cards, stacked, `min(21rem, 34%)` wide.
-**Top-right: the compass**, which unfolds the map. The middle of the
+**Top-right: the compass**, which unfolds the map. It wore gold until
+2026-08-30, on the argument that a map is not something anybody left for you.
+Every mark on it was, so it wears the accent now. The middle of the
 photograph is empty on purpose. Anything new has to take one of the four
 places or make the case for a fifth.
 
@@ -172,19 +232,43 @@ Small under large: a placard's eyebrow (mono, tracked) sits over its subject
 (display, up to 4.75rem), then a one-line title, then two sentences. The
 things that choose it (the chips) sit under it, never beside it.
 
-## Controls — settled
+## Controls — settled, rewritten 2026-08-30
 
-One button. Pill, 0.5px border, 500 weight, `0.7rem 1.05rem`. On the art it
-is glass: 30% ground, 12px blur, ink text. On paper it is solid ink with paper
-text. Hover changes the border or the opacity, never the colour. Active
-scales to 0.98. Focus is a 2px `currentColor` outline offset 3px.
+**One button, and it is a pill.** `--r-pill`, 700 weight, `--sans`, no
+border. On the art it is glass: 30% ground, 12px blur, ink text. Hover lifts
+it 2px on `--pop` and deepens the shadow. Active scales to 0.97. Focus is a
+2px outline offset 3px.
 
-A disabled or not-yet button reads as quiet text at 70%, not greyed chrome.
+A disabled or not-yet button reads as quiet text at 70%, never greyed chrome.
 
-Rail rows are the landing mockup's card: `2.6rem` tall, radius 8px, the
-room's photograph at 32% behind the name, a left-to-right dark gradient so
-the name sits in the dark end. The current room brightens the art to 70%
-and takes a 0.5px ring. No accent.
+**The door is Discord's.** It wears `--blurple`, Discord's mark and a blurple
+glow, drawn the same on the landing and at the foot of the rail — so arriving
+in the app is arriving somewhere the door looks the same. It was a grey mono
+line in the rail until 2026-08-30 and it was losing a contrast fight with the
+word "Favourites". Once the reader is through, it gives the pill back and
+becomes a mono statement with a lit mark.
+
+**Rail rows are the landing's card, laid on its side.** `2.75rem` tall,
+radius `--r-sm`, the room's photograph at 46% behind the name, a
+left-to-right dark gradient so the name sits in the dark end. The name is
+`--round` at 0.84rem, because a room has a name. Hover and the current room
+take 78%; the current room also takes a 1px ring and a shadow under it. No
+accent — where you already are is not news.
+
+**Two exceptions carry the accent as a lit face.** The sheet's summons key
+and the room's compass are drawn the way the client draws a control: a lit
+face, a dark rim, a shadow under it. The rim is in the geometry on
+`UpArrow.tsx` and in four zero-blur drop-shadows on the compass, which is
+built from strokes. Nothing else on any surface takes this treatment.
+
+**Motion.** `--pop` overshoots and belongs to what the reader presses. `--ease`
+does not, and belongs to what the reader reads. Seventy-five rail rows on a
+spring is noise, not personality. Both flatten to `linear` under
+`prefers-reduced-motion`.
+
+**One scrollbar**, defined once in `globals.css`: a 10px gutter, a thumb at
+14% inset by a transparent border. Every surface is rounded now, and a native
+light track drew a hard straight edge down the inside of a soft one.
 
 ## Motion — settled
 
@@ -327,7 +411,7 @@ everywhere the pin appears — map mark (hunt-mark frame), chip slot,
 the game's own objects over drawn vocabulary here — a ruled amendment to
 §7.1 for this one marker). Outside PIN_BAND of the reader's level the
 mark quietens to 0.55 and never hides. Hover is the chip, press is the
-thread, the rail holds the composer; pressed marks ring in `--seduce`,
+thread, the rail holds the composer; pressed marks ring in `--accent`,
 which is within the rule above. The rail at rest is the room's pins as a
 feed ("Left here.").
 
@@ -338,13 +422,13 @@ is a placeholder, not a layout. The room has not been designed for a phone.
 purple, orange), lightened for the dark ground. They are the game's
 language, not a second accent; they never leave an item name.
 
-**Paper inside the app.** Nothing in the shell is light today. If a settings
-page or a profile needs paper, it uses the paper tokens above unchanged — the
-question is only whether it should exist.
+**A light surface anywhere.** There is no longer such a thing. If a settings
+page or a profile ever needs one, it is a new decision and it starts here,
+not with the tokens that used to be in this file.
 
-**Text on paper for the app's own chrome.** The command palette, the people
-column and the guide cards are all ink-on-ground. Fine until a screen has more
-than a few hundred words on it. The guide might.
+**A screen with a few hundred words on it.** The command palette, the people
+column and the guide cards are all ink-on-ground, which holds at the lengths
+they run to now. The guide might outgrow it.
 
 **Sound.** Someone enters; a pin lands. Optional, off by default. Not
 started.
@@ -355,10 +439,17 @@ column with forty names in it says otherwise.
 
 ## What is forbidden
 
-Text-shadow for legibility. Per-room CSS. A third ground. A second font
-(the plate's Arial is a quotation, not a font choice — see "The plate").
-A second accent. Pink on a button. A spinner. A border where a band change
-would do. Anything in `globals.css` that only one surface uses. A row you
-drag with the mouse — the landing's strip was a placeholder and it stays
-there; in the app a set of things is chips, or it is a list. Naming a thing
-the reader is not allowed to read yet.
+Per-room CSS. A ground that is not in the table above. A fifth face (the
+plate's Arial is a quotation, not a choice). A second accent. The accent on a
+plain button, a link or a heading. Swapping an item-quality colour or a
+spell's school colour to the accent. A spinner. A hairline where a gap would
+do — including the two that used to separate the shell's columns. Anything in
+`globals.css` that only one surface uses. A row you drag with the mouse: the
+landing's strip was a placeholder and it stays there, and in the app a set of
+things is chips or it is a list. Naming a thing the reader is not allowed to
+read yet.
+
+Text-shadow for legibility is still forbidden as a *substitute* for the scrim
+or a card. The rail's room name carries one, and that is the single exception
+on either surface: it is a name on a photograph inside a panel, where there
+is no scrim to stand in and no card to sit on.

@@ -82,11 +82,11 @@
 
 .name {
   margin: 0;
-  font-family: var(--app-display);
-  font-weight: 600;
-  font-size: clamp(1.6rem, 4vw, 3.4rem);
-  line-height: 0.95;
-  letter-spacing: -0.04em;
+  font-family: var(--round);
+  font-weight: 700;
+  font-size: clamp(1.7rem, 4.1vw, 3.5rem);
+  line-height: 1;
+  letter-spacing: -0.02em;
   text-wrap: balance;
 }
 

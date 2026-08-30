@@ -220,11 +220,11 @@
 }
 .h2 {
   margin: 0 0 0.9rem;
-  font-family: var(--app-display);
-  font-weight: 600;
-  font-size: 1.35rem;
-  letter-spacing: -0.02em;
-  line-height: 1.1;
+  font-family: var(--round);
+  font-weight: 700;
+  font-size: 1.4rem;
+  letter-spacing: -0.005em;
+  line-height: 1.2;
 }
 .copy {
   margin: 0;

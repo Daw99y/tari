@@ -1,23 +1,46 @@
-/* The shell's frame. Tokens come from globals.css; nothing here is a colour
- * the landing page had not already chosen.
+/* THE SHELL'S FRAME. Tokens come from globals.css.
  *
- * The register: full-bleed exactly once, and that once is the room
- * (docs/TARI.md §11.2). Both columns beside it are quiet, flat and separated
- * by a hairline — so the photograph in the middle is the only thing on the
- * screen making noise. */
+ * The register changed on 2026-08-30, and the landing page is why. It draws
+ * the product as a print lying on a warm dark table — rounded, ringed, with
+ * real weight under it — and the app was drawing the same product edge to
+ * edge between two flat black columns, with a hairline where the landing had
+ * air. Two hard seams down a screen is what made a finished thing read as a
+ * wireframe of itself.
+ *
+ * So: --well is the table. Three things lie on it — the rail, the room, the
+ * column — and the gap between them is the divider, which is why there is not
+ * a border left in this file that separates a column from its neighbour. The
+ * room keeps the black a photograph is cropped against; the two panels take
+ * --panel, a step up off the table, because a list of places you can go is an
+ * object you pick things off and not a hole in the screen.
+ *
+ * "Full-bleed exactly once" (docs/TARI.md §11.2) is retired. It was true when
+ * the app was one photograph and two gutters; it stopped being true the day
+ * the landing showed everyone what the product looks like. The room is still
+ * the only thing making noise — it is just held now, rather than wedged. */
 
 .shell {
-  --hair: rgba(242, 240, 234, 0.09);
-
   display: grid;
   grid-template-columns: 15.5rem minmax(0, 1fr) 15rem;
+  gap: 0.6rem;
+  padding: 0.6rem;
   height: 100dvh;
-  background: var(--ground);
+  background: var(--well);
   color: var(--ink);
   font-family: var(--app-sans);
   font-size: 16px;
   overflow: hidden;
   -webkit-font-smoothing: antialiased;
+}
+
+/* The two panels are one surface, described once. */
+.railColumn,
+.people {
+  background: var(--panel);
+  border-radius: var(--r-lg);
+  box-shadow:
+    inset 0 0 0 1px rgba(242, 240, 234, 0.07),
+    0 18px 40px -24px rgba(0, 0, 0, 0.8);
 }
 
 /* ---- the rail column */
@@ -26,7 +49,7 @@
   display: flex;
   flex-direction: column;
   min-height: 0;
-  border-right: 0.5px solid var(--hair);
+  overflow: hidden;
 }
 
 .railHead {
@@ -36,6 +59,7 @@
   gap: 0.5rem;
   padding: 0.95rem 1rem;
   border-bottom: 0.5px solid var(--hair);
+  flex: none;
 }
 
 /* The mark stands alone here — no word beside it, so no type properties. */
@@ -55,15 +79,22 @@
   fill: var(--ink);
 }
 
+/* The palette's key. It reads as a key now — a raised face on the panel
+ * rather than an outline drawn on it — because that is the shape of the thing
+ * the reader is being told to press. */
 .ask {
   appearance: none;
-  border: 0.5px solid var(--hair);
-  border-radius: 999px;
-  background: transparent;
+  border: 0;
+  border-radius: var(--r-pill);
+  background: rgba(242, 240, 234, 0.07);
+  box-shadow: inset 0 0 0 1px rgba(242, 240, 234, 0.08);
   color: var(--mute);
-  padding: 0.3rem 0.5rem;
+  padding: 0.34rem 0.6rem;
   cursor: pointer;
-  transition: border-color 180ms ease, color 180ms ease;
+  transition:
+    background-color 180ms ease,
+    color 180ms ease,
+    transform 220ms var(--pop);
 }
 
 .ask kbd {
@@ -72,8 +103,18 @@
 }
 
 .ask:hover {
-  border-color: var(--rule);
+  background: rgba(242, 240, 234, 0.13);
   color: var(--ink);
+  transform: translateY(-1px);
+}
+
+.ask:active {
+  transform: scale(0.95);
+}
+
+.ask:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
 }
 
 .railFoot {
@@ -168,7 +209,7 @@
   width: 1.02rem !important;
   height: 1.02rem !important;
   border-radius: 4px !important;
-  box-shadow: 0 0 0 1.5px var(--ground);
+  box-shadow: 0 0 0 1.5px var(--panel);
   filter: none !important;
 }
 
@@ -221,53 +262,65 @@
   border-color: rgba(242, 240, 234, 0.45);
 }
 
-/* THE DOOR STRIP. Discord adds one thing and takes nothing away, so signed
- * out it is an offer at the quietest weight in the column — grey clyde, grey
- * word — and it lights to blurple only once it is true. */
+/* THE DOOR. It used to be a grey mono line under the character plate, at the
+ * quietest weight in the column, on the argument that Discord adds one thing
+ * and takes nothing away and so must not shout. The argument was right and
+ * the drawing was wrong: this is the one control in the app that moves a
+ * reader's record between machines, and it was losing a contrast fight with
+ * the word "Favourites".
+ *
+ * It is the landing's door now, at rail width — Discord's blurple, Discord's
+ * mark, the same pill the reader pressed to get here. The one control on
+ * either surface that is not ours to restyle, drawn the same way in both
+ * places, so arriving in the app is arriving somewhere the door looks the
+ * same. */
 .meDoorForm {
   display: contents;
 }
 
 .meDoor {
   appearance: none;
-  background: none;
+  background: var(--blurple);
   border: 0;
   width: 100%;
-  margin: 0;
+  margin: 0.15rem 0 0;
   display: flex;
   align-items: center;
-  gap: 0.45rem;
-  padding: 0.3rem 0.55rem;
-  border-radius: 7px;
-  font: 500 0.62rem/1 var(--mono);
-  letter-spacing: 0.02em;
-  text-align: left;
-  color: rgba(242, 240, 234, 0.34);
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.55rem 0.7rem;
+  border-radius: var(--r-pill);
+  font: 700 0.74rem/1 var(--sans);
+  letter-spacing: 0;
+  color: #fff;
   cursor: pointer;
-  transition: color 180ms ease, background-color 180ms ease;
+  box-shadow: 0 6px 20px -8px rgba(88, 101, 242, 0.75);
+  transition:
+    background-color 180ms ease,
+    box-shadow 220ms ease,
+    transform 240ms var(--pop);
 }
 
 .meDoor:hover {
-  color: rgba(242, 240, 234, 0.72);
-  background: rgba(88, 101, 242, 0.14);
+  background: var(--blurple-deep);
+  box-shadow: 0 12px 26px -10px rgba(88, 101, 242, 0.85);
+  transform: translateY(-2px);
 }
 
-.meDoor:hover .meClyde {
-  color: #5865f2;
-  opacity: 1;
+.meDoor:active {
+  transform: scale(0.97);
 }
 
 .meDoor:focus-visible {
-  outline: 2px solid var(--ink);
-  outline-offset: -2px;
+  outline: 2px solid #fff;
+  outline-offset: 3px;
 }
 
 .meClyde {
   flex: none;
-  height: 0.82rem;
+  height: 0.95rem;
   width: auto;
   color: currentColor;
-  opacity: 0.55;
   transition: color 180ms ease, opacity 180ms ease;
 }
 
@@ -278,17 +331,24 @@
   white-space: nowrap;
 }
 
-/* Through the door already. It is a statement now, not a control, so it does
- * not move under the pointer — but the mark is lit, because it is true. */
+/* Through the door already. It is a statement now, not a control, so it gives
+ * the pill back: no fill, no shadow, nothing that moves under the pointer.
+ * The mark stays lit, because it is true. */
 .meDoorOn {
-  margin: 0;
+  margin: 0.15rem 0 0;
+  padding: 0.4rem 0.55rem;
+  justify-content: flex-start;
+  background: none;
+  box-shadow: none;
   cursor: default;
+  font: 500 0.68rem/1 var(--mono);
+  letter-spacing: 0.02em;
   color: rgba(242, 240, 234, 0.5);
 }
 
 .meDoorOn .meClyde {
-  color: #5865f2;
-  opacity: 1;
+  height: 0.82rem;
+  color: var(--blurple);
 }
 
 /* ---- Azeroth as a list */
@@ -299,7 +359,7 @@
   overflow-y: auto;
   overscroll-behavior: contain;
   scrollbar-width: thin;
-  scrollbar-color: rgba(242, 240, 234, 0.16) transparent;
+  scrollbar-color: rgba(242, 240, 234, 0.1) transparent;
   padding-bottom: 1rem;
 }
 
@@ -326,7 +386,7 @@
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: rgba(242, 240, 234, 0.34);
-  background: linear-gradient(to bottom, var(--ground) 62%, rgba(6, 6, 10, 0));
+  background: linear-gradient(to bottom, var(--panel) 62%, rgba(22, 19, 31, 0));
 }
 
 /* The whole row is the control, not the word: a 0.6rem label is a poor thing
@@ -515,25 +575,37 @@
   }
 }
 
-/* A row is the landing mockup's card: rounded, floating on the ground,
- * the room's photograph held down behind the name. */
+/* A ROW IS A ROOM IN THE HAND. The landing deals five of them as tilted
+ * cards with the place bright on the front and its name under it in the round
+ * face; the rail has seventy-five and no room to tilt anything, so it is that
+ * card laid on its side. What carries across is what mattered: the photograph
+ * is a photograph and not a stain, and the name is set in the face that names
+ * things. */
 .room {
   position: relative;
   display: block;
-  height: 2.6rem;
-  border-radius: 8px;
+  height: 2.75rem;
+  border-radius: var(--r-sm);
   overflow: hidden;
   text-decoration: none;
   isolation: isolate;
 }
 
 /* Dark to light, left to right: the name sits in the dark end and the room's
- * own colour survives in the other. */
+ * own colour survives in the other. The dark end is heavier than it was,
+ * because the art behind it is brighter than it was — the trade buys a room
+ * that looks like a place without costing the name a single point of
+ * contrast. */
 .room::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(to right, rgba(6, 6, 10, 0.85) 0%, rgba(6, 6, 10, 0.2) 100%);
+  background: linear-gradient(
+    to right,
+    rgba(6, 6, 10, 0.92) 0%,
+    rgba(6, 6, 10, 0.72) 42%,
+    rgba(6, 6, 10, 0.18) 100%
+  );
 }
 
 .roomArt {
@@ -546,12 +618,18 @@
    * midground, so a centre crop of a 46px strip is mostly murk. Pull the
    * window up into the lit third. */
   object-position: 50% 32%;
-  /* 32% behind the name; the current room takes 70% (docs/DESIGN.md, Controls). */
-  filter: brightness(0.32) saturate(0.72);
+  /* 46% behind the name; the current room and a hover take 78%. It was 32%,
+   * which is a stain rather than a photograph — and a rail of stains is why
+   * the world read as a settings menu. The gradient above absorbs the
+   * difference (docs/DESIGN.md, Controls). */
+  filter: brightness(0.46) saturate(0.85);
   transform: scale(1.02);
   transition: filter 260ms ease, transform 420ms cubic-bezier(0.2, 0.7, 0.2, 1);
 }
 
+/* Baloo, at the size the landing sets a room's name under its card. It is
+ * the one round face in the rail and it is spent on the only thing here that
+ * is a name rather than a number. */
 .roomName {
   position: relative;
   z-index: 2;
@@ -560,8 +638,10 @@
   min-width: 0;
   height: 100%;
   padding: 0 0.75rem;
-  font-size: 0.8rem;
-  color: rgba(242, 240, 234, 0.76);
+  font: 600 0.84rem/1.15 var(--round);
+  letter-spacing: 0;
+  color: rgba(242, 240, 234, 0.8);
+  text-shadow: 0 1px 3px rgba(6, 6, 10, 0.7);
   transition: color 180ms ease;
 }
 
@@ -644,7 +724,7 @@
 }
 
 .room:hover .roomArt {
-  filter: brightness(0.7) saturate(1);
+  filter: brightness(0.78) saturate(1.05);
   transform: scale(1.07);
 }
 
@@ -658,25 +738,38 @@
 }
 
 .room[data-current] .roomArt {
-  filter: brightness(0.7) saturate(1);
+  filter: brightness(0.78) saturate(1.05);
 }
 
 .room[data-current] .roomName {
   color: var(--ink);
 }
 
-/* You are in this one: a thin keyline around the card, as the mockup draws
- * it, instead of an edge bar. */
+/* You are in this one: a keyline around the card and a shadow under it, so
+ * the row you are standing in is the one row lifted off the panel. No accent
+ * — the green is spent on what is *for* you, and where you already are is not
+ * news (docs/DESIGN.md, The accent). */
 .room[data-current] {
-  box-shadow: inset 0 0 0 0.5px rgba(242, 240, 234, 0.35);
+  box-shadow:
+    inset 0 0 0 1px rgba(242, 240, 234, 0.38),
+    0 6px 16px -8px rgba(0, 0, 0, 0.9);
 }
 
 /* ---- the room, and the column beside it */
 
+/* THE PRINT. The room is cropped against its own black, held at the landing's
+ * radius, ringed with one hairline and given real weight underneath. Nothing
+ * inside the room changed to make this work: the frame is the shell's, so a
+ * room that was written to fill a rectangle still fills one. */
 .stage {
   position: relative;
   min-width: 0;
   overflow: hidden;
+  background: var(--ground);
+  border-radius: var(--r-lg);
+  box-shadow:
+    inset 0 0 0 1px rgba(242, 240, 234, 0.09),
+    0 30px 70px -30px rgba(0, 0, 0, 0.85);
   /* What the room and the sheet measure themselves against. The window is the
    * wrong ruler here: with the rail out and the column open, a 1280px window
    * leaves the stage under 50rem, and a layout keyed to the window would lay
@@ -685,9 +778,11 @@
 }
 
 .people {
-  border-left: 0.5px solid var(--hair);
   padding: 0.95rem 1rem;
   overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(242, 240, 234, 0.16) transparent;
 }
 
 .columnName {
@@ -700,9 +795,9 @@
 
 .columnBody {
   margin: 0;
-  font-size: 0.8rem;
-  line-height: 1.55;
+  font: 500 0.82rem/1.55 var(--sans);
   color: var(--mute);
+  text-wrap: pretty;
 }
 
 /* A second heading further down the column. */
@@ -778,7 +873,7 @@
 
 .hereMore {
   margin: 0.5rem 0 0;
-  font-size: 0.75rem;
+  font: 500 0.76rem/1.4 var(--sans);
   color: rgba(242, 240, 234, 0.4);
 }
 
@@ -823,7 +918,7 @@
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
   border: 0.5px solid var(--rule);
-  border-radius: 12px;
+  border-radius: var(--r-lg);
   overflow: hidden;
   box-shadow: 0 30px 90px rgba(0, 0, 0, 0.65);
   animation: lift 200ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
@@ -847,7 +942,7 @@
   border: 0;
   border-bottom: 0.5px solid var(--hair);
   color: var(--ink);
-  font: 400 1rem/1.2 var(--app-sans);
+  font: 600 1rem/1.2 var(--sans);
   outline: none;
 }
 
@@ -872,9 +967,10 @@
   background: transparent;
   border: 0;
   color: rgba(242, 240, 234, 0.8);
-  font: 400 0.88rem/1.2 var(--app-sans);
+  font: 600 0.92rem/1.25 var(--round);
   text-align: left;
   cursor: pointer;
+  border-radius: var(--r-sm);
 }
 
 .commandHit[data-at] {
@@ -892,7 +988,7 @@
 .commandEmpty {
   margin: 0;
   padding: 1rem 1.1rem;
-  font-size: 0.85rem;
+  font: 500 0.88rem/1.5 var(--sans);
   color: var(--mute);
 }
 
@@ -907,6 +1003,27 @@
   }
 }
 
+/* The table needs room to be a table. Below this the gap costs more than it
+ * buys, so the three panels close up into one surface again and the phone
+ * gets the layout it had — which is a placeholder, and phase five's problem
+ * (docs/DESIGN.md, Open — Narrow). */
+@media (max-width: 44rem) {
+  .shell {
+    gap: 0;
+    padding: 0;
+    background: var(--ground);
+  }
+  .railColumn,
+  .people,
+  .stage {
+    border-radius: 0;
+    box-shadow: none;
+  }
+  .railColumn {
+    background: var(--panel);
+  }
+}
+
 /* The rail lies down along the top. Same rows, same art, read across. */
 @media (max-width: 44rem) {
   .shell {
@@ -917,7 +1034,6 @@
     flex-direction: row;
     align-items: stretch;
     height: 4rem;
-    border-right: 0;
     border-bottom: 0.5px solid var(--hair);
     min-width: 0;
   }

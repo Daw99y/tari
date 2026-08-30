@@ -110,3 +110,45 @@
     --ease: linear;
   }
 }
+
+/* Nothing behind the product is ever paper. Both surfaces paint their own
+ * ground, but a rounded panel with a gap around it means the page under it is
+ * visible for the first time — and an unpainted page is white. */
+html,
+body {
+  background: var(--well);
+  color: var(--ink);
+}
+
+/* ONE SCROLLBAR, and it is quiet.
+ *
+ * Every surface in the app is rounded now, and a native light track drew a
+ * hard straight edge down the inside of a soft one — the single loudest thing
+ * on the sheet, and it was chrome nobody chose. The thumb is inset by a
+ * transparent border so it floats in its own gutter rather than butting the
+ * panel's edge. */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(242, 240, 234, 0.14) transparent;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(242, 240, 234, 0.14);
+  background-clip: content-box;
+  border: 3px solid transparent;
+  border-radius: var(--r-pill);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(242, 240, 234, 0.28);
+  background-clip: content-box;
+}
