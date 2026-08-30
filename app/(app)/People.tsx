@@ -46,22 +46,30 @@ export default function People() {
 
   return (
     <aside className={styles.people} aria-label="In the room">
-      <h2 className={styles.columnName}>In the room</h2>
+      <div className={styles.here}>
+        <h2 className={styles.columnName}>In the room</h2>
 
-      {!room ? (
-        <p className={styles.columnBody}>Pick a room to see who is standing in it.</p>
-      ) : up && id ? (
-        <Here />
-      ) : (
-        <p className={styles.columnBody}>
-          Presence for {room.name} arrives with the live layer. Nothing is connected on this
-          build.
-        </p>
-      )}
+        {!room ? (
+          <p className={styles.columnBody}>Pick a room to see who is standing in it.</p>
+        ) : up && id ? (
+          <Here />
+        ) : (
+          <p className={styles.columnBody}>
+            Presence for {room.name} arrives with the live layer. Nothing is connected on this
+            build.
+          </p>
+        )}
+      </div>
 
+      {/* THE DOORS SIT AT THE FOOT OF THE COLUMN.
+          They used to follow the heads directly, which left the bottom two
+          thirds of a quiet room blank — and a void under the last thing on a
+          list reads as something that failed to load. Pushed down, the same
+          emptiness becomes the room's own air, and the exits are where exits
+          are: at the bottom of the wall. */}
       {doors.length > 0 ? (
-        <>
-          <h2 className={`${styles.columnName} ${styles.columnNameLater}`}>
+        <div className={styles.doors}>
+          <h2 className={styles.columnName}>
             {out ? `Outside, in ${out.name}` : "Next door"}
           </h2>
           <ul className={styles.rooms}>
@@ -95,7 +103,7 @@ export default function People() {
               );
             })}
           </ul>
-        </>
+        </div>
       ) : null}
     </aside>
   );

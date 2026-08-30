@@ -67,10 +67,15 @@ export default async function RoomPage({ params, searchParams }: Props) {
   // Where the drawn rows' sources stand — the hunt layer and the crop.
   const hunt = await huntFor(room.id, drops, plate);
 
-  // What people left here. The uid only stamps `mine` — a stranger reads
-  // the record exactly as a member does (docs/PINS.md).
+  /* What people left here. The uid only stamps `mine` — a stranger reads the
+     record exactly as a member does (docs/PINS.md).
+
+     Read for every room, not only the plated ones. It used to be gated on the
+     plate because a pin needed a spot to stand on; a pin left in the room's
+     card stack has no spot, and the thirty-three rooms with no map are the
+     ones that read most of what people leave. */
   const session = hasAuth() ? ((await auth()) as { uid?: number | null } | null) : null;
-  const pins = plate ? await pinsIn(room.id, typeof session?.uid === "number" ? session.uid : null) : [];
+  const pins = await pinsIn(room.id, typeof session?.uid === "number" ? session.uid : null);
 
   /* `?item=` — the sheet's rows are doors to a card, and the card lives in
      the room that holds the thing (docs/DRESSING.md). An id this room does

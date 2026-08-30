@@ -44,6 +44,11 @@ type Subject = { kind: Kind } | { kind: "item"; item: Item };
 export type Dock = {
   openItem: (item: Item, from?: HTMLElement | null) => void;
   openKit: () => void;
+  /** The map, opened the way the compass opens it — the reader chose this,
+   *  so it writes the preference. The placard in an unwritten room uses it:
+   *  a room with no guide still has a map with marks on it, and "leave the
+   *  first pin" has to land somewhere a pin can be left. */
+  openMap: () => void;
   /** The stage's crop for anything with a spot: the real map, centred on
    *  it. The telling's cards use this the way the item stage does. */
   openMapAt: (at: { x: number; y: number }) => void;
@@ -176,6 +181,8 @@ export default function Dock({
     setHeld(item);
   }, []);
 
+  const openMap = useCallback(() => setMap(true), [setMap]);
+
   const openKit = useCallback(() => {
     setSubject((prev) => {
       beneath.current = prev?.kind === "map" ? "map" : null;
@@ -235,7 +242,7 @@ export default function Dock({
   const onKit = subject?.kind === "kit";
 
   return (
-    <DockCtx.Provider value={{ openItem, openKit, openMapAt, close }}>
+    <DockCtx.Provider value={{ openItem, openKit, openMap, openMapAt, close }}>
       {children}
 
       <div

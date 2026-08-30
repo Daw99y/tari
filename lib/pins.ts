@@ -30,9 +30,15 @@ export type PinReply = {
 
 export type Pin = {
   id: number;
-  /** Map coordinates, the spots files' own 0–100 space. */
-  x: number;
-  y: number;
+  /** Map coordinates, the spots files' own 0–100 space — or null.
+   *
+   *  A pin left on the map stands on a spot. A pin left in the room's card
+   *  stack has none, and thirty-three rooms can only hold that kind: every
+   *  dungeon and raid in the game is a room with no plate, which is also
+   *  where a warning is worth the most. So the atom is one person, one
+   *  sentence, and a spot when there is a map to put it on (docs/PINS.md). */
+  x: number | null;
+  y: number | null;
   body: string;
   who: string;
   cls: ClassId;
@@ -56,11 +62,12 @@ export function readPin(v: unknown): (Pin & { parent: number | null }) | null {
   if (!v || typeof v !== "object") return null;
   const p = v as Record<string, unknown>;
   if (typeof p.id !== "number" || typeof p.body !== "string") return null;
-  if (typeof p.x !== "number" || typeof p.y !== "number") return null;
+  /* A spot is optional, but half a spot is not a spot. */
+  const spotted = typeof p.x === "number" && typeof p.y === "number";
   return {
     id: p.id,
-    x: p.x,
-    y: p.y,
+    x: spotted ? (p.x as number) : null,
+    y: spotted ? (p.y as number) : null,
     body: p.body.slice(0, PIN_MAX),
     who: typeof p.who === "string" ? p.who.slice(0, 24) : "someone",
     cls: (typeof p.cls === "string" ? p.cls : "warrior") as ClassId,
@@ -79,4 +86,9 @@ export function pinAge(iso: string): string {
   if (days < 1) return "today";
   if (days < 28) return `${days}d`;
   return new Date(iso).toLocaleDateString("en", { month: "short", year: "numeric" });
+}
+
+/** Whether this pin stands somewhere on the map, or only in the room. */
+export function onTheMap(pin: { x: number | null; y: number | null }): boolean {
+  return pin.x !== null && pin.y !== null;
 }

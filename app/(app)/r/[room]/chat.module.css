@@ -6,8 +6,10 @@
 
 .chat {
   position: absolute;
-  left: clamp(1.25rem, 3vw, 2.25rem);
-  bottom: clamp(1.5rem, 4.5vh, 2.75rem);
+  /* --corner is the room's: one distance from the frame, shared with the
+     compass, the summons and the objects column (room.module.css). */
+  left: var(--corner);
+  bottom: var(--corner);
   z-index: 3;
   width: min(30rem, 40%);
   display: grid;
@@ -62,8 +64,7 @@
 }
 
 .line {
-  font-size: 0.82rem;
-  line-height: 1.45;
+  font: 500 0.84rem/1.45 var(--sans);
   /* A wrapped sentence hangs under its own text, not under the name. */
   padding-left: 0.1rem;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.55);
@@ -85,7 +86,7 @@
  * because the scrim keeps this corner dark on every room in the set. */
 .who {
   color: var(--ink);
-  font-weight: 550;
+  font-weight: 800;
 }
 
 .who::after {
@@ -135,9 +136,7 @@
   border: 0;
   padding: 0;
   color: var(--ink);
-  font-family: inherit;
-  font-size: 0.84rem;
-  line-height: 1.4;
+  font: 500 0.86rem/1.4 var(--sans);
 }
 
 .field:focus {

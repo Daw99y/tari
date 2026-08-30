@@ -7,7 +7,7 @@
   position: absolute;
   left: 0;
   right: 0;
-  bottom: clamp(1.5rem, 4.5vh, 2.75rem);
+  bottom: var(--corner);
   z-index: 3;
   display: grid;
   justify-items: center;

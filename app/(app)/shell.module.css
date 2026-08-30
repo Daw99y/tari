@@ -778,15 +778,30 @@
 }
 
 .people {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
   padding: 0.95rem 1rem;
   overflow-y: auto;
   overscroll-behavior: contain;
-  scrollbar-width: thin;
-  scrollbar-color: rgba(242, 240, 234, 0.16) transparent;
+}
+
+/* Who is here, at the top. */
+.here {
+  flex: none;
+}
+
+/* And the way out, at the bottom of the wall. The gap between them is the
+ * room's air rather than a list that stopped loading (People.tsx). */
+.doors {
+  flex: none;
+  margin-top: auto;
+  padding-top: 1.5rem;
 }
 
 .columnName {
   margin: 0 0 0.75rem;
+  flex: none;
   font: 500 0.6rem/1 var(--mono);
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -798,11 +813,6 @@
   font: 500 0.82rem/1.55 var(--sans);
   color: var(--mute);
   text-wrap: pretty;
-}
-
-/* A second heading further down the column. */
-.columnNameLater {
-  margin-top: 1.5rem;
 }
 
 /* The rail's rows, reused: .rooms pads for the rail's gutter, and the

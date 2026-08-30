@@ -136,6 +136,16 @@ create table if not exists pins (
   removed_at timestamptz,
   created_at timestamptz not null default now()
 );
+-- A PIN NO LONGER NEEDS A SPOT (2026-08-30).
+-- Thirty-three rooms have no map plate and never will: every dungeon, every
+-- raid, and the four hubs. Under `not null` those rooms could not hold a
+-- single pin, which put the product's own atom out of reach of exactly the
+-- places people most want to warn each other about. A pin left on the map
+-- keeps its spot and stands on it; a pin left in the room's card stack has
+-- no spot, appears only there, and is otherwise the same row. See PINS.md.
+alter table pins alter column x drop not null;
+alter table pins alter column y drop not null;
+
 -- The room's read: everything said here, oldest first under its spot.
 create index if not exists pins_room_at on pins (room, created_at desc);
 -- A thread's replies.

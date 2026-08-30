@@ -1,0 +1,368 @@
+/* The room's own deck. It stands where the telling stands, so it is laid out
+ * the way the telling is (story.module.css): the room is one absolute stage,
+ * this sits dead centre, and clicks pass through everywhere its own pieces
+ * are not.
+ *
+ * The head — the eyebrow, the band, the two lines of an empty room — is bare
+ * ink on the art, inside the scrim's radial weight, exactly as the guide's
+ * own header is. The card is the card (docs/DESIGN.md, Surfaces): there is
+ * one, and a pin somebody left is not a reason to invent a second. */
+
+.left {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  gap: 0.8rem;
+  padding-inline: clamp(1rem, 3vw, 2rem);
+  text-align: center;
+  pointer-events: none;
+  animation: arrive 900ms var(--ease) 400ms both;
+}
+
+.left > * {
+  pointer-events: auto;
+}
+
+@keyframes arrive {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.eyebrow {
+  margin: 0;
+  font: 400 0.62rem/1 var(--mono);
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(242, 240, 234, 0.5);
+  text-shadow: 0 1px 12px rgba(6, 6, 10, 0.9);
+}
+
+/* The band, at display size. The stage's rule and for the stage's reason: on
+ * this surface a number is type and never a score — no ring, no bar, no dial
+ * (docs/DESIGN.md, The stage). It stays in the system Display cut, because a
+ * figure is not a name and Baloo's round numerals wobble side by side. */
+.figure {
+  margin: 0;
+  display: grid;
+  justify-items: center;
+  gap: 0.3rem;
+  font-family: var(--app-display);
+  font-weight: 600;
+  font-size: clamp(2.6rem, 6vw, 4.2rem);
+  line-height: 0.92;
+  letter-spacing: -0.04em;
+  font-variant-numeric: tabular-nums;
+  color: var(--ink);
+  text-shadow: 0 2px 20px rgba(6, 6, 10, 0.85);
+}
+
+.figureWord {
+  font: 400 0.58rem/1 var(--mono);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(242, 240, 234, 0.45);
+}
+
+/* At most two, each on its own line: a fact and a state, never a paragraph. */
+.lines {
+  margin: 0;
+  display: grid;
+  gap: 0.3rem;
+  max-width: 26rem;
+  font: 600 0.95rem/1.45 var(--sans);
+  color: rgba(242, 240, 234, 0.72);
+  text-shadow: 0 1px 14px rgba(6, 6, 10, 0.9);
+  text-wrap: balance;
+}
+
+/* ---- one card. The app's one card, at the width the guide's cards take. */
+
+.card {
+  width: min(26rem, 100%);
+  display: grid;
+  gap: 0.55rem;
+  padding: 1rem 1.15rem 1.05rem;
+  border-radius: var(--r-md);
+  text-align: left;
+  background: rgba(6, 6, 10, 0.86);
+  border: 0.5px solid var(--rule);
+  backdrop-filter: blur(24px) saturate(1.1);
+  -webkit-backdrop-filter: blur(24px) saturate(1.1);
+  box-shadow: 0 24px 60px -28px rgba(0, 0, 0, 0.8);
+}
+
+/* Writing is the same card with a field in it, so the thing you are making
+ * is the shape of the thing you will have made. */
+.card[data-writing] {
+  gap: 0.7rem;
+  justify-items: stretch;
+}
+
+.who {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  min-width: 0;
+  font: 500 0.82rem/1.2 var(--app-sans);
+}
+
+.who strong {
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.whoFace {
+  flex: none;
+  width: 1.05rem;
+  height: 1.05rem;
+  color: var(--accent);
+  fill: currentColor;
+}
+
+.whoMeta {
+  flex: none;
+  margin-left: auto;
+  font: 400 0.58rem/1 var(--mono);
+  letter-spacing: 0.1em;
+  text-transform: capitalize;
+  color: rgba(242, 240, 234, 0.42);
+}
+
+/* The sentence somebody wrote, in the face sentences are set in. */
+.body {
+  margin: 0;
+  font: 500 0.92rem/1.5 var(--sans);
+  color: rgba(242, 240, 234, 0.92);
+  overflow-wrap: anywhere;
+  text-wrap: pretty;
+}
+
+.foot {
+  margin: 0;
+  display: flex;
+  align-items: baseline;
+  gap: 0.9rem;
+  font: 400 0.58rem/1 var(--mono);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(242, 240, 234, 0.42);
+}
+
+.footLink {
+  appearance: none;
+  border: 0;
+  background: none;
+  padding: 0;
+  margin-left: auto;
+  font: inherit;
+  color: rgba(242, 240, 234, 0.6);
+  text-decoration: underline;
+  text-underline-offset: 0.35em;
+  text-decoration-color: rgba(242, 240, 234, 0.28);
+  cursor: pointer;
+  transition: color 180ms ease;
+}
+
+.footLink:hover {
+  color: var(--ink);
+}
+
+/* ---- the deck's pager. The guide's, in the guide's register. */
+
+.pager {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.count {
+  font: 400 0.6rem/1 var(--mono);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(242, 240, 234, 0.5);
+  font-variant-numeric: tabular-nums;
+}
+
+.page {
+  appearance: none;
+  border: 0;
+  width: 1.6rem;
+  height: 1.6rem;
+  display: grid;
+  place-items: center;
+  border-radius: var(--r-pill);
+  background: rgba(242, 240, 234, 0.07);
+  box-shadow: inset 0 0 0 1px rgba(242, 240, 234, 0.1);
+  color: rgba(242, 240, 234, 0.7);
+  font-size: 0.9rem;
+  line-height: 1;
+  cursor: pointer;
+  transition:
+    background-color 180ms ease,
+    color 180ms ease,
+    transform 220ms var(--pop);
+}
+
+.page:hover {
+  background: rgba(242, 240, 234, 0.14);
+  color: var(--ink);
+}
+
+.page:active {
+  transform: scale(0.92);
+}
+
+.page:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+}
+
+/* ---- the field. It is inside the card, so it does not carry a ground of
+   its own — only a floor to type on. */
+
+.field {
+  appearance: none;
+  width: 100%;
+  resize: none;
+  border: 0;
+  border-radius: var(--r-sm);
+  padding: 0.6rem 0.7rem;
+  background: rgba(242, 240, 234, 0.06);
+  box-shadow: inset 0 0 0 1px rgba(242, 240, 234, 0.1);
+  color: var(--ink);
+  font: 500 0.92rem/1.5 var(--sans);
+  outline: none;
+  transition: box-shadow 200ms ease;
+}
+
+.field::placeholder {
+  color: rgba(242, 240, 234, 0.34);
+}
+
+.field:focus {
+  box-shadow: inset 0 0 0 1px rgba(242, 240, 234, 0.3);
+}
+
+.note {
+  margin: 0;
+  font: 500 0.72rem/1.4 var(--sans);
+  color: rgba(242, 240, 234, 0.46);
+}
+
+.sayRow {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+/* ---- THE ONE ACTION.
+ *
+ * The accent, because in an unwritten room the one thing that is for you is
+ * the space to say the first thing anybody says about it. The lit face and
+ * the dark rim are the client's, worn the way the summons key and the compass
+ * wear them (docs/DESIGN.md, Controls). */
+
+.act {
+  appearance: none;
+  border: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.15rem;
+  border-radius: var(--r-pill);
+  background: linear-gradient(180deg, #cbff5e 0%, var(--accent) 100%);
+  color: var(--accent-ink);
+  font: 700 0.82rem/1 var(--sans);
+  cursor: pointer;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.4),
+    0 8px 26px -10px var(--accent-glow);
+  transition:
+    filter 200ms ease,
+    box-shadow 240ms ease,
+    opacity 200ms ease,
+    transform 260ms var(--pop);
+}
+
+.actFace {
+  width: 1.05rem;
+  height: 1.05rem;
+  fill: currentColor;
+}
+
+.act:hover:not(:disabled) {
+  filter: brightness(1.06);
+  transform: translateY(-2px);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.45),
+    0 14px 32px -12px var(--accent-glow);
+}
+
+.act:active:not(:disabled) {
+  transform: scale(0.97);
+}
+
+.act:disabled {
+  opacity: 0.45;
+  cursor: default;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.act:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
+}
+
+/* The second way in, said at a third of the weight: a room with a map can
+ * also be written on it, and one screen holds one loud control. */
+.aside {
+  appearance: none;
+  border: 0;
+  background: none;
+  padding: 0.2rem 0.1rem;
+  font: 500 0.68rem/1 var(--mono);
+  letter-spacing: 0.06em;
+  color: rgba(242, 240, 234, 0.42);
+  text-shadow: 0 1px 10px rgba(6, 6, 10, 0.9);
+  cursor: pointer;
+  transition: color 180ms ease;
+}
+
+.aside:hover {
+  color: rgba(242, 240, 234, 0.78);
+}
+
+.aside:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+  border-radius: var(--r-sm);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .left {
+    animation: none;
+  }
+}
+
+@media (max-width: 48rem) {
+  .figure {
+    font-size: clamp(2.2rem, 12vw, 3rem);
+  }
+  .lines {
+    font-size: 0.88rem;
+  }
+  .card {
+    width: 100%;
+  }
+}

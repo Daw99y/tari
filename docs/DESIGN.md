@@ -216,13 +216,37 @@ ground — it is the game's, held apart:
 Nothing from this plate — the black, the Arial, the pinned hues — may be
 used by any other surface. That is the whole deal.
 
+## The unwritten room — settled 2026-08-30
+
+Two rooms out of seventy-nine have a guide file. The rest drew a photograph, a
+name at the top and nothing across the middle, which reads as a loading screen
+rather than a decision — and was the single biggest reason the app felt
+unfinished.
+
+The middle of a room with no guide is **a deck of what people left there**
+(`app/(app)/r/[room]/Left.tsx`, docs/PINS.md). It is the guide's own deck with
+the cards coming from readers instead of from a file, so a written room and an
+unwritten one are the same object rather than a thing and a placeholder for
+it. It carries `data-story`, so it steps aside for the stage with the rule the
+telling already had.
+
+The composer stands **in** the deck. You write in the shape of the card you
+are making, and what you wrote is the card on top when you are done. A link to
+a composer somewhere else is not this.
+
+An empty deck says only what the room knows: that nobody has written it, the
+pipeline's level band, and the room it stands inside. A capital's "1–60" is
+not drawn, because a figure that tells nobody anything is worse than no
+figure. No lore, ever — lore arrives as objects in the telling.
+
 ## The canvas — settled
 
 The room is a canvas, not a scroll, and it has four places. **Top, centred:
 the name** — eyebrow and title, the way a gallery wall names a room.
 **Bottom-left: reading** — the guide's placard and its chips, bare ink.
 **Bottom-right: objects** — the cards, stacked, `min(21rem, 34%)` wide.
-**Top-right: the compass**, which unfolds the map. It wore gold until
+**The middle** is where the telling stands, and where an unwritten room's deck
+stands instead. **Top-right: the compass**, which unfolds the map. It wore gold until
 2026-08-30, on the argument that a map is not something anybody left for you.
 Every mark on it was, so it wears the accent now. The middle of the
 photograph is empty on purpose. Anything new has to take one of the four
@@ -260,6 +284,13 @@ and the room's compass are drawn the way the client draws a control: a lit
 face, a dark rim, a shadow under it. The rim is in the geometry on
 `UpArrow.tsx` and in four zero-blur drop-shadows on the compass, which is
 built from strokes. Nothing else on any surface takes this treatment.
+
+**One distance from the frame.** `--corner` (`room.module.css`, on `.room`)
+is the inset every instrument in a room's corners is measured to — the
+compass, the summons, the objects column, the chat, the moments rail. Measured
+to the glyph, not to the button: a control adds its own tap padding back on
+top and takes the same amount off its offset, so padding stays a target and
+stops being a margin.
 
 **Motion.** `--pop` overshoots and belongs to what the reader presses. `--ease`
 does not, and belongs to what the reader reads. Seventy-five rail rows on a

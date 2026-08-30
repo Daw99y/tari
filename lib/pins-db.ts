@@ -6,8 +6,9 @@ import type { ClassId } from "./types";
 
 type Row = {
   id: string;
-  x: number;
-  y: number;
+  /** Null for a pin left in the room's card stack rather than on the map. */
+  x: number | null;
+  y: number | null;
   body: string;
   parent: string | null;
   user_id: string;

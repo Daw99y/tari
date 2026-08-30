@@ -6,6 +6,13 @@
  * character facts ride in from the browser and are a claim, the same claim
  * a name in presence is (app/api/ably/route.ts); the uid underneath is not.
  *
+ * A SPOT IS OPTIONAL (2026-08-30). Thirty-three rooms have no map plate and
+ * never will — every dungeon, every raid, four hubs — so under a required
+ * x/y the product's own atom was out of reach of exactly the places people
+ * most want to warn each other about. A pin posted with x and y stands on
+ * the map; a pin posted without them is left in the room's card stack and
+ * lives only there. Half a spot is not a spot and is refused.
+ *
  * DELETE is a tombstone, own pins only. Rows never leave the table.
  *
  * A landed pin is also published on `tari:<room>::pins` so every open map
@@ -76,8 +83,9 @@ export async function POST(req: Request) {
 
   const room = typeof b.room === "string" ? b.room : "";
   const body = typeof b.body === "string" ? b.body.trim().slice(0, PIN_MAX) : "";
-  const x = typeof b.x === "number" ? b.x : NaN;
-  const y = typeof b.y === "number" ? b.y : NaN;
+  const spotted = typeof b.x === "number" || typeof b.y === "number";
+  const x = typeof b.x === "number" ? b.x : null;
+  const y = typeof b.y === "number" ? b.y : null;
   const parent = typeof b.parent === "number" ? b.parent : null;
   const c = (b.who ?? {}) as Record<string, unknown>;
   const who = typeof c.name === "string" ? c.name.trim().slice(0, 24) : "";
@@ -86,14 +94,15 @@ export async function POST(req: Request) {
 
   if (!getRoom(room)) return Response.json({ error: "no such room" }, { status: 404 });
   if (!body || !who || !cls || !level) return Response.json({ error: "bad pin" }, { status: 400 });
-  if (!(x >= 0 && x <= 100 && y >= 0 && y <= 100))
+  if (spotted && !(x !== null && y !== null && x >= 0 && x <= 100 && y >= 0 && y <= 100))
     return Response.json({ error: "off the map" }, { status: 400 });
 
-  /* A reply stands where its pin stands, and one level deep only. */
+  /* A reply stands where its pin stands — including nowhere — and one level
+     deep only. */
   let px = x;
   let py = y;
   if (parent !== null) {
-    const head = await query<{ x: number; y: number; parent: string | null; room: string }>(
+    const head = await query<{ x: number | null; y: number | null; parent: string | null; room: string }>(
       `select x, y, parent, room from pins where id = $1 and removed_at is null`,
       [parent]
     );

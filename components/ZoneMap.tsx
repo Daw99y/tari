@@ -9,7 +9,7 @@ import { plateSrc, type Pin as Poi, type PinKind as PoiKind, type ZonePlate } fr
 import { useLive } from "@/app/(app)/Live";
 import { loadCharacter } from "@/lib/character";
 import { CLASS_COLOR } from "@/lib/class-color";
-import { PIN_BAND, PIN_MAX, pinAge, pinsChannel, readPin, type Pin, type PinReply } from "@/lib/pins";
+import { PIN_BAND, PIN_MAX, onTheMap, pinAge, pinsChannel, readPin, type Pin, type PinReply } from "@/lib/pins";
 
 import { ItemHover } from "./ItemTooltip";
 import PinChip, { PinFace } from "./PinChip";
@@ -356,14 +356,17 @@ export default function ZoneMap({
               said. The aggro `!` in the pin pink — you noticed something.
               Near the reader's level it stands full; far from it, quiet.
               Hover is the chip; press is the thread in the rail. */}
-          {said.map((p) => (
+          {/* A pin with no spot was left in the room's card stack rather than
+              here, and there is nowhere on this picture it belongs. It reads
+              in the rail's feed below like every other one. */}
+          {said.filter(onTheMap).map((p) => (
             <button
               key={`pin-${p.id}`}
               className={styles.pinMark}
               data-near={Math.abs(p.level - level) <= PIN_BAND || undefined}
               aria-pressed={thread === p.id}
               aria-label={`${p.who} left a pin here`}
-              style={{ left: `${px(p.x)}%`, top: `${py(p.y)}%`, transform: `translate(-50%, -88%) scale(${1 / zoom})` }}
+              style={{ left: `${px(p.x!)}%`, top: `${py(p.y!)}%`, transform: `translate(-50%, -88%) scale(${1 / zoom})` }}
               onPointerDown={(e) => e.stopPropagation()}
               onClick={() => {
                 setActive(null);
@@ -373,7 +376,7 @@ export default function ZoneMap({
               }}
             >
               <PinFace className={styles.pinGlyph} />
-              <span className={styles.pinHover} data-flip={py(p.y) < 30 || undefined} aria-hidden="true">
+              <span className={styles.pinHover} data-flip={py(p.y!) < 30 || undefined} aria-hidden="true">
                 <PinChip body={p.body} who={p.who} cls={p.cls} level={p.level} at={p.at} />
               </span>
             </button>

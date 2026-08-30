@@ -1,5 +1,48 @@
 # Pins — the atom, built
 
+## A pin no longer needs a spot — 2026-08-30
+
+The atom was **one person, one spot, one sentence.** It is **one person, one
+sentence, and a spot when there is a map to put it on.**
+
+Thirty-three rooms have no map plate and never will: every dungeon, every
+raid, and the four hubs (`lib/maps.ts` names the forty-six that do). Under a
+required `x`/`y` those rooms could not hold a single pin — which put the
+product's own atom out of reach of exactly the places a warning is worth the
+most. Nobody needs telling that Elwynn Forest is quiet. Somebody does need
+telling not to pull the courtyard from the ramp in Shadowfang Keep.
+
+So `pins.x` and `pins.y` are nullable, and there are two doors onto the same
+record:
+
+| door | spot | where it shows |
+| --- | --- | --- |
+| the map's composer (`components/ZoneMap.tsx`, `Say`) | the reader picked one | the mark on the map, **and** the room's card stack |
+| the room's card stack (`app/(app)/r/[room]/Left.tsx`) | none | the card stack only |
+
+`onTheMap(pin)` in `lib/pins.ts` is the one test. The map filters on it before
+drawing a mark; a spotless pin has nowhere on that picture it belongs. The API
+refuses half a spot: send both or send neither.
+
+A reply stands where its pin stands, including nowhere.
+
+### The card stack
+
+The middle of a room with no guide file is a deck, and the cards are what
+people left. It is the guide's own deck (`Story.tsx`) with the cards coming
+from readers instead of from a file — so a written room and an unwritten one
+are the same object, and the second is not a placeholder for the first.
+
+The composer stands **in** the deck rather than beside it: you write in the
+shape of the card you are making, and what you wrote is the card on top when
+you are done. That is the whole reason it is not a link to somewhere else.
+
+An empty deck says only what the room already knows — that nobody has written
+it, the pipeline's level band, and the room it stands inside. It invents
+nothing, and a capital's "1–60" is not drawn at all, because a figure that
+tells nobody anything is worse than no figure.
+
+
 docs/TARI.md §2.2 defines it; this doc records the shape it took.
 
 > **A pin. One person, standing in one spot, saying one thing.**
