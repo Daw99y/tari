@@ -85,9 +85,15 @@
 
 /* ---- one card. The app's one card, at the width the guide's cards take. */
 
+/* The pin's card holds a height too, for the same reason the telling's slot
+   does: the pager sits underneath it, and a one-line pin next to a four-line
+   one moves the arrows out from under the pointer. A pin caps at 240
+   characters, so this is the ceiling rather than a guess. */
 .card {
   width: min(26rem, 100%);
+  min-height: 9.5rem;
   display: grid;
+  align-content: start;
   gap: 0.55rem;
   padding: 1rem 1.15rem 1.05rem;
   border-radius: var(--r-md);

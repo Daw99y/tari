@@ -93,6 +93,87 @@
   }
 }
 
+/* WHAT IT WAS CALLED.
+ *
+ * `text-decoration: line-through` is the honest tool and it looks exactly like
+ * what it is: a browser default, hugging the glyphs, ending flush with the
+ * last letter. A crossing-out that somebody actually did overshoots the word
+ * at both ends and thins as it leaves it. So the rule is a pseudo-element with
+ * a gradient that fades at both tips, run 0.42em past the text on either side,
+ * centred with a transform rather than a magic percentage.
+ *
+ * AND IT DRAWS ITSELF. The name is struck through in front of the reader,
+ * left to right, once, after the title has finished arriving — which turns a
+ * static label into the small piece of narrative it actually is. It is spent
+ * on one word, once per room, and never repeats.
+ *
+ * The letterspacing is the other half: opened to 0.08em, which is how a name
+ * that is no longer in use gets set — engraved rather than spoken. Ink, never
+ * a colour; a former name is not an accent and the palette has no red. */
+.was {
+  position: relative;
+  margin: 0 0 -0.1rem;
+  font-family: var(--round);
+  font-weight: 500;
+  font-size: clamp(0.86rem, 1.2vw, 1rem);
+  letter-spacing: 0.08em;
+  color: rgba(242, 240, 234, 0.58);
+  text-shadow: 0 1px 12px rgba(6, 6, 10, 0.9);
+  animation: wasIn 700ms var(--ease) 900ms both;
+}
+
+.was::after {
+  content: "";
+  position: absolute;
+  left: -0.42em;
+  right: -0.42em;
+  top: 50%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    rgba(242, 240, 234, 0) 0%,
+    rgba(242, 240, 234, 0.55) 14%,
+    rgba(242, 240, 234, 0.55) 86%,
+    rgba(242, 240, 234, 0) 100%
+  );
+  transform: translateY(-50%) scaleX(0);
+  transform-origin: left center;
+  animation: strike 620ms cubic-bezier(0.2, 0.7, 0.2, 1) 1350ms both;
+}
+
+@keyframes wasIn {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes strike {
+  from {
+    transform: translateY(-50%) scaleX(0);
+  }
+  to {
+    transform: translateY(-50%) scaleX(1);
+  }
+}
+
+/* Nothing draws itself for a reader who asked for stillness — the line is
+   simply already there. */
+@media (prefers-reduced-motion: reduce) {
+  .was {
+    animation: none;
+  }
+
+  .was::after {
+    animation: none;
+    transform: translateY(-50%) scaleX(1);
+  }
+}
+
 .name {
   margin: 0;
   font-family: var(--round);

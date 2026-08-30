@@ -41,15 +41,6 @@
   text-shadow: 0 2px 16px rgba(6, 6, 10, 0.7);
 }
 
-.strike {
-  position: absolute;
-  left: -2%;
-  right: -2%;
-  top: 52%;
-  height: 2px;
-  background: rgba(255, 120, 120, 0.65);
-  transform: rotate(-1.2deg);
-}
 
 .headLines {
   max-width: 30rem;
@@ -73,27 +64,58 @@
   pointer-events: none;
 }
 
+/* THE STACK, SEEN FACE-ON. It used to fan down and to the right on two
+   rotations, which put three differently-angled edges against the photograph
+   and read as clutter rather than as depth. A real deck on a table is square
+   to you: the cards under the top one are the same shape, slightly smaller,
+   showing a sliver at the foot. No rotation, nothing off to one side, and the
+   border drops to the hairline so the only hard edge on the table belongs to
+   the card you are actually reading. */
 .sleeve {
   position: absolute;
   inset: 0 0 3.2rem 0; /* stops above the turns row */
   border-radius: 14px;
-  border: 0.5px solid var(--rule);
-  background: rgba(6, 6, 10, 0.6);
+  border: 0.5px solid var(--hair);
+  background: rgba(6, 6, 10, 0.5);
+  transform-origin: 50% 100%;
 }
 
 .sleeve[data-under="1"] {
-  transform: translate(0.8rem, 0.8rem) rotate(1deg);
+  transform: scale(0.955) translateY(0.42rem);
+  opacity: 0.75;
 }
 
 .sleeve[data-under="2"] {
-  transform: translate(1.6rem, 1.6rem) rotate(2.1deg);
-  opacity: 0.55;
+  transform: scale(0.91) translateY(0.84rem);
+  opacity: 0.4;
 }
 
+/* THE SLOT HOLDS ITS HEIGHT (2026-08-30, Kacey: the next-card button moves and
+   you have to chase it with the mouse).
+ *
+ * The card sizes to whatever is on it, and the turns row sits under the card,
+ * so a two-line card and an eight-line card put the button in two different
+ * places — and turning a deck is exactly the moment you are least willing to
+ * re-aim. The slot is taller than the tallest card instead, and the card
+ * stretches to fill it, so the row underneath never moves.
+ *
+ * The number is measured, not guessed: across 111 cards the median renders at
+ * six lines and the ninetieth percentile at seven. Sizing for nine covers all
+ * of them with air to spare. The two cards that used to exceed it — Corrupted
+ * Blood at fifteen rendered lines and the Atal'ai at eleven — were breaking
+ * TARI.md §6's own rule that a card carries a few short lines, and were cut
+ * rather than designed around. If a future card needs more room than this, it
+ * is the card that is wrong. */
 .slot {
   position: relative;
+  display: flex;
+  min-height: 16.5rem;
   margin-bottom: 0.9rem;
   touch-action: pan-y;
+}
+
+.slot > * {
+  width: 100%;
 }
 
 /* ---- the top card ---- */
@@ -360,6 +382,14 @@
   height: 1.9rem;
   border-radius: 7px;
   overflow: hidden;
+}
+
+/* A card with no object. See Story.tsx's rail. */
+.railDot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--rule);
 }
 
 .railStop img {

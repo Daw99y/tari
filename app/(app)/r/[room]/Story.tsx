@@ -60,7 +60,11 @@ export default function Story({
   room,
 }: {
   file: GuideFile;
-  plate: ZonePlate;
+  /** Absent for the thirty-three rooms with no map — every dungeon, every
+   *  raid, four hubs. The telling does not need one: the plate is read only
+   *  to find where a rare stands, and `door()` already draws nothing without
+   *  a spot. A dungeon's deck is the same deck with no map under it. */
+  plate?: ZonePlate;
   roomId: string;
   room: string;
 }) {
@@ -75,7 +79,7 @@ export default function Story({
 
   /* One deck, west to east: encounter cards and rares merged on `t`. */
   const stops = useMemo<Stop[]>(() => {
-    const spots = new Map(plate.pins.filter((p) => p.kind === "rare").map((p) => [p.name, p]));
+    const spots = new Map((plate?.pins ?? []).filter((p) => p.kind === "rare").map((p) => [p.name, p]));
     const out: Stop[] = [];
     for (const c of file.cards) {
       if (c.form === "title" || c.form === "six") continue;
@@ -91,7 +95,7 @@ export default function Story({
     const t = (s: Stop) => s.card?.t ?? s.rare?.t ?? 0;
     out.sort((a, b) => t(a) - t(b));
     return out;
-  }, [file, plate.pins]);
+  }, [file, plate?.pins]);
 
   /* Restore the card the reader was on. */
   useEffect(() => {
@@ -154,10 +158,13 @@ export default function Story({
           <span className={styles.eyebrow} data-kind={title.kind}>
             {KIND_EYEBROW[title.kind]}
           </span>
-          <h2 className={styles.wasWord}>
-            {title.subject}
-            <span className={styles.strike} aria-hidden="true" />
-          </h2>
+          {/* A RENAMED ROOM DRAWS NO HEADING HERE. Its two names are already
+              at the top of the photograph, on the room's own title (Room.tsx)
+              — the former name struck above the current one. Repeating either
+              of them here put the same word on the page twice at the same
+              size. A room that was never renamed has no pair to hoist, so its
+              title card keeps its heading. */}
+          {title.now ? null : <h2 className={styles.wasWord}>{title.subject}</h2>}
           <p className={styles.headLines}>{title.lines.join(" ")}</p>
         </header>
       ) : null}
@@ -293,7 +300,13 @@ export default function Story({
                 </svg>
               ) : icon ? (
                 <img src={`/story/${roomId}/${icon}.png`} alt="" draggable={false} />
-              ) : null}
+              ) : (
+                /* A card can stand without an object, and the rooms written
+                   before their art exists are full of them. An empty frame
+                   reads as a picture that failed to load; a dot reads as a
+                   card with nothing to wear. Same answer the kit gives. */
+                <span className={styles.railDot} aria-hidden="true" />
+              )}
             </button>
           );
         })}
