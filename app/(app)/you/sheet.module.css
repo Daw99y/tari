@@ -535,7 +535,7 @@
 
 .slot[data-align="right"] .panel {
   left: auto;
-  right: calc(100% + 3.55rem);
+  right: calc(100% + 3.2rem);
 }
 
 /* The weapons' summons sits to the right of its card, not in the way, so the
@@ -689,15 +689,18 @@
     right: -0.3rem;
     left: auto;
   }
-  /* And the panels follow their keys: each opens away from the figure, into
-   * the width the column is not using. */
+  /* The panels do NOT follow their keys out. There is 3.2rem of padding out
+   * there and a panel is seventeen rems wide, so outward is off the stage.
+   * They keep opening inward — the gutter the key just vacated — which costs
+   * them nothing: a panel is a thing you opened and closed, and the column it
+   * covers for those few seconds is not the one you are reading. */
   .left .slot .panel {
-    left: auto;
-    right: calc(100% + 0.6rem);
+    left: calc(100% + 0.6rem);
+    right: auto;
   }
   .right .slot[data-align="right"] .panel {
-    right: auto;
-    left: calc(100% + 0.6rem);
+    right: calc(100% + 0.6rem);
+    left: auto;
   }
 }
 
