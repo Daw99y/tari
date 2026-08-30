@@ -15,7 +15,7 @@
 
 .head {
   margin: 0;
-  font-family: var(--display);
+  font-family: var(--app-display);
   font-weight: 600;
   letter-spacing: -0.03em;
   font-weight: 400;

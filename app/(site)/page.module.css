@@ -10,7 +10,11 @@
 .page {
   --panel: #16131f;
   --panel-deep: #0a0912;
-  --seduce: #ff5c96;
+  /* The accent is the product's, not the page's — globals.css holds the
+   * argument. It used to be the Seduction pink; it is the client's poison
+   * acid now, because the app had to say the same thing on ninety
+   * photographs and the pink would not carry there. */
+  --seduce: var(--accent);
   --tone: var(--seduce);
   --round: var(--display-round, var(--display));
   --sans: var(--body-round, -apple-system, sans-serif);
@@ -32,17 +36,15 @@
   text-rendering: optimizeLegibility;
 }
 
-.section[data-tone="pink"] {
-  --tone: #ff5c96;
+.section[data-tone="pink"],
+.section[data-tone="green"] {
+  --tone: var(--accent);
 }
 .section[data-tone="blue"] {
   --tone: #5ec8ff;
 }
 .section[data-tone="gold"] {
   --tone: #ffc44d;
-}
-.section[data-tone="green"] {
-  --tone: #6fdd8b;
 }
 .section[data-tone="purple"] {
   --tone: #b78cff;
@@ -183,7 +185,7 @@
   appearance: none;
   border: 0;
   background: var(--seduce);
-  color: #14060c;
+  color: var(--accent-ink);
   font: 800 0.82rem/1 var(--sans);
   padding: 0.62rem 1.05rem;
   border-radius: 999px;
@@ -193,7 +195,7 @@
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  box-shadow: 0 6px 24px -8px rgba(255, 92, 150, 0.55);
+  box-shadow: 0 6px 24px -8px var(--accent-glow);
   transition:
     transform 250ms var(--pop),
     box-shadow 250ms ease,
@@ -203,7 +205,6 @@
 /* The door is Discord's, so it wears Discord's blurple and Discord's mark.
  * The one control on the page that is not ours to restyle. */
 .discord {
-  --blurple: #5865f2;
   background: var(--blurple);
   color: #fff;
   box-shadow: 0 6px 24px -8px rgba(88, 101, 242, 0.7);
@@ -224,17 +225,17 @@
 /* Already through the door: Tari's own colour, Tari's own mark. */
 .enter {
   background: var(--seduce);
-  color: #14060c;
+  color: var(--accent-ink);
 }
 
 .button:hover {
   transform: translateY(-2px) scale(1.03);
-  box-shadow: 0 12px 32px -10px rgba(255, 92, 150, 0.65);
+  box-shadow: 0 12px 32px -10px var(--accent-glow);
   filter: brightness(1.05);
 }
 
 .discord:hover {
-  background: #4752c4;
+  background: var(--blurple-deep);
   box-shadow: 0 12px 32px -10px rgba(88, 101, 242, 0.8);
   filter: none;
 }
@@ -365,18 +366,19 @@
 }
 
 .badge[data-tone="pink"] {
-  --tone: #ff5c96;
+  --tone: var(--accent);
 }
 
-/* Early access reads as a live wire, not a label: the acid green the client
- * uses for a poison proc, glowing on the warm dark. */
+/* Early access is a status, not an accent. It wears the door's blurple —
+ * the one colour on this page that already means "the live product, and
+ * Discord is how you get in" — so the acid stays spent on what is yours. */
 .badge[data-tone="lime"] {
-  --tone: #b6ff2e;
-  color: #0d1403;
+  --tone: var(--blurple);
+  color: #fff;
   background: var(--tone);
   box-shadow:
-    inset 0 0 0 1px rgba(255, 255, 255, 0.35),
-    0 0 28px -6px rgba(182, 255, 46, 0.75);
+    inset 0 0 0 1px rgba(255, 255, 255, 0.28),
+    0 0 28px -6px rgba(88, 101, 242, 0.8);
 }
 
 .h2 {
@@ -803,7 +805,7 @@
   border-radius: 999px;
   background: var(--seduce);
   box-shadow:
-    0 0 0 3px rgba(255, 92, 150, 0.25),
+    0 0 0 3px rgba(182, 255, 46, 0.25),
     0 0 0 0.5px rgba(6, 6, 10, 0.4);
   animation: pulse 2.6s ease-in-out infinite;
 }
@@ -812,12 +814,12 @@
   0%,
   100% {
     box-shadow:
-      0 0 0 3px rgba(255, 92, 150, 0.25),
+      0 0 0 3px rgba(182, 255, 46, 0.25),
       0 0 0 0.5px rgba(6, 6, 10, 0.4);
   }
   50% {
     box-shadow:
-      0 0 0 9px rgba(255, 92, 150, 0),
+      0 0 0 9px rgba(182, 255, 46, 0),
       0 0 0 0.5px rgba(6, 6, 10, 0.4);
   }
 }

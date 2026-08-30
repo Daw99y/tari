@@ -15,7 +15,7 @@
   min-height: 100dvh;
   background: var(--wall);
   color: var(--ink);
-  font-family: var(--sans);
+  font-family: var(--app-sans);
   font-size: 15px;
   line-height: 1.5;
   padding: clamp(2rem, 5vw, 4.5rem) clamp(1.25rem, 4vw, 3rem) 6rem;
@@ -50,7 +50,7 @@
 }
 
 .h1 {
-  font-family: var(--serif);
+  font-family: var(--app-display);
   font-weight: 400;
   font-size: clamp(2rem, 4.5vw, 3.25rem);
   line-height: 1.08;
@@ -60,7 +60,7 @@
 }
 
 .h2 {
-  font-family: var(--serif);
+  font-family: var(--app-display);
   font-weight: 400;
   font-size: 1.5rem;
   margin: 0 0 0.5rem;
@@ -179,7 +179,7 @@
 }
 
 .title {
-  font-family: var(--serif);
+  font-family: var(--app-display);
   font-weight: 400;
   font-size: 1.35rem;
   margin: 0.5rem 0 0;
@@ -289,7 +289,7 @@
 }
 
 .ptitle {
-  font-family: var(--serif);
+  font-family: var(--app-display);
   font-size: 1.05rem;
 }
 

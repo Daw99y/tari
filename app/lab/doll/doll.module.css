@@ -20,7 +20,7 @@
   min-height: 100dvh;
   background: var(--stage);
   color: var(--ink);
-  font-family: var(--sans);
+  font-family: var(--app-sans);
   font-size: 14px;
   -webkit-font-smoothing: antialiased;
 }
@@ -113,7 +113,7 @@
 }
 
 .railHead {
-  font-family: var(--serif);
+  font-family: var(--app-display);
   font-weight: 400;
   font-size: 1.2rem;
   letter-spacing: 0.01em;
@@ -394,7 +394,7 @@
 
 .gender {
   padding: 0.4rem 0.3rem;
-  font-family: var(--serif);
+  font-family: var(--app-display);
   font-size: 0.92rem;
   color: var(--mute);
   background: transparent;
@@ -494,7 +494,7 @@
   width: 100%;
   margin-top: 0.9rem;
   padding: 0.42rem;
-  font-family: var(--serif);
+  font-family: var(--app-display);
   font-size: 0.9rem;
   color: var(--brass);
   background: transparent;

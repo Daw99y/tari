@@ -4,7 +4,7 @@
   min-height: 100dvh;
   background: var(--ground);
   color: var(--ink);
-  font-family: var(--sans);
+  font-family: var(--app-sans);
   padding: clamp(1.5rem, 4vw, 3rem);
   -webkit-font-smoothing: antialiased;
 }

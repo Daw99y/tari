@@ -65,7 +65,7 @@
 
 .name {
   margin: 0;
-  font-family: var(--display);
+  font-family: var(--app-display);
   font-weight: 600;
   font-size: clamp(1.35rem, 2.4vw, 1.9rem);
   line-height: 1.02;
@@ -219,7 +219,7 @@
 
 .fig {
   margin: 0;
-  font-family: var(--display);
+  font-family: var(--app-display);
   font-weight: 600;
   font-size: clamp(1.6rem, 3vw, 2.35rem);
   line-height: 0.95;

@@ -32,7 +32,7 @@
 .wasWord {
   position: relative;
   display: inline-block;
-  font-family: var(--display);
+  font-family: var(--app-display);
   font-weight: 650;
   font-size: clamp(1.5rem, 3vw, 2.2rem);
   line-height: 1;
@@ -190,7 +190,7 @@
 .eyebrow[data-kind="before"] { color: rgba(244, 234, 210, 0.75); }
 
 .name {
-  font-family: var(--display);
+  font-family: var(--app-display);
   font-weight: 600;
   font-size: 1.15rem;
   line-height: 1.05;
@@ -270,7 +270,7 @@
 
 .yellText {
   min-height: 1em;
-  font-family: var(--display);
+  font-family: var(--app-display);
   font-weight: 750;
   font-size: 1.1rem;
   line-height: 1;
@@ -309,7 +309,7 @@
 }
 
 .turnGlyph {
-  font-family: var(--sans);
+  font-family: var(--app-sans);
   transition: transform 0.15s ease;
 }
 

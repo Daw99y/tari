@@ -1,23 +1,112 @@
-/* The vocabulary, and only what two surfaces now share.
+/* THE VOCABULARY. Both surfaces read this file.
  *
  * The old repo's globals.css reached 385 KB because the design system grew
- * instead of being designed. docs/TARI.md §11.4: the landing page sets the
- * vocabulary, the room stress-tests it, and design.md records only what
- * survived both. Nothing goes in here until it has earned its place — and
- * these eight lines earned it the day the shell became the second surface
- * to need them. Everything else still lives in a module. */
+ * instead of being designed. This one grew once, on purpose: the landing page
+ * was finished, the app was six-tenths of it, and the only honest fix was to
+ * put the landing's own words where the app could say them too
+ * (docs/DESIGN.md, "The vocabulary").
+ *
+ * The rule from before still holds. Nothing goes in here until two surfaces
+ * need it. Everything else stays in a module. */
 
 @import "tailwindcss";
 
 :root {
+  /* ---- ground
+   *
+   * Two darks, and they are not the same material. --ground is the black a
+   * photograph sits on and is cropped against; --well is the warm dark
+   * everything else stands on. The landing proved the pair: the hero is
+   * --ground, the page under it is --well, and the seam between them is what
+   * makes a screenshot read as a photograph rather than as a div. */
   --ground: #06060a;
+  --well: #0b0a12;
+  --panel: #16131f;
+  --panel-deep: #0a0912;
+
   --ink: #f2f0ea;
   --mute: rgba(242, 240, 234, 0.62);
   --rule: rgba(242, 240, 234, 0.22);
-  /* One family. Display is the same sans, set tight and heavy. SF Pro on a
-   * Mac, Inter where it exists, Helvetica after that. */
-  --sans: -apple-system, "SF Pro Text", Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;
-  --display: -apple-system, "SF Pro Display", Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;
-  --serif: var(--display); /* retired name; the lab still reads it */
+  --hair: rgba(242, 240, 234, 0.09);
+
+  /* ---- the accent
+   *
+   * One green, one meaning: something here is for you. It is the client's own
+   * poison-proc acid, and it already had that meaning in this app — the
+   * upgrade arrow in the room's corner and on the rail is this colour, and a
+   * pin is the same promise made by a person instead of a loot table. So the
+   * pin, the arrow, the summons and the focus ring are now one colour, and it
+   * is spent, not used: if the green is on the screen, something has been
+   * noticed, chosen, or left for you.
+   *
+   * It replaces the Seduction pink, which said the same thing in a colour
+   * that also had to be legible on ninety photographs and was not.
+   *
+   * The game's item-quality greens (#1eff00 on the plate, #4ade5b lightened
+   * for the panels) are NOT this colour and never become it. They are a
+   * quotation of the client's language and they never leave an item name. */
+  --accent: #b6ff2e;
+  --accent-ink: #0d1403;
+  --accent-glow: rgba(182, 255, 46, 0.75);
+
+  /* Discord's, and not ours to restyle. The door wears it, and so does the
+   * one chip that says the door is open early. */
+  --blurple: #5865f2;
+  --blurple-deep: #4752c4;
+
+  /* ---- type
+   *
+   * Three roles, and each one earns its face.
+   *
+   * --round (Baloo 2) is the voice. Names of things: a room, a character, a
+   * headline. Heavy, warm, round — it is the only reason the product does not
+   * read as a spreadsheet about Azeroth.
+   *
+   * --sans (Nunito) is prose. Sentences a person wrote or reads: guide lines,
+   * empty states, chat, copy.
+   *
+   * --app-sans is data. Rows, names in a list, numbers, anything dense. A
+   * round face at 0.8rem in a 75-row rail is soup, and the system stack is
+   * the one face that is already tuned for that size on the reader's own
+   * screen.
+   *
+   * --mono is a read-out: eyebrows, meta, levels, counts. Never a heading,
+   * never body.
+   *
+   * Arial appears in exactly one place — the item tooltip — and that is a
+   * quotation of the game's plate, not a fourth choice (docs/DESIGN.md). */
+  --round: var(--display-round, "Baloo 2"), "Baloo 2", -apple-system, "SF Pro Display", sans-serif;
+  --sans: var(--body-round, Nunito), Nunito, -apple-system, "SF Pro Text", sans-serif;
+  --app-sans: -apple-system, "SF Pro Text", Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --app-display: -apple-system, "SF Pro Display", Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;
   --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  /* retired names; the lab and a few modules still read them */
+  --display: var(--round);
+  --serif: var(--round);
+
+  /* ---- shape
+   *
+   * The landing's radii, and the app's. --r-lg frames a picture of the
+   * product, --r-md a card inside one, --r-sm a row or a slot. Nothing in the
+   * app is square any more except the item plate, which is the game's. */
+  --r-lg: 24px;
+  --r-md: 14px;
+  --r-sm: 9px;
+  --r-pill: 999px;
+
+  /* ---- motion
+   *
+   * --pop overshoots and is spent only on things the reader presses: a
+   * button, a chip, a pin, a card that opens. Lists, rows and the room itself
+   * use --ease and do not bounce — 75 rail rows on a spring is not
+   * personality, it is noise. */
+  --pop: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --pop: linear;
+    --ease: linear;
+  }
 }

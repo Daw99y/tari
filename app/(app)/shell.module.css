@@ -14,7 +14,7 @@
   height: 100dvh;
   background: var(--ground);
   color: var(--ink);
-  font-family: var(--sans);
+  font-family: var(--app-sans);
   font-size: 16px;
   overflow: hidden;
   -webkit-font-smoothing: antialiased;
@@ -179,7 +179,7 @@
 }
 
 .meName {
-  font: 600 0.82rem/1.1 var(--sans);
+  font: 600 0.82rem/1.1 var(--app-sans);
   letter-spacing: -0.01em;
   color: var(--cls);
   overflow: hidden;
@@ -430,7 +430,7 @@
 .pinHint {
   margin: 0;
   padding: 0 1rem 0.15rem;
-  font: 400 0.7rem/1.45 var(--sans);
+  font: 400 0.7rem/1.45 var(--app-sans);
   letter-spacing: 0;
   text-transform: none;
   color: rgba(242, 240, 234, 0.36);
@@ -597,7 +597,7 @@
   display: flex;
   align-items: center;
   margin-right: 0.45rem;
-  color: #4ade5b;
+  color: var(--accent);
 }
 
 .roomUp {
@@ -847,7 +847,7 @@
   border: 0;
   border-bottom: 0.5px solid var(--hair);
   color: var(--ink);
-  font: 400 1rem/1.2 var(--sans);
+  font: 400 1rem/1.2 var(--app-sans);
   outline: none;
 }
 
@@ -872,7 +872,7 @@
   background: transparent;
   border: 0;
   color: rgba(242, 240, 234, 0.8);
-  font: 400 0.88rem/1.2 var(--sans);
+  font: 400 0.88rem/1.2 var(--app-sans);
   text-align: left;
   cursor: pointer;
 }
