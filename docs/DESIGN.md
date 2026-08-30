@@ -273,6 +273,47 @@ choose between things you cannot see. The word arrives with them.
 - Both decks stay mounted and the inactive one is hidden, so the room's pin
   channel is still listening while you read the guide.
 
+## The kit — settled 2026-08-30
+
+The packing list a stranger is handed (docs/WELCOME.md §1) is **the third use
+of the deck**, after the telling and the room's card stack. It restates none of
+it: `app/(app)/kit/Kit.tsx` imports `story.module.css` directly, and
+`kit.module.css` holds only the page around it — the head, the ground and the
+one door.
+
+**It stands on a photograph, but never on a room.** Every other surface in the
+app is a place you could be standing in; the kit is about the reader, so its
+art is a still life rather than somewhere to stand — `RLextras/wishlist.webp`
+for now (Kacey, 2026-08-30), and whatever replaces it keeps that rule. The
+scrim is heavier through the middle than the room's, because the kit's words
+are centred rather than tucked into a corner.
+
+**The accent is spent once**, on the last card's door, which is the only thing
+the kit asks anybody to do. Nothing else on the page carries it.
+
+**Every card wears one of the client's own objects.** Ten icons sit in
+`public/kit/` (tracked, the way the pin's treasure map is), and the last card
+wears the pin's treasure map itself. Eight are things you can go and buy in
+the game, which is §7.1 exactly: real icons for content.
+
+The two argument cards are the exception and were ruled on directly (Kacey,
+2026-08-30): "The other screen" takes **a scrying orb** — a second window you
+look into, away from the world — and "The addon only listens" takes **an
+engineering part**, a device you bolt on that reports and does nothing else.
+Neither is a thing you can buy, so both read as metaphor rather than
+instruction; what keeps them inside §7.1 is that nothing in this folder was
+drawn by us. `public/kit/README.md` holds the table.
+
+**No completion state.** The count under the card is the deck's own position,
+the same one the telling draws; it is a bookmark, not a score. Nothing is
+ticked, the deck never ends in a congratulation, and leaving early has its own
+quiet link so that it looks as allowed as it is.
+
+**Owed: the deck wants extracting.** Three files now share these rules through
+one import, which is one better than duplicating them and one worse than a
+`.deck` they each compose — the same debt `.drawer` and `.rooms` owe a
+`.panel`. The day a fourth deck arrives, lift it.
+
 ## The unwritten room — settled 2026-08-30
 
 Two rooms out of seventy-nine have a guide file. The rest drew a photograph, a
@@ -560,7 +601,9 @@ do — including the two that used to separate the shell's columns. Anything in
 `globals.css` that only one surface uses. A row you drag with the mouse: the
 landing's strip was a placeholder and it stays there, and in the app a set of
 things is chips or it is a list. Naming a thing the reader is not allowed to
-read yet.
+read yet. A coordinate on a rare — `t` is a place in the telling, `at` is a
+place on the map, and the roll-call never gets one, because six haunts with
+coordinates beside them is a farming route (TARI.md §2.1).
 
 Text-shadow for legibility is still forbidden as a *substitute* for the scrim
 or a card. The rail's room name carries one, and that is the single exception

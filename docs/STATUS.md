@@ -1,6 +1,6 @@
 # Tari — status and handoff
 
-Updated 2026-08-26 (late night).
+Updated 2026-08-30.
 
 **This doc holds the state. `docs/TARI.md` holds the argument — read its §0
 before anything else.**
@@ -11,7 +11,113 @@ see them. Earlier references to `FOXTON.md` mean `docs/TARI.md`.
 
 ---
 
-## 0. Latest — the dressing room, 2026-08-26 (late night)
+## 0. Latest — two decks on one table, 2026-08-30
+
+**The middle of every room is answered.** Two rooms out of seventy-nine have a
+guide file. The other seventy-seven drew a photograph, a name at the top and
+nothing across the middle, which read as a loading screen rather than a
+decision — and was the single biggest reason the app felt unfinished. A room
+with no guide now draws **the deck of what people left there**: the guide's own
+deck with the cards coming from readers instead of from a file, so a written
+room and an unwritten one are the same object rather than a thing and a
+placeholder for it. `docs/DESIGN.md` — *Two decks, one table* and *The
+unwritten room*, both settled.
+
+- **The guide became a deck** (`Story.tsx`, `story.module.css`). One card stands
+  still on the room's art, two sleeves of the deck peek out from under it, and a
+  rail of the encounters' own client icons runs underneath, every one a door.
+  The road still orders it west to east and the two words that turn it are the
+  road's own ends. The spoiler shield is a veil on the words alone.
+- **Undercity** (`reference/guide/undercity.json`) — the second deck, fifteen
+  cards, and the first city. `lib/guide.ts` now carries five kinds and six
+  forms, including `six`, the rares' roll-call.
+- **The switch is the game's action bar** (`Decks.tsx`, `decks.module.css`).
+  Three slots — **The telling · Left here · Just the room** — each a client icon
+  in the client's own button: a tome, the pin's treasure map, and Vanish. It
+  holds the top-left corner, opposite the compass; that corner was the one part
+  of the photograph nothing had claimed. Both decks stay mounted and the
+  inactive one is hidden, so the room's pin channel is still listening while you
+  read the guide.
+- **A pin no longer needs a spot** (`docs/PINS.md`, rewritten). Thirty-three
+  rooms have no map plate and never will — every dungeon, every raid, four hubs
+  — and under a required `x`/`y` they could not hold a single pin, which put the
+  product's own atom out of reach of exactly the places a warning is worth most.
+  Two doors onto the same record now: the map's composer, and the room's card
+  stack. `onTheMap(pin)` is the one test. **`db/schema.sql` carries two
+  `alter table pins alter column … drop not null` lines — run them against Neon
+  before this deploys.**
+- **The armory import** (`lib/bnet.ts`, `app/api/armory/route.ts`). Battle.net
+  Classic profile lookup, namespace `profile-classic1x-{region}` — Era, Hardcore
+  and SoD — cached five minutes, server-only. **Two new env vars:
+  `BNET_CLIENT_ID`, `BNET_CLIENT_SECRET`.** A stranger becomes a character in
+  ten seconds with no download, which makes this the front door and the addon
+  the thing you are invited to later. Anything promised only by the addon has to
+  degrade for armory-only readers.
+- **Moments** (`Moments.tsx`, `moments.module.css`). §8's "someone dings 60 and
+  it crosses every screen", built by hand while the addon catches up. Five
+  marks, no picker. A mark rises through the middle of the photograph on
+  everybody's screen at once and is gone in under three seconds: no history, no
+  count, nothing to scroll — a room reacting, not a room recording. The ding
+  lands on this same channel the day the addon can post it.
+- **The landing went playful and shows the product 1:1.** The rogue stands in
+  Hillsbrad and notices your cursor (`HeroScene.tsx`, `SeducedFigure.tsx`, the
+  shopping list baked into one 3 KB file); the guide drifts past on an endless
+  band; the pin steps back from the story card; the door wears Discord's face
+  and knows who already opened it. `fix(m2)`: global sequences run on their own
+  clock.
+- **`design/app-matches-landing`, merged fast-forward.** One vocabulary across
+  both surfaces and **the accent is green**. Three panels on a table in the
+  shell; the compass turned with it; the foot of the rail stopped saying "You"
+  and shows you — the client's own race portrait, the class disc on its
+  shoulder, the name in the class colour, and under it the sentence the
+  character screen has printed since 2004 (`You.tsx`). The sheet's nineteen
+  blank squares became a paperdoll. `docs/DESIGN.md` rewritten through: register,
+  colour, type, space and shape, controls.
+- `People.tsx` counts for real — Ably presence for the room you are standing in,
+  one REST roll-up for the rooms you are not (§4.1, presence rolls up).
+
+**All of the above is committed and on `main`** — `design/app-matches-landing`
+merged fast-forward at 08:59. Untracked and deliberate: `Sound/`,
+`public/sound/`.
+
+**Since, the same day — the seeds and the kit:**
+
+- **The seeds.** `reference/seeds.json` (35 week-one rooms) and
+  `scripts/seed-pins.mjs`. A seed is a real pin from Tari — `docs/PINS.md`,
+  *The seeds*, has the four refusals that keep it from being an invented
+  player. `Pin.cls` widened to `PinClass = ClassId | "tari"` and every author
+  colour now goes through `authorColor()` in `lib/class-color.ts`.
+- **The kit** (`app/(app)/kit/`, `lib/kit.ts`, `reference/kit.json`). The
+  packing list, dealt as the deck's third use. `Kit` in the rail head beside
+  ⌘K. Its last card is a door: `/r/<start>?say=1` opens the room holding its
+  own deck with the composer already open — `say` threads page → Room → Decks
+  → Left.
+- **`TARI.md` §2.3, the second monitor.** Being outside the game is the
+  mechanism, not a limitation: an addon lives in the corner of your eye and
+  you follow it without stopping, so the distance is what buys the look away.
+  The rule it produces: **nothing Tari puts back into the game may move you.**
+  §9.2 now points at it.
+
+**Outstanding from this pass:**
+
+- **The Neon alter**, above. Nothing else in the schema moved.
+- **The seeds are built and not yet planted** (`docs/PINS.md` — the seeds).
+  A seed is a real pin from Tari: `reference/seeds.json` holds thirty-five
+  rooms and `scripts/seed-pins.mjs` writes them. **Run it from your own
+  terminal** — the bridge has no egress to Neon. `lib/guide.ts`'s `Card.seed`
+  was not the answer and is still unused; it hangs off a card, and the rooms
+  that open empty have no cards.
+- **`rares` exists only in Duskwood.** Correct for a city; per-room content
+  everywhere else.
+- **The kit's cards wear the client's own objects** — eight icons lifted out
+  of the wardrobe build into `public/kit/` (tracked, 36 KB, the way
+  `public/pins/map-x.png` is; `public/kit/README.md` is the table). The last
+  card wears the pin's treasure map. **The two argument cards wear nothing**,
+  because they are not objects and the game has none that mean them.
+
+---
+
+## 0.1 Earlier — the dressing room, 2026-08-26 (late night)
 
 **Gear can be put on by hand.** `docs/DRESSING.md` — the shape and the five
 rulings; press a slot on `/you` and a drawer opens beside it with everything
@@ -105,7 +211,7 @@ warrior at 19 then 20 watching dual wield open. **Uncommitted.**
 
 ---
 
-## 0.1 Earlier — pins, the atom, 2026-08-26 (night)
+## 0.2 Earlier — pins, the atom, 2026-08-26 (night)
 
 **The atom is built** (docs/PINS.md — the shape; docs/TARI.md §2.2 — the
 argument). A pin: one person, standing in one spot, saying one thing, and
@@ -147,7 +253,7 @@ required `roomId`. Still wants a second account to see
 
 ---
 
-## 0.2 Earlier that day — the live layer, 2026-08-26
+## 0.3 Earlier that day — the live layer, 2026-08-26
 
 **The room is live.** Ably, not Liveblocks: §8.1 of `docs/TARI.md` carries
 the price that decided it (Liveblocks caps a room at 10 simultaneous
