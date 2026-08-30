@@ -241,13 +241,17 @@ const HAND_NAME: Record<string, string> = {
 
 /* ---- what a growth team ships by default, refused line by line */
 
+/* Each line is a PROPERTY, not a feature we declined to build. A refusal
+ * named after a feature dies the day the feature arrives wearing a better
+ * shape — "no notifications" was false the moment a reminder to go fishing
+ * was worth sending. A property survives it. docs/WELCOME.md §8. */
 const REFUSALS = [
-  ["No notifications.", "Tari never rings mid-dungeon."],
-  ["No streaks.", "A week off costs nothing."],
-  ["No infinite scroll.", "The page ends."],
-  ["No leaderboards.", "Nobody wins Tari."],
-  ["No points, no followers.", "Nothing here only goes up."],
-  ["No arrows, no timers.", "A pin says look, never go."],
+  ["Nothing interrupts.", "Tari never rings mid-dungeon."],
+  ["Nothing punishes a week off.", "Come back in a month. Nothing was lost."],
+  ["Nothing scrolls forever.", "The page ends."],
+  ["Nothing ranks you.", "You are not in a table with other people."],
+  ["Nothing only goes up.", "No points, no score, no counts."],
+  ["Nothing points.", "A pin says look, never go."],
 ];
 
 export default async function Page() {
@@ -541,7 +545,7 @@ export default async function Page() {
         <Reveal className={styles.copy}>
           <p className={styles.badge}>Promises</p>
           <h2 id="no-h" className={styles.h2}>
-            Stuff we <em>won't</em> build.
+            Stuff we <em>won't</em> do.
           </h2>
         </Reveal>
         <ul className={styles.noList} role="list">
