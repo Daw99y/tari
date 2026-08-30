@@ -309,12 +309,12 @@ export default function Dock({
           data-open={onMap || undefined}
           data-fresh={fresh || undefined}
           aria-pressed={onMap}
-          aria-label={onMap ? "Fold the map" : "Open the map"}
+          aria-label={onMap ? "Fold map" : "View map"}
           onClick={() => setMap(!onMap)}
         >
           <span className={styles.halo} aria-hidden="true" />
           <Compass className={styles.rose} />
-          <span className={styles.word}>{onMap ? "Fold the map" : "Open the map"}</span>
+          <span className={styles.word}>{onMap ? "Fold map" : "View map"}</span>
         </button>
       ) : null}
     </DockCtx.Provider>

@@ -145,11 +145,16 @@
 }
 
 /* The compass. It holds the corner in both states; open, it steps back a
- * little so the plate is the loudest thing in the room. */
+ * little so the plate is the loudest thing in the room.
+ *
+ * --corner is the room's (app/(app)/r/[room]/room.module.css): one distance
+ * from the frame, measured to the glyph, shared with the summons in the
+ * corner below. The 0.4rem the button carries for a thumb comes back off the
+ * offset so the padding stays a target and stops being a margin. */
 .compass {
   position: absolute;
-  top: 0.35rem;
-  right: 0.6rem;
+  top: calc(var(--corner, 1.2rem) - 0.4rem);
+  right: calc(var(--corner, 1.2rem) - 0.4rem);
   z-index: 5;
   appearance: none;
   border: 0;
@@ -251,11 +256,14 @@
 }
 
 /* The word rides under the compass, mono like every other label. */
+/* The word rides under the compass, centred on the mark. It read "Open the
+ * map" and "Fold the map", which at this size is three words hanging off a
+ * 46px glyph — so it is two now, and it fits where it is pointing. */
 .word {
   position: absolute;
-  top: calc(100% + 0.1rem);
-  right: 0.15rem;
-  transform: translateY(-4px);
+  top: calc(100% + 0.15rem);
+  left: 50%;
+  transform: translate(-50%, -4px);
   white-space: nowrap;
   font: 400 0.58rem/1 var(--mono);
   letter-spacing: 0.18em;
@@ -270,7 +278,7 @@
 .compass:hover .word,
 .compass:focus-visible .word {
   opacity: 1;
-  transform: translateY(0);
+  transform: translate(-50%, 0);
 }
 
 .compass:focus-visible {

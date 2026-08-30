@@ -3,6 +3,19 @@
  * one to the other should not feel two designers. */
 
 .room {
+  /* THE CORNER INSET. The compass holds the top right and the summons holds
+   * the bottom right, and until now each was positioned against its own
+   * habit: the compass 0.75rem off two edges, the summons 2.05rem off one and
+   * 3.3rem off the other. Two instruments in the same column, at two
+   * different distances from the frame, on a screen whose whole argument is
+   * that it is one photograph.
+   *
+   * This is measured to the glyph's own box. Each control adds its own tap
+   * padding back on top and pulls the same amount off its offset, so the
+   * padding stays a target and stops being a margin. components/dock.module.css
+   * reads it for the compass. */
+  --corner: clamp(0.95rem, 1.9vw, 1.55rem);
+
   position: absolute;
   inset: 0;
   /* clip, not hidden: hidden still lets a focused button drag the whole
@@ -114,8 +127,8 @@
 
 .lately {
   position: absolute;
-  right: clamp(1.25rem, 3vw, 2.25rem);
-  bottom: clamp(1.5rem, 4.5vh, 2.75rem);
+  right: var(--corner);
+  bottom: var(--corner);
   z-index: 2;
   width: min(20rem, 40%);
   padding: 0.85rem 1rem 0.9rem;
@@ -188,8 +201,8 @@
 /* Both objects share the right edge: the past layer above, drops below. */
 .objects {
   position: absolute;
-  right: clamp(1.25rem, 3vw, 2.25rem);
-  bottom: clamp(1.5rem, 4.5vh, 2.75rem);
+  right: var(--corner);
+  bottom: var(--corner);
   z-index: 2;
   width: min(21rem, 34%);
   display: grid;
@@ -209,6 +222,9 @@
 .upgrades {
   display: flex;
   justify-content: flex-end;
+  /* The 0.55rem the button carries for a thumb, given back — so the arrow's
+   * own edge lands on --corner and not 0.55rem inside it. */
+  margin: 0 -0.55rem -0.55rem 0;
 }
 
 .upWrap {
