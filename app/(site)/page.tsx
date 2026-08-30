@@ -9,9 +9,11 @@
 import { promises as fs } from "node:fs";
 import path from "node:path";
 
+import ReactDOM from "react-dom";
+
 import Debuff from "@/components/Debuff";
 import FoxMark from "@/components/FoxMark";
-import HeroScene from "@/components/HeroScene";
+import HeroCurtain from "./HeroCurtain";
 import { ItemHover } from "@/components/ItemTooltip";
 import M2Sprite from "@/components/M2Sprite";
 import SlotGlyph from "@/components/SlotGlyph";
@@ -19,6 +21,7 @@ import { auth, hasAuth, signIn } from "@/lib/auth";
 import { iconUrl, type Item } from "@/lib/loot";
 import { plateItem } from "@/lib/plate-item";
 import { FIRST_ROOM, roomArt, roomThumb } from "@/lib/rooms";
+import { SUCCUBUS_ASSETS } from "@/lib/succubus";
 import type { WornItem } from "@/lib/worn";
 
 import Reveal from "./Reveal";
@@ -257,19 +260,30 @@ const REFUSALS = [
 export default async function Page() {
   const items = await sheetItems();
 
+  /* The curtain's succubus, asked for in the document head.
+   *
+   * This is the reason she and not the rogue holds the wait. Her five files
+   * are a constant, so the browser is told about them in the same response as
+   * the HTML and starts all five immediately. The rogue's list is inside a
+   * manifest she has to fetch first, so nothing of hers can begin until a
+   * round trip has already been spent — which is exactly the gap the curtain
+   * covers. */
+  ReactDOM.preload(SUCCUBUS_ASSETS.model, { as: "fetch", crossOrigin: "anonymous" });
+  for (const url of SUCCUBUS_ASSETS.textures) ReactDOM.preload(url, { as: "image" });
+
   return (
     <main className={styles.page}>
       {/* ================= the hero */}
       <section className={styles.hero} aria-labelledby="hero-h">
-        <HeroScene
+        <HeroCurtain
           className={styles.scene}
           imageClassName={styles.room}
           figureClassName={styles.figure}
           effectClassName={styles.effect}
           shadowClassName={styles.figureShadow}
-          src="/RLextras/Hillsbrad Hero.png"
-          width={5504}
-          height={3072}
+          src="/RLextras/hillsbrad-hero.webp"
+          width={3200}
+          height={1786}
           alt=""
           anchor={{ x: 0.36, y: 0.8 }}
           size={0.3}

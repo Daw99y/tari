@@ -146,6 +146,9 @@ type Props = {
   onHead?: (pt: { x: number; y: number }) => void;
   /** Which loop she holds. The hero is stunned; the sheet just stands. */
   pose?: Pose;
+  /** Fired once she has drawn her first frame — everything fetched, the skin
+   *  composed, the gear hung. The landing page's curtain waits on this. */
+  onReady?: () => void;
   /** Extra camera yaw in radians. The hero keeps her three-quarter turn into
    *  the scene; the sheet spins the camera round to her front. */
   turn?: number;
@@ -158,6 +161,7 @@ export default function SeducedFigure({
   left,
   top,
   onHead,
+  onReady,
   pose = "stunned",
   turn = 0,
   className,
@@ -165,6 +169,10 @@ export default function SeducedFigure({
 }: Props) {
   const hostRef = useRef<HTMLDivElement>(null);
   const [ready, setReady] = useState(false);
+  /* Read through a ref: the effect below is pinned to [] on purpose, and a
+   * parent that re-renders must not tear the scene down to swap a callback. */
+  const onReadyRef = useRef(onReady);
+  onReadyRef.current = onReady;
 
   useEffect(() => {
     const host = hostRef.current;
@@ -406,8 +414,12 @@ export default function SeducedFigure({
         tick();
       }
       setReady(true);
+      onReadyRef.current?.();
     })().catch(() => {
-      /* A missing file leaves the page as it was: the room still shows. */
+      /* A missing file leaves the page as it was: the room still shows. And
+       * the curtain is told anyway — a figure that will never arrive must not
+       * be the reason a reader never reaches the page. */
+      onReadyRef.current?.();
     });
 
     return () => {

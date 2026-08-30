@@ -37,6 +37,16 @@ type Props = {
   effectSrc: string;
   /** The debuff frame that rides beside her head. */
   chip?: { name: string; note: string };
+  /** Fired when the photograph has decoded. Separate from the figure: it is
+   *  by far the larger download, and the curtain names them as two steps
+   *  because a reader waiting on one should not be told about the other. */
+  onImage?: () => void;
+  /** Fired when the figure has drawn her first frame. */
+  onFigure?: () => void;
+  /** Freeze the scene's push-in. True while a curtain covers the hero, so the
+   *  slow move begins where the reader begins watching it rather than a few
+   *  seconds in. */
+  hold?: boolean;
   chipClassName?: string;
   className?: string;
   imageClassName?: string;
@@ -59,6 +69,9 @@ export default function HeroScene({
   portraitPosition = position,
   chip,
   chipClassName,
+  onImage,
+  onFigure,
+  hold = false,
   className,
   imageClassName,
   figureClassName,
@@ -96,6 +109,13 @@ export default function HeroScene({
     };
   }, []);
 
+  /* A cached photograph can finish decoding before React hydrates, and an
+   * `onLoad` that already fired is an event nobody hears. Ask the element. */
+  useEffect(() => {
+    if (imgRef.current?.complete) onImage?.();
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- once, on mount.
+  }, []);
+
   useLayoutEffect(() => {
     const el = ref.current;
     if (!el) return;
@@ -122,7 +142,7 @@ export default function HeroScene({
   }, [width, height, anchor.x, anchor.y, size, portraitAnchor.x, portraitAnchor.y, portraitSize, position, portraitPosition]);
 
   return (
-    <div ref={ref} className={className} aria-hidden="true">
+    <div ref={ref} className={className} data-hold={hold ? "true" : undefined} aria-hidden="true">
       <img
         ref={imgRef}
         src={src}
@@ -132,6 +152,10 @@ export default function HeroScene({
         className={imageClassName}
         fetchPriority="high"
         decoding="async"
+        onLoad={onImage}
+        /* A photograph that 404s or decodes badly still has to release the
+         * curtain; the hero is allowed to be missing, the page is not. */
+        onError={onImage}
       />
       {box ? (
         <>
@@ -140,6 +164,7 @@ export default function HeroScene({
             top={box.top}
             height={box.w}
             onHead={setHead}
+            onReady={onFigure}
             className={figureClassName}
             shadowClassName={shadowClassName}
           />

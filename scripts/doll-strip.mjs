@@ -24,13 +24,19 @@
 import fs from "node:fs";
 import path from "node:path";
 
-const SRC = "public/lab/doll/m2";
-const OUT = "public/lab/doll/body";
+const flag = (name, fallback) => {
+  const i = process.argv.indexOf(name);
+  return i > 0 ? process.argv[i + 1] : fallback;
+};
 
-const argKeep = process.argv.indexOf("--keep");
-const KEEP = new Set(
-  (argKeep > 0 ? process.argv[argKeep + 1] : "0,14").split(",").map((s) => Number(s.trim())),
-);
+/* The sixteen playable bodies by default. `--src`/`--out` point the same
+ * machinery at any other folder of .m2 files — the succubus who holds the
+ * landing page's curtain is stripped by scripts/succubus-build.mjs this way,
+ * so there is one strip implementation and one verifier for both. */
+const SRC = flag("--src", "public/lab/doll/m2");
+const OUT = flag("--out", "public/lab/doll/body");
+
+const KEEP = new Set(flag("--keep", "0,14").split(",").map((s) => Number(s.trim())));
 const VARIANTS = process.argv.includes("--variants");
 
 /* ---------------------------------------------------------------- */
@@ -321,7 +327,7 @@ function writeTbody(m) {
 fs.mkdirSync(OUT, { recursive: true });
 const files = fs.readdirSync(SRC).filter((f) => f.endsWith(".m2")).sort();
 let before = 0, after = 0;
-console.log(`Keeping sequences ${[...KEEP].join(", ")} of each body.\n`);
+console.log(`${SRC} -> ${OUT}\nKeeping sequences ${[...KEEP].join(", ")} of each model.\n`);
 for (const f of files) {
   const src = path.join(SRC, f);
   const buf = fs.readFileSync(src);
@@ -336,4 +342,4 @@ for (const f of files) {
     `  ${(buf.length / out.length).toFixed(1).padStart(5)}x   ${m.stats.allSequences} seqs -> ${m.sequences.length}, ${keys} keys`,
   );
 }
-console.log(`\n${files.length} bodies: ${(before / 1048576).toFixed(1)} MB -> ${(after / 1048576).toFixed(2)} MB  (${(before / after).toFixed(1)}x)`);
+console.log(`\n${files.length} models: ${(before / 1048576).toFixed(1)} MB -> ${(after / 1048576).toFixed(2)} MB  (${(before / after).toFixed(1)}x)`);

@@ -50,6 +50,12 @@ public/lab/doll/items/icons/
 #   git rm -r --cached public/lab/doll/m2      (once, to untrack them)
 public/lab/doll/m2/
 
+# The succubus who holds the landing page's curtain, same rule again: the
+# 660 KB unstripped .m2 is the source `scripts/succubus-build.mjs` reads, and
+# public/lab/succubus/Succubus.tbody — 141 KB, tracked — is the only geometry
+# a browser ever fetches.
+public/lab/succubus/m2/
+
 # Art sources. The rule inherited from whelp plz and worth keeping: raw and
 # regraded captures stay on the machine that made them, and only the
 # web-ready files under public/ ever ship. Add the folders back as they

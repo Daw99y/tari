@@ -63,6 +63,20 @@ const CATALOGUE_PATH = "/lab/doll/items/catalogue.json";
  *  revalidates instead of going stale for a day. */
 const HERO_PATH = "/lab/doll/hero.json";
 
+/**
+ * The curtain's succubus, for the same reason again. Her five files are
+ * rewritten in place every time `scripts/succubus-build.mjs` runs, and their
+ * names never move — so a day of hard freshness means a change of skin does
+ * not reach a returning reader at all, and the last one did not: the landing
+ * page went on drawing yesterday's texture while the picker at /lab/succubus
+ * drew today's, which reads as a rendering bug and is not one.
+ *
+ * The trade is five revalidations on a repeat visit, about two hundred bytes
+ * each and no re-download. A first visit — the one the curtain exists for —
+ * pays nothing, because there is nothing cached to ask about.
+ */
+const SUCCUBUS_PATH = "/lab/succubus/:path*";
+
 export default {
   agentRules: false,
   // The item dictionary is read from disk at runtime; trace it into the route.
@@ -75,6 +89,7 @@ export default {
       // After the art rule, so it wins the /lab/:path* match above.
       { source: CATALOGUE_PATH, headers: [{ key: "Cache-Control", value: "public, no-cache" }] },
       { source: HERO_PATH, headers: [{ key: "Cache-Control", value: "public, no-cache" }] },
+      { source: SUCCUBUS_PATH, headers: [{ key: "Cache-Control", value: "public, no-cache" }] },
     ];
   },
 };

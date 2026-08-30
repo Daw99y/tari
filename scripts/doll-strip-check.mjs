@@ -17,8 +17,15 @@ import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
 
-const SRC = "public/lab/doll/m2";
-const OUT = "public/lab/doll/body";
+const flag = (name, fallback) => {
+  const i = process.argv.indexOf(name);
+  return i > 0 ? process.argv[i + 1] : fallback;
+};
+
+/* Same `--src`/`--out` pair doll-strip.mjs takes, so whatever was stripped
+ * can be proven by pointing this at the same two folders. */
+const SRC = flag("--src", "public/lab/doll/m2");
+const OUT = flag("--out", "public/lab/doll/body");
 const FRAMES = 60;
 
 /* m2-render imports through the `@/` alias, which plain node does not

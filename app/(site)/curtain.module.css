@@ -1,0 +1,130 @@
+/* The curtain over the hero.
+ *
+ * Everything here is quiet on purpose. The succubus is the one loud thing on
+ * the screen and she is a WebGL canvas, so the layout around her is a mark
+ * held in the header's own position and a single line of read-out. There is
+ * no progress bar: the read-out names the step, which is the same information
+ * with none of the furniture.
+ *
+ * It paints from the server on the first byte, before any script runs, which
+ * is the point — a loading screen that itself waits for JavaScript is a
+ * flash of the very thing it exists to hide. */
+
+.curtain {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  justify-items: center;
+
+  /* The same ground the hero section paints, and nothing on top of it. A
+     tinted bloom read as a different screen rather than the same room with
+     the lights not up yet — the curtain has to lift into the page, so it
+     starts as the page's own colour. */
+  background: var(--ground);
+
+  opacity: 1;
+  transition:
+    opacity 620ms var(--ease),
+    scale 900ms var(--ease);
+}
+
+/* Lifting is a step toward her, not a dissolve: the field grows past the
+   viewport as it fades, so the reader ends up through the doorway she was
+   standing in. */
+.curtain[data-phase="leaving"] {
+  opacity: 0;
+  scale: 1.08;
+  pointer-events: none;
+}
+
+/* ---- the mark, parked where the page's real header sits */
+
+.mark {
+  align-self: start;
+  justify-self: start;
+  display: inline-flex;
+  padding: 1.25rem clamp(1.25rem, 4vw, 3rem);
+  color: var(--ink);
+  opacity: 0.85;
+}
+
+.fox {
+  height: 2rem;
+  width: auto;
+  fill: currentColor;
+}
+
+/* ---- her */
+
+.figure {
+  position: relative;
+  /* She gets the room. The camera solves her fit against this box's aspect,
+     so the box can be generous without ever clipping a wingtip. */
+  width: min(94vw, 58rem);
+  height: 100%;
+  align-self: stretch;
+
+  /* She fades in on her first drawn frame rather than popping. Until then
+     the curtain is the mark and the read-out, which is a complete screen on
+     its own — nothing here looks broken while she is on the wire. */
+  opacity: 0;
+  transition: opacity 900ms var(--ease);
+}
+
+.figure[data-ready="true"] {
+  opacity: 1;
+}
+
+.figure canvas {
+  display: block;
+}
+
+/* ---- the read-out */
+
+.readout {
+  margin: 0;
+  padding: 0 1.5rem clamp(2.5rem, 9vh, 5rem);
+
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--mute);
+
+  /* The line is replaced as steps land, so it breathes rather than blinks. */
+  animation: pulse 2.6s var(--ease) infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 0.55;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .readout {
+    animation: none;
+    opacity: 0.85;
+  }
+
+  .curtain {
+    transition: opacity 200ms linear;
+  }
+
+  .curtain[data-phase="leaving"] {
+    scale: 1;
+  }
+
+  .figure {
+    transition: opacity 200ms linear;
+  }
+}

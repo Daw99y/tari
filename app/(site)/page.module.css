@@ -87,6 +87,15 @@
   animation: push 60s ease-out forwards;
 }
 
+/* Held while the curtain is up. The push is a sixty-second move and it used
+   to start at page load, so by the time the curtain lifted the room was
+   already seconds into it — the reader was handed the middle of a drift they
+   never saw begin, which reads as a stutter against the curtain's own lift.
+   Paused, it starts from scale 1 the moment the room is theirs. */
+.scene[data-hold="true"] {
+  animation-play-state: paused;
+}
+
 @keyframes push {
   from {
     transform: scale(1);
