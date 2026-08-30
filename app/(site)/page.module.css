@@ -184,11 +184,15 @@
   border: 0;
   background: var(--seduce);
   color: #14060c;
-  font: 800 0.9rem/1 var(--sans);
-  padding: 0.85rem 1.35rem;
+  font: 800 0.82rem/1 var(--sans);
+  padding: 0.62rem 1.05rem;
   border-radius: 999px;
   cursor: pointer;
   white-space: nowrap;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
   box-shadow: 0 6px 24px -8px rgba(255, 92, 150, 0.55);
   transition:
     transform 250ms var(--pop),
@@ -196,10 +200,43 @@
     filter 200ms ease;
 }
 
+/* The door is Discord's, so it wears Discord's blurple and Discord's mark.
+ * The one control on the page that is not ours to restyle. */
+.discord {
+  --blurple: #5865f2;
+  background: var(--blurple);
+  color: #fff;
+  box-shadow: 0 6px 24px -8px rgba(88, 101, 242, 0.7);
+}
+
+.clyde,
+.buttonFox {
+  height: 1.15em;
+  width: auto;
+  flex: none;
+}
+
+.buttonFox {
+  height: 1.35em;
+  fill: currentColor;
+}
+
+/* Already through the door: Tari's own colour, Tari's own mark. */
+.enter {
+  background: var(--seduce);
+  color: #14060c;
+}
+
 .button:hover {
   transform: translateY(-2px) scale(1.03);
   box-shadow: 0 12px 32px -10px rgba(255, 92, 150, 0.65);
   filter: brightness(1.05);
+}
+
+.discord:hover {
+  background: #4752c4;
+  box-shadow: 0 12px 32px -10px rgba(88, 101, 242, 0.8);
+  filter: none;
 }
 
 .button:active {
@@ -209,6 +246,10 @@
 .button:focus-visible {
   outline: 2px solid var(--ink);
   outline-offset: 3px;
+}
+
+.discord:focus-visible {
+  outline-color: #fff;
 }
 
 .buttonQuiet {
@@ -224,10 +265,7 @@
   filter: none;
 }
 
-.buttonBig {
-  font-size: 1.05rem;
-  padding: 1.05rem 1.7rem;
-}
+
 
 /* ---- the title: bottom right, the way a room names itself */
 
@@ -328,6 +366,17 @@
 
 .badge[data-tone="pink"] {
   --tone: #ff5c96;
+}
+
+/* Early access reads as a live wire, not a label: the acid green the client
+ * uses for a poison proc, glowing on the warm dark. */
+.badge[data-tone="lime"] {
+  --tone: #b6ff2e;
+  color: #0d1403;
+  background: var(--tone);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.35),
+    0 0 28px -6px rgba(182, 255, 46, 0.75);
 }
 
 .h2 {
@@ -502,9 +551,10 @@
   top: 50%;
   transform: translateY(-50%);
   z-index: 2;
-  width: min(15rem, 40%);
+  width: min(17rem, 44%);
   display: grid;
   gap: 0.15rem;
+  padding: 1.1rem 1.2rem;
 }
 
 .whoHead,
@@ -805,6 +855,17 @@
   aspect-ratio: 16 / 9;
 }
 
+/* The plate the app draws things on: dark glass, hairline, blurred room
+ * behind it. The guide's story card and the room's list are the same object,
+ * so they are the same card. */
+.glassCard {
+  border-radius: 14px;
+  background: rgba(9, 8, 14, 0.88);
+  box-shadow: inset 0 0 0 1px rgba(242, 240, 234, 0.12);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
 .storyCard {
   position: absolute;
   left: 50%;
@@ -815,11 +876,6 @@
   display: grid;
   gap: 0.55rem;
   padding: 1.1rem 1.2rem;
-  border-radius: 14px;
-  background: rgba(9, 8, 14, 0.88);
-  box-shadow: inset 0 0 0 1px rgba(242, 240, 234, 0.12);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
 }
 
 .storyTop {
@@ -1081,13 +1137,24 @@
   display: grid;
 }
 
+/* Cut from the same glass as the effect chips in The point: components/
+ * debuff.module.css `.large`. A refusal is a status you carry, so it wears
+ * the frame a status wears. */
 .no {
+  --accent: var(--tone);
   display: grid;
-  gap: 0.3rem;
-  padding: 1.4rem 1.5rem;
-  border-radius: calc(var(--r-md) + 4px);
-  background: var(--panel);
-  box-shadow: inset 0 0 0 1px rgba(242, 240, 234, 0.1);
+  grid-template-columns: auto 1fr;
+  gap: 0.95rem;
+  align-items: center;
+  padding: 1.05rem 1.15rem 1.05rem 0.95rem;
+  border-radius: 20px;
+  background:
+    linear-gradient(to bottom, rgba(242, 240, 234, 0.05), rgba(242, 240, 234, 0) 42%),
+    rgba(13, 13, 19, 0.92);
+  border: 0.5px solid rgba(242, 240, 234, 0.16);
+  box-shadow:
+    0 1px 0 rgba(242, 240, 234, 0.05) inset,
+    0 14px 34px -14px rgba(0, 0, 0, 0.65);
   transition: transform 300ms var(--pop);
 }
 
@@ -1095,15 +1162,57 @@
   transform: translateY(-3px);
 }
 
+/* The icon well the effect chips carry, holding the one glyph a refusal has:
+ * the thing, crossed out. The keyline is the section's tone, the way a debuff
+ * keyline is its school. */
+.noWell {
+  position: relative;
+  display: block;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 10px;
+  background: rgba(242, 240, 234, 0.06);
+  color: var(--accent);
+}
+
+.noGlyph {
+  position: absolute;
+  inset: 0.6rem;
+}
+
+.noRing {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow:
+    inset 0 0 0 1px color-mix(in srgb, var(--accent) 65%, transparent),
+    inset 0 0 10px color-mix(in srgb, var(--accent) 22%, transparent);
+}
+
+.noText {
+  display: grid;
+  gap: 0.32rem;
+  min-width: 0;
+}
+
 .noWhat {
-  font: 800 1.05rem/1.3 var(--round);
+  font: 600 1rem/1.25 var(--sans);
   letter-spacing: -0.01em;
 }
 
 .noThen {
-  color: var(--mute);
-  font-size: 0.92rem;
-  font-weight: 600;
+  color: rgba(242, 240, 234, 0.62);
+  font: 400 0.82rem/1.35 var(--sans);
+}
+
+/* The track a debuff's timer runs in, with nothing running in it. Nothing
+ * here fills, so nothing here drains. */
+.noBar {
+  display: block;
+  height: 3px;
+  margin-top: 0.25rem;
+  border-radius: 999px;
+  background: rgba(242, 240, 234, 0.12);
 }
 
 /* ---- the end */
@@ -1206,8 +1315,8 @@
     line-height: 1.4;
   }
   .button {
-    padding: 0.7rem 1.05rem;
-    font-size: 0.82rem;
+    padding: 0.55rem 0.9rem;
+    font-size: 0.78rem;
   }
   .effects,
   .noList {

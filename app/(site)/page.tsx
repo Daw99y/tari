@@ -15,7 +15,7 @@ import HeroScene from "@/components/HeroScene";
 import { ItemHover } from "@/components/ItemTooltip";
 import M2Sprite from "@/components/M2Sprite";
 import SlotGlyph from "@/components/SlotGlyph";
-import { hasAuth, signIn } from "@/lib/auth";
+import { auth, hasAuth, signIn } from "@/lib/auth";
 import { iconUrl, type Item } from "@/lib/loot";
 import { plateItem } from "@/lib/plate-item";
 import { FIRST_ROOM, roomArt, roomThumb } from "@/lib/rooms";
@@ -25,15 +25,43 @@ import Reveal from "./Reveal";
 import SheetFigure from "./SheetFigure";
 import styles from "./page.module.css";
 
-function DiscordButton({ big = false }: { big?: boolean }) {
-  const cls = `${styles.button} ${big ? styles.buttonBig : ""}`;
+/* Discord's own mark, from their brand kit. The door is theirs, so it wears
+ * their face: blurple, the clyde, and nothing of ours on it. */
+function Clyde() {
+  return (
+    <svg className={styles.clyde} viewBox="0 0 127.14 96.36" aria-hidden="true" focusable="false">
+      <path
+        fill="currentColor"
+        d="M107.7 8.07A105.15 105.15 0 0 0 81.47 0a72.06 72.06 0 0 0-3.36 6.83 97.68 97.68 0 0 0-29.11 0A72.37 72.37 0 0 0 45.64 0a105.89 105.89 0 0 0-26.25 8.09C2.79 32.65-1.71 56.6.54 80.21A105.73 105.73 0 0 0 32.71 96.36a77.7 77.7 0 0 0 6.89-11.11 68.42 68.42 0 0 1-10.85-5.18c.91-.66 1.8-1.34 2.66-2a75.57 75.57 0 0 0 64.32 0c.87.71 1.76 1.39 2.66 2a68.68 68.68 0 0 1-10.87 5.19 77 77 0 0 0 6.89 11.1 105.25 105.25 0 0 0 32.19-16.14c2.64-27.38-4.51-51.11-18.9-72.15ZM42.45 65.69C36.18 65.69 31 60 31 53s5-12.74 11.43-12.74S54 46 53.89 53s-5.05 12.69-11.44 12.69Zm42.24 0C78.41 65.69 73.25 60 73.25 53s5-12.74 11.44-12.74S96.23 46 96.12 53s-5.04 12.69-11.43 12.69Z"
+      />
+    </svg>
+  );
+}
+
+/* The one control on the page, in its three honest states: no door on this
+ * deploy, a door you have not walked through, and a door you already have.
+ * Somebody signed in is not asked to sign in again — the button drops the
+ * blurple, takes Tari's own colour, and just opens the world. */
+async function DiscordButton() {
   if (!hasAuth()) {
     return (
-      <span className={`${cls} ${styles.buttonQuiet}`} aria-disabled="true">
+      <span className={`${styles.button} ${styles.buttonQuiet}`} aria-disabled="true">
+        <Clyde />
         Sign-in opens soon
       </span>
     );
   }
+
+  const session = await auth();
+  if (session?.user) {
+    return (
+      <a href={FIRST_ROOM} className={`${styles.button} ${styles.enter}`}>
+        <FoxMark className={styles.buttonFox} />
+        Walk back in
+      </a>
+    );
+  }
+
   return (
     <form
       action={async () => {
@@ -42,7 +70,8 @@ function DiscordButton({ big = false }: { big?: boolean }) {
         await signIn("discord", { redirectTo: FIRST_ROOM });
       }}
     >
-      <button type="submit" className={cls}>
+      <button type="submit" className={`${styles.button} ${styles.discord}`}>
+        <Clyde />
         Enter with Discord
       </button>
     </form>
@@ -55,23 +84,28 @@ const STOPPED = [
   { kind: "seduced", name: "Seduced", note: "You didn't want to move.", m2: "/lab/m2/Seduction_State_Head.m2", zoom: 2 },
   { kind: "sapped", name: "Sapped", note: "You stopped to look.", m2: "/lab/m2/Sap_State_Head.m2", zoom: 1.15 },
   { kind: "rooted", name: "Rooted", note: "Still here, an hour later.", m2: "/lab/m2/EntanglingRoots_State.m2", zoom: 1.1 },
-  { kind: "rested", name: "Rested", note: "Paid to do nothing.", m2: "/lab/m2/Sleep_State_Head.m2", zoom: 2 },
+  { kind: "rested", name: "Rested", note: "Paid to do nothing.", m2: "/lab/m2/Sleep_State_Head.m2", zoom: 1.15 },
 ] as const;
 
 /* ---- the sheet: the game's 19 slots in the game's order (lib/character.ts
- * SHEET_LEFT / SHEET_RIGHT / SHEET_BOTTOM), her ten items in their places.
- * The entries mirror components/SeducedFigure.tsx OUTFIT. */
+ * SHEET_LEFT / SHEET_RIGHT / SHEET_BOTTOM), every slot filled.
+ *
+ * The gear she wears is the entries in components/SeducedFigure.tsx OUTFIT.
+ * The rest are worn but not drawn, exactly as the client draws them: a helm
+ * with Show Helm off, and the neck, rings and trinkets that have no model.
+ * Her bow hangs in the ranged slot; the client only draws it when she pulls
+ * it, and the left-hand socket already holds Vendetta. */
 
 type SheetSlot = [label: string, entry?: number];
 
 const SHEET_L: SheetSlot[] = [
-  ["Head"],
-  ["Neck"],
+  ["Head", 3020],
+  ["Neck", 19541],
   ["Shoulder", 2264],
   ["Back", 13108],
   ["Chest", 4119],
-  ["Shirt"],
-  ["Tabard"],
+  ["Shirt", 4336],
+  ["Tabard", 19506],
   ["Wrist", 9455],
 ];
 const SHEET_R: SheetSlot[] = [
@@ -79,22 +113,46 @@ const SHEET_R: SheetSlot[] = [
   ["Waist", 20117],
   ["Legs", 9624],
   ["Feet", 20114],
-  ["Finger"],
-  ["Finger"],
-  ["Trinket"],
-  ["Trinket"],
+  ["Finger", 13097],
+  ["Finger", 9447],
+  ["Trinket", 21119],
+  ["Trinket", 4381],
 ];
-const SHEET_W: SheetSlot[] = [["Main hand", 13033], ["Off hand", 776], ["Ranged"]];
+const SHEET_W: SheetSlot[] = [["Main hand", 13033], ["Off hand", 776], ["Ranged", 6696]];
 const HERO_LEVEL = 29;
+
+/* A handful of dictionary rows carry no icon name — the girdle, the boots,
+ * the medallion, the tabard. The wardrobe catalogue knows all four, because
+ * the doll needs their art anyway, so the second store answers when the first
+ * shrugs and no slot falls back to a drawn glyph. */
+type Catalogue = { items: [number, number, ...unknown[]][]; display: Record<string, { i?: number }>; pool: string[] };
+
+async function catalogueIcons(entries: number[]): Promise<Map<number, string>> {
+  const file = path.join(process.cwd(), "public", "lab", "doll", "items", "catalogue.json");
+  const cat = JSON.parse(await fs.readFile(file, "utf8")) as Catalogue;
+  const out = new Map<number, string>();
+  for (const entry of entries) {
+    const row = cat.items.find((r) => r[0] === entry);
+    const icon = row ? cat.display[row[1]]?.i : undefined;
+    const stem = icon ? cat.pool[icon] : undefined;
+    // `icons_inv_belt_17.webp` is the render CDN's `inv_belt_17`.
+    if (stem) out.set(entry, stem.replace(/^icons_/, "").replace(/\.webp$/, ""));
+  }
+  return out;
+}
 
 async function sheetItems(): Promise<Map<number, Item>> {
   const raw = await fs.readFile(path.join(process.cwd(), "reference", "items.json"), "utf8");
   const dict = JSON.parse(raw) as Record<string, WornItem>;
+  const worn = [...SHEET_L, ...SHEET_R, ...SHEET_W].flatMap(([, entry]) => (entry ? [entry] : []));
+  const spares = await catalogueIcons(worn.filter((e) => !dict[e]?.i));
   const out = new Map<number, Item>();
-  for (const [, entry] of [...SHEET_L, ...SHEET_R, ...SHEET_W]) {
-    if (!entry) continue;
+  for (const entry of worn) {
     const row = dict[entry];
-    if (row) out.set(entry, plateItem(entry, row));
+    if (!row) continue;
+    const item = plateItem(entry, row);
+    if (!item.iconName) item.iconName = spares.get(entry) ?? null;
+    out.set(entry, item);
   }
   return out;
 }
@@ -172,12 +230,12 @@ const DUSKWOOD_ICONS = [
 
 /* ---- the world: five rooms in the hand, the rest counted */
 
-const HAND = ["stormwind-city", "stranglethorn-vale", "winterspring", "molten-core", "orgrimmar"];
+const HAND = ["stormwind-city", "stranglethorn-vale", "winterspring", "zul-gurub", "orgrimmar"];
 const HAND_NAME: Record<string, string> = {
   "stormwind-city": "Stormwind",
   "stranglethorn-vale": "Stranglethorn Vale",
   winterspring: "Winterspring",
-  "molten-core": "Molten Core",
+  "zul-gurub": "Zul\u2019Gurub",
   orgrimmar: "Orgrimmar",
 };
 
@@ -227,7 +285,7 @@ export default async function Page() {
         </header>
 
         <div className={styles.title}>
-          <p className={styles.badge} data-tone="pink">
+          <p className={styles.badge} data-tone="lime">
             Early access · live now
           </p>
           <h1 id="hero-h" className={styles.h1}>
@@ -238,7 +296,7 @@ export default async function Page() {
           <p className={styles.lede}>Every zone is a live room. Every realm, both factions, one world. Walk in.</p>
         </div>
 
-        <p className={styles.credit}>Hillsbrad Foothills · Human rogue · Seduction · read live from the 1.12 client</p>
+        <p className={styles.credit}>She has stood in Hillsbrad for an hour. Nobody made her.</p>
       </section>
 
       {/* ================= the idea */}
@@ -282,7 +340,7 @@ export default async function Page() {
             <p className={styles.roomName}>Undercity</p>
           </div>
 
-          <div className={styles.who}>
+          <div className={`${styles.glassCard} ${styles.who}`}>
             <p className={styles.whoHead}>In the room</p>
             <p className={styles.whoCount}>5 here</p>
             {HERE.map(([who, what]) => (
@@ -376,7 +434,7 @@ export default async function Page() {
             <p className={styles.roomName}>Duskwood</p>
           </div>
 
-          <div className={styles.storyCard}>
+          <div className={`${styles.glassCard} ${styles.storyCard}`}>
             <div className={styles.storyTop}>
               <span className={styles.storyIcon} aria-hidden="true">
                 <img src="/story/duskwood/stitches.png" alt="" width={40} height={40} loading="lazy" />
@@ -490,8 +548,18 @@ export default async function Page() {
           {REFUSALS.map(([what, then], i) => (
             <li key={what}>
               <Reveal delay={(i % 2) * 80} className={styles.no}>
-                <span className={styles.noWhat}>{what}</span>
-                <span className={styles.noThen}>{then}</span>
+                <span className={styles.noWell} aria-hidden="true">
+                  <svg viewBox="0 0 24 24" className={styles.noGlyph}>
+                    <circle cx="12" cy="12" r="8.4" fill="none" stroke="currentColor" strokeWidth="1.8" />
+                    <path d="M6.1 17.9 17.9 6.1" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+                  </svg>
+                  <span className={styles.noRing} />
+                </span>
+                <span className={styles.noText}>
+                  <span className={styles.noWhat}>{what}</span>
+                  <span className={styles.noThen}>{then}</span>
+                  <span className={styles.noBar} aria-hidden="true" />
+                </span>
               </Reveal>
             </li>
           ))}
@@ -510,7 +578,7 @@ export default async function Page() {
             whole app. The mark is a T with a fox tail.
           </p>
           <div className={styles.endCta}>
-            <DiscordButton big />
+            <DiscordButton />
           </div>
         </Reveal>
         <p className={styles.small}>

@@ -46,7 +46,11 @@ const LOOK = {
  *  `attach` overrides the socket for the off-hand blade — the catalogue files
  *  every one-hander under the right hand. */
 const OUTFIT: { entry: number; attach?: number }[] = [
-  // No hat: her hair shows. The list is otherwise the guide's.
+  // Worn but not drawn, the way the client draws them: the hat is off so her
+  // hair shows, the shirt is under the tunic, and a guild tabard would drape
+  // over the leathers this page exists to show. The bow stays in its slot
+  // too — the ranged socket is the left hand, and Vendetta has it. All four
+  // still sit in the landing page's sheet.
   { entry: 2264 }, // Mantle of Thieves
   { entry: 13108 }, // Tigerstrike Mantle
   { entry: 4119 }, // Raptor Hunter Tunic
@@ -59,8 +63,12 @@ const OUTFIT: { entry: number; attach?: number }[] = [
   { entry: 776, attach: 2 }, // Vendetta, forced to the left hand
 ];
 
-/** Animation 14 in AnimationData: Stun. The dazed CC sway. */
+/** AnimationData ids. 14 is Stun — the dazed CC sway the hero holds. 0 is
+ *  Stand, the breathing idle a character sheet shows. */
 const STUN = 14;
+const STAND = 0;
+
+export type Pose = "stunned" | "standing";
 
 /* ---------- caches, shared for the life of the page ---------- */
 
@@ -136,11 +144,25 @@ type Props = {
    *  projected through the camera, so the hearts can sit on it instead of on
    *  a guess. Fractions survive a resize; pixels would not. */
   onHead?: (pt: { x: number; y: number }) => void;
+  /** Which loop she holds. The hero is stunned; the sheet just stands. */
+  pose?: Pose;
+  /** Extra camera yaw in radians. The hero keeps her three-quarter turn into
+   *  the scene; the sheet spins the camera round to her front. */
+  turn?: number;
   className?: string;
   shadowClassName?: string;
 };
 
-export default function SeducedFigure({ height, left, top, onHead, className, shadowClassName }: Props) {
+export default function SeducedFigure({
+  height,
+  left,
+  top,
+  onHead,
+  pose = "stunned",
+  turn = 0,
+  className,
+  shadowClassName,
+}: Props) {
   const hostRef = useRef<HTMLDivElement>(null);
   const [ready, setReady] = useState(false);
 
@@ -303,7 +325,7 @@ export default function SeducedFigure({ height, left, top, onHead, className, sh
       const bodyH = Math.max(0.5, body.bounds.max[2] - body.bounds.min[2]);
       const dist = bodyH * 2.6;
       const target = bodyH * 0.48;
-      const yaw = Math.PI / 2 - 0.35 - Math.PI / 4;
+      const yaw = Math.PI / 2 - 0.35 - Math.PI / 4 + turn;
       const pitch = 0.03;
       const aim = (yawOff = 0, pitchOff = 0) => {
         const ya = yaw + yawOff;
@@ -330,7 +352,9 @@ export default function SeducedFigure({ height, left, top, onHead, className, sh
       observer.observe(host);
       resize();
 
-      const stun = body.sequences.find((s) => s.id === STUN) ?? body.sequences.find((s) => s.id === 0) ?? null;
+      const wanted = pose === "standing" ? STAND : STUN;
+      const stun =
+        body.sequences.find((s) => s.id === wanted) ?? body.sequences.find((s) => s.id === STAND) ?? null;
       const span = stun ? Math.max(1, stun.end - stun.start) : 1000;
       const started = performance.now();
       const socketMatrix = new THREE.Matrix4();
@@ -400,7 +424,8 @@ export default function SeducedFigure({ height, left, top, onHead, className, sh
       }
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps -- everything is
-    // pinned; `onHead` fires once and must not rebuild the scene.
+    // pinned; `onHead` fires once and must not rebuild the scene, and `pose`
+    // is chosen by the caller at mount and never changes under it.
   }, []);
 
   /* The box: `height` tall, anchored by her feet. The shadow pools under her

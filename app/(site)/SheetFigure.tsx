@@ -3,8 +3,9 @@
 /* The rogue, standing in the character sheet. SeducedFigure places itself by
  * pixel — HeroScene does that math against a photograph; here the frame is
  * the floor, so this measures its own box and stands her in the middle of
- * it. Everything else — the body, the gear, the Stun sway — is the same
- * machinery the hero uses, already cached from the first load. */
+ * it. The body and the gear are the same machinery the hero uses, already
+ * cached from the first load; only the loop differs. Nothing seduced her on
+ * this screen, so she holds the Stand idle instead of the Stun sway. */
 
 import { useEffect, useRef, useState } from "react";
 
@@ -42,6 +43,8 @@ export default function SheetFigure({
           height={Math.round(box.h * 0.94)}
           left={Math.round(box.w / 2)}
           top={Math.round(box.h * 0.985)}
+          pose="standing"
+          turn={Math.PI / 2}
           className={figureClassName}
           shadowClassName={shadowClassName}
         />
