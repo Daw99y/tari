@@ -5,7 +5,9 @@
 .room {
   position: absolute;
   inset: 0;
-  overflow: hidden;
+  /* clip, not hidden: hidden still lets a focused button drag the whole
+   * room upward by its scroll offset; clip forbids scrolling outright. */
+  overflow: clip;
 }
 
 .art {
@@ -463,34 +465,15 @@
   }
 }
 
-/* ---- the guide: a ghost. One centred column of text drifting upward
-   forever, dissolving at both ends. No scrollbar, no end. Click holds it;
-   drag or wheel reads it. */
+/* ---- the telling (Story.tsx, story.module.css): the guide, told on the
+   land. Its styles live in its own module; the room only knows one thing
+   about it, below. */
 
-.guide {
-  /* Centred by margins, not by transform: the rise animation ends on
-   * `transform: none` and would undo a translate. */
-  position: absolute;
-  inset: 0;
-  margin: auto;
-  z-index: 2;
-  transition:
-    opacity 240ms ease,
-    visibility 0s;
-  width: min(70rem, 80%);
-  height: 26%;
-  display: grid;
-  grid-template-rows: minmax(0, 1fr) auto;
-  pointer-events: none;
-  animation: rise 1400ms cubic-bezier(0.2, 0.7, 0.2, 1) 500ms both;
-}
-
-/* The guide steps aside for whatever is on the stage. Both want the middle
- * of the room, and a reader who has opened something is reading it — a
- * ghost drifting across it is two things asking for the same eye. The
- * veil is the one element that knows which subject stands there, so the
- * room asks it rather than keeping a second copy of the state. */
-.room:has([data-stage]) .guide {
+/* The telling steps aside for whatever is on the stage. Both want the
+ * middle of the room, and a reader who has opened something is reading it.
+ * Matched by attribute, like the chat and the cursors: the class lives in
+ * another module and would hash differently here. */
+.room:has([data-stage]) [data-story] {
   opacity: 0;
   visibility: hidden;
   transition:
@@ -514,136 +497,3 @@
     visibility 0s 200ms;
 }
 
-/* The column's ground: the room itself, blurred and dimmed, with no edge
- * anywhere. It sits behind the text and outside the loop's own mask — a
- * backdrop-filter inside a masked element has nothing left to sample. The
- * oval mask is what keeps it from reading as a panel. */
-.haze {
-  position: absolute;
-  inset: -140% -18%;
-  z-index: 0;
-  pointer-events: none;
-  background: rgba(6, 6, 10, 0.46);
-  /* Unprefixed only. Lightning CSS adds the -webkit- line itself; writing
-   * both by hand makes it keep the prefixed one alone. */
-  backdrop-filter: blur(20px) saturate(0.85) brightness(0.84);
-  /* The falloff is finished at 62% of a box far larger than the text, so
-   * the edge of the blur is nowhere near anything a reader is looking at.
-   * Many stops, because two would band into a visible ring. */
-  mask-image: radial-gradient(
-    46% 40% at 50% 50%,
-    #000 0%,
-    rgba(0, 0, 0, 0.94) 22%,
-    rgba(0, 0, 0, 0.78) 34%,
-    rgba(0, 0, 0, 0.54) 44%,
-    rgba(0, 0, 0, 0.3) 52%,
-    rgba(0, 0, 0, 0.12) 58%,
-    transparent 62%
-  );
-}
-
-.loop {
-  position: relative;
-  z-index: 1;
-  height: 100%;
-  overflow: hidden;
-  pointer-events: auto;
-  cursor: pointer;
-  user-select: none;
-  touch-action: none;
-  /* The dissolve. Shorter box, so the ends fade over less of it: a card is
-   * fully there for longer than it is arriving. */
-  mask-image: linear-gradient(to bottom, transparent 0%, #000 20%, #000 80%, transparent 100%);
-}
-
-.loop[data-holding] {
-  cursor: grab;
-}
-
-.loop:active {
-  cursor: grabbing;
-}
-
-.column {
-  will-change: transform;
-  padding-top: 8vh;
-}
-
-/* One card of the loop. Centred, and airy enough that each reads alone. */
-.ghost {
-  display: grid;
-  justify-items: center;
-  gap: 0.2rem;
-  padding: 0 1.5rem clamp(0.9rem, 2vh, 1.5rem);
-  text-align: center;
-}
-
-.ghostKind {
-  margin: 0;
-  font: 500 0.5rem/1 var(--mono);
-  letter-spacing: 0.28em;
-  text-transform: uppercase;
-  color: rgba(242, 240, 234, 0.38);
-}
-
-.ghostKind[data-kind="beware"] {
-  color: rgba(255, 196, 140, 0.7);
-}
-
-.ghostSubject {
-  margin: 0;
-  font-family: var(--display);
-  font-weight: 600;
-  font-size: clamp(1.1rem, 1.65vw, 1.55rem);
-  line-height: 1.05;
-  letter-spacing: -0.035em;
-  color: rgba(242, 240, 234, 0.8);
-  text-shadow:
-    0 0 30px rgba(242, 240, 234, 0.16),
-    0 0 2px rgba(6, 6, 10, 0.5);
-  text-wrap: balance;
-}
-
-.ghostTitle {
-  margin: 0;
-  max-width: 42rem;
-  font-size: clamp(0.78rem, 0.85vw, 0.88rem);
-  line-height: 1.2;
-  letter-spacing: -0.01em;
-  color: rgba(242, 240, 234, 0.72);
-  text-wrap: balance;
-}
-
-.ghostBody {
-  margin: 0;
-  max-width: 48rem;
-  font-size: 0.72rem;
-  line-height: 1.35;
-  letter-spacing: 0;
-  color: rgba(242, 240, 234, 0.56);
-  text-wrap: pretty;
-}
-
-/* The state, as one quiet word under the dissolve. */
-.holdNote {
-  margin: 0;
-  padding-top: 0.5rem;
-  text-align: center;
-  font: 400 0.55rem/1 var(--mono);
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  color: rgba(242, 240, 234, 0.3);
-}
-
-@media (max-width: 64rem) {
-  .guide {
-    width: min(100%, 94%);
-    height: 34%;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .guide {
-    animation: none;
-  }
-}

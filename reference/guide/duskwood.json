@@ -8,88 +8,373 @@
     "https://warcraft.wiki.gg/wiki/Raven_Hill",
     "https://warcraft.wiki.gg/wiki/Abercrombie",
     "https://warcraft.wiki.gg/wiki/Stalvan_Mistmantle",
-    "https://warcraft.wiki.gg/wiki/Roland%27s_Doom"
+    "https://warcraft.wiki.gg/wiki/Roland%27s_Doom",
+    "https://warcraft.wiki.gg/wiki/Lupos",
+    "https://warcraft.wiki.gg/wiki/Fenros",
+    "https://warcraft.wiki.gg/wiki/Nefaru",
+    "https://warcraft.wiki.gg/wiki/Naraxis",
+    "https://warcraft.wiki.gg/wiki/Lord_Malathrom",
+    "https://warcraft.wiki.gg/wiki/Commander_Felstrom"
+  ],
+  "road": [
+    [
+      19.8,
+      56.2
+    ],
+    [
+      23,
+      56.8
+    ],
+    [
+      27,
+      57.4
+    ],
+    [
+      31,
+      58.6
+    ],
+    [
+      35,
+      60
+    ],
+    [
+      39,
+      61.8
+    ],
+    [
+      42.5,
+      64
+    ],
+    [
+      45.2,
+      66.6
+    ],
+    [
+      48.5,
+      65.6
+    ],
+    [
+      52,
+      64.6
+    ],
+    [
+      56,
+      63.6
+    ],
+    [
+      60,
+      62.9
+    ],
+    [
+      64,
+      62.3
+    ],
+    [
+      67.5,
+      61.6
+    ],
+    [
+      70,
+      60
+    ],
+    [
+      71.8,
+      57.5
+    ],
+    [
+      72.8,
+      54.5
+    ],
+    [
+      73.4,
+      51.5
+    ],
+    [
+      74,
+      48.5
+    ],
+    [
+      74.6,
+      46.2
+    ]
+  ],
+  "roadEnds": [
+    "Raven Hill",
+    "Darkshire"
   ],
   "cards": [
     {
       "id": "brightwood",
       "kind": "before",
+      "form": "title",
       "subject": "Brightwood",
-      "title": "It used to be called Brightwood.",
-      "body": "Grand Hamlet, Raven Hill, orchards. When Medivh died the fel that had been in him went into the ground, and the forest has not seen the sun since. The spiders were Elwynn's spiders once.",
-      "spoiler": false
-    },
-    {
-      "id": "stitches",
-      "kind": "beware",
-      "subject": "Stitches",
-      "title": "Something walks the road from Raven Hill to Darkshire.",
-      "body": "A level 35 elite in a zone that tops out at 30. Two sets of Night Watch stand in its way, at the ogre mound and outside the Rotting Orchard, and without help it kills both. It says one thing: DARKSHIRE… I HUNGER.",
-      "spoiler": false
-    },
-    {
-      "id": "morladim",
-      "kind": "beware",
-      "subject": "Mor'Ladim",
-      "title": "Do not run through Raven Hill Cemetery.",
-      "body": "Mor'Ladim patrols it, and his aggro radius is far bigger than anything else at this level. Every Alliance player has a story about him. Most of them end at the graveyard.",
-      "spoiler": false
-    },
-    {
-      "id": "morladim-story",
-      "kind": "story",
-      "subject": "Archeus",
-      "title": "Mor'Ladim was Morgan Ladimore.",
-      "body": "A knight who fought beside Uther, came home to find his wife and children buried at Raven Hill, and swung his sword at the gravestones until he had killed the attendants. Then himself. The sword was Archeus. When he finally falls, his spirit says he needs it no longer.",
-      "spoiler": true
-    },
-    {
-      "id": "twilight-grove",
-      "kind": "look",
-      "subject": "Twilight Grove",
-      "title": "There is a night elf grove in the middle of the zone.",
-      "body": "A moonwell, a gazebo and a great tree, walled in by hills so that most players never find the way in. The tree was planted from a branch of Nordrassil by Fandral Staghelm, and it is one of four doors into the Emerald Dream.",
+      "tag": "Before",
+      "lines": [
+        "When Medivh died, the fel in him went into the ground.",
+        "The forest has not seen the sun since."
+      ],
       "spoiler": false
     },
     {
       "id": "raven-hill",
       "kind": "notice",
+      "form": "chip",
       "subject": "Raven Hill",
-      "title": "Raven Hill graduated the finest embalmers in Azeroth.",
-      "body": "That was the town's whole trade: a mortuary school. Now two people live there, Jitters and a goblin vendor. Everyone else fled east to Darkshire after the dead they had prepared got up. The catacombs under the cemetery are still there.",
-      "spoiler": false
-    },
-    {
-      "id": "abercrombie",
-      "kind": "story",
-      "subject": "Abercrombie",
-      "title": "The hermit by the cemetery is a necromancer.",
-      "body": "Abercrombie's errands — the comb, the juice, the rot blossoms — are the recipe for Stitches. His wife Eliza died and he put his own heart in her chest to bring her back. It worked, in the way these things work.",
-      "spoiler": true
-    },
-    {
-      "id": "stalvan",
-      "kind": "story",
-      "subject": "Stalvan Mistmantle",
-      "title": "Thirteen quests to learn one man's name.",
-      "body": "The Legend of Stalvan sends you to Stormwind, Goldshire and Moonbrook for letters and a ring before it lets you into Manor Mistmantle. A tutor who wanted his student, who was promised to someone else. Nobody who finishes it forgets it.",
-      "spoiler": false
-    },
-    {
-      "id": "rolands-doom",
-      "kind": "story",
-      "subject": "Roland's Doom",
-      "title": "The worgen came out of a mine.",
-      "body": "Roland's Doom, east of the Rotting Orchard. A night elf priestess carried the Scythe of Elune here and died with it; Jitters found it, and the Nightbane pack followed. He has been shaking ever since.",
-      "spoiler": true
+      "tag": "Abandoned town · mortuary school",
+      "icon": "raven-hill",
+      "lines": [
+        "The finest embalmers in Azeroth trained here.",
+        "Then the dead they had prepared got up.",
+        "Two residents left. The catacombs are still open."
+      ],
+      "spoiler": false,
+      "t": 0.05,
+      "at": [
+        18.5,
+        50
+      ],
+      "seed": {
+        "body": "The catacombs under the cemetery go further down than they look. Bring a friend."
+      }
     },
     {
       "id": "morbent-fel",
       "kind": "notice",
+      "form": "chip",
       "subject": "Morbent Fel",
-      "title": "One necromancer is why the dead walk here.",
-      "body": "Morbent Fel, in the Forlorn Rowe above Raven Hill, holds every corpse in the zone. The chain to reach him starts with Sven, at a campfire near the river, whose family he took.",
+      "tag": "Necromancer of the Forlorn Rowe",
+      "icon": "morbent-fel",
+      "lines": [
+        "Every corpse in this zone answers to him.",
+        "The chain to reach him starts at Sven's campfire."
+      ],
+      "spoiler": false,
+      "t": 0.13,
+      "at": [
+        13.5,
+        34
+      ]
+    },
+    {
+      "id": "morladim",
+      "kind": "beware",
+      "form": "chip",
+      "subject": "Mor'Ladim",
+      "tag": "Level 35 Elite · patrols the cemetery",
+      "icon": "morladim",
+      "lines": [
+        "An aggro radius bigger than anything else at this level.",
+        "Every Alliance player has a story about him.",
+        "Most of them end at the graveyard."
+      ],
+      "spoiler": false,
+      "t": 0.21,
+      "at": [
+        18,
+        42
+      ]
+    },
+    {
+      "id": "morladim-story",
+      "kind": "story",
+      "form": "grave",
+      "subject": "Morgan Ladimore",
+      "tag": "Buried at Raven Hill",
+      "icon": "archeus",
+      "lines": [
+        "A knight of Uther's, home too late to save his family.",
+        "The sword he swung at the gravestones was Archeus.",
+        "When he finally falls: \"I need it no longer.\""
+      ],
+      "spoiler": true,
+      "t": 0.28,
+      "at": [
+        18,
+        42
+      ]
+    },
+    {
+      "id": "abercrombie",
+      "kind": "story",
+      "form": "grave",
+      "subject": "Abercrombie",
+      "tag": "The hermit by the cemetery",
+      "icon": "abercrombie",
+      "lines": [
+        "The comb. The juice. The rot blossoms.",
+        "His errands are a recipe.",
+        "The recipe is Stitches."
+      ],
+      "spoiler": true,
+      "t": 0.35,
+      "at": [
+        28.1,
+        31.5
+      ]
+    },
+    {
+      "id": "stitches",
+      "kind": "beware",
+      "form": "yell",
+      "subject": "Stitches",
+      "tag": "Level 35 Elite · walks the road",
+      "icon": "stitches",
+      "yell": "DARKSHIRE... I HUNGER.",
+      "lines": [
+        "Two Night Watch stands are in his way.",
+        "Without help, he kills both."
+      ],
+      "spoiler": false,
+      "t": 0.46,
+      "at": [
+        46,
+        58
+      ],
+      "seed": {
+        "body": "If the road goes quiet, leave the road. You get one scream of warning, zone-wide, and then nothing."
+      }
+    },
+    {
+      "id": "twilight-grove",
+      "kind": "look",
+      "form": "chip",
+      "side": "up",
+      "subject": "Twilight Grove",
+      "tag": "A door into the Emerald Dream",
+      "icon": "twilight-grove",
+      "lines": [
+        "A moonwell walled in by hills, with no marked way in.",
+        "Fandral Staghelm planted the tree from a branch of Nordrassil."
+      ],
+      "spoiler": false,
+      "t": 0.57,
+      "at": [
+        48,
+        37
+      ],
+      "seed": {
+        "body": "Nothing in the grove wants you dead. Only place in the zone. Stand at the moonwell a while."
+      }
+    },
+    {
+      "id": "rolands-doom",
+      "kind": "story",
+      "form": "grave",
+      "side": "down",
+      "subject": "Roland's Doom",
+      "tag": "The mine east of the Rotting Orchard",
+      "icon": "rolands-doom",
+      "lines": [
+        "The worgen came out of this mine.",
+        "A priestess carried the Scythe of Elune in, and died holding it.",
+        "Jitters saw what followed. He is still shaking."
+      ],
+      "spoiler": true,
+      "t": 0.68,
+      "at": [
+        65,
+        78
+      ]
+    },
+    {
+      "id": "stalvan",
+      "kind": "story",
+      "form": "pages",
+      "subject": "Stalvan Mistmantle",
+      "tag": "The Legend of Stalvan · thirteen quests",
+      "icon": "stalvan",
+      "lines": [],
+      "pages": [
+        [
+          "A tutor came to Grand Hamlet,",
+          "and wanted his student."
+        ],
+        [
+          "She was promised to another.",
+          "The pages of his story are scattered",
+          "from Stormwind to Moonbrook."
+        ],
+        [
+          "Manor Mistmantle stands",
+          "north of Darkshire.",
+          "He is home."
+        ]
+      ],
+      "spoiler": false,
+      "t": 0.84,
+      "at": [
+        78,
+        36
+      ]
+    },
+    {
+      "id": "the-six",
+      "kind": "beware",
+      "form": "six",
+      "subject": "The six",
+      "tag": "Named things on long timers",
+      "lines": [
+        "Each holds a fixed haunt.",
+        "Press a diamond."
+      ],
       "spoiler": false
     }
-  ]
+  ],
+  "rares": [
+    {
+      "name": "Lupos",
+      "icon": "lupos",
+      "t": 0.08,
+      "lines": [
+        "A wolf whose bite was shadow, not tooth.",
+        "Hunters walked here at 23 to tame it, until patch 1.9."
+      ]
+    },
+    {
+      "name": "Commander Felstrom",
+      "icon": "felstrom",
+      "t": 0.17,
+      "lines": [
+        "Brought low, he kills himself and stands back up whole.",
+        "Beat him before he can die."
+      ]
+    },
+    {
+      "name": "Lord Malathrom",
+      "icon": "malathrom",
+      "t": 0.25,
+      "lines": [
+        "A ghoul of the Dawning Woods Catacombs.",
+        "Mid-fight he raises two minions, Sloth and Sludge."
+      ]
+    },
+    {
+      "name": "Fenros",
+      "icon": "fenros",
+      "t": 0.5,
+      "lines": [
+        "Alone between the Nightbane camps.",
+        "The axe says lumberjack, from before the turning."
+      ]
+    },
+    {
+      "name": "Nefaru",
+      "icon": "nefaru",
+      "t": 0.63,
+      "lines": [
+        "The Den Mother, deep in Roland's Doom.",
+        "The pack answers to her."
+      ]
+    },
+    {
+      "name": "Naraxis",
+      "icon": "naraxis",
+      "t": 0.92,
+      "lines": [
+        "A great spider in a web-choked cave.",
+        "No tamable spider wears her colour outside Zul'Gurub."
+      ]
+    }
+  ],
+  "seedWho": "Tari"
 }

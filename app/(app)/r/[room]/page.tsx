@@ -56,8 +56,10 @@ export default async function RoomPage({ params, searchParams }: Props) {
   const past = await pastIn(room.id);
   const drops = file ? panelFor(file, cls, level) : [];
 
-  // Nothing held back: every card, in the file's order.
-  const guide = guideFor(room.id)?.cards ?? [];
+  /* The whole guide file: the telling needs the cards and the geometry
+     under them — the road, the patrol, the rares' facts. Spoilers travel
+     too; the veil is lifted in place, per card, by the reader. */
+  const guide = guideFor(room.id);
 
   // Read here so Room stays plain HTML: the marks are a file, not a render.
   const plate = await plateFor(room.id);

@@ -44,6 +44,9 @@ type Subject = { kind: Kind } | { kind: "item"; item: Item };
 export type Dock = {
   openItem: (item: Item, from?: HTMLElement | null) => void;
   openKit: () => void;
+  /** The stage's crop for anything with a spot: the real map, centred on
+   *  it. The telling's cards use this the way the item stage does. */
+  openMapAt: (at: { x: number; y: number }) => void;
   close: () => void;
 };
 
@@ -232,7 +235,7 @@ export default function Dock({
   const onKit = subject?.kind === "kit";
 
   return (
-    <DockCtx.Provider value={{ openItem, openKit, close }}>
+    <DockCtx.Provider value={{ openItem, openKit, openMapAt, close }}>
       {children}
 
       <div

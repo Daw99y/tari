@@ -42,6 +42,17 @@ anywhere public.
 npm run typecheck   # tsc --noEmit
 ```
 
+### The hero rogue's baked file
+
+The landing-page figure reads `public/lab/doll/hero.json`, a 3 KB cut of the
+manifest and the catalogue holding only what she wears. If you change her
+look or her outfit in `components/SeducedFigure.tsx`, run this again and
+commit the result:
+
+```bash
+node scripts/hero-bake.mjs
+```
+
 ## What is here
 
 ```
