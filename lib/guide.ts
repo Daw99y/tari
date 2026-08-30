@@ -67,7 +67,13 @@ export type Card = {
   seed?: Seed;
 };
 
-/** One rare: its spot on the road, its client icon, its two lines. */
+/** One rare: its spot on the road, its client icon, its two lines.
+ *
+ *  `t` IS A PLACE IN THE TELLING, NEVER A PLACE ON THE MAP. A Card may carry
+ *  `at` and open the map there; a Rare may not, and must never be given one.
+ *  Six named things with fixed haunts and coordinates beside them is a farming
+ *  route, and docs/TARI.md §2.1 refuses routes. The roll-call is a reason to
+ *  walk the zone, not a way to skip walking it. */
 export type Rare = { name: string; icon: string; t: number; lines: string[] };
 
 export type GuideFile = {

@@ -127,6 +127,8 @@ Applied to every feature that will ever be proposed:
 | quest **"go here, kill 10"** | ❌ Questie already does it, better |
 | pins, presence, chat | ✅ people are a reason to stay |
 | routes, arrows, waypoints, a clock that counts up | ❌ never |
+| a tool in the corner of your eye | ❌ that is the loop |
+| a tool on the other screen | ✅ it costs a look away — see §2.3 |
 
 ### 2.2 The atom
 
@@ -145,6 +147,49 @@ It stays. The next person who reaches that spot around that level sees it.
 
 Chat, cursors, counters and annotations are all variations on it. Build the
 pin perfectly; everything else is scaffolding.
+
+### 2.3 The second monitor
+
+**Tari does not run inside the game, and that is the mechanism rather than a
+limitation being worked around.**
+
+An addon lives in the corner of your eye. You follow it with your hands still
+on the keys and you never stop moving — which is exactly why RestedXP is an
+addon, and exactly why it works. **Anything inside the loop becomes part of the
+loop.** A tool that wanted to slow you down and lived on your action bar would
+be read as a delay and then muted.
+
+Tari costs you a look away. A second where your character is standing still in
+the world while you read something. Every other product in this category
+treats that gap as friction to be engineered out; here it is the only reason
+the thing can do what it claims.
+
+> **In 2026 the connection between the game and a web app is still poor.
+> Good. If it were seamless, people would move faster.**
+
+The distance is doing the work that no feature could do on its own. It is the
+same argument as §7 — being stopped is what you came for — applied one level
+down, to where the product is allowed to live.
+
+**This is why the in-game half stays thin, and why the reverse path (§9.2) is
+constrained rather than expanded:**
+
+> **Nothing Tari puts back into the game may move you.**
+
+The addon may show a pin, because a pin is a noun — *someone stopped here.* It
+may never show a heading, a target, a distance, or an order. **The moment the
+addon can be followed, Tari has become the thing it exists to argue with.**
+
+Three consequences, all of which are already true elsewhere in this document
+and only now have one reason behind them:
+
+1. **The notification rules** (`WELCOME.md` §3). Tari goes quiet while you are
+   playing and speaks when you are not, because the whole point is that it does
+   not live in there with you.
+2. **Moments** (§8). A room reacting crosses the *other* screen. Nothing about
+   it lands in the game.
+3. **The client** (§9) is a second-monitor object, not an overlay. Its job is to
+   make the other screen better, never to close the gap to zero.
 
 ---
 
@@ -425,7 +470,9 @@ load — no network, just disk, the way WeakAura and TSM imports work.
 > you the pin someone left there. One reload behind.
 
 RestedXP's delivery mechanism carrying the opposite payload. It stays a noun —
-*someone stopped here* — never a direction.
+*someone stopped here* — never a direction. **§2.3 is the rule this obeys:
+nothing Tari puts back into the game may move you.** This path is allowed to
+say what is there; it is never allowed to be followed.
 
 ---
 
