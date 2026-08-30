@@ -110,6 +110,8 @@ export function poseBones(
   cam: Camera,
   /** See `sampleTrack`. Character models pass true. */
   restWhenOutside = false,
+  /** Wall clock for global-sequence tracks; see `sampleTrack`. */
+  wall = t,
 ): Pose {
   const { Vinv, YawInv } = viewMatrix(cam);
   const world: M34[] = [];
@@ -121,9 +123,9 @@ export function poseBones(
   const p = new Float32Array(3);
 
   mesh.bones.forEach((bone, i) => {
-    sampleTrack(bone.translation, t, seq, mesh.globalSequences, tr, ZERO3, restWhenOutside);
-    sampleTrack(bone.rotation, t, seq, mesh.globalSequences, q, QID, restWhenOutside);
-    sampleTrack(bone.scale, t, seq, mesh.globalSequences, s, ONE3, restWhenOutside);
+    sampleTrack(bone.translation, t, seq, mesh.globalSequences, tr, ZERO3, restWhenOutside, wall);
+    sampleTrack(bone.rotation, t, seq, mesh.globalSequences, q, QID, restWhenOutside, wall);
+    sampleTrack(bone.scale, t, seq, mesh.globalSequences, s, ONE3, restWhenOutside, wall);
     const parent = bone.parent >= 0 && bone.parent < i ? world[bone.parent] : null;
     const W = identity();
 
@@ -293,6 +295,9 @@ export type DrawOptions = {
   background: string;
   /** Multiplies the fit. 1 frames the whole animation; more crops in. */
   zoom?: number;
+  /** Wall-clock ms since playback began, for global-sequence tracks (see
+   *  `sampleTrack`). Omitted, they sample at `t` as before. */
+  wall?: number;
 };
 
 type Tri = { a: number; b: number; c: number; depth: number; batch: number };
@@ -332,7 +337,8 @@ export function drawFrame(
   ctx.fillRect(0, 0, W, H);
   if (mesh.vertexCount === 0) return;
 
-  const pose = poseBones(mesh, t, seq, cam);
+  const wall = opts.wall ?? t;
+  const pose = poseBones(mesh, t, seq, cam, false, wall);
   const model = skin(mesh, pose, new Float32Array(mesh.vertexCount * 3));
   const { V } = viewMatrix(cam);
   const scale = ((W * 0.38) / fit.radius) * (opts.zoom ?? 1);
@@ -359,13 +365,13 @@ export function drawFrame(
     let a = 1;
     if (b.colorIndex >= 0) {
       const c = mesh.colors[b.colorIndex];
-      sampleTrack(c.rgb, t, seq, mesh.globalSequences, rgbBuf, ONE3);
+      sampleTrack(c.rgb, t, seq, mesh.globalSequences, rgbBuf, ONE3, false, wall);
       rgb = [rgbBuf[0], rgbBuf[1], rgbBuf[2]];
-      sampleTrack(c.alpha, t, seq, mesh.globalSequences, aBuf, ONE3);
+      sampleTrack(c.alpha, t, seq, mesh.globalSequences, aBuf, ONE3, false, wall);
       a *= aBuf[0];
     }
     if (b.transparencyIndex >= 0) {
-      sampleTrack(mesh.transparencies[b.transparencyIndex], t, seq, mesh.globalSequences, aBuf, ONE3);
+      sampleTrack(mesh.transparencies[b.transparencyIndex], t, seq, mesh.globalSequences, aBuf, ONE3, false, wall);
       a *= aBuf[0];
     }
     batchRGB.push(rgb);

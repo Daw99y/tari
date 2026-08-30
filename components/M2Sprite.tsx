@@ -73,7 +73,7 @@ export default function M2Sprite({ src, background = "#000", camera, className, 
         canvas.height = h;
       }
       const { t, seq } = timeline.at(clock);
-      drawFrame(ctx, mesh, textures, fit, cam.current, t, seq, { wire: false, dpr, background, zoom });
+      drawFrame(ctx, mesh, textures, fit, cam.current, t, seq, { wire: false, dpr, background, zoom, wall: clock });
     };
 
     const tick = (now: number) => {

@@ -379,6 +379,12 @@ export function sampleTrack(
    *  face apart. A spell visual needs `false`: its bones are authored at the
    *  origin and only the animation moves them out, so resting one hides it. */
   restWhenOutside = false,
+  /** Wall-clock milliseconds for global-sequence tracks. A global sequence
+   *  runs on its own timer, independent of the current animation; sampling
+   *  it with the sequence-local time makes its phase jump backwards every
+   *  time the held animation wraps (the Sap stars snapped mid-orbit).
+   *  Defaults to `t` so existing callers keep their behaviour. */
+  wall = t,
 ): Float32Array {
   const { times, values, stride } = tr;
   const nK = values.length / stride;
@@ -389,7 +395,7 @@ export function sampleTrack(
   let time = t;
   if (tr.globalSeq >= 0) {
     const len = globalSequences[tr.globalSeq] || 1;
-    time = t % len;
+    time = wall % len;
   } else if (seq) {
     time = Math.max(seq.start, Math.min(seq.end, t));
   }
