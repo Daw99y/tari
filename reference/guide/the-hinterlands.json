@@ -1,0 +1,212 @@
+{
+  "room": "the-hinterlands",
+  "sources": [
+    "https://warcraft.wiki.gg/wiki/Hinterlands_(Classic)",
+    "https://warcraft.wiki.gg/wiki/Wildhammer_Clan",
+    "https://warcraft.wiki.gg/wiki/Revantusk_Village",
+    "https://warcraft.wiki.gg/wiki/Jintha%27Alor",
+    "https://warcraft.wiki.gg/wiki/Shadra",
+    "https://warcraft.wiki.gg/wiki/Seradane",
+    "https://warcraft.wiki.gg/wiki/Quel%27Danil_Lodge",
+    "https://warcraft.wiki.gg/wiki/Agol%27watha",
+    "https://warcraft.wiki.gg/wiki/Skulk_Rock",
+    "https://warcraft.wiki.gg/wiki/Gammerita",
+    "https://warcraft.wiki.gg/wiki/Plaguemist_Ravine"
+  ],
+  "roadEnds": ["Aerie Peak", "The Altar of Zul"],
+  "seedWho": "Tari",
+  "cards": [
+    {
+      "id": "half-a-zone",
+      "kind": "before",
+      "form": "title",
+      "subject": "Half a zone",
+      "tag": "Before",
+      "lines": [
+        "At launch the Hinterlands had no Horde settlement at all. Horde players ran a level forty-to-fifty zone with no inn, no forge, no flight master and no graveyard anywhere near them.",
+        "Revantusk Village arrived in patch 1.5.0, with a new graveyard at the Overlook Cliffs — which tells you how the corpse runs had been going."
+      ],
+      "spoiler": false
+    },
+    {
+      "id": "not-in-the-alliance",
+      "kind": "story",
+      "form": "chip",
+      "subject": "The Wildhammer are not Alliance",
+      "tag": "Aerie Peak",
+      "lines": [
+        "They are independent — friendly to adventurers who earn it, and members of nothing.",
+        "The tell is that they have their own reputation bar.",
+        "They only pledge to the Alliance in Cataclysm, after Magni is turned to diamond."
+      ],
+      "spoiler": false,
+      "t": 0.06,
+      "icon": "not-in-the-alliance"
+    },
+    {
+      "id": "one-pass-in",
+      "kind": "beware",
+      "form": "chip",
+      "subject": "One pass in",
+      "tag": "And it runs through a war",
+      "lines": [
+        "There is a single mountain pass into the Hinterlands, out of Hillsbrad near Durnholde. Everything else is a flight path.",
+        "Alliance players walking in have to cross the Tarren Mill and Southshore corridor first.",
+        "That is a large part of why the zone got skipped."
+      ],
+      "spoiler": false,
+      "t": 0.14,
+      "icon": "one-pass-in"
+    },
+    {
+      "id": "quel-danil",
+      "kind": "story",
+      "form": "chip",
+      "subject": "Quel'Danil Lodge",
+      "tag": "The high elves you are sent to kill",
+      "lines": [
+        "The Highvale elves keep the main high elf holding in all of Lordaeron here — diplomats, keeping records of births, deaths and seasons.",
+        "Their alliance with the Wildhammers is what makes them a target.",
+        "Horde players are sent to kill scholars and burn the archive."
+      ],
+      "spoiler": false,
+      "t": 0.24,
+      "icon": "quel-danil"
+    },
+    {
+      "id": "skulk-rock",
+      "kind": "look",
+      "form": "chip",
+      "subject": "Skulk Rock",
+      "tag": "A troll ruin full of oozes",
+      "lines": [
+        "Its cave grows Ghost Mushroom, one of very few places above ground where the stuff turns up.",
+        "Ghost Mushroom was the road to invisibility potions, and every warlock's epic mount ate two Elixirs of Shadow Power.",
+        "This cave had an economy."
+      ],
+      "spoiler": false,
+      "t": 0.34,
+      "icon": "skulk-rock"
+    },
+    {
+      "id": "agolwatha",
+      "kind": "look",
+      "form": "chip",
+      "subject": "Agol'watha",
+      "tag": "A temple turned into a nursery",
+      "lines": [
+        "It was a temple of the late Amani Empire. The Vilebranch took it and now use it to guard their spider eggs, with sludges through the rest.",
+        "The Eye of Shadra was kept in it.",
+        "This ruin and the spider altar across the zone are the same story."
+      ],
+      "spoiler": false,
+      "t": 0.42,
+      "icon": "agolwatha"
+    },
+    {
+      "id": "shadra",
+      "kind": "story",
+      "form": "grave",
+      "subject": "You can call a loa out of the ground",
+      "tag": "Shadra'Alor",
+      "lines": [
+        "At the altar, players summon Shadra — Venom Queen, Mistress of Spies — by speaking her true name, Elortha no Shadra.",
+        "Then they harvest her venom for Forsaken apothecaries.",
+        "This game let you summon a Wild God years before it used the word loa out loud."
+      ],
+      "spoiler": true,
+      "t": 0.52,
+      "icon": "shadra"
+    },
+    {
+      "id": "gammerita",
+      "kind": "look",
+      "form": "chip",
+      "subject": "Gammerita",
+      "tag": "In the water off the cliffs",
+      "lines": [
+        "A turtle four times the size of every other snapjaw on that coast, and blue where they are red.",
+        "Not a rare — she comes back in about two minutes.",
+        "She is very probably named after Gamera, and she stole an angler's best lure."
+      ],
+      "spoiler": false,
+      "t": 0.6,
+      "icon": "gammerita"
+    },
+    {
+      "id": "seradane",
+      "kind": "look",
+      "form": "chip",
+      "subject": "Seradane",
+      "tag": "One of four in the world",
+      "lines": [
+        "A circular gateway into the Emerald Dream under a great tree, ringed by green dragonspawn.",
+        "Ysondre, corrupted by the Nightmare, comes out of this exact portal.",
+        "Added in patch 1.8.0, and most people in this zone never walk up to it."
+      ],
+      "spoiler": false,
+      "t": 0.68,
+      "icon": "seradane"
+    },
+    {
+      "id": "plaguemist",
+      "kind": "look",
+      "form": "chip",
+      "subject": "Plaguemist Ravine",
+      "tag": "Northwest of the lodge",
+      "lines": [
+        "A ravine with no mobs and no NPCs in the entire subzone — the only genuinely empty named place here.",
+        "The name is new in-world: plagued mist bleeding down from the Caer Darrow side.",
+        "Against a zone that is otherwise pointedly green and healthy."
+      ],
+      "spoiler": false,
+      "t": 0.76,
+      "icon": "plaguemist"
+    },
+    {
+      "id": "second-city",
+      "kind": "story",
+      "form": "chip",
+      "subject": "Jintha'Alor",
+      "tag": "The second city of the forest trolls",
+      "lines": [
+        "Built by the Amani Empire and named for an ancient Amani leader. Only Zul'Aman is bigger.",
+        "You are standing in the runner-up capital of a dead empire.",
+        "It is built exactly like a dungeon — tiers, a boss at the summit, a captive to rescue — and the game never put a door on it."
+      ],
+      "spoiler": false,
+      "t": 0.84,
+      "icon": "second-city"
+    },
+    {
+      "id": "the-whole-hill-is-elite",
+      "kind": "beware",
+      "form": "chip",
+      "subject": "Elite from the base to the summit",
+      "tag": "All of it",
+      "lines": [
+        "In here you climb a spiral city where everything on it is elite, with no instance portal at the top.",
+        "It was only made non-elite in patch 2.3.0, two years after this.",
+        "Anyone remembering it as soloable is remembering a different game."
+      ],
+      "spoiler": false,
+      "t": 0.92,
+      "icon": "the-whole-hill-is-elite"
+    },
+    {
+      "id": "the-altar-of-zul",
+      "kind": "story",
+      "form": "grave",
+      "subject": "The Altar of Zul",
+      "tag": "It rings a gong in Tanaris",
+      "lines": [
+        "The altar crowning Jintha'Alor is where the Sacred Mallet becomes the Mallet of Zul'Farrak.",
+        "That mallet then summons Gahz'rilla, in a dungeon on the other continent.",
+        "The Hinterlands holds the key to a hydra in the desert."
+      ],
+      "spoiler": true,
+      "t": 1.0,
+      "icon": "the-altar-of-zul"
+    }
+  ]
+}

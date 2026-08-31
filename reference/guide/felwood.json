@@ -1,0 +1,213 @@
+{
+  "room": "felwood",
+  "sources": [
+    "https://warcraft.wiki.gg/wiki/Felwood",
+    "https://warcraft.wiki.gg/wiki/Jaedenar",
+    "https://warcraft.wiki.gg/wiki/Kroshius",
+    "https://warcraft.wiki.gg/wiki/Shatter_Scar_Vale",
+    "https://warcraft.wiki.gg/wiki/Timbermaw_Hold",
+    "https://warcraft.wiki.gg/wiki/Quest:Deadwood_Ritual_Totem",
+    "https://warcraft.wiki.gg/wiki/Felcloth",
+    "https://warcraft.wiki.gg/wiki/Whipper_Root_Tuber",
+    "https://warcraft.wiki.gg/wiki/Songflower_Serenade",
+    "https://warcraft.wiki.gg/wiki/Irontree_Woods",
+    "https://warcraft.wiki.gg/wiki/Ruins_of_Constellas",
+    "https://warcraft.wiki.gg/wiki/Emerald_Sanctuary"
+  ],
+  "roadEnds": ["The Emerald Sanctuary", "Timbermaw Hold"],
+  "seedWho": "Tari",
+  "cards": [
+    {
+      "id": "constellas",
+      "kind": "before",
+      "form": "title",
+      "subject": "Constellas",
+      "tag": "Before",
+      "lines": [
+        "A night elf settlement in the forest belt below Hyjal. What survives is broken architecture and a moonwell.",
+        "The moonwell is still there and still working. It is just full of fel now. Go and look into it — it is the clearest before and after in the zone."
+      ],
+      "spoiler": false
+    },
+    {
+      "id": "a-tactic",
+      "kind": "story",
+      "form": "chip",
+      "subject": "It was done before Hyjal, not after",
+      "tag": "Not fallout. Groundwork.",
+      "lines": [
+        "Archimonde ordered Felwood corrupted to weaken the night elf defences ahead of the assault on the mountain. Tichondrius carried it out with the Skull of Gul'dan.",
+        "The forest was killed as a tactic.",
+        "Illidan then took the Skull from him, and Malfurion banished him for it. Illidan's fall starts here."
+      ],
+      "spoiler": false,
+      "t": 0.06,
+      "icon": "a-tactic"
+    },
+    {
+      "id": "the-green",
+      "kind": "look",
+      "form": "chip",
+      "subject": "The colour of the air",
+      "tag": "You will know at the border",
+      "lines": [
+        "This is the zone people describe by its light — a sick olive haze sitting over everything that never lifts.",
+        "It is the only zone whose corruption is legible before you read a single quest.",
+        "You know the moment you cross out of Ashenvale."
+      ],
+      "spoiler": false,
+      "t": 0.16,
+      "icon": "the-green"
+    },
+    {
+      "id": "shatter-scar",
+      "kind": "beware",
+      "form": "chip",
+      "subject": "Shatter Scar Vale",
+      "tag": "The craters are impact sites",
+      "lines": [
+        "Infernals were dropped here during the Third War, and the holes they made are still smouldering.",
+        "The demons still walking around in them are elite in here.",
+        "They were only made non-elite years later. This is not a solo stroll."
+      ],
+      "spoiler": false,
+      "t": 0.26,
+      "icon": "shatter-scar"
+    },
+    {
+      "id": "kroshius",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "Kroshius",
+      "tag": "Herald of the Legion's Fall",
+      "lines": [
+        "He lies in the mountains above the vale, and he drops Kroshius' Infernal Core.",
+        "That core is the warlock quest item for learning to summon an Infernal.",
+        "Every warlock in this game with an Infernal came to Felwood for it."
+      ],
+      "spoiler": false,
+      "t": 0.34,
+      "icon": "kroshius"
+    },
+    {
+      "id": "jaedenar",
+      "kind": "story",
+      "form": "chip",
+      "subject": "Jaedenar",
+      "tag": "The name is a prayer",
+      "lines": [
+        "The Shadow Council named their town in worship of Kil'jaeden. Very few places in this world are named for a demon lord by the people living in them.",
+        "Shadow Hold is built into ancient night elf ruins and two druidic barrow dens.",
+        "The cult moved into a place where druids used to sleep."
+      ],
+      "spoiler": false,
+      "t": 0.44,
+      "icon": "jaedenar"
+    },
+    {
+      "id": "banehollow",
+      "kind": "story",
+      "form": "chip",
+      "subject": "A dreadlord lives at the bottom",
+      "tag": "Shadow Hold",
+      "lines": [
+        "Lord Banehollow commands Jaedenar from inside — one of very few nathrezim standing in the open world at all.",
+        "His warlocks are orcs and Forsaken, not demons, and their work is pushing the corruption east into Ashenvale.",
+        "Felwood is not finished. It is a front line still moving."
+      ],
+      "spoiler": false,
+      "t": 0.54,
+      "icon": "banehollow"
+    },
+    {
+      "id": "the-emerald-circle",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "It is not the Cenarion Circle",
+      "tag": "The Emerald Sanctuary",
+      "lines": [
+        "Everyone calls the southeastern camp the Cenarion camp. The druids holding it are the Emerald Circle — night elves, tauren and furbolg together.",
+        "Every one of them was deleted from the game in 4.0.3a.",
+        "They exist here and nowhere else."
+      ],
+      "spoiler": false,
+      "t": 0.62,
+      "icon": "the-emerald-circle"
+    },
+    {
+      "id": "cleansing",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "Every plant has two versions",
+      "tag": "Corrupt, and cleansed",
+      "lines": [
+        "Corrupt Whipper Root, Night Dragon's Breath and Songflower stand all over the zone, and a salve turns each into its clean twin.",
+        "A cleansed whipper root gives you tubers that heal for over a thousand and do not share the potion cooldown.",
+        "The whole zone is a slow healing-item farm disguised as an ecology."
+      ],
+      "spoiler": false,
+      "t": 0.7,
+      "icon": "cleansing"
+    },
+    {
+      "id": "songflower",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "One flower buffs everybody",
+      "tag": "Songflower Serenade",
+      "lines": [
+        "Fifteen to all attributes and five percent crit, for an hour.",
+        "More than one player can take it off the same flower.",
+        "A raid on its way to Blackwing Lair could stop in a poisoned forest and all pick up the same bloom."
+      ],
+      "spoiler": false,
+      "t": 0.78,
+      "icon": "songflower"
+    },
+    {
+      "id": "felcloth",
+      "kind": "look",
+      "form": "chip",
+      "subject": "Felcloth",
+      "tag": "The only cloth off demons",
+      "lines": [
+        "Every other cloth in the game comes off humanoids. This one comes off demons.",
+        "Tailors purify it into Mooncloth.",
+        "The corrupt thing gets carried out through the Timbermaw tunnel and made clean on the other side."
+      ],
+      "spoiler": false,
+      "t": 0.84,
+      "icon": "felcloth"
+    },
+    {
+      "id": "irontree",
+      "kind": "look",
+      "form": "chip",
+      "subject": "Three Ancients, petrified",
+      "tag": "Irontree Woods",
+      "lines": [
+        "Vartrus, Stoma and Hastat — great living trees of the night elves, standing in the north of the zone, turned to stone.",
+        "The rest of Irontree is crazed treants and corrupted elementals.",
+        "The three of them are the only things up there that were ever on your side."
+      ],
+      "spoiler": false,
+      "t": 0.9,
+      "icon": "irontree"
+    },
+    {
+      "id": "timbermaw",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "Timbermaw Hold",
+      "tag": "Seven hundred a totem",
+      "lines": [
+        "The tunnel is the only ground link between Felwood, Winterspring and Moonglade, and friendly standing buys you passage.",
+        "You start Hostile, and you have to reach Neutral before anyone will take a totem off you at all.",
+        "They attack strangers because they are afraid you are one of their corrupted brothers."
+      ],
+      "spoiler": false,
+      "t": 1.0,
+      "icon": "timbermaw"
+    }
+  ]
+}

@@ -1,0 +1,212 @@
+{
+  "room": "stranglethorn-vale",
+  "sources": [
+    "https://warcraft.wiki.gg/wiki/Stranglethorn_Vale",
+    "https://warcraft.wiki.gg/wiki/Booty_Bay",
+    "https://warcraft.wiki.gg/wiki/Bloodsail_Buccaneers",
+    "https://warcraft.wiki.gg/wiki/Gurubashi_Arena",
+    "https://warcraft.wiki.gg/wiki/Gurubashi_Catacombs",
+    "https://warcraft.wiki.gg/wiki/Janeiro%27s_Point",
+    "https://warcraft.wiki.gg/wiki/Colonel_Kurzen",
+    "https://warcraft.wiki.gg/wiki/The_Green_Hills_of_Stranglethorn",
+    "https://warcraft.wiki.gg/wiki/The_Green_Hills_of_Stranglethorn_(Classic)",
+    "https://warcraft.wiki.gg/wiki/Stranglethorn_Fishing_Extravaganza",
+    "https://warcraft.wiki.gg/wiki/Mosh%27Ogg_Ogre_Mound"
+  ],
+  "roadEnds": ["The Rebel Camp", "The Booty Bay pier"],
+  "seedWho": "Tari",
+  "cards": [
+    {
+      "id": "one-vale",
+      "kind": "before",
+      "form": "title",
+      "subject": "One vale",
+      "tag": "Before",
+      "lines": [
+        "This is one enormous zone running roughly thirty to forty-five, top to bottom, and it was one of the first places conceived for the game — the concept art the rest of the look was built from.",
+        "Cataclysm cuts it in half at a whirlpool. Northern Stranglethorn one side, the Cape the other."
+      ],
+      "spoiler": false
+    },
+    {
+      "id": "the-empire",
+      "kind": "story",
+      "form": "chip",
+      "subject": "An empire killed itself here",
+      "tag": "Fifteen hundred years ago",
+      "lines": [
+        "Gurubashi priests summoned Hakkar the Soulflayer and the empire tore itself apart in civil war. The Zandalari came and put him down.",
+        "The surviving Hakkari fled north and built the Temple of Atal'Hakkar in the Swamp of Sorrows.",
+        "Everything overgrown in this jungle is that empire's wreckage."
+      ],
+      "spoiler": false,
+      "t": 0.08,
+      "icon": "the-empire"
+    },
+    {
+      "id": "kurzen",
+      "kind": "story",
+      "form": "grave",
+      "subject": "Colonel Conrad Kurzen",
+      "tag": "Stormwind sent a good soldier in",
+      "lines": [
+        "He did not come back right. The ogre mage Mai'Zoth got into his head and turned the whole expedition into Mai'Zoth's army.",
+        "The Rebel Camp is his own men — the ones who refused.",
+        "He is Colonel Kurtz. The first name is Joseph Conrad. He is waiting at the bottom of the Stockpile."
+      ],
+      "spoiler": true,
+      "t": 0.18,
+      "icon": "kurzen"
+    },
+    {
+      "id": "nesingwary",
+      "kind": "story",
+      "form": "chip",
+      "subject": "Hemet Nesingwary",
+      "tag": "Read the name again",
+      "lines": [
+        "An anagram of Ernest Hemingway, and the whole camp is Green Hills of Africa: the great white hunter, the tally, the clients, the servant.",
+        "Ajeck Rouack, Sir S. J. Erlgadin, Barnil Stonepot.",
+        "In here the dwarf running it is Hemet Nesingwary Jr. His father's career had not been written yet."
+      ],
+      "spoiler": false,
+      "t": 0.28,
+      "icon": "nesingwary"
+    },
+    {
+      "id": "the-pages",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "The pages are his memoir",
+      "tag": "Four chapters",
+      "lines": [
+        "What you grind out of the jungle is Hemet's own hunting book, handed in to Barnil Stonepot in four chapters.",
+        "The reward is a pair of boots, three potions and two armour kits.",
+        "The book runs to thirty pages. You never find most of it."
+      ],
+      "spoiler": false,
+      "t": 0.36,
+      "icon": "the-pages"
+    },
+    {
+      "id": "bangalash",
+      "kind": "story",
+      "form": "grave",
+      "subject": "The white tiger",
+      "tag": "In the manuscript, and on the hill",
+      "lines": [
+        "In Hemet's book, a mysterious white tiger saves the expedition from certain death.",
+        "The trophy kill at the end of the tiger hunt is King Bangalash, a white tiger.",
+        "Nothing in the game ever says they are the same animal."
+      ],
+      "spoiler": true,
+      "t": 0.44,
+      "icon": "bangalash"
+    },
+    {
+      "id": "the-catacombs",
+      "kind": "story",
+      "form": "chip",
+      "subject": "The battleground under the arena",
+      "tag": "Cut in beta",
+      "lines": [
+        "Blizzard built a five-versus-five deathmatch map called the Gurubashi Catacombs down there — where the trolls kept the beasts.",
+        "It died: the map was too large to find anyone in, and casters died too fast to fix without rewriting classes.",
+        "They wrote down six lessons from it. Those lessons became the Arena system."
+      ],
+      "spoiler": false,
+      "t": 0.54,
+      "icon": "the-catacombs"
+    },
+    {
+      "id": "the-arena",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "The chest drops on a clock",
+      "tag": "Every three hours from server midnight",
+      "lines": [
+        "Inside the arena floor everyone is flagged — free for all, any faction, on any realm type, including the peaceful ones.",
+        "The Arena Master trinket is always in the chest.",
+        "Twelve of them handed to Short John Mithril buys the Arena Grand Master."
+      ],
+      "spoiler": false,
+      "t": 0.64,
+      "icon": "the-arena"
+    },
+    {
+      "id": "mosh-ogg",
+      "kind": "beware",
+      "form": "chip",
+      "subject": "The south still bites",
+      "tag": "Mosh'Ogg · the Vile Reef",
+      "lines": [
+        "Both were full of elite mobs at launch, and both had the tag stripped in patch 2.3.0, two years later.",
+        "In here they still have it.",
+        "Under the ogre mound there is a shrine. They are squatting in a temple."
+      ],
+      "spoiler": false,
+      "t": 0.72,
+      "icon": "mosh-ogg"
+    },
+    {
+      "id": "blackwater-cove",
+      "kind": "before",
+      "form": "chip",
+      "subject": "Blackwater Cove",
+      "tag": "Booty Bay's dead name",
+      "lines": [
+        "It was a small human port, and the jungle trolls overran it. The Steamwheedle goblins drove the trolls out and kept the harbour.",
+        "Baron Revilgaz's outfit is still called the Blackwater Raiders.",
+        "The new owners are wearing the old town's name."
+      ],
+      "spoiler": false,
+      "t": 0.8,
+      "icon": "blackwater-cove"
+    },
+    {
+      "id": "janeiros-point",
+      "kind": "look",
+      "form": "chip",
+      "subject": "Janeiro's Point",
+      "tag": "The islet outside the harbour",
+      "lines": [
+        "A giant goblin with its arms spread, welcoming ships in. Nobody knows which goblin.",
+        "It is Christ the Redeemer, and the name is Rio de Janeiro.",
+        "In the game's alpha the statue was a human. Somebody made it a goblin before launch."
+      ],
+      "spoiler": false,
+      "t": 0.86,
+      "icon": "janeiros-point"
+    },
+    {
+      "id": "the-bloodsail",
+      "kind": "beware",
+      "form": "chip",
+      "subject": "The choice you cannot unmake",
+      "tag": "Bloodsail Buccaneers",
+      "lines": [
+        "There is exactly one way to gain standing with the pirates: murder the citizens of Booty Bay.",
+        "Every kill costs full standing there and half as much in Ratchet, Gadgetzan and Everlook — all four goblin towns at once.",
+        "There is no practical way back. The prize is a hat."
+      ],
+      "spoiler": false,
+      "t": 0.92,
+      "icon": "the-bloodsail"
+    },
+    {
+      "id": "the-extravaganza",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "The Fishing Extravaganza",
+      "tag": "Sundays, two till four",
+      "lines": [
+        "Riggle Bassbait sets up on the Booty Bay docks. Forty Speckled Tastyfish, and the fish only exist during those two hours — you cannot bank them in advance.",
+        "In here exactly one angler wins: the first to hand in.",
+        "An Arcanite Fishing Pole, or the Hook of the Master Angler."
+      ],
+      "spoiler": false,
+      "t": 1.0,
+      "icon": "the-extravaganza"
+    }
+  ]
+}

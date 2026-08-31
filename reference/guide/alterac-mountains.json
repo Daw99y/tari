@@ -1,0 +1,211 @@
+{
+  "room": "alterac-mountains",
+  "sources": [
+    "https://warcraft.wiki.gg/wiki/Alterac_Mountains",
+    "https://warcraft.wiki.gg/wiki/Ruins_of_Alterac",
+    "https://warcraft.wiki.gg/wiki/Dalaran_Crater",
+    "https://warcraft.wiki.gg/wiki/Lordamere_Internment_Camp",
+    "https://warcraft.wiki.gg/wiki/Syndicate",
+    "https://warcraft.wiki.gg/wiki/Dandred%27s_Fold",
+    "https://warcraft.wiki.gg/wiki/Mug%27thol",
+    "https://warcraft.wiki.gg/wiki/Bro%27kin",
+    "https://warcraft.wiki.gg/wiki/Growless_Cave",
+    "https://warcraft.wiki.gg/wiki/Abominable_Greench",
+    "https://warcraft.wiki.gg/wiki/Ravenholdt_Manor",
+    "https://warcraft.wiki.gg/wiki/Alterac_Valley"
+  ],
+  "roadEnds": ["The Dalaran Crater", "The Ruins of Alterac"],
+  "seedWho": "Tari",
+  "cards": [
+    {
+      "id": "the-king-who-sold-the-pass",
+      "kind": "before",
+      "form": "title",
+      "subject": "Aiden Perenolde",
+      "tag": "Before",
+      "lines": [
+        "Alterac's king took Horde gold in the Second War and let the orcs through his mountains, and held a prison camp full of Dalaran citizens besides.",
+        "The other kingdoms sacked his capital for it and Terenas deposed him. Most of the population simply left. All of this is the aftermath of one bribe."
+      ],
+      "spoiler": false
+    },
+    {
+      "id": "the-empty-zone",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "Nothing is here",
+      "tag": "No town, no inn, no repair",
+      "lines": [
+        "Every quest that sends you to Alterac is handed out down in Hillsbrad, at Tarren Mill or Southshore. You walk in and you walk out.",
+        "The friendliest thing in the whole zone is a goblin standing on a wall.",
+        "It is the emptiest zone in the game and it is that way on purpose."
+      ],
+      "spoiler": false,
+      "t": 0.06,
+      "icon": "the-empty-zone"
+    },
+    {
+      "id": "the-dome",
+      "kind": "look",
+      "form": "chip",
+      "subject": "Inside the dome",
+      "tag": "Dalaran Crater",
+      "lines": [
+        "The purple barrier is sealed. You cannot walk through it and there is no city under it.",
+        "Hunters with Eagle Eye and shamans with Far Sight could see over the wall, and warlocks could wedge an Eye of Kilrogg in between a ruin and the dome.",
+        "What is in there is bare ground."
+      ],
+      "spoiler": false,
+      "t": 0.16,
+      "icon": "the-dome"
+    },
+    {
+      "id": "lordamere",
+      "kind": "story",
+      "form": "chip",
+      "subject": "Lordamere Internment Camp",
+      "tag": "On the hill above the crater",
+      "lines": [
+        "One of the Second War camps where the defeated orcs were penned — women and infants included.",
+        "It is still garrisoned by Dalaran, and the live business there is Horde agents hunting four Forsaken deserters hiding inside.",
+        "Two prisons on one hillside: one for a people, one for a city."
+      ],
+      "spoiler": false,
+      "t": 0.26,
+      "icon": "lordamere"
+    },
+    {
+      "id": "the-syndicate",
+      "kind": "story",
+      "form": "chip",
+      "subject": "The Syndicate",
+      "tag": "Nobles who became muggers",
+      "lines": [
+        "They are Alterac's surviving aristocracy. Turned away everywhere after the betrayal, they began stealing to stay alive and never stopped.",
+        "They still intend to take the kingdom back: \"We will do as we have always done: wait until a clear victor rises from the ashes and then strike.\""
+      ],
+      "spoiler": false,
+      "t": 0.36,
+      "icon": "the-syndicate"
+    },
+    {
+      "id": "brokin",
+      "kind": "look",
+      "form": "chip",
+      "subject": "Bro'kin",
+      "tag": "On the wall of the ruins",
+      "lines": [
+        "A goblin selling alchemy supplies from the top of the northern wall of a dead human city held by ogres.",
+        "Neutral to everyone, no guards, no explanation.",
+        "There is a ramp up the inside of the keep wall. You either kill the ogres or sneak past them to shop."
+      ],
+      "spoiler": false,
+      "t": 0.46,
+      "icon": "brokin"
+    },
+    {
+      "id": "mugthol",
+      "kind": "story",
+      "form": "grave",
+      "subject": "Mug'thol",
+      "tag": "The Crown of Will",
+      "lines": [
+        "Sylvanas's banshee possessed the ogre and sent him to fetch the crown out of Alterac.",
+        "He put it on instead, and it broke her hold on him.",
+        "He kept the crown, kept the ruins, and made himself a warlord in a human kingdom's throne room."
+      ],
+      "spoiler": true,
+      "t": 0.56,
+      "icon": "mugthol"
+    },
+    {
+      "id": "growless-cave",
+      "kind": "story",
+      "form": "chip",
+      "subject": "Growless Cave",
+      "tag": "Why the yeti have his things",
+      "lines": [
+        "Helcular was a mage part-way through turning himself into a lich when a Southshore lynch mob found his cave and killed him.",
+        "The yeti took what was left, which is why the rod for the Tarren Mill chain drops off them.",
+        "People report killing them in the hundreds for it."
+      ],
+      "spoiler": false,
+      "t": 0.66,
+      "icon": "growless-cave"
+    },
+    {
+      "id": "the-greench",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "The Abominable Greench",
+      "tag": "Once a year",
+      "lines": [
+        "He lives in Growless Cave, added in patch 1.2.0, and he steals the Smokywood Pastures shipments and stuffs them in his lair.",
+        "For two weeks each Winter Veil the emptiest zone in the game gets the only crowd it ever sees.",
+        "All of it queued outside one cave."
+      ],
+      "spoiler": false,
+      "t": 0.74,
+      "icon": "the-greench"
+    },
+    {
+      "id": "ravenholdt",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "Ravenholdt Manor",
+      "tag": "Nothing marks the way",
+      "lines": [
+        "The Assassin's League runs out of a house in the eastern mountains, reached by climbing a path off a plateau in Hillsbrad. Outsiders are told to leave.",
+        "You earn standing by taking emblems off Syndicate corpses.",
+        "Their view of the Syndicate: hacks — disorganized, unskilled, and lazy."
+      ],
+      "spoiler": false,
+      "t": 0.82,
+      "icon": "ravenholdt"
+    },
+    {
+      "id": "dandreds-fold",
+      "kind": "story",
+      "form": "grave",
+      "subject": "Dandred's Fold",
+      "tag": "Far northwest, on the lake",
+      "lines": [
+        "A small farm, and the last prince of Alterac is hiding in it — Aliden Perenolde, the traitor king's son, with his mistress and an orc warlock for a bodyguard.",
+        "The heir to a kingdom, in a borrowed barn.",
+        "Taretha Foxton's necklace is in there too."
+      ],
+      "spoiler": true,
+      "t": 0.9,
+      "icon": "dandreds-fold"
+    },
+    {
+      "id": "av-door",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "The battleground's door is not here",
+      "tag": "Alterac Valley",
+      "lines": [
+        "Both entrances are down in Hillsbrad Foothills — north of Southshore, northeast of Tarren Mill.",
+        "The zone the battleground is named after does not contain the way in."
+      ],
+      "spoiler": false,
+      "t": 0.95,
+      "icon": "av-door"
+    },
+    {
+      "id": "what-was-taken",
+      "kind": "before",
+      "form": "chip",
+      "subject": "What happens to this place",
+      "tag": "Later",
+      "lines": [
+        "In 4.0.3a nearly every quest here is deleted and Alterac stops being a zone at all — it gets absorbed into Hillsbrad.",
+        "The prince is removed and his farm left empty. The internment camp is demolished and a farm built over it.",
+        "Of Crushridge Hold: \"this area no longer serves any in-game purpose.\""
+      ],
+      "spoiler": false,
+      "t": 1.0,
+      "icon": "what-was-taken"
+    }
+  ]
+}

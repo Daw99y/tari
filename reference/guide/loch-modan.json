@@ -1,0 +1,197 @@
+{
+  "room": "loch-modan",
+  "sources": [
+    "https://warcraft.wiki.gg/wiki/Loch_Modan_(Classic)",
+    "https://warcraft.wiki.gg/wiki/Loch_Modan",
+    "https://warcraft.wiki.gg/wiki/The_Loch",
+    "https://warcraft.wiki.gg/wiki/Stonewrought_Dam",
+    "https://warcraft.wiki.gg/wiki/Franclorn_Forgewright",
+    "https://warcraft.wiki.gg/wiki/Ironband%27s_Excavation_Site",
+    "https://warcraft.wiki.gg/wiki/Mo%27grosh_Stronghold",
+    "https://warcraft.wiki.gg/wiki/Thelsamar",
+    "https://warcraft.wiki.gg/wiki/Mountaineer_Kadrell",
+    "https://warcraft.wiki.gg/wiki/Thelsamar_Blood_Sausages_(Classic)"
+  ],
+  "roadEnds": [
+    "North Gate Pass",
+    "Stonewrought Dam"
+  ],
+  "seedWho": "Tari",
+  "cards": [
+    {
+      "id": "the-smaller-loch",
+      "kind": "before",
+      "form": "title",
+      "subject": "A loch half this size",
+      "tag": "Before",
+      "lines": [
+        "The dwarves dammed it and more than doubled the water. Most of what you are looking at is younger than the dam.",
+        "The water that had nowhere else to go made the flooded plains of the Wetlands. The swamp next door is a dwarven side effect."
+      ],
+      "spoiler": false
+    },
+    {
+      "id": "the-mountaineers",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "Mountaineer Kadrell",
+      "tag": "Across the road from the Stoutlager",
+      "lines": [
+        "The Ironforge Mountaineers are a garrison, not scenery. The zone is settled, and it stays settled because they patrol it.",
+        "Most of the quests Kadrell gives were deleted from the game in patch 4.0.3a.",
+        "They only exist in here."
+      ],
+      "spoiler": false,
+      "t": 0.08,
+      "icon": "the-mountaineers"
+    },
+    {
+      "id": "blood-sausages",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "Thelsamar Blood Sausages",
+      "tag": "The town's actual export",
+      "lines": [
+        "The village has a named product and it is sausage.",
+        "It is also one of the better foods of the level range, which is not a coincidence.",
+        "A sausage town on a lake."
+      ],
+      "spoiler": false,
+      "t": 0.16,
+      "icon": "blood-sausages"
+    },
+    {
+      "id": "silver-stream-mine",
+      "kind": "look",
+      "form": "chip",
+      "subject": "Silver Stream Mine",
+      "tag": "West shore",
+      "lines": [
+        "A working dwarven mine, and the kobolds are already in it.",
+        "Small, dark, and one of the first places a new dwarf learns that a hole in the ground comes occupied."
+      ],
+      "spoiler": false,
+      "t": 0.26,
+      "icon": "silver-stream-mine"
+    },
+    {
+      "id": "dug-up",
+      "kind": "story",
+      "form": "chip",
+      "subject": "The troggs were dug up",
+      "tag": "Stonesplinter · Ironband's Excavation",
+      "lines": [
+        "They did not invade. They were unearthed from caves below ground by the dwarven digs.",
+        "Ironband's own site was overrun by troggs of a particularly large and volatile breed, and the miners were driven off their own hole.",
+        "Every trogg camp in these mountains is an excavation report going wrong."
+      ],
+      "spoiler": false,
+      "t": 0.36,
+      "icon": "dug-up"
+    },
+    {
+      "id": "ironband-and-uldaman",
+      "kind": "story",
+      "form": "chip",
+      "subject": "Prospector Ironband",
+      "tag": "He is not digging for ore",
+      "lines": [
+        "He recruits adventurers to go and look at the titan ruins at Uldaman.",
+        "A level fifteen zone, quietly pointing at a titan vault.",
+        "The hole in the southeast is the on-ramp."
+      ],
+      "spoiler": false,
+      "t": 0.46,
+      "icon": "ironband-and-uldaman"
+    },
+    {
+      "id": "third-biggest",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "The Loch",
+      "tag": "Third largest in the known world",
+      "lines": [
+        "The largest body of water on Khaz Modan, and behind only Lordamere and Darrowmere anywhere.",
+        "More than half of it is artificial."
+      ],
+      "spoiler": false,
+      "t": 0.56,
+      "icon": "third-biggest"
+    },
+    {
+      "id": "siege-engines",
+      "kind": "look",
+      "form": "chip",
+      "subject": "What is on the bottom",
+      "tag": "The Second War",
+      "lines": [
+        "Orcs overran Loch Modan and the dwarves took it back. Broken catapults and ballistae were left scattered on the islands and the lakebed.",
+        "In here the loch is full, so it is a dive rather than a walk.",
+        "Worth an afternoon to find out how much of it the client actually draws."
+      ],
+      "spoiler": false,
+      "t": 0.64,
+      "icon": "siege-engines"
+    },
+    {
+      "id": "farstrider-lodge",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "The Farstrider Lodge",
+      "tag": "A lodge with no gryphon",
+      "lines": [
+        "It sits handsome on the east shore and does nothing for you.",
+        "Its flight point was added in Cataclysm.",
+        "Thelsamar is your only wings in this zone."
+      ],
+      "spoiler": false,
+      "t": 0.72,
+      "icon": "farstrider-lodge"
+    },
+    {
+      "id": "mo-grosh",
+      "kind": "beware",
+      "form": "chip",
+      "subject": "Mo'grosh Stronghold",
+      "tag": "Northeast corner",
+      "lines": [
+        "The ogre caves are a micro-dungeon — a real interior with rooms, and no portal, no lockout, no group of five expected.",
+        "It is sitting in a zone built for levels ten to twenty.",
+        "Walk in with the party you have and find out."
+      ],
+      "spoiler": false,
+      "t": 0.8,
+      "icon": "mo-grosh"
+    },
+    {
+      "id": "dun-algaz",
+      "kind": "beware",
+      "form": "chip",
+      "subject": "Dun Algaz",
+      "tag": "The only road north",
+      "lines": [
+        "The tunnel is the sole land route out of Loch Modan into the Wetlands and on to Menethil Harbour.",
+        "Ogres hold it.",
+        "It is half the reason every dwarf remembers a corpse run through here."
+      ],
+      "spoiler": false,
+      "t": 0.9,
+      "icon": "dun-algaz"
+    },
+    {
+      "id": "franclorn",
+      "kind": "story",
+      "form": "chip",
+      "subject": "Stonewrought Dam",
+      "tag": "Designed by a Dark Iron",
+      "lines": [
+        "The Alliance's proudest engineering in Khaz Modan was drawn by Franclorn Forgewright, chief architect of the Dark Iron clan.",
+        "The same man built Blackrock Depths and Blackrock Spire.",
+        "You stand on his dam while Dark Iron saboteurs try to blow it up. Their own architect's work, and they are setting the charges."
+      ],
+      "spoiler": false,
+      "t": 1.0,
+      "icon": "franclorn"
+    }
+  ]
+}

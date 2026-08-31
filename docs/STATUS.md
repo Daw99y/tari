@@ -11,7 +11,125 @@ see them. Earlier references to `FOXTON.md` mean `docs/TARI.md`.
 
 ---
 
-## 0. Latest — two decks on one table, 2026-08-30
+## 0. Latest — waves 3 and 4 are told, 2026-08-31
+
+**Fifty-seven of seventy-nine rooms have a guide file.** Seven batches this
+run, forty-two rooms, all by `docs/TELLING.md`'s method: six research agents in
+one call, wiki-only (CC BY-SA), vanilla 1.12, high-confidence entries only.
+**Wave 3 and wave 4 are both closed, and wave 5 has started. Twenty-two rooms
+are left, all of them wave 5.**
+
+- **Wave 3 (17)** — darkshore, loch-modan, silverpine-forest, westfall,
+  the-barrens, ragefire-chasm, the-deadmines, redridge-mountains,
+  stonetalon-mountains, ashenvale, wailing-caverns, hillsbrad-foothills,
+  wetlands, blackfathom-deeps, razorfen-kraul, the-stockade, thousand-needles.
+- **Wave 4 (22)** — gnomeregan, alterac-mountains, arathi-highlands, desolace,
+  stranglethorn-vale, scarlet-monastery, badlands, dustwallow-marsh,
+  swamp-of-sorrows, razorfen-downs, uldaman, feralas, tanaris, the-hinterlands,
+  searing-gorge, zul-farrak, azshara, blasted-lands, maraudon, felwood,
+  un-goro-crater, the-temple-of-atal-hakkar.
+- **Wave 5, opened (3)** — blackrock-depths, burning-steppes, moonglade. The
+  twenty-two still to write are the Plaguelands, Dire Maul's three wings, the
+  Spires, Stratholme, Scholomance, the five raids, Silithus, Winterspring,
+  Deadwind Pass, Blackrock Mountain itself, and the four hubs.
+
+526 cards and 484 new icons under `public/story/`, `npx tsc --noEmit` clean.
+**Nothing is committed** — no git command was run over the bridge, per §7.
+
+**The method is now tooled.** `scripts/telling/` holds the wire, icon and
+validate helpers this run was built on, and `docs/TELLING.md` §8 documents them
+plus the four-batch plan for wave 5 and the traps specific to those rooms. A
+fresh session should read `docs/TELLING.md` and `docs/TARI.md` §6 and be able to
+carry on without asking anything.
+
+**What this pass learned, for whoever writes wave 5:**
+
+- **The measured ceiling is real and it is ~350 characters of `lines`.** No card
+  in the first fifteen rooms exceeds it. Ten cards had to be trimmed after
+  writing before they came in under. Write to three short lines and check the
+  total before wiring. `tari-tools.py`-style validation (card count, title card,
+  `t` ascending, icons exist, spoiler⇒grave, the char cap) catches all of it.
+- **Obey the agents' confidence flags.** Every one this run was right. Cut on
+  their advice: the Kodo Graveyard (Desolace, not the Barrens), the Lordamere
+  Internment Camp (Alterac, not Silverpine), the Doomsday Candle (warlock mount
+  chain, nothing to do with Neeru), Westfall Stew (surviving text is the
+  Cataclysm rewrite), Danath holding Stromgarde (he is lost in Outland),
+  gorillas in the Hinterlands (there are none), Malfurion visible in Moonglade
+  (no NPC model in 1.12), and Moonglade being a sanctuary (that flag is TBC).
+- **Several agents corrected the brief, not the other way round.** Maraudon is
+  patch 1.2.0, not 1.4; Dire Maul is 1.3.0, not 1.6; Twilight Lord Kelris is an
+  orc; Blackfathom has a seventh boss (Old Serra'kis); Keeshan *is* an NPC in
+  1.12. Write the brief with the traps you know and let them find the rest.
+- **`now` was used once**, correctly: Black Morass → Swamp of Sorrows. No other
+  room in these thirty-six had a real rename.
+- **Icons are wardrobe stand-ins throughout**, converted webp → png out of the
+  gitignored doll build. The pack still has no creature portraits, so Bazzalan
+  wears a monster head and Mankrik's wife wears a skull.
+  `public/story/README.md` is unchanged and still the record of what is a
+  compromise; it is worth a re-pull from the bigger pack before launch.
+- **No `at` and no `road` on any of the thirty-six.** Instances get neither by
+  rule; the zones carry `roadEnds` and `t` only, matching the fifteen already
+  written.
+
+---
+
+## 0.1 Earlier — wave 3 opens, 2026-08-30
+
+**Twenty-one of seventy-nine rooms are told.** Six more written this pass, the
+first batch of `docs/TELLING.md`'s wave 3 — the 10–30 band and the dungeon
+that hangs under Orgrimmar. Six research agents in parallel, wiki-only
+(CC BY-SA), vanilla 1.12, then the method's file shape unchanged.
+
+- **darkshore** (12) — the twin cities on the shore of the Well of Eternity;
+  Blackfathom Deeps sat in the Ruins of Mathystra until patch 0.12 and was
+  moved out, which is why the zone has no dungeon at all; the Twilight's
+  Hammer is already at the Master's Glaive in a level-20 quest deleted in
+  4.0.3a; Soggoth's skull and the sword nobody dares pull out.
+- **loch-modan** (12) — the loch is more than half artificial and the Wetlands
+  is its overflow; the troggs were dug up by the dwarves' own excavations;
+  the Farstrider Lodge has no flight master until Cataclysm; the Stonewrought
+  Dam was drawn by the Dark Iron clan's own chief architect.
+- **silverpine-forest** (12) — the worgen here are Arugal's, not Gilneas's,
+  and in 1.12 the Greymane Wall has nothing behind it; Sons of Arugal are
+  24–25 elites loose in a 10–20 zone; Deep Elem Mine is named after a Grateful
+  Dead song and led by its own former foreman.
+- **westfall** (12) — the fields were salted on purpose; Sentinel Hill is a
+  tower and Stoutmantle is a Captain of the People's Militia, both of which
+  later games overwrite; Old Blanchy is alive; the lighthouse keeper tells you
+  he is dead.
+- **the-barrens** (12) — one contiguous zone, split in two by 4.0.3a; Barrens
+  chat as documented rather than as remembered; the corpse on the ground reads
+  *Beaten Corpse* and not her name, which is the whole reason the question
+  entered general chat and never left.
+- **ragefire-chasm** (11) — the first dungeon in the game, under the auction
+  house, and the man who sends you in is Shadow Council and Thrall knows;
+  Taragaman is bait; the last boss is on a ledge most groups never look at;
+  Zelemar is patch 2.0.3 and is not here.
+
+**Method notes for the next batch:**
+
+- **Six cards had to be trimmed after writing.** The measured ceiling is real:
+  no card in the fifteen written rooms exceeds ~350 characters of `lines`, and
+  the slot in `story.module.css` is sized for nine rendered lines. Write to
+  three short lines and check the total before wiring.
+- **Every agent's low-confidence flags were correct to obey again.** Cut on
+  their advice: the Barrens Kodo Graveyard (it is in Desolace), the Lordamere
+  Internment Camp (Alterac), the Doomsday Candle (warlock mount chain, nothing
+  to do with Neeru), Westfall Stew (the surviving quest text is the Cataclysm
+  homeless-camp rewrite), Gold Coast Quarry and the Valley of Kings.
+- **Icons are wardrobe stand-ins as before** — 65 new PNGs under
+  `public/story/<room>/`, converted webp → png from the gitignored doll build.
+  The pack still has no creature portraits, so Bazzalan wears a monster head
+  and Mankrik's wife wears a skull. `public/story/README.md` is unchanged and
+  still the record of what is a compromise.
+- **No `at`, no `road` on any of the six.** Ragefire is an instance and gets
+  neither by rule; the five zones carry `roadEnds` and `t` only, matching the
+  fifteen already written.
+- `npx tsc --noEmit` clean. **Not committed** — Kacey commits.
+
+---
+
+## 0.2 Earlier — two decks on one table, 2026-08-30
 
 **The middle of every room is answered.** Two rooms out of seventy-nine have a
 guide file. The other seventy-seven drew a photograph, a name at the top and
@@ -148,6 +266,12 @@ merged fast-forward at 08:59. Untracked and deliberate: `Sound/`,
   "a few short lines" and were cut rather than designed around. The pin card in
   `left.module.css` got the same treatment, since its pager sits under it too.
 
+**`docs/TELLING.md` is the handoff.** The method for writing a room — the
+research brief that works, the file shape, the non-negotiable rules, the icon
+pipeline, the known vanilla traps, and all sixty-four remaining rooms grouped
+into three waves. A fresh session should read it and `docs/TARI.md` §6 and be
+able to carry on without asking anything.
+
 **Outstanding from this pass:**
 
 - **The Neon alter**, above. Nothing else in the schema moved.
@@ -167,7 +291,7 @@ merged fast-forward at 08:59. Untracked and deliberate: `Sound/`,
 
 ---
 
-## 0.1 Earlier — the dressing room, 2026-08-26 (late night)
+## 0.3 Earlier — the dressing room, 2026-08-26 (late night)
 
 **Gear can be put on by hand.** `docs/DRESSING.md` — the shape and the five
 rulings; press a slot on `/you` and a drawer opens beside it with everything
@@ -261,7 +385,7 @@ warrior at 19 then 20 watching dual wield open. **Uncommitted.**
 
 ---
 
-## 0.2 Earlier — pins, the atom, 2026-08-26 (night)
+## 0.4 Earlier — pins, the atom, 2026-08-26 (night)
 
 **The atom is built** (docs/PINS.md — the shape; docs/TARI.md §2.2 — the
 argument). A pin: one person, standing in one spot, saying one thing, and
@@ -303,7 +427,7 @@ required `roomId`. Still wants a second account to see
 
 ---
 
-## 0.3 Earlier that day — the live layer, 2026-08-26
+## 0.5 Earlier that day — the live layer, 2026-08-26
 
 **The room is live.** Ably, not Liveblocks: §8.1 of `docs/TARI.md` carries
 the price that decided it (Liveblocks caps a room at 10 simultaneous

@@ -1,0 +1,193 @@
+{
+  "room": "the-temple-of-atal-hakkar",
+  "sources": [
+    "https://warcraft.wiki.gg/wiki/Temple_of_Atal%27Hakkar",
+    "https://warcraft.wiki.gg/wiki/Temple_of_Atal%27Hakkar_(Classic)",
+    "https://warcraft.wiki.gg/wiki/Shade_of_Eranikus",
+    "https://warcraft.wiki.gg/wiki/Jammal%27an_the_Prophet",
+    "https://warcraft.wiki.gg/wiki/Atal%27alarion",
+    "https://warcraft.wiki.gg/wiki/Atal%27ai_tribe",
+    "https://warcraft.wiki.gg/wiki/Secret_of_the_Circle",
+    "https://warcraft.wiki.gg/wiki/The_God_Hakkar"
+  ],
+  "roadEnds": ["The upper pit", "The Shade"],
+  "seedWho": "Tari",
+  "cards": [
+    {
+      "id": "the-shape-it-was-built",
+      "kind": "before",
+      "form": "title",
+      "subject": "Every floor below the top one",
+      "tag": "Before",
+      "lines": [
+        "Patch 4.0.3a removed all of them, and every boss standing on them — Atal'alarion, the statue circle, the whole descent.",
+        "This is the only place the temple is still the shape it was built."
+      ],
+      "spoiler": false
+    },
+    {
+      "id": "the-hole",
+      "kind": "beware",
+      "form": "chip",
+      "subject": "The hole",
+      "tag": "In the middle of the upper pit",
+      "lines": [
+        "There is an open drop, and the fall kills anyone without slow fall or levitate.",
+        "It is not a shortcut.",
+        "It is the single most reliable way to lose a group member in this building."
+      ],
+      "spoiler": false,
+      "t": 0.06,
+      "icon": "the-hole"
+    },
+    {
+      "id": "six-and-six",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "Two circles, and they are not the same six",
+      "tag": "Statues, and Defenders",
+      "lines": [
+        "Six statues ring the Pit of Refuse in the basement, and they are a sequence lock.",
+        "Six Atal'ai Defenders stand on ledges over the Pit of Sacrifice, and killing all six drops Jammal'an's shield.",
+        "Two pits, two puzzles. Almost everybody remembers them as one."
+      ],
+      "spoiler": false,
+      "t": 0.16,
+      "icon": "six-and-six"
+    },
+    {
+      "id": "the-answer-is-in-a-desert",
+      "kind": "before",
+      "form": "chip",
+      "subject": "The order is kept in Tanaris",
+      "tag": "S, N, SW, SE, NW, NE",
+      "lines": [
+        "Nothing inside the temple tells you.",
+        "It comes from a dwarf archaeologist out in the sand who noticed the lights and sent somebody to try them.",
+        "Then you use the altar."
+      ],
+      "spoiler": false,
+      "t": 0.26,
+      "icon": "the-answer-is-in-a-desert"
+    },
+    {
+      "id": "atalalarion",
+      "kind": "look",
+      "form": "chip",
+      "subject": "Something was waiting down there",
+      "tag": "Get the statues right",
+      "lines": [
+        "Atal'alarion rises — a dire troll, sworn protector of the idol on the lowest level.",
+        "\"My banishment has ended, let the blood flow!\"",
+        "Banished. Somebody put him under there on purpose, and you have just let him out."
+      ],
+      "spoiler": false,
+      "t": 0.36,
+      "icon": "atalalarion"
+    },
+    {
+      "id": "the-drakes-are-ingredients",
+      "kind": "story",
+      "form": "chip",
+      "subject": "The dragons are the recipe",
+      "tag": "Dreamscythe · Weaver · Morphaz · Hazzas",
+      "lines": [
+        "Jammal'an's meditations told him to bring Hakkar back using the blood of green dragons.",
+        "Those four are Eranikus's own retinue, and the pit they live in is a larder.",
+        "The guards and the ritual component are the same animals."
+      ],
+      "spoiler": false,
+      "t": 0.46,
+      "icon": "the-drakes-are-ingredients"
+    },
+    {
+      "id": "the-guard-failed",
+      "kind": "story",
+      "form": "chip",
+      "subject": "Why there is a dungeon at all",
+      "tag": "The watch went mad",
+      "lines": [
+        "Ysera left green dragons over the sunken ruin. The Emerald Nightmare took them — Eranikus among the first dragons ever to fall to it.",
+        "Only once the watchmen were corrupted did the Atal'ai walk back into their own temple.",
+        "The failure of the guard is the reason there is anything in here."
+      ],
+      "spoiler": false,
+      "t": 0.56,
+      "icon": "the-guard-failed"
+    },
+    {
+      "id": "ogom",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "Ogom the Wretched",
+      "tag": "The prophet's bodyguard",
+      "lines": [
+        "Jammal'an does not stand alone in the pew room.",
+        "The high priest of a god of blood keeps a corpse to protect him."
+      ],
+      "spoiler": false,
+      "t": 0.64,
+      "icon": "ogom"
+    },
+    {
+      "id": "jammalan",
+      "kind": "story",
+      "form": "chip",
+      "subject": "He was half right",
+      "tag": "Jammal'an the Prophet",
+      "lines": [
+        "His prophecy was that summoning Hakkar would buy the tribe immortality. He was wrong about that.",
+        "He dies saying \"Ya not be gettin' me dat easy! Atal'ai gonna rise up...\"",
+        "The rising up did happen. Further south, and later."
+      ],
+      "spoiler": false,
+      "t": 0.72,
+      "icon": "jammalan"
+    },
+    {
+      "id": "you-summon-him",
+      "kind": "story",
+      "form": "grave",
+      "subject": "You are the one who summons Hakkar",
+      "tag": "And then you bottle him",
+      "lines": [
+        "The Avatar is not a boss the dungeon leads to. You carry an egg in from Tanaris, kill the bloodrinkers, use their blood to put out the eternal flames, and call him up yourself.",
+        "A thousand years of Atal'ai failed at this. You do it on a fetch quest.",
+        "Then you catch his essence in the same egg and hand it in."
+      ],
+      "spoiler": true,
+      "t": 0.84,
+      "icon": "you-summon-him"
+    },
+    {
+      "id": "the-shade",
+      "kind": "story",
+      "form": "grave",
+      "subject": "The Shade is not the dragon",
+      "tag": "Read the name",
+      "lines": [
+        "He is described as pulled between the Emerald Dream and the physical world. The real Eranikus is elsewhere, and unreachable, for all of this game.",
+        "You cannot kill him here.",
+        "You kill the part of him that leaked through."
+      ],
+      "spoiler": true,
+      "t": 0.94,
+      "icon": "the-shade"
+    },
+    {
+      "id": "still-on-duty",
+      "kind": "look",
+      "form": "grave",
+      "subject": "What he shouts at you",
+      "tag": "It is not a villain's line",
+      "lines": [
+        "\"This evil cannot be allowed to enter this world! Come my children!\"",
+        "Ysera posted him here to stop Hakkar.",
+        "Mad, corrupted, thousands of years in, he is still saying the words of the job — at the people who came to do it."
+      ],
+      "spoiler": true,
+      "t": 1.0,
+      "icon": "still-on-duty"
+    }
+  ]
+}

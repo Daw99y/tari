@@ -1,0 +1,206 @@
+{
+  "room": "stonetalon-mountains",
+  "sources": [
+    "https://warcraft.wiki.gg/wiki/Stonetalon_Mountains_(Classic)",
+    "https://warcraft.wiki.gg/wiki/Stonetalon_Peak_caverns",
+    "https://warcraft.wiki.gg/wiki/Charred_Vale",
+    "https://warcraft.wiki.gg/wiki/Reclaiming_the_Charred_Vale",
+    "https://warcraft.wiki.gg/wiki/Windshear_Crag",
+    "https://warcraft.wiki.gg/wiki/Super_Reaper_6000",
+    "https://warcraft.wiki.gg/wiki/Sishir_Canyon",
+    "https://warcraft.wiki.gg/wiki/Rynthariel_the_Keymaster",
+    "https://warcraft.wiki.gg/wiki/Sun_Rock_Retreat",
+    "https://warcraft.wiki.gg/wiki/West_of_Stonetalon_Mountains"
+  ],
+  "roadEnds": ["Talondeep Path", "The Charred Vale"],
+  "seedWho": "Tari",
+  "cards": [
+    {
+      "id": "the-oracles-caverns",
+      "kind": "before",
+      "form": "title",
+      "subject": "The Oracle's caverns",
+      "tag": "Before",
+      "lines": [
+        "Warcraft III put the hinge of the Third War under this peak: Thrall and Cairne climbing down through statues and traps, Jaina already waiting, and the Oracle turning out to be Medivh.",
+        "There is no trace of it in this game. No cave, no chamber, nothing."
+      ],
+      "spoiler": false
+    },
+    {
+      "id": "talondeep-path",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "Talondeep Path",
+      "tag": "A cave, not a road",
+      "lines": [
+        "The main northern connection to Ashenvale is a cave system.",
+        "You do not walk over this border. You go through the mountain and come out in a clear-cut."
+      ],
+      "spoiler": false,
+      "t": 0.06,
+      "icon": "talondeep-path"
+    },
+    {
+      "id": "the-stumps",
+      "kind": "look",
+      "form": "chip",
+      "subject": "Windshear Crag",
+      "tag": "Count the stumps",
+      "lines": [
+        "This valley was old-growth forest at the scale of the trees still standing in Ashenvale next door.",
+        "Vanilla shows you the aftermath instead of telling you about it: stumps, oily water, gyrocopter pads, machinery running with nobody attending it.",
+        "Kobolds mine underneath while the goblins strip the top."
+      ],
+      "spoiler": false,
+      "t": 0.14,
+      "icon": "the-stumps"
+    },
+    {
+      "id": "gerenzo",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "Gerenzo Wrenchwhistle",
+      "tag": "The Venture Co. boss here",
+      "lines": [
+        "He is a leper gnome — one of the Gnomeregan irradiated.",
+        "A gnome giving orders to goblins, in a zone about industry eating a forest."
+      ],
+      "spoiler": false,
+      "t": 0.22,
+      "icon": "gerenzo"
+    },
+    {
+      "id": "the-shredder-plans",
+      "kind": "story",
+      "form": "chip",
+      "subject": "The Super Reaper 6000",
+      "tag": "Stolen out of this valley",
+      "lines": [
+        "Gerenzo designed it here for the Venture Company. Sputtervalve, pushed out of the operation, hired Ziz Fizziks to steal the plans.",
+        "Then he started building them for the Horde.",
+        "Every shredder anywhere in the world traces back to a theft in this crag."
+      ],
+      "spoiler": false,
+      "t": 0.3,
+      "icon": "the-shredder-plans"
+    },
+    {
+      "id": "sishir-canyon",
+      "kind": "before",
+      "form": "chip",
+      "subject": "Sishir Canyon",
+      "tag": "The name moved",
+      "lines": [
+        "Wall to wall Deepmoss spiders, their eggs and their webbing, with Besseleth the largest of them.",
+        "Cataclysm opened the canyon out and put the name Sishir on a different, newer canyon further west.",
+        "The Sishir on this map and the Sishir on a modern one are not the same place."
+      ],
+      "spoiler": false,
+      "t": 0.4,
+      "icon": "sishir-canyon"
+    },
+    {
+      "id": "the-floating-tree",
+      "kind": "story",
+      "form": "chip",
+      "subject": "The floating tree",
+      "tag": "Patch 1.4.0, March 2005",
+      "lines": [
+        "The bug fix reads, verbatim: \"No longer a tree floating off the ground in the Sishir Canyon area.\"",
+        "For the game's first four months there was a tree hanging in mid-air down there."
+      ],
+      "spoiler": false,
+      "t": 0.48,
+      "icon": "the-floating-tree"
+    },
+    {
+      "id": "rynthariel",
+      "kind": "look",
+      "form": "chip",
+      "subject": "Rynthariel the Keymaster",
+      "tag": "The Talon Den",
+      "lines": [
+        "She is a dryad, not a night elf, and her job is keeping the Den's magical caches shut.",
+        "She is said to have hidden her key in a small lantern at the entrance."
+      ],
+      "spoiler": false,
+      "t": 0.56,
+      "icon": "rynthariel"
+    },
+    {
+      "id": "the-west-coast",
+      "kind": "look",
+      "form": "chip",
+      "subject": "The coast you cannot walk to",
+      "tag": "Watch left on the flight path",
+      "lines": [
+        "West of the zone is a strip that is on the map and unreachable on foot: an abandoned Venture Co. camp with cranes and a shredder on a walkway, night elf ruins, a troll hut.",
+        "And a crashed airplane on a clifftop, with helipads and parked aircraft beside it.",
+        "Built purely as scenery for the gryphons passing over."
+      ],
+      "spoiler": false,
+      "t": 0.64,
+      "icon": "the-west-coast"
+    },
+    {
+      "id": "sun-rock",
+      "kind": "story",
+      "form": "chip",
+      "subject": "Sun Rock Retreat",
+      "tag": "An'she kissed this mountain",
+      "lines": [
+        "It is not just an outpost. Tauren made pilgrimages here to cross into the spirit world.",
+        "The story is that the sun himself kissed the rock the retreat stands on, and the early settlers carried flaming totems to the highest peaks to honour him.",
+        "The Charred Vale is the joke this zone plays on that."
+      ],
+      "spoiler": false,
+      "t": 0.74,
+      "icon": "sun-rock"
+    },
+    {
+      "id": "who-burned-it",
+      "kind": "story",
+      "form": "chip",
+      "subject": "Who burned the Charred Vale",
+      "tag": "The game answers this directly",
+      "lines": [
+        "Keeper Albagorm at Stonetalon Peak: \"The Charred Vale to the south was set afire by the greedy mechanized army of industrialists.\"",
+        "Not dragons. Not a volcano. Goblins with machines.",
+        "It is the same crime as the stumps at Windshear — one zone, two halves."
+      ],
+      "spoiler": false,
+      "t": 0.86,
+      "icon": "who-burned-it"
+    },
+    {
+      "id": "the-vale-now",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "No dragons, no lava",
+      "tag": "What is actually in the vale",
+      "lines": [
+        "Bloodfury harpies, blackened ancients, chimaera matriarchs, scorched basilisks.",
+        "The black dragons and the erupting volcano all arrive with Cataclysm.",
+        "The vale you are standing in is burnt, not burning — a dead grey forest."
+      ],
+      "spoiler": false,
+      "t": 0.94,
+      "icon": "the-vale-now"
+    },
+    {
+      "id": "they-deleted-it",
+      "kind": "story",
+      "form": "grave",
+      "subject": "Why it was buried",
+      "tag": "The vale, later",
+      "lines": [
+        "The wiki's own note on why Cataclysm poured lava over it: the vale was hated in vanilla for low drop rates in a very mob-dense area, so the developers destroyed it.",
+        "You are standing in a place that was erased because people complained about it."
+      ],
+      "spoiler": false,
+      "t": 1.0,
+      "icon": "they-deleted-it"
+    }
+  ]
+}

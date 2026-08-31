@@ -13,20 +13,62 @@
  * The spoiler shield (§6.1) is a grave: a spoiler encounter is a tombstone
  * on the road, and the reader digs it up by hand. */
 
+import alteracMountains from "../reference/guide/alterac-mountains.json";
+import arathiHighlands from "../reference/guide/arathi-highlands.json";
+import ashenvale from "../reference/guide/ashenvale.json";
+import azshara from "../reference/guide/azshara.json";
+import badlands from "../reference/guide/badlands.json";
+import blackfathomDeeps from "../reference/guide/blackfathom-deeps.json";
+import blackrockDepths from "../reference/guide/blackrock-depths.json";
+import blastedLands from "../reference/guide/blasted-lands.json";
+import burningSteppes from "../reference/guide/burning-steppes.json";
+import darkshore from "../reference/guide/darkshore.json";
 import darnassus from "../reference/guide/darnassus.json";
+import desolace from "../reference/guide/desolace.json";
 import dunMorogh from "../reference/guide/dun-morogh.json";
 import durotar from "../reference/guide/durotar.json";
 import duskwood from "../reference/guide/duskwood.json";
+import dustwallowMarsh from "../reference/guide/dustwallow-marsh.json";
 import elwynnForest from "../reference/guide/elwynn-forest.json";
+import felwood from "../reference/guide/felwood.json";
+import feralas from "../reference/guide/feralas.json";
+import gnomeregan from "../reference/guide/gnomeregan.json";
+import hillsbradFoothills from "../reference/guide/hillsbrad-foothills.json";
 import ironforge from "../reference/guide/ironforge.json";
+import lochModan from "../reference/guide/loch-modan.json";
+import maraudon from "../reference/guide/maraudon.json";
+import moonglade from "../reference/guide/moonglade.json";
 import mulgore from "../reference/guide/mulgore.json";
 import orgrimmar from "../reference/guide/orgrimmar.json";
+import ragefireChasm from "../reference/guide/ragefire-chasm.json";
+import razorfenDowns from "../reference/guide/razorfen-downs.json";
+import razorfenKraul from "../reference/guide/razorfen-kraul.json";
+import redridgeMountains from "../reference/guide/redridge-mountains.json";
+import scarletMonastery from "../reference/guide/scarlet-monastery.json";
+import searingGorge from "../reference/guide/searing-gorge.json";
 import shadowfangKeep from "../reference/guide/shadowfang-keep.json";
+import silverpineForest from "../reference/guide/silverpine-forest.json";
+import stonetalonMountains from "../reference/guide/stonetalon-mountains.json";
 import stormwindCity from "../reference/guide/stormwind-city.json";
+import stranglethornVale from "../reference/guide/stranglethorn-vale.json";
+import swampOfSorrows from "../reference/guide/swamp-of-sorrows.json";
+import tanaris from "../reference/guide/tanaris.json";
 import teldrassil from "../reference/guide/teldrassil.json";
+import theBarrens from "../reference/guide/the-barrens.json";
+import theDeadmines from "../reference/guide/the-deadmines.json";
+import theHinterlands from "../reference/guide/the-hinterlands.json";
+import theStockade from "../reference/guide/the-stockade.json";
+import theTempleOfAtalHakkar from "../reference/guide/the-temple-of-atal-hakkar.json";
+import thousandNeedles from "../reference/guide/thousand-needles.json";
 import thunderBluff from "../reference/guide/thunder-bluff.json";
 import tirisfalGlades from "../reference/guide/tirisfal-glades.json";
+import uldaman from "../reference/guide/uldaman.json";
+import unGoroCrater from "../reference/guide/un-goro-crater.json";
 import undercity from "../reference/guide/undercity.json";
+import wailingCaverns from "../reference/guide/wailing-caverns.json";
+import westfall from "../reference/guide/westfall.json";
+import wetlands from "../reference/guide/wetlands.json";
+import zulFarrak from "../reference/guide/zul-farrak.json";
 import zulGurub from "../reference/guide/zul-gurub.json";
 
 export type CardKind = "notice" | "look" | "story" | "before" | "beware";
@@ -130,6 +172,48 @@ const GUIDES: Record<string, GuideFile> = {
   durotar: durotar as GuideFile,
   mulgore: mulgore as GuideFile,
   "tirisfal-glades": tirisfalGlades as GuideFile,
+  darkshore: darkshore as GuideFile,
+  "loch-modan": lochModan as GuideFile,
+  "silverpine-forest": silverpineForest as GuideFile,
+  westfall: westfall as GuideFile,
+  "the-barrens": theBarrens as GuideFile,
+  "ragefire-chasm": ragefireChasm as GuideFile,
+  "the-deadmines": theDeadmines as GuideFile,
+  "redridge-mountains": redridgeMountains as GuideFile,
+  "stonetalon-mountains": stonetalonMountains as GuideFile,
+  ashenvale: ashenvale as GuideFile,
+  "wailing-caverns": wailingCaverns as GuideFile,
+  "hillsbrad-foothills": hillsbradFoothills as GuideFile,
+  wetlands: wetlands as GuideFile,
+  "blackfathom-deeps": blackfathomDeeps as GuideFile,
+  "razorfen-kraul": razorfenKraul as GuideFile,
+  "the-stockade": theStockade as GuideFile,
+  "thousand-needles": thousandNeedles as GuideFile,
+  gnomeregan: gnomeregan as GuideFile,
+  "alterac-mountains": alteracMountains as GuideFile,
+  "arathi-highlands": arathiHighlands as GuideFile,
+  desolace: desolace as GuideFile,
+  "stranglethorn-vale": stranglethornVale as GuideFile,
+  "scarlet-monastery": scarletMonastery as GuideFile,
+  badlands: badlands as GuideFile,
+  "dustwallow-marsh": dustwallowMarsh as GuideFile,
+  "swamp-of-sorrows": swampOfSorrows as GuideFile,
+  "razorfen-downs": razorfenDowns as GuideFile,
+  uldaman: uldaman as GuideFile,
+  feralas: feralas as GuideFile,
+  tanaris: tanaris as GuideFile,
+  "the-hinterlands": theHinterlands as GuideFile,
+  "searing-gorge": searingGorge as GuideFile,
+  "zul-farrak": zulFarrak as GuideFile,
+  azshara: azshara as GuideFile,
+  "blasted-lands": blastedLands as GuideFile,
+  maraudon: maraudon as GuideFile,
+  felwood: felwood as GuideFile,
+  "un-goro-crater": unGoroCrater as GuideFile,
+  "the-temple-of-atal-hakkar": theTempleOfAtalHakkar as GuideFile,
+  "blackrock-depths": blackrockDepths as GuideFile,
+  "burning-steppes": burningSteppes as GuideFile,
+  moonglade: moonglade as GuideFile,
 };
 
 export function guideFor(roomId: string): GuideFile | undefined {

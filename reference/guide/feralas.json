@@ -1,0 +1,209 @@
+{
+  "room": "feralas",
+  "sources": [
+    "https://warcraft.wiki.gg/wiki/Feralas",
+    "https://warcraft.wiki.gg/wiki/Dire_Maul",
+    "https://warcraft.wiki.gg/wiki/Feathermoon_Stronghold",
+    "https://warcraft.wiki.gg/wiki/Ruins_of_Ravenwind",
+    "https://warcraft.wiki.gg/wiki/Ruins_of_Isildien",
+    "https://warcraft.wiki.gg/wiki/Sprite_Darter_Egg",
+    "https://warcraft.wiki.gg/wiki/Feral_Scar_Vale",
+    "https://warcraft.wiki.gg/wiki/Dream_Bough",
+    "https://warcraft.wiki.gg/wiki/The_Writhing_Deep",
+    "https://warcraft.wiki.gg/wiki/Dirge%27s_Kickin%27_Chimaerok_Chops",
+    "https://warcraft.wiki.gg/wiki/Twin_Colossals",
+    "https://warcraft.wiki.gg/wiki/Frayfeather_Highlands"
+  ],
+  "roadEnds": ["Feathermoon Stronghold", "Camp Mojache"],
+  "seedWho": "Tari",
+  "cards": [
+    {
+      "id": "a-zone-with-no-dungeon",
+      "kind": "before",
+      "form": "title",
+      "subject": "A zone with no dungeon",
+      "tag": "Before",
+      "lines": [
+        "Feralas opened in patch 0.7, nine months before Dire Maul existed. For all that time the ruins were scenery you rode past.",
+        "Patch 1.3.0 was titled \"Ruins of the Dire Maul\", and turned a levelling zone into an endgame destination overnight."
+      ],
+      "spoiler": false
+    },
+    {
+      "id": "eldre-thalas",
+      "kind": "story",
+      "form": "chip",
+      "subject": "Eldre'Thalas",
+      "tag": "The city under the ruin",
+      "lines": [
+        "A Highborne city twelve thousand years old. Prince Tortheldrin's followers conjured a spell that shielded it from the Sundering, so it survived — intact, and cut off.",
+        "Its arcanists imprisoned the demon Immol'thar behind five pylons and drank his energy for ten thousand years to live without the Well of Eternity."
+      ],
+      "spoiler": false,
+      "t": 0.08,
+      "icon": "eldre-thalas"
+    },
+    {
+      "id": "tortheldrin",
+      "kind": "story",
+      "form": "chip",
+      "subject": "The prince did the arithmetic",
+      "tag": "Tortheldrin",
+      "lines": [
+        "When the demon's power started to thin, he did not ration it.",
+        "He murdered most of his own people so that the survivors — and he — would each get a larger share.",
+        "\"The once beautiful city became an ogre-infested ruin.\""
+      ],
+      "spoiler": false,
+      "t": 0.18,
+      "icon": "tortheldrin"
+    },
+    {
+      "id": "feathermoon-is-an-island",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "Feathermoon Stronghold",
+      "tag": "It is not on the mainland",
+      "lines": [
+        "The night elf capital of Feralas is out on Sardor Isle, off the western coast, over the water.",
+        "The Cataclysm drowns it and it becomes the Ruins of Feathermoon, held by naga.",
+        "The Feathermoon on a modern map is a different town in a different place."
+      ],
+      "spoiler": false,
+      "t": 0.28,
+      "icon": "feathermoon-is-an-island"
+    },
+    {
+      "id": "ravenwind",
+      "kind": "look",
+      "form": "chip",
+      "subject": "Ruins of Ravenwind",
+      "tag": "The other one",
+      "lines": [
+        "Everyone remembers Dire Maul. Ravenwind in the north is the zone's other Highborne settlement — same people, same age, no dungeon attached.",
+        "Northspring harpies have it now."
+      ],
+      "spoiler": false,
+      "t": 0.38,
+      "icon": "ravenwind"
+    },
+    {
+      "id": "shay",
+      "kind": "story",
+      "form": "chip",
+      "subject": "Shay Leafrunner",
+      "tag": "Near Ravenwind",
+      "lines": [
+        "An absent-minded night elf girl to escort back to the mountain giant who looks after her.",
+        "She wanders off.",
+        "That is the quest, and it is the only thing anyone remembers about it."
+      ],
+      "spoiler": false,
+      "t": 0.44,
+      "icon": "shay"
+    },
+    {
+      "id": "isildien",
+      "kind": "look",
+      "form": "chip",
+      "subject": "Ruins of Isildien",
+      "tag": "Go up the stairs at the end",
+      "lines": [
+        "A night elf city destroyed ten thousand years ago, held by Gordunni ogres now.",
+        "The large round building at the back is shaped like Darnassus's Temple of the Moon.",
+        "It was probably a temple of Elune, and nothing there says so."
+      ],
+      "spoiler": false,
+      "t": 0.52,
+      "icon": "isildien"
+    },
+    {
+      "id": "sprite-darters",
+      "kind": "story",
+      "form": "chip",
+      "subject": "The Sprite Darters",
+      "tag": "Alliance only, for six years",
+      "lines": [
+        "The Grimtotem captured a lot of these rare faerie dragons, and a night elf sends you to free them.",
+        "The chain ends with an egg, and the pet was Alliance-exclusive until long after this.",
+        "Deleted from the game entirely in 4.0.3a."
+      ],
+      "spoiler": false,
+      "t": 0.6,
+      "icon": "sprite-darters"
+    },
+    {
+      "id": "oox-22",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "There is a chicken in the tunnel",
+      "tag": "Feral Scar Vale",
+      "lines": [
+        "At the back of the first tunnel there is a trapped mechanical chicken. Find its distress beacon and it wakes up and asks to be walked home.",
+        "One of three of them scattered across the world."
+      ],
+      "spoiler": false,
+      "t": 0.68,
+      "icon": "oox-22"
+    },
+    {
+      "id": "dream-bough",
+      "kind": "look",
+      "form": "chip",
+      "subject": "Dream Bough",
+      "tag": "The island in Jademir Lake",
+      "lines": [
+        "A Great Tree holding one of the portals into the Emerald Dream, guarded by green dragonspawn.",
+        "Patch 1.8.0 put a Dragon of Nightmare on it.",
+        "For the rest of this game's life a forty-man raid boss can be standing on a lake island in a levelling zone."
+      ],
+      "spoiler": false,
+      "t": 0.76,
+      "icon": "dream-bough"
+    },
+    {
+      "id": "the-writhing-deep",
+      "kind": "beware",
+      "form": "chip",
+      "subject": "The Writhing Deep",
+      "tag": "Southeast",
+      "lines": [
+        "A silithid hive whose Zukk'ash are driving the nearby gnolls into a frenzy.",
+        "Camp Mojache cleared the surface.",
+        "The eggs are still down in the hive."
+      ],
+      "spoiler": false,
+      "t": 0.84,
+      "icon": "the-writhing-deep"
+    },
+    {
+      "id": "isle-of-dread",
+      "kind": "story",
+      "form": "chip",
+      "subject": "The Isle of Dread",
+      "tag": "The best food in the game",
+      "lines": [
+        "The chimaeroks on this island are the only source of Chimaerok Tenderloin, and so the only source of Dirge's Kickin' Chimaerok Chops.",
+        "Twenty-five stamina, added for Ahn'Qiraj, and once the most powerful consumable there was.",
+        "Every serious raider's food came off one island in Feralas."
+      ],
+      "spoiler": false,
+      "t": 0.92,
+      "icon": "isle-of-dread"
+    },
+    {
+      "id": "twin-colossals",
+      "kind": "look",
+      "form": "chip",
+      "subject": "The Twin Colossals",
+      "tag": "The highest ground here",
+      "lines": [
+        "Two vertical mountains on the west side, with the road to Desolace running between them.",
+        "There is a small lake at the top of the eastern one, and you can fish in it."
+      ],
+      "spoiler": false,
+      "t": 1.0,
+      "icon": "twin-colossals"
+    }
+  ]
+}

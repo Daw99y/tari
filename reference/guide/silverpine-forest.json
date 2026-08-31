@@ -1,0 +1,202 @@
+{
+  "room": "silverpine-forest",
+  "sources": [
+    "https://warcraft.wiki.gg/wiki/Silverpine_Forest_(Classic)",
+    "https://warcraft.wiki.gg/wiki/Silverpine_Forest",
+    "https://warcraft.wiki.gg/wiki/Archmage_Arugal",
+    "https://warcraft.wiki.gg/wiki/Son_of_Arugal",
+    "https://warcraft.wiki.gg/wiki/Pyrewood_Village",
+    "https://warcraft.wiki.gg/wiki/The_Sepulcher",
+    "https://warcraft.wiki.gg/wiki/Ambermill",
+    "https://warcraft.wiki.gg/wiki/Fenris_Isle",
+    "https://warcraft.wiki.gg/wiki/Deep_Elem_Mine",
+    "https://warcraft.wiki.gg/wiki/Greymane_Wall"
+  ],
+  "roadEnds": [
+    "The Sepulcher",
+    "The Greymane Wall"
+  ],
+  "seedWho": "Tari",
+  "cards": [
+    {
+      "id": "lordaerons-west",
+      "kind": "before",
+      "form": "title",
+      "subject": "Lordaeron's western woodland",
+      "tag": "Before",
+      "lines": [
+        "Orchards, farmsteads, a producing mine, a garrison on the lake island, and a graveyard beside the road.",
+        "Everything you interact with here is the ruin of something that had a job."
+      ],
+      "spoiler": false
+    },
+    {
+      "id": "the-sepulcher",
+      "kind": "look",
+      "form": "chip",
+      "subject": "The Sepulcher",
+      "tag": "The Horde's only town here",
+      "lines": [
+        "It is not a town. It is a graveyard on the road that the Forsaken parked their caravans in and never left.",
+        "The trainers, the vendors and the flight master are all standing in a cemetery, using a crypt as a building.",
+        "Two flight paths, to Undercity and Tarren Mill. That is the network."
+      ],
+      "spoiler": false,
+      "t": 0.06,
+      "icon": "the-sepulcher"
+    },
+    {
+      "id": "the-names",
+      "kind": "look",
+      "form": "chip",
+      "subject": "Read the map",
+      "tag": "Malden · Olsen · Valgan · Ivar",
+      "lines": [
+        "Malden's Orchard. Olsen's Farthing. Valgan's Field. The Ivar Patch. The Dead Field.",
+        "Every one of them is somebody's land, and not one of them has a somebody left in it.",
+        "Nothing in the zone ever explains who they were. The names are the only record."
+      ],
+      "spoiler": false,
+      "t": 0.14,
+      "icon": "the-names"
+    },
+    {
+      "id": "not-gilneas",
+      "kind": "story",
+      "form": "chip",
+      "subject": "The worgen here are not Gilneas's",
+      "tag": "In 1.12 there is no Gilneas story",
+      "lines": [
+        "Arugal was an archmage of Dalaran. He summoned them out of Ur's research to fight the Scourge on the Kirin Tor's behalf, and they turned on everyone.",
+        "Genn Greymane asking him for help at the Wall is a 2010 comic and Cataclysm. Standing here, that story does not exist.",
+        "Every worgen in this forest is one mage's mistake, still walking around."
+      ],
+      "spoiler": false,
+      "t": 0.24,
+      "icon": "not-gilneas"
+    },
+    {
+      "id": "sons-in-the-open",
+      "kind": "beware",
+      "form": "chip",
+      "subject": "Son of Arugal",
+      "tag": "On the roads, not in the keep",
+      "lines": [
+        "Silverpine is a ten to twenty zone. These are level 24 to 25 elites, and they wander it.",
+        "They were only lowered to level 20 in patch 2.3, and deleted from the game entirely in 4.0.3a.",
+        "Arugal's Gift is a five minute shadow curse. It is still ticking long after you stopped running."
+      ],
+      "spoiler": false,
+      "t": 0.32,
+      "icon": "sons-in-the-open"
+    },
+    {
+      "id": "fenris-keep",
+      "kind": "story",
+      "form": "chip",
+      "subject": "Fenris Keep",
+      "tag": "The island in Lordamere Lake",
+      "lines": [
+        "Before the Third War it was a thriving military outpost of the kingdom of Lordaeron.",
+        "Thule Ravenclaw took the island and the ferry landing with it, and put his Rot Hide gnolls in the fortress.",
+        "A royal garrison, a plagued gnoll pack and a living human necromancer — three owners deep on one small island."
+      ],
+      "spoiler": false,
+      "t": 0.42,
+      "icon": "fenris-keep"
+    },
+    {
+      "id": "deep-elem",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "Deep Elem Mine",
+      "tag": "Named after a blues song",
+      "lines": [
+        "The name comes from \"Deep Elem Blues\", which is itself about Deep Ellum, a neighbourhood in Dallas.",
+        "Inside, the worgen pack is led by Grimson the Pale.",
+        "He was the mine's foreman. The man who ran the place is still in it, on all fours."
+      ],
+      "spoiler": false,
+      "t": 0.52,
+      "icon": "deep-elem"
+    },
+    {
+      "id": "ambermill",
+      "kind": "story",
+      "form": "chip",
+      "subject": "Ambermill",
+      "tag": "A lit town in a dead forest",
+      "lines": [
+        "Halfway down the zone there is a working human village with a working mill, held by wizards of Dalaran under Archmage Ataeric.",
+        "The Forsaken's claim on this forest is disputed by them, and this is the shape the dispute takes.",
+        "For a Forsaken player it is often the first living human town they have ever seen, and it is a target."
+      ],
+      "spoiler": false,
+      "t": 0.62,
+      "icon": "ambermill"
+    },
+    {
+      "id": "the-enemy-is-dalaran",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "Who you are actually fighting",
+      "tag": "Shield Guards · Theurgists · an Archmage",
+      "lines": [
+        "There is no Alliance hub in Silverpine. The opposition a leveller meets here is the Kirin Tor.",
+        "It is the one low zone where the mage order is the occupying force.",
+        "Read the mob names before you pull. They are all Dalaran."
+      ],
+      "spoiler": false,
+      "t": 0.7,
+      "icon": "the-enemy-is-dalaran"
+    },
+    {
+      "id": "eerily-silent",
+      "kind": "look",
+      "form": "chip",
+      "subject": "The quiet",
+      "tag": "It is built that way",
+      "lines": [
+        "Tall silver-barked pines over grassy knolls, dilapidated farmsteads, abandoned mines.",
+        "The wiki's own words for it: eerily silent, save for the occasional unnatural howling echoing among the trees.",
+        "The zone is designed to sound empty so that the howl lands."
+      ],
+      "spoiler": false,
+      "t": 0.8,
+      "icon": "eerily-silent"
+    },
+    {
+      "id": "nine-at-night",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "Pyrewood Village",
+      "tag": "Nine in the evening, server time",
+      "lines": [
+        "The villagers are human by day and Moonrage worgen by night. At 8:59 they are people. At 9:00 they are not.",
+        "They turn back at dawn.",
+        "It is one of the very few real day-night mechanics in the whole game, and it runs whether anybody is watching or not."
+      ],
+      "spoiler": false,
+      "t": 0.9,
+      "seed": {
+        "body": "Get to Pyrewood by 8:55pm server and just stand in the road. Do it once."
+      },
+      "icon": "nine-at-night"
+    },
+    {
+      "id": "greymane-wall",
+      "kind": "look",
+      "form": "chip",
+      "subject": "The Greymane Wall",
+      "tag": "The southern edge",
+      "lines": [
+        "A colossal sealed wall with a gate in it. In here it never opens, and there is no Gilneas — the land behind it is not built.",
+        "It is the only place in the old world where you can walk up to a door the developers deliberately shut and stand at it.",
+        "It stays closed for six more years."
+      ],
+      "spoiler": false,
+      "t": 1.0,
+      "icon": "greymane-wall"
+    }
+  ]
+}

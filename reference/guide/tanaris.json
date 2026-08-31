@@ -1,0 +1,211 @@
+{
+  "room": "tanaris",
+  "sources": [
+    "https://warcraft.wiki.gg/wiki/Tanaris",
+    "https://warcraft.wiki.gg/wiki/Tanaris_(Classic)",
+    "https://warcraft.wiki.gg/wiki/Caverns_of_Time",
+    "https://warcraft.wiki.gg/wiki/Anachronos",
+    "https://warcraft.wiki.gg/wiki/Valley_of_the_Watchers",
+    "https://warcraft.wiki.gg/wiki/Noggenfogger_Elixir",
+    "https://warcraft.wiki.gg/wiki/Homing_Robot_OOX-17/TN",
+    "https://warcraft.wiki.gg/wiki/Aquementas_(quest)",
+    "https://warcraft.wiki.gg/wiki/Linken",
+    "https://warcraft.wiki.gg/wiki/Lost_Rigger_Cove",
+    "https://warcraft.wiki.gg/wiki/Zul%27Farrak"
+  ],
+  "roadEnds": ["Gadgetzan", "The Valley of the Watchers"],
+  "seedWho": "Tari",
+  "cards": [
+    {
+      "id": "this-was-jungle",
+      "kind": "before",
+      "form": "title",
+      "subject": "Gurubashi jungle",
+      "tag": "Before",
+      "lines": [
+        "All of this was rainforest and it belonged to the trolls. The Sundering broke the landmass and the territory swiftly became desert.",
+        "The Farraki were stranded here when it happened. They adapted, and became sand trolls. Zul'Farrak is what they built afterwards."
+      ],
+      "spoiler": false
+    },
+    {
+      "id": "the-caverns-of-time",
+      "kind": "look",
+      "form": "chip",
+      "subject": "The crater in the east",
+      "tag": "There is nothing behind it",
+      "lines": [
+        "The hole is here, and the tunnel at the bottom of it is sealed. The wiki's own caption for the picture: \"the sealed entrance before the caverns were opened.\"",
+        "Old Hillsbrad and the Black Morass are Burning Crusade.",
+        "In here it is a hole in the desert with a locked door at the end."
+      ],
+      "spoiler": false,
+      "t": 0.08,
+      "icon": "the-caverns-of-time"
+    },
+    {
+      "id": "anachronos",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "Anachronos stands outside it",
+      "tag": "From patch 1.9",
+      "lines": [
+        "The bronze dragon runs the Scepter of the Shifting Sands chain — the one that opens Ahn'Qiraj — from the dirt outside a door he cannot open for you.",
+        "He was only moved inside the caverns in 4.0.3a.",
+        "In here, he is standing in a sandpit."
+      ],
+      "spoiler": false,
+      "t": 0.18,
+      "icon": "anachronos"
+    },
+    {
+      "id": "valley-of-the-watchers",
+      "kind": "look",
+      "form": "chip",
+      "subject": "The other sealed door",
+      "tag": "Southern Tanaris",
+      "lines": [
+        "The south of this zone holds an impenetrable gate into Uldum, and Uldum does not exist as a place you can go.",
+        "It gets cracked open four expansions later, and the tunnel beyond has collapsed by then.",
+        "Two doors in one desert, and neither of them opens."
+      ],
+      "spoiler": false,
+      "t": 0.26,
+      "icon": "valley-of-the-watchers"
+    },
+    {
+      "id": "the-gaping-chasm",
+      "kind": "story",
+      "form": "chip",
+      "subject": "Why there is a dragon in the desert",
+      "tag": "The Gaping Chasm",
+      "lines": [
+        "The hole in south Tanaris is one of the most active silithid hives there is.",
+        "The bugs out of these holes attacked Anachronos and the Caverns of Time. That attack is what set off the War of the Shifting Sands.",
+        "The crater and the chasm are the same story."
+      ],
+      "spoiler": false,
+      "t": 0.36,
+      "icon": "the-gaping-chasm"
+    },
+    {
+      "id": "noggenfogger",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "The Noggenfogger Elixir",
+      "tag": "Skeleton, shrink, or slow fall",
+      "lines": [
+        "You do not choose which. There is no cooldown, so people drink until they get the one they want.",
+        "Drinking more stacks the effects on top of each other, which is why a tiny skeleton is a normal sight in Gadgetzan.",
+        "The skeleton model is lifted straight off the game's own skeletal fiends."
+      ],
+      "spoiler": false,
+      "t": 0.46,
+      "icon": "noggenfogger"
+    },
+    {
+      "id": "thistleshrub",
+      "kind": "story",
+      "form": "chip",
+      "subject": "What it is made of",
+      "tag": "Thistleshrub Valley",
+      "lines": [
+        "Dew from thistleshrub glands, mixed with powder from Violet Tragan mushrooms.",
+        "The walking thorn-bushes in the southeast are the base ingredient.",
+        "The most famous item in the zone is squeezed out of its most forgettable mob."
+      ],
+      "spoiler": false,
+      "t": 0.54,
+      "icon": "thistleshrub"
+    },
+    {
+      "id": "oox-17",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "The chicken walks east",
+      "tag": "OOX-17/TN",
+      "lines": [
+        "The crashed robot sits in the mountains near the Gaping Chasm. Escort it and it walks to the crater, then rockets away to Booty Bay.",
+        "In here there are two ambushes on the route. One of them was deleted years later.",
+        "\"Emergency power activated! Initializing ambulatory motor! CLUCK!\""
+      ],
+      "spoiler": false,
+      "t": 0.62,
+      "icon": "oox-17"
+    },
+    {
+      "id": "aquementas",
+      "kind": "notice",
+      "form": "grave",
+      "subject": "It's a Secret to Everybody",
+      "tag": "Thirteen quests",
+      "lines": [
+        "Summoning the elemental on the eastern peninsula is step eleven of a full Legend of Zelda parody, built around a gnome who washed up in Un'Goro with amnesia.",
+        "His name is Linken.",
+        "The chain is neutral — both factions run the same one."
+      ],
+      "spoiler": true,
+      "t": 0.7,
+      "icon": "aquementas"
+    },
+    {
+      "id": "steamwheedle-port",
+      "kind": "story",
+      "form": "chip",
+      "subject": "Steamwheedle Port",
+      "tag": "The quietest place in the zone",
+      "lines": [
+        "A little goblin dock on the east coast, and its most important resident is a troll called Yeh'kinya, studying the essence of an ancient god.",
+        "He is the thread that runs to the Sunken Temple, and to Hakkar.",
+        "The Hakkari plot is being run out of a fishing pier."
+      ],
+      "spoiler": false,
+      "t": 0.78,
+      "icon": "steamwheedle-port"
+    },
+    {
+      "id": "lost-rigger-cove",
+      "kind": "look",
+      "form": "chip",
+      "subject": "Lost Rigger Cove",
+      "tag": "They are building ships in it",
+      "lines": [
+        "The pirate cove in the far east is walled by mountains on three sides, and the Southsea are not just anchored there — there is a shipyard.",
+        "They get their water the honest goblin way: raid for it, or sail up the coast and resupply.",
+        "In a desert where water is the only currency, the pirates solved it with a boat."
+      ],
+      "spoiler": false,
+      "t": 0.86,
+      "icon": "lost-rigger-cove"
+    },
+    {
+      "id": "lands-end",
+      "kind": "beware",
+      "form": "chip",
+      "subject": "Land's End Beach",
+      "tag": "The southern shore",
+      "lines": [
+        "Sea giant country. Walking onto the wrong sand at forty-five is simply death.",
+        "The same coastline is a standard turtle-scale run — the turtles here go up into the fifties."
+      ],
+      "spoiler": false,
+      "t": 0.94,
+      "icon": "lands-end"
+    },
+    {
+      "id": "the-far-corner",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "The door in the far northwest",
+      "tag": "Zul'Farrak",
+      "lines": [
+        "The longest ride from Gadgetzan there is, which is why everyone summons instead.",
+        "Worth knowing before you knock: a band of mercenaries fled Gadgetzan, wandered into that city and got trapped in it.",
+        "Sergeant Bly and his crew are still in there."
+      ],
+      "spoiler": false,
+      "t": 1.0,
+      "icon": "the-far-corner"
+    }
+  ]
+}

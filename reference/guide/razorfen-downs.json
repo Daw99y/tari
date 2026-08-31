@@ -1,0 +1,210 @@
+{
+  "room": "razorfen-downs",
+  "sources": [
+    "https://warcraft.wiki.gg/wiki/Razorfen_Downs",
+    "https://warcraft.wiki.gg/wiki/Razorfen_Downs_(Classic)",
+    "https://warcraft.wiki.gg/wiki/Quest:Extinguishing_the_Idol",
+    "https://warcraft.wiki.gg/wiki/Belnistrasz",
+    "https://warcraft.wiki.gg/wiki/Plaguemaw_the_Rotting",
+    "https://warcraft.wiki.gg/wiki/Mordresh_Fire_Eye_(Classic)",
+    "https://warcraft.wiki.gg/wiki/Tuten%27kash",
+    "https://warcraft.wiki.gg/wiki/Ragglesnout",
+    "https://warcraft.wiki.gg/wiki/Glutton",
+    "https://warcraft.wiki.gg/wiki/Amnennar_the_Coldbringer",
+    "https://warcraft.wiki.gg/wiki/An_Unholy_Alliance_(Classic)"
+  ],
+  "roadEnds": ["The maw", "The Spiral of Thorns"],
+  "seedWho": "Tari",
+  "cards": [
+    {
+      "id": "the-quilboar-capital",
+      "kind": "before",
+      "form": "title",
+      "subject": "The quilboar capital",
+      "tag": "Before",
+      "lines": [
+        "Crafted out of the same mighty vines as the Kraul, and the traditional capital of the whole quilboar race.",
+        "A lich lives in it now."
+      ],
+      "spoiler": false
+    },
+    {
+      "id": "the-maw",
+      "kind": "look",
+      "form": "chip",
+      "subject": "The door is a mouth",
+      "tag": "Agamaggan's jaws",
+      "lines": [
+        "The way in is made from the boar god's maw. You walk in through his teeth.",
+        "The outer dome's entry is an arched gap, nearly invisible to anyone who did not already know where to look."
+      ],
+      "spoiler": false,
+      "t": 0.06,
+      "icon": "the-maw"
+    },
+    {
+      "id": "an-undead-dungeon",
+      "kind": "story",
+      "form": "chip",
+      "subject": "Whose dungeon this is",
+      "tag": "Listen to Mordresh",
+      "lines": [
+        "His idle lines give the whole occupation away: \"We will enslave the quilboar!\" and \"Soon, the Scourge will rule the world!\"",
+        "This is not a quilboar dungeon with undead in it.",
+        "It is an undead dungeon with quilboar livestock."
+      ],
+      "spoiler": false,
+      "t": 0.16,
+      "icon": "an-undead-dungeon"
+    },
+    {
+      "id": "they-said-yes",
+      "kind": "story",
+      "form": "chip",
+      "subject": "They were not raised. They agreed.",
+      "tag": "The scroll off Charlga",
+      "lines": [
+        "The vanilla quest text is a Scourge ambassador's offer: the Barrens and the lands beyond, and \"we simply want your aid in return.\"",
+        "Later lore overwrote this and had the lich simply raise them from corpses.",
+        "In here, they negotiated."
+      ],
+      "spoiler": false,
+      "t": 0.26,
+      "icon": "they-said-yes"
+    },
+    {
+      "id": "malcin",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "Ambassador Malcin",
+      "tag": "He signed it",
+      "lines": [
+        "The letter closes: \"I will remain outside Razorfen Downs for the time being.\"",
+        "He is out there.",
+        "You can go and settle it."
+      ],
+      "spoiler": false,
+      "t": 0.34,
+      "icon": "malcin"
+    },
+    {
+      "id": "tutenkash",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "Tuten'kash",
+      "tag": "The Caller's Chamber",
+      "lines": [
+        "A crypt fiend, and the name is Tutankhamun with a boar-dungeon accent.",
+        "His signature debuff is called Curse of Tuten'kash.",
+        "The joke got its own spell."
+      ],
+      "spoiler": false,
+      "t": 0.42,
+      "icon": "tutenkash"
+    },
+    {
+      "id": "ragglesnout",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "X'caliboar",
+      "tag": "Ragglesnout, in the Spiral",
+      "lines": [
+        "A rare elite quilboar just past Glutton, and a caster — dominate mind, shadow bolt.",
+        "He carries a two-hander called X'caliboar.",
+        "Somebody at Blizzard in 2004 was very pleased with themselves."
+      ],
+      "spoiler": false,
+      "t": 0.5,
+      "icon": "ragglesnout"
+    },
+    {
+      "id": "glutton",
+      "kind": "beware",
+      "form": "chip",
+      "subject": "Glutton is getting hungry",
+      "tag": "He announces it every time",
+      "lines": [
+        "An abomination patrolling the lower tier of the Spiral, and he frenzies over and over.",
+        "The emote is the warning and it is the only one you get.",
+        "He got that way eating the dungeon's own spoiled dead."
+      ],
+      "spoiler": false,
+      "t": 0.58,
+      "icon": "glutton"
+    },
+    {
+      "id": "mordresh",
+      "kind": "look",
+      "form": "chip",
+      "subject": "Mordresh is dancing",
+      "tag": "Go and look at his pose",
+      "lines": [
+        "He stands on a heap of skulls and bones in a dancing pose, with non-elite skeletons milling below him.",
+        "In life he was an orc shaman sent from Orgrimmar to find out what was happening here.",
+        "He was killed and raised, and refilled with fel instead of elements."
+      ],
+      "spoiler": false,
+      "t": 0.66,
+      "icon": "mordresh"
+    },
+    {
+      "id": "the-idol",
+      "kind": "story",
+      "form": "grave",
+      "subject": "The idol is an oven",
+      "tag": "The Murder Pens",
+      "lines": [
+        "It is not an altar. The quest text calls it a macabre oven, where the quilboar cook and eat the people they abduct out of the Barrens.",
+        "That is what the ritual puts out.",
+        "Not a curse. A kitchen."
+      ],
+      "spoiler": true,
+      "t": 0.76,
+      "icon": "the-idol"
+    },
+    {
+      "id": "belnistrasz",
+      "kind": "story",
+      "form": "grave",
+      "subject": "Belnistrasz",
+      "tag": "He walks in as a human",
+      "lines": [
+        "Only at the end does the reveal come. The image of a great-winged dragon fills your mind, and a more gravelled version of his voice speaks straight to you.",
+        "\"Indeed mortals, you are the heroes I had hoped you would be.\""
+      ],
+      "spoiler": true,
+      "t": 0.84,
+      "icon": "belnistrasz"
+    },
+    {
+      "id": "the-escort",
+      "kind": "beware",
+      "form": "chip",
+      "subject": "Five minutes, seven waves",
+      "tag": "And one squishy dragon",
+      "lines": [
+        "\"Okay, here we go. It's going to take about five minutes to shut this thing down through the ritual.\"",
+        "Killing everything is not the job. Keeping him upright is.",
+        "Plaguemaw the Rotting only exists at the end of it — skip the quest and he never spawns at all."
+      ],
+      "spoiler": false,
+      "t": 0.9,
+      "icon": "the-escort"
+    },
+    {
+      "id": "amnennar",
+      "kind": "story",
+      "form": "grave",
+      "subject": "You do not actually kill him",
+      "tag": "The summit of the Spiral",
+      "lines": [
+        "He sits on a mountain of spiked vines around a brazier burning with cold flame — the second brazier in this dungeon, and the one you cannot put out.",
+        "He has been put down repeatedly and keeps coming back. His phylactery was never destroyed.",
+        "\"Too... Easy.\" He is technically correct about the whole arrangement."
+      ],
+      "spoiler": true,
+      "t": 1.0,
+      "icon": "amnennar"
+    }
+  ]
+}

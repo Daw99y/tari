@@ -1,0 +1,216 @@
+{
+  "room": "blackrock-depths",
+  "sources": [
+    "https://warcraft.wiki.gg/wiki/Blackrock_Depths",
+    "https://warcraft.wiki.gg/wiki/Grim_Guzzler",
+    "https://warcraft.wiki.gg/wiki/Plugger_Spazzring",
+    "https://warcraft.wiki.gg/wiki/Ribbly_Screwspigot",
+    "https://warcraft.wiki.gg/wiki/Hurley_Blackbreath",
+    "https://warcraft.wiki.gg/wiki/Ring_of_Law",
+    "https://warcraft.wiki.gg/wiki/Theldren",
+    "https://warcraft.wiki.gg/wiki/The_Seven",
+    "https://warcraft.wiki.gg/wiki/Dark_Iron_Legacy",
+    "https://warcraft.wiki.gg/wiki/Marshal_Windsor",
+    "https://warcraft.wiki.gg/wiki/Ironfoe",
+    "https://warcraft.wiki.gg/wiki/The_Princess_Saved%3F",
+    "https://warcraft.wiki.gg/wiki/Black_Forge",
+    "https://warcraft.wiki.gg/wiki/Attunement_to_the_Core",
+    "https://warcraft.wiki.gg/wiki/Patch_1.10.0"
+  ],
+  "roadEnds": ["The Detention Block", "The Imperial Seat"],
+  "seedWho": "Tari",
+  "cards": [
+    {
+      "id": "built-for-ten",
+      "kind": "before",
+      "form": "title",
+      "subject": "Ten people",
+      "tag": "Before",
+      "lines": [
+        "It launched as a ten-player instance. Patch 1.10 cut it: \"Stratholme, Scholomance, and Blackrock Depths now allow a maximum of five players inside.\"",
+        "It was built at ten-man scale and it still feels like it. A five-man clear ran four to six hours."
+      ],
+      "spoiler": false
+    },
+    {
+      "id": "the-grim-guzzler",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "The Grim Guzzler",
+      "tag": "A working tavern, in a dungeon",
+      "lines": [
+        "Two levels, full of drunk Dark Iron patrons, and every one of them is neutral.",
+        "You can walk in, buy ale and food off the barman, and walk out without a fight.",
+        "Nothing else in the game does this."
+      ],
+      "spoiler": false,
+      "t": 0.06,
+      "icon": "the-grim-guzzler"
+    },
+    {
+      "id": "plugger",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "Pick his pocket and the room turns",
+      "tag": "Plugger Spazzring",
+      "lines": [
+        "The bar key is in the barman's pocket. Take it and he yells \"Hey, my pockets were picked!\"",
+        "Then: \"That's it! No more beer until this mess is sorted out!\"",
+        "Every patron in the tavern flips hostile at the same moment."
+      ],
+      "spoiler": false,
+      "t": 0.14,
+      "icon": "plugger"
+    },
+    {
+      "id": "nagmara",
+      "kind": "look",
+      "form": "chip",
+      "subject": "Mistress Nagmara",
+      "tag": "The barmaid is a succubus",
+      "lines": [
+        "And she is in love with Private Rocknot, the drunk soldier propping up the same bar.",
+        "Their questline was removed in 4.0.3a.",
+        "It exists in here and nowhere else."
+      ],
+      "spoiler": false,
+      "t": 0.22,
+      "icon": "nagmara"
+    },
+    {
+      "id": "ribbly",
+      "kind": "look",
+      "form": "chip",
+      "subject": "Ribbly Screwspigot",
+      "tag": "Hiding in the last place anyone looks",
+      "lines": [
+        "A goblin sitting in a Dark Iron bar at the bottom of the deepest dungeon in the game, dodging a bounty out of Booty Bay.",
+        "His own sister sold him out: \"My brother Ribbly has always been a drain to his family.\"",
+        "At thirty percent health he runs."
+      ],
+      "spoiler": false,
+      "t": 0.3,
+      "icon": "ribbly"
+    },
+    {
+      "id": "the-kegs",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "Two ways through the back of the bar",
+      "tag": "The kegs, or the drunk",
+      "lines": [
+        "Smash the kegs in the side room and Hurley Blackbreath comes out with his cronies: \"Get away from those kegs!\"",
+        "Or buy six ale mugs off the barman and hand them to Private Rocknot in rounds until he loses his temper and breaks the door open himself.",
+        "Nobody else in the room reacts to that at all."
+      ],
+      "spoiler": false,
+      "t": 0.38,
+      "icon": "the-kegs"
+    },
+    {
+      "id": "the-ring-of-law",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "The Ring of Law",
+      "tag": "A trial, with an audience",
+      "lines": [
+        "Step onto the arena floor and the gate shuts. High Justice Grimstone appears to run your trial: two waves of beasts, then one champion drawn at random from six.",
+        "Patch 1.10 added Theldren and his gladiators — nine possible members, four to a fight.",
+        "You can summon them on purpose, with a banner."
+      ],
+      "spoiler": false,
+      "t": 0.48,
+      "icon": "the-ring-of-law"
+    },
+    {
+      "id": "franclorn",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "You have to die to talk to the architect",
+      "tag": "Franclorn Forgewright",
+      "lines": [
+        "The dwarf who designed most of this place is a ghost at his tomb in the mountain, and to interact with him you must be dead.",
+        "He wants his hammer back from the Dark Irons' current chief architect.",
+        "The reward is the key that opens the Shadowforge Gates for everyone who is not a rogue."
+      ],
+      "spoiler": false,
+      "t": 0.58,
+      "icon": "franclorn"
+    },
+    {
+      "id": "the-seven",
+      "kind": "story",
+      "form": "chip",
+      "subject": "The Seven",
+      "tag": "Snow White, if it ended badly",
+      "lines": [
+        "Anger'rel, Doom'rel, Dope'rel, Gloom'rel, Hate'rel, Seeth'rel, Vile'rel — seven ghost dwarves in the Summoners' Tomb.",
+        "They are the ones who helped Thaurissan call up Ragnaros. It killed them and enslaved their people.",
+        "They still maintain it was the right call."
+      ],
+      "spoiler": false,
+      "t": 0.68,
+      "icon": "the-seven"
+    },
+    {
+      "id": "windsor",
+      "kind": "story",
+      "form": "grave",
+      "subject": "Marshal Windsor",
+      "tag": "The jailbreak that ends in Stormwind",
+      "lines": [
+        "He was taken investigating the Dark Horde and thrown in the Detention Block. What he was carrying is proof that the noblewoman advising Stormwind's court is a black dragon.",
+        "You walk him out of this dungeon.",
+        "The chain ends with him confronting her in Stormwind Keep, where she burns him and flees."
+      ],
+      "spoiler": true,
+      "t": 0.78,
+      "icon": "windsor"
+    },
+    {
+      "id": "ironfoe",
+      "kind": "story",
+      "form": "grave",
+      "subject": "Ironfoe",
+      "tag": "It belongs to the prisoner upstairs",
+      "lines": [
+        "Forged by Franclorn Forgewright and given to Marshal Windsor's great-great-grandfather, then handed down each generation to Windsor himself.",
+        "It drops off the Emperor, at the bottom.",
+        "The Dark Irons took his hammer when they took him, and it has been down here with them ever since."
+      ],
+      "spoiler": true,
+      "t": 0.86,
+      "icon": "ironfoe"
+    },
+    {
+      "id": "moira",
+      "kind": "story",
+      "form": "grave",
+      "subject": "You are meant to only half-win",
+      "tag": "Princess Moira Bronzebeard",
+      "lines": [
+        "She fights beside the Emperor, healing him, and the quest requires you to kill him and leave her alive.",
+        "\"You have slain my husband. My child will be born into this world without a father...\"",
+        "\"You and your kind shall be hunted down until the end of days for this wrongful act.\""
+      ],
+      "spoiler": true,
+      "t": 0.94,
+      "icon": "moira"
+    },
+    {
+      "id": "the-black-forge",
+      "kind": "story",
+      "form": "chip",
+      "subject": "The Black Forge",
+      "tag": "And the door behind it",
+      "lines": [
+        "It is the only place in the world where Dark Iron ore can be smelted. Every Dark Iron bar in this game was made by somebody who fought most of the way through the biggest dungeon in it, carrying ore.",
+        "Past it, on the bridge over the lava, is the way into Molten Core.",
+        "Before the attunement existed, forty people walked the Depths to reach the raid."
+      ],
+      "spoiler": false,
+      "t": 1.0,
+      "icon": "the-black-forge"
+    }
+  ]
+}

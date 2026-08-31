@@ -1,0 +1,201 @@
+{
+  "room": "westfall",
+  "sources": [
+    "https://warcraft.wiki.gg/wiki/Westfall",
+    "https://warcraft.wiki.gg/wiki/Defias_Brotherhood",
+    "https://warcraft.wiki.gg/wiki/Westfall_Lighthouse",
+    "https://warcraft.wiki.gg/wiki/Captain_Grayson",
+    "https://warcraft.wiki.gg/wiki/Keeper_of_the_Flame_(Classic)",
+    "https://warcraft.wiki.gg/wiki/Moonbrook",
+    "https://warcraft.wiki.gg/wiki/Sentinel_Hill",
+    "https://warcraft.wiki.gg/wiki/Gryan_Stoutmantle",
+    "https://warcraft.wiki.gg/wiki/Old_Murk-Eye",
+    "https://warcraft.wiki.gg/wiki/Harvest_golem",
+    "https://warcraft.wiki.gg/wiki/Alexston_Farmstead",
+    "https://warcraft.wiki.gg/wiki/Old_Blanchy"
+  ],
+  "roadEnds": [
+    "The Jansen Stead",
+    "The Lighthouse"
+  ],
+  "seedWho": "Tari",
+  "cards": [
+    {
+      "id": "the-breadbasket",
+      "kind": "before",
+      "form": "title",
+      "subject": "The breadbasket of Stormwind",
+      "tag": "Before",
+      "lines": [
+        "This was worked farmland, inside living memory, and it fed the capital.",
+        "It did not simply fail. The soil was salted on purpose so that nothing would grow, and the fields have gone to weeds and seedling trees."
+      ],
+      "spoiler": false
+    },
+    {
+      "id": "old-blanchy",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "Old Blanchy",
+      "tag": "She is alive here",
+      "lines": [
+        "The old white mare is standing at the Jansen Stead with the Furlbrows, and the whole quest is to bring her oats.",
+        "The reward is her own blanket and her feed pouch.",
+        "Jeff Kaplan called her his favourite character in the game. Her death is Cataclysm and has not happened."
+      ],
+      "spoiler": false,
+      "t": 0.06,
+      "icon": "old-blanchy"
+    },
+    {
+      "id": "the-furlbrows",
+      "kind": "look",
+      "form": "chip",
+      "subject": "The Furlbrows",
+      "tag": "Camped on the road",
+      "lines": [
+        "Theodore and Verna are not on their farm. They are by the roadside near the Elwynn border with the horse and the cart.",
+        "Furlbrow's Pumpkin Farm is off to the northwest, still wearing their name.",
+        "They are not in it."
+      ],
+      "spoiler": false,
+      "t": 0.12,
+      "icon": "the-furlbrows"
+    },
+    {
+      "id": "harvest-golems",
+      "kind": "story",
+      "form": "chip",
+      "subject": "The harvest golems",
+      "tag": "Built to guard the harvest",
+      "lines": [
+        "Where they came from is genuinely uncertain — goblin-built and Defias-commissioned are both told about them.",
+        "The story that sticks: the earliest models killed so completely that no witness ever escaped to spread word, so the tinkers built a flaw back in, so one person would always get away and talk.",
+        "Now they are the reason nobody walks the fields."
+      ],
+      "spoiler": false,
+      "t": 0.2,
+      "icon": "harvest-golems"
+    },
+    {
+      "id": "sentinel-hill",
+      "kind": "before",
+      "form": "chip",
+      "subject": "Sentinel Hill",
+      "tag": "A tower, not a fort",
+      "lines": [
+        "The walls, the siege engines and the garrison people picture are Cataclysm.",
+        "Here it is a watchtower with a militia camped around it, a forge and a gryphon.",
+        "The inn was only added in patch 0.9, during development. The tower came first."
+      ],
+      "spoiler": false,
+      "t": 0.3,
+      "icon": "sentinel-hill"
+    },
+    {
+      "id": "stoutmantle",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "Captain Stoutmantle",
+      "tag": "The People's Militia",
+      "lines": [
+        "Not Marshal, and there is no Westfall Brigade. Both are later titles.",
+        "The militia is a volunteer force he founded himself, because Stormwind sent nothing.",
+        "A Knight of the Silver Hand who left the war to come home and found this."
+      ],
+      "spoiler": false,
+      "t": 0.38,
+      "icon": "stoutmantle"
+    },
+    {
+      "id": "the-stonemasons",
+      "kind": "story",
+      "form": "grave",
+      "subject": "The Defias Brotherhood",
+      "tag": "They built Stormwind",
+      "lines": [
+        "The bandits in the fields are the Stonemasons Guild — the men who rebuilt the capital after the Second War and were never paid.",
+        "The House of Nobles, with Lady Katrana Prestor in the room, disbanded the guild rather than settle. The riot killed Queen Tiffin: a thrown stone to the head.",
+        "Edwin VanCleef took what was left of them west."
+      ],
+      "spoiler": true,
+      "t": 0.48,
+      "icon": "the-stonemasons"
+    },
+    {
+      "id": "alexston-farmstead",
+      "kind": "look",
+      "form": "chip",
+      "subject": "Alexston Farmstead",
+      "tag": "The name on the ruin",
+      "lines": [
+        "The Defias hold a burnt farm in the middle of the zone, and it carries the name of Baros Alexston — the man who is architect of Stormwind City.",
+        "Nothing in the zone stops to tell you that.",
+        "The capital's draughtsman and a dead farm share a name and you have to notice it yourself."
+      ],
+      "spoiler": false,
+      "t": 0.58,
+      "icon": "alexston-farmstead"
+    },
+    {
+      "id": "moonbrook",
+      "kind": "before",
+      "form": "chip",
+      "subject": "Moonbrook",
+      "tag": "A town, not a ruin",
+      "lines": [
+        "It had a tavern, a blacksmith, stables, a barn and a schoolhouse.",
+        "It is the only place in Westfall shaped like a town, and it has no vendor and no innkeeper.",
+        "Everything is still standing. There is simply nobody in it."
+      ],
+      "spoiler": false,
+      "t": 0.68,
+      "icon": "moonbrook"
+    },
+    {
+      "id": "the-mouth",
+      "kind": "notice",
+      "form": "grave",
+      "subject": "Where the Deadmines are",
+      "tag": "Under Moonbrook",
+      "lines": [
+        "The entrance is not signposted and it is not a door in a hillside. It is a hole in a floor, inside the town.",
+        "A whole dungeon is under the schoolhouse district and the zone never says so.",
+        "Stand at the top. The mine's own telling takes it from there."
+      ],
+      "spoiler": true,
+      "t": 0.76,
+      "icon": "the-mouth"
+    },
+    {
+      "id": "old-murk-eye",
+      "kind": "story",
+      "form": "chip",
+      "subject": "Old Murk-Eye",
+      "tag": "He has a reason",
+      "lines": [
+        "The rare elite murloc patrolling the Longshore is not scenery.",
+        "He led the raid that killed the lighthouse keeper's family. Twice — the second time fatally, while the keeper watched.",
+        "Killing him is the keeper's own request."
+      ],
+      "spoiler": false,
+      "t": 0.88,
+      "icon": "old-murk-eye"
+    },
+    {
+      "id": "grayson",
+      "kind": "story",
+      "form": "grave",
+      "subject": "Captain Grayson",
+      "tag": "The lighthouse keeper",
+      "lines": [
+        "The oil you bring him is drained out of the harvest golems in the fields, five flasks at a time.",
+        "He tells you what he is himself: \"I died needlessly on this very shore. My afterlife plight is to see that no others follow my destiny.\"",
+        "His ship struck the rocks because the light was black that night. Now he tends it."
+      ],
+      "spoiler": true,
+      "t": 1.0,
+      "icon": "grayson"
+    }
+  ]
+}

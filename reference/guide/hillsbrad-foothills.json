@@ -1,0 +1,210 @@
+{
+  "room": "hillsbrad-foothills",
+  "sources": [
+    "https://warcraft.wiki.gg/wiki/Hillsbrad_Foothills",
+    "https://warcraft.wiki.gg/wiki/Southshore",
+    "https://warcraft.wiki.gg/wiki/Tarren_Mill",
+    "https://warcraft.wiki.gg/wiki/Durnholde_Keep",
+    "https://warcraft.wiki.gg/wiki/Taretha_Foxton",
+    "https://warcraft.wiki.gg/wiki/Battle_of_Hillsbrad_Foothills",
+    "https://warcraft.wiki.gg/wiki/Purgation_Isle",
+    "https://warcraft.wiki.gg/wiki/Dun_Garok",
+    "https://warcraft.wiki.gg/wiki/Quest:Helcular%27s_Revenge",
+    "https://warcraft.wiki.gg/wiki/Quest:Helcular%27s_Revenge_(2)"
+  ],
+  "roadEnds": ["Tarren Mill", "Southshore"],
+  "seedWho": "Tari",
+  "cards": [
+    {
+      "id": "durnholde",
+      "kind": "before",
+      "form": "title",
+      "subject": "Durnholde Keep",
+      "tag": "Before",
+      "lines": [
+        "Aedelas Blackmoore ran the orc internment camps from this fortress, and raised, trained and beat Thrall inside it as a gladiator.",
+        "Thrall came back, killed him in single combat, and called on the earth to level the place. The rubble is the aftermath of the boy coming home."
+      ],
+      "spoiler": false
+    },
+    {
+      "id": "southshore-is-alive",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "Southshore is a town",
+      "tag": "Nothing has happened to it yet",
+      "lines": [
+        "Inn, stables, forge, mailbox, flight master, a magistrate, a graveyard. No bank, no auction house.",
+        "The blight, the ruins and the refugees everyone remembers are Cataclysm.",
+        "Here it is a place where people are brewing beer."
+      ],
+      "spoiler": false,
+      "t": 0.06,
+      "icon": "southshore-is-alive"
+    },
+    {
+      "id": "the-menu",
+      "kind": "look",
+      "form": "chip",
+      "subject": "What Southshore sells",
+      "tag": "A complete little economy",
+      "lines": [
+        "Chef Jessen is renowned for his Soothing Turtle Bisque, and the turtles are off the strand below the town.",
+        "They brew Sparkling Southshore Cider and Southshore Stout.",
+        "Bartolo Ginsetti sells famous Yeti Fur Cloaks, made from the things in the caves up the hill."
+      ],
+      "spoiler": false,
+      "t": 0.14,
+      "icon": "the-menu"
+    },
+    {
+      "id": "tarren-mill-was",
+      "kind": "before",
+      "form": "chip",
+      "subject": "Tarren Mill",
+      "tag": "Somebody's home town",
+      "lines": [
+        "A church, a few houses, withered orchards. The Forsaken hold it now, apothecaries and all.",
+        "But it has not been rebuilt into a Forsaken town yet — that redesign is Cataclysm.",
+        "They are living inside somebody else's village and the church is still standing."
+      ],
+      "spoiler": false,
+      "t": 0.22,
+      "icon": "tarren-mill-was"
+    },
+    {
+      "id": "gankbrad",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "Tarren Mill and Southshore",
+      "tag": "Gankbrad · Pwnshore · Killsbrad",
+      "lines": [
+        "Two towns, one road, a few minutes apart, and no battleground yet invented to drain the pressure off.",
+        "It escalated from duels to twenty and thirty-player raids until the servers buckled — five second latency was common.",
+        "The nicknames are what the zone got called for it."
+      ],
+      "spoiler": false,
+      "t": 0.32,
+      "icon": "gankbrad"
+    },
+    {
+      "id": "taretha",
+      "kind": "story",
+      "form": "chip",
+      "subject": "Taretha Foxton",
+      "tag": "At the keep you are standing in",
+      "lines": [
+        "The human girl who fed the infant Thrall, wrote to him in his cell, and covered his escape.",
+        "Blackmoore executed her and threw her head at him from the battlements.",
+        "It was the first time Thrall wept. There is no marker here for her."
+      ],
+      "spoiler": false,
+      "t": 0.42,
+      "icon": "taretha"
+    },
+    {
+      "id": "zuljin",
+      "kind": "before",
+      "form": "chip",
+      "subject": "Zul'jin was in there",
+      "tag": "Durnholde, in the Second War",
+      "lines": [
+        "Before the ruins, the keep held the Amani forest troll warlord. Orgrim Doomhammer personally led the raid that broke him out.",
+        "That was the price the Amani set for guiding the Horde north.",
+        "It is why the Horde marched on Quel'Thalas instead of straight at Lordaeron."
+      ],
+      "spoiler": false,
+      "t": 0.5,
+      "icon": "zuljin"
+    },
+    {
+      "id": "lothar",
+      "kind": "before",
+      "form": "chip",
+      "subject": "The Lion of Azeroth",
+      "tag": "Named on this farmland",
+      "lines": [
+        "The first major land battle of the Second War was fought on this ground. Doomhammer landed unopposed near Southshore.",
+        "Death knights raised the Alliance's own dead against them until Uther's paladins steadied the line.",
+        "Nothing here marks it. You are just walking through fields."
+      ],
+      "spoiler": false,
+      "t": 0.58,
+      "icon": "lothar"
+    },
+    {
+      "id": "dun-garok",
+      "kind": "look",
+      "form": "chip",
+      "subject": "Dun Garok",
+      "tag": "A dwarf keep in a human zone",
+      "lines": [
+        "Ironforge mountaineers, riflemen and priests garrisoned in the southeastern hills, there to shield Hillsbrad's people and the Azurelode Mine.",
+        "The Forsaken loathed having them there and paid adventurers to go in and kill every one."
+      ],
+      "spoiler": false,
+      "t": 0.66,
+      "icon": "dun-garok"
+    },
+    {
+      "id": "the-coastline",
+      "kind": "look",
+      "form": "chip",
+      "subject": "Everything wants the water",
+      "tag": "Naga · murlocs · yetis",
+      "lines": [
+        "Daggerspine naga hold the shore, Torn Fin murlocs work the Eastern Strand and prey on passing ships, and the yetis are in the caves inland.",
+        "Southshore keeps a privateer fleet whose stated job is keeping the waterways clear.",
+        "It is not winning."
+      ],
+      "spoiler": false,
+      "t": 0.74,
+      "icon": "the-coastline"
+    },
+    {
+      "id": "purgation-isle",
+      "kind": "look",
+      "form": "chip",
+      "subject": "Purgation Isle",
+      "tag": "Off the south coast",
+      "lines": [
+        "The spiral of rock in the water is haunted by dozens of condemned human and dwarf spirits — paladins, priests, monks and mages, bound into service by an ogre necromancer.",
+        "Before the First War the island belonged to Kul Tiras.",
+        "After Cataclysm the ghosts are gone. This is the only version with them on it."
+      ],
+      "spoiler": false,
+      "t": 0.84,
+      "icon": "purgation-isle"
+    },
+    {
+      "id": "helcular",
+      "kind": "story",
+      "form": "grave",
+      "subject": "Helcular's grave",
+      "tag": "In the Alliance town's cemetery",
+      "lines": [
+        "A Horde chain has you charge a dead wizard's rod at three flames, then drive it into a grave inside Southshore.",
+        "He gets up: a level forty-four elite who walks the churchyard raising skeletons for about ten minutes, and then fades.",
+        "Deleted from the game in 4.0.3a."
+      ],
+      "spoiler": true,
+      "t": 0.92,
+      "icon": "helcular"
+    },
+    {
+      "id": "the-lynch-mob",
+      "kind": "story",
+      "form": "grave",
+      "subject": "Why he is buried there",
+      "tag": "The quest says it plainly",
+      "lines": [
+        "\"Master Helcular was almost complete with his transformation into a Lich when a human lynch mob discovered his ritual lair in the hills and brutally killed him.\"",
+        "Southshore's own townsfolk killed him and then buried him in their churchyard.",
+        "His apprentice wants the rains of vengeance to fall on the town. That is why the grave is the target."
+      ],
+      "spoiler": true,
+      "t": 1.0,
+      "icon": "the-lynch-mob"
+    }
+  ]
+}

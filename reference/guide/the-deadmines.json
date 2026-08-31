@@ -1,0 +1,194 @@
+{
+  "room": "the-deadmines",
+  "sources": [
+    "https://warcraft.wiki.gg/wiki/Deadmines",
+    "https://warcraft.wiki.gg/wiki/Deadmines_(Classic)",
+    "https://warcraft.wiki.gg/wiki/Deadmines_walkthrough",
+    "https://warcraft.wiki.gg/wiki/Edwin_VanCleef",
+    "https://warcraft.wiki.gg/wiki/Edwin_VanCleef_(tactics)",
+    "https://warcraft.wiki.gg/wiki/Mr._Smite",
+    "https://warcraft.wiki.gg/wiki/Rhahk%27Zor",
+    "https://warcraft.wiki.gg/wiki/Sneed",
+    "https://warcraft.wiki.gg/wiki/Captain_Cookie",
+    "https://warcraft.wiki.gg/wiki/Defias_Traitor"
+  ],
+  "roadEnds": ["Rhahk'Zor's chamber", "The Ironclad Cove"],
+  "seedWho": "Tari",
+  "cards": [
+    {
+      "id": "stormwinds-gold-mine",
+      "kind": "before",
+      "form": "title",
+      "subject": "Stormwind's gold mine",
+      "tag": "Before",
+      "lines": [
+        "The greatest gold production centre in human lands, reckoned at about a third of the kingdom's reserves.",
+        "It was abandoned when the Horde razed Stormwind, and thought haunted after. Then the men who rebuilt the city came back to it as bandits."
+      ],
+      "spoiler": false
+    },
+    {
+      "id": "the-traitor",
+      "kind": "before",
+      "form": "grave",
+      "subject": "The Defias Traitor",
+      "tag": "Deleted in 4.0.3a",
+      "lines": [
+        "You do not find the Deadmines. A captured Defias at Sentinel Hill trades the hideout's location for his life and walks you to Moonbrook himself.",
+        "On foot, in the open, at level fifteen.",
+        "On contested realms, killing him was a known Horde pastime."
+      ],
+      "spoiler": false,
+      "t": 0.05,
+      "icon": "the-traitor"
+    },
+    {
+      "id": "three-names",
+      "kind": "look",
+      "form": "chip",
+      "subject": "Before the portal",
+      "tag": "Marisa du'Paige · a Brainwashed Noble",
+      "lines": [
+        "The open stretch of mine outside the instance has its own named enemies, and one of them is a noble who has been brainwashed.",
+        "Foreman Thistlenettle is down there with them.",
+        "A conspiracy the dungeon never resolves, in a tunnel most groups run straight past."
+      ],
+      "spoiler": false,
+      "t": 0.1,
+      "icon": "three-names"
+    },
+    {
+      "id": "rhahk-zor",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "Rhahk'Zor",
+      "tag": "The first chamber",
+      "lines": [
+        "The ogre foreman shouts \"VanCleef pay big for your heads!\"",
+        "It is the first thing the dungeon ever says to you, and it tells you who you came for."
+      ],
+      "spoiler": false,
+      "t": 0.16,
+      "icon": "rhahk-zor"
+    },
+    {
+      "id": "doors",
+      "kind": "beware",
+      "form": "chip",
+      "subject": "Every boss is a door",
+      "tag": "One room at a time",
+      "lines": [
+        "Through the foundry, each boss is guarding a door. Kill him and it opens — and a patrol respawns behind you.",
+        "You are not raiding a mine. You are being let deeper in."
+      ],
+      "spoiler": false,
+      "t": 0.24,
+      "icon": "doors"
+    },
+    {
+      "id": "sneed",
+      "kind": "look",
+      "form": "chip",
+      "subject": "Sneed",
+      "tag": "In the shredder, and out of it",
+      "lines": [
+        "Kill the machine and he climbs out of the wreck to keep fighting — a two-phase boss before those existed.",
+        "Inside it he has hair. Outside it he is bald.",
+        "It is a real model quirk, not a joke."
+      ],
+      "spoiler": false,
+      "t": 0.32,
+      "icon": "sneed"
+    },
+    {
+      "id": "a-ship-underground",
+      "kind": "look",
+      "form": "chip",
+      "subject": "The shipyard",
+      "tag": "The Mast Room · the Goblin Foundry",
+      "lines": [
+        "Goblins are carving a mast. Gilnid's foundry is casting anchors and cannonballs. The Ironclad Cove has scaffolding, a plank catwalk and a door wide enough to sail a warship out of.",
+        "The Defias are building a juggernaut inside a gold mine.",
+        "Nobody ever sees it leave."
+      ],
+      "spoiler": false,
+      "t": 0.42,
+      "icon": "a-ship-underground"
+    },
+    {
+      "id": "mr-smite",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "Mr. Smite",
+      "tag": "The first mate is a tauren",
+      "lines": [
+        "One of very few tauren bosses anywhere, in a mine no Horde player can quest to.",
+        "He swaps weapons twice mid-fight, each swap announced with a War Stomp: a thief's blade, then two reavers, then a hammer.",
+        "\"You landlubbers are tougher than I thought. I'll have to improvise!\""
+      ],
+      "spoiler": false,
+      "t": 0.52,
+      "icon": "mr-smite"
+    },
+    {
+      "id": "the-cannon",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "The cannon",
+      "tag": "There is a second answer",
+      "lines": [
+        "The door to the docks does not open. You loot Defias Gunpowder from an alcove, load the cannon in that room, and blow the gate off.",
+        "A rogue can pick the lock instead. The cannon wakes everything behind the door; the lockpick does not.",
+        "Most groups never learn the quiet way existed."
+      ],
+      "spoiler": false,
+      "t": 0.62,
+      "icon": "the-cannon"
+    },
+    {
+      "id": "cookie",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "Cookie",
+      "tag": "No rank, no stew",
+      "lines": [
+        "He is the ship's cook, an optional kill in the galley on the left side of the vessel.",
+        "\"Captain\" Cookie, the cooking pot and the food-throwing fight are all Cataclysm.",
+        "Here he is a man with a mace, and you can walk past him."
+      ],
+      "spoiler": false,
+      "t": 0.72,
+      "icon": "cookie"
+    },
+    {
+      "id": "vancleef-speech",
+      "kind": "notice",
+      "form": "grave",
+      "subject": "What he says while dying",
+      "tag": "Edwin VanCleef",
+      "lines": [
+        "He is the only dungeon boss in the game who argues with you as he goes down.",
+        "\"None may challenge the Brotherhood!\" Then: \"Lapdogs, all of you!\" — \"Fools! Our cause is righteous!\"",
+        "If he wins: \"And stay down!\""
+      ],
+      "spoiler": true,
+      "t": 0.86,
+      "icon": "vancleef-speech"
+    },
+    {
+      "id": "the-letter",
+      "kind": "story",
+      "form": "grave",
+      "subject": "The Unsent Letter",
+      "tag": "After the head comes off",
+      "lines": [
+        "VanCleef's head goes to Gryan Stoutmantle and the Brotherhood is supposedly finished.",
+        "It is not. The letter on his body points back at conspirators still sitting in the House of Nobles.",
+        "The dungeon ends with the crime unsolved."
+      ],
+      "spoiler": true,
+      "t": 1.0,
+      "icon": "the-letter"
+    }
+  ]
+}

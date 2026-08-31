@@ -1,0 +1,201 @@
+{
+  "room": "darkshore",
+  "sources": [
+    "https://warcraft.wiki.gg/wiki/Darkshore_(Classic)",
+    "https://warcraft.wiki.gg/wiki/Darkshore",
+    "https://warcraft.wiki.gg/wiki/Master%27s_Glaive",
+    "https://warcraft.wiki.gg/wiki/Mathystra_Relics",
+    "https://warcraft.wiki.gg/wiki/Ruins_of_Mathystra",
+    "https://warcraft.wiki.gg/wiki/Black_Fathom_Bay",
+    "https://warcraft.wiki.gg/wiki/Cat_Figurine",
+    "https://warcraft.wiki.gg/wiki/Ghost_Saber",
+    "https://warcraft.wiki.gg/wiki/Tower_of_Althalaxx",
+    "https://warcraft.wiki.gg/wiki/Bashal%27Aran",
+    "https://warcraft.wiki.gg/wiki/Auberdine",
+    "https://warcraft.wiki.gg/wiki/Onu"
+  ],
+  "roadEnds": [
+    "Ruins of Mathystra",
+    "The Master's Glaive"
+  ],
+  "seedWho": "Tari",
+  "cards": [
+    {
+      "id": "ameth-aran",
+      "kind": "before",
+      "form": "title",
+      "subject": "Ameth'Aran and Bashal'Aran",
+      "tag": "Before",
+      "lines": [
+        "Azshara founded twin cities here, and they were the pinnacle of night elf civilisation. They stood on the shore of the Well of Eternity.",
+        "The Sundering put the sea where the Well was. Every ruin in this zone is that one night."
+      ],
+      "spoiler": false
+    },
+    {
+      "id": "cat-figurines",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "The cat statues",
+      "tag": "Ruins of Mathystra",
+      "lines": [
+        "The stone cats in the northern ruins can be looted. Usually it is junk.",
+        "Sometimes a Ghost Saber spawns on top of you — a spectral frostsaber that looks permanently stealthed, and one of vanilla's famous hunter tames.",
+        "A freshly tamed one keeps its spawn timer and drops dead a few minutes later. Once. Then it is fine."
+      ],
+      "spoiler": false,
+      "t": 0.08,
+      "icon": "cat-figurines"
+    },
+    {
+      "id": "blackfathom-was-here",
+      "kind": "before",
+      "form": "grave",
+      "subject": "Blackfathom Deeps",
+      "tag": "Moved out in patch 0.12",
+      "lines": [
+        "In early development the dungeon sat in the Ruins of Mathystra, here in northern Darkshore. It was moved to Ashenvale before release.",
+        "Darkshore has no dungeon and no battleground — one of very few zones with neither.",
+        "It was supposed to have one, and you are standing in where it was."
+      ],
+      "spoiler": false,
+      "t": 0.16,
+      "icon": "blackfathom-was-here"
+    },
+    {
+      "id": "athrikus",
+      "kind": "story",
+      "form": "grave",
+      "subject": "Athrikus Narassin",
+      "tag": "Tower of Althalaxx",
+      "lines": [
+        "Azshara posted him here to govern the twin cities. He was loyal at first, and then he grew bored of his post.",
+        "Ten thousand years later he is still in that tower, running the Cult of the Dark Strand.",
+        "He is also why the ruins are haunted: he trapped his own people's souls in gems, and burns them to power himself."
+      ],
+      "spoiler": true,
+      "t": 0.26,
+      "icon": "athrikus"
+    },
+    {
+      "id": "asterion",
+      "kind": "story",
+      "form": "grave",
+      "subject": "Asterion",
+      "tag": "Bashal'Aran · in a seal",
+      "lines": [
+        "Athrikus's own second, the resident mage of Bashal'Aran, sealed inside an Ancient Moonstone Seal. Nothing ever says why.",
+        "Dying did not help. He found, to his horror, that even as a specter he was still imprisoned.",
+        "Ten thousand years, and it ends when a level twenty breaks the stone."
+      ],
+      "spoiler": true,
+      "t": 0.34,
+      "icon": "asterion"
+    },
+    {
+      "id": "bilingual-signs",
+      "kind": "look",
+      "form": "chip",
+      "subject": "Auberdine's signposts",
+      "tag": "Darnassian and Common",
+      "lines": [
+        "A night elf town that reads as a port first: unusually well lit for a kaldorei settlement, with signs in two languages.",
+        "Dwarves, gnomes, humans and high elves all trade here.",
+        "There is a dwarven smithy in it."
+      ],
+      "spoiler": false,
+      "t": 0.42,
+      "icon": "bilingual-signs"
+    },
+    {
+      "id": "two-boats",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "Two boats, not three",
+      "tag": "The dock in 1.12",
+      "lines": [
+        "The Moonspray to Rut'theran Village, the Bravery to Menethil Harbor. That is the whole timetable.",
+        "Elune's Blessing to Azuremyst is a Burning Crusade addition and that pier does not run yet.",
+        "Auberdine is the only settlement in the zone and the Alliance's main port in northern Kalimdor. Everything crossing the sea comes through this one dock."
+      ],
+      "spoiler": false,
+      "t": 0.5,
+      "icon": "two-boats"
+    },
+    {
+      "id": "the-drowning-zone",
+      "kind": "beware",
+      "form": "chip",
+      "subject": "The air, not the mobs",
+      "tag": "Underwater quests",
+      "lines": [
+        "Darkshore was infamous for how many of its quests are underwater.",
+        "It only became survivable when the breath timer went to three minutes.",
+        "Most of what kills you here is the surface being further away than you thought."
+      ],
+      "spoiler": false,
+      "t": 0.58,
+      "icon": "the-drowning-zone"
+    },
+    {
+      "id": "blackwood-furbolg",
+      "kind": "story",
+      "form": "chip",
+      "subject": "The Blackwood",
+      "tag": "They used to be friends",
+      "lines": [
+        "The furbolgs here were uncultured but friendly to the night elves. Their time in the ruins turned many of them feral.",
+        "The taint bleeding down out of Felwood poisoned the zone's wildlife along with them.",
+        "You are not clearing a camp of monsters. You are clearing a camp of neighbours."
+      ],
+      "spoiler": false,
+      "t": 0.66,
+      "icon": "blackwood-furbolg"
+    },
+    {
+      "id": "onu",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "Onu",
+      "tag": "Grove of the Ancients",
+      "lines": [
+        "He is not scenery. He is an Ancient of Lore, written slow and patient on purpose as the counterweight to Fandral Staghelm's hurry.",
+        "He talks to you at the Master's Glaive from where he is rooted, at the other end of the zone.",
+        "\"Hum, hrm. A powerful reagent for one so young...birth is as powerful as death.\""
+      ],
+      "spoiler": false,
+      "t": 0.76,
+      "icon": "onu"
+    },
+    {
+      "id": "twilight-already-here",
+      "kind": "story",
+      "form": "chip",
+      "subject": "The Twilight's Hammer, in 1.12",
+      "tag": "Mathystra Relics",
+      "lines": [
+        "Everybody assumes the cult at the Glaive is Cataclysm. It is not. A level twenty quest, deleted from the game in 4.0.3a, says so.",
+        "A parchment taken from the Glaive comes back tainted by the corruption of the Twilight's Hammer.",
+        "\"The cult is using ancient elven magic to bring their old masters back.\" Ten years before Deathwing."
+      ],
+      "spoiler": false,
+      "t": 0.88,
+      "icon": "twilight-already-here"
+    },
+    {
+      "id": "masters-glaive",
+      "kind": "look",
+      "form": "chip",
+      "subject": "The Master's Glaive",
+      "tag": "The southern tip",
+      "lines": [
+        "The huge shell at the bottom of the zone is not architecture. It is the skull of Soggoth the Slitherer, a herald of the Old Gods.",
+        "The glaive is the sword still in its crown. About twenty titan-sent stone giants died here; only Kronn survived.",
+        "Nobody knows why the blade was left in. Likeliest answer: pulling it out lets the thing grow back."
+      ],
+      "spoiler": false,
+      "t": 1.0,
+      "icon": "masters-glaive"
+    }
+  ]
+}

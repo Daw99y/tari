@@ -1,0 +1,207 @@
+{
+  "room": "desolace",
+  "sources": [
+    "https://warcraft.wiki.gg/wiki/Desolace",
+    "https://warcraft.wiki.gg/wiki/Zaetar",
+    "https://warcraft.wiki.gg/wiki/Kodo_Graveyard",
+    "https://warcraft.wiki.gg/wiki/Quest:Kodo_Roundup",
+    "https://warcraft.wiki.gg/wiki/Gelkis_Clan_Centaur",
+    "https://warcraft.wiki.gg/wiki/Thunder_Axe_Fortress",
+    "https://warcraft.wiki.gg/wiki/Maraudon"
+  ],
+  "roadEnds": ["Nijel's Point", "Shadowprey Village"],
+  "seedWho": "Tari",
+  "cards": [
+    {
+      "id": "mashan-she",
+      "kind": "before",
+      "form": "title",
+      "subject": "Mashan'she",
+      "tag": "Before",
+      "lines": [
+        "The zone's real name is Mashan'she — Loom of the Earth Mother. It was fertile grassland and tauren lived on it.",
+        "Desolace is what the survivors called it afterwards."
+      ],
+      "spoiler": false
+    },
+    {
+      "id": "it-is-grey",
+      "kind": "look",
+      "form": "chip",
+      "subject": "It is supposed to look like this",
+      "tag": "Not unfinished art",
+      "lines": [
+        "Black stormy sky, dead trees, yellow polluted pools, bone litter, no green anywhere.",
+        "It is a zone whose entire premise is that something ate the life out of it.",
+        "Cataclysm made it fertile — grass, trees, settlements. What you are standing in no longer exists in the live game."
+      ],
+      "spoiler": false,
+      "t": 0.06,
+      "icon": "it-is-grey"
+    },
+    {
+      "id": "theradras",
+      "kind": "story",
+      "form": "chip",
+      "subject": "The rite that woke the wrong thing",
+      "tag": "About eleven hundred years ago",
+      "lines": [
+        "Tauren shamans performed a ceremony here to wake the Earth Mother. What they woke was Princess Theradras, daughter of the Stonemother.",
+        "Newly awake and starving, she reached out to the surroundings for sustenance and consumed their energies.",
+        "All of this grey is what she left."
+      ],
+      "spoiler": false,
+      "t": 0.16,
+      "icon": "theradras"
+    },
+    {
+      "id": "zaetar",
+      "kind": "story",
+      "form": "chip",
+      "subject": "Zaetar",
+      "tag": "Firstborn son of Cenarius",
+      "lines": [
+        "He came to investigate the dying land and fell in love with Theradras instead. He knew it was against nature and did it anyway.",
+        "Their children were the centaur. Seeing disgust in their father's face, they murdered him.",
+        "Theradras entombed his spirit in Maraudon, and the centaur hold it as holy ground."
+      ],
+      "spoiler": false,
+      "t": 0.26,
+      "icon": "zaetar"
+    },
+    {
+      "id": "five-khans",
+      "kind": "story",
+      "form": "chip",
+      "subject": "The clans are brothers",
+      "tag": "Kolk · Gelk · Magra · Maraudos · Veng",
+      "lines": [
+        "Zaetar and Theradras produced five khans, and the centaur tribes are named for them.",
+        "The Gelkis and the Magram tearing each other apart across southern Desolace are two of those brothers.",
+        "The whole race is one family, still fighting over the corpse of its father."
+      ],
+      "spoiler": false,
+      "t": 0.36,
+      "icon": "five-khans"
+    },
+    {
+      "id": "pick-a-side",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "You have to choose",
+      "tag": "Gelkis or Magram",
+      "lines": [
+        "One of very few directly opposed reputations in the whole game: killing one raises the other and lowers the first.",
+        "Each side has its own chain and its own gear at the end. You cannot be liked by both.",
+        "Whichever you pick, the other village is permanently hostile ground."
+      ],
+      "spoiler": false,
+      "t": 0.46,
+      "icon": "pick-a-side"
+    },
+    {
+      "id": "kodo-graveyard",
+      "kind": "look",
+      "form": "chip",
+      "subject": "The Kodo Graveyard",
+      "tag": "Nobody knows why",
+      "lines": [
+        "The kodo of Kalimdor walk to one specific patch of northern Desolace to die.",
+        "\"No one knows why the kodo beasts come to this particular place, but it is a habit long maintained.\"",
+        "It is an elephants' graveyard, and that is the only explanation anyone has."
+      ],
+      "spoiler": false,
+      "t": 0.56,
+      "icon": "kodo-graveyard"
+    },
+    {
+      "id": "the-big-bones",
+      "kind": "look",
+      "form": "chip",
+      "subject": "Some of the bones are too big",
+      "tag": "Walk it and compare",
+      "lines": [
+        "Several skeletons out there are larger than any kodo alive in the game.",
+        "Whatever was dying here was dying here long before anything you can currently kill.",
+        "Grave Moss grows in the ribcages."
+      ],
+      "spoiler": false,
+      "t": 0.64,
+      "icon": "the-big-bones"
+    },
+    {
+      "id": "smeed",
+      "kind": "story",
+      "form": "chip",
+      "subject": "Smeed Scrabblescrew",
+      "tag": "South of the graveyard",
+      "lines": [
+        "He has a device called the Kodo Kombobulator that jolts an ancient or aged kodo into a tamed one that follows you home.",
+        "He is intercepting animals on their way to die and selling them to caravan owners.",
+        "\"Three, excellent... I am going to be rich... yes, very rich!\""
+      ],
+      "spoiler": false,
+      "t": 0.72,
+      "icon": "smeed"
+    },
+    {
+      "id": "thunder-axe",
+      "kind": "beware",
+      "form": "chip",
+      "subject": "Thunder Axe Fortress",
+      "tag": "The Burning Blade, in the northwest",
+      "lines": [
+        "They hold the Hand of Iruxos, which opens demon portals, and a Sceptre of Light they took off the naga.",
+        "They have worked out how to summon Nazargen.",
+        "The Mannoroc Coven is down the road to the south."
+      ],
+      "spoiler": false,
+      "t": 0.8,
+      "icon": "thunder-axe"
+    },
+    {
+      "id": "the-fires",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "Patch 1.4.0 gave the fires names",
+      "tag": "A real patch note",
+      "lines": [
+        "\"Fires in Thunder Axe Fortress in Desolace now have proper names.\"",
+        "For the game's first months, the campfires of a demon cult were nameless objects.",
+        "Somebody filed that."
+      ],
+      "spoiler": false,
+      "t": 0.88,
+      "icon": "the-fires"
+    },
+    {
+      "id": "maraudon",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "Maraudon",
+      "tag": "Under the Valley of Spears",
+      "lines": [
+        "Three wings: Wicked Grotto, Foulspore Cavern, Earth Song Falls.",
+        "It is two places overlaid — the centaur's ancestral burial ground, and a primal temple of elemental earth.",
+        "The last thing in it is Theradras herself, still sitting on her husband."
+      ],
+      "spoiler": false,
+      "t": 0.94,
+      "icon": "maraudon"
+    },
+    {
+      "id": "zaetar-freed",
+      "kind": "story",
+      "form": "grave",
+      "subject": "Killing her frees him",
+      "tag": "And he stays anyway",
+      "lines": [
+        "Beat Theradras and Zaetar's spirit is released from the stone.",
+        "He chooses to remain in Maraudon regardless, to watch over the children who killed him."
+      ],
+      "spoiler": true,
+      "t": 1.0,
+      "icon": "zaetar-freed"
+    }
+  ]
+}

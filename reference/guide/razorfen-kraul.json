@@ -1,0 +1,211 @@
+{
+  "room": "razorfen-kraul",
+  "sources": [
+    "https://warcraft.wiki.gg/wiki/Razorfen_Kraul_(Classic)",
+    "https://warcraft.wiki.gg/wiki/Agamaggan",
+    "https://warcraft.wiki.gg/wiki/Charlga_Razorflank",
+    "https://warcraft.wiki.gg/wiki/Death%27s_Head_tribe",
+    "https://warcraft.wiki.gg/wiki/Heralath_Fallowbrook",
+    "https://warcraft.wiki.gg/wiki/Willix_the_Importer",
+    "https://warcraft.wiki.gg/wiki/Blood_of_Agamaggan",
+    "https://warcraft.wiki.gg/wiki/Agam%27ar",
+    "https://warcraft.wiki.gg/wiki/Blind_Hunter",
+    "https://warcraft.wiki.gg/wiki/Earthcaller_Halmgar",
+    "https://warcraft.wiki.gg/wiki/Aggem_Thorncurse_(Classic)",
+    "https://warcraft.wiki.gg/wiki/Agathelos_the_Raging"
+  ],
+  "roadEnds": [
+    "The entrance trench",
+    "Charlga's perch"
+  ],
+  "seedWho": "Tari",
+  "cards": [
+    {
+      "id": "agamaggan",
+      "kind": "before",
+      "form": "title",
+      "subject": "Agamaggan",
+      "tag": "Before",
+      "lines": [
+        "A colossal boar Wild God, one of the first and most powerful things alive, who killed demons by the thousand with stomps and quills he threw like spears.",
+        "He fought Mannoroth and went down buying time for Malfurion to reach the Well of Eternity. The whole Razorfen is his body."
+      ],
+      "spoiler": false
+    },
+    {
+      "id": "willix",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "Willix the Importer",
+      "tag": "He came for vegetables",
+      "lines": [
+        "A Ratchet goblin sent in to collect blueleaf tuber. The quilboar caught him.",
+        "He is standing in a dungeon full of pig-men worrying about margin: \"There's blueleaf tuber in this trench! It's like gold waiting to be mined.\"",
+        "On the way out he looks up and says: \"Blasted old crone.\""
+      ],
+      "spoiler": false,
+      "t": 0.08,
+      "icon": "willix"
+    },
+    {
+      "id": "no-floor-plan",
+      "kind": "look",
+      "form": "chip",
+      "subject": "You are walking on the vines",
+      "tag": "There is no stonework in here",
+      "lines": [
+        "Directions inside this instance are given as landmarks in vegetation: cross over a large vine, past the first wooden bridge.",
+        "The paths are the thorn growth itself, with planks the quilboar have laid across the gaps."
+      ],
+      "spoiler": false,
+      "t": 0.18,
+      "icon": "no-floor-plan"
+    },
+    {
+      "id": "agam-ar",
+      "kind": "look",
+      "form": "chip",
+      "subject": "Agam'ar",
+      "tag": "Even the livestock",
+      "lines": [
+        "The wild boars in here are not called boars. They are Agam'ar, named for the god.",
+        "Raging and rotting ones roam the same paths, and a hunter can tame them.",
+        "Everything down to the pigs carries a dead god's name."
+      ],
+      "spoiler": false,
+      "t": 0.28,
+      "icon": "agam-ar"
+    },
+    {
+      "id": "blood-of-agamaggan",
+      "kind": "look",
+      "form": "chip",
+      "subject": "Blood of Agamaggan",
+      "tag": "That is the mob's actual name",
+      "lines": [
+        "Elite oozes wander the Kraul under that name, and they cast Curse of Blood.",
+        "Whether they are literally made of the demigod's blood, the wiki will not commit to."
+      ],
+      "spoiler": false,
+      "t": 0.36,
+      "icon": "blood-of-agamaggan"
+    },
+    {
+      "id": "heralath",
+      "kind": "story",
+      "form": "chip",
+      "subject": "Heralath Fallowbrook",
+      "tag": "The night elf in the hut",
+      "lines": [
+        "A druid sent to find out what corrupted this place. The quilboar caught him, whipped him, and left him in a hut inside the dungeon.",
+        "A dwarf was thrown in the same cell. Heralath told him what he had learned, then died — that dwarf's journal lies at the foot of the Great Lift.",
+        "His last request is his wife's pendant, carried back to Darnassus."
+      ],
+      "spoiler": false,
+      "t": 0.46,
+      "icon": "heralath"
+    },
+    {
+      "id": "the-earthcallers",
+      "kind": "beware",
+      "form": "chip",
+      "subject": "Both rares do the same trick",
+      "tag": "Roogug · Earthcaller Halmgar",
+      "lines": [
+        "Each is a quilboar shaman who summons a Stone Rumbler to fight beside him.",
+        "Earthcaller is a rank, not a name. Geomancy — reading stones and crystals — is the quilboar's highest form of shamanism."
+      ],
+      "spoiler": false,
+      "t": 0.56,
+      "icon": "the-earthcallers"
+    },
+    {
+      "id": "blind-hunter",
+      "kind": "look",
+      "form": "chip",
+      "subject": "The Blind Hunter",
+      "tag": "A white bat",
+      "lines": [
+        "A rare elite bat, and an albino — pale where every other bat down here is dark.",
+        "The guess is that it is blind and colourless because it never leaves the deepest part of the Kraul.",
+        "It is tamable, and famously hard to make appear at all. In here it has no other name."
+      ],
+      "spoiler": false,
+      "t": 0.64,
+      "icon": "blind-hunter"
+    },
+    {
+      "id": "aggem",
+      "kind": "look",
+      "form": "chip",
+      "subject": "Aggem Thorncurse",
+      "tag": "Death's Head Prophet",
+      "lines": [
+        "Prophet is a real title. The quilboar name their greatest shaman prophets of Agamaggan.",
+        "Where every other shaman in the game calls spirit wolves, he calls a boar."
+      ],
+      "spoiler": false,
+      "t": 0.72,
+      "icon": "aggem"
+    },
+    {
+      "id": "agathelos",
+      "kind": "story",
+      "form": "chip",
+      "subject": "Agathelos the Raging",
+      "tag": "Penned, on purpose",
+      "lines": [
+        "An enormous armoured boar kept in a short tunnel behind a magical field the quilboar maintain.",
+        "The story told about him is that the Death's Head fed him the guano off the Kraul's bats to make him bigger and angrier.",
+        "The caves above are full of bats. The droppings fall."
+      ],
+      "spoiler": false,
+      "t": 0.8,
+      "icon": "agathelos"
+    },
+    {
+      "id": "five-and-thirty",
+      "kind": "before",
+      "form": "chip",
+      "subject": "What the numbers were",
+      "tag": "It has been three dungeons",
+      "lines": [
+        "Uncapped at launch, capped at ten in patch 1.3.0, cut to five in 1.10.0.",
+        "In here it is five, and the range is twenty-nine to thirty-eight.",
+        "The twenty-four to twenty-nine everybody remembers is a Burning Crusade retune that has not happened."
+      ],
+      "spoiler": false,
+      "t": 0.88,
+      "icon": "five-and-thirty"
+    },
+    {
+      "id": "the-crones-lie",
+      "kind": "story",
+      "form": "grave",
+      "subject": "What Charlga told her people",
+      "tag": "The Crone",
+      "lines": [
+        "She sent quilboar out to kill Barrens travellers by telling them the blood was needed to bring Agamaggan back.",
+        "It was a manipulation. She was separately negotiating with agents of the Scourge and quietly binding her own tribe to the undead."
+      ],
+      "spoiler": true,
+      "t": 0.94,
+      "icon": "the-crones-lie"
+    },
+    {
+      "id": "amnennar",
+      "kind": "story",
+      "form": "grave",
+      "subject": "She is not the top of it",
+      "tag": "Amnennar holds the leash",
+      "lines": [
+        "Charlga is the figurehead of the Razorfen and the Death's Head. A lich controls both.",
+        "The Death's Head are the first real Scourge foothold on Kalimdor.",
+        "Kill the Crone here and you have removed a middle manager. The answer is one dungeon further."
+      ],
+      "spoiler": true,
+      "t": 1.0,
+      "icon": "amnennar"
+    }
+  ]
+}

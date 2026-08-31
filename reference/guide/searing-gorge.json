@@ -1,0 +1,210 @@
+{
+  "room": "searing-gorge",
+  "sources": [
+    "https://warcraft.wiki.gg/wiki/Searing_Gorge",
+    "https://warcraft.wiki.gg/wiki/Searing_Gorge_(Classic)",
+    "https://warcraft.wiki.gg/wiki/Key_to_Searing_Gorge_quest_chain",
+    "https://warcraft.wiki.gg/wiki/Stonewrought_Pass",
+    "https://warcraft.wiki.gg/wiki/Thorium_Point",
+    "https://warcraft.wiki.gg/wiki/Thorium_Brotherhood",
+    "https://warcraft.wiki.gg/wiki/The_Cauldron",
+    "https://warcraft.wiki.gg/wiki/Grimesilt_Dig_Site",
+    "https://warcraft.wiki.gg/wiki/Firewatch_Ridge",
+    "https://warcraft.wiki.gg/wiki/The_Charred_Oak",
+    "https://warcraft.wiki.gg/wiki/Blackchar_Cave"
+  ],
+  "roadEnds": ["Stonewrought Pass", "The Sea of Cinders"],
+  "seedWho": "Tari",
+  "cards": [
+    {
+      "id": "a-green-valley",
+      "kind": "before",
+      "form": "title",
+      "subject": "A green valley",
+      "tag": "Before",
+      "lines": [
+        "Two hundred and thirty years ago Thaurissan summoned Ragnaros here during the War of the Three Hammers.",
+        "The blast raised Blackrock Mountain and burned the valley around it in the same instant. The zone and the mountain you are staring at were made by one mistake."
+      ],
+      "spoiler": false
+    },
+    {
+      "id": "the-locked-gate",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "Stonewrought Pass",
+      "tag": "Gated on both sides",
+      "lines": [
+        "The famous locked door is not in this zone. It is the tunnel out of Loch Modan's Valley of Kings, and in here it is barred at each end.",
+        "A rogue with two hundred and twenty-five lockpicking opens it.",
+        "So does dying at the gate and walking through as a ghost."
+      ],
+      "spoiler": false,
+      "t": 0.08,
+      "icon": "the-locked-gate"
+    },
+    {
+      "id": "the-key-chain",
+      "kind": "story",
+      "form": "chip",
+      "subject": "The key required you to already be in",
+      "tag": "The Horn of the Beast",
+      "lines": [
+        "The Alliance chain starts by killing Margol the Rager — who lives inside Searing Gorge.",
+        "To earn the key to the gate you first had to take the long way round through the Badlands and get in without it.",
+        "And then Ironforge had to authenticate the horn before anyone would believe you."
+      ],
+      "spoiler": false,
+      "t": 0.18,
+      "icon": "the-key-chain"
+    },
+    {
+      "id": "the-back-road",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "The Horde never needed a key",
+      "tag": "The trail south of Kargath",
+      "lines": [
+        "No Horde version of the chain exists. They come in by a back road the orcs paved through the Badlands.",
+        "Alliance players used the same road for years rather than run the quest."
+      ],
+      "spoiler": false,
+      "t": 0.26,
+      "icon": "the-back-road"
+    },
+    {
+      "id": "thorium-point",
+      "kind": "before",
+      "form": "chip",
+      "subject": "Thorium Point",
+      "tag": "Patch 1.5.0, seven months in",
+      "lines": [
+        "\"Searing Gorge has a new quest hub for both Alliance and Horde players called Thorium Point.\"",
+        "Before that, this zone had no hub, no flight path and no forge at all.",
+        "You came in through a locked door to a place with nowhere to stand."
+      ],
+      "spoiler": false,
+      "t": 0.36,
+      "icon": "thorium-point"
+    },
+    {
+      "id": "two-flight-masters",
+      "kind": "look",
+      "form": "chip",
+      "subject": "Two flight masters, feet apart",
+      "tag": "Same mesa",
+      "lines": [
+        "Lanie Reed flies the Alliance and Grisha flies the Horde, off the same rock.",
+        "No inn, no bank, no mailbox, no auction house.",
+        "A forge, an anvil, and two enemies' flight paths."
+      ],
+      "spoiler": false,
+      "t": 0.44,
+      "icon": "two-flight-masters"
+    },
+    {
+      "id": "the-brotherhood",
+      "kind": "story",
+      "form": "chip",
+      "subject": "The Thorium Brotherhood",
+      "tag": "They escaped and did not leave",
+      "lines": [
+        "Dark Iron smiths forced to mass-produce weapons for Ragnaros, who forged their own tools and got out.",
+        "Then they settled two hills away from the thing they fled.",
+        "Their formulas need components found only near Blackrock Mountain. They stayed because the metal is here."
+      ],
+      "spoiler": false,
+      "t": 0.54,
+      "icon": "the-brotherhood"
+    },
+    {
+      "id": "the-cauldron",
+      "kind": "beware",
+      "form": "chip",
+      "subject": "The slaves will fight you",
+      "tag": "The Cauldron",
+      "lines": [
+        "Ironforge dwarves, gnolls and ogres taken by the Dark Iron and worked in the pit under the excavation machines.",
+        "\"Driven mad by their masters, the grueling work, and the constant oppressive heat.\"",
+        "They attack anyone who interrupts the work, rescuers included."
+      ],
+      "spoiler": false,
+      "t": 0.64,
+      "icon": "the-cauldron"
+    },
+    {
+      "id": "grimesilt",
+      "kind": "look",
+      "form": "chip",
+      "subject": "Grimesilt Dig Site",
+      "tag": "Two of the original crew are still down there",
+      "lines": [
+        "Ironforge dwarves opened this excavation. The Dark Iron took it and still hold it.",
+        "Dorius Stonetender lies injured at the bottom of the pit.",
+        "Locheed is trapped in an outhouse nearby."
+      ],
+      "spoiler": false,
+      "t": 0.72,
+      "icon": "grimesilt"
+    },
+    {
+      "id": "firewatch",
+      "kind": "beware",
+      "form": "chip",
+      "subject": "Firewatch Ridge",
+      "tag": "The high ground over the Cauldron",
+      "lines": [
+        "Dark Iron dwarves, their mechanical golems and giant flame spiders.",
+        "The whole ridge is an elite area and stays that way for all of this game's life — the tag was not lifted until patch 2.3.0.",
+        "In here it is still elite."
+      ],
+      "spoiler": false,
+      "t": 0.8,
+      "icon": "firewatch"
+    },
+    {
+      "id": "the-charred-oak",
+      "kind": "look",
+      "form": "chip",
+      "subject": "The Charred Oak",
+      "tag": "Overlooking the Cauldron",
+      "lines": [
+        "A tree you can click on, in a zone made of ash. Its flavour text reads: \"Looks a tad burnt.\"",
+        "It held bundles of charred oak for one level forty-four quest.",
+        "Removed from the game in 4.0.3a. It exists here and nowhere else."
+      ],
+      "spoiler": false,
+      "t": 0.88,
+      "icon": "the-charred-oak"
+    },
+    {
+      "id": "blackchar-face",
+      "kind": "look",
+      "form": "chip",
+      "subject": "There is a face in the terrain",
+      "tag": "Blackchar Cave",
+      "lines": [
+        "Stand outside the sealed cave near the Blackrock side and open your map.",
+        "The landforms read as a face, and the cave sits on its left cheek."
+      ],
+      "spoiler": false,
+      "t": 0.94,
+      "icon": "blackchar-face"
+    },
+    {
+      "id": "front-porch",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "This is a front porch",
+      "tag": "Blackrock Mountain",
+      "lines": [
+        "The mountain sits between here and the Burning Steppes, and this zone is its northern approach.",
+        "Everybody in the gorge at forty-five will be back at sixty, walking the same road.",
+        "To Blackrock Depths, and then to Molten Core."
+      ],
+      "spoiler": false,
+      "t": 1.0,
+      "icon": "front-porch"
+    }
+  ]
+}

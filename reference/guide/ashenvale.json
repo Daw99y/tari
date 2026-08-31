@@ -1,0 +1,196 @@
+{
+  "room": "ashenvale",
+  "sources": [
+    "https://warcraft.wiki.gg/wiki/Ashenvale",
+    "https://warcraft.wiki.gg/wiki/Demon_Fall_Canyon",
+    "https://warcraft.wiki.gg/wiki/Monument_to_Grom_Hellscream",
+    "https://warcraft.wiki.gg/wiki/Quest:Honoring_a_Hero_(Horde)",
+    "https://warcraft.wiki.gg/wiki/Howling_Vale",
+    "https://warcraft.wiki.gg/wiki/Bough_Shadow",
+    "https://warcraft.wiki.gg/wiki/Astranaar",
+    "https://warcraft.wiki.gg/wiki/Warsong_Gulch",
+    "https://warcraft.wiki.gg/wiki/Ordanus",
+    "https://warcraft.wiki.gg/wiki/Raene_Wolfrunner",
+    "https://warcraft.wiki.gg/wiki/Blackfathom_Deeps"
+  ],
+  "roadEnds": ["Zoram Strand", "Demon Fall Canyon"],
+  "seedWho": "Tari",
+  "cards": [
+    {
+      "id": "felwood-was-this",
+      "kind": "before",
+      "form": "title",
+      "subject": "Felwood was this forest",
+      "tag": "Before",
+      "lines": [
+        "During the Third War Tichondrius used the Skull of Gul'dan here, and the corruption spread north.",
+        "Felwood is not a separate place. It is Ashenvale, poisoned — the same trees, one border away. Walk north and the ground tells you where it stopped."
+      ],
+      "spoiler": false
+    },
+    {
+      "id": "lathar-lazal",
+      "kind": "look",
+      "form": "chip",
+      "subject": "Zoram Strand",
+      "tag": "The cave at the west end",
+      "lines": [
+        "Blackfathom Deeps has a real name: Lathar'Lazal, the Seat of the Sky — a temple to Elune built by Queen Azshara, with gem-encrusted bridges.",
+        "The Sundering dropped it into the sea.",
+        "What is left is a hole in the rock at the end of a level twenty beach."
+      ],
+      "spoiler": false,
+      "t": 0.06,
+      "icon": "lathar-lazal"
+    },
+    {
+      "id": "cenarius",
+      "kind": "story",
+      "form": "chip",
+      "subject": "Cenarius died in this forest",
+      "tag": "The reason for everything else",
+      "lines": [
+        "The Warsong were clear-cutting Ashenvale with goblin help when the demigod came for them. Grom drank Mannoroth's blood and killed him.",
+        "Every druid, dryad and keeper you meet here is his child or his student.",
+        "The Sentinels, the Cenarion Circle, the Silverwing oath — all of it is grief with a job."
+      ],
+      "spoiler": false,
+      "t": 0.16,
+      "icon": "cenarius"
+    },
+    {
+      "id": "astranaar",
+      "kind": "look",
+      "form": "chip",
+      "subject": "Astranaar",
+      "tag": "It is an island",
+      "lines": [
+        "The town sits on an island in a lake with two bridges onto it. That is a defensive shape, not a decorative one.",
+        "Raene Wolfrunner runs it as a military post, expecting the Thistlefur furbolgs to eventually come at the town directly."
+      ],
+      "spoiler": false,
+      "t": 0.26,
+      "icon": "astranaar"
+    },
+    {
+      "id": "the-satyr-holds",
+      "kind": "story",
+      "form": "chip",
+      "subject": "Xavian · Satyrnaar · Fire Scar",
+      "tag": "Nine thousand years of residue",
+      "lines": [
+        "The satyr holds are what is left of the War of the Satyr, more than nine thousand years before the war you are in.",
+        "The fel magic that scarred the forest then is the same corruption still eating the Ruins of Stardust.",
+        "Ashenvale's demons are not an invasion. They are an infection that never cleared."
+      ],
+      "spoiler": false,
+      "t": 0.34,
+      "icon": "the-satyr-holds"
+    },
+    {
+      "id": "howling-vale",
+      "kind": "story",
+      "form": "chip",
+      "subject": "The Shrine of Mel'Thandris",
+      "tag": "Howling Vale",
+      "lines": [
+        "Mel'Thandris died sealing away the Druids of the Scythe, and the Scythe of Elune was laid at her shrine here.",
+        "Her niece Velinde Starsong came to take it back. The worgen now in the ruins are what renamed the valley.",
+        "This is where worgen enter the story. The trail out of it leads to Duskwood."
+      ],
+      "spoiler": false,
+      "t": 0.44,
+      "icon": "howling-vale"
+    },
+    {
+      "id": "dartols-rod",
+      "kind": "story",
+      "form": "grave",
+      "subject": "Dartol's Rod of Transformation",
+      "tag": "Raene's Cleansing",
+      "lines": [
+        "You assemble a broken rod, then use it to turn yourself into a furbolg so you can walk into the Barrow Dens and talk to one.",
+        "The disguise is the mechanic and the point: they are corrupted, not hostile by nature.",
+        "The chain ends with Ran Bloodtooth's skull, which Raene keeps in a place of reverence."
+      ],
+      "spoiler": true,
+      "t": 0.54,
+      "icon": "dartols-rod"
+    },
+    {
+      "id": "ordanus",
+      "kind": "story",
+      "form": "chip",
+      "subject": "Ordanus",
+      "tag": "Raynewood Retreat",
+      "lines": [
+        "A keeper of the grove, and the Horde quest on him is a level twenty-nine kill order.",
+        "He is not elite. One player takes his head.",
+        "The whole questline was deleted in 4.0.3a and he turns up alive again decades later."
+      ],
+      "spoiler": false,
+      "t": 0.62,
+      "icon": "ordanus"
+    },
+    {
+      "id": "bough-shadow",
+      "kind": "look",
+      "form": "chip",
+      "subject": "Bough Shadow",
+      "tag": "Northeast corner, past Forest Song",
+      "lines": [
+        "A Great Tree and one of the portals into the Emerald Dream, guarded in the open world by green dragons and their oracles and boughguards.",
+        "No quest sends a levelling player here.",
+        "You have to go looking for it."
+      ],
+      "spoiler": false,
+      "t": 0.72,
+      "icon": "bough-shadow"
+    },
+    {
+      "id": "silverwing-grove",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "Silverwing Grove",
+      "tag": "The door is a place",
+      "lines": [
+        "The Alliance entrance to Warsong Gulch is a physical spot in this zone, southwest of Silverwing Outpost near Fallen Sky Lake.",
+        "You can walk to it instead of queueing.",
+        "The Horde side is not in Ashenvale at all — it is a mountainside in the Barrens."
+      ],
+      "spoiler": false,
+      "t": 0.82,
+      "icon": "silverwing-grove"
+    },
+    {
+      "id": "the-oath",
+      "kind": "story",
+      "form": "chip",
+      "subject": "Why the Gulch exists",
+      "tag": "It is not a sport",
+      "lines": [
+        "The Warsong Outriders keep logging Ashenvale after the Third War, and the vanilla framing is that they do it despite Thrall.",
+        "The Silverwing Sentinels will not rest until every last orc is defeated and cast out.",
+        "It is a lumber dispute nobody will end."
+      ],
+      "spoiler": false,
+      "t": 0.9,
+      "icon": "the-oath"
+    },
+    {
+      "id": "grom",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "The Monument to Grom Hellscream",
+      "tag": "Demon Fall Canyon",
+      "lines": [
+        "A stone in the far southeast reads: \"Here lies Grommash Hellscream, Chieftain of the Warsong Clan.\"",
+        "At the Harvest Festival, an orc outside Orgrimmar hands Horde players an offering to carry all the way here and lay at its base.",
+        "It is the only place in this world where the Horde formally grieves."
+      ],
+      "spoiler": false,
+      "t": 1.0,
+      "icon": "grom"
+    }
+  ]
+}

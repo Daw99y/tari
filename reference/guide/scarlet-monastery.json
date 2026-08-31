@@ -1,0 +1,210 @@
+{
+  "room": "scarlet-monastery",
+  "sources": [
+    "https://warcraft.wiki.gg/wiki/Scarlet_Monastery",
+    "https://warcraft.wiki.gg/wiki/Scarlet_Monastery_Graveyard",
+    "https://warcraft.wiki.gg/wiki/High_Inquisitor_Whitemane_(Classic)",
+    "https://warcraft.wiki.gg/wiki/Renault_Mograine",
+    "https://warcraft.wiki.gg/wiki/High_Inquisitor_Fairbanks",
+    "https://warcraft.wiki.gg/wiki/Corrupted_Ashbringer",
+    "https://warcraft.wiki.gg/wiki/Interrogator_Vishas",
+    "https://warcraft.wiki.gg/wiki/Bloodmage_Thalnos",
+    "https://warcraft.wiki.gg/wiki/Herod",
+    "https://warcraft.wiki.gg/wiki/Arcanist_Doan"
+  ],
+  "roadEnds": ["The vestibule", "The Crusader's Chapel"],
+  "seedWho": "Tari",
+  "cards": [
+    {
+      "id": "a-religious-campus",
+      "kind": "before",
+      "form": "title",
+      "subject": "The Athenaeum",
+      "tag": "Before",
+      "lines": [
+        "The Library wing is a real library and the Cathedral is a real cathedral, with prayer rooms behind the altar. This was Alonsus Faol's seat, a Holy Light archive and a paladin seminary.",
+        "You are fighting inside a working religious campus that was never built for any of this."
+      ],
+      "spoiler": false
+    },
+    {
+      "id": "four-doors",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "Four doors, one building",
+      "tag": "You choose before you go in",
+      "lines": [
+        "Graveyard, Library, Armory, Cathedral — four separate instances behind four doors off the same vestibule.",
+        "Ten people fit. That cap arrived in patch 1.3.0; before it there was no limit at all.",
+        "The Armory and Cathedral stay locked until somebody has the key."
+      ],
+      "spoiler": false,
+      "t": 0.06,
+      "icon": "four-doors"
+    },
+    {
+      "id": "the-splinter",
+      "kind": "story",
+      "form": "chip",
+      "subject": "How the Crusade happened",
+      "tag": "The Silver Hand split",
+      "lines": [
+        "After the Third War the Knights of the Silver Hand took this monastery as a defensive position in Tirisfal.",
+        "Then the order broke in two — Argent Dawn one way, Scarlet Crusade the other. The Crusade kept the building and renamed it.",
+        "Everyone you kill in here is standing in a paladin order's old house."
+      ],
+      "spoiler": false,
+      "t": 0.14,
+      "icon": "the-splinter"
+    },
+    {
+      "id": "vishas",
+      "kind": "story",
+      "form": "chip",
+      "subject": "Interrogator Vishas",
+      "tag": "The Chamber of Atonement",
+      "lines": [
+        "He has been working on the Forsaken Vorrel Sengutz for weeks.",
+        "He took Sengutz's wedding ring off him and gave it to his own wife, who lives out in Tirisfal.",
+        "\"Tell me... tell me everything!\" And when he wins: \"Purged by pain!\""
+      ],
+      "spoiler": false,
+      "t": 0.24,
+      "icon": "vishas"
+    },
+    {
+      "id": "thalnos",
+      "kind": "story",
+      "form": "chip",
+      "subject": "Bloodmage Thalnos",
+      "tag": "The purifier who caught it",
+      "lines": [
+        "He made his name in the Crusade for the torture he used to purify new recruits.",
+        "Then he caught the plague, died, and rose as a skeleton.",
+        "He is still in their own graveyard, under the far staircase, hostile to everyone. \"No rest, for the angry dead.\""
+      ],
+      "spoiler": false,
+      "t": 0.34,
+      "icon": "thalnos"
+    },
+    {
+      "id": "the-cloister-rares",
+      "kind": "look",
+      "form": "chip",
+      "subject": "Three things in the Cloister",
+      "tag": "Graveyard",
+      "lines": [
+        "Azshir the Sleepless, Fallen Champion, Ironspine.",
+        "Nothing marks them. You walk the graves and find out which one is home."
+      ],
+      "spoiler": false,
+      "t": 0.42,
+      "icon": "the-cloister-rares"
+    },
+    {
+      "id": "doan",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "Arcanist Doan",
+      "tag": "He is defending books",
+      "lines": [
+        "\"You will not defile these mysteries!\" He keeps the Athenaeum, and that is what he dies for.",
+        "He carries the Scarlet Key, which opens the Armory and Cathedral doors.",
+        "A rogue's picks or a large seaforium charge do the same job."
+      ],
+      "spoiler": false,
+      "t": 0.5,
+      "icon": "doan"
+    },
+    {
+      "id": "herod",
+      "kind": "beware",
+      "form": "chip",
+      "subject": "Herod, the Scarlet Champion",
+      "tag": "\"Blades of Light!\"",
+      "lines": [
+        "He opens with \"Ah, I've been waiting for a real challenge\" and then whirlwinds across the Armory floor.",
+        "When he dies, twenty Scarlet Trainees pour out of the training hall to avenge him.",
+        "Each one falls to a single hit."
+      ],
+      "spoiler": false,
+      "t": 0.6,
+      "icon": "herod"
+    },
+    {
+      "id": "the-voices",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "Who is talking to you",
+      "tag": "The voice cast",
+      "lines": [
+        "Arcanist Doan is Chris Metzen.",
+        "Herod, Bloodmage Thalnos and Houndmaster Loksey are all Marc Graue.",
+        "Most of the people in this building are the same two men."
+      ],
+      "spoiler": false,
+      "t": 0.7,
+      "icon": "the-voices"
+    },
+    {
+      "id": "fairbanks",
+      "kind": "look",
+      "form": "chip",
+      "subject": "The torch in the prayer room",
+      "tag": "High Inquisitor Fairbanks",
+      "lines": [
+        "In the right-hand prayer room behind the Cathedral altar, a wall torch opens a hidden chamber.",
+        "Fairbanks is inside, and he is undead. The Crusade's own inquisitor, kept in a sealed room.",
+        "He was the witness. He heard the cries when Alexandros Mograine died."
+      ],
+      "spoiler": false,
+      "t": 0.8,
+      "icon": "fairbanks"
+    },
+    {
+      "id": "renault",
+      "kind": "story",
+      "form": "grave",
+      "subject": "Scarlet Commander Mograine",
+      "tag": "His first name is Renault",
+      "lines": [
+        "He is the elder son of Highlord Alexandros Mograine, who carried the Ashbringer.",
+        "Renault lured his father into an ambush and killed him with his own sword.",
+        "That is the act that fouled the blade."
+      ],
+      "spoiler": true,
+      "t": 0.88,
+      "icon": "renault"
+    },
+    {
+      "id": "whitemane",
+      "kind": "beware",
+      "form": "grave",
+      "subject": "The first kill does not count",
+      "tag": "High Inquisitor Whitemane",
+      "lines": [
+        "Put Mograine down and she runs in: \"Mograine has fallen? You shall pay for this treachery!\"",
+        "Then Scarlet Resurrection on the corpse — \"Arise, my champion!\" — and he stands back up.",
+        "\"At your side, milady.\""
+      ],
+      "spoiler": true,
+      "t": 0.94,
+      "icon": "whitemane"
+    },
+    {
+      "id": "the-ashbringer",
+      "kind": "story",
+      "form": "grave",
+      "subject": "Walk in wearing the Ashbringer",
+      "tag": "Patch 1.11. It exists in here.",
+      "lines": [
+        "Carry the Corrupted Ashbringer into the Cathedral and the entire Scarlet Crusade stops fighting and bows. Renault welcomes you as their lord.",
+        "Then his father steps out of the blade in full Dreadnaught plate and kills him in front of everyone.",
+        "Almost nobody will ever see it. The sword drops in Naxxramas."
+      ],
+      "spoiler": true,
+      "t": 1.0,
+      "icon": "the-ashbringer"
+    }
+  ]
+}

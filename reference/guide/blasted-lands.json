@@ -1,0 +1,207 @@
+{
+  "room": "blasted-lands",
+  "sources": [
+    "https://warcraft.wiki.gg/wiki/Blasted_Lands",
+    "https://warcraft.wiki.gg/wiki/Dark_Portal",
+    "https://warcraft.wiki.gg/wiki/Nethergarde_Keep",
+    "https://warcraft.wiki.gg/wiki/Tainted_Scar",
+    "https://warcraft.wiki.gg/wiki/Razelikh_the_Defiler",
+    "https://warcraft.wiki.gg/wiki/Lord_Kazzak_(tactics)"
+  ],
+  "roadEnds": ["Nethergarde Keep", "The crater"],
+  "seedWho": "Tari",
+  "cards": [
+    {
+      "id": "the-southern-morass",
+      "kind": "before",
+      "form": "title",
+      "subject": "The southern Black Morass",
+      "tag": "Before",
+      "lines": [
+        "Swamp. Water, trees, the same wet green as the Swamp of Sorrows next door — until Medivh opened the Portal and the marshes were twisted and dried up by the magic that brought it here.",
+        "The northern border is the seam where the damage stopped. Walk it and you cross from bog to red desert in about a minute."
+      ],
+      "spoiler": false
+    },
+    {
+      "id": "the-only-road",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "There is one road in",
+      "tag": "And a keep on the shoulder of it",
+      "lines": [
+        "Nethergarde stands on a high bluff along the only road into the Blasted Lands.",
+        "You come south out of the swamp or you do not come.",
+        "This is a corridor with a gate at the top of it."
+      ],
+      "spoiler": false,
+      "t": 0.08,
+      "icon": "the-only-road"
+    },
+    {
+      "id": "a-laboratory",
+      "kind": "story",
+      "form": "chip",
+      "subject": "Nethergarde is not a fort",
+      "tag": "It is a laboratory",
+      "lines": [
+        "Primarily staffed by the Kirin Tor — mages, not soldiers, and about three hundred of them. Their job is to study what the Portal did to the soil and the wildlife.",
+        "Described as a dam holding back the evils of a blighted land, run by uptight perfectionists.",
+        "Its food comes by caravan from Stormwind because nothing grows here."
+      ],
+      "spoiler": false,
+      "t": 0.16,
+      "icon": "a-laboratory"
+    },
+    {
+      "id": "vancleef-built-it",
+      "kind": "story",
+      "form": "chip",
+      "subject": "Who built the wall",
+      "tag": "Nethergarde Keep",
+      "lines": [
+        "Khadgar ordered it after the Second War, funded by the kingdoms of the Alliance — and it was constructed by the Stonemasons Guild under the supervision of Edwin VanCleef.",
+        "The man the Alliance never paid built the thing holding back the demons.",
+        "You can kill him at eighteen and stand in his masonry at fifty."
+      ],
+      "spoiler": false,
+      "t": 0.26,
+      "icon": "vancleef-built-it"
+    },
+    {
+      "id": "the-climate",
+      "kind": "look",
+      "form": "chip",
+      "subject": "Hot day, freezing night",
+      "tag": "And no rivers",
+      "lines": [
+        "The mountains strip the moisture out of the air before it arrives.",
+        "Lightning strikes are constant.",
+        "The lightning near the Dark Portal is pure theatre — it cannot touch you."
+      ],
+      "spoiler": false,
+      "t": 0.36,
+      "icon": "the-climate"
+    },
+    {
+      "id": "what-survived",
+      "kind": "look",
+      "form": "chip",
+      "subject": "What survived",
+      "tag": "Read the wildlife",
+      "lines": [
+        "Few creatures live here beyond hardy desert species — basilisks, scorpids, vultures, boars.",
+        "Desert animals, in a place that was a swamp thirty years ago.",
+        "The only one with a name is a scorpid called Clack the Reaver."
+      ],
+      "spoiler": false,
+      "t": 0.44,
+      "icon": "what-survived"
+    },
+    {
+      "id": "the-tainted-scar",
+      "kind": "look",
+      "form": "chip",
+      "subject": "The Tainted Scar",
+      "tag": "The western lobe",
+      "lines": [
+        "\"A completely waterless and treeless wasteland... barren soil the color of blood, teeming with strange and demonic beasts.\"",
+        "It was corrupted for years by the energies of the Portal — not by one event but by decades of leakage.",
+        "Kazzak sits in it."
+      ],
+      "spoiler": false,
+      "t": 0.54,
+      "icon": "the-tainted-scar"
+    },
+    {
+      "id": "the-altar",
+      "kind": "look",
+      "form": "chip",
+      "subject": "The Altar of Storms",
+      "tag": "And the man living beside it",
+      "lines": [
+        "The altar was raised by Lady Sevine, one of the Defiler's three immortals.",
+        "An elderly human warlock called Daio the Decrepit has simply moved in next to it, in a demon-held zone, to teach recruits.",
+        "Nobody stops him."
+      ],
+      "spoiler": false,
+      "t": 0.62,
+      "icon": "the-altar"
+    },
+    {
+      "id": "the-lieutenants",
+      "kind": "story",
+      "form": "grave",
+      "subject": "Three people who cannot be killed here",
+      "tag": "Sevine · Allistarj · Grol",
+      "lines": [
+        "Each wears a third of one amulet of Razelikh's making. \"As long as they remained within the Blasted Lands, they couldn't be slain, their life spans extended until the end of days.\"",
+        "The whole chain exists because of that clause.",
+        "You are not killing them. You are dismantling a contract."
+      ],
+      "spoiler": true,
+      "t": 0.72,
+      "icon": "the-lieutenants"
+    },
+    {
+      "id": "rakh-likh",
+      "kind": "story",
+      "form": "grave",
+      "subject": "You need his real name",
+      "tag": "Razelikh is not what he is called",
+      "lines": [
+        "To touch him you forge a weapon bearing the name Rakh'likh, with an ancient and a demon hunter.",
+        "He is immune to nearly everything a player brings — stuns, fear, banish, judgements, a warlock's whole book.",
+        "And he knocks people clean off the mountain. \"Let the flames of chaos engulf you!\""
+      ],
+      "spoiler": true,
+      "t": 0.8,
+      "icon": "rakh-likh"
+    },
+    {
+      "id": "kazzak-eats-your-dead",
+      "kind": "beware",
+      "form": "chip",
+      "subject": "Lord Kazzak eats your dead",
+      "tag": "Capture Soul",
+      "lines": [
+        "When any player, pet or totem dies, he instantly regenerates seventy thousand health.",
+        "Your hunter's pet and your shaman's totems are healing potions for him.",
+        "Three minutes in he berserks and it is over."
+      ],
+      "spoiler": false,
+      "t": 0.88,
+      "icon": "kazzak-eats-your-dead"
+    },
+    {
+      "id": "kazzak-in-stormwind",
+      "kind": "story",
+      "form": "chip",
+      "subject": "They walked him to Stormwind",
+      "tag": "History, not a suggestion",
+      "lines": [
+        "\"Players initially kited him to Stormwind on various servers.\" A world boss dragged across a continent and let go in the trade district.",
+        "\"This kiting is no longer possible as Lord Kazzak now will not travel beyond the Blasted Lands.\"",
+        "The leash on him is the scar tissue from that."
+      ],
+      "spoiler": false,
+      "t": 0.94,
+      "icon": "kazzak-in-stormwind"
+    },
+    {
+      "id": "the-portal",
+      "kind": "look",
+      "form": "chip",
+      "subject": "The Dark Portal",
+      "tag": "Blue means shut",
+      "lines": [
+        "In here it is dead scenery. Walk into it and you pass through to the back of the gate as if nothing were there.",
+        "Its glow is blue. It only turns green in the event before Burning Crusade.",
+        "No camps, no armies — the crater is ringed with elite demons and nothing else, and you creep up to it."
+      ],
+      "spoiler": false,
+      "t": 1.0,
+      "icon": "the-portal"
+    }
+  ]
+}

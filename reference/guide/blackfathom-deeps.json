@@ -1,0 +1,195 @@
+{
+  "room": "blackfathom-deeps",
+  "sources": [
+    "https://warcraft.wiki.gg/wiki/Blackfathom_Deeps",
+    "https://warcraft.wiki.gg/wiki/Blackfathom_Deeps_(Classic)",
+    "https://warcraft.wiki.gg/wiki/Aku%27mai",
+    "https://warcraft.wiki.gg/wiki/Twilight_Lord_Kelris",
+    "https://warcraft.wiki.gg/wiki/Lady_Sarevess",
+    "https://warcraft.wiki.gg/wiki/Old_Serra%27kis",
+    "https://warcraft.wiki.gg/wiki/Baron_Aquanis",
+    "https://warcraft.wiki.gg/wiki/Lorgalis_Manuscript",
+    "https://warcraft.wiki.gg/wiki/Argent_Guard_Thaelrid",
+    "https://warcraft.wiki.gg/wiki/Blackfathom_Villainy_(Classic)"
+  ],
+  "roadEnds": ["The drowned door", "Aku'mai's lair"],
+  "seedWho": "Tari",
+  "cards": [
+    {
+      "id": "the-moonwell",
+      "kind": "before",
+      "form": "title",
+      "subject": "The moonwell",
+      "tag": "Before",
+      "lines": [
+        "The Moonshrine Sanctum still holds the temple's moonwell. In year twenty-five the corruption of an Old God seeped up from beneath the earth and tainted it.",
+        "This is not a ruin that monsters moved into. It is a holy well that went bad from below, and Aku'mai came up out of the result."
+      ],
+      "spoiler": false
+    },
+    {
+      "id": "under-water",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "The door is under the sea",
+      "tag": "Zoram Strand",
+      "lines": [
+        "You swim down to a submerged cave mouth to get in.",
+        "It is one of very few dungeons in the game whose entrance is below the water, and that is the whole point.",
+        "You are entering a building the ocean took."
+      ],
+      "spoiler": false,
+      "t": 0.06,
+      "icon": "under-water"
+    },
+    {
+      "id": "ghamoo-ra",
+      "kind": "story",
+      "form": "chip",
+      "subject": "Ghamoo-ra",
+      "tag": "The turtle was peaceful",
+      "lines": [
+        "An ancient, harmless creature in the Pool of Ask'ar, until the Twilight's Hammer captured it and tortured it into madness.",
+        "Everybody kills it for the quest.",
+        "Nobody is ever told it was one of the cult's victims, the same as the sacrifices."
+      ],
+      "spoiler": false,
+      "t": 0.16,
+      "icon": "ghamoo-ra"
+    },
+    {
+      "id": "gelihast",
+      "kind": "look",
+      "form": "chip",
+      "subject": "Gelihast",
+      "tag": "The Shrine of Gelihast",
+      "lines": [
+        "A deep sea murloc who answered the Old Gods' call, came up into the ruins, and violently carved out a shrine of his own.",
+        "It is named after him.",
+        "No other murloc anywhere has a place of worship with his name on it."
+      ],
+      "spoiler": false,
+      "t": 0.26,
+      "icon": "gelihast"
+    },
+    {
+      "id": "sarevess",
+      "kind": "story",
+      "form": "chip",
+      "subject": "Lady Sarevess",
+      "tag": "A protection racket",
+      "lines": [
+        "The cult gave the naga sorceress her own cove and a steady supply of fresh sacrifices.",
+        "In exchange she works magic to keep the hydra off them.",
+        "They are paying a naga in lives for insurance against the god they are themselves feeding."
+      ],
+      "spoiler": false,
+      "t": 0.36,
+      "icon": "sarevess"
+    },
+    {
+      "id": "old-serrakis",
+      "kind": "beware",
+      "form": "chip",
+      "subject": "Old Serra'kis",
+      "tag": "The Forgotten Pool",
+      "lines": [
+        "You reach him by diving beside the Moonshrine Sanctum and swimming under the ruins. His cave has no air pocket.",
+        "Your breath bar is a second health bar down there.",
+        "Groups without water breathing kite him back out to fight in the open."
+      ],
+      "spoiler": false,
+      "t": 0.46,
+      "icon": "old-serrakis"
+    },
+    {
+      "id": "lorgalis-manuscript",
+      "kind": "look",
+      "form": "chip",
+      "subject": "The Lorgalis Manuscript",
+      "tag": "In the Pitted Iron Chest",
+      "lines": [
+        "Written by an elf who worshipped the Old Gods and left his book in the temple before it sank.",
+        "It calls Aku'mai the Princess of the Deep: \"hers is still beyond measure. And so she is worshipped. And she is feared, and loved.\"",
+        "Every other source in the game says he."
+      ],
+      "spoiler": false,
+      "t": 0.56,
+      "icon": "lorgalis-manuscript"
+    },
+    {
+      "id": "kelris",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "Twilight Lord Kelris",
+      "tag": "He is an orc",
+      "lines": [
+        "The cult leader holding the Moonshrine Sanctum is an orc, sitting in the holiest sunken room of a temple to Elune.",
+        "\"Who dares disturb my meditation?\" He puts you to sleep mid-fight, and kills with \"Dust to dust.\""
+      ],
+      "spoiler": false,
+      "t": 0.66,
+      "icon": "kelris"
+    },
+    {
+      "id": "he-fed-it",
+      "kind": "story",
+      "form": "chip",
+      "subject": "What he fed it",
+      "tag": "Kelris and the hydra",
+      "lines": [
+        "He personally supervised Aku'mai's growth, feeding it his own subjects to satisfy its hunger.",
+        "The cult believed the thing was a herald of the Old Gods' return.",
+        "Worth the men they walked into its mouth."
+      ],
+      "spoiler": false,
+      "t": 0.74,
+      "icon": "he-fed-it"
+    },
+    {
+      "id": "thaelrid",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "Argent Guard Thaelrid",
+      "tag": "Bleeding at the Pool of Ask'ar",
+      "lines": [
+        "There is an Argent Dawn night elf inside the dungeon, badly wounded, who never reported back.",
+        "He is the one who found out what the cult was doing, and he hands out the kill order from where he lies.",
+        "His quest pays a thousand Argent Dawn reputation — decades of levels before Scholomance."
+      ],
+      "spoiler": false,
+      "t": 0.84,
+      "icon": "thaelrid"
+    },
+    {
+      "id": "four-braziers",
+      "kind": "before",
+      "form": "grave",
+      "subject": "Killing Kelris does not open the way",
+      "tag": "The Fire of Aku'mai",
+      "lines": [
+        "Four braziers on the central altar have to be lit by hand.",
+        "Each one you light summons a group of the hydra's servants out of the side doors, so you light one, fight, and light the next.",
+        "The fourth opens the road."
+      ],
+      "spoiler": true,
+      "t": 0.94,
+      "icon": "four-braziers"
+    },
+    {
+      "id": "akumai",
+      "kind": "look",
+      "form": "grave",
+      "subject": "Aku'mai",
+      "tag": "Three heads",
+      "lines": [
+        "A hydra, ancient and Void-gifted — a favoured servant of the Old Gods, not an Old God itself and not one of the faceless.",
+        "It moved into the ruins after the moonwell turned. The cult found it there and started worshipping.",
+        "Nobody invited it."
+      ],
+      "spoiler": true,
+      "t": 1.0,
+      "icon": "akumai"
+    }
+  ]
+}

@@ -1,0 +1,196 @@
+{
+  "room": "wetlands",
+  "sources": [
+    "https://warcraft.wiki.gg/wiki/Wetlands_(Classic)",
+    "https://warcraft.wiki.gg/wiki/Wetlands",
+    "https://warcraft.wiki.gg/wiki/Menethil_Harbor",
+    "https://warcraft.wiki.gg/wiki/Thandol_Span",
+    "https://warcraft.wiki.gg/wiki/Grim_Batol",
+    "https://warcraft.wiki.gg/wiki/Dragonmaw_clan",
+    "https://warcraft.wiki.gg/wiki/Whelgar%27s_Excavation_Site",
+    "https://warcraft.wiki.gg/wiki/Ironbeard%27s_Tomb",
+    "https://warcraft.wiki.gg/wiki/Thelgen_Rock",
+    "https://warcraft.wiki.gg/wiki/Tapoke_%22Slim%22_Jahn",
+    "https://warcraft.wiki.gg/wiki/Rethiel_the_Greenwarden",
+    "https://warcraft.wiki.gg/wiki/Boat"
+  ],
+  "roadEnds": ["Menethil Harbor", "Grim Batol"],
+  "seedWho": "Tari",
+  "cards": [
+    {
+      "id": "named-for-a-king",
+      "kind": "before",
+      "form": "title",
+      "subject": "Menethil Harbor",
+      "tag": "Before",
+      "lines": [
+        "Built after the Second War on reconquered ground, under the direction of Grand Admiral Daelin Proudmoore, and named in honour of Terenas Menethil II.",
+        "A Kul Tiran admiral's port, in a dwarven kingdom, named for a human king of a third country. Nobody local is commemorated."
+      ],
+      "spoiler": false
+    },
+    {
+      "id": "the-crossing",
+      "kind": "story",
+      "form": "chip",
+      "subject": "Two boats, and then you walk",
+      "tag": "Why this swamp is full of level twelves",
+      "lines": [
+        "Menethil runs the Lady Mehley south to Theramore and the Auberdine boat to Darkshore. That is all of Alliance sea travel.",
+        "The zone is twenty to twenty-five, and a flight path has to be walked to before it can be flown.",
+        "A fresh night elf stepping off that boat has no way to Ironforge except on foot, through crocolisks and Dragonmaw."
+      ],
+      "spoiler": false,
+      "t": 0.06,
+      "icon": "the-crossing"
+    },
+    {
+      "id": "slim-jahn",
+      "kind": "notice",
+      "form": "grave",
+      "subject": "Tapoke \"Slim\" Jahn",
+      "tag": "The Deepwater Tavern",
+      "lines": [
+        "A human rogue drinking in the swamp bar, and he was involved in the kidnapping of Varian Wrynn, hired by the Defias.",
+        "The Stormwind chain that hunts him is called The Missing Diplomat. The missing man is the King.",
+        "Deleted from the game in 4.0.3a."
+      ],
+      "spoiler": true,
+      "t": 0.16,
+      "icon": "slim-jahn"
+    },
+    {
+      "id": "the-grey",
+      "kind": "look",
+      "form": "chip",
+      "subject": "The colour of it",
+      "tag": "A vast, cold swamp",
+      "lines": [
+        "Mists on the ground and an overcast sky make the whole zone a uniform grey.",
+        "Dun Modr besieged, Angerfang taken, the Thandol Span broken, Ironbeard's Tomb defiled.",
+        "The dwarves are losing this place in every direction at once."
+      ],
+      "spoiler": false,
+      "t": 0.26,
+      "icon": "the-grey"
+    },
+    {
+      "id": "whelgar",
+      "kind": "look",
+      "form": "chip",
+      "subject": "Three dwarves on a rock",
+      "tag": "Whelgar's Excavation Site",
+      "lines": [
+        "It was a peaceful dig until mottled raptors overran it. Prospector Whelgar and two of his crew are stranded on a ridge above the site.",
+        "They are not fleeing and nobody is rescuing them.",
+        "They have been standing on that rock since 2004, and they were removed after Classic."
+      ],
+      "spoiler": false,
+      "t": 0.36,
+      "icon": "whelgar"
+    },
+    {
+      "id": "ironbeard",
+      "kind": "look",
+      "form": "chip",
+      "subject": "Ironbeard's Tomb",
+      "tag": "The crypt they built and did not use",
+      "lines": [
+        "An unused dwarven crypt model exists that seems to have been meant for this tomb. A generic crypt went in instead.",
+        "What is there: a graveyard, a dwarven statue, and oozes in black, crimson and monstrous varieties.",
+        "Who Ironbeard was is recorded nowhere."
+      ],
+      "spoiler": false,
+      "t": 0.46,
+      "icon": "ironbeard"
+    },
+    {
+      "id": "thandol-span",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "Thandol Span",
+      "tag": "The road to Lordaeron stops in mid-air",
+      "lines": [
+        "Ironforge built the two arches after the War of the Three Hammers to reach their Wildhammer cousins.",
+        "Dark Irons under a warlock named Balgaras the Foul laid waste to it, and southern Dun Modr fell soon after.",
+        "Balgaras is a rare spawn in this zone. You can stand on the broken arch and then go and kill him."
+      ],
+      "spoiler": false,
+      "t": 0.56,
+      "icon": "thandol-span"
+    },
+    {
+      "id": "angerfang",
+      "kind": "story",
+      "form": "chip",
+      "subject": "The Dragonmaw",
+      "tag": "Squatting below the scene of the crime",
+      "lines": [
+        "These are the orcs who chained Alexstrasza inside Grim Batol and bred red dragons for the war machine.",
+        "When she got free she tore the fortress apart and ate Nekros whole, and her dragons burned the clan's camps.",
+        "Their leader down here is Nek'rosh Skullcrusher — Nekros's son."
+      ],
+      "spoiler": false,
+      "t": 0.66,
+      "icon": "angerfang"
+    },
+    {
+      "id": "thelgen-rock",
+      "kind": "beware",
+      "form": "chip",
+      "subject": "Thelgen Rock",
+      "tag": "The last corner of the map",
+      "lines": [
+        "A cave running back into the southern mountains, full of poisonous spiders and Incendicite Ore.",
+        "The zone's fog of war will not clear until you go inside it.",
+        "Frustrated cartographers can be seen roaming the area trying in vain to finish their maps."
+      ],
+      "spoiler": false,
+      "t": 0.76,
+      "icon": "thelgen-rock"
+    },
+    {
+      "id": "sidas-bag",
+      "kind": "story",
+      "form": "chip",
+      "subject": "Sida's bag",
+      "tag": "Why the crypt was always busy",
+      "lines": [
+        "The oozes at Ironbeard's Tomb were hunted for years for one rare drop: a lost bag.",
+        "It is why a low-level graveyard nobody had any reason to visit was permanently occupied."
+      ],
+      "spoiler": false,
+      "t": 0.84,
+      "icon": "sidas-bag"
+    },
+    {
+      "id": "greenwarden",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "Rethiel the Greenwarden",
+      "tag": "A bog beast that talks",
+      "lines": [
+        "Everywhere else in this swamp a bog beast is a thing you kill. One of them gives you quests.",
+        "\"The land suffers... It cries for mercy, it cries for mercy.\""
+      ],
+      "spoiler": false,
+      "t": 0.9,
+      "icon": "greenwarden"
+    },
+    {
+      "id": "grim-batol",
+      "kind": "look",
+      "form": "chip",
+      "subject": "Grim Batol",
+      "tag": "A door you will never open",
+      "lines": [
+        "The road up ends at a massive closed door, guarded by red dragonkin far above the level of this zone.",
+        "It is shut on purpose: Alexstrasza and Korialstrasz decided it was the red flight's duty to seal the place off.",
+        "For six years it is the most-visited locked door in the game."
+      ],
+      "spoiler": false,
+      "t": 1.0,
+      "icon": "grim-batol"
+    }
+  ]
+}

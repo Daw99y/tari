@@ -1,0 +1,210 @@
+{
+  "room": "moonglade",
+  "sources": [
+    "https://warcraft.wiki.gg/wiki/Moonglade",
+    "https://warcraft.wiki.gg/wiki/Nighthaven",
+    "https://warcraft.wiki.gg/wiki/Keeper_Remulos",
+    "https://warcraft.wiki.gg/wiki/Malfurion_Stormrage",
+    "https://warcraft.wiki.gg/wiki/Bunthen_Plainswind",
+    "https://warcraft.wiki.gg/wiki/Great_Bear_Spirit",
+    "https://warcraft.wiki.gg/wiki/Lake_Elune%27ara",
+    "https://warcraft.wiki.gg/wiki/Omen",
+    "https://warcraft.wiki.gg/wiki/The_Nightmare_Manifests",
+    "https://warcraft.wiki.gg/wiki/Timbermaw_Hold",
+    "https://warcraft.wiki.gg/wiki/Moonglade_(quest)"
+  ],
+  "roadEnds": ["The Shrine of Remulos", "Nighthaven"],
+  "seedWho": "Tari",
+  "cards": [
+    {
+      "id": "the-lake-was-a-lake",
+      "kind": "before",
+      "form": "title",
+      "subject": "An empty lake",
+      "tag": "Before",
+      "lines": [
+        "Omen and the Lunar Festival did not ship with the game. They arrive in January 2006.",
+        "Before that there was nothing under the water at all. Anyone who played the launch year knew a quieter valley than this one."
+      ],
+      "spoiler": false
+    },
+    {
+      "id": "the-free-ride",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "Druids get in for nothing",
+      "tag": "Teleport: Moonglade",
+      "lines": [
+        "They learn it at level ten, and they get it the moment they accept the quest — before ever setting foot in the place.",
+        "Every other class in the game walks.",
+        "There is no return teleport. You leave by flight master or on foot."
+      ],
+      "spoiler": false,
+      "t": 0.08,
+      "icon": "the-free-ride"
+    },
+    {
+      "id": "flights-out-only",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "The flights only go one way",
+      "tag": "And only for druids",
+      "lines": [
+        "Nighthaven's two flight masters are druid-only. Ask as anything else and you get told: \"You're not a druid!\"",
+        "Neither is a destination — Moonglade cannot be selected from any other flight master anywhere in the world.",
+        "Both factions' masters stand together, serving nobody but druids."
+      ],
+      "spoiler": false,
+      "t": 0.18,
+      "icon": "flights-out-only"
+    },
+    {
+      "id": "the-only-door",
+      "kind": "beware",
+      "form": "chip",
+      "subject": "The only door is a fight",
+      "tag": "Timbermaw Hold",
+      "lines": [
+        "The single walking route in is the furbolg tunnel, which also links Felwood and Winterspring.",
+        "The Timbermaw attack strangers until you have ground their reputation up.",
+        "The overland entrance to the most peaceful zone in the game is a corridor of angry bears."
+      ],
+      "spoiler": false,
+      "t": 0.28,
+      "icon": "the-only-door"
+    },
+    {
+      "id": "nothing-to-kill",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "There is nothing to kill",
+      "tag": "And nothing to gather",
+      "lines": [
+        "Outside of event content there are no hostile mobs here. No useful herb, no ore node, nothing skinnable.",
+        "It is the only sizeable outdoor zone in the game that gives a player with a weapon nothing whatsoever to do."
+      ],
+      "spoiler": false,
+      "t": 0.38,
+      "icon": "nothing-to-kill"
+    },
+    {
+      "id": "not-a-sanctuary",
+      "kind": "beware",
+      "form": "chip",
+      "subject": "The peace is a convention",
+      "tag": "Not a rule",
+      "lines": [
+        "Sanctuary zones do not exist yet — that flag arrives with Burning Crusade. Moonglade is contested territory.",
+        "Nothing mechanically stops a level sixty from killing the level ten druid who just teleported in.",
+        "Everyone behaves anyway, which is the interesting part."
+      ],
+      "spoiler": false,
+      "t": 0.46,
+      "icon": "not-a-sanctuary"
+    },
+    {
+      "id": "the-great-bear",
+      "kind": "look",
+      "form": "chip",
+      "subject": "The Great Bear Spirit",
+      "tag": "West along the mountains",
+      "lines": [
+        "The level ten Bear Form quest sends every druid in the game to this one spot.",
+        "Click it and the text reads: \"The bear looks at you calmly and patiently, but says nothing.\""
+      ],
+      "spoiler": false,
+      "t": 0.56,
+      "icon": "the-great-bear"
+    },
+    {
+      "id": "remulos",
+      "kind": "look",
+      "form": "chip",
+      "subject": "Keeper Remulos",
+      "tag": "Stag body, antlers, one wooden hand",
+      "lines": [
+        "A son of Cenarius, and brother to the one buried under Maraudon.",
+        "He ran the Cenarion Circle with Fandral Staghelm and Hamuul Runetotem while Malfurion slept.",
+        "He is the reason there are tauren druids. He let them in when Staghelm would not."
+      ],
+      "spoiler": false,
+      "t": 0.64,
+      "icon": "remulos"
+    },
+    {
+      "id": "nighthaven",
+      "kind": "look",
+      "form": "chip",
+      "subject": "Nighthaven",
+      "tag": "It stands on the water",
+      "lines": [
+        "Night elf stonework on the shore of the lake, two moonwells, and a settlement built out over the water itself.",
+        "It is sequestered by design — a town for people who can teleport.",
+        "Once a year, for the Lunar Festival, it opens to everybody."
+      ],
+      "spoiler": false,
+      "t": 0.72,
+      "icon": "nighthaven"
+    },
+    {
+      "id": "the-lake",
+      "kind": "look",
+      "form": "chip",
+      "subject": "Lake Elune'ara",
+      "tag": "It used to have islands",
+      "lines": [
+        "The purest water on Kalimdor, said to reflect starlight, and possibly blessed by Elune herself.",
+        "Warcraft III's version of this lake had islands in it.",
+        "This one has none. The water is unbroken."
+      ],
+      "spoiler": false,
+      "t": 0.8,
+      "icon": "the-lake"
+    },
+    {
+      "id": "malfurion",
+      "kind": "story",
+      "form": "chip",
+      "subject": "The man asleep under your feet",
+      "tag": "The Stormrage Barrow Dens",
+      "lines": [
+        "Malfurion's body lies in his barrow den here for the whole of this game — comatose, his spirit lost in the Emerald Dream.",
+        "There is no Malfurion in Moonglade. You can walk into the dens and there is nothing to find.",
+        "He does not stand up in the world for another five years."
+      ],
+      "spoiler": false,
+      "t": 0.88,
+      "icon": "malfurion"
+    },
+    {
+      "id": "eranikus",
+      "kind": "story",
+      "form": "chip",
+      "subject": "The night he came out of the sky",
+      "tag": "The Shrine of Remulos",
+      "lines": [
+        "Remulos opens a portal into the Dream over the lake and Eranikus comes through it.",
+        "Forty players hold the shrine against Nightmare Phantasms — and must not kill him. Tyrande arrives with her priestesses and redeems him instead.",
+        "One of the very few scripted world events this game ever staged outdoors."
+      ],
+      "spoiler": false,
+      "t": 0.96,
+      "icon": "eranikus"
+    },
+    {
+      "id": "second-hearthstone",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "Why a zone with no mobs has traffic",
+      "tag": "Watch who is standing here",
+      "lines": [
+        "Almost everybody in Moonglade at any given moment is a druid passing through.",
+        "Teleport in, take the druid-only flight out to Thunder Bluff or Rut'theran.",
+        "It is a free second hearthstone on a thirty-minute cooldown, and it is the whole economy of the place."
+      ],
+      "spoiler": false,
+      "t": 1.0,
+      "icon": "second-hearthstone"
+    }
+  ]
+}

@@ -1,0 +1,211 @@
+{
+  "room": "arathi-highlands",
+  "sources": [
+    "https://warcraft.wiki.gg/wiki/Arathi_Highlands",
+    "https://warcraft.wiki.gg/wiki/Stromgarde_Keep",
+    "https://warcraft.wiki.gg/wiki/Thoradin%27s_Wall",
+    "https://warcraft.wiki.gg/wiki/Prince_Galen_Trollbane",
+    "https://warcraft.wiki.gg/wiki/Danath_Trollbane",
+    "https://warcraft.wiki.gg/wiki/Hammerfall",
+    "https://warcraft.wiki.gg/wiki/Refuge_Pointe",
+    "https://warcraft.wiki.gg/wiki/Witherbark_tribe",
+    "https://warcraft.wiki.gg/wiki/Circle_of_Inner_Binding",
+    "https://warcraft.wiki.gg/wiki/Faldir%27s_Cove",
+    "https://warcraft.wiki.gg/wiki/Arathi_Basin",
+    "https://warcraft.wiki.gg/wiki/Foulbelly"
+  ],
+  "roadEnds": ["Thoradin's Wall", "Faldir's Cove"],
+  "seedWho": "Tari",
+  "cards": [
+    {
+      "id": "strom",
+      "kind": "before",
+      "form": "title",
+      "subject": "Strom",
+      "tag": "Before",
+      "lines": [
+        "King Thoradin founded the first human capital on this ground, and Arathor's people went out from it to found Lordaeron, Dalaran, Alterac, Gilneas, Kul Tiras and Stormwind.",
+        "The nobles left for those richer cities. The families who refused to go renamed what was left Stromgarde."
+      ],
+      "spoiler": false
+    },
+    {
+      "id": "thoradins-wall",
+      "kind": "look",
+      "form": "chip",
+      "subject": "Thoradin's Wall",
+      "tag": "You ride through the gap in it",
+      "lines": [
+        "Thrown up more than two thousand years before the game to stop the Amani trolls coming south.",
+        "It is the reason this zone exists: Arathor was a wall with a city behind it.",
+        "Now it is the front door, and you gallop through a hole in it without stopping."
+      ],
+      "spoiler": false,
+      "t": 0.06,
+      "icon": "thoradins-wall"
+    },
+    {
+      "id": "stromgarde",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "The city nobody owns",
+      "tag": "Stromgarde Keep",
+      "lines": [
+        "It is split three ways: the Syndicate hold the inner keep, the Boulderfist ogres hold the old mage district, and what is left of Stromgarde's army holds the military quarter.",
+        "All three are hostile to you, Alliance included.",
+        "You cannot walk into the first human city. You can only fight through it."
+      ],
+      "spoiler": false,
+      "t": 0.16,
+      "icon": "stromgarde"
+    },
+    {
+      "id": "refuge-pointe",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "Refuge Pointe",
+      "tag": "The Alliance headquarters is a tent",
+      "lines": [
+        "It is not a town. It is Stromgarde survivors camped on the road because their capital is four minutes' ride west and occupied.",
+        "The whole Alliance presence in the zone is people camping within sight of home."
+      ],
+      "spoiler": false,
+      "t": 0.26,
+      "icon": "refuge-pointe"
+    },
+    {
+      "id": "two-dead-kingdoms",
+      "kind": "story",
+      "form": "chip",
+      "subject": "Who the bandits are",
+      "tag": "Lord Falconcrest, in the keep",
+      "lines": [
+        "The Syndicate in Stromgarde and on the farms are not generic thugs. They are the remnants of Alterac — the kingdom that betrayed the Alliance and was dissolved for it.",
+        "Two fallen human kingdoms, occupying the same walls."
+      ],
+      "spoiler": false,
+      "t": 0.34,
+      "icon": "two-dead-kingdoms"
+    },
+    {
+      "id": "galen",
+      "kind": "story",
+      "form": "grave",
+      "subject": "Prince Galen Trollbane",
+      "tag": "The last prince is a mob",
+      "lines": [
+        "The heir to the oldest human throne sits in the Sanctum as a level forty-four elite, and both factions kill him. He gives no quests.",
+        "The Horde send a Darkspear hunter after Trol'kalar, his father's sword, sealed in stone in the tomb.",
+        "He dies guarding it."
+      ],
+      "spoiler": true,
+      "t": 0.44,
+      "icon": "galen"
+    },
+    {
+      "id": "danath",
+      "kind": "story",
+      "form": "chip",
+      "subject": "Danath Trollbane",
+      "tag": "He is not in this zone",
+      "lines": [
+        "Stromgarde's greatest commander went through the Dark Portal with the Alliance Expedition and never came back.",
+        "In here he is missing, and his statue stands in Stormwind's Valley of Heroes under an epitaph his uncle wrote.",
+        "The man who could have held these walls is stranded on another world."
+      ],
+      "spoiler": false,
+      "t": 0.54,
+      "icon": "danath"
+    },
+    {
+      "id": "hammerfall",
+      "kind": "story",
+      "form": "chip",
+      "subject": "Hammerfall",
+      "tag": "Named for a man who died getting them out",
+      "lines": [
+        "The Horde town is a former Alliance internment camp — one of the largest — where orcs were held after the Second War until Thrall and Orgrim Doomhammer came for them.",
+        "Doomhammer was killed in that campaign. The freed orcs stayed on the site and named it for him.",
+        "Every orc there is standing in their own prison."
+      ],
+      "spoiler": false,
+      "t": 0.64,
+      "icon": "hammerfall"
+    },
+    {
+      "id": "witherbark",
+      "kind": "story",
+      "form": "chip",
+      "subject": "The Witherbark",
+      "tag": "An alliance neither side wanted",
+      "lines": [
+        "Forest trolls of Amani stock who fought beside the old Horde under Zul'jin, and abandoned the orcs after the defeat.",
+        "Up here they grudgingly allied with the Boulderfist ogres, specifically to fight the Horde at Hammerfall.",
+        "The orcs' old comrades are the reason that town keeps a wall."
+      ],
+      "spoiler": false,
+      "t": 0.72,
+      "icon": "witherbark"
+    },
+    {
+      "id": "inner-binding",
+      "kind": "look",
+      "form": "chip",
+      "subject": "Circle of Inner Binding",
+      "tag": "South of the keep",
+      "lines": [
+        "One of the zone's stone circles, guarded by earth elementals, holding the strongest of the binding stones.",
+        "Something is imprisoned under these highlands. Through a shard of this circle, Myzrael reaches out and asks travellers to let her out.",
+        "Nothing anywhere says who built the circles."
+      ],
+      "spoiler": false,
+      "t": 0.8,
+      "icon": "inner-binding"
+    },
+    {
+      "id": "foulbelly",
+      "kind": "beware",
+      "form": "chip",
+      "subject": "Foulbelly",
+      "tag": "Beside the tower in the ogre quarter",
+      "lines": [
+        "A rare Boulderfist ogre, level forty-two elite in here.",
+        "He respawns somewhere between thirty-two and forty-eight hours.",
+        "People who cleared that quarter a dozen times never saw him once."
+      ],
+      "spoiler": false,
+      "t": 0.86,
+      "icon": "foulbelly"
+    },
+    {
+      "id": "arathi-basin",
+      "kind": "story",
+      "form": "chip",
+      "subject": "Arathi Basin",
+      "tag": "Patch 1.7, and it is about grain",
+      "lines": [
+        "Not a grudge, a supply war: farm, stables, blacksmith, lumber mill, gold mine.",
+        "The League of Arathor are Stromgarde's people trying to feed their kingdom back into existence.",
+        "The Defilers are Forsaken, and their stated goal is simply that it must not recover."
+      ],
+      "spoiler": false,
+      "t": 0.94,
+      "icon": "arathi-basin"
+    },
+    {
+      "id": "faldirs-cove",
+      "kind": "look",
+      "form": "chip",
+      "subject": "Faldir's Cove",
+      "tag": "There is no road in",
+      "lines": [
+        "You reach the beach through a short tunnel southeast of Stromgarde's walls. The graded path was cut long after this.",
+        "Three Blackwater Raider ships came for treasure and a tide the naga raised sank two of them.",
+        "The Spirit of Silverpine and the Maiden's Folly are still down there. Only the Harbinger floats."
+      ],
+      "spoiler": false,
+      "t": 1.0,
+      "icon": "faldirs-cove"
+    }
+  ]
+}

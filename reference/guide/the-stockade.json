@@ -1,0 +1,164 @@
+{
+  "room": "the-stockade",
+  "sources": [
+    "https://warcraft.wiki.gg/wiki/Stormwind_Stockade_(Classic)",
+    "https://warcraft.wiki.gg/wiki/Bazil_Thredd",
+    "https://warcraft.wiki.gg/wiki/Warden_Thelwater",
+    "https://warcraft.wiki.gg/wiki/Targorr_the_Dread",
+    "https://warcraft.wiki.gg/wiki/Kam_Deepfury",
+    "https://warcraft.wiki.gg/wiki/Hamhock",
+    "https://warcraft.wiki.gg/wiki/Dextren_Ward",
+    "https://warcraft.wiki.gg/wiki/Bruegal_Ironknuckle",
+    "https://warcraft.wiki.gg/wiki/The_Curious_Visitor"
+  ],
+  "roadEnds": ["The gate", "Thredd's block"],
+  "seedWho": "Tari",
+  "cards": [
+    {
+      "id": "the-men-who-built-it",
+      "kind": "before",
+      "form": "title",
+      "subject": "The Stonemasons Guild",
+      "tag": "Before",
+      "lines": [
+        "Bazil Thredd was one of the masons who rebuilt Stormwind after the First War, went unpaid, and rioted. He was caught in the riots that killed Queen Tiffin.",
+        "This is a prison in the basement of a city its prisoners built."
+      ],
+      "spoiler": false
+    },
+    {
+      "id": "thelwater",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "Warden Thelwater",
+      "tag": "Outside the gate",
+      "lines": [
+        "He is not briefing you. He is panicking. \"How could this happen?\" \"All of a sudden they were everywhere.\" \"They must have had someone helping them.\"",
+        "And then: \"If the Captain finds out, it'll be the end of me.\"",
+        "The riot was kept secret. You are not a hero here, you are a cleanup crew."
+      ],
+      "spoiler": false,
+      "t": 0.08,
+      "icon": "thelwater"
+    },
+    {
+      "id": "size",
+      "kind": "beware",
+      "form": "chip",
+      "subject": "The smallest dungeon in the game",
+      "tag": "And it still takes an hour",
+      "lines": [
+        "Possibly the smallest instance there is, and because of the number of bodies in close quarters it can run as long as a full-sized one.",
+        "It is smaller than the Deadmines with about the same number of named enemies."
+      ],
+      "spoiler": false,
+      "t": 0.18,
+      "icon": "size"
+    },
+    {
+      "id": "targorr",
+      "kind": "look",
+      "form": "chip",
+      "subject": "Targorr the Dread",
+      "tag": "Look at his face",
+      "lines": [
+        "He wears a proto-orc model left over from the game's alpha — a shape that shipped almost nowhere else.",
+        "He was supreme executioner for the Blackrock clan under Gath'Ilzogg.",
+        "Taken alive, and never executed."
+      ],
+      "spoiler": false,
+      "t": 0.28,
+      "icon": "targorr"
+    },
+    {
+      "id": "kam-deepfury",
+      "kind": "story",
+      "form": "chip",
+      "subject": "Kam Deepfury",
+      "tag": "Nothing to do with any of this",
+      "lines": [
+        "The one prisoner who is not Defias. A Dark Iron dwarf who blew the bridge on the Thandol Span and killed a dwarf's kin doing it.",
+        "Motley Garmason at Dun Modr, up in the Wetlands, wants his head.",
+        "A quest from a swamp twenty levels north, cashed in a cellar under Stormwind."
+      ],
+      "spoiler": false,
+      "t": 0.38,
+      "icon": "kam-deepfury"
+    },
+    {
+      "id": "hamhock",
+      "kind": "look",
+      "form": "chip",
+      "subject": "Hamhock",
+      "tag": "Nobody has ever explained him",
+      "lines": [
+        "A two-headed ogre mage in a human city prison. There is no canon reason for him to be here.",
+        "He had no significant loot and was attached to no quest.",
+        "He is simply in there, and always has been."
+      ],
+      "spoiler": false,
+      "t": 0.48,
+      "icon": "hamhock"
+    },
+    {
+      "id": "dextren-ward",
+      "kind": "story",
+      "form": "chip",
+      "subject": "Dextren Ward",
+      "tag": "He sold the dead",
+      "lines": [
+        "He robbed graves at Raven Hill in Duskwood and sold the bodies on to Morbent Fel. Councilman Millstipe wanted him taken.",
+        "The name is Lovecraft — The Case of Charles Dexter Ward, about a man digging up the dead to raise them.",
+        "He is a fear-caster, which in corridors this tight is the whole fight."
+      ],
+      "spoiler": false,
+      "t": 0.6,
+      "icon": "dextren-ward"
+    },
+    {
+      "id": "bruegal",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "Bruegal Ironknuckle",
+      "tag": "The only thing worth having",
+      "lines": [
+        "The Stockade has exceptionally poor loot from every boss, with one exception, and he is a rare spawn.",
+        "Iron Knuckles, Jimmied Handcuffs, Prison Shank. Those and Kam's walking stick are the only rare items in the place.",
+        "He may simply not be in there."
+      ],
+      "spoiler": false,
+      "t": 0.72,
+      "icon": "bruegal"
+    },
+    {
+      "id": "what-they-shout",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "They think they have won",
+      "tag": "Bazil Thredd",
+      "lines": [
+        "\"Tell the warden this prison is ours now!\" And to arrivals: \"More of the warden's errand boys!\"",
+        "Bruegal, if he is up: \"Death to the Warden's men!\" \"Welcome to the Stockade!\"",
+        "They have won, until you arrive."
+      ],
+      "spoiler": false,
+      "t": 0.86,
+      "icon": "what-they-shout"
+    },
+    {
+      "id": "the-visitor",
+      "kind": "story",
+      "form": "grave",
+      "subject": "The curious visitor",
+      "tag": "Killing Thredd is step three of twelve",
+      "lines": [
+        "For months before the riot a hooded man calling himself Maelik came to visit Thredd's cell. The warden noticed and wrote down a description.",
+        "That scrap of paper opens a twelve-quest chain that ends with an audience with the King.",
+        "Baros Alexston reads it and cannot place him: \"But it could be anybody!\""
+      ],
+      "spoiler": true,
+      "t": 1.0,
+      "icon": "the-visitor"
+    }
+  ]
+}

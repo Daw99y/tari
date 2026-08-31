@@ -1,0 +1,194 @@
+{
+  "room": "gnomeregan",
+  "sources": [
+    "https://warcraft.wiki.gg/wiki/Gnomeregan_(instance)",
+    "https://warcraft.wiki.gg/wiki/Fall_of_Gnomeregan",
+    "https://warcraft.wiki.gg/wiki/Sicco_Thermaplugg",
+    "https://warcraft.wiki.gg/wiki/Mekgineer_Thermaplugg_(tactics)",
+    "https://warcraft.wiki.gg/wiki/Clean_Zone",
+    "https://warcraft.wiki.gg/wiki/Matrix_Punchograph_3005-A",
+    "https://warcraft.wiki.gg/wiki/Dark_Iron_Ambassador",
+    "https://warcraft.wiki.gg/wiki/Crowd_Pummeler_9-60",
+    "https://warcraft.wiki.gg/wiki/Alarm-a-bomb_2600"
+  ],
+  "roadEnds": ["The Train Depot", "The Tinkers' Court"],
+  "seedWho": "Tari",
+  "cards": [
+    {
+      "id": "a-working-city",
+      "kind": "before",
+      "form": "title",
+      "subject": "A city that worked",
+      "tag": "Before",
+      "lines": [
+        "A multi-level machine-city, lost after a five-year secret war against troggs tunnelling up from underneath it.",
+        "Read the wing names as you fight through them — Dormitory, Launch Bay, Workshop, Engineering Labs. Every one is named for what it used to do."
+      ],
+      "spoiler": false
+    },
+    {
+      "id": "no-home",
+      "kind": "story",
+      "form": "chip",
+      "subject": "The only Alliance race with no city",
+      "tag": "Which is why this is a dungeon",
+      "lines": [
+        "New gnomes start in dwarf territory in Dun Morogh, and the High Tinker rules from a borrowed district of Ironforge.",
+        "There is a front door in the snow with a train station attached — a city that expected commuters.",
+        "This is the home they lost, and you are farming it."
+      ],
+      "spoiler": false,
+      "t": 0.06,
+      "icon": "no-home"
+    },
+    {
+      "id": "the-survivors",
+      "kind": "story",
+      "form": "chip",
+      "subject": "The leper gnomes",
+      "tag": "They are not invaders",
+      "lines": [
+        "They are the gnomes who did not get out — mutated and driven mad by their own government's gas, then recruited by the gnome who released it.",
+        "Thermaplugg was caught in it too.",
+        "He is a leper gnome calling himself king of the gnomes."
+      ],
+      "spoiler": false,
+      "t": 0.16,
+      "icon": "the-survivors"
+    },
+    {
+      "id": "sicko",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "Sicco",
+      "tag": "The name is the joke",
+      "lines": [
+        "Mekkatorque thought him one of the brightest gnomes alive, but too impatient, sloppy and goblin-esque — about the worst thing one gnome can say about another.",
+        "His first name is presumably a wordplay on sicko.",
+        "They were friends from youth."
+      ],
+      "spoiler": false,
+      "t": 0.26,
+      "icon": "sicko"
+    },
+    {
+      "id": "the-mailbox",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "There is a post box in here",
+      "tag": "The Clean Zone",
+      "lines": [
+        "An engineering vendor, holdout medics and technicians, and a mailbox — inside the instance.",
+        "A shop and a post box in the middle of a dungeon is close to unique.",
+        "Somebody is still holding an office in a dead city."
+      ],
+      "spoiler": false,
+      "t": 0.36,
+      "icon": "the-mailbox"
+    },
+    {
+      "id": "sparklematic",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "The Sparklematic 5200",
+      "tag": "Grime-Encrusted Objects",
+      "lines": [
+        "Trash in here drops filthy junk, and there are machines in the Clean Zone that will wash it for you and hand back whatever was underneath.",
+        "A coin-operated laundromat for loot, in an irradiated ruin."
+      ],
+      "spoiler": false,
+      "t": 0.44,
+      "icon": "sparklematic"
+    },
+    {
+      "id": "punchographs",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "Matrix Punchograph 3005",
+      "tag": "Five machines, five wings",
+      "lines": [
+        "A through E, bolted in different parts of the city. Each eats one punch card and prints the next colour: white, yellow, blue, red, prismatic.",
+        "The chain physically drags you through the entire dungeon.",
+        "Removed in Cataclysm."
+      ],
+      "spoiler": false,
+      "t": 0.54,
+      "icon": "punchographs"
+    },
+    {
+      "id": "viscous-fallout",
+      "kind": "look",
+      "form": "chip",
+      "subject": "Viscous Fallout",
+      "tag": "The thing that killed the city, with a body",
+      "lines": [
+        "An early mini-boss that is, literally, the leaked radiation walking around as a puddle.",
+        "It drops the Hydrocane, which breathes underwater forever.",
+        "People kept that thing in their bags for another thirty levels."
+      ],
+      "spoiler": false,
+      "t": 0.64,
+      "icon": "viscous-fallout"
+    },
+    {
+      "id": "crowd-pummeler",
+      "kind": "look",
+      "form": "chip",
+      "subject": "Crowd Pummeler 9-60",
+      "tag": "It is stolen",
+      "lines": [
+        "Oglethorpe Obnoticus designed an unbeatable robot. Thermaplugg took the blueprints and built this oversized version, and Obnoticus was banished for it.",
+        "Unjustly.",
+        "He is alive and well in Booty Bay, and you can go and stand in front of him."
+      ],
+      "spoiler": false,
+      "t": 0.74,
+      "icon": "crowd-pummeler"
+    },
+    {
+      "id": "the-ambassador",
+      "kind": "look",
+      "form": "chip",
+      "subject": "Dark Iron Ambassador",
+      "tag": "That is his whole name",
+      "lines": [
+        "A rare elite with no proper name, no quest and no dialogue.",
+        "The reading nobody has ever confirmed: he is the envoy between Thermaplugg and the Dark Iron clan.",
+        "A diplomat left standing in a gnome city, unexplained for twenty years."
+      ],
+      "spoiler": false,
+      "t": 0.82,
+      "icon": "the-ambassador"
+    },
+    {
+      "id": "thermaplugg",
+      "kind": "beware",
+      "form": "grave",
+      "subject": "Mekgineer Thermaplugg",
+      "tag": "The Tinkers' Court",
+      "lines": [
+        "He fights out of a cauldron-shaped prototype suit, in the room where the council of gnome engineers used to meet.",
+        "Bomb assemblies on the walls keep spitting walking bombs at random people until somebody runs over and hits the red switch on the side.",
+        "\"Explosions! MORE explosions! I've got to have more explosions!\""
+      ],
+      "spoiler": true,
+      "t": 0.92,
+      "icon": "thermaplugg"
+    },
+    {
+      "id": "the-facsimile",
+      "kind": "story",
+      "form": "grave",
+      "subject": "They took it back",
+      "tag": "After",
+      "lines": [
+        "In here, this dungeon is the only place Thermaplugg exists and killing him is the end of him.",
+        "Blizzard later decided every group that ever beat him had actually destroyed a clever facsimile, so that he could come back.",
+        "Whatever you do down there was retroactively undone."
+      ],
+      "spoiler": true,
+      "t": 1.0,
+      "icon": "the-facsimile"
+    }
+  ]
+}

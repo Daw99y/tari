@@ -1,0 +1,212 @@
+{
+  "room": "un-goro-crater",
+  "sources": [
+    "https://warcraft.wiki.gg/wiki/Un%27Goro_Crater",
+    "https://warcraft.wiki.gg/wiki/Un%27Goro_Crater_(Classic)",
+    "https://warcraft.wiki.gg/wiki/Marshal%27s_Refuge",
+    "https://warcraft.wiki.gg/wiki/Crystal_Pylon",
+    "https://warcraft.wiki.gg/wiki/Linken",
+    "https://warcraft.wiki.gg/wiki/Muigin",
+    "https://warcraft.wiki.gg/wiki/Ringo",
+    "https://warcraft.wiki.gg/wiki/A-Me_01",
+    "https://warcraft.wiki.gg/wiki/King_Mosh",
+    "https://warcraft.wiki.gg/wiki/Uhk%27loc",
+    "https://warcraft.wiki.gg/wiki/Lakkari_Tar_Pits",
+    "https://warcraft.wiki.gg/wiki/Fire_Plume_Ridge"
+  ],
+  "roadEnds": ["The northeast ravine", "Fire Plume Ridge"],
+  "seedWho": "Tari",
+  "cards": [
+    {
+      "id": "land-of-the-lost",
+      "kind": "before",
+      "form": "title",
+      "subject": "Land of the Lost",
+      "tag": "Before",
+      "lines": [
+        "The whole zone is a sustained homage to the 1974 series: a family stranded in a dinosaur valley whose defining props were pylons containing coloured crystals.",
+        "Williden Marshal and Hol'anyee Marshal are Will and Holly. The camp is Marshal's Refuge. Once you know, the pylons stop being a mechanic and become a quotation."
+      ],
+      "spoiler": false
+    },
+    {
+      "id": "ngorongoro",
+      "kind": "story",
+      "form": "chip",
+      "subject": "The crater is a real place",
+      "tag": "Ngorongoro, in Tanzania",
+      "lines": [
+        "A collapsed volcano whose walls trap an unusually dense population of large animals inside it.",
+        "The name and the shape are both lifted from it.",
+        "The joke is that the real one works the same way the fake one does."
+      ],
+      "spoiler": false,
+      "t": 0.06,
+      "icon": "ngorongoro"
+    },
+    {
+      "id": "why-it-is-green",
+      "kind": "story",
+      "form": "chip",
+      "subject": "Nobody explains it",
+      "tag": "Three deserts around one jungle",
+      "lines": [
+        "A rainforest sealed inside a crater rim, ringed by Tanaris, Silithus and Uldum.",
+        "Everything you will read about titan experiments and petri dishes was written years after this.",
+        "In here, nothing in the game accounts for it at all."
+      ],
+      "spoiler": false,
+      "t": 0.14,
+      "icon": "why-it-is-green"
+    },
+    {
+      "id": "the-pylons",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "The pylons do not teleport you",
+      "tag": "Three of them, and no fourth",
+      "lines": [
+        "They are crafting stations. Ten crystals of two colours in, one consumable out — a fire bomb, a restore, a ward, a spire.",
+        "They only work once a gnome hands you the user's manual.",
+        "The vanilla description of them is honest: \"The pylons on the ridges of the crater defy explanation.\""
+      ],
+      "spoiler": false,
+      "t": 0.24,
+      "icon": "the-pylons"
+    },
+    {
+      "id": "linken",
+      "kind": "story",
+      "form": "chip",
+      "subject": "Linken",
+      "tag": "It's a Secret to Everybody",
+      "lines": [
+        "A gnome washes ashore with no memory and no interest in gadgets, only swordplay. The chain is named after a line from the 1986 Legend of Zelda.",
+        "He says \"Excuuuuse me, princess!\" and \"I'm not used to fighting with other people.\"",
+        "It ends with Linken's Sword of Mastery and Linken's Boomerang."
+      ],
+      "spoiler": false,
+      "t": 0.34,
+      "icon": "linken"
+    },
+    {
+      "id": "mario-and-luigi",
+      "kind": "look",
+      "form": "chip",
+      "subject": "Larion and Muigin",
+      "tag": "Read the names backwards",
+      "lines": [
+        "Two feuding expedition members at the Refuge, one blaming the other for getting them lost.",
+        "They are standing next to a Zelda gnome.",
+        "Both were shunted into unreachable towers in 4.0.3a. In here you can still talk to them."
+      ],
+      "spoiler": false,
+      "t": 0.44,
+      "icon": "mario-and-luigi"
+    },
+    {
+      "id": "ringo",
+      "kind": "story",
+      "form": "chip",
+      "subject": "Ringo",
+      "tag": "A Little Help From My Friends",
+      "lines": [
+        "A goblin dying of heat halfway up the volcano, in a south-facing cave.",
+        "Walking him out, he faints again and again, and you revive him each time with a borrowed canteen.",
+        "His dropped sack is lying outside the cave and finishes a different quest called Lost!"
+      ],
+      "spoiler": false,
+      "t": 0.54,
+      "icon": "ringo"
+    },
+    {
+      "id": "a-me-01",
+      "kind": "story",
+      "form": "chip",
+      "subject": "A-Me 01",
+      "tag": "Near Fungal Rock",
+      "lines": [
+        "A mechanical gorilla that speaks in broken English: \"Follow... follow A-me. Home.\"",
+        "You escort a robot ape through a valley full of real apes.",
+        "She is named for Amy, the signing gorilla in Michael Crichton's Congo, and she was removed from the game in 4.0.3a."
+      ],
+      "spoiler": false,
+      "t": 0.64,
+      "icon": "a-me-01"
+    },
+    {
+      "id": "devilsaurs",
+      "kind": "beware",
+      "form": "chip",
+      "subject": "The devilsaurs",
+      "tag": "You arrive at forty-eight",
+      "lines": [
+        "They are fifty-five to sixty elites, and King Mosh was the most powerful rare mob in the game before Burning Crusade — rare elite here, downgraded much later.",
+        "Devilsaur Leather drops nowhere else in the world.",
+        "Which is why the crater was permanently patrolled by people who did not want you in it."
+      ],
+      "spoiler": false,
+      "t": 0.74,
+      "icon": "devilsaurs"
+    },
+    {
+      "id": "uhkloc",
+      "kind": "look",
+      "form": "chip",
+      "subject": "Uhk'loc",
+      "tag": "Fungal Rock",
+      "lines": [
+        "A rare gorilla, and the only one of its colour a hunter can tame.",
+        "That is the entire reason anyone ever camped that cave."
+      ],
+      "spoiler": false,
+      "t": 0.8,
+      "icon": "uhkloc"
+    },
+    {
+      "id": "the-tar-pits",
+      "kind": "look",
+      "form": "chip",
+      "subject": "Lakkari Tar Pits",
+      "tag": "In the north",
+      "lines": [
+        "Lakes of thick black tar with \"bones of hundreds of beasts\" jutting out of the surface.",
+        "It is La Brea with the dinosaurs still standing next to it.",
+        "The Tar Lords and Tar Lurkers are the tar itself, walking."
+      ],
+      "spoiler": false,
+      "t": 0.86,
+      "icon": "the-tar-pits"
+    },
+    {
+      "id": "un-goro-soil",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "The soil is not for you",
+      "tag": "Morrowgrain",
+      "lines": [
+        "Piles of dirt across the crater floor, combined with seeds in a pouch, slowly become Morrowgrain.",
+        "It gets handed to the Cenarion Circle for reputation.",
+        "This crater is the grind that fed the road to Silithus."
+      ],
+      "spoiler": false,
+      "t": 0.94,
+      "icon": "un-goro-soil"
+    },
+    {
+      "id": "fire-plume",
+      "kind": "look",
+      "form": "chip",
+      "subject": "Fire Plume Ridge",
+      "tag": "Dead centre",
+      "lines": [
+        "A live volcano in the middle of the crater, running shallow enough to heat the geysers on the far side of it.",
+        "A goblin has stuck a thermometer into it.",
+        "The unit on the dial is degrees Kraklenheit, which he invented."
+      ],
+      "spoiler": false,
+      "t": 1.0,
+      "icon": "fire-plume"
+    }
+  ]
+}

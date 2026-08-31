@@ -1,0 +1,211 @@
+{
+  "room": "burning-steppes",
+  "sources": [
+    "https://warcraft.wiki.gg/wiki/Burning_Steppes",
+    "https://warcraft.wiki.gg/wiki/Burning_Steppes_(Classic)",
+    "https://warcraft.wiki.gg/wiki/Ruins_of_Thaurissan",
+    "https://warcraft.wiki.gg/wiki/Blackrock_Mountain",
+    "https://warcraft.wiki.gg/wiki/Flame_Crest",
+    "https://warcraft.wiki.gg/wiki/Morgan%27s_Vigil",
+    "https://warcraft.wiki.gg/wiki/Ragged_John",
+    "https://warcraft.wiki.gg/wiki/Precarious_Predicament",
+    "https://warcraft.wiki.gg/wiki/Volchan",
+    "https://warcraft.wiki.gg/wiki/Dreadmaul_Rock",
+    "https://warcraft.wiki.gg/wiki/Draco%27dar",
+    "https://warcraft.wiki.gg/wiki/Altar_of_Storms",
+    "https://warcraft.wiki.gg/wiki/Terror_Wing_Path"
+  ],
+  "roadEnds": ["Morgan's Vigil", "The Ruins of Thaurissan"],
+  "seedWho": "Tari",
+  "cards": [
+    {
+      "id": "thaurissan",
+      "kind": "before",
+      "form": "title",
+      "subject": "Thaurissan",
+      "tag": "Before",
+      "lines": [
+        "There was a city here. Sorcerer-Thane Thaurissan and seven trusted dwarves tried to summon something that would win the War of the Three Hammers, and got Ragnaros.",
+        "The volcano came up with him and burned the steppes to ash. The survivors were enslaved and went underground, and the wreck of their capital is in the north of this zone."
+      ],
+      "spoiler": false
+    },
+    {
+      "id": "getting-here",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "Two ways in on foot",
+      "tag": "Fifty to fifty-eight",
+      "lines": [
+        "Blackrock Pass up from Redridge in the south, or down out of Searing Gorge in the north.",
+        "There is nothing else.",
+        "Morgan's Vigil flies to Stormwind, Lakeshire, Thorium Point and Nethergarde; Flame Crest flies to Stonard, Kargath and Thorium Point."
+      ],
+      "spoiler": false,
+      "t": 0.06,
+      "icon": "getting-here"
+    },
+    {
+      "id": "morgans-vigil",
+      "kind": "look",
+      "form": "chip",
+      "subject": "Morgan's Vigil",
+      "tag": "It is not a fort",
+      "lines": [
+        "It is a burned-out village the Alliance moved back into — houses burned to the ground, one collapsed mage tower, tents pitched among them.",
+        "Marshal Maxwell stands here and hands out the whole Blackrock chain.",
+        "He was moved inside the mountain in 4.0.3a and his chain deleted."
+      ],
+      "spoiler": false,
+      "t": 0.14,
+      "icon": "morgans-vigil"
+    },
+    {
+      "id": "the-relics",
+      "kind": "story",
+      "form": "chip",
+      "subject": "What the relics showed",
+      "tag": "The Ruins of Thaurissan",
+      "lines": [
+        "An Alliance expedition read the relics in the ruins and got one image out of them.",
+        "A lone Dark Iron kneeling before a monolith of flame.",
+        "Surrounded by seven corpses."
+      ],
+      "spoiler": false,
+      "t": 0.24,
+      "icon": "the-relics"
+    },
+    {
+      "id": "flame-crest",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "Flame Crest was neutral",
+      "tag": "Everyone remembers a Horde camp",
+      "lines": [
+        "In here it is goblins on a rock outcropping, reachable only by a crude bridge, with a flight master serving Horde routes.",
+        "It only becomes a flagged Horde outpost in 4.0.3a."
+      ],
+      "spoiler": false,
+      "t": 0.34,
+      "icon": "flame-crest"
+    },
+    {
+      "id": "ragged-john",
+      "kind": "story",
+      "form": "grave",
+      "subject": "Ragged John",
+      "tag": "A drunk dwarf both factions have to talk to",
+      "lines": [
+        "\"What you be wanting? *hic*\"",
+        "He watched Marshal Windsor kill fifty orcs with the hammer Ironfoe. Then three hundred Dark Irons arrived and took him alive instead of killing him, and their leader took the hammer.",
+        "That is how Ironfoe ends up at the bottom of Blackrock Depths."
+      ],
+      "spoiler": true,
+      "t": 0.44,
+      "icon": "ragged-john"
+    },
+    {
+      "id": "volchan",
+      "kind": "beware",
+      "form": "chip",
+      "subject": "Volchan",
+      "tag": "A level sixty rare, loose",
+      "lines": [
+        "A molten giant walking a patrol that runs the perimeter of Dreadmaul Rock, along Terror Wing Path, past the ruins and down to Morgan's Vigil.",
+        "You are in your fifties.",
+        "He is the only source in the game for one blacksmithing plan, which is why people looked for him anyway."
+      ],
+      "spoiler": false,
+      "t": 0.54,
+      "icon": "volchan"
+    },
+    {
+      "id": "dreadmaul-rock",
+      "kind": "look",
+      "form": "chip",
+      "subject": "Dreadmaul Rock",
+      "tag": "Named for ogres who are not there",
+      "lines": [
+        "The ogres actually living on it are the Firegut clan. Whether the Dreadmauls were ever here is a guess.",
+        "Paths spiral to the summit, and underneath it is a warren of ogre mounds."
+      ],
+      "spoiler": false,
+      "t": 0.62,
+      "icon": "dreadmaul-rock"
+    },
+    {
+      "id": "altar-of-storms",
+      "kind": "look",
+      "form": "chip",
+      "subject": "The Altar of Storms",
+      "tag": "Northwest of the mountain",
+      "lines": [
+        "In the Second War these channelled dark energy through corrupted elven runestones to make ogre-magi.",
+        "The high elves swore to destroy every one of them and did not finish the job.",
+        "The Blackrock clan still use this one."
+      ],
+      "spoiler": false,
+      "t": 0.7,
+      "icon": "altar-of-storms"
+    },
+    {
+      "id": "terror-wing-path",
+      "kind": "look",
+      "form": "chip",
+      "subject": "Terror Wing Path",
+      "tag": "The eastern valley",
+      "lines": [
+        "Given over to black dragonflight whelps and dragonkin, with drakes patrolling above them, and all of it elite in here.",
+        "There is no way south out of it. The pass down to Redridge and the goblin flight are both later additions."
+      ],
+      "spoiler": false,
+      "t": 0.78,
+      "icon": "terror-wing-path"
+    },
+    {
+      "id": "dracodar",
+      "kind": "before",
+      "form": "chip",
+      "subject": "Draco'dar",
+      "tag": "A place that only exists here",
+      "lines": [
+        "Scorched hills in the southwest, crawling with black dragonflight, and elite ground.",
+        "Patch 4.0.3a deleted the name outright and cut the terrain into two other things.",
+        "You can stand in it. Nobody after this can."
+      ],
+      "spoiler": false,
+      "t": 0.86,
+      "icon": "dracodar"
+    },
+    {
+      "id": "grark",
+      "kind": "beware",
+      "form": "grave",
+      "subject": "Grark Lorkrub",
+      "tag": "You walk him out in shackles",
+      "lines": [
+        "A captured Blackrock traitor, chained and marched out of the stronghold, across the zone, through Blackrock Mountain and into Searing Gorge.",
+        "He taunts you the whole way: \"Do you truly believe that you will make it to your rendezvous point with me in custody?\"",
+        "One of very few escorts that leaves its own zone. Deleted in 4.0.3a."
+      ],
+      "spoiler": true,
+      "t": 0.92,
+      "icon": "grark"
+    },
+    {
+      "id": "two-sieges",
+      "kind": "story",
+      "form": "chip",
+      "subject": "One mountain, two enemies",
+      "tag": "And they hate each other",
+      "lines": [
+        "Ragnaros holds the depths with the enslaved Dark Iron and their machines. Nefarian holds the upper reaches with the Dark Horde under Rend Blackhand.",
+        "The dwarves you fight out here and the orcs you fight out here are not allies.",
+        "They are two sieges sharing an address."
+      ],
+      "spoiler": false,
+      "t": 1.0,
+      "icon": "two-sieges"
+    }
+  ]
+}

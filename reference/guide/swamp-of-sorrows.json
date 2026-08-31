@@ -1,0 +1,174 @@
+{
+  "room": "swamp-of-sorrows",
+  "sources": [
+    "https://warcraft.wiki.gg/wiki/Swamp_of_Sorrows",
+    "https://warcraft.wiki.gg/wiki/Temple_of_Atal%27Hakkar",
+    "https://warcraft.wiki.gg/wiki/Pool_of_Tears",
+    "https://warcraft.wiki.gg/wiki/Stonard",
+    "https://warcraft.wiki.gg/wiki/Swamp_of_Sorrows_(Classic)"
+  ],
+  "roadEnds": ["Stonard", "The Pool of Tears"],
+  "seedWho": "Tari",
+  "cards": [
+    {
+      "id": "the-black-morass",
+      "kind": "before",
+      "form": "title",
+      "subject": "The Black Morass",
+      "tag": "Before",
+      "lines": [
+        "This was the northern half of an ancient swamp that existed long before the Dark Portal. The portal did not make it.",
+        "After the portal's destruction the southern half was scorched into the Blasted Lands, and the surviving north was renamed in honour of the dead of the Second War."
+      ],
+      "spoiler": false,
+      "now": "Swamp of Sorrows"
+    },
+    {
+      "id": "no-alliance",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "The Alliance has nothing here",
+      "tag": "You cross it and leave",
+      "lines": [
+        "No town, no hub, no reason. In here the zone is Horde infrastructure and empty marsh.",
+        "Marshtide Watch, the Bloodmire and the whole faction war over this swamp are Cataclysm inventions."
+      ],
+      "spoiler": false,
+      "t": 0.08,
+      "icon": "no-alliance"
+    },
+    {
+      "id": "stonard",
+      "kind": "story",
+      "form": "chip",
+      "subject": "Stonard",
+      "tag": "The orcs' first ground in this world",
+      "lines": [
+        "Put up right after the Dark Portal opened, and named as one of the oldest orcish settlements on Azeroth.",
+        "This muddy handful of huts predates Orgrimmar, Durotar, and everything the Horde built after crossing the sea."
+      ],
+      "spoiler": false,
+      "t": 0.18,
+      "icon": "stonard"
+    },
+    {
+      "id": "rockard-and-kyross",
+      "kind": "story",
+      "form": "chip",
+      "subject": "Rockard and Kyross",
+      "tag": "The two you cannot visit",
+      "lines": [
+        "Three orc outposts went up in the Black Morass. The First War destroyed two of them outright and left Stonard badly damaged.",
+        "Stonard is the only one you can walk into.",
+        "The other two are names in the lore with nothing on the map."
+      ],
+      "spoiler": false,
+      "t": 0.28,
+      "icon": "rockard-and-kyross"
+    },
+    {
+      "id": "the-shaman-trainer",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "The only shaman trainer on the continent",
+      "tag": "Stonard, for the Horde",
+      "lines": [
+        "It holds the Eastern Kingdoms' only Horde shaman trainer, and the Horde's master alchemist besides.",
+        "For a shaman on this continent, this swamp is not optional.",
+        "It is one of very few reasons anybody came here on purpose rather than in transit."
+      ],
+      "spoiler": false,
+      "t": 0.38,
+      "icon": "the-shaman-trainer"
+    },
+    {
+      "id": "the-named-map",
+      "kind": "look",
+      "form": "chip",
+      "subject": "Read the subzone names",
+      "tag": "And then go and look at them",
+      "lines": [
+        "Splinterspear Junction. Sorrowmurk. Stagalbog. The Shifting Mire. Misty Valley.",
+        "Named places with almost nothing attached to any of them.",
+        "The names are better than the zone. This is a fully labelled map of an unbuilt place."
+      ],
+      "spoiler": false,
+      "t": 0.48,
+      "icon": "the-named-map"
+    },
+    {
+      "id": "pool-of-tears",
+      "kind": "look",
+      "form": "chip",
+      "subject": "The Pool of Tears",
+      "tag": "It is a lake here",
+      "lines": [
+        "Landlocked, ringed by marsh. It only becomes a saltwater bay when Cataclysm cuts a channel to the Forbidding Sea.",
+        "The water you are standing in has no ocean in it — a detail that is wrong in every modern screenshot."
+      ],
+      "spoiler": false,
+      "t": 0.58,
+      "icon": "pool-of-tears"
+    },
+    {
+      "id": "the-ruin-in-the-water",
+      "kind": "look",
+      "form": "chip",
+      "subject": "The thing sticking out of the lake",
+      "tag": "The zone's one landmark",
+      "lines": [
+        "The temple's upper structure breaks the surface, in an otherwise featureless marsh.",
+        "Atal'ai ruins lie scattered along the shore and across the lakebed, and artefacts can be recovered underwater.",
+        "Swim down and look at it before you go in."
+      ],
+      "spoiler": false,
+      "t": 0.68,
+      "icon": "the-ruin-in-the-water"
+    },
+    {
+      "id": "the-atalai",
+      "kind": "before",
+      "form": "chip",
+      "subject": "The Atal'ai are refugees",
+      "tag": "Not natives",
+      "lines": [
+        "More than a thousand years ago a priest sect broke away from the collapsing Gurubashi Empire in Stranglethorn and fled north into this swamp.",
+        "Everything troll here is downstream of one exile march.",
+        "The temple is what they built when they reached somewhere nobody would look."
+      ],
+      "spoiler": false,
+      "t": 0.78,
+      "icon": "the-atalai"
+    },
+    {
+      "id": "yseras-mistake",
+      "kind": "story",
+      "form": "chip",
+      "subject": "Ysera sank it",
+      "tag": "And it did not work",
+      "lines": [
+        "The Atal'ai built the temple to summon Hakkar. Ysera found out and drowned the whole structure under the water with her green dragonflight.",
+        "It backfired. Sinking it hid the cult from the world.",
+        "Their work went on undisturbed underneath, for centuries."
+      ],
+      "spoiler": false,
+      "t": 0.88,
+      "icon": "yseras-mistake"
+    },
+    {
+      "id": "the-dragons",
+      "kind": "beware",
+      "form": "grave",
+      "subject": "The guard is still posted",
+      "tag": "And it went wrong too",
+      "lines": [
+        "Green dragons were stationed here after the sinking and never stood down.",
+        "The Shade of Eranikus — what is left of Ysera's own lieutenant — is inside.",
+        "The watch set to contain the cult became one of the things you have to fight."
+      ],
+      "spoiler": true,
+      "t": 1.0,
+      "icon": "the-dragons"
+    }
+  ]
+}

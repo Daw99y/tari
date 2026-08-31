@@ -1,0 +1,212 @@
+{
+  "room": "badlands",
+  "sources": [
+    "https://warcraft.wiki.gg/wiki/Badlands",
+    "https://warcraft.wiki.gg/wiki/Badlands_(Classic)",
+    "https://warcraft.wiki.gg/wiki/Apocryphan%27s_Rest",
+    "https://warcraft.wiki.gg/wiki/Uldaman",
+    "https://warcraft.wiki.gg/wiki/The_Maker%27s_Terrace",
+    "https://warcraft.wiki.gg/wiki/Kargath",
+    "https://warcraft.wiki.gg/wiki/Angor_Fortress",
+    "https://warcraft.wiki.gg/wiki/Martek_the_Exiled",
+    "https://warcraft.wiki.gg/wiki/Theldurin_the_Lost",
+    "https://warcraft.wiki.gg/wiki/Lethlor_Ravine",
+    "https://warcraft.wiki.gg/wiki/Camp_Kosh",
+    "https://warcraft.wiki.gg/wiki/Lotwil_Veriatus"
+  ],
+  "roadEnds": ["The Maker's Terrace", "Lethlor Ravine"],
+  "seedWho": "Tari",
+  "cards": [
+    {
+      "id": "a-verdant-valley",
+      "kind": "before",
+      "form": "title",
+      "subject": "A verdant valley",
+      "tag": "Before",
+      "lines": [
+        "The old travellers' lore holds this was rich, green country until Ragnaros was summoned into the world under Blackrock three hundred years ago and scorched it.",
+        "Same event, same century as the Dark Irons' fall. The wasteland and the Dark Iron are one wound."
+      ],
+      "spoiler": false
+    },
+    {
+      "id": "kargath",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "Kargath",
+      "tag": "The hinge of the Horde map",
+      "lines": [
+        "The only Horde outpost in all of Khaz Modan, named for Kargath Bladefist of the Shattered Hand.",
+        "Its flight path is the join between the northern and southern Horde networks in the Eastern Kingdoms.",
+        "Lose it and the Horde's map here is two disconnected halves."
+      ],
+      "spoiler": false,
+      "t": 0.06,
+      "icon": "kargath"
+    },
+    {
+      "id": "uldaman",
+      "kind": "story",
+      "form": "grave",
+      "subject": "What the dwarves found out",
+      "tag": "Uldaman",
+      "lines": [
+        "Ironforge prospectors dug into a titan vault under this desert and found markings describing their own true ancestry. They were made, not born.",
+        "They also woke the Stonevault troggs the titans had sealed in there as a failed first draft.",
+        "The troggs tunnelled toward Ironforge, hit Gnomeregan on the way, and overran that instead."
+      ],
+      "spoiler": true,
+      "t": 0.16,
+      "icon": "uldaman"
+    },
+    {
+      "id": "the-makers-terrace",
+      "kind": "beware",
+      "form": "chip",
+      "subject": "The Maker's Terrace",
+      "tag": "Uldaman's front step",
+      "lines": [
+        "The excavation shelf outside the door was flagged elite in here. It was only downgraded years later.",
+        "The Maker is a titan epithet.",
+        "The doorway to this zone is named after a god."
+      ],
+      "spoiler": false,
+      "t": 0.26,
+      "icon": "the-makers-terrace"
+    },
+    {
+      "id": "indurium",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "Indurium",
+      "tag": "It exists nowhere else",
+      "lines": [
+        "Indurium Mineral Veins spawn in the Badlands and inside Uldaman. Nowhere else in the world.",
+        "Martek the Exiled, the orc smith in the Valley of Fangs, is the reason anybody goes looking."
+      ],
+      "spoiler": false,
+      "t": 0.34,
+      "icon": "indurium"
+    },
+    {
+      "id": "martek",
+      "kind": "story",
+      "form": "chip",
+      "subject": "Martek the Exiled",
+      "tag": "The line nobody explains",
+      "lines": [
+        "An exiled orc blacksmith camped in the Valley of Fangs, banished over an axe he forged for Gath'Ilzogg of the Blackrock clan.",
+        "His text swears on \"Duchess Pamay's honor\". No Duchess Pamay appears anywhere else in Warcraft, before or since.",
+        "His companions Rigglefuzz and Jazzrik are named once and never accounted for."
+      ],
+      "spoiler": false,
+      "t": 0.42,
+      "icon": "martek"
+    },
+    {
+      "id": "angor-fortress",
+      "kind": "story",
+      "form": "chip",
+      "subject": "Angor Fortress",
+      "tag": "Two digs, one prize",
+      "lines": [
+        "The Dark Iron base in the west is not raiding for loot. They are running their own excavation of the titan ruins.",
+        "Ambassador Infernus holds it, and he answers to Ragnaros.",
+        "The zone is two archaeological expeditions racing each other — Ironforge from the north, the Firelord from the west."
+      ],
+      "spoiler": false,
+      "t": 0.52,
+      "icon": "angor-fortress"
+    },
+    {
+      "id": "apocryphans-rest",
+      "kind": "look",
+      "form": "chip",
+      "subject": "Apocryphan's Rest",
+      "tag": "South of Kargath",
+      "lines": [
+        "A dragon skeleton lying in the open desert, big enough to have its own name on the map.",
+        "Buzzards nest in the ribcage and they are the only thing living there.",
+        "There is no lore anywhere for who or what Apocryphan was. The name explains nothing."
+      ],
+      "spoiler": false,
+      "t": 0.62,
+      "icon": "apocryphans-rest"
+    },
+    {
+      "id": "the-troll-temple",
+      "kind": "look",
+      "form": "chip",
+      "subject": "The buried temple",
+      "tag": "Northwest of the Dustbowl",
+      "lines": [
+        "There is a structure half-sunk in the sand out there with snake-head statues on it, and they match the troll temple statuary in the Hinterlands.",
+        "No quest, no NPC, no explanation.",
+        "A troll ruin in a dwarf-and-titan zone that the game never once mentions."
+      ],
+      "spoiler": false,
+      "t": 0.7,
+      "icon": "the-troll-temple"
+    },
+    {
+      "id": "theldurin",
+      "kind": "story",
+      "form": "chip",
+      "subject": "Theldurin the Lost",
+      "tag": "Near Agmond's End",
+      "lines": [
+        "A dwarf alone in the southern flats. He was Twilight's Hammer, scorned the cult, and ran.",
+        "\"Back away! Stay back! I have a pack full of blastpowder and I'm not afraid to use it!\"",
+        "\"Oh my! Oh my! There is a doom approaching. Mark me! A doom!\" In here he never gets better."
+      ],
+      "spoiler": false,
+      "t": 0.78,
+      "icon": "theldurin"
+    },
+    {
+      "id": "the-ogre-camps",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "Cagg, Boff, Kosh, Wurg",
+      "tag": "One clan, not four",
+      "lines": [
+        "All four camps belong to the Dustbelchers, out of Dustbelch Grotto, and they are not scattered at random.",
+        "They sit on the caravan road, preying on supply trains bound for Kargath and the Searing Gorge.",
+        "Camp Kosh is sitting on the plunder of an abandoned dwarven expedition."
+      ],
+      "spoiler": false,
+      "t": 0.86,
+      "icon": "the-ogre-camps"
+    },
+    {
+      "id": "lotwil",
+      "kind": "story",
+      "form": "chip",
+      "subject": "Lotwil Veriatus",
+      "tag": "Camped east of Kargath",
+      "lines": [
+        "A gnome elemental scholar with a sarcastic assistant and a mechanical guard called Servo.",
+        "His work on shackles of elemental binding went wrong and summoned something of considerable size.",
+        "Removed entirely in 4.0.3a. He simply vanishes out of the world."
+      ],
+      "spoiler": false,
+      "t": 0.92,
+      "icon": "lotwil"
+    },
+    {
+      "id": "lethlor",
+      "kind": "beware",
+      "form": "chip",
+      "subject": "Lethlor Ravine",
+      "tag": "The black wall",
+      "lines": [
+        "The canyon filling the whole eastern side of the zone, full of black drakes answering to Nefarian. Elite, in here.",
+        "There is nothing at the bottom for you.",
+        "It is not a place. It is the border, and it is guarded."
+      ],
+      "spoiler": false,
+      "t": 1.0,
+      "icon": "lethlor"
+    }
+  ]
+}

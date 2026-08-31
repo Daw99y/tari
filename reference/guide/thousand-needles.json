@@ -1,0 +1,210 @@
+{
+  "room": "thousand-needles",
+  "sources": [
+    "https://warcraft.wiki.gg/wiki/Thousand_Needles",
+    "https://warcraft.wiki.gg/wiki/Thousand_Needles_(Classic)",
+    "https://warcraft.wiki.gg/wiki/Shimmering_Flats",
+    "https://warcraft.wiki.gg/wiki/Mirage_Raceway",
+    "https://warcraft.wiki.gg/wiki/Henrig_Lonebrow%27s_Journal",
+    "https://warcraft.wiki.gg/wiki/Highperch",
+    "https://warcraft.wiki.gg/wiki/Weazel%27s_Crater",
+    "https://warcraft.wiki.gg/wiki/Galak_tribe",
+    "https://warcraft.wiki.gg/wiki/Gornia"
+  ],
+  "roadEnds": [
+    "The foot of the Great Lift",
+    "The Mirage Raceway"
+  ],
+  "seedWho": "Tari",
+  "cards": [
+    {
+      "id": "a-river-canyon",
+      "kind": "before",
+      "form": "title",
+      "subject": "A river canyon",
+      "tag": "Before",
+      "lines": [
+        "The spires are water-carved. Before the Sundering this was a gorge with a river running through it, and the sandstone needles are what the water left.",
+        "The Sundering pushed it above the water table. The eastern lake dried into salt flat and the gorge went to sand."
+      ],
+      "spoiler": false
+    },
+    {
+      "id": "it-is-dry",
+      "kind": "beware",
+      "form": "chip",
+      "subject": "You are walking on the floor",
+      "tag": "In the modern game this is a lake",
+      "lines": [
+        "Cataclysm collapsed the canyon walls and flooded the whole zone.",
+        "Every guide, screenshot or memory with boats in it, or a barge, or a whale shark, is a different place from this one.",
+        "Here it is sandstone and salt, edge to edge, and all of it is walkable."
+      ],
+      "spoiler": false,
+      "t": 0.04,
+      "icon": "it-is-dry"
+    },
+    {
+      "id": "lonebrow",
+      "kind": "story",
+      "form": "chip",
+      "subject": "Henrig Lonebrow",
+      "tag": "At the foot of the lift",
+      "lines": [
+        "A dead dwarf with a weathered journal on him. It is not soulbound — you can post it to a friend.",
+        "Reading it sends you west to Thalanaar, and what he learned turns into the run on Charlga Razorflank in Razorfen Kraul.",
+        "He was in her cell block. He got out and died here anyway, carrying the message."
+      ],
+      "spoiler": false,
+      "t": 0.12,
+      "icon": "lonebrow"
+    },
+    {
+      "id": "the-bridges",
+      "kind": "look",
+      "form": "chip",
+      "subject": "The zone has two floors",
+      "tag": "Look up",
+      "lines": [
+        "Bridges have been built across the tops of the spires, joining pathways from mesa to mesa above the canyon.",
+        "It is designed to be walked at two heights, and in here both of them are dry."
+      ],
+      "spoiler": false,
+      "t": 0.2,
+      "icon": "the-bridges"
+    },
+    {
+      "id": "the-galak",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "The Galak",
+      "tag": "Not Kolkar, not Gelkis",
+      "lines": [
+        "This is Galak country — Splithoof Crag their village, Camp E'thok the outpost they hit caravans from.",
+        "Their founding khan was the fifth of Zaetar and Theradras' brood, and the Galak hold no alliance with their brother tribes.",
+        "The centaur here are the ones nobody else claims."
+      ],
+      "spoiler": false,
+      "t": 0.3,
+      "icon": "the-galak"
+    },
+    {
+      "id": "freewind",
+      "kind": "story",
+      "form": "chip",
+      "subject": "Freewind Post",
+      "tag": "A refuge, not a town",
+      "lines": [
+        "The tauren live on top of a mesa because they were driven up there — the Grimtotem below them, Galak war bands on the canyon floor and the flats.",
+        "They are living precariously on the tips of the high mesas.",
+        "It is the zone's only Horde flight point."
+      ],
+      "spoiler": false,
+      "t": 0.4,
+      "icon": "freewind"
+    },
+    {
+      "id": "highperch",
+      "kind": "look",
+      "form": "chip",
+      "subject": "Highperch",
+      "tag": "Wyverns, not harpies",
+      "lines": [
+        "The western plateau is wyvern nesting ground, and in here they are hostile.",
+        "The zone's harpies are somewhere else entirely, at Roguefeather Den.",
+        "People get these two mixed up constantly."
+      ],
+      "spoiler": false,
+      "t": 0.5,
+      "icon": "highperch"
+    },
+    {
+      "id": "gornia",
+      "kind": "story",
+      "form": "chip",
+      "subject": "Gornia",
+      "tag": "Cut in beta",
+      "lines": [
+        "There is a Thousand Needles subzone that never shipped. The wiki keeps its page purely for historical purposes.",
+        "From the name alone, the guess is that it was going to be an ogre settlement.",
+        "Galak Hold went the same way."
+      ],
+      "spoiler": false,
+      "t": 0.58,
+      "icon": "gornia"
+    },
+    {
+      "id": "weazels-crater",
+      "kind": "look",
+      "form": "chip",
+      "subject": "Weazel's Crater",
+      "tag": "Northern Shimmering Flats",
+      "lines": [
+        "A large deep hole in the salt, full of saltstone basilisks.",
+        "Nobody knows who Weazel was. The name suggests either the man who found it or the man who made it.",
+        "The likeliest answer is that something the racers built landed here."
+      ],
+      "spoiler": false,
+      "t": 0.66,
+      "icon": "weazels-crater"
+    },
+    {
+      "id": "rustmaul",
+      "kind": "story",
+      "form": "chip",
+      "subject": "Rustmaul Dig Site",
+      "tag": "Abandoned twice",
+      "lines": [
+        "The dwarves dug until they broke through into a subterranean silithid hive.",
+        "They were also driven out by a Horde raid under Moktar Krin.",
+        "One dig, two unrelated reasons to leave it."
+      ],
+      "spoiler": false,
+      "t": 0.74,
+      "icon": "rustmaul"
+    },
+    {
+      "id": "the-shipwreck",
+      "kind": "look",
+      "form": "chip",
+      "subject": "The ship on the salt",
+      "tag": "Northern flats",
+      "lines": [
+        "The Shimmering Flats are a dried lakebed, and the evidence is sitting on them: a wrecked sailing vessel.",
+        "A ship, hundreds of miles from any sea, on ground the goblins now drag-race across."
+      ],
+      "spoiler": false,
+      "t": 0.84,
+      "icon": "the-shipwreck"
+    },
+    {
+      "id": "the-raceway",
+      "kind": "story",
+      "form": "chip",
+      "subject": "The Mirage Raceway",
+      "tag": "It is a grudge",
+      "lines": [
+        "Pozzik and Fizzle Brassbolts built the track to settle whether goblins or gnomes make the faster machine, and race rocket cars on it daily.",
+        "The salt around it is littered with failed gizmos and the craters they made. Cars have ended up as far away as Tanaris.",
+        "The gambling crowd is why both factions stand together at all."
+      ],
+      "spoiler": false,
+      "t": 0.94,
+      "icon": "the-raceway"
+    },
+    {
+      "id": "contested",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "The flats are contested",
+      "tag": "Whatever the carnival suggests",
+      "lines": [
+        "Both factions quest out of the same racetrack, and the Shimmering Flats are a contested zone.",
+        "The safest-feeling place in Thousand Needles is the one where the other side is standing next to you."
+      ],
+      "spoiler": false,
+      "t": 1.0,
+      "icon": "contested"
+    }
+  ]
+}

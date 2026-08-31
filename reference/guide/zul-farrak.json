@@ -1,0 +1,208 @@
+{
+  "room": "zul-farrak",
+  "sources": [
+    "https://warcraft.wiki.gg/wiki/Zul%27Farrak",
+    "https://warcraft.wiki.gg/wiki/Sergeant_Bly",
+    "https://warcraft.wiki.gg/wiki/Sergeant_Bly%27s_party",
+    "https://warcraft.wiki.gg/wiki/Gahz%27rilla",
+    "https://warcraft.wiki.gg/wiki/Mallet_of_Zul%27Farrak",
+    "https://warcraft.wiki.gg/wiki/Witch_Doctor_Zum%27rah",
+    "https://warcraft.wiki.gg/wiki/Theka_the_Martyr",
+    "https://warcraft.wiki.gg/wiki/Antu%27sul",
+    "https://warcraft.wiki.gg/wiki/Sul%27thraze_the_Lasher",
+    "https://warcraft.wiki.gg/wiki/Zul%27Farrak_NPCs"
+  ],
+  "roadEnds": ["The steps", "Ukorz's throne"],
+  "seedWho": "Tari",
+  "cards": [
+    {
+      "id": "a-jungle-city",
+      "kind": "before",
+      "form": "title",
+      "subject": "A jungle city",
+      "tag": "Before",
+      "lines": [
+        "Zul'Farrak was one of the Gurubashi Empire's cities, when all of this was rainforest.",
+        "The Sundering stranded the Farraki here and they adapted into sand trolls. The building you are standing in is a jungle city that dried out."
+      ],
+      "spoiler": false
+    },
+    {
+      "id": "bly",
+      "kind": "story",
+      "form": "chip",
+      "subject": "Sergeant Bly",
+      "tag": "The betrayal is opt-in",
+      "lines": [
+        "His band fled Gadgetzan, wandered into the city and were caged for sacrifice. Free them and they fight the troll rush beside you.",
+        "Then you ask about the Divino-matic Rod: \"That's it! I'm tired of helping you out. It's time we settled things on the battlefield!\"",
+        "He only turns if you ask for the rod."
+      ],
+      "spoiler": false,
+      "t": 0.08,
+      "icon": "bly"
+    },
+    {
+      "id": "bligh",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "The name is a mutiny",
+      "tag": "Captain Bligh",
+      "lines": [
+        "The reading is that he is named for the captain of the Bounty.",
+        "It is attached to the one man in this dungeon who mutinies on you."
+      ],
+      "spoiler": false,
+      "t": 0.16,
+      "icon": "bligh"
+    },
+    {
+      "id": "weegli",
+      "kind": "notice",
+      "form": "grave",
+      "subject": "Weegli always runs",
+      "tag": "When the crew turns",
+      "lines": [
+        "The goblin does not fight. He flees, every time, without fail.",
+        "Of the five mercenaries, one has read the room."
+      ],
+      "spoiler": true,
+      "t": 0.24,
+      "icon": "weegli"
+    },
+    {
+      "id": "the-pyramid-rush",
+      "kind": "beware",
+      "form": "grave",
+      "subject": "The stair event",
+      "tag": "They come down at you",
+      "lines": [
+        "You and the freed mercenaries hold the pyramid steps against a wave of trolls charging down them.",
+        "The Sandfury Executioner is stationed there.",
+        "Nekrum Gutchewer has to fall before the way to the chief opens at all."
+      ],
+      "spoiler": true,
+      "t": 0.34,
+      "icon": "the-pyramid-rush"
+    },
+    {
+      "id": "zumrah",
+      "kind": "beware",
+      "form": "grave",
+      "subject": "Witch Doctor Zum'rah",
+      "tag": "He looks friendly",
+      "lines": [
+        "He is not. He turns hostile when you get close enough.",
+        "He raises the dead out of the graves in front of him, and the mound of graves is the fight.",
+        "It is placed exactly where you would have walked anyway."
+      ],
+      "spoiler": true,
+      "t": 0.44,
+      "icon": "zumrah"
+    },
+    {
+      "id": "theka",
+      "kind": "look",
+      "form": "chip",
+      "subject": "Theka the Martyr",
+      "tag": "Look at what is crawling on him",
+      "lines": [
+        "He was killed in the ancient war between the trolls and the insect empires, protecting his people.",
+        "The story told about him is that the curse of his death turned his killers into scarabs.",
+        "Those are the scarabs. His murderers, still serving him."
+      ],
+      "spoiler": false,
+      "t": 0.52,
+      "icon": "theka"
+    },
+    {
+      "id": "thekas-immunity",
+      "kind": "beware",
+      "form": "chip",
+      "subject": "He used to be unkillable",
+      "tag": "Fixed in patch 1.12.0",
+      "lines": [
+        "Low on health he goes immune to physical and shadow damage.",
+        "Before 1.12 that immunity was permanent — parties could put him in a state where he simply could not be killed.",
+        "It is fifteen seconds now. If you are here, you got the fixed one."
+      ],
+      "spoiler": false,
+      "t": 0.6,
+      "icon": "thekas-immunity"
+    },
+    {
+      "id": "the-gong",
+      "kind": "story",
+      "form": "chip",
+      "subject": "Somebody has to ring the gong",
+      "tag": "And the mallet is not in Tanaris",
+      "lines": [
+        "Gahz'rilla does not spawn on her own. You need the Mallet of Zul'Farrak.",
+        "The Sacred Mallet comes from the Altar of Zul in the Hinterlands, and you carry it up Jintha'Alor to transform it.",
+        "A different continent, a second dungeon zone, all so one person can hit a gong in the desert."
+      ],
+      "spoiler": false,
+      "t": 0.7,
+      "icon": "the-gong"
+    },
+    {
+      "id": "gahzrilla",
+      "kind": "story",
+      "form": "chip",
+      "subject": "A god who is not on the list",
+      "tag": "Gahz'rilla",
+      "lines": [
+        "The Sandfury worship her as a deity — a hydra so fierce her scales crackle with energy.",
+        "But she does not appear on the Tablet of Theka among the recognised loa.",
+        "Either a demigod the tribe made up, or one the record forgot."
+      ],
+      "spoiler": false,
+      "t": 0.78,
+      "icon": "gahzrilla"
+    },
+    {
+      "id": "sulthraze",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "Sul'thraze the Lasher",
+      "tag": "Two halves, one sword",
+      "lines": [
+        "Sang'thraze the Deflector and Jang'thraze the Protector both drop in here. Combine them and you get the Splitblade of Suffering.",
+        "The merge is permanent, eats both swords, and carries no enchants over.",
+        "It requires level fifty — well past what you would be clearing this place at."
+      ],
+      "spoiler": false,
+      "t": 0.86,
+      "icon": "sulthraze"
+    },
+    {
+      "id": "antusul",
+      "kind": "look",
+      "form": "chip",
+      "subject": "Antu'sul",
+      "tag": "Overseer of Sul",
+      "lines": [
+        "A shaman who keeps sul'lithuz basilisks, and the way it is written he treats the scaled things like family.",
+        "They are not adds he summons under pressure so much as his household.",
+        "They come out as he loses ground."
+      ],
+      "spoiler": false,
+      "t": 0.92,
+      "icon": "antusul"
+    },
+    {
+      "id": "three-rares",
+      "kind": "look",
+      "form": "chip",
+      "subject": "Three rares in one dungeon",
+      "tag": "Sandarr · Zerillis · the Dustwraith",
+      "lines": [
+        "None of them are on the run you planned.",
+        "You either see them or you do not."
+      ],
+      "spoiler": false,
+      "t": 1.0,
+      "icon": "three-rares"
+    }
+  ]
+}

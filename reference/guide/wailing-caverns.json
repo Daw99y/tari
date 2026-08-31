@@ -1,0 +1,190 @@
+{
+  "room": "wailing-caverns",
+  "sources": [
+    "https://warcraft.wiki.gg/wiki/Wailing_Caverns",
+    "https://warcraft.wiki.gg/wiki/Naralex",
+    "https://warcraft.wiki.gg/wiki/Druids_of_the_Fang",
+    "https://warcraft.wiki.gg/wiki/Mutanus_the_Devourer",
+    "https://warcraft.wiki.gg/wiki/Verdan_the_Everliving",
+    "https://warcraft.wiki.gg/wiki/Kresh",
+    "https://warcraft.wiki.gg/wiki/Deviate_Fish",
+    "https://warcraft.wiki.gg/wiki/Savory_Deviate_Delight"
+  ],
+  "roadEnds": ["The entrance cave", "Dreamer's Rock"],
+  "seedWho": "Tari",
+  "cards": [
+    {
+      "id": "grow-it-back",
+      "kind": "before",
+      "form": "title",
+      "subject": "A forest, restored",
+      "tag": "Before",
+      "lines": [
+        "Naralex learned the Barrens had been lush before the Sundering, and went underground to put it back.",
+        "The plan was to link the water down here to the Emerald Dream through his own body. This dungeon exists because somebody tried to fix the zone above it."
+      ],
+      "spoiler": false
+    },
+    {
+      "id": "mad-magglish",
+      "kind": "look",
+      "form": "chip",
+      "subject": "The cave before the portal",
+      "tag": "Ebru · Nalpak · Mad Magglish",
+      "lines": [
+        "The outdoor cave is its own place: deviate raptors, wind serpents and oozes, and two questgivers.",
+        "Mad Magglish is in there too, stealthed.",
+        "Most players walk past him for years."
+      ],
+      "spoiler": false,
+      "t": 0.06,
+      "icon": "mad-magglish"
+    },
+    {
+      "id": "the-room-names",
+      "kind": "look",
+      "form": "chip",
+      "subject": "Read the minimap on the way down",
+      "tag": "The place names are the plot",
+      "lines": [
+        "Cavern of Mists. Winding Chasm. Screaming Gully. Pit of Fangs. Crag of the Everliving.",
+        "And at the bottom, Dreamer's Rock.",
+        "The map is telling you the story in order, and nobody reads it."
+      ],
+      "spoiler": false,
+      "t": 0.14,
+      "icon": "the-room-names"
+    },
+    {
+      "id": "deviate-fish",
+      "kind": "look",
+      "form": "chip",
+      "subject": "Deviate Fish",
+      "tag": "You can fish in here",
+      "lines": [
+        "Eaten raw they do one random thing: heal you, shrink you, put you to sleep for thirty seconds, or make you dance uncontrollably for two minutes.",
+        "Cooked into Savory Deviate Delight they turn you into a pirate or a black-clad ninja for a full hour."
+      ],
+      "spoiler": false,
+      "t": 0.24,
+      "icon": "deviate-fish"
+    },
+    {
+      "id": "kresh",
+      "kind": "look",
+      "form": "chip",
+      "subject": "Kresh",
+      "tag": "The turtle the nightmare missed",
+      "lines": [
+        "The turtles down here were never affected by any of it.",
+        "Kresh is an ancient tortoise wandering the river near the start, living his life normally.",
+        "Everything else in this cave is a deviate. He just did not catch it."
+      ],
+      "spoiler": false,
+      "t": 0.34,
+      "icon": "kresh"
+    },
+    {
+      "id": "the-disciples",
+      "kind": "story",
+      "form": "chip",
+      "subject": "The Druids of the Fang",
+      "tag": "They were his students",
+      "lines": [
+        "Not a rival order. They went in with Naralex, and went insane when the Nightmare came through his body.",
+        "Lord Serpentis was his finest student.",
+        "You kill four of them to reach the man they followed."
+      ],
+      "spoiler": false,
+      "t": 0.44,
+      "icon": "the-disciples"
+    },
+    {
+      "id": "the-fanglords",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "The lock on the last room",
+      "tag": "Anacondra · Cobrahn · Pythas · Serpentis",
+      "lines": [
+        "Nothing at the end begins until all four Fanglords are dead. Muyoh will not start the ritual before that.",
+        "Kresh, Skum and Verdan are optional and can be skipped entirely."
+      ],
+      "spoiler": false,
+      "t": 0.54,
+      "icon": "the-fanglords"
+    },
+    {
+      "id": "verdan",
+      "kind": "story",
+      "form": "chip",
+      "subject": "Verdan the Everliving",
+      "tag": "The caverns' own guardian",
+      "lines": [
+        "A bog beast formed long ago out of the lush foliage of this place, and its original protector.",
+        "The nightmare twisted him into something that crushes whatever comes near.",
+        "He is what the caverns looked like healthy — still alive, still on duty, ruined."
+      ],
+      "spoiler": false,
+      "t": 0.64,
+      "icon": "verdan"
+    },
+    {
+      "id": "the-wailing",
+      "kind": "story",
+      "form": "chip",
+      "subject": "The wailing is steam",
+      "tag": "It predates everything",
+      "lines": [
+        "The cry comes from steam bursting out of fissures and wind moving through the tunnels.",
+        "Naralex named the caverns that before he ever went in.",
+        "They were already crying while they were still healthy. The Nightmare did not make the sound."
+      ],
+      "spoiler": false,
+      "t": 0.74,
+      "icon": "the-wailing"
+    },
+    {
+      "id": "the-awakening",
+      "kind": "story",
+      "form": "grave",
+      "subject": "The end is not a boss room",
+      "tag": "Muyoh, at Dreamer's Rock",
+      "lines": [
+        "A tauren druid walks to the chamber and enters the Emerald Dream to pull Naralex out: \"Protect me brave souls as I delve into the Emerald Dream.\"",
+        "Waves come while he works. You stand still and hold the room.",
+        "Then: \"I AM AWAKE, AT LAST!\""
+      ],
+      "spoiler": true,
+      "t": 0.86,
+      "icon": "the-awakening"
+    },
+    {
+      "id": "mutanus",
+      "kind": "story",
+      "form": "grave",
+      "subject": "Mutanus the Devourer",
+      "tag": "A colossal albino murloc",
+      "lines": [
+        "He is not a cave native. He is a manifestation out of Naralex's own corrupted sleep, sent to stop anyone waking him.",
+        "The last thing in the dungeon is the sleeping man's worst fear, standing up and walking out of him."
+      ],
+      "spoiler": true,
+      "t": 0.94,
+      "icon": "mutanus"
+    },
+    {
+      "id": "they-fly-off",
+      "kind": "look",
+      "form": "grave",
+      "subject": "Nobody walks out with you",
+      "tag": "After Mutanus",
+      "lines": [
+        "Naralex and Muyoh do not leave the way you came.",
+        "They take flight and go, and you are standing at Dreamer's Rock on your own."
+      ],
+      "spoiler": true,
+      "t": 1.0,
+      "icon": "they-fly-off"
+    }
+  ]
+}

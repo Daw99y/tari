@@ -1,0 +1,213 @@
+{
+  "room": "maraudon",
+  "sources": [
+    "https://warcraft.wiki.gg/wiki/Maraudon",
+    "https://warcraft.wiki.gg/wiki/Patch_1.2.0",
+    "https://warcraft.wiki.gg/wiki/Wicked_Grotto",
+    "https://warcraft.wiki.gg/wiki/Poison_Falls",
+    "https://warcraft.wiki.gg/wiki/Celebras_the_Redeemed",
+    "https://warcraft.wiki.gg/wiki/Legends_of_Maraudon",
+    "https://warcraft.wiki.gg/wiki/Tinkerer_Gizlock",
+    "https://warcraft.wiki.gg/wiki/Cavindra",
+    "https://warcraft.wiki.gg/wiki/Noxxion",
+    "https://warcraft.wiki.gg/wiki/Landslide_(mountain_giant)",
+    "https://warcraft.wiki.gg/wiki/Earth_Song_Falls",
+    "https://warcraft.wiki.gg/wiki/Rotgrip",
+    "https://warcraft.wiki.gg/wiki/Meshlok_the_Harvester"
+  ],
+  "roadEnds": ["The fork", "Zaetar's Grave"],
+  "seedWho": "Tari",
+  "cards": [
+    {
+      "id": "not-there-at-launch",
+      "kind": "before",
+      "form": "title",
+      "subject": "A hole in the ground",
+      "tag": "Before",
+      "lines": [
+        "Desolace shipped in November with no dungeon under it. Maraudon arrived on the eighteenth of December, in a patch Blizzard titled \"Mysteries of Maraudon\".",
+        "For twenty-five days the Valley of Spears was a hole with centaur standing around it."
+      ],
+      "spoiler": false
+    },
+    {
+      "id": "two-mouths",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "Two mouths, one dungeon",
+      "tag": "Orange and purple",
+      "lines": [
+        "The tunnel forks. The purple-crystal path has its own portal into the Wicked Grotto; the orange-crystal path has a separate one into Foulspore Cavern.",
+        "Two doors, two different halves of the same place.",
+        "They meet again at Poison Falls."
+      ],
+      "spoiler": false,
+      "t": 0.08,
+      "icon": "two-mouths"
+    },
+    {
+      "id": "cavindra",
+      "kind": "story",
+      "form": "chip",
+      "subject": "Cavindra",
+      "tag": "Outside the orange door",
+      "lines": [
+        "A dryad standing at the pools. She is Celebras's sister, and she got out.",
+        "\"This place... it's cursed. I barely managed to escape, and I cannot bear to go down through the tunnels again.\"",
+        "\"My brother, and sisters though... They were not as fortunate.\""
+      ],
+      "spoiler": false,
+      "t": 0.18,
+      "icon": "cavindra"
+    },
+    {
+      "id": "noxxion",
+      "kind": "look",
+      "form": "chip",
+      "subject": "Noxxion is a made thing",
+      "tag": "Look up in his chamber",
+      "lines": [
+        "He was built by the satyr on the other side of the dungeon, at the Princess's request. Razorlash was made to walk with him.",
+        "The fungal mass on the ceiling above him has its own animated model.",
+        "It dies when he does."
+      ],
+      "spoiler": false,
+      "t": 0.28,
+      "icon": "noxxion"
+    },
+    {
+      "id": "the-nerf",
+      "kind": "story",
+      "form": "chip",
+      "subject": "He got easier three months in",
+      "tag": "Patch 1.3.0",
+      "lines": [
+        "Noxxion splits into five when he is hurt, and the patch explicitly made him easier \"for groups lacking AoE damage.\"",
+        "An early sign Blizzard had noticed these dungeons were being run by whoever showed up.",
+        "Not by the right five."
+      ],
+      "spoiler": false,
+      "t": 0.36,
+      "icon": "the-nerf"
+    },
+    {
+      "id": "gizlock",
+      "kind": "story",
+      "form": "chip",
+      "subject": "Tinkerer Gizlock",
+      "tag": "He came in for the crystals",
+      "lines": [
+        "Six goblin gem hunters walked in. The satyrs killed five of them.",
+        "Trapped and half-mad, the survivor declared himself king of the caves.",
+        "\"Mine! Mine! Mine! Gizlock is the ruler of this domain! You shall never reveal my presence!\""
+      ],
+      "spoiler": false,
+      "t": 0.46,
+      "icon": "gizlock"
+    },
+    {
+      "id": "poison-falls",
+      "kind": "look",
+      "form": "chip",
+      "subject": "Poison Falls",
+      "tag": "Where the two halves meet",
+      "lines": [
+        "\"The meeting point of the physical corruption stemming from the Foulspore Cavern and the demonic taint stemming from the Wicked Grotto.\"",
+        "The result is a cascade of foul greenish water on the border of becoming slime.",
+        "Celebras stands at it, facing the clean side."
+      ],
+      "spoiler": false,
+      "t": 0.56,
+      "icon": "poison-falls"
+    },
+    {
+      "id": "celebras",
+      "kind": "story",
+      "form": "grave",
+      "subject": "You kill him and he thanks you",
+      "tag": "Celebras",
+      "lines": [
+        "The Cursed dies and the Redeemed spawns in his place: \"For so long I have drifted in my cursed form. You have freed me... Your hard work shall be repaid.\"",
+        "Then: \"You wish to learn of the stone? Follow me.\"",
+        "And he walks you there himself."
+      ],
+      "spoiler": true,
+      "t": 0.66,
+      "icon": "celebras"
+    },
+    {
+      "id": "the-scepter",
+      "kind": "notice",
+      "form": "grave",
+      "subject": "The shortcut costs both halves",
+      "tag": "Scepter of Celebras",
+      "lines": [
+        "It is assembled from a diamond off the purple side and a rod off the orange side.",
+        "You cannot build the shortcut without first walking the whole dungeon it shortcuts.",
+        "Then it drops the group straight into Earth Song Falls, forever."
+      ],
+      "spoiler": true,
+      "t": 0.74,
+      "icon": "the-scepter"
+    },
+    {
+      "id": "meshlok",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "Meshlok the Harvester",
+      "tag": "A rare spawn inside an instance",
+      "lines": [
+        "Not a scheduled boss. A rare elite bog beast at the far end of the purple section, near where it meets the falls.",
+        "He is often simply not there."
+      ],
+      "spoiler": false,
+      "t": 0.8,
+      "icon": "meshlok"
+    },
+    {
+      "id": "landslide",
+      "kind": "story",
+      "form": "chip",
+      "subject": "Landslide was a gardener",
+      "tag": "The crystals are his",
+      "lines": [
+        "The way it is told, the ancient mountain giant cultivated brilliant crystal gardens down here for years.",
+        "Theradras enthralled him when she moved in.",
+        "Everything glittering around Earth Song Falls is his work, and he is fighting you against his will."
+      ],
+      "spoiler": false,
+      "t": 0.86,
+      "icon": "landslide"
+    },
+    {
+      "id": "earth-song-falls",
+      "kind": "look",
+      "form": "chip",
+      "subject": "The clean half",
+      "tag": "Earth Song Falls",
+      "lines": [
+        "The first part of Maraudon free of taint — frogs, turtles and hydras instead of oozes and maggots.",
+        "At the top of it, the life still coming off Zaetar's body has turned the chamber into a verdant paradise of plants and still water.",
+        "He has been dead for millennia and the room is growing because of him."
+      ],
+      "spoiler": false,
+      "t": 0.92,
+      "icon": "earth-song-falls"
+    },
+    {
+      "id": "rotgrip",
+      "kind": "beware",
+      "form": "grave",
+      "subject": "Rotgrip",
+      "tag": "You have to fall to find him",
+      "lines": [
+        "A crocolisk that has been in the water under this place for millennia.",
+        "He lives beneath Zaetar's Grave, and you reach him by jumping off the bridge to the island.",
+        "The last boss in the dungeon is optional, and most groups never see him."
+      ],
+      "spoiler": true,
+      "t": 1.0,
+      "icon": "rotgrip"
+    }
+  ]
+}

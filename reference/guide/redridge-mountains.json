@@ -1,0 +1,195 @@
+{
+  "room": "redridge-mountains",
+  "sources": [
+    "https://warcraft.wiki.gg/wiki/Redridge_Mountains_(Classic)",
+    "https://warcraft.wiki.gg/wiki/Foreman_Oslow",
+    "https://warcraft.wiki.gg/wiki/Lake_Everstill",
+    "https://warcraft.wiki.gg/wiki/Bart_Rethban",
+    "https://warcraft.wiki.gg/wiki/Alther%27s_Mill",
+    "https://warcraft.wiki.gg/wiki/Stonewatch_Keep",
+    "https://warcraft.wiki.gg/wiki/Morganth",
+    "https://warcraft.wiki.gg/wiki/Eye_of_Azora",
+    "https://warcraft.wiki.gg/wiki/Gath%27Ilzogg",
+    "https://warcraft.wiki.gg/wiki/Quest:Missing_In_Action",
+    "https://warcraft.wiki.gg/wiki/The_Redridge_Mountains_(WC1_Orc)"
+  ],
+  "roadEnds": ["The Everstill Bridge", "The pass north"],
+  "seedWho": "Tari",
+  "cards": [
+    {
+      "id": "orcs-and-humans",
+      "kind": "before",
+      "form": "title",
+      "subject": "Orcs & Humans, mission five",
+      "tag": "Before",
+      "lines": [
+        "The fifth mission of the orc campaign in the first Warcraft is called The Redridge Mountains, and its briefing spells it Red Ridge.",
+        "An orc outpost under siege, ordered to finish the human encampment. Same ground, eleven years earlier."
+      ],
+      "spoiler": false
+    },
+    {
+      "id": "peaceful-region",
+      "kind": "story",
+      "form": "chip",
+      "subject": "One of the last peaceful regions",
+      "tag": "The zone's own words",
+      "lines": [
+        "Rushing rivers, towering elms, and technically independent of Stormwind since the Second War, though under its protection.",
+        "It sends the capital timber, fish and crops.",
+        "That is the joke of the place: a breadbasket with an orc fortress in the east."
+      ],
+      "spoiler": false,
+      "t": 0.06,
+      "icon": "peaceful-region"
+    },
+    {
+      "id": "the-bridge",
+      "kind": "look",
+      "form": "chip",
+      "subject": "The Everstill Bridge",
+      "tag": "It is never finished",
+      "lines": [
+        "Orcs destroyed it. Foreman Oslow has been rebuilding it since before you arrived, and he is still at it when you outlevel the zone.",
+        "\"I've finished every project on-time and under budget and I'm not about to start slipping now.\"",
+        "It stays broken for all of vanilla."
+      ],
+      "spoiler": false,
+      "t": 0.14,
+      "icon": "the-bridge"
+    },
+    {
+      "id": "the-lake",
+      "kind": "look",
+      "form": "chip",
+      "subject": "Lake Everstill",
+      "tag": "The town cannot use it",
+      "lines": [
+        "Lakeshire lives on the lake — the fishing, the crossing, the view. Murlocs have the shoreline.",
+        "Somewhere on the bottom is Oslow's toolbox, sunk when a catapult caught the supply boat.",
+        "The whole zone's problem, in one object."
+      ],
+      "spoiler": false,
+      "t": 0.24,
+      "icon": "the-lake"
+    },
+    {
+      "id": "bart-rethban",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "Bart Rethban",
+      "tag": "Rethban Ore · the Rethban Caverns",
+      "lines": [
+        "The ore is named for the first man to find it, and the caves are presumed named for him too.",
+        "Nothing else about him is recorded anywhere. Status unknown.",
+        "And you do not mine the ore. You take it off the gnolls living in his cave."
+      ],
+      "spoiler": false,
+      "t": 0.32,
+      "icon": "bart-rethban"
+    },
+    {
+      "id": "althers-mill",
+      "kind": "look",
+      "form": "chip",
+      "subject": "Alther's Mill",
+      "tag": "Where rogues practised",
+      "lines": [
+        "The abandoned lumber mill is full of practice lockboxes — the spot Alliance rogues came to work on Pick Lock.",
+        "The orcs holding it keep a very large worg kennel, and a human prisoner named Messner."
+      ],
+      "spoiler": false,
+      "t": 0.4,
+      "icon": "althers-mill"
+    },
+    {
+      "id": "stonewatch",
+      "kind": "story",
+      "form": "chip",
+      "subject": "Stonewatch Keep",
+      "tag": "It fell from the inside",
+      "lines": [
+        "Lakeshire held the castle. Morganth — a Stormwind mage exiled for dark magic — allied with Gath'Ilzogg's Blackrock orcs to take it.",
+        "Then he betrayed the orcs too, walked out, and set up in the Tower of Ilgalar."
+      ],
+      "spoiler": false,
+      "t": 0.5,
+      "icon": "stonewatch"
+    },
+    {
+      "id": "the-pendants",
+      "kind": "story",
+      "form": "chip",
+      "subject": "The gnolls are on a leash",
+      "tag": "Shadowhide · Tower of Ilgalar",
+      "lines": [
+        "They are not a tribe raiding on their own account. Morganth commands them through magical pendants.",
+        "He was banished from the Mage Quarter for refusing to give up the dark arts, and he left with a sealed book: Ur's Treatise on Shadow Magic.",
+        "Ur wrote the worgen warning Arugal ignored."
+      ],
+      "spoiler": false,
+      "t": 0.58,
+      "icon": "the-pendants"
+    },
+    {
+      "id": "eye-of-azora",
+      "kind": "look",
+      "form": "chip",
+      "subject": "The Eye of Azora",
+      "tag": "Somebody is watching this tower",
+      "lines": [
+        "Theocritus, in the Tower of Azora back in Elwynn Forest, keeps a scrying sphere.",
+        "What it shows is the Tower of Ilgalar and the ground around it.",
+        "Two towers, two zones apart, one pointed at the other."
+      ],
+      "spoiler": false,
+      "t": 0.66,
+      "icon": "eye-of-azora"
+    },
+    {
+      "id": "singe",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "Singe",
+      "tag": "Gath'Ilzogg's pet",
+      "lines": [
+        "The warlord in Stonewatch keeps a black dragon whelp beside him.",
+        "It is probably a gift from Victor Nefarius — payment for taking the keep.",
+        "A level twenty zone, quietly wired to Blackrock Spire."
+      ],
+      "spoiler": false,
+      "t": 0.76,
+      "icon": "singe"
+    },
+    {
+      "id": "keeshan",
+      "kind": "story",
+      "form": "grave",
+      "subject": "Corporal Keeshan",
+      "tag": "Before he was an action hero",
+      "lines": [
+        "In here he is a beaten prisoner in a cave at Render's Rock: \"I took a strong blow to the head and everything went black... you're my last hope.\"",
+        "You walk him home to Marshal Marris and that is the end of him.",
+        "Everything else people remember about Keeshan was written five years later."
+      ],
+      "spoiler": true,
+      "t": 0.86,
+      "icon": "keeshan"
+    },
+    {
+      "id": "the-pass",
+      "kind": "beware",
+      "form": "chip",
+      "subject": "The road north",
+      "tag": "No gate, no warning",
+      "lines": [
+        "Redridge is fifteen to twenty-five. The pass at its northern end opens into the Burning Steppes, fifty to fifty-eight.",
+        "It is one of the largest level gaps across any border in the game.",
+        "Just road."
+      ],
+      "spoiler": false,
+      "t": 1.0,
+      "icon": "the-pass"
+    }
+  ]
+}

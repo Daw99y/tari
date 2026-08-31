@@ -1,0 +1,212 @@
+{
+  "room": "dustwallow-marsh",
+  "sources": [
+    "https://warcraft.wiki.gg/wiki/Dustwallow_Marsh",
+    "https://warcraft.wiki.gg/wiki/Dustwallow_Marsh_(Classic)",
+    "https://warcraft.wiki.gg/wiki/Onyxia%27s_Lair",
+    "https://warcraft.wiki.gg/wiki/Daelin_Proudmoore",
+    "https://warcraft.wiki.gg/wiki/Brackenwall_Village",
+    "https://warcraft.wiki.gg/wiki/Stonemaul_Ruins",
+    "https://warcraft.wiki.gg/wiki/Rexxar",
+    "https://warcraft.wiki.gg/wiki/Tabetha",
+    "https://warcraft.wiki.gg/wiki/Nat_Pagle",
+    "https://warcraft.wiki.gg/wiki/Doctor_Weavil",
+    "https://warcraft.wiki.gg/wiki/Seal_of_Ascension",
+    "https://warcraft.wiki.gg/wiki/Shady_Rest_Inn"
+  ],
+  "roadEnds": ["The Theramore docks", "The Wyrmbog"],
+  "seedWho": "Tari",
+  "cards": [
+    {
+      "id": "the-founding-of-durotar",
+      "kind": "before",
+      "form": "title",
+      "subject": "The Founding of Durotar",
+      "tag": "Before",
+      "lines": [
+        "Both of this zone's power centres come straight out of the Warcraft III campaign. Daelin Proudmoore sailed to Kalimdor, seized Theramore and blockaded it.",
+        "Jaina judged her father's vendetta unwinnable and helped Rexxar destroy his fleet. He died in that keep. You walk into it."
+      ],
+      "spoiler": false
+    },
+    {
+      "id": "the-empty-zone",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "There is nothing to do here",
+      "tag": "And Blizzard said so",
+      "lines": [
+        "The patch 2.3.0 note reads: \"The whole zone of Dustwallow Marsh was improved to make it more quest-friendly and a less lonely place.\"",
+        "Everything that fixed it — Mudsprocket, the new hubs, the roads, the graveyards — is Burning Crusade.",
+        "This is the version they were apologising for."
+      ],
+      "spoiler": false,
+      "t": 0.06,
+      "icon": "the-empty-zone"
+    },
+    {
+      "id": "nat-pagle",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "Nat Pagle",
+      "tag": "On a spit of shore, alone",
+      "lines": [
+        "The most famous fisherman in the game sits by himself in the emptiest zone in Kalimdor.",
+        "His quest sends you to catch rare fish at opposite ends of the world and carry them back to this mud."
+      ],
+      "spoiler": false,
+      "t": 0.16,
+      "icon": "nat-pagle"
+    },
+    {
+      "id": "tabetha",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "Tabetha",
+      "tag": "A shack in the Quagmire",
+      "lines": [
+        "A human archmage living deep in the marsh with two apprentices, and she teaches mages of both factions.",
+        "Her class quests at thirty-eight and forty are the only reason most mages ever saw this zone.",
+        "In here there is no road to her and no graveyard. Just the shack."
+      ],
+      "spoiler": false,
+      "t": 0.26,
+      "icon": "tabetha"
+    },
+    {
+      "id": "shady-rest",
+      "kind": "look",
+      "form": "chip",
+      "subject": "The Shady Rest Inn",
+      "tag": "On the Barrens border",
+      "lines": [
+        "A human inn burned to the ground.",
+        "In here that is the whole story. The investigation, the hoofprints and the answer all arrive with the 2.3 rebuild.",
+        "Right now it is a ruin nobody mentions."
+      ],
+      "spoiler": false,
+      "t": 0.36,
+      "icon": "shady-rest"
+    },
+    {
+      "id": "brackenwall",
+      "kind": "story",
+      "form": "chip",
+      "subject": "How the Horde got these ogres",
+      "tag": "Brackenwall Village",
+      "lines": [
+        "Rexxar walked into the Stonemaul village, beat their leader to death in single combat, and handed the clan on.",
+        "Overlord Mok'Morokk holds Brackenwall as his successor.",
+        "He refuses to move against the dragons that burned their old home."
+      ],
+      "spoiler": false,
+      "t": 0.46,
+      "icon": "brackenwall"
+    },
+    {
+      "id": "stonemaul-ruins",
+      "kind": "before",
+      "form": "chip",
+      "subject": "Stonemaul Ruins",
+      "tag": "In the Dragonmurk",
+      "lines": [
+        "The smoking ruin south of Brackenwall is the ogres' real home. Onyxia's brood raided it and took it, and Firemane dragonspawn hold it now.",
+        "The survivors went north and built the village you buy things in.",
+        "Some of them refused to leave."
+      ],
+      "spoiler": false,
+      "t": 0.56,
+      "icon": "stonemaul-ruins"
+    },
+    {
+      "id": "rexxar-is-not-here",
+      "kind": "beware",
+      "form": "chip",
+      "subject": "Rexxar does not live in this swamp",
+      "tag": "A thing everyone gets wrong",
+      "lines": [
+        "He walks the road through Desolace, Feralas and Stonetalon with Misha, back and forth, and never stops.",
+        "Horde players hunting him for the Onyxia attunement lost hours to that.",
+        "The chain touches this zone. He does not."
+      ],
+      "spoiler": false,
+      "t": 0.64,
+      "icon": "rexxar-is-not-here"
+    },
+    {
+      "id": "alcaz-island",
+      "kind": "beware",
+      "form": "chip",
+      "subject": "Alcaz Island",
+      "tag": "You have to swim",
+      "lines": [
+        "The island off the east coast is held by Strashaz naga at fifty-seven to sixty-two elite, in a zone built for thirty-five to forty-five.",
+        "There is an underground prison beneath it.",
+        "Almost nothing in here tells you to go."
+      ],
+      "spoiler": false,
+      "t": 0.72,
+      "icon": "alcaz-island"
+    },
+    {
+      "id": "doctor-weavil",
+      "kind": "story",
+      "form": "chip",
+      "subject": "Doctor Weavil",
+      "tag": "Added in patch 1.9.0",
+      "lines": [
+        "The mad gnome and his machines are on Alcaz Island, and he is a step in the Scepter of the Shifting Sands.",
+        "He stole a book from Narain Soothfancy.",
+        "Opening the Gates of Ahn'Qiraj runs through an island in this swamp."
+      ],
+      "spoiler": false,
+      "t": 0.8,
+      "icon": "doctor-weavil"
+    },
+    {
+      "id": "emberstrife",
+      "kind": "story",
+      "form": "grave",
+      "subject": "Emberstrife's Den",
+      "tag": "The Wyrmbog",
+      "lines": [
+        "The key to Upper Blackrock Spire is forged in this swamp.",
+        "You beat a black dragon down, lay the unfired seal in front of him, take his mind with an orb of draconic energy, and order him to breathe on it.",
+        "Then you leave and he is still there."
+      ],
+      "spoiler": true,
+      "t": 0.88,
+      "icon": "emberstrife"
+    },
+    {
+      "id": "prestor",
+      "kind": "story",
+      "form": "grave",
+      "subject": "Lady Katrana Prestor",
+      "tag": "Who is at the bottom of this marsh",
+      "lines": [
+        "The dragon down there also sat in Stormwind Keep as royal advisor to the throne.",
+        "She very nearly took the kingdom apart from inside before Marshal Windsor unmasked her.",
+        "Then she came back here."
+      ],
+      "spoiler": true,
+      "t": 0.94,
+      "icon": "prestor"
+    },
+    {
+      "id": "onyxias-lair",
+      "kind": "look",
+      "form": "chip",
+      "subject": "The maw in the Wyrmbog",
+      "tag": "Go and stand in front of it",
+      "lines": [
+        "The entrance is carved as an open mouth, and the passage behind it is magma-lined with the ground cracked and glowing.",
+        "One of the two forty-player raids the game shipped with.",
+        "It is sitting in the corner of a levelling zone most players never finished."
+      ],
+      "spoiler": false,
+      "t": 1.0,
+      "icon": "onyxias-lair"
+    }
+  ]
+}

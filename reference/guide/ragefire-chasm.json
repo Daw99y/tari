@@ -1,0 +1,183 @@
+{
+  "room": "ragefire-chasm",
+  "sources": [
+    "https://warcraft.wiki.gg/wiki/Ragefire_Chasm_(Classic)",
+    "https://warcraft.wiki.gg/wiki/Ragefire_Chasm",
+    "https://warcraft.wiki.gg/wiki/Neeru_Fireblade",
+    "https://warcraft.wiki.gg/wiki/Taragaman_the_Hungerer",
+    "https://warcraft.wiki.gg/wiki/Bazzalan",
+    "https://warcraft.wiki.gg/wiki/Maur_Grimtotem",
+    "https://warcraft.wiki.gg/wiki/Hidden_Enemies",
+    "https://warcraft.wiki.gg/wiki/Quest:Hidden_Enemies_(5)",
+    "https://warcraft.wiki.gg/wiki/Cleft_of_Shadow"
+  ],
+  "roadEnds": [
+    "The Cleft of Shadow",
+    "The ledge"
+  ],
+  "seedWho": "Tari",
+  "cards": [
+    {
+      "id": "the-searing-blade",
+      "kind": "before",
+      "form": "title",
+      "subject": "The Searing Blade",
+      "tag": "Before",
+      "lines": [
+        "The version most people picture is two redesigns later: Cho'gall, the Twilight's Hammer, Adarogg, Slagmaw. None of it is here.",
+        "In this one the cult is the Searing Blade and there are four names — Oggleflint, Taragaman the Hungerer, Jergosh the Invoker, Bazzalan."
+      ],
+      "spoiler": false
+    },
+    {
+      "id": "under-the-city",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "You never leave Orgrimmar",
+      "tag": "The Cleft of Shadow",
+      "lines": [
+        "The way in is a portal in the city's own inner district, right beside Neeru Fireblade's tent.",
+        "It is the lowest-level dungeon in the game, and in practice Horde-only — no Alliance player has a route to the middle of a Horde capital.",
+        "There is a volcanic crack under the auction house and it is full of cultists."
+      ],
+      "spoiler": false,
+      "t": 0.08,
+      "icon": "under-the-city"
+    },
+    {
+      "id": "neeru",
+      "kind": "story",
+      "form": "grave",
+      "subject": "Neeru Fireblade",
+      "tag": "The man who sends you in",
+      "lines": [
+        "The orc warlock pointing Horde players down the hole is the secret leader of the Burning Blade, working the Shadow Council from inside the capital.",
+        "Thrall knows, and leaves him standing there in the open as a source.",
+        "Everyone who took his quest was being run by both sides at once."
+      ],
+      "spoiler": true,
+      "t": 0.18,
+      "icon": "neeru"
+    },
+    {
+      "id": "no-alliance",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "No Alliance quests",
+      "tag": "None at all",
+      "lines": [
+        "The whole quest apparatus down here is Horde: Thrall's chain, Neeru's chain, the Grimtotem satchel.",
+        "The corpse-running workarounds people remember are all later expansions.",
+        "It is the only dungeon in the game that half the playerbase has no reason to enter."
+      ],
+      "spoiler": false,
+      "t": 0.3,
+      "icon": "no-alliance"
+    },
+    {
+      "id": "two-invasions",
+      "kind": "look",
+      "form": "chip",
+      "subject": "Two invasions, one hole",
+      "tag": "Nothing in here belongs together",
+      "lines": [
+        "The Ragefire troggs and their shamans came up from below, out of the lava tunnels. The earthborers and molten elementals are the chasm's own.",
+        "The Searing Blade cultists, enforcers and warlocks came down from Orgrimmar.",
+        "They are two separate infestations that happen to share a crack under a city."
+      ],
+      "spoiler": false,
+      "t": 0.4,
+      "icon": "two-invasions"
+    },
+    {
+      "id": "oggleflint",
+      "kind": "look",
+      "form": "chip",
+      "subject": "Oggleflint",
+      "tag": "Off the path",
+      "lines": [
+        "The trogg chieftain is not on the way to anything. He sits down a side branch, and groups pushing for the bosses walk past him.",
+        "Cataclysm moved him to be more accessible and left that branch a dead end with three mobs in it.",
+        "In here the branch is still the reason to detour."
+      ],
+      "spoiler": false,
+      "t": 0.5,
+      "icon": "oggleflint"
+    },
+    {
+      "id": "maur-grimtotem",
+      "kind": "look",
+      "form": "chip",
+      "subject": "Maur Grimtotem",
+      "tag": "A body in a side tunnel",
+      "lines": [
+        "A tauren corpse, and he was a diplomat sent by Magatha Grimtotem herself to make peace with the troggs.",
+        "He never came back out. A quest sends you to find him and search him.",
+        "Cataclysm removed him and left the tunnel empty. He is still down here."
+      ],
+      "spoiler": false,
+      "t": 0.6,
+      "icon": "maur-grimtotem"
+    },
+    {
+      "id": "taragaman",
+      "kind": "story",
+      "form": "grave",
+      "subject": "Taragaman the Hungerer",
+      "tag": "The felguard in the lava hollow",
+      "lines": [
+        "Everyone assumes the big demon runs the cult. He does not.",
+        "The leaders are Bazzalan and Jergosh. This one is expendable bait, placed to lure young Horde adventurers in to their death.",
+        "The first real demon most Horde players ever kill was put there to kill them."
+      ],
+      "spoiler": true,
+      "t": 0.72,
+      "icon": "taragaman"
+    },
+    {
+      "id": "the-thread",
+      "kind": "story",
+      "form": "grave",
+      "subject": "Hidden Enemies",
+      "tag": "The chain that goes nowhere",
+      "lines": [
+        "Thrall tells a level fifteen the shape of the whole conspiracy: \"our enemy is the Shadow Council.\"",
+        "At the end Neeru drops the mask, says the Council's schemes elsewhere must not suffer, and names Ashenvale.",
+        "Thrall answers that his spies will investigate. No quest was ever built on it. Twenty years, still hanging."
+      ],
+      "spoiler": true,
+      "t": 0.84,
+      "icon": "the-thread"
+    },
+    {
+      "id": "zelemar",
+      "kind": "beware",
+      "form": "chip",
+      "subject": "Zelemar the Wrathful",
+      "tag": "Not here yet",
+      "lines": [
+        "Veterans remember a fifth name in this dungeon. He was added in patch 2.0.3, on the eve of The Burning Crusade.",
+        "There are four bosses in here and no eredar.",
+        "Anyone telling you otherwise is remembering a later game."
+      ],
+      "spoiler": false,
+      "t": 0.92,
+      "icon": "zelemar"
+    },
+    {
+      "id": "bazzalan",
+      "kind": "look",
+      "form": "grave",
+      "subject": "Bazzalan",
+      "tag": "Above Jergosh",
+      "lines": [
+        "The actual last boss is a satyr — the only satyr in a place otherwise full of orcs, troggs and elementals.",
+        "He is on a ledge above Jergosh the Invoker. Groups kill Jergosh, call it done, and walk out having missed him standing over their heads.",
+        "Nothing in the game ever explains what he wanted."
+      ],
+      "spoiler": true,
+      "t": 1.0,
+      "icon": "bazzalan"
+    }
+  ]
+}

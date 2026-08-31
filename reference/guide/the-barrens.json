@@ -1,0 +1,200 @@
+{
+  "room": "the-barrens",
+  "sources": [
+    "https://warcraft.wiki.gg/wiki/Barrens_(Classic)",
+    "https://warcraft.wiki.gg/wiki/The_Barrens",
+    "https://warcraft.wiki.gg/wiki/Barrens_chat",
+    "https://warcraft.wiki.gg/wiki/Mankrik%27s_wife",
+    "https://warcraft.wiki.gg/wiki/The_Crossroads",
+    "https://warcraft.wiki.gg/wiki/Wailing_Caverns",
+    "https://warcraft.wiki.gg/wiki/Razorfen_Kraul",
+    "https://warcraft.wiki.gg/wiki/Bael_Modan",
+    "https://warcraft.wiki.gg/wiki/Camp_Taurajo",
+    "https://warcraft.wiki.gg/wiki/Field_of_Giants",
+    "https://warcraft.wiki.gg/wiki/Sludge_Fen",
+    "https://warcraft.wiki.gg/wiki/The_Great_Lift"
+  ],
+  "roadEnds": [
+    "Mor'shan Rampart",
+    "The Great Lift"
+  ],
+  "seedWho": "Tari",
+  "cards": [
+    {
+      "id": "then-ralore",
+      "kind": "before",
+      "form": "title",
+      "subject": "Then'Ralore",
+      "tag": "Before",
+      "lines": [
+        "Before the Sundering this was a verdant, thriving forest tended by the kaldorei, with an outpost of Azshara's people standing in it.",
+        "The Sundering made the sun-scorched plain. Everything since has been somebody trying to put it back."
+      ],
+      "spoiler": false
+    },
+    {
+      "id": "one-zone",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "One zone",
+      "tag": "It is not two",
+      "lines": [
+        "The Barrens is one contiguous place with the widest level range of any single zone in the game, and three dungeons hanging off it.",
+        "Patch 4.0.3a cut it in half with a lava chasm and made Northern and Southern Barrens.",
+        "The zone you are standing in does not exist in the modern game."
+      ],
+      "spoiler": false,
+      "t": 0.06,
+      "icon": "one-zone"
+    },
+    {
+      "id": "barrens-chat",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "Barrens chat",
+      "tag": "The channel, as a place",
+      "lines": [
+        "Chuck Norris was the single most common topic. So was \"where is Mankrik's wife\".",
+        "Verog the Dervish, Mahren Skyseer and Kranal Fiss were asked after so often they became furniture beside her.",
+        "Blizzard eventually sold a shirt that read \"I survived Barrens chat\"."
+      ],
+      "spoiler": false,
+      "t": 0.14,
+      "icon": "barrens-chat"
+    },
+    {
+      "id": "mankriks-wife",
+      "kind": "story",
+      "form": "chip",
+      "subject": "Lost in Battle",
+      "tag": "She has no name and no marker",
+      "lines": [
+        "Mankrik is at the Crossroads, a very long way from her, and he gives almost no directions.",
+        "What is on the ground is not labelled with her name. It reads Beaten Corpse.",
+        "That is the entire reason the question entered general chat and never left it."
+      ],
+      "spoiler": false,
+      "t": 0.24,
+      "icon": "mankriks-wife"
+    },
+    {
+      "id": "the-crossroads",
+      "kind": "beware",
+      "form": "chip",
+      "subject": "The Crossroads",
+      "tag": "A scheduled war",
+      "lines": [
+        "It sits where the Gold Road meets the road from Ratchet to Stonetalon, and thirteen flight paths run out of it.",
+        "It is not uncommon to find an all-out war outside one of its gates on any given day, and the big pushes come between four and midnight.",
+        "The ground outside the inn is an informal duelling pitch."
+      ],
+      "spoiler": false,
+      "t": 0.34,
+      "icon": "the-crossroads"
+    },
+    {
+      "id": "wailing-caverns",
+      "kind": "story",
+      "form": "grave",
+      "subject": "Wailing Caverns",
+      "tag": "Named after a noise, and the noise is wind",
+      "lines": [
+        "Naralex named them after the mournful howls the wind makes travelling through them.",
+        "His plan was to reach the Emerald Dream through the water down there and make the Barrens green again. He went to sleep to do it.",
+        "The Nightmare took him. What came back out twisted the wildlife into deviate shapes and drove his own disciples mad."
+      ],
+      "spoiler": true,
+      "t": 0.44,
+      "icon": "wailing-caverns"
+    },
+    {
+      "id": "sludge-fen",
+      "kind": "look",
+      "form": "chip",
+      "subject": "The Sludge Fen",
+      "tag": "Northeast corner",
+      "lines": [
+        "It was once a pool of crystal-blue water. The Venture Company turned it into a mire of industrial byproduct and waste.",
+        "In a zone whose entire ecology is four oases, they took one and put an oil rig on it."
+      ],
+      "spoiler": false,
+      "t": 0.54,
+      "icon": "sludge-fen"
+    },
+    {
+      "id": "field-of-giants",
+      "kind": "look",
+      "form": "chip",
+      "subject": "The Field of Giants",
+      "tag": "They are termite mounds",
+      "lines": [
+        "The giants are dirt spires thrown up by termites and silithid. The misshapen mud pinnacles take the vague shape of giants, and that is the whole name.",
+        "They reach sixty feet. Lions climb them and sit on top.",
+        "These are the northernmost silithid hives on Kalimdor. Everything that happens in Silithus starts as a rumour here."
+      ],
+      "spoiler": false,
+      "t": 0.62,
+      "icon": "field-of-giants"
+    },
+    {
+      "id": "camp-taurajo",
+      "kind": "story",
+      "form": "chip",
+      "subject": "Camp Taurajo",
+      "tag": "Standing",
+      "lines": [
+        "A tauren waystation on the southern road: inn, forge, stables, wind riders. A leatherworking and kodo town, no bank, no auction house.",
+        "Everyone who has played the modern game knows it as a burn scar — the Alliance push out of Northwatch on bad intelligence and mercenaries firebomb it.",
+        "In here you can buy a drink in it."
+      ],
+      "spoiler": false,
+      "t": 0.72,
+      "icon": "camp-taurajo"
+    },
+    {
+      "id": "bael-modan",
+      "kind": "story",
+      "form": "chip",
+      "subject": "Bael Modan",
+      "tag": "The dig",
+      "lines": [
+        "Prospector Khazgorm's Explorers' League crew are blasting for a titan complex — platinum disks in a runic language nobody alive reads.",
+        "They are blasting on Stonespire holy ground. The village was torn apart by dwarven digging machines.",
+        "Gann Stonespire tried talking first. That is why he is asking you."
+      ],
+      "spoiler": false,
+      "t": 0.8,
+      "icon": "bael-modan"
+    },
+    {
+      "id": "razorfen-kraul",
+      "kind": "look",
+      "form": "chip",
+      "subject": "The thorns",
+      "tag": "Razorfen Kraul",
+      "lines": [
+        "Where the demigod Agamaggan fell, his blood gave rise to great masses of thorny vines. The Kraul is the largest of them and the quilboar treat it as his resting place.",
+        "The vines are not his bones. They are what grew where he bled.",
+        "On the approach you can see blood dripping from the vines overhead. It is still wet."
+      ],
+      "spoiler": false,
+      "t": 0.9,
+      "icon": "razorfen-kraul"
+    },
+    {
+      "id": "the-great-lift",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "The Great Lift",
+      "tag": "It works",
+      "lines": [
+        "A tauren-built elevator down the escarpment into Thousand Needles, with a warning drum at the top and a graveyard at the bottom.",
+        "It is the only way down, and riding it is the moment the Barrens ends.",
+        "Cataclysm destroyed it and flooded what it goes down to. Here it runs."
+      ],
+      "spoiler": false,
+      "t": 1.0,
+      "icon": "the-great-lift"
+    }
+  ]
+}

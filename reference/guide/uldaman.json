@@ -1,0 +1,210 @@
+{
+  "room": "uldaman",
+  "sources": [
+    "https://warcraft.wiki.gg/wiki/Uldaman",
+    "https://warcraft.wiki.gg/wiki/Discs_of_Norgannon",
+    "https://warcraft.wiki.gg/wiki/Archaedas",
+    "https://warcraft.wiki.gg/wiki/Archaedas_(tactics)",
+    "https://warcraft.wiki.gg/wiki/Ironaya",
+    "https://warcraft.wiki.gg/wiki/The_Lost_Dwarves",
+    "https://warcraft.wiki.gg/wiki/Baelog",
+    "https://warcraft.wiki.gg/wiki/Staff_of_Prehistoria",
+    "https://warcraft.wiki.gg/wiki/Grimlok",
+    "https://warcraft.wiki.gg/wiki/Galgann_Firehammer",
+    "https://warcraft.wiki.gg/wiki/Ancient_Stone_Keeper"
+  ],
+  "roadEnds": ["The Excavation Center", "Khaz'goroth's Seat"],
+  "seedWho": "Tari",
+  "cards": [
+    {
+      "id": "a-sealed-vault",
+      "kind": "before",
+      "form": "title",
+      "subject": "A sealed vault",
+      "tag": "Before",
+      "lines": [
+        "It sat quiet under the desert until Ironforge dwarves part-excavated it and woke the troggs the titans had shut inside. Most of that expedition was slaughtered.",
+        "Everything you fight down here is a consequence of somebody digging."
+      ],
+      "spoiler": false
+    },
+    {
+      "id": "the-lost-vikings",
+      "kind": "look",
+      "form": "chip",
+      "subject": "Baelog, Eric and Olaf",
+      "tag": "Dig Two",
+      "lines": [
+        "Blizzard put its own 1992 puzzle-platformer into the game. Baleog the Fierce, Erik the Swift, Olaf the Stout — horned helmets and all.",
+        "Their camp holds Baelog's Chest: his big book of recipes, his journal, his shortbow.",
+        "Three lost dwarves, in a titan vault, still camping."
+      ],
+      "spoiler": false,
+      "t": 0.08,
+      "icon": "the-lost-vikings"
+    },
+    {
+      "id": "baelogs-journal",
+      "kind": "look",
+      "form": "chip",
+      "subject": "The journal is readable",
+      "tag": "And it is instructions",
+      "lines": [
+        "It describes how to unlock the Chamber of Khaz'mul with the Staff of Prehistoria.",
+        "They worked out the vault's lock and wrote it down.",
+        "They stayed lost anyway."
+      ],
+      "spoiler": false,
+      "t": 0.16,
+      "icon": "baelogs-journal"
+    },
+    {
+      "id": "the-staff",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "You cannot finish without robbing them",
+      "tag": "The Staff of Prehistoria",
+      "lines": [
+        "The sealed door needs a staff assembled from two halves: the Gni'kiv Medallion out of Baelog's Chest, and the Shaft of Tsol off Revelosh.",
+        "Patch 4.1.0 deleted the item. You just click the keystone now.",
+        "The staff still appears in the door animation — an object nobody can hold any more."
+      ],
+      "spoiler": false,
+      "t": 0.26,
+      "icon": "the-staff"
+    },
+    {
+      "id": "revelosh",
+      "kind": "story",
+      "form": "chip",
+      "subject": "Revelosh",
+      "tag": "What dwarves used to be",
+      "lines": [
+        "The earthen were the original titan-made stone people. Dwarves are earthen after the curse of flesh got at them.",
+        "So a dwarf fighting him is a descendant fighting an unchanged ancestor.",
+        "In the building that holds the proof."
+      ],
+      "spoiler": false,
+      "t": 0.34,
+      "icon": "revelosh"
+    },
+    {
+      "id": "the-first-draft",
+      "kind": "story",
+      "form": "chip",
+      "subject": "The troggs are the first draft",
+      "tag": "The failures are still filed here",
+      "lines": [
+        "The titans made earthen. Something went wrong and made troggs instead.",
+        "They did not destroy them. They sealed them in Uldaman and moved on.",
+        "The dungeon is a filing cabinet, and the failures woke up."
+      ],
+      "spoiler": false,
+      "t": 0.44,
+      "icon": "the-first-draft"
+    },
+    {
+      "id": "where-gnomeregan-died",
+      "kind": "before",
+      "form": "chip",
+      "subject": "This is where Gnomeregan died",
+      "tag": "The troggs went somewhere",
+      "lines": [
+        "They followed the surviving dwarves underground toward Dun Morogh.",
+        "Then they diverted.",
+        "The gnomes lost their city because dwarves opened a door in the Badlands."
+      ],
+      "spoiler": false,
+      "t": 0.52,
+      "icon": "where-gnomeregan-died"
+    },
+    {
+      "id": "grimlok",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "\"Me Grimlok, KING!\"",
+      "tag": "The Stone Vault",
+      "lines": [
+        "A trogg who can think, which among troggs makes him a king. He holds the Stonevault clan by intimidation.",
+        "He keeps a trained basilisk at his side specifically so rivals can see what happens to rivals."
+      ],
+      "spoiler": false,
+      "t": 0.6,
+      "icon": "grimlok"
+    },
+    {
+      "id": "galgann",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "Galgann Firehammer",
+      "tag": "Dig Three",
+      "lines": [
+        "A senator of Shadowforge City, sent to run the excavation so his emperor could turn whatever is buried here into a weapon.",
+        "\"By Thaurissan's Beard! Slay them!\"",
+        "The Dark Iron came into this vault specifically to keep their cousins out of it."
+      ],
+      "spoiler": false,
+      "t": 0.68,
+      "icon": "galgann"
+    },
+    {
+      "id": "the-staff-that-stayed",
+      "kind": "look",
+      "form": "chip",
+      "subject": "The vault had staff",
+      "tag": "Stone keepers · sentinels",
+      "lines": [
+        "The golems are described as having staffed and operated the great titan vault — not guards bolted on afterwards, but the building's original employees.",
+        "They are still doing the job, several hundred thousand years after the last supervisor left."
+      ],
+      "spoiler": false,
+      "t": 0.76,
+      "icon": "the-staff-that-stayed"
+    },
+    {
+      "id": "ironaya",
+      "kind": "story",
+      "form": "grave",
+      "subject": "Ironaya",
+      "tag": "You have to unseal her to fight her",
+      "lines": [
+        "A titan watcher who oversaw Uldaman's construction and then went into hibernation inside it.",
+        "On release: \"None may steal the secrets of the Makers.\"",
+        "She is correct about what you are doing."
+      ],
+      "spoiler": true,
+      "t": 0.84,
+      "icon": "ironaya"
+    },
+    {
+      "id": "archaedas",
+      "kind": "beware",
+      "form": "grave",
+      "subject": "The statues along the walls",
+      "tag": "Khaz'goroth's Seat",
+      "lines": [
+        "They are not decoration. At two-thirds health six Earthen Guardians step off the wall; at a third, two Vault Warders follow.",
+        "\"Who dares awaken Archaedas? Who dares the wrath of the Makers?\"",
+        "Then: \"Awake, ye servants! Defend the Disks!\""
+      ],
+      "spoiler": true,
+      "t": 0.92,
+      "icon": "archaedas"
+    },
+    {
+      "id": "the-discs",
+      "kind": "story",
+      "form": "grave",
+      "subject": "The Discs of Norgannon",
+      "tag": "Stay in the room afterwards",
+      "lines": [
+        "A Lore Keeper of Norgannon materialises and says out loud where dwarves come from: earthen, made of living stone by the titans, turned to flesh by a curse.",
+        "It is the largest lore revelation in the whole game.",
+        "It is delivered at the back of a level forty five-man that most players skip."
+      ],
+      "spoiler": true,
+      "t": 1.0,
+      "icon": "the-discs"
+    }
+  ]
+}
