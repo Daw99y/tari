@@ -340,12 +340,19 @@ door into it, so the page does not wait on that.
 **Room-telling is paused at 63/79.** `docs/TELLING.md` §8 still has the
 sixteen and the method; nothing about it changed this pass.
 
-## 0.05 Earlier — wave 5 batch 1 is told, 2026-08-31
+## 0.05 Earlier — every room is told, 2026-08-31
 
-**Sixty-three of seventy-nine rooms have a guide file.** Wave 5's first batch
-went in this pass by `docs/TELLING.md`'s method: six research agents in one
-call, wiki-only (CC BY-SA), vanilla 1.12, high-confidence entries only.
-**Sixteen rooms are left, all of them wave 5.**
+**All seventy-nine rooms have a guide file. The telling is finished.** Four
+wave 5 batches went in this run by `docs/TELLING.md`'s method: six research
+agents per batch in one call, wiki-only (CC BY-SA), vanilla 1.12,
+high-confidence entries only.
+
+**999 cards and 925 icons under `public/story/`.** `npx tsc --noEmit` clean.
+`scripts/telling/check.py check` passes for every room written to the hardened
+rules — the only failures are the five known pre-hardening rooms (duskwood,
+mulgore, shadowfang-keep, undercity, zul-gurub), which are expected and
+documented in §8.
+**Nothing is committed** — no git command was run over the bridge, per §7.
 
 - **Wave 3 (17)** — darkshore, loch-modan, silverpine-forest, westfall,
   the-barrens, ragefire-chasm, the-deadmines, redridge-mountains,
@@ -356,37 +363,52 @@ call, wiki-only (CC BY-SA), vanilla 1.12, high-confidence entries only.
   swamp-of-sorrows, razorfen-downs, uldaman, feralas, tanaris, the-hinterlands,
   searing-gorge, zul-farrak, azshara, blasted-lands, maraudon, felwood,
   un-goro-crater, the-temple-of-atal-hakkar.
-- **Wave 5, opened (3)** — blackrock-depths, burning-steppes, moonglade.
-- **Wave 5 batch 1 (6), this pass** — western-plaguelands, dire-maul-east,
-  eastern-plaguelands, silithus, winterspring, deadwind-pass. Thirteen cards
-  each, seventy-eight cards, seventy-two new icons.
-- **Left (16)** — dire-maul-north, dire-maul-west, lower-blackrock-spire,
-  upper-blackrock-spire, stratholme, scholomance, molten-core, blackwing-lair,
-  ahn-qiraj, ruins-of-ahn-qiraj, naxxramas, onyxia-s-lair, blackrock-mountain,
-  gadgetzan, northshire, ratchet. `docs/TELLING.md` §8 has them in batches.
+- **Wave 5 (25)** — blackrock-depths, burning-steppes and moonglade opened it;
+  then four batches. Batch 1: western-plaguelands, dire-maul-east,
+  eastern-plaguelands, silithus, winterspring, deadwind-pass. Batch 2:
+  dire-maul-north, dire-maul-west, lower-blackrock-spire,
+  upper-blackrock-spire, stratholme, scholomance. Batch 3: molten-core,
+  blackwing-lair, ahn-qiraj, ruins-of-ahn-qiraj, naxxramas, onyxia-s-lair —
+  every raid in the game. Batch 4: blackrock-mountain, gadgetzan, northshire,
+  ratchet, at 11-12 cards rather than 13 because they are hubs and a mountain.
 
-797 cards and 739 icons under `public/story/`. `scripts/telling/check.py check`
-passes for all six new rooms; `npx tsc --noEmit` clean.
-**Nothing is committed** — no git command was run over the bridge, per §7.
+**What is left is not writing.** `docs/TELLING.md` §6 now says so directly:
+revision of the five pre-hardening rooms, the icon upgrade path in §4, and the
+photography in `docs/TARI.md` §6.2 — for which the shot list is now complete
+and is every "go and look at this" card in the guide.
 
-**What batch 1 learned:**
+**What the four batches learned:**
 
-- **Check the neighbour's file before writing.** Feralas already carries Dire
-  Maul's 1.3.0 arrival, Eldre'Thalas and Tortheldrin, so Dire Maul East had to
-  find what is specific to standing inside the wing. Tanaris carries Anachronos
-  at the gates; Tirisfal carries the Bulwark; Felwood carries the Timbermaw
-  tunnel. Those cards were cut from the new rooms rather than repeated.
-- **Three more retcons caught by the agents**, all added to §8: Darkwhisper
-  Gorge is the Burning Legion in 1.12 and only becomes Twilight's Hammer in
-  Cataclysm; the Karazhan Crypts five-man is Season of Discovery (2025) and the
-  vanilla thing is the closed Forgotten Crypt; Grand Magus Doane is Redridge and
-  Cataclysm, not Deadwind Pass.
-- **Eastern Plaguelands is the batch's one real rename** — the Eastweald, a
-  province of Lordaeron — so it is the only new room with a `now` on its title
-  card. Western Plaguelands has no attested old regional name and correctly
-  takes none.
-- **The tooling held.** `check.py wire`, `icons.py` and `check.py check` did the
-  whole mechanical half of the batch with no hand-editing of `lib/guide.ts`.
+- **Check the neighbour's file before writing.** This mattered more than
+  anything else, and it is why the raids have any content at all. Feralas
+  already carried Dire Maul's 1.3.0 arrival and Tortheldrin; Tanaris carried
+  Anachronos at the gates; Blackrock Depths carried the Grim Guzzler; Stormwind
+  and Dustwallow both carried Lady Katrana Prestor; Silithus carried the Scarab
+  Gong and the ten hours; Elwynn carried Northshire Abbey. Every one of those
+  cards was cut from the new room instead of repeated, which forced each new
+  file onto material nothing else had.
+- **The agents corrected the brief roughly a dozen times.** Darkwhisper Gorge
+  is the Legion in 1.12; the Karazhan Crypts five-man is Season of Discovery;
+  Grand Magus Doane is Redridge and Cataclysm; both Spires are ten-man and
+  never five; Stratholme's Slaughter Square opens on the Ash'ari Crystals;
+  Gandling needs six deaths first; Molten Core had no summoning stone and no
+  real attunement; C'Thun was fixed by unlisted hotfixes over four months;
+  Naxxramas ran six to seven months, not nine; vanilla has six starting zones,
+  not eight; and there is no Gadgetzan-to-Everlook teleporter.
+- **They also killed things that do not exist.** No "Ogre Warbanner" in LBRS,
+  no "Blackhand Doomsaber", no "Frostwhisper's Embalming Fluid", no Rexxar in
+  the Horde Onyxia chain (Rokaro), no Ratchet auction house in 1.12, and Rajaxx
+  never says "Why have you forsaken the Might of Kalimdor?"
+- **Refuse the unsourced number.** The famous "only one percent of vanilla
+  players cleared Naxxramas" has no primary source and is not printed. Neither
+  is the Alliance name for the Onyxia head turn-in, because the wiki gives
+  Varian and Varian is not in Stormwind in 1.12.
+- **Eastern Plaguelands is wave 5's only rename** — the Eastweald — and so the
+  only new room carrying a `now` on its title card. Where no old name is
+  attested, none was invented.
+- **The tooling did the whole mechanical half.** `check.py wire`, `icons.py`
+  and `check.py check` across all four batches, with no hand-editing of
+  `lib/guide.ts` at any point.
 
 **The method is now tooled.** `scripts/telling/` holds the wire, icon and
 validate helpers this run was built on, and `docs/TELLING.md` §8 documents them

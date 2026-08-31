@@ -35,7 +35,8 @@ def block(title, rooms):
     body = wrap(rooms)
     return f"\n**{title} ({len(rooms)})**\n{body}\n"
 
-sec = (f"## 6. What is left — {NUM[n_left]} rooms\n\n"
+hdr = "## 6. Nothing is left to write" if not n_left else f"## 6. What is left — {NUM[n_left]} rooms"
+sec = (f"{hdr}\n\n"
        f"Written: {wrap(told)}.\n"
        + block("Wave 3 — the 10-30 band and its dungeons", WAVE3)
        + block("Wave 4 — the 30-50 band and its dungeons", WAVE4)

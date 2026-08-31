@@ -1,7 +1,7 @@
 # Writing a room — the method
 
-**Sixty-three of seventy-nine rooms are told. This is how the other
-sixteen get written.** Follow it exactly and the new rooms will match the ones that exist.
+**All seventy-nine rooms are told.** This file is the method they were written
+by. Follow it exactly and anything rewritten will match what is already there.
 
 Read `docs/TARI.md` §6 first — the argument. This file is the procedure.
 
@@ -173,28 +173,25 @@ and the dev server must run in Kacey's own terminal. Load the room there.
 
 ---
 
-## 6. What is left — sixteen rooms
+## 6. Nothing is left to write
 
-Written: alterac-mountains, arathi-highlands, ashenvale, azshara, badlands,
-blackfathom-deeps, blackrock-depths, blasted-lands, burning-steppes,
-darkshore, darnassus, deadwind-pass, desolace, dire-maul-east, dun-morogh,
-durotar, duskwood, dustwallow-marsh, eastern-plaguelands, elwynn-forest,
-felwood, feralas, gnomeregan, hillsbrad-foothills, ironforge, loch-modan,
-maraudon, moonglade, mulgore, orgrimmar, ragefire-chasm, razorfen-downs,
-razorfen-kraul, redridge-mountains, scarlet-monastery, searing-gorge,
-shadowfang-keep, silithus, silverpine-forest, stonetalon-mountains,
-stormwind-city, stranglethorn-vale, swamp-of-sorrows, tanaris, teldrassil,
-the-barrens, the-deadmines, the-hinterlands, the-stockade,
-the-temple-of-atal-hakkar, thousand-needles, thunder-bluff,
-tirisfal-glades, uldaman, un-goro-crater, undercity, wailing-caverns,
-western-plaguelands, westfall, wetlands, winterspring, zul-farrak,
-zul-gurub.
+Every room in `lib/rooms.ts` has a guide file. Five waves, seventy-nine rooms,
+999 cards, 925 icons.
 
-**Wave 5 — the endgame, the hubs and the raids (16)**
-dire-maul-north, dire-maul-west, lower-blackrock-spire, stratholme,
-scholomance, upper-blackrock-spire, molten-core, blackwing-lair,
-ahn-qiraj, naxxramas, onyxia-s-lair, ruins-of-ahn-qiraj,
-blackrock-mountain, gadgetzan, northshire, ratchet
+What is left is not writing. It is:
+
+- **Revision.** Five rooms were written before the rules hardened and still
+  fail `check.py check`: duskwood (has `road` and `rares` icons), mulgore,
+  shadowfang-keep (17 cards), undercity (15), zul-gurub (19). They are the only
+  failures in the run. Fixing them means cutting cards, which is the hard part.
+- **Icons.** Many are honest stand-ins from the wardrobe pack, which has no
+  creature portraits. §4 has the upgrade path. `public/story/README.md` tracks
+  which are placeholders.
+- **The photography.** `docs/TARI.md` §6.2 — every card that says "go and look
+  at this" is a shot on a shot list, and the shot list now exists in full.
+
+If a new room is ever added, or one of the five is rewritten, the procedure
+above is unchanged.
 
 
 **Six rooms per batch** is the working rhythm: six research agents in one call,
@@ -250,15 +247,16 @@ where the blp name is a file in `public/lab/doll/items/icons/` without the
 `ls public/lab/doll/items/icons | sed 's/^icons_//; s/\.webp$//'` and search it
 by concept before choosing. It refuses the whole batch if any source is missing.
 
-**Wave 5, four batches. Batch 1 is done.**
+**Wave 5, four batches. All four are done.**
 
 1. ~~western-plaguelands, dire-maul-east, eastern-plaguelands, silithus,
    winterspring, deadwind-pass~~ — written, 13 cards each, checked, tsc clean.
-2. dire-maul-north, dire-maul-west, lower-blackrock-spire,
-   upper-blackrock-spire, stratholme, scholomance
-3. molten-core, blackwing-lair, ahn-qiraj, naxxramas, onyxia-s-lair,
-   ruins-of-ahn-qiraj
-4. blackrock-mountain, gadgetzan, northshire, ratchet
+2. ~~dire-maul-north, dire-maul-west, lower-blackrock-spire,
+   upper-blackrock-spire, stratholme, scholomance~~ — same.
+3. ~~molten-core, blackwing-lair, ahn-qiraj, naxxramas, onyxia-s-lair,
+   ruins-of-ahn-qiraj~~ — same.
+4. ~~blackrock-mountain, gadgetzan, northshire, ratchet~~ — same, 11-12
+   cards each rather than 13, because they are hubs and a mountain.
 
 Batch 4 is the four `place` rooms and is small; they are hubs and a mountain,
 not dungeons, so expect fewer than thirteen cards each and do not pad.
@@ -284,6 +282,22 @@ not dungeons, so expect fewer than thirteen cards each and do not pad.
 - **Blackrock Mountain** — the room is the shared exterior and the chasm, not
   any of the five instances hanging off it. Blackrock Depths and Burning Steppes
   already carry the two-sieges card; do not repeat it.
+- **The raids, from batch 3.** Molten Core had no working summoning stone in
+  1.12 (meeting stones only summon from 2.0.1) and "Attunement to the Core" was
+  never a gate — the real gate is the seven Runes of Warding. C'Thun was
+  unkillable for nearly four months and was fixed by unlisted hotfixes, not a
+  patch. Naxxramas ran about six to seven months, not nine, and the "only 1% of
+  players cleared it" figure has no source — do not print it. In 1.12 the fourth
+  horseman is Mograine, not Rivendare. Do not name the Alliance turn-in NPC for
+  Onyxia's head: the wiki says Varian, who is not in Stormwind in 1.12.
+- **Both Spires are ten-man in vanilla, never five.** 1.3.0 capped Blackrock
+  Spire at fifteen, 1.10.0 at ten; the five-player cap is Cataclysm and the
+  2014 Warlords revamp of both wings is a different dungeon entirely.
+- **Stratholme** — there are no cauldrons or crates to burn; the Slaughter
+  Square gate opens on the three Ash'ari Crystals. Baron Rivendare, never
+  "Lord Aurius Rivendare" (Cataclysm). Aurius is not his son in 1.12.
+- **Scholomance** — Gandling does not exist until six named bosses are dead.
+  The 2012 revamp cut the place in half; the vanilla roster is the long one.
 - **Already carried from outside, do not repeat**: Feralas has Dire Maul's
   1.3.0 arrival, Eldre'Thalas and Tortheldrin; Tanaris has Anachronos at the
   gates and the sealed Caverns of Time; Tirisfal has the Bulwark; Felwood has

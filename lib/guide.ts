@@ -13,6 +13,7 @@
  * The spoiler shield (§6.1) is a grave: a spoiler encounter is a tombstone
  * on the road, and the reader digs it up by hand. */
 
+import ahnQiraj from "../reference/guide/ahn-qiraj.json";
 import alteracMountains from "../reference/guide/alterac-mountains.json";
 import arathiHighlands from "../reference/guide/arathi-highlands.json";
 import ashenvale from "../reference/guide/ashenvale.json";
@@ -20,6 +21,8 @@ import azshara from "../reference/guide/azshara.json";
 import badlands from "../reference/guide/badlands.json";
 import blackfathomDeeps from "../reference/guide/blackfathom-deeps.json";
 import blackrockDepths from "../reference/guide/blackrock-depths.json";
+import blackrockMountain from "../reference/guide/blackrock-mountain.json";
+import blackwingLair from "../reference/guide/blackwing-lair.json";
 import blastedLands from "../reference/guide/blasted-lands.json";
 import burningSteppes from "../reference/guide/burning-steppes.json";
 import darkshore from "../reference/guide/darkshore.json";
@@ -27,6 +30,8 @@ import darnassus from "../reference/guide/darnassus.json";
 import deadwindPass from "../reference/guide/deadwind-pass.json";
 import desolace from "../reference/guide/desolace.json";
 import direMaulEast from "../reference/guide/dire-maul-east.json";
+import direMaulNorth from "../reference/guide/dire-maul-north.json";
+import direMaulWest from "../reference/guide/dire-maul-west.json";
 import dunMorogh from "../reference/guide/dun-morogh.json";
 import durotar from "../reference/guide/durotar.json";
 import duskwood from "../reference/guide/duskwood.json";
@@ -35,19 +40,28 @@ import easternPlaguelands from "../reference/guide/eastern-plaguelands.json";
 import elwynnForest from "../reference/guide/elwynn-forest.json";
 import felwood from "../reference/guide/felwood.json";
 import feralas from "../reference/guide/feralas.json";
+import gadgetzan from "../reference/guide/gadgetzan.json";
 import gnomeregan from "../reference/guide/gnomeregan.json";
 import hillsbradFoothills from "../reference/guide/hillsbrad-foothills.json";
 import ironforge from "../reference/guide/ironforge.json";
 import lochModan from "../reference/guide/loch-modan.json";
+import lowerBlackrockSpire from "../reference/guide/lower-blackrock-spire.json";
 import maraudon from "../reference/guide/maraudon.json";
+import moltenCore from "../reference/guide/molten-core.json";
 import moonglade from "../reference/guide/moonglade.json";
 import mulgore from "../reference/guide/mulgore.json";
+import naxxramas from "../reference/guide/naxxramas.json";
+import northshire from "../reference/guide/northshire.json";
+import onyxiaSLair from "../reference/guide/onyxia-s-lair.json";
 import orgrimmar from "../reference/guide/orgrimmar.json";
 import ragefireChasm from "../reference/guide/ragefire-chasm.json";
+import ratchet from "../reference/guide/ratchet.json";
 import razorfenDowns from "../reference/guide/razorfen-downs.json";
 import razorfenKraul from "../reference/guide/razorfen-kraul.json";
 import redridgeMountains from "../reference/guide/redridge-mountains.json";
+import ruinsOfAhnQiraj from "../reference/guide/ruins-of-ahn-qiraj.json";
 import scarletMonastery from "../reference/guide/scarlet-monastery.json";
+import scholomance from "../reference/guide/scholomance.json";
 import searingGorge from "../reference/guide/searing-gorge.json";
 import shadowfangKeep from "../reference/guide/shadowfang-keep.json";
 import silithus from "../reference/guide/silithus.json";
@@ -55,6 +69,7 @@ import silverpineForest from "../reference/guide/silverpine-forest.json";
 import stonetalonMountains from "../reference/guide/stonetalon-mountains.json";
 import stormwindCity from "../reference/guide/stormwind-city.json";
 import stranglethornVale from "../reference/guide/stranglethorn-vale.json";
+import stratholme from "../reference/guide/stratholme.json";
 import swampOfSorrows from "../reference/guide/swamp-of-sorrows.json";
 import tanaris from "../reference/guide/tanaris.json";
 import teldrassil from "../reference/guide/teldrassil.json";
@@ -69,6 +84,7 @@ import tirisfalGlades from "../reference/guide/tirisfal-glades.json";
 import uldaman from "../reference/guide/uldaman.json";
 import unGoroCrater from "../reference/guide/un-goro-crater.json";
 import undercity from "../reference/guide/undercity.json";
+import upperBlackrockSpire from "../reference/guide/upper-blackrock-spire.json";
 import wailingCaverns from "../reference/guide/wailing-caverns.json";
 import westernPlaguelands from "../reference/guide/western-plaguelands.json";
 import westfall from "../reference/guide/westfall.json";
@@ -226,6 +242,22 @@ const GUIDES: Record<string, GuideFile> = {
   silithus: silithus as GuideFile,
   winterspring: winterspring as GuideFile,
   "deadwind-pass": deadwindPass as GuideFile,
+  "dire-maul-north": direMaulNorth as GuideFile,
+  "dire-maul-west": direMaulWest as GuideFile,
+  "lower-blackrock-spire": lowerBlackrockSpire as GuideFile,
+  "upper-blackrock-spire": upperBlackrockSpire as GuideFile,
+  stratholme: stratholme as GuideFile,
+  scholomance: scholomance as GuideFile,
+  "molten-core": moltenCore as GuideFile,
+  "blackwing-lair": blackwingLair as GuideFile,
+  "ahn-qiraj": ahnQiraj as GuideFile,
+  "ruins-of-ahn-qiraj": ruinsOfAhnQiraj as GuideFile,
+  naxxramas: naxxramas as GuideFile,
+  "onyxia-s-lair": onyxiaSLair as GuideFile,
+  "blackrock-mountain": blackrockMountain as GuideFile,
+  gadgetzan: gadgetzan as GuideFile,
+  northshire: northshire as GuideFile,
+  ratchet: ratchet as GuideFile,
 };
 
 export function guideFor(roomId: string): GuideFile | undefined {
