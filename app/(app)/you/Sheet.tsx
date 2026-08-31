@@ -60,12 +60,10 @@ import Link from "next/link";
 import { useEffect, useMemo, useRef, useState } from "react";
 
 import {
-  CLASS_NAME,
   GEAR_SLOTS,
   loadCharacter,
   money,
   played,
-  RACE_NAME,
   SHEET_BOTTOM,
   SHEET_LEFT,
   SHEET_RIGHT,
@@ -89,6 +87,7 @@ import { heldGear, itemsByEntry, TWO_HANDED, type Item as WardrobeItem } from "@
 import type { WornItem } from "@/lib/worn";
 
 import Drawer from "./Drawer";
+import Roster from "./Roster";
 import Row from "./Row";
 import styles from "./sheet.module.css";
 
@@ -250,12 +249,13 @@ export default function Sheet() {
 
       <div className={styles.page}>
         <header className={styles.head}>
-          <p className={styles.line}>
-            Level {me.level} {RACE_NAME[me.race]} {CLASS_NAME[me.cls]}
-            {me.realm ? <span className={styles.realm}> · {me.realm}</span> : null}
-            {me.guild ? <span className={styles.realm}> · &lt;{me.guild}&gt;</span> : null}
-          </p>
-          <h1 className={styles.name}>{me.name}</h1>
+          <Roster
+            me={me}
+            onPick={(c) => {
+              setMe(c);
+              setOpen(null);
+            }}
+          />
         </header>
 
         <ul className={`${styles.column} ${styles.left}`} aria-label="Worn, left">
@@ -304,9 +304,6 @@ export default function Sheet() {
               A body without an import. Paste what <span className={styles.mono}>/tari</span> gives you to fill this in.
             </p>
           )}
-          <Link href="/you/new" className={styles.again}>
-            Change
-          </Link>
         </aside>
 
         {error ? <p className={styles.fault}>{error}</p> : null}

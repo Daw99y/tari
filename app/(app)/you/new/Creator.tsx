@@ -130,9 +130,17 @@ export default function Creator() {
     setEquipped(NO_GEAR);
   };
 
-  /* Arriving: the roster, and whoever was last in play. */
+  /* Arriving: the roster, and whoever was last in play.
+   *
+   * Unless `?fresh` — the sheet's character select asks for an empty screen
+   * by that door, because "make another one" and "fix this one" arrive at the
+   * same page and the page used to guess, always wrongly for the first. The
+   * blank state is what every field already holds, so this only has to not
+   * open anybody. Read off `location` rather than `useSearchParams`, which
+   * would want a Suspense boundary around a value looked at once. */
   useEffect(() => {
     setMine(loadRoster());
+    if (new URLSearchParams(window.location.search).has("fresh")) return;
     const me = loadCharacter();
     if (me) open(me);
     // eslint-disable-next-line react-hooks/exhaustive-deps

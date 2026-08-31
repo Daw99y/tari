@@ -264,6 +264,13 @@ function readList(): Character[] {
   return [c];
 }
 
+/** Said out loud whenever the active character changes, so anything already
+ *  on the screen can catch up. The rail's plate used to re-read on a route
+ *  change alone, which was enough while the only way to switch was to walk to
+ *  the creator and back; the sheet switches in place now, and a rail still
+ *  naming the character you just left is a lie the page tells about itself. */
+export const WHO_EVENT = "tari:who";
+
 /** The cookie the room reads on the server. Written whenever the active
  *  character changes, because that is the only thing it says. */
 function markActive(c: Character | null): void {
@@ -274,6 +281,7 @@ function markActive(c: Character | null): void {
     localStorage.removeItem(ACTIVE);
     document.cookie = `${WHO_COOKIE}=; path=/; max-age=0; samesite=lax`;
   }
+  window.dispatchEvent(new Event(WHO_EVENT));
 }
 
 /** Every character on this browser, oldest first. */

@@ -29,6 +29,7 @@ import {
   classIcon,
   loadCharacter,
   racePortrait,
+  WHO_EVENT,
   type Character,
 } from "@/lib/character";
 import { CLASS_COLOR } from "@/lib/class-color";
@@ -63,6 +64,14 @@ export default function You({
      roster lives in localStorage and the server render cannot see it. */
   const [me, setMe] = useState<Character | null | undefined>(undefined);
   useEffect(() => setMe(loadCharacter()), [pathname]);
+
+  /* And again the moment the sheet swaps who is in play, which happens
+     without a route change (lib/character.ts, WHO_EVENT). */
+  useEffect(() => {
+    const again = () => setMe(loadCharacter());
+    window.addEventListener(WHO_EVENT, again);
+    return () => window.removeEventListener(WHO_EVENT, again);
+  }, []);
 
   return (
     <footer className={styles.railFoot}>
