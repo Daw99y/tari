@@ -104,9 +104,16 @@ export default function Envelope({ signedIn }: { signedIn: boolean }) {
         onClick={show}
         aria-expanded={open}
         aria-label={unread ? "The envelope, with something in it" : "The envelope"}
-        title={unread ? "Something is waiting" : "Nothing waiting"}
       >
-        <img src={MAIL} alt="" decoding="async" />
+        <span className={styles.mailArt}>
+          <img src={MAIL} alt="" decoding="async" />
+        </span>
+        <span className={styles.meWords}>
+          <span className={styles.mailName}>The envelope</span>
+          <span className={styles.mailLine}>
+            {unread ? "Something is waiting" : "Nothing waiting"}
+          </span>
+        </span>
       </button>
 
       {open ? (

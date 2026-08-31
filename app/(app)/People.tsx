@@ -27,6 +27,7 @@ import { nextDoor, outside } from "@/lib/adjacency";
 import { CLASS_COLOR } from "@/lib/class-color";
 import { getRoom, roomThumb } from "@/lib/rooms";
 
+import Envelope from "./Envelope";
 import { useLive } from "./Live";
 import Rested from "./Rested";
 import { useRoomId } from "./room-context";
@@ -36,7 +37,7 @@ import styles from "./shell.module.css";
  *  counting. A city is a number; a dungeon is a guest list. */
 const NAMED = 30;
 
-export default function People() {
+export default function People({ signedIn }: { signedIn: boolean }) {
   const router = useRouter();
   const id = useRoomId();
   const { up } = useLive();
@@ -112,6 +113,18 @@ export default function People() {
               );
             })}
           </ul>
+        </div>
+      ) : null}
+
+      {/* THE ENVELOPE, at the very foot. Kacey, 2026-08-31: it moved here from
+          the corner beside the wordmark. This column already reads bottom-up as
+          "what is quiet" — the doors, and under them the one thing that can
+          change while nobody is looking. Low is right for the softest
+          notification ever designed: it waits, it does not greet. Not drawn at
+          all without an account (WELCOME.md §3.3). */}
+      {signedIn ? (
+        <div className={styles.postFoot}>
+          <Envelope signedIn />
         </div>
       ) : null}
     </aside>
