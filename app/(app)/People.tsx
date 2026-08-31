@@ -28,6 +28,7 @@ import { CLASS_COLOR } from "@/lib/class-color";
 import { getRoom, roomThumb } from "@/lib/rooms";
 
 import { useLive } from "./Live";
+import Rested from "./Rested";
 import { useRoomId } from "./room-context";
 import styles from "./shell.module.css";
 
@@ -60,6 +61,14 @@ export default function People() {
           </p>
         )}
       </div>
+
+      {/* WHAT HAPPENED WHILE YOU WERE GONE, over the doors. docs/WELCOME.md
+          §4. The column asks who is here at the top and where you can go at
+          the bottom; this is the third question, about a time rather than a
+          place, and it sits between them. It renders nothing far more often
+          than it renders anything — a room where nothing happened draws no
+          heading (§5.2), so the air the doors were pushed into stays air. */}
+      <Rested />
 
       {/* THE DOORS SIT AT THE FOOT OF THE COLUMN.
           They used to follow the heads directly, which left the bottom two

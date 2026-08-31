@@ -25,6 +25,7 @@ import { auth, hasAuth } from "@/lib/auth";
 import { hasDb, query } from "@/lib/db";
 import { PIN_MAX, pinsChannel } from "@/lib/pins";
 import { pinsIn } from "@/lib/pins-db";
+import { subjectOf } from "@/lib/rested";
 import { getRoom } from "@/lib/rooms";
 
 export const runtime = "nodejs";
@@ -101,9 +102,19 @@ export async function POST(req: Request) {
      deep only. */
   let px = x;
   let py = y;
+  /* The pin being answered, when this is a reply — kept so the envelope can be
+     addressed after the row lands. */
+  let answered: { user_id: string; body: string } | null = null;
   if (parent !== null) {
-    const head = await query<{ x: number | null; y: number | null; parent: string | null; room: string }>(
-      `select x, y, parent, room from pins where id = $1 and removed_at is null`,
+    const head = await query<{
+      x: number | null;
+      y: number | null;
+      parent: string | null;
+      room: string;
+      user_id: string;
+      body: string;
+    }>(
+      `select x, y, parent, room, user_id, body from pins where id = $1 and removed_at is null`,
       [parent]
     );
     const h = head?.[0];
@@ -111,6 +122,7 @@ export async function POST(req: Request) {
       return Response.json({ error: "no such thread" }, { status: 400 });
     px = h.x;
     py = h.y;
+    answered = h;
   }
 
   const rows = await query<{ id: string; created_at: Date | string }>(
@@ -133,6 +145,22 @@ export async function POST(req: Request) {
     at: new Date(row.created_at).toISOString(),
     parent,
   };
+  /* THE ENVELOPE (docs/WELCOME.md §3.3). A reply is a thing about Tari, so it
+     waits silently rather than reaching for the reader — and never lands for
+     somebody answering their own pin. Failing to post it must not fail the
+     pin: the record is the pin, the notice is a courtesy on top of it. */
+  if (answered && Number(answered.user_id) !== user) {
+    try {
+      await query(
+        `insert into notices (user_id, kind, room, subject, actor, actor_cls, ref)
+         values ($1, 'reply', $2, $3, $4, $5, $6)`,
+        [Number(answered.user_id), room, subjectOf(answered.body), who, cls, parent]
+      );
+    } catch (e) {
+      console.error("pins: notice failed", e);
+    }
+  }
+
   land(room, pin);
   return Response.json({ pin: { ...pin, mine: true, replies: [] } });
 }

@@ -108,10 +108,8 @@ export function lineParts(row: LiveRow): { lead: string; name: string; tail: str
   }
 }
 
-/** "now", "4m", "2h", "3d". No word "ago"; the card's heading carries it. */
-export function age(seconds: number): string {
-  if (seconds < 60) return "now";
-  if (seconds < 3600) return `${Math.floor(seconds / 60)}m`;
-  if (seconds < 86_400) return `${Math.floor(seconds / 3600)}h`;
-  return `${Math.floor(seconds / 86_400)}d`;
-}
+/* The age formatter moved to lib/ago.ts and is re-exported here so every
+   existing caller is unchanged. It had to leave: this file imports the pool,
+   and a client component that wanted the formatter was pulling `pg` into a
+   browser bundle. See lib/ago.ts. */
+export { age } from "./ago";

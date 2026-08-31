@@ -1,6 +1,6 @@
 # Tari — status and handoff
 
-Updated 2026-08-31.
+Updated 2026-08-31 (late).
 
 **This doc holds the state. `docs/TARI.md` holds the argument — read its §0
 before anything else.**
@@ -11,7 +11,298 @@ see them. Earlier references to `FOXTON.md` mean `docs/TARI.md`.
 
 ---
 
-## 0. Latest — the path is built, 2026-08-31
+## 0. Latest — the card, the envelope, the follow, 2026-08-31 (late)
+
+**Three of `WELCOME.md`'s open rulings are settled and the welcome is one piece
+from finished.** Kacey ruled all three in one pass:
+
+| ruling | settled |
+| --- | --- |
+| §11.1 leaderboards | **places, never players.** The landing's *"nothing here ranks you against anyone"* stays and is now permanent. A player ranking is a thing WELCOME.md forbids. |
+| §11.2 does the addon read live state | **no, and it cannot.** See below — this one deleted a feature and rewrote a refusal. |
+| §11.3 push before or after Tauri | **neither, yet.** The opt-in ships now, everything lands in the envelope, push is a later delivery swap rather than a second feature. §3 is unblocked without step 8. |
+
+### The correction that mattered most
+
+**The addon and the armory read nothing live.** Kacey, and it is worth writing
+plainly because two shipped surfaces were built on the opposite assumption: the
+addon writes an export string a reader copies out of the game and pastes in;
+the armory answers as of last logout. **Both are photographs.** Nothing in this
+product knows where a reader is standing or whether they are playing.
+
+Two things had already been written that quietly claimed otherwise:
+
+- **§3.1's refusal**, *"Tari never rings while you're playing"*, was conditional
+  on the addon knowing combat and instance state. It knows neither. The line is
+  re-cut to **"Only Azeroth. Never Tari, never a streak, and never at 3am."** —
+  three things enforced by the list and by delivery rather than by intention.
+- **The kit's fishing card** promised *"We'll say something when you're near
+  water worth sitting at."* Deleted from `reference/kit.json`; the card's second
+  line is now *"Nobody has ever regretted the ten minutes."*
+
+And the best line on the notification list — *"when I'm near water I've never
+sat at"* — is **deleted rather than parked.** A toggle that can never fire is
+worse than an absent feature: the reader ticks it, waits, and learns the app
+makes things up. `lib/nudge.ts` carries the whole correction in its header and
+a **sixth rule** for §3.2: *it must be knowable without the reader.*
+
+**The upside is bigger than the loss.** Every remaining thing is a fact about
+Azeroth on a calendar — the Faire moving, the week turning over, a full moon, a
+seasonal event opening — so the nudge needs no addon, no armory, no client and
+no account to be true, and it works for a signed-out reader on a borrowed
+laptop. That is what makes them *real* notifications rather than promised ones.
+
+### The card — `/you`, bottom right
+
+An Azeroth banking card, cut to ID-1 proportions (1.586:1, the ratio every card
+in every wallet is cut to — get it wrong and the object stops reading as a card).
+
+- **Front is identity**: the fox as issuer, the faction crest, the character's
+  name embossed in the class colour where a cardholder's goes, `17 · UNDEAD ·
+  ROGUE` spaced like an account number, the race portrait and class disc where
+  the network mark sits. Hover lifts it and fades up the small print.
+- **The chip is the import and only the import** — gold when the character came
+  from the armory or a paste, grey when it was made by hand. Its wording is
+  careful for the reason above: it does not mean "connected", because nothing
+  is connected.
+- **Back is the settings**: the magnetic stripe, the re-cut refusal printed on
+  the object rather than kept in a document, the four things to be told about,
+  and the door.
+- **The box never changes size.** It briefly grew taller to fit the back and
+  Kacey caught it: proportions are the whole reason it reads as a card. The
+  list scrolls inside a fixed box instead — **no scrollbar and nothing drawn to
+  replace one**, just a `mask-image` fade at both edges, which is the only
+  language a physical object has for "there is more".
+
+**It broke twice on the way and both are worth keeping.**
+
+1. **Removing the grow-when-flipped rule took `.face` and `.rear` with it** —
+   a block cut by index that ran further than intended — so
+   `backface-visibility` went with them and both sides rendered on top of each
+   other. Cutting CSS by index is how that happens; the rules are back and the
+   comment above them says which three declarations only work together.
+2. **The face was a grid with four absolutely-positioned things over it** —
+   crest, chip, hover print, flip button. That holds at exactly one size and
+   collapses at every other, which is what Kacey photographed: the name, the
+   small print and the button stacked on each other. **Nothing on either face
+   is absolutely positioned now.** Both are ordinary grids whose rows add up,
+   the hover print is gone (its "member since" just lives on the holder line,
+   where a card prints it anyway), and the flip button has a reserved cell so
+   revealing it moves nothing.
+
+**And a third, found while fixing them: the card had a viewport media query on
+a surface laid out by a container query.** Under `@container stage (max-width:
+64rem)` the sheet drops to two columns, so a card parked in `grid-column: 3`
+sat in a 0px track — it collapsed to nothing at a 1400px window, which is not a
+width anybody would have thought to test. It follows the facts to the foot of
+the stacked page now rather than hiding, because the back of this card is the
+only place the notification settings exist.
+
+**The back's chrome is on a budget and the numbers are the budget.** In the
+wide layout the card is 232×146 — a real card at real size, and small. The
+first cut left one of four rows visible. The stripe, promise and signature are
+tuned so three stand and the fourth is a flick away under the mask; the comment
+on `.rear` says to re-check the list if any of them change.
+- **The small print moved to a status line** at the foot that reads whatever
+  row you are pointing at. That is WoW's own pattern — the game explains the
+  button under your cursor in one fixed strip rather than beside every button —
+  and it is what let each row stay one line.
+
+### The envelope — top left, beside the mark
+
+`lib/envelope.ts` · `app/api/envelope/route.ts` · `app/(app)/Envelope.tsx`.
+Kacey moved it out of the actions on the right: the kit and ⌘K are things you
+go and do, and the envelope is the one item in the shell that can change while
+nobody is looking at it.
+
+- **The mark carries no number.** A dot, in the accent, saying *something* or
+  *nothing*. A bold count on an envelope is the oldest engagement device on the
+  internet — it exists to make the unopened feel owed — and §13 refuses it for
+  exactly the reason it refuses a follower total.
+- **It never polls.** Once on mount and again when you open it. A mailbox that
+  polls is a mailbox trying to get your attention.
+- **Opening marks everything seen**, and nothing is ever deleted — it falls out
+  of the bottom at fifty. An inbox you are expected to clear is a chore.
+- Not drawn at all without an account: there is no address for anything to be
+  sent to, and an empty envelope offered to a stranger is an advert for signing
+  in.
+
+### The follow — `lib/follow.ts`, and a missing index
+
+**§7's refusal is written as an absent database index.** `db/schema.sql` has no
+index on `follows.followed`, because an index that way round exists only to
+count or list the people following somebody — and the comment there says so, so
+that adding it later cannot happen by accident. There is no `countFollowers`,
+no route returning who follows you, and no list of who you follow. The entire
+surface is **one boolean on the pins a room was already reading**: following
+changes how a place looks, never what page you are on.
+
+You follow **a pin, not a user id** — no user id is ever sent to or returned
+from a browser, so there is nothing to enumerate — and unfollowing is a real
+delete rather than a tombstone, the one place in the product where that is
+right.
+
+### Plumbing
+
+- `db/schema.sql` — `notices`, `follows`, `users.prefs`. Until it is run the
+  three routes degrade to empty, which was verified.
+- **`scripts/migrate.mjs` — `npm run migrate`.** There is no `psql` on a stock
+  Mac and no reason to install one: `pg` is already a dependency and speaks the
+  same protocol. It loads `.env.local` the way `seed-pins.mjs` does, runs
+  `db/schema.sql` **in one transaction** so a half-applied schema is not a
+  state that can happen, and prints the tables afterwards — "it ran" and "the
+  tables exist" are different claims and only the second is useful. Safe to run
+  as often as you like: the repo's additive-only rule (§7) is what makes the
+  whole file idempotent. `--dry` shows what it would do. **Run from Kacey's
+  terminal; the bridge has no egress to Neon.**
+- **Applied 2026-08-31.** `characters, events, follows, marks, notices, pins,
+  users, waves` and `users.prefs: present`. All four routes then answered
+  against the real tables, and `/r/duskwood` still draws its pins — the follows
+  subquery `lib/pins-db.ts` grew is the riskiest change in this pass and it is
+  the one that had to be checked against a live table rather than reasoned
+  about.
+- **The `pg` SSL warning is noise for now** and `scripts/migrate.mjs` says why:
+  `sslmode=require` is currently treated as the *stricter* `verify-full`, and
+  pg v9 will switch it to the weaker libpq meaning. Nothing to do today; on a
+  pg v9 bump the string wants `verify-full` spelled out, here and in
+  `lib/db.ts`, or the deploy quietly drops to a weaker check.
+- A reply now posts a notice to the pin's author (`app/api/pins`), never to
+  yourself, and a failed notice cannot fail the pin.
+- `lib/ago.ts` is new and small: `age` had to leave `lib/live.ts` because that
+  file imports the pool, and a client component wanting the formatter pulled
+  `pg` into a browser bundle and broke the build. `live.ts` re-exports it, so
+  no existing caller changed. **This is the trap `lib/sync.ts` warns about and
+  it caught us anyway.**
+
+### Verified in the browser
+
+Card front and back at 1.586 both ways, size unchanged across the flip, the
+scrollbar suppressed and the mask applied, the status line reading all four
+rows and returning to rest, and `/api/envelope`, `/api/prefs` and `/api/follow`
+all degrading correctly while signed out and un-migrated — no 500s.
+`npx tsc --noEmit` clean.
+
+**Still to do on this:** the follow has a working API and no button on a pin
+yet, and the almanac (§5) is now the only piece of the welcome unbuilt.
+
+---
+
+## 0.01 Earlier — Rested, and the landing is rebuilt, 2026-08-31 (night)
+
+**Rested is built.** `docs/WELCOME.md` §4 — the §7 inversion applied to the
+growth mechanic, and the third of the welcome's five pieces to land after the
+kit and the seeds. Time away is what accrues: walk back into Duskwood after
+nine days and the room says so, and the longer you were gone the longer the
+sentence. Nothing is defended and nothing can be broken.
+
+- `lib/rested.ts` — the shapes and the sentence, no pool and no browser, the
+  same division `lib/sync.ts` keeps because both ends import it.
+- `app/api/rested/route.ts` — the read. **This is the query `lib/live.ts` has
+  been describing in its own header since it was written**: *"without accounts
+  there is no 'you' yet ... the account cursor lands on the same query the day
+  it exists."* Three counts since a cursor — who came through at your level
+  (§4.3's ±2 band), what was left here, and what was said back to you.
+- `app/(app)/Rested.tsx` — the surface, in the people column at the foot of
+  it and over the doors. **Kacey moved it there mid-build and it was the right
+  call.** It was written as a card floating on the art, which made it a fifth
+  thing competing for a corner of a photograph that had run out of corners —
+  it landed on the deck switch, and at anything under about a thousand pixels
+  it met the room's own centred name. The column already asks *who is here* at
+  the top and *where can you go* at the bottom; what happened while you were
+  gone is the same question asked about a time rather than a place, and it
+  belongs between them. It needs no card, no scrim and no breakpoint there:
+  the column is not on the art, so docs/CONTRAST.md does not bind it.
+- `.rested` takes the `margin-top: auto` the doors were carrying, so a drawn
+  Rested consumes the column's air instead of adding a block to it. Nothing is
+  drawn far more often than something is, and the quiet column is unchanged.
+
+**Every line wears an object.** It shipped as a flat paragraph and Kacey asked
+for the pin's icon on the pin line, which was the right instinct and the
+register already required it: DESIGN.md's *the product shown as working
+objects*, and Kacey's own 2026-08-26 rule that the more of the game's own
+objects the better. So the sentence became a lead and three rows, each in the
+`--r-sm` well `PinChip` and the trainer rows already use:
+
+| row | object | why that one |
+| --- | --- | --- |
+| new pins | `/pins/map-x.png`, straight off `PinFace` | the treasure map the pin wears everywhere else, imported rather than copied so the two cannot drift |
+| came through | `inv_misc_grouplooking` | the game's own Looking For Group icon — the one vanilla icon meaning *other players* without meaning a class or a faction, and a crowd has no class colour |
+| a reply | `inv_letter_15` | §3.3 already calls the in-app channel the envelope and WoW's mail icon the softest notification ever designed; a reply waiting for you is the letter, in the game's own hand |
+
+**The lead wears none**, deliberately: the days are the one line about you
+rather than about the room, and they are the only number in the product set in
+`--ink`. That is the inversion said in a colour — the figure a streak would
+have made you defend is the figure Rested makes the headline, and it got there
+by you being somewhere else.
+
+**Four candidate icons 403 or fail on the CDN** and were checked in the browser
+before being chosen, not after: `inv_misc_footprints`, `ability_tracking`,
+`ability_rogue_sprint` and `spell_holy_prayerofhealing` are all absent from
+`render.worldofwarcraft.com`. Anything added here wants the same check —
+`lib/spell-icons.ts` has the same note, and a missing stem is a broken image
+rather than a fallback.
+
+**The cursor is a `been` mark**, subject the room id and `val` an ISO time, so
+it is localStorage-first and syncs only for a reader who signed in. A signed-out
+reader gets Rested on the machine they read on, which is the right degradation
+— the alternative is a growth mechanic that needs an account, and that is the
+shape §0 refuses. `valOf` in `lib/marks.ts` is the one export it needed: `isOn`
+throws away the value, and "here, at no time" is not a state a `been` mark can
+be in.
+
+**What kept it from being a streak in a costume** (§7.1's test):
+
+- Every count is measured from a cursor and **dies the moment it is read**. It
+  describes an absence, cannot be accumulated, and has no version that only
+  goes up.
+- **Nothing is drawn when nothing happened.** §5.2 — it renders what you have
+  and never what you haven't. No "0 came through", no empty card.
+- **No dismiss.** There is nothing to close; the card is gone next visit by
+  construction, because the cursor it was measured from has moved.
+- **The sub-place came off.** §4's sketch ends *"Two new pins near Raven Hill"*
+  and the landmark is dropped: a count of what people left is news about a
+  room, the same count with a landmark on it is the first line of a route, and
+  §2.1 does not stop applying because the sentence is friendly.
+- The stamp lands **after** the read, always — stamping on arrival spends the
+  absence before it is drawn — and is skipped if the cursor is under five
+  minutes old, so walking the rail through six rooms is not six writes.
+
+**Open ruling §11.5 is half-settled.** Rested is in the room's column, per
+TARI.md §4.3 band 2. Whether it *also* speaks in the letter on `/campfire` is
+untouched and still open. The heading is the only place the word is said —
+"Well rested" past seven days, "Since you were last here" under — and there is
+deliberately no badge and no threshold to cross.
+
+**Verified against the real thing**, driven in Kacey's dev server with a
+back-dated `been` mark:
+
+| | |
+| --- | --- |
+| duskwood, cursor nine days back | **Well rested · "Nine days." · the pin row, wearing the map** |
+| the same room, straight after | nothing drawn, cursor untouched |
+| westfall, never stood in | nothing drawn, cursor planted |
+| a malformed, future, or unknown-room cursor | `rested: null`, three for three |
+
+The three queries ran against Neon and the pin count is real. `came` came back
+zero at every level over a ninety-day window, which is the event log being
+quiet for that room rather than a broken query — the read returned a valid row,
+so the SQL parsed and ran. `npx tsc --noEmit` clean; the sentence builder was
+also run against five shapes including §4's own example, which it reproduces
+word for word.
+
+**The landing rebuild is recorded here for the first time.** Two commits this
+evening that no §0 had caught: `feat(landing): the mocks are the app, framed`
+and `feat(landing): the armory door, the campfire, the board, and a banded
+flow`. The page is now nine tone-banded sections — the point, live rooms, the
+armory door, your character, the campfire, the deck, the world, classic+ as the
+page's one band, and the promises.
+
+**§8.1's leaderboard ruling is now the oldest thing blocking the welcome.**
+*"No leaderboards. Nobody wins Tari"* has to come off the landing page before
+launch, not when a leaderboard ships, and the page was just rebuilt around
+those lines. Kacey's call: places or players.
+
+## 0.02 Earlier — the path is built, 2026-08-31
 
 **`/campfire` exists: the trainer, the chains, the class quests and the letter.**
 Whelp plz's four reader-facing tabs are one page, per `docs/CARRYOVER.md`

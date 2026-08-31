@@ -202,17 +202,38 @@ seeded by Tari alone.
 
 ## 3. The nudge
 
-### 3.1 The refusal that stays, word for word
+### 3.1 The refusal, re-cut 2026-08-31
 
-> **Tari never rings while you're playing.**
+It used to read, word for word:
 
-Not marketing — a feature. The TA1 addon knows when you are in an instance and
-when you are in combat. Everything queues and lands when you log out. No other
-product on earth goes quiet the moment you get busy.
+> ~~**Tari never rings while you're playing.**~~
 
-**Conditional on the addon** (§1.0). Armory-only users get the envelope and no
-push, which is the correct degradation — a promise you cannot keep for a user
-is not made to them.
+**It came off, because it is not true and cannot be made true.** Kacey,
+2026-08-31: **the addon cannot read live state — not combat, not instance, not
+position, not anything.** It writes an export string a reader copies out of the
+game and pastes in (`docs/CHARACTER.md`, TA2). The armory answers as of last
+logout and says so. **Both are photographs, taken when somebody decides to take
+one.** Nothing in this product knows you are playing right now, so a promise to
+go quiet while you are is marketing — and §8 is explicit that a broken promise
+costs more than one never made.
+
+This settles open ruling §11.2 as **no**, and it deletes a feature: *"when I'm
+near water you've never sat at"* was the best line on the list and it is a lie,
+so it is gone rather than parked. A toggle that can never fire is worse than an
+absent feature — the reader ticks it, waits, and learns the app makes things
+up. **The kit's fishing card carried the same promise** and is re-cut too
+(`reference/kit.json`, `pole`: the second line is now *"Nobody has ever
+regretted the ten minutes."*).
+
+What replaced it is three things this product can keep, enforced by the list in
+§3.2a rather than by intention:
+
+> **Only Azeroth. Never Tari, never a streak, and never at 3am.**
+
+**The upside of losing the addon condition is large:** the nudge now works for
+everybody — signed out, nothing installed, on a borrowed laptop. §1.0's
+"armory-only readers get the correct degradation" is moot, because there is no
+longer anything to degrade.
 
 ### 3.2 The rules, as a testable list
 
@@ -227,6 +248,25 @@ is not made to them.
 4. **Quiet hours are load-bearing.** Cross-region product. Nothing fires at 3am
    in Perth.
 5. **Per-thing opt-in, chosen in the kit.** Never a blanket permission.
+6. **It must be knowable without the reader** — added 2026-08-31, and it is the
+   rule §3.1 was rewritten around. If answering it needs a client that is
+   running, a position, a combat state, or anything else nothing in this
+   product can see, it does not go on the list.
+
+### 3.2a The list, as built
+
+`lib/nudge.ts`, `WORLD_THINGS`. Four things, and every one is a fact about
+Azeroth on a calendar: no addon, no armory, no client, no reader input, the
+same for everybody in a region, computable months ahead.
+
+| thing | says | and never says |
+| --- | --- | --- |
+| `faire` | When the Darkmoon Faire moves | where it went |
+| `reset` | When the week turns over | what to do with it |
+| `moon` | When it's a full moon | — |
+| `season` | When a seasonal event opens | — |
+
+Adding a fifth means answering rule 6 in that file, in writing.
 
 ### 3.3 Two channels
 
@@ -254,7 +294,13 @@ Three channels, no overlap. Nothing else gets added.
 
 ---
 
-## 4. Rested
+## 4. Rested — built, 2026-08-31
+
+`lib/rested.ts` · `app/api/rested/route.ts` · `app/(app)/Rested.tsx`,
+in the people column over the doors · the cursor is a `been` mark. The room's
+surface is built and `STATUS.md` §0 has what it cost; the letter's half of it
+is untouched (§11.5). The copy below is what shipped, and it is Kacey's to
+redline.
 
 The §7 inversion applied to the growth mechanic.
 
@@ -358,7 +404,15 @@ The day a rare gets an `x`/`y` the product has shipped a farming route.
 
 ---
 
-## 7. The follow
+## 7. The follow — built, 2026-08-31
+
+`lib/follow.ts` · `app/api/follow/route.ts` · the flag rides `lib/pins-db.ts`.
+**The refusal is written as a missing index**: `db/schema.sql` has no index on
+`follows.followed`, because an index that way round exists only to count or
+list the people following somebody. The comment there says so, so adding it
+later cannot happen by accident. There is no `countFollowers` for anything to
+call, no route that returns who follows you, and no list of who you follow —
+the whole surface is one boolean on the pins a room was already reading.
 
 The value is the feed. The poison is the number.
 
@@ -414,8 +468,11 @@ The replacement line keeps its value for free **if future leaderboards rank
 places, not players.** "Nobody has been to the Stockade in three weeks" ranks a
 room. Then *nothing here ranks you against anyone* stays true forever.
 
-**Ruling needed from Kacey.** If leaderboards will rank players, the line comes
-off and does not get replaced.
+**Ruled 2026-08-31: places, never players.** So the line stays on the landing
+page exactly as written, and it stays true for free. Any leaderboard this
+product ever ships ranks rooms — *"nobody has been to the Stockade in three
+weeks"*, *"137 stood in Ironforge today"*. **A ranking of players is now a
+thing this document forbids**, not a thing it is waiting on.
 
 ---
 
@@ -496,21 +553,36 @@ Which makes the order:
 | 12 the atlas | downstream of 10a |
 | — the character layer | shipped, unlisted |
 | — the two decks / the unwritten room | shipped 08-30, unlisted, and it moved the launch |
+| — the kit / the seeds / Rested | §1, §2, §4 — three of the welcome's five, shipped |
+| — the nudge | §3 — the opt-in, the list and the envelope shipped 08-31 |
+| — the follow | §7 — shipped 08-31 |
+| — the almanac | §5 — the one piece of the welcome still unbuilt |
 
 ---
 
 ## 11. Open
 
-1. **The leaderboard ruling** (§8.1). Places or players.
-2. **Does the addon report combat and instance state today?** §3.1's promise is
-   a client-side guess without it, and armory-only users never get it (§1.0).
-3. **Push before or after Tauri.** Whether the nudge waits for step 8 or ships
-   web-push-first and degrades on iOS.
+1. ~~The leaderboard ruling.~~ **Ruled 2026-08-31: places, never players**
+   (§8.1). The landing line stays and is now permanent.
+2. ~~Does the addon report combat and instance state today?~~ **No, and it
+   cannot** — 2026-08-31. It reads nothing live at all. §3.1 is re-cut, one
+   thing was deleted from the list, and the kit's fishing card was corrected.
+3. ~~Push before or after Tauri.~~ **Ruled 2026-08-31: neither, yet.** The
+   opt-in and the choosing ship now and everything lands in the envelope; push
+   is a delivery swap later rather than a second feature, so §3 is unblocked
+   without waiting on step 8.
 4. ~~Where the kit lives after first run.~~ **Settled: its own route**, in the
    deck's grammar, linked from the rail head for good (2026-08-30).
    Still open under it: whether the creator hands a new reader to `/kit`
    automatically on Accept, or whether the rail link is the only door.
-5. **Whether Rested is visible in the room header or only in the letter.**
-6. **`STATUS.md` has not been updated since 08-26** and misses the armory
-   import, the two decks, the unwritten room, moments, the story deck and the
-   landing rebuild. It is the doc every session is told to read first.
+5. **Whether Rested also speaks in the letter.** Half-settled 08-31: it is
+   built in the room's people column, at the foot of it and over the doors,
+   per TARI.md §4.3 band 2 — the word said only in its heading, no badge and
+   no threshold. Whether the letter on `/campfire` carries it too is still
+   open.
+6. ~~`STATUS.md` has not been updated since 08-26.~~ **Caught up 08-31.** Its
+   §0 now carries Rested and the landing rebuild, and §0.02–§0.05 the path and
+   wave 5. It went stale twice in one day even so — §0 was written at 03:43
+   and two landing commits landed after it. It is the doc every session is
+   told to read first; **check its Updated line against `.git/logs/HEAD`
+   before trusting it.**

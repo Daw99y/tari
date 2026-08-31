@@ -24,6 +24,7 @@ import { loadCharacter } from "@/lib/character";
 import Command from "./Command";
 import Live from "./Live";
 import People from "./People";
+import Envelope from "./Envelope";
 import Rail from "./Rail";
 import You from "./You";
 import { RoomProvider } from "./room-context";
@@ -79,9 +80,19 @@ export default function Shell({
         <div className={styles.shell}>
           <div className={styles.railColumn}>
             <header className={styles.railHead}>
-              <Link href="/" className={styles.wordmark} aria-label="Tari, home">
-                <FoxMark className={styles.fox} />
-              </Link>
+              {/* THE CORNER. The mark and the envelope, together, top left.
+                  Kacey, 2026-08-31. It belongs beside the wordmark rather than
+                  in the actions on the right: the kit and ⌘K are things you go
+                  and do, and the envelope is a thing that happens to you — it
+                  is the one item in this header that can change while nobody
+                  is looking at it, so it sits where the eye lands first.
+                  It draws nothing at all without an account (WELCOME.md §3.3). */}
+              <div className={styles.corner}>
+                <Link href="/" className={styles.wordmark} aria-label="Tari, home">
+                  <FoxMark className={styles.fox} />
+                </Link>
+                <Envelope signedIn={handle !== null} />
+              </div>
               <div className={styles.railActs}>
                 <Link href="/kit" className={styles.kitLink} title="What to carry">
                   Kit

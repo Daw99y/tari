@@ -19,19 +19,43 @@ type Row = {
 };
 
 /** Every thread said in this room, replies folded under their pin. `uid`
- *  stamps `mine`, which is the only thing a reader may take back. */
+ *  stamps `mine`, which is the only thing a reader may take back — and
+ *  `followed`, which is the whole of docs/WELCOME.md §7's surface.
+ *
+ *  THE FOLLOW IS READ HERE AND NOWHERE ELSE. §7 is place-first: you follow
+ *  somebody because of a pin, and the payoff is their pins standing out in the
+ *  rooms *you* walk into. That is a flag on this query. It is deliberately not
+ *  a list — this file has no function that returns the people you follow,
+ *  because that list is a timeline's first step. */
 export async function pinsIn(room: string, uid: number | null): Promise<Pin[]> {
-  const rows = await query<Row>(
-    `select id, x, y, body, parent, user_id, who, cls, level, created_at
-       from pins
-      where room = $1 and removed_at is null
-      order by created_at asc
-      limit $2`,
-    [room, PIN_LIMIT * 5]
-  );
+  const [rows, follows] = await Promise.all([
+    query<Row>(
+      `select id, x, y, body, parent, user_id, who, cls, level, created_at
+         from pins
+        where room = $1 and removed_at is null
+        order by created_at asc
+        limit $2`,
+      [room, PIN_LIMIT * 5]
+    ),
+    /* Only the authors standing in this room, not everybody followed — the
+       set stays the size of the room rather than the size of the habit. */
+    uid === null
+      ? Promise.resolve([] as { followed: string }[])
+      : query<{ followed: string }>(
+          `select f.followed from follows f
+            where f.follower = $1
+              and exists (
+                select 1 from pins p
+                 where p.room = $2 and p.removed_at is null and p.user_id = f.followed
+              )`,
+          [uid, room]
+        ),
+  ]);
   if (!rows) return [];
 
+  const following = new Set((follows ?? []).map((f) => Number(f.followed)));
   const mine = (r: Row) => uid !== null && Number(r.user_id) === uid;
+  const followed = (r: Row) => following.has(Number(r.user_id));
   const at = (r: Row) => new Date(r.created_at).toISOString();
 
   const threads = new Map<number, Pin>();
@@ -47,6 +71,7 @@ export async function pinsIn(room: string, uid: number | null): Promise<Pin[]> {
       level: r.level,
       at: at(r),
       mine: mine(r),
+      followed: followed(r),
       replies: [],
     });
   }

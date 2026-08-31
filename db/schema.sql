@@ -150,3 +150,64 @@ alter table pins alter column y drop not null;
 create index if not exists pins_room_at on pins (room, created_at desc);
 -- A thread's replies.
 create index if not exists pins_parent on pins (parent);
+
+-- ===========================================================================
+-- THE ENVELOPE, THE FOLLOW, AND WHAT YOU ASKED TO BE TOLD.
+-- docs/WELCOME.md §3, §7. Three additive things, 2026-08-31.
+-- ===========================================================================
+
+-- THE ENVELOPE (§3.3). In-app, silent, waits to be looked at. WoW's mail icon
+-- is the softest notification ever designed and this is that icon's table.
+--
+-- EVERYTHING ABOUT TARI LANDS HERE AND NOTHING ELSE MAY. §3.2 rule 1 splits
+-- the world in two: a thing that happened in Azeroth may interrupt you, a
+-- thing that happened in Tari may not. A reply, a follow, a room you seeded
+-- getting busy — all of it is about Tari, so all of it waits in this table
+-- until somebody looks. There is no row here that becomes a push.
+--
+-- `read_at` is a timestamp and not a boolean because "when did you see this"
+-- is the only question the envelope will ever be asked twice.
+--
+-- `actor` is a character name and a claim, exactly as it is on pins and in
+-- presence (app/api/ably). The uid underneath is not a claim, and it is what
+-- the row is keyed on.
+create table if not exists notices (
+  id         bigserial   primary key,
+  user_id    bigint      not null references users(id) on delete cascade,
+  kind       text        not null,   -- reply | follow | seeded
+  room       text,
+  subject    text,                   -- the pin's opening words, a room's name
+  actor      text,                   -- who did it, as a character name
+  actor_cls  text,
+  ref        bigint,                 -- the pin this is about, when there is one
+  read_at    timestamptz,
+  created_at timestamptz not null default now()
+);
+create index if not exists notices_user_at on notices (user_id, created_at desc);
+-- The only query the mark itself runs: is there anything unopened.
+create index if not exists notices_unread on notices (user_id) where read_at is null;
+
+-- THE FOLLOW (§7). You can follow. Nothing is counted.
+--
+-- NOTE WHAT IS DELIBERATELY ABSENT: there is no index on `followed`. The one
+-- question this table answers is "whose pins should surface for me", which
+-- reads `where follower = $me`. An index the other way round exists only to
+-- count or list the people following somebody, and §7 refuses that total —
+-- publicly, privately, and to the person being followed. The missing index is
+-- the refusal, written where it cannot be forgotten. Adding it later is how
+-- this feature quietly becomes a follower count.
+--
+-- Place-first, never timeline-first: nothing here orders anybody's posts.
+create table if not exists follows (
+  follower   bigint      not null references users(id) on delete cascade,
+  followed   bigint      not null references users(id) on delete cascade,
+  created_at timestamptz not null default now(),
+  primary key (follower, followed),
+  check (follower <> followed)
+);
+
+-- WHAT YOU ASKED TO BE TOLD (§3.2 rule 5: per-thing, never a blanket
+-- permission). One small object, read whole and written whole, so a new thing
+-- to be told about is a change to one TypeScript type rather than a migration
+-- — the same reason `characters.profile` is jsonb.
+alter table users add column if not exists prefs jsonb not null default '{}'::jsonb;

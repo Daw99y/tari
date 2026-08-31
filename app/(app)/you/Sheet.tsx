@@ -94,6 +94,7 @@ import { DEFAULT_LOOK, useBody } from "@/lib/use-body";
 import { heldGear, itemsByEntry, TWO_HANDED, type Item as WardrobeItem } from "@/lib/wardrobe";
 import type { WornItem } from "@/lib/worn";
 
+import Card from "./Card";
 import Drawer from "./Drawer";
 import Roster from "./Roster";
 import Row from "./Row";
@@ -103,7 +104,15 @@ const NO_GEAR = new Map<string, WardrobeItem>();
 const NO_PATH: BehindSlot[] = [];
 const NO_ITEMS: number[] = [];
 
-export default function Sheet() {
+export default function Sheet({
+  handle,
+  canSignIn,
+}: {
+  /** The Discord handle, or null signed out — read on the server by the
+   *  layout and handed down, the same value the rail's foot carries. */
+  handle: string | null;
+  canSignIn: boolean;
+}) {
   const [me, setMe] = useState<Character | null | undefined>(undefined);
   useEffect(() => setMe(loadCharacter()), []);
 
@@ -316,6 +325,12 @@ export default function Sheet() {
             </p>
           )}
         </aside>
+
+        {/* THE CARD, in the corner the sheet had spare. docs/WELCOME.md §3.
+            The facts opposite are what the import saw; this is who Tari thinks
+            you are and what you have asked it to tell you — and its back is
+            the only place either question can be answered. */}
+        <Card me={me} handle={handle} canSignIn={canSignIn} />
 
         {error ? <p className={styles.fault}>{error}</p> : null}
       </div>

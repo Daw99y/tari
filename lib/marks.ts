@@ -118,6 +118,19 @@ export function isOn(store: MarkStore, char: string, kind: MarkKind, subject: st
   return store.on[char]?.[kind]?.[subject] !== undefined;
 }
 
+/** The value carried on a mark, or null when it is on and carries none.
+ *  Undefined means the mark is not on at all — a distinction `isOn` throws
+ *  away and Rested's cursor needs, since "here, at no time" is not a state
+ *  a `been` mark can be in. */
+export function valOf(
+  store: MarkStore,
+  char: string,
+  kind: MarkKind,
+  subject: string
+): string | null | undefined {
+  return store.on[char]?.[kind]?.[subject];
+}
+
 /** Every subject of one kind that is on, for one character. */
 export function subjectsOn(store: MarkStore, char: string, kind: MarkKind): string[] {
   return Object.keys(store.on[char]?.[kind] ?? {});

@@ -809,12 +809,96 @@
   flex: none;
 }
 
+/* What happened while you were gone, at the foot of the column and over the
+ * doors. docs/WELCOME.md §4; lib/rested.ts has the argument.
+ *
+ * NO CARD. It was built as one, floating on the art, and it does not need to
+ * be: the column is not on the photograph, so docs/CONTRAST.md does not bind
+ * it and it wears the same inks as the heads above it. A card here would be a
+ * panel inside a panel.
+ *
+ * IT TAKES THE COLUMN'S AIR RATHER THAN ADDING TO IT. The doors carry
+ * `margin-top: auto` so the bottom two thirds of a quiet room read as the
+ * room's own air; when Rested is drawn it takes that auto instead and the
+ * doors sit straight under it, so the column gains a block and not a gap. */
+.rested {
+  flex: none;
+  margin-top: auto;
+  padding-top: 1.5rem;
+}
+
 /* And the way out, at the bottom of the wall. The gap between them is the
  * room's air rather than a list that stopped loading (People.tsx). */
 .doors {
   flex: none;
   margin-top: auto;
   padding-top: 1.5rem;
+}
+
+.rested + .doors {
+  margin-top: 0;
+  padding-top: 1.15rem;
+}
+
+/* THE LEAD: how long you were away, and nothing else.
+ *
+ * It stands above the rows and wears no object, because it is the one line
+ * about you rather than about the room. It is also the only number in the
+ * product set in the ink — which is the whole inversion, said in a colour:
+ * the figure a streak would have made you defend is the figure Rested makes
+ * the headline, and it got there by you being somewhere else. */
+.restedLead {
+  margin: 0 0 0.7rem;
+  font: 500 0.95rem/1.3 var(--sans);
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+
+.restedRows {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.5rem;
+}
+
+/* A row, a slot, a well — `--r-sm`'s own list (docs/DESIGN.md, space and
+   shape). The object sits in a well and the sentence sits beside it, which is
+   the shape a trainer row and a pin chip already use. */
+.restedRow {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.6rem;
+  align-items: center;
+  min-width: 0;
+  animation: arrive 420ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+.restedWell {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: var(--r-sm);
+  background: rgba(242, 240, 234, 0.08);
+  overflow: hidden;
+}
+
+/* The game's own object, in the game's own frame register: edge to edge,
+   rounded by the well (components/pin-chip.module.css, .face). */
+.restedFace {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.restedText {
+  min-width: 0;
+  font: 500 0.8rem/1.35 var(--sans);
+  color: var(--mute);
+  text-wrap: pretty;
 }
 
 .columnName {
@@ -1282,4 +1366,158 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+/* ---- the corner: the mark and the envelope. docs/WELCOME.md §3.3.
+ *
+ * They sit together, top left, because they are the two things in this header
+ * that are not actions. The kit and ⌘K on the right are places you go; these
+ * are who you are here and what has arrived — and the envelope is the only
+ * item in the shell that can change while nobody is looking at it, so it wants
+ * the corner the eye lands on first (Kacey, 2026-08-31). */
+
+.corner {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  min-width: 0;
+}
+
+.post {
+  position: relative;
+  display: flex;
+}
+
+/* The game's own mail, at the size of a rail glyph. No frame around it: it is
+   a cell out of a 1.12 client and docs/CHARACTER.md says those are never
+   redrawn or boxed. */
+.mail {
+  display: grid;
+  place-items: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  padding: 0;
+  border: 0;
+  border-radius: var(--r-sm);
+  background: none;
+  cursor: pointer;
+  opacity: 0.44;
+  transition: opacity 160ms ease;
+}
+
+.mail img {
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  display: block;
+}
+
+.mail:hover,
+.mail[aria-expanded="true"] {
+  opacity: 0.92;
+}
+
+/* SOMETHING, OR NOTHING. Never a count — lib/envelope.ts has the argument, and
+   it is the same one that refuses a follower total: a bold number on an
+   envelope exists to make the unopened feel owed. The mark is a dot, it is the
+   accent, and it says only that the list is worth opening. */
+.mail[data-lit] {
+  opacity: 1;
+}
+
+.mail[data-lit]::after {
+  content: "";
+  position: absolute;
+  top: -0.1rem;
+  right: -0.1rem;
+  width: 0.42rem;
+  height: 0.42rem;
+  border-radius: var(--r-pill);
+  background: var(--accent);
+  box-shadow: 0 0 0 2px var(--panel);
+}
+
+.mail:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.postBox {
+  position: absolute;
+  top: calc(100% + 0.55rem);
+  left: -0.5rem;
+  z-index: 20;
+  width: 19rem;
+  max-height: 22rem;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 0.45rem;
+  border-radius: var(--r-md);
+  background: var(--panel);
+  box-shadow:
+    inset 0 0 0 0.5px rgba(242, 240, 234, 0.09),
+    0 22px 50px -18px rgba(0, 0, 0, 0.85);
+  animation: arrive 220ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+/* An empty mailbox is a sentence, not a graphic. It says what will arrive
+   here, which is the only useful thing an empty state can do. */
+.postEmpty {
+  margin: 0;
+  padding: 0.6rem 0.65rem;
+  font: 500 0.76rem/1.45 var(--sans);
+  color: var(--mute);
+  text-wrap: pretty;
+}
+
+.postList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.1rem;
+}
+
+.postRow {
+  border-radius: var(--r-sm);
+}
+
+/* Unopened is a weight, not a badge. It fades to the read state the moment the
+   list is looked at, because that is what happened. */
+.postRow[data-new] .postText {
+  color: var(--ink);
+}
+
+.postLink {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.7rem;
+  padding: 0.5rem 0.6rem;
+  border-radius: var(--r-sm);
+  color: inherit;
+  text-decoration: none;
+}
+
+a.postLink:hover {
+  background: rgba(242, 240, 234, 0.06);
+}
+
+.postText {
+  min-width: 0;
+  font: 500 0.78rem/1.35 var(--sans);
+  color: var(--mute);
+  text-wrap: pretty;
+}
+
+.postText strong {
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.postAge {
+  flex: none;
+  font: 400 0.58rem/1 var(--mono);
+  letter-spacing: 0.1em;
+  color: rgba(242, 240, 234, 0.4);
 }

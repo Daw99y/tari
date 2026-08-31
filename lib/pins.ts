@@ -70,6 +70,15 @@ export type Pin = {
   level: number;
   at: string;
   mine: boolean;
+  /**
+   * Somebody you follow left this. docs/WELCOME.md §7.
+   *
+   * A flag on a row the room was already reading, which is the whole surface
+   * of following: it changes how a place looks, never what page you are on.
+   * There is no list of the people you follow anywhere in the product, and a
+   * count of them exists nowhere at all.
+   */
+  followed: boolean;
   replies: PinReply[];
 };
 
@@ -82,7 +91,12 @@ export function pinsChannel(room: string): string {
 /** A pin arriving over the wire is whatever another process published.
  *  Same doctrine as readWho: nothing downstream may assume a field exists
  *  because our own code put it there. `mine` is always false here — your
- *  own pin comes back from the POST, not the wire. */
+ *  own pin comes back from the POST, not the wire.
+ *
+ *  `followed` is false for the same reason and a stronger one: whether you
+ *  follow somebody is a fact about *your* account, and it can only be answered
+ *  by the read that knows who is asking (lib/pins-db.ts). A pin arriving live
+ *  is not going to claim it. */
 export function readPin(v: unknown): (Pin & { parent: number | null }) | null {
   if (!v || typeof v !== "object") return null;
   const p = v as Record<string, unknown>;
@@ -99,6 +113,7 @@ export function readPin(v: unknown): (Pin & { parent: number | null }) | null {
     level: typeof p.level === "number" ? p.level : 1,
     at: typeof p.at === "string" ? p.at : new Date().toISOString(),
     mine: false,
+    followed: false,
     replies: [],
     parent: typeof p.parent === "number" ? p.parent : null,
   };
