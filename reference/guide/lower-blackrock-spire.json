@@ -1,0 +1,215 @@
+{
+  "room": "lower-blackrock-spire",
+  "sources": [
+    "https://warcraft.wiki.gg/wiki/Lower_Blackrock_Spire",
+    "https://warcraft.wiki.gg/wiki/Blackrock_Spire",
+    "https://warcraft.wiki.gg/wiki/Hordemar_City",
+    "https://warcraft.wiki.gg/wiki/Dark_Horde",
+    "https://warcraft.wiki.gg/wiki/Vaelan",
+    "https://warcraft.wiki.gg/wiki/Seal_of_Ascension",
+    "https://warcraft.wiki.gg/wiki/Urok_Doomhowl",
+    "https://warcraft.wiki.gg/wiki/Roughshod_Pike",
+    "https://warcraft.wiki.gg/wiki/Halycon",
+    "https://warcraft.wiki.gg/wiki/Bannok_Grimaxe",
+    "https://warcraft.wiki.gg/wiki/Mor_Grayhoof",
+    "https://warcraft.wiki.gg/wiki/Overlord_Wyrmthalak"
+  ],
+  "roadEnds": [
+    "Hordemar City",
+    "The Chamber of Battle"
+  ],
+  "seedWho": "Tari",
+  "cards": [
+    {
+      "id": "a-dwarf-city",
+      "kind": "before",
+      "form": "title",
+      "subject": "Franclorn Forgewright's spire",
+      "tag": "Before",
+      "lines": [
+        "Blackrock Spire was designed by a master Dark Iron mason to be the symbol of dwarven power in this mountain.",
+        "Hordemar City is built inside the husk of it. The walls around the orc tents are carved out of volcanic rock — dwarf work, not orc work. The orcs pitched campfires in somebody else's stone rooms."
+      ],
+      "spoiler": false
+    },
+    {
+      "id": "ten-men",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "It is a ten-man dungeon",
+      "tag": "Never five, in vanilla",
+      "lines": [
+        "Blackrock Spire launched as a raid instance. Patch 1.3.0 capped it at fifteen players, patch 1.10.0 at ten, and there it stayed.",
+        "The five-player cap arrived with Cataclysm.",
+        "The LBRS everybody remembers is a later game."
+      ],
+      "spoiler": false,
+      "t": 0.06,
+      "icon": "ten-men"
+    },
+    {
+      "id": "the-dark-horde",
+      "kind": "story",
+      "form": "chip",
+      "subject": "An orc here is the traitor in the room",
+      "tag": "The Dark Horde",
+      "lines": [
+        "Rend calls himself Warchief of the true Horde — orcs, forest trolls, ogres and goblins who refused Thrall and kept the old bloodlust.",
+        "The actual authority is Nefarian, who runs them as a private army.",
+        "Both factions are unwelcome, for opposite reasons."
+      ],
+      "spoiler": false,
+      "t": 0.14,
+      "icon": "the-dark-horde"
+    },
+    {
+      "id": "vaelan",
+      "kind": "look",
+      "form": "chip",
+      "subject": "One of the mobs is a red dragon",
+      "tag": "Vaelan, above Hordemar",
+      "lines": [
+        "On a platform above the city stands what reads as an ordinary Scarshield Infiltrator. Walk up to him carrying an Unadorned Seal of Ascension and he drops the disguise.",
+        "He is Vaelastrasz, in mortal shape.",
+        "\"Your search could take decades.\""
+      ],
+      "spoiler": false,
+      "t": 0.22,
+      "icon": "vaelan"
+    },
+    {
+      "id": "the-seal",
+      "kind": "story",
+      "form": "chip",
+      "subject": "The key is forged in a swamp",
+      "tag": "Seal of Ascension",
+      "lines": [
+        "Three gemstones, one off each clan's boss. Then you leave the mountain entirely.",
+        "The seal is finished in Dustwallow Marsh, by beating a black drake down, mind-controlling him and making him breathe on it.",
+        "The ring is what lets a thing that is not a dragon walk past Nefarian's wards."
+      ],
+      "spoiler": false,
+      "t": 0.3,
+      "icon": "the-seal"
+    },
+    {
+      "id": "urok",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "You summon a boss by putting a head on a spike",
+      "tag": "Urok Doomhowl",
+      "lines": [
+        "Kill Highlord Omokk and take his head. Pull a Roughshod Pike off the east wall of upper Hordemar. Carry both to the ogre platform and mount the one on the other.",
+        "The ogres answer in waves. Then Urok comes.",
+        "Only one head drops per run."
+      ],
+      "spoiler": false,
+      "t": 0.38,
+      "icon": "urok"
+    },
+    {
+      "id": "sleeping-guards",
+      "kind": "look",
+      "form": "chip",
+      "subject": "The pikes are on the wall beside sleeping orcs",
+      "tag": "Upper Hordemar, past the bridges",
+      "lines": [
+        "The Scarshield Legionnaires stationed around them are asleep.",
+        "You lift a pike off the wall next to one of them.",
+        "Whether he stays asleep is up to you."
+      ],
+      "spoiler": false,
+      "t": 0.46,
+      "icon": "sleeping-guards"
+    },
+    {
+      "id": "halycon",
+      "kind": "beware",
+      "form": "grave",
+      "subject": "Something is very, very angry",
+      "tag": "Halycon and Gizrul",
+      "lines": [
+        "Halycon is a huge worg denned with a brood of pups. She and Gizrul are how the Dark Horde breeds its attack worgs.",
+        "Kill her and the game tells the whole instance: \"A horrifying howl can be heard echoing through the halls of Blackrock Spire.\"",
+        "That is her mate, and he is coming."
+      ],
+      "spoiler": true,
+      "t": 0.54,
+      "icon": "halycon"
+    },
+    {
+      "id": "bannok",
+      "kind": "look",
+      "form": "chip",
+      "subject": "The rare that made blacksmiths camp a dungeon",
+      "tag": "Bannok Grimaxe",
+      "lines": [
+        "A Firebrand Legion champion standing among the orcs in the lowest part of Hordemar, and he does not always spawn.",
+        "He carries Plans: Arcanite Reaper.",
+        "That single sheet of paper is why some people ran this place over and over without caring about the seal at all."
+      ],
+      "spoiler": false,
+      "t": 0.62,
+      "icon": "bannok"
+    },
+    {
+      "id": "skitterweb",
+      "kind": "look",
+      "form": "chip",
+      "subject": "Six neighbourhoods for one dungeon",
+      "tag": "Off Hordemar City",
+      "lines": [
+        "Chamber of Battle, Halycon's Lair, Mok'Doom, Skitterweb Tunnels, the Storehouse, Tazz'Alor.",
+        "Between the orc barracks and the ogre platform the place stops being a city and turns into a spider hole.",
+        "It is the only stretch in here that is not somebody's army."
+      ],
+      "spoiler": false,
+      "t": 0.7,
+      "icon": "skitterweb"
+    },
+    {
+      "id": "mor-grayhoof",
+      "kind": "story",
+      "form": "chip",
+      "subject": "There is a dead adventurer in Voone's room",
+      "tag": "Mor Grayhoof",
+      "lines": [
+        "A tauren druid who fell into the lower Spire fleeing spectral assassins, survived the fall, and was tortured by the trolls and by Voone before they finished him.",
+        "You summon him back with a brazier in the same room he was held in.",
+        "He fights you shifting through bear, cat and sprite darter."
+      ],
+      "spoiler": false,
+      "t": 0.78,
+      "icon": "mor-grayhoof"
+    },
+    {
+      "id": "wyrmthalak",
+      "kind": "story",
+      "form": "grave",
+      "subject": "The last boss is not an orc",
+      "tag": "Overlord Wyrmthalak",
+      "lines": [
+        "The end of the orc city is a black dragonspawn, placed here by Nefarian's chain of command and taking orders from the general upstairs.",
+        "He has no love for the Dark Horde he supervises.",
+        "At half health he calls for help and gets one of each clan."
+      ],
+      "spoiler": true,
+      "t": 0.9,
+      "icon": "wyrmthalak"
+    },
+    {
+      "id": "the-other-end",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "The far end is not in here",
+      "tag": "Where the walk actually finishes",
+      "lines": [
+        "A ledge above the city, three gemstones, a dragon in a swamp — and a door upstairs you still cannot open.",
+        "This whole dungeon is the lock on the next one."
+      ],
+      "spoiler": false,
+      "t": 1.0,
+      "icon": "the-other-end"
+    }
+  ]
+}

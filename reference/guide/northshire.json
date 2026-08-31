@@ -1,0 +1,199 @@
+{
+  "room": "northshire",
+  "sources": [
+    "https://warcraft.wiki.gg/wiki/Northshire_Valley",
+    "https://warcraft.wiki.gg/wiki/Northshire_Abbey",
+    "https://warcraft.wiki.gg/wiki/Clerics_of_Northshire",
+    "https://warcraft.wiki.gg/wiki/Northshire_Abbey_(WC1_Orc)",
+    "https://warcraft.wiki.gg/wiki/Library_Wing_(Northshire)",
+    "https://warcraft.wiki.gg/wiki/Echo_Ridge_Mine",
+    "https://warcraft.wiki.gg/wiki/Northshire_Vineyards",
+    "https://warcraft.wiki.gg/wiki/Garrick_Padfoot",
+    "https://warcraft.wiki.gg/wiki/The_Stolen_Tome",
+    "https://warcraft.wiki.gg/wiki/Marshal_McBride",
+    "https://warcraft.wiki.gg/wiki/Milly_Osworth"
+  ],
+  "roadEnds": [
+    "The abbey steps",
+    "The southern pass"
+  ],
+  "seedWho": "Tari",
+  "cards": [
+    {
+      "id": "the-clerics",
+      "kind": "before",
+      "form": "title",
+      "subject": "The Holy Order of Northshire Clerics",
+      "tag": "Before",
+      "lines": [
+        "Missionaries of the Holy Light came south from Lordaeron and founded the order here — the kingdom's source of wisdom, comfort and healing, not a barracks.",
+        "When the orcs invaded they learned what the clerics could do and hunted down every one they could find. The order was effectively annihilated."
+      ],
+      "spoiler": false
+    },
+    {
+      "id": "why-paladins",
+      "kind": "story",
+      "form": "chip",
+      "subject": "This is why paladins exist",
+      "tag": "The Silver Hand",
+      "lines": [
+        "Alonsus Faol founded the Knights of the Silver Hand after learning how the clerics died: healers who could not defend themselves.",
+        "A paladin is a Northshire cleric rebuilt so that hunting one is expensive.",
+        "The man teaching novices in the Hall of Arms is the far end of that line."
+      ],
+      "spoiler": false,
+      "t": 0.08,
+      "icon": "why-paladins"
+    },
+    {
+      "id": "the-second-abbey",
+      "kind": "before",
+      "form": "chip",
+      "subject": "This is the second abbey",
+      "tag": "The first was razed in 1994",
+      "lines": [
+        "In Warcraft I's orc campaign, Northshire Abbey is a playable mission — Doomhammer's forces storm it to free a spy and leave nothing standing.",
+        "It is canon.",
+        "What you are standing in was rebuilt on those ashes after the Second War."
+      ],
+      "spoiler": false,
+      "t": 0.18,
+      "icon": "the-second-abbey"
+    },
+    {
+      "id": "the-books",
+      "kind": "story",
+      "form": "chip",
+      "subject": "They pulled the books out of the rubble",
+      "tag": "And Dalaran read them",
+      "lines": [
+        "Before the survivors fled north with Lothar they salvaged sacred tomes out of the wreckage.",
+        "Those rescued texts are what the mages of Dalaran later used to learn Invisibility.",
+        "A spell the whole world uses came out of this building's ruins."
+      ],
+      "spoiler": false,
+      "t": 0.26,
+      "icon": "the-books"
+    },
+    {
+      "id": "sword-and-book",
+      "kind": "look",
+      "form": "chip",
+      "subject": "The building is a diagram of the Alliance",
+      "tag": "Two wings, one hall",
+      "lines": [
+        "Main Hall in the centre, Hall of Arms on one flank, Library Wing on the other, with the graveyard and the stable outside.",
+        "Warriors, paladins and rogues train on one side. Priests and mages on the other, over two floors.",
+        "You can see the whole faction's shape from the doorway."
+      ],
+      "spoiler": false,
+      "t": 0.36,
+      "icon": "sword-and-book"
+    },
+    {
+      "id": "one-way-out",
+      "kind": "look",
+      "form": "chip",
+      "subject": "One door in the mountains",
+      "tag": "Northshire Valley",
+      "lines": [
+        "The valley is ringed by impassable rock with a single exception: the pass south, walled in thick stone with a gate on it.",
+        "A river crosses the valley and drains out into Crystal Lake.",
+        "Everything a new human sees is inside a box with one way out of it."
+      ],
+      "spoiler": false,
+      "t": 0.44,
+      "icon": "one-way-out"
+    },
+    {
+      "id": "the-kobolds",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "They do not attack you",
+      "tag": "Echo Ridge Mine",
+      "lines": [
+        "The kobolds in the mine are not hostile until they are provoked.",
+        "The first creature almost every human character in this game kills never came at them.",
+        "McBride sends recruits to clear it on a schedule. It is a chore, not an emergency."
+      ],
+      "spoiler": false,
+      "t": 0.54,
+      "icon": "the-kobolds"
+    },
+    {
+      "id": "the-defias",
+      "kind": "beware",
+      "form": "chip",
+      "subject": "Here, the Defias pull",
+      "tag": "The vineyards",
+      "lines": [
+        "They were made neutral in patch 3.3.0 and the camp was deleted outright in 4.0.3a.",
+        "So the unease you feel walking up to those vines is real, and this is the only version of the game that still has it.",
+        "The starting zone used to have something in it that would hurt you."
+      ],
+      "spoiler": false,
+      "t": 0.64,
+      "icon": "the-defias"
+    },
+    {
+      "id": "the-stolen-tome",
+      "kind": "story",
+      "form": "chip",
+      "subject": "The trouble started inside the abbey",
+      "tag": "The Stolen Tome",
+      "lines": [
+        "A student of this school defected to the Defias and took books with him, one of them Powers of the Void.",
+        "The warlock trainer who sends you after it wants it for herself.",
+        "Paladins are separately sent after a stolen libram. The valley's problem walked out of its own library."
+      ],
+      "spoiler": false,
+      "t": 0.74,
+      "icon": "the-stolen-tome"
+    },
+    {
+      "id": "garrick-padfoot",
+      "kind": "beware",
+      "form": "chip",
+      "subject": "The first enemy with a name",
+      "tag": "Garrick Padfoot",
+      "lines": [
+        "A cutthroat in a shack east of the vineyards. Level five, one thug beside him, a bounty posted on him in the abbey.",
+        "You bring back the head.",
+        "For most Alliance characters ever made, he is the first thing in the world that was somebody."
+      ],
+      "spoiler": false,
+      "t": 0.84,
+      "icon": "garrick-padfoot"
+    },
+    {
+      "id": "mcbride",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "He was here before the game was",
+      "tag": "Marshal McBride",
+      "lines": [
+        "The garrison commander is among the oldest NPCs still standing in World of Warcraft, present in alpha testing.",
+        "He has been handing the same recruits the same kobold problem for the entire life of the franchise."
+      ],
+      "spoiler": false,
+      "t": 0.92,
+      "icon": "mcbride"
+    },
+    {
+      "id": "the-wolves",
+      "kind": "look",
+      "form": "chip",
+      "subject": "The wolves came north out of Duskwood",
+      "tag": "Nothing says why",
+      "lines": [
+        "Deputy Willem's explanation for the increase in wolves is that the animals fled up here.",
+        "In 1.12 nothing tells you what they were running from.",
+        "It is the first hint the human starting zone gives that something is wrong further south."
+      ],
+      "spoiler": false,
+      "t": 1.0,
+      "icon": "the-wolves"
+    }
+  ]
+}

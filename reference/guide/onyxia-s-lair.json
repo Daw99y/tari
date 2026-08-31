@@ -1,0 +1,210 @@
+{
+  "room": "onyxia-s-lair",
+  "sources": [
+    "https://warcraft.wiki.gg/wiki/Onyxia%27s_Lair_(Classic)",
+    "https://warcraft.wiki.gg/wiki/Onyxia_(Classic)",
+    "https://warcraft.wiki.gg/wiki/Onyxia_(tactics)",
+    "https://warcraft.wiki.gg/wiki/Onyxia",
+    "https://warcraft.wiki.gg/wiki/Onyxia%27s_Lair_attunement",
+    "https://warcraft.wiki.gg/wiki/Warlord%27s_Command_quest_chain",
+    "https://warcraft.wiki.gg/wiki/Head_of_Onyxia_(Classic)",
+    "https://warcraft.wiki.gg/wiki/Rallying_Cry_of_the_Dragonslayer",
+    "https://warcraft.wiki.gg/wiki/Victory_for_the_Horde",
+    "https://warcraft.wiki.gg/wiki/Victory_for_the_Alliance",
+    "https://warcraft.wiki.gg/wiki/Why_does_Onyxia_Deep_Breath%3F"
+  ],
+  "roadEnds": [
+    "The top of the entrance tunnel",
+    "The landing floor"
+  ],
+  "seedWho": "Tari",
+  "cards": [
+    {
+      "id": "the-stonemaul-caves",
+      "kind": "before",
+      "form": "title",
+      "subject": "The Stonemaul caves",
+      "tag": "Before",
+      "lines": [
+        "The Dragonmurk was not hers. She drove the Stonemaul ogres out of it to get somewhere to raise her children.",
+        "The tunnel, the cavern and both egg chambers are a repossessed ogre home with a nest built into it."
+      ],
+      "spoiler": false
+    },
+    {
+      "id": "one-boss",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "One boss and no trash",
+      "tag": "A tunnel and a cave",
+      "lines": [
+        "The only other things in the whole instance are her whelps and her guards, and both belong to the fight.",
+        "Forty people could zone in and be pulling inside a minute.",
+        "Nothing else in vanilla worked like that."
+      ],
+      "spoiler": false,
+      "t": 0.06,
+      "icon": "one-boss"
+    },
+    {
+      "id": "the-longest-walk",
+      "kind": "before",
+      "form": "chip",
+      "subject": "You cannot get in without the amulet",
+      "tag": "The Drakefire Amulet",
+      "lines": [
+        "Neither faction's chain is a fetch quest. The Alliance side is sixteen quests and runs through two Blackrock Depths trips escorting Marshal Windsor.",
+        "The Horde side is twelve, and ends in a full raid clear of Upper Blackrock Spire for a general's blood."
+      ],
+      "spoiler": false,
+      "t": 0.14,
+      "icon": "the-longest-walk"
+    },
+    {
+      "id": "four-skulls",
+      "kind": "before",
+      "form": "chip",
+      "subject": "Four dragons on four continents",
+      "tag": "The Test of Skulls",
+      "lines": [
+        "The Horde chain sends you to kill an elite dragon outside the Caverns of Time, another in a Winterspring cave, a third wandering the Swamp of Sorrows, and a fourth at Grim Batol.",
+        "Every one of them is a raid kill.",
+        "That is the middle of the key quest, not the end of it."
+      ],
+      "spoiler": false,
+      "t": 0.22,
+      "icon": "four-skulls"
+    },
+    {
+      "id": "emberstrife",
+      "kind": "story",
+      "form": "chip",
+      "subject": "You have to pretend to be a dragon",
+      "tag": "Emberstrife",
+      "lines": [
+        "Mid-chain a Horde player puts on an amulet that turns them into a dragonspawn, and only then can walk into his den and hold a conversation instead of a fight.",
+        "Her key is earned by disguising yourself as one of her kind.",
+        "She was, at that moment, disguised as one of yours."
+      ],
+      "spoiler": false,
+      "t": 0.3,
+      "icon": "emberstrife"
+    },
+    {
+      "id": "her-lines",
+      "kind": "look",
+      "form": "chip",
+      "subject": "She talks to a raid like staff",
+      "tag": "Onyxia",
+      "lines": [
+        "\"How fortuitous. Usually, I must leave my lair in order to feed.\"",
+        "\"This meaningless exertion bores me. I'll incinerate you all from above!\"",
+        "And when she kills somebody: \"Learn your place, mortal!\""
+      ],
+      "spoiler": false,
+      "t": 0.38,
+      "icon": "her-lines"
+    },
+    {
+      "id": "the-eggs",
+      "kind": "look",
+      "form": "chip",
+      "subject": "The raid is happening in a nursery",
+      "tag": "The side caves",
+      "lines": [
+        "The two chambers off the main cavern hold her clutch, and in the air phase the whelps pour out of them in packs.",
+        "The eggs are the entire reason she is in this swamp.",
+        "You are fighting a mother in the room she picked for it."
+      ],
+      "spoiler": false,
+      "t": 0.46,
+      "icon": "the-eggs"
+    },
+    {
+      "id": "deep-breath",
+      "kind": "beware",
+      "form": "chip",
+      "subject": "There is no trigger",
+      "tag": "\"Onyxia takes in a deep breath...\"",
+      "lines": [
+        "The line scrolls up your screen and somebody is screaming it into voice chat before the second word renders.",
+        "Blizzard were asked so many times that they answered officially.",
+        "It is entirely random."
+      ],
+      "spoiler": false,
+      "t": 0.54,
+      "icon": "deep-breath"
+    },
+    {
+      "id": "why-does-onyxia",
+      "kind": "story",
+      "form": "chip",
+      "subject": "Nobody accepted that answer",
+      "tag": "A wiki page that is a joke page",
+      "lines": [
+        "The factors \"empirically proven\" to affect it: raid clumping, low damage, the raid leader's race and tone of voice, the number of gnomes present, whether the main tank was wearing pants.",
+        "It exists because \"it's random\" was never emotionally acceptable to anyone who had wiped to it."
+      ],
+      "spoiler": false,
+      "t": 0.62,
+      "icon": "why-does-onyxia"
+    },
+    {
+      "id": "the-clutch",
+      "kind": "beware",
+      "form": "chip",
+      "subject": "They wrote a line for the exploit",
+      "tag": "Before anyone tried it",
+      "lines": [
+        "There is a dedicated voice line for raids attempting to drag her away from the eggs.",
+        "\"You seek to lure me from my clutch? You shall pay for your insolence!\""
+      ],
+      "spoiler": false,
+      "t": 0.7,
+      "icon": "the-clutch"
+    },
+    {
+      "id": "the-head",
+      "kind": "notice",
+      "form": "grave",
+      "subject": "You carry the head home",
+      "tag": "Rallying Cry of the Dragonslayer",
+      "lines": [
+        "It drops, you take it to your capital, and it is mounted in the city.",
+        "Every player of your faction standing there gets the buff: a hundred and forty attack power, ten percent spell crit, five percent melee and ranged crit, two hours.",
+        "One raid, and the whole city is stronger."
+      ],
+      "spoiler": true,
+      "t": 0.8,
+      "icon": "the-head"
+    },
+    {
+      "id": "thrall",
+      "kind": "story",
+      "form": "grave",
+      "subject": "His face moves, once",
+      "tag": "Handing it to Thrall",
+      "lines": [
+        "The quest text says his stoic demeanour changes for a split second when he sees it — \"the mighty Doomhammer was nearly unsheathed.\"",
+        "\"This is a great victory for the Horde. So many times you have honored your Warchief. It is time for the Warchief to honor you.\""
+      ],
+      "spoiler": true,
+      "t": 0.9,
+      "icon": "thrall"
+    },
+    {
+      "id": "stormwind-side",
+      "kind": "story",
+      "form": "grave",
+      "subject": "The other reply is personal",
+      "tag": "Handing it in at Stormwind",
+      "lines": [
+        "\"For so many years I was held under her captivating gaze. Finally, to see justice meted and the honor of Stormwind restored!\"",
+        "Somebody she charmed in person is the one who thanks you for it."
+      ],
+      "spoiler": true,
+      "t": 1.0,
+      "icon": "stormwind-side"
+    }
+  ]
+}

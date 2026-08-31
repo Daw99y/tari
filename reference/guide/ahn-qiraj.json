@@ -1,0 +1,213 @@
+{
+  "room": "ahn-qiraj",
+  "sources": [
+    "https://warcraft.wiki.gg/wiki/Temple_of_Ahn%27Qiraj",
+    "https://warcraft.wiki.gg/wiki/Aqir",
+    "https://warcraft.wiki.gg/wiki/The_Prophet_Skeram",
+    "https://warcraft.wiki.gg/wiki/Viscidus",
+    "https://warcraft.wiki.gg/wiki/Twin_Emperors",
+    "https://warcraft.wiki.gg/wiki/Ouro",
+    "https://warcraft.wiki.gg/wiki/C%27Thun_(tactics)",
+    "https://warcraft.wiki.gg/wiki/Blue_Qiraji_Resonating_Crystal",
+    "https://warcraft.wiki.gg/wiki/Patch_1.10.0",
+    "https://warcraft.wiki.gg/wiki/Tier_2.5",
+    "https://warcraft.wiki.gg/wiki/Scarab_Lord"
+  ],
+  "roadEnds": [
+    "The Temple Gates",
+    "The Vault of C'Thun"
+  ],
+  "seedWho": "Tari",
+  "cards": [
+    {
+      "id": "the-aqir",
+      "kind": "before",
+      "form": "title",
+      "subject": "The aqir",
+      "tag": "Before",
+      "lines": [
+        "Long before the qiraji there were the aqir, who built temple cities and lost an empire, twice — once to the titan-forged and once to the trolls — and scattered.",
+        "The ones who stayed here were warped by what is under this building into something else. The temple is a monument to gods nobody is supposed to name, and a breeding ground for an army."
+      ],
+      "spoiler": false
+    },
+    {
+      "id": "three-rooms",
+      "kind": "look",
+      "form": "chip",
+      "subject": "Worked stone, then a nest, then nothing",
+      "tag": "Gates, Hive, Vault",
+      "lines": [
+        "The Temple is three distinct places and the difficulty follows the descent.",
+        "The wiki's own line: the first bosses match the hardest of Molten Core, and the last are harder than anything in Blackwing Lair.",
+        "It ends in a bare chamber with an eye in it."
+      ],
+      "spoiler": false,
+      "t": 0.06,
+      "icon": "three-rooms"
+    },
+    {
+      "id": "skeram",
+      "kind": "story",
+      "form": "chip",
+      "subject": "The first boss is the priest",
+      "tag": "The Prophet Skeram",
+      "lines": [
+        "Not a soldier. The religious leader of Ahn'Qiraj, and the man who wrote the Prophecy of C'Thun.",
+        "He splits into images of himself and teleports between three platforms.",
+        "\"PREPARE... for the return of the ancient ones!\""
+      ],
+      "spoiler": false,
+      "t": 0.14,
+      "icon": "skeram"
+    },
+    {
+      "id": "viscidus",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "Only the number of hits counts",
+      "tag": "Viscidus",
+      "lines": [
+        "How hard the frost hits is irrelevant. Ten hits slow him, fifteen freeze him up, twenty freeze him solid.",
+        "So raids spammed the weakest, fastest frost spell they owned.",
+        "Then everyone with a weapon beat the ice statue until it exploded."
+      ],
+      "spoiler": false,
+      "t": 0.22,
+      "icon": "viscidus"
+    },
+    {
+      "id": "twin-emperors",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "One takes no weapons, one takes no spells",
+      "tag": "Vek'lor and Vek'nilash",
+      "lines": [
+        "Damage to either hurts the other, so the raid splits in half and works on opposite brothers.",
+        "Keep them apart or they heal one another for thirty thousand a tick.",
+        "Every half-minute they teleport into each other's places and wipe all threat."
+      ],
+      "spoiler": false,
+      "t": 0.3,
+      "icon": "twin-emperors"
+    },
+    {
+      "id": "ouro",
+      "kind": "story",
+      "form": "chip",
+      "subject": "The longest-unkilled boss in vanilla",
+      "tag": "Ouro",
+      "lines": [
+        "The sandworm shipped so bugged, and was so easy to walk past, that the wiki records him standing eighty-six days after the world's first Twin Emperors kill.",
+        "The lore calls him something C'Thun made \"as a mockery of life\".",
+        "He spends most of the fight underground."
+      ],
+      "spoiler": false,
+      "t": 0.38,
+      "icon": "ouro"
+    },
+    {
+      "id": "the-eye",
+      "kind": "look",
+      "form": "grave",
+      "subject": "Phase one is only the eye",
+      "tag": "C'Thun",
+      "lines": [
+        "The first half of the fight is a single enormous eyeball. The body it belongs to does not rise until the eye is dead.",
+        "Its beam chains to anyone standing within about ten yards and grows as it jumps.",
+        "Forty people standing far apart in a black room, being looked at."
+      ],
+      "spoiler": true,
+      "t": 0.46,
+      "icon": "the-eye"
+    },
+    {
+      "id": "dark-glare",
+      "kind": "beware",
+      "form": "grave",
+      "subject": "It turns",
+      "tag": "Dark Glare",
+      "lines": [
+        "A red beam sweeps a hundred and eighty degrees through the room, once every eighty-five seconds, and kills anything at level sixty that it crosses.",
+        "You survive it by running the wall, staying behind the sweep.",
+        "There is nowhere in the chamber to hide from an eye."
+      ],
+      "spoiler": true,
+      "t": 0.54,
+      "icon": "dark-glare"
+    },
+    {
+      "id": "the-stomach",
+      "kind": "story",
+      "form": "grave",
+      "subject": "You get eaten, and that is the plan",
+      "tag": "Phase two",
+      "lines": [
+        "His shell absorbs almost everything, so the only way through is from inside. Every ten seconds he swallows somebody.",
+        "Down there are two tentacles that have to die to drop the shell for forty-five seconds.",
+        "The raid wins by sending people to be digested on purpose."
+      ],
+      "spoiler": true,
+      "t": 0.62,
+      "icon": "the-stomach"
+    },
+    {
+      "id": "unkillable",
+      "kind": "story",
+      "form": "chip",
+      "subject": "For four months nobody could kill him",
+      "tag": "January to April, 2006",
+      "lines": [
+        "C'Thun shipped and the raiding world could not do it — the second phase was widely held to be mathematically impossible with the gear of the day.",
+        "He was quietly hotfixed over months rather than in any patch.",
+        "Nihilum killed him on the twenty-fifth of April, hours after the last change."
+      ],
+      "spoiler": false,
+      "t": 0.7,
+      "icon": "unkillable"
+    },
+    {
+      "id": "bug-mounts",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "You are riding something the building grew",
+      "tag": "Qiraji Resonating Crystals",
+      "lines": [
+        "They drop off the trash and teach a silithid battle tank that may only be summoned inside this Temple, and that vanishes the instant you enter combat.",
+        "The crystal \"emits a high frequency sound, forcing a silithid tank to burrow out from its home beneath the Temple.\""
+      ],
+      "spoiler": false,
+      "t": 0.78,
+      "icon": "bug-mounts"
+    },
+    {
+      "id": "the-statues",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "You can mine the temple",
+      "tag": "Patch 1.10",
+      "lines": [
+        "\"The Statues in Ahn'Qiraj now drop chunks of obsidian that can be crafted by blacksmiths into various types of armor.\"",
+        "The building's own idols became a reagent.",
+        "You strip the temple for parts and then wear it."
+      ],
+      "spoiler": false,
+      "t": 0.88,
+      "icon": "the-statues"
+    },
+    {
+      "id": "brood-of-nozdormu",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "The armour is a reputation grind",
+      "tag": "Brood of Nozdormu",
+      "lines": [
+        "Tokens off the bosses in here, and then standing with the bronze dragonflight on top.",
+        "Which is why these sets have names — Conqueror's Battlegear, Doomcaller's Attire, Garments of the Oracle — instead of a tier number."
+      ],
+      "spoiler": false,
+      "t": 1.0,
+      "icon": "brood-of-nozdormu"
+    }
+  ]
+}

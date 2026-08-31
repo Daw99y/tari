@@ -1,0 +1,217 @@
+{
+  "room": "scholomance",
+  "sources": [
+    "https://warcraft.wiki.gg/wiki/Scholomance_(Classic)",
+    "https://warcraft.wiki.gg/wiki/The_Key_to_Scholomance_quest_chain",
+    "https://warcraft.wiki.gg/wiki/Scholomance_Student",
+    "https://warcraft.wiki.gg/wiki/Vectus",
+    "https://warcraft.wiki.gg/wiki/Marduk_Blackpool",
+    "https://warcraft.wiki.gg/wiki/Dawn%27s_Gambit",
+    "https://warcraft.wiki.gg/wiki/Kirtonos_the_Herald",
+    "https://warcraft.wiki.gg/wiki/Rattlegore_(Classic)",
+    "https://warcraft.wiki.gg/wiki/Jandice_Barov",
+    "https://warcraft.wiki.gg/wiki/The_Ghosts_of_Caer_Darrow_quest_chain",
+    "https://warcraft.wiki.gg/wiki/Ras_Frostwhisper",
+    "https://warcraft.wiki.gg/wiki/The_Ravenian",
+    "https://warcraft.wiki.gg/wiki/Darkmaster_Gandling",
+    "https://warcraft.wiki.gg/wiki/Lorekeeper_Polkelt"
+  ],
+  "roadEnds": [
+    "The Chamber of Summoning",
+    "The Headmaster's Study"
+  ],
+  "seedWho": "Tari",
+  "cards": [
+    {
+      "id": "the-crypts",
+      "kind": "before",
+      "form": "title",
+      "subject": "The Barov family crypts",
+      "tag": "Before",
+      "lines": [
+        "The Cult of the Damned did not build a school. They took a family's donated keep and converted the ancient burial vaults underneath it into classrooms.",
+        "Every lecture hall in the lower school is a crypt somebody was already lying in."
+      ],
+      "spoiler": false
+    },
+    {
+      "id": "the-skeleton-key",
+      "kind": "before",
+      "form": "chip",
+      "subject": "The key is built, not found",
+      "tag": "Nine quests, three continents",
+      "lines": [
+        "Bone fragments off the skeletons of Andorhal. A mold bought from a goblin blacksmith in Gadgetzan. A stem forged in the lava of Un'Goro.",
+        "A scarab taken off a lich's head.",
+        "All of that, for one door."
+      ],
+      "spoiler": false,
+      "t": 0.06,
+      "icon": "the-skeleton-key"
+    },
+    {
+      "id": "rattlegore",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "And then there is a second key",
+      "tag": "Rattlegore",
+      "lines": [
+        "The Skeleton Key only opens the front gate. The Viewing Room is behind another one.",
+        "It drops off a bone golem standing in the Great Ossuary.",
+        "No golem, no classroom."
+      ],
+      "spoiler": false,
+      "t": 0.14,
+      "icon": "rattlegore"
+    },
+    {
+      "id": "the-viewing-room",
+      "kind": "look",
+      "form": "chip",
+      "subject": "A lesson in progress, and nobody attacks you",
+      "tag": "The Viewing Room",
+      "lines": [
+        "Two tutors and a row of students, all neutral. You can stand at the back and listen.",
+        "They shush you: \"Be quiet! Can't you see the master is speaking?\"",
+        "\"Did you forget your student's attire? Do you think fashion is more vital than the Scourge's domination?\""
+      ],
+      "spoiler": false,
+      "t": 0.22,
+      "icon": "the-viewing-room"
+    },
+    {
+      "id": "the-lecture",
+      "kind": "look",
+      "form": "chip",
+      "subject": "What is actually being taught",
+      "tag": "Vectus",
+      "lines": [
+        "The subject is raising plagued dragons from eggs smuggled out of Blackrock Spire.",
+        "\"Be silent! Do you think our plagued dragons will hatch and train themselves?\"",
+        "The practical note to the class: torture the prisoner in view of the dragon before you feed it."
+      ],
+      "spoiler": false,
+      "t": 0.3,
+      "icon": "the-lecture"
+    },
+    {
+      "id": "dawns-gambit",
+      "kind": "beware",
+      "form": "chip",
+      "subject": "The Argent Dawn's answer to a classroom",
+      "tag": "Dawn's Gambit",
+      "lines": [
+        "A quest item you set down inside that room.",
+        "It turns every neutral student in the lecture into a hostile skeleton at once.",
+        "The Dawn's solution to a room full of enrolled necromancers was a gas."
+      ],
+      "spoiler": false,
+      "t": 0.38,
+      "icon": "dawns-gambit"
+    },
+    {
+      "id": "marduk",
+      "kind": "story",
+      "form": "chip",
+      "subject": "A war criminal, marking papers",
+      "tag": "Marduk Blackpool",
+      "lines": [
+        "The tutor beside Vectus is Marduk the Black — the death knight who corrupted Joseph Redpath's spirit and let the Scourge take Darrowshire.",
+        "A dwarf captain shattered his enchanted sword near Corin's Crossing afterwards.",
+        "He ended up here, teaching."
+      ],
+      "spoiler": false,
+      "t": 0.46,
+      "icon": "marduk"
+    },
+    {
+      "id": "kirtonos",
+      "kind": "notice",
+      "form": "grave",
+      "subject": "Nobody spawns him by walking in",
+      "tag": "Kirtonos the Herald",
+      "lines": [
+        "You carry the Blood of Innocents to a brazier in the Chamber of Summoning and light it. A vampiric gargoyle flies in through the window and lands.",
+        "\"The blood is still fresh.\"",
+        "He is entirely optional. A group can clear the school and never light it."
+      ],
+      "spoiler": true,
+      "t": 0.54,
+      "icon": "kirtonos"
+    },
+    {
+      "id": "the-window",
+      "kind": "beware",
+      "form": "chip",
+      "subject": "The window he came in by stays open",
+      "tag": "Behind you, the whole fight",
+      "lines": [
+        "He knocks players backward.",
+        "Go through it and you do not die — you land outside the instance, and you run the whole way back in."
+      ],
+      "spoiler": false,
+      "t": 0.62,
+      "icon": "the-window"
+    },
+    {
+      "id": "jandice",
+      "kind": "beware",
+      "form": "chip",
+      "subject": "Fifteen of her",
+      "tag": "Jandice Barov",
+      "lines": [
+        "An archmage and illusionist out of Dalaran, before the family turned. In the Hall of Illusions she splits into copies that are near-indistinguishable.",
+        "The real one is told apart only by her gear.",
+        "Hit a wrong one and it detonates."
+      ],
+      "spoiler": false,
+      "t": 0.7,
+      "icon": "jandice"
+    },
+    {
+      "id": "the-sarkhoffs",
+      "kind": "story",
+      "form": "chip",
+      "subject": "The ghost couple in the halls",
+      "tag": "Eva and Lucien Sarkhoff",
+      "lines": [
+        "The Barovs' household servants, tortured to death by the Butcher to help him refine the plague.",
+        "Eva: \"The Butcher exposed us to pain that we did not know existed.\"",
+        "Three quests avenge them, and finishing them is what pays for the trinket that makes Caer Darrow visible."
+      ],
+      "spoiler": false,
+      "t": 0.78,
+      "icon": "the-sarkhoffs"
+    },
+    {
+      "id": "ras",
+      "kind": "story",
+      "form": "grave",
+      "subject": "The lich with no phylactery",
+      "tag": "Ras Frostwhisper",
+      "lines": [
+        "A hedge mage from Stromgarde who killed himself in Stratholme to be raised. Unlike other liches he never made one, so his soul is still snagged where he died.",
+        "You bind it into a keepsake from his human life and use that on him. It makes him mortal.",
+        "One of very few times undeath is actually undone."
+      ],
+      "spoiler": true,
+      "t": 0.86,
+      "icon": "ras"
+    },
+    {
+      "id": "gandling",
+      "kind": "beware",
+      "form": "grave",
+      "subject": "The Headmaster's Study is empty",
+      "tag": "Darkmaster Gandling",
+      "lines": [
+        "He does not exist until six specific bosses elsewhere in the building are dead.",
+        "His move is teleporting one player alone into a side room to fight their way back out while the rest keep going without them.",
+        "\"School is in session!\" ... \"Class... dismissed.\""
+      ],
+      "spoiler": true,
+      "t": 1.0,
+      "icon": "gandling"
+    }
+  ]
+}

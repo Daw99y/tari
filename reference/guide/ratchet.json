@@ -1,0 +1,197 @@
+{
+  "room": "ratchet",
+  "sources": [
+    "https://warcraft.wiki.gg/wiki/Ratchet",
+    "https://warcraft.wiki.gg/wiki/Gazlowe",
+    "https://warcraft.wiki.gg/wiki/Maiden%27s_Fancy",
+    "https://warcraft.wiki.gg/wiki/Auction_house",
+    "https://warcraft.wiki.gg/wiki/Bragok",
+    "https://warcraft.wiki.gg/wiki/Fray_Island",
+    "https://warcraft.wiki.gg/wiki/Ratchet_Bruiser",
+    "https://warcraft.wiki.gg/wiki/Sputtervalve",
+    "https://warcraft.wiki.gg/wiki/Wharfmaster_Dizzywig",
+    "https://warcraft.wiki.gg/wiki/Baron_Longshore",
+    "https://warcraft.wiki.gg/wiki/Merchant_Coast"
+  ],
+  "roadEnds": [
+    "The western road gate",
+    "The end of the pier"
+  ],
+  "seedWho": "Tari",
+  "cards": [
+    {
+      "id": "a-smugglers-landing",
+      "kind": "before",
+      "form": "title",
+      "subject": "A smugglers' landing",
+      "tag": "Before",
+      "lines": [
+        "Ratchet \"was begun by smugglers and became populated mainly by not only their foul ilk, but also all those others whom various societies had cast out.\"",
+        "Then a goblin contractor finished building Orgrimmar, took his fee, and put a town on top of it."
+      ],
+      "spoiler": false
+    },
+    {
+      "id": "gazlowe",
+      "kind": "story",
+      "form": "chip",
+      "subject": "He built Orgrimmar and then bought this",
+      "tag": "Gazlowe",
+      "lines": [
+        "Thrall hired him as chief engineer to raise the city after the Third War, and he founded this place with the money once it was done.",
+        "The town is not a Horde outpost.",
+        "It is what a contractor did with his paycheck."
+      ],
+      "spoiler": false,
+      "t": 0.08,
+      "icon": "gazlowe"
+    },
+    {
+      "id": "the-boat",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "The only neutral ocean crossing in the game",
+      "tag": "Ratchet to Booty Bay",
+      "lines": [
+        "Kalimdor to the Eastern Kingdoms, and the ship belongs to the Steamwheedle Cartel, so both factions ride it.",
+        "Every other sea route in 1.12 is owned by one side or the other.",
+        "The round trip is under four minutes."
+      ],
+      "spoiler": false,
+      "t": 0.18,
+      "icon": "the-boat"
+    },
+    {
+      "id": "no-crew",
+      "kind": "look",
+      "form": "chip",
+      "subject": "Nobody is sailing it",
+      "tag": "The crew arrives in 2.3.0",
+      "lines": [
+        "The ship gets a named captain, a bosun and a parrot two years after this.",
+        "In here you cross an ocean on an empty boat."
+      ],
+      "spoiler": false,
+      "t": 0.26,
+      "icon": "no-crew"
+    },
+    {
+      "id": "no-auction-house",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "There is no auction house",
+      "tag": "The fourth town misses out",
+      "lines": [
+        "The neutral auction houses in 1.12 are Booty Bay, Gadgetzan and Everlook. Ratchet, the fourth Steamwheedle town, has none.",
+        "Bank, inn, forge, mailbox — and that is the list.",
+        "You bring your goods to the boat, not to an auctioneer."
+      ],
+      "spoiler": false,
+      "t": 0.36,
+      "icon": "no-auction-house"
+    },
+    {
+      "id": "the-flight-path",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "Why the Alliance are here at all",
+      "tag": "A neutral flight master",
+      "lines": [
+        "The goblin serves both sides, in the middle of Horde land, and for a low-level Alliance character Ratchet plus that boat is the whole way in and out of Kalimdor.",
+        "The flight point itself only arrived in patch 1.11, the last content patch before this one.",
+        "For most of vanilla you got here by road or by sea."
+      ],
+      "spoiler": false,
+      "t": 0.46,
+      "icon": "the-flight-path"
+    },
+    {
+      "id": "fray-island",
+      "kind": "look",
+      "form": "chip",
+      "subject": "The island off the pier is a fight club",
+      "tag": "Fray Island",
+      "lines": [
+        "\"A training place for warriors of all races and creeds\" — Klannoc Macleod's, and the Affray.",
+        "Pirates only take it over in Cataclysm.",
+        "In here, level thirty warriors of both factions turn up on the same rock to be beaten up in order."
+      ],
+      "spoiler": false,
+      "t": 0.56,
+      "icon": "fray-island"
+    },
+    {
+      "id": "bruisers",
+      "kind": "beware",
+      "form": "chip",
+      "subject": "The neutrality is enforced, not agreed",
+      "tag": "Ratchet Bruisers",
+      "lines": [
+        "They net you for five seconds, and then they shoot.",
+        "Start something in town and you do not get to finish it."
+      ],
+      "spoiler": false,
+      "t": 0.64,
+      "icon": "bruisers"
+    },
+    {
+      "id": "sputtervalve",
+      "kind": "story",
+      "form": "chip",
+      "subject": "The samophlange man",
+      "tag": "Sputtervalve",
+      "lines": [
+        "He stands here for the Tinkers' Union, put in charge of shredder development and losing to the Venture Company.",
+        "He is also the goblin who hands Horde players the samophlange.",
+        "Nobody can pronounce it and nobody can tell you what it is."
+      ],
+      "spoiler": false,
+      "t": 0.72,
+      "icon": "sputtervalve"
+    },
+    {
+      "id": "dizzywig",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "He sells you the other continent",
+      "tag": "Wharfmaster Dizzywig",
+      "lines": [
+        "The goblin on the dock runs the wharf and gives out Passage to Booty Bay at around level thirty.",
+        "It is the quest that tells a player there is somewhere else."
+      ],
+      "spoiler": false,
+      "t": 0.82,
+      "icon": "dizzywig"
+    },
+    {
+      "id": "longshore",
+      "kind": "story",
+      "form": "grave",
+      "subject": "There is a bounty nailed up in town",
+      "tag": "Baron Longshore",
+      "lines": [
+        "Gazlowe has a Gilnean charged with piracy and with commanding the Southsea ships, and he wants the head.",
+        "The Merchant Coast south of here is pirate ground for the whole of vanilla.",
+        "They only leave in the Shattering."
+      ],
+      "spoiler": true,
+      "t": 0.9,
+      "icon": "longshore"
+    },
+    {
+      "id": "merchant-coast",
+      "kind": "look",
+      "form": "chip",
+      "subject": "The wrecks are the other half of the trade",
+      "tag": "The Merchant Coast",
+      "lines": [
+        "\"The Merchant Coast receives its name from the lucrative trade that takes place through the thrifty hands of the Ratchet goblins.\"",
+        "There are ships lying in the shallows just off the town.",
+        "Both halves of that sentence are visible from the same pier."
+      ],
+      "spoiler": false,
+      "t": 1.0,
+      "icon": "merchant-coast"
+    }
+  ]
+}

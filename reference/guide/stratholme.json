@@ -1,0 +1,220 @@
+{
+  "room": "stratholme",
+  "sources": [
+    "https://warcraft.wiki.gg/wiki/Stratholme",
+    "https://warcraft.wiki.gg/wiki/Stratholme_(Classic)",
+    "https://warcraft.wiki.gg/wiki/Slaughter_Square",
+    "https://warcraft.wiki.gg/wiki/Postmaster_Malown",
+    "https://warcraft.wiki.gg/wiki/Balnazzar",
+    "https://warcraft.wiki.gg/wiki/Archivist_Galford",
+    "https://warcraft.wiki.gg/wiki/Timmy_the_Cruel",
+    "https://warcraft.wiki.gg/wiki/The_Unforgiven",
+    "https://warcraft.wiki.gg/wiki/Crimson_Hammersmith",
+    "https://warcraft.wiki.gg/wiki/Ysida_Harmon",
+    "https://warcraft.wiki.gg/wiki/Dead_Man%27s_Plea",
+    "https://warcraft.wiki.gg/wiki/Deathcharger%27s_Reins",
+    "https://warcraft.wiki.gg/wiki/Aurius",
+    "https://warcraft.wiki.gg/wiki/Medallion_of_Faith",
+    "https://warcraft.wiki.gg/wiki/Fras_Siabi",
+    "https://warcraft.wiki.gg/wiki/Baron_Rivendare"
+  ],
+  "roadEnds": [
+    "The main gate",
+    "The Slaughter House balcony"
+  ],
+  "seedWho": "Tari",
+  "cards": [
+    {
+      "id": "the-second-city",
+      "kind": "before",
+      "form": "title",
+      "subject": "The second city of Lordaeron",
+      "tag": "Before",
+      "lines": [
+        "The northernmost and second most populous city of the kingdom. Alonsus Chapel, where the Order of the Silver Hand was founded, stood here.",
+        "Arthas purged it himself, and the fires he started are the fires still burning while you stand in the street."
+      ],
+      "spoiler": false
+    },
+    {
+      "id": "one-instance",
+      "kind": "before",
+      "form": "chip",
+      "subject": "Two doors, one saved run",
+      "tag": "The gate shuts behind you",
+      "lines": [
+        "The Scarlet side and the Scourge side are the same instance and the same lockout — most groups only ever see one of them.",
+        "Come in the main gate and it closes.",
+        "The ways out are a hearthstone, a portal, or fighting all the way across the city to the other door."
+      ],
+      "spoiler": false,
+      "t": 0.06,
+      "icon": "one-instance"
+    },
+    {
+      "id": "fras-siabi",
+      "kind": "look",
+      "form": "chip",
+      "subject": "He would not leave the shop",
+      "tag": "Fras Siabi",
+      "lines": [
+        "He sold premium tobacco, and when the Scourge came he refused to abandon it.",
+        "He fought for his tobacco and he lost.",
+        "He is still standing behind his own counter."
+      ],
+      "spoiler": false,
+      "t": 0.14,
+      "icon": "fras-siabi"
+    },
+    {
+      "id": "timmy",
+      "kind": "beware",
+      "form": "chip",
+      "subject": "He is modelled like the ordinary ghouls",
+      "tag": "Timmy the Cruel",
+      "lines": [
+        "Groups walk into him by accident, in Market Row, because nothing about him looks different.",
+        "He announces himself by yelling \"TIMMY!\"",
+        "Underneath the joke: he traded atrocities for unholy power, and what is left of his mind answers to a childhood nickname he hated."
+      ],
+      "spoiler": false,
+      "t": 0.22,
+      "icon": "timmy"
+    },
+    {
+      "id": "the-unforgiven",
+      "kind": "story",
+      "form": "chip",
+      "subject": "The wraith was one of Arthas's soldiers",
+      "tag": "The Unforgiven",
+      "lines": [
+        "She was Lylia, \"a blade of righteousness among her people\".",
+        "At the culling she killed innocents by her own hand until her mind gave way, and then she killed herself.",
+        "She is still standing in the street where it happened."
+      ],
+      "spoiler": false,
+      "t": 0.3,
+      "icon": "the-unforgiven"
+    },
+    {
+      "id": "the-mailboxes",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "There is a postal service",
+      "tag": "Postmaster Malown",
+      "lines": [
+        "Kill the Stratholme Courier and he drops three mailbox keys. Six mailboxes are scattered near the gates.",
+        "Every one you open spits out three elite Undead Postmen.",
+        "Open the third and the Postmaster turns up in person, with a retinue."
+      ],
+      "spoiler": false,
+      "t": 0.38,
+      "icon": "the-mailboxes"
+    },
+    {
+      "id": "hammersmith",
+      "kind": "beware",
+      "form": "chip",
+      "subject": "He exists because you bent down",
+      "tag": "The Crimson Hammersmith",
+      "lines": [
+        "Blacksmithing plans turn up at random on the floor of the instance — on the ground before the Hoard, on a bench near the archive.",
+        "Reaching for them spawns him.",
+        "He is on no map and in no boss list. Picking up litter is the summon."
+      ],
+      "spoiler": false,
+      "t": 0.46,
+      "icon": "hammersmith"
+    },
+    {
+      "id": "galford",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "You get to burn the library",
+      "tag": "Archivist Galford",
+      "lines": [
+        "He guards the Scarlet Crusade's archive, and when he dies there is a book left on his desk.",
+        "Click it and the whole archive goes up.",
+        "It is one of very few places in vanilla where the player is the one who burns something down."
+      ],
+      "spoiler": false,
+      "t": 0.54,
+      "icon": "galford"
+    },
+    {
+      "id": "balnazzar",
+      "kind": "story",
+      "form": "grave",
+      "subject": "The Grand Crusader is a dreadlord",
+      "tag": "The Scarlet Bastion",
+      "lines": [
+        "The man leading the Scarlet Crusade is not a man. Balnazzar killed the paladin Saidan Dathrohan and has been wearing him ever since.",
+        "He starts the fight in the human shape and sheds it partway through.",
+        "The Crusade's own commander is the thing it exists to fight."
+      ],
+      "spoiler": true,
+      "t": 0.62,
+      "icon": "balnazzar"
+    },
+    {
+      "id": "the-mount",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "One in five thousand",
+      "tag": "Deathcharger's Reins",
+      "lines": [
+        "The Baron's skeletal horse dropped at roughly two hundredths of one percent in vanilla.",
+        "It was raised to one percent in patch 3.0.2, three expansions later.",
+        "Every Baron run in this game was also a lottery ticket at those odds."
+      ],
+      "spoiler": false,
+      "t": 0.7,
+      "icon": "the-mount"
+    },
+    {
+      "id": "ysida",
+      "kind": "story",
+      "form": "grave",
+      "subject": "The clock is for her",
+      "tag": "Ysida Harmon",
+      "lines": [
+        "The timed run is not \"kill the Baron\". It is engage him — pull him inside the window and the clock is satisfied.",
+        "Run out of time and he executes her in front of you: \"None shall defy the Scourge and live!\"",
+        "Hers: \"My death means nothing... light... will prevail!\""
+      ],
+      "spoiler": true,
+      "t": 0.78,
+      "icon": "ysida"
+    },
+    {
+      "id": "aurius",
+      "kind": "story",
+      "form": "grave",
+      "subject": "One crusader comes with you",
+      "tag": "Aurius",
+      "lines": [
+        "A medallion sits in a locked strongbox on the Scarlet side. Give it to Aurius and he walks out of his sanctuary and fights the Baron at your shoulder.",
+        "He does not survive it.",
+        "\"I'll die here, but because of you... I'll die in peace.\""
+      ],
+      "spoiler": true,
+      "t": 0.86,
+      "icon": "aurius"
+    },
+    {
+      "id": "the-portal",
+      "kind": "look",
+      "form": "chip",
+      "subject": "There is a raid portal that goes nowhere",
+      "tag": "Slaughter Square",
+      "lines": [
+        "An unused portal stands in the square where the Baron's abominations pace.",
+        "It was going to be the original way into Naxxramas — you would have walked into the necropolis through this city, the way you walk into Molten Core through Blackrock Depths.",
+        "It was never wired up."
+      ],
+      "spoiler": false,
+      "t": 1.0,
+      "icon": "the-portal"
+    }
+  ]
+}

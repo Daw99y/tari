@@ -1,0 +1,215 @@
+{
+  "room": "molten-core",
+  "sources": [
+    "https://warcraft.wiki.gg/wiki/Molten_Core",
+    "https://warcraft.wiki.gg/wiki/Attunement_to_the_Core",
+    "https://warcraft.wiki.gg/wiki/Core_Fragment",
+    "https://warcraft.wiki.gg/wiki/Lothos_Riftwaker",
+    "https://warcraft.wiki.gg/wiki/Meeting_Stone",
+    "https://warcraft.wiki.gg/wiki/Runes_of_warding",
+    "https://warcraft.wiki.gg/wiki/Aqual_Quintessence",
+    "https://warcraft.wiki.gg/wiki/Executus",
+    "https://warcraft.wiki.gg/wiki/Ragnaros",
+    "https://warcraft.wiki.gg/wiki/Ragnaros_(tactics)",
+    "https://warcraft.wiki.gg/wiki/Core_Hound_(Molten_Core)",
+    "https://warcraft.wiki.gg/wiki/Bindings_of_the_Windseeker",
+    "https://warcraft.wiki.gg/wiki/Sulfuras,_Hand_of_Ragnaros"
+  ],
+  "roadEnds": [
+    "Lothos Riftwaker's ledge",
+    "The Ragnaros chamber"
+  ],
+  "seedWho": "Tari",
+  "cards": [
+    {
+      "id": "the-tear",
+      "kind": "before",
+      "form": "title",
+      "subject": "The hole Thaurissan tore",
+      "tag": "Before",
+      "lines": [
+        "Losing his civil war, the Dark Iron sorcerer-thane cast a spell to summon a champion. It worked. It tore through into the Firelands and pulled Ragnaros into the world, and the eruption shattered the mountains.",
+        "The burning lake underneath you is not a lake. It is that tear, still open. Everything in the room walked out of it, including the landlord."
+      ],
+      "spoiler": false
+    },
+    {
+      "id": "the-attunement",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "The attunement was never a gate",
+      "tag": "Attunement to the Core",
+      "lines": [
+        "Anybody who walked the whole way through Blackrock Depths could step into the Core without it.",
+        "What the quest bought was a teleport, and the wiki says so outright: \"not a true attunement... but a quest to enable a shortcut.\""
+      ],
+      "spoiler": false,
+      "t": 0.06,
+      "icon": "the-attunement"
+    },
+    {
+      "id": "no-stone",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "There was no summoning stone",
+      "tag": "Meeting stones did nothing until 2.0.1",
+      "lines": [
+        "In 1.12 the stone outside is a group-finder object and summons nobody.",
+        "So there was exactly one way to spare the other thirty-nine the run through the mountain.",
+        "A warlock, two clickers, and a chain built one body at a time."
+      ],
+      "spoiler": false,
+      "t": 0.14,
+      "icon": "no-stone"
+    },
+    {
+      "id": "seven-runes",
+      "kind": "notice",
+      "form": "grave",
+      "subject": "Seven fires have to go out first",
+      "tag": "The Runes of Warding",
+      "lines": [
+        "Kress, Mohn, Blaz, Zeth, Mazj, Koro, Theri — one beside each boss but the first.",
+        "Every one had to be doused before Majordomo would appear at all.",
+        "He is not a boss you walk up to. He is a boss you unlock."
+      ],
+      "spoiler": true,
+      "t": 0.22,
+      "icon": "seven-runes"
+    },
+    {
+      "id": "water-carrier",
+      "kind": "story",
+      "form": "chip",
+      "subject": "Somebody had to go to Azshara every week",
+      "tag": "The Aqual Quintessence",
+      "lines": [
+        "The douser was consumed on use, one rune each, and Duke Hydraxis handed them out on the other side of the world.",
+        "That trip happened every single reset.",
+        "Patch 1.11 finally made it reusable, behind Revered. For the raid's first year it was not."
+      ],
+      "spoiler": false,
+      "t": 0.3,
+      "icon": "water-carrier"
+    },
+    {
+      "id": "core-hounds",
+      "kind": "beware",
+      "form": "chip",
+      "subject": "The dogs get back up",
+      "tag": "Core hound packs",
+      "lines": [
+        "A hound returns at full health if it has been dead more than ten seconds and any packmate is still alive.",
+        "Every hound in the pack has to fall inside the same ten-second window or the pull restarts itself.",
+        "Forty people, one clock."
+      ],
+      "spoiler": false,
+      "t": 0.38,
+      "icon": "core-hounds"
+    },
+    {
+      "id": "domo-yields",
+      "kind": "story",
+      "form": "grave",
+      "subject": "Majordomo does not die",
+      "tag": "You beat him until he quits",
+      "lines": [
+        "Kill his eight servants and Executus becomes unkillable and yields: \"Impossible! Stay your attack, mortal... I submit! I submit!\"",
+        "He drops nothing. He walks away and leaves a cache behind him.",
+        "\"I go now to summon the lord whose house this is.\""
+      ],
+      "spoiler": true,
+      "t": 0.46,
+      "icon": "domo-yields"
+    },
+    {
+      "id": "too-soon",
+      "kind": "story",
+      "form": "grave",
+      "subject": "He is angry at the wrong person",
+      "tag": "Ragnaros is summoned, not found",
+      "lines": [
+        "\"TOO SOON! YOU HAVE AWAKENED ME TOO SOON, EXECUTUS! WHAT IS THE MEANING OF THIS INTRUSION???\"",
+        "Then he executes his own majordomo in front of the raid.",
+        "\"NOW FOR YOU, INSECTS!\""
+      ],
+      "spoiler": true,
+      "t": 0.54,
+      "icon": "too-soon"
+    },
+    {
+      "id": "by-fire",
+      "kind": "beware",
+      "form": "chip",
+      "subject": "It picks the people with mana",
+      "tag": "Wrath of Ragnaros",
+      "lines": [
+        "The knockback only targets players who have a mana bar, and throws them about twenty yards from the point of impact.",
+        "Into lava, if you stood badly.",
+        "\"BY FIRE BE PURGED!\""
+      ],
+      "spoiler": false,
+      "t": 0.62,
+      "icon": "by-fire"
+    },
+    {
+      "id": "he-goes-under",
+      "kind": "beware",
+      "form": "chip",
+      "subject": "Three minutes in, he leaves",
+      "tag": "The Sons of Flame",
+      "lines": [
+        "He submerges into the lake and is immune for about ninety seconds. Eight Sons of Flame come up in his place.",
+        "They burn, and they carry a mana-burn aura.",
+        "The phase that takes your target away also drains the people who have to live through it."
+      ],
+      "spoiler": false,
+      "t": 0.7,
+      "icon": "he-goes-under"
+    },
+    {
+      "id": "the-bindings",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "Two halves, two bosses, one desert",
+      "tag": "Bindings of the Windseeker",
+      "lines": [
+        "Left off Baron Geddon, right off Garr. They are why people kept running a farmed raid long after the gear stopped mattering.",
+        "Both are needed, and neither is the end of it.",
+        "Thunderfury starts in this room and is finished in Silithus."
+      ],
+      "spoiler": false,
+      "t": 0.78,
+      "icon": "the-bindings"
+    },
+    {
+      "id": "sulfuras",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "The eye is not a weapon",
+      "tag": "Sulfuras",
+      "lines": [
+        "The Eye of Sulfuras drops off Ragnaros himself, and it is only the component.",
+        "The other half is made by a three-hundred blacksmith, from plans traded for an ingot off another boss in here.",
+        "The first legendary in the game needed a raid, a profession and a merchant."
+      ],
+      "spoiler": false,
+      "t": 0.88,
+      "icon": "sulfuras"
+    },
+    {
+      "id": "the-first-forty",
+      "kind": "story",
+      "form": "chip",
+      "subject": "The first forty",
+      "tag": "Ascent, on Medivh",
+      "lines": [
+        "The first Ragnaros kill in the world went to a guild on the same realm that would later be first through the gates of Ahn'Qiraj.",
+        "For everyone else this room was simply the first time forty people they knew had ever been in one place with one job."
+      ],
+      "spoiler": false,
+      "t": 1.0,
+      "icon": "the-first-forty"
+    }
+  ]
+}

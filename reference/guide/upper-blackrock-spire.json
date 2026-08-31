@@ -1,0 +1,215 @@
+{
+  "room": "upper-blackrock-spire",
+  "sources": [
+    "https://warcraft.wiki.gg/wiki/Upper_Blackrock_Spire_(Classic)",
+    "https://warcraft.wiki.gg/wiki/Blackrock_Stadium",
+    "https://warcraft.wiki.gg/wiki/Gyth",
+    "https://warcraft.wiki.gg/wiki/Awbee",
+    "https://warcraft.wiki.gg/wiki/Solakar_Flamewreath",
+    "https://warcraft.wiki.gg/wiki/Pyroguard_Emberseer",
+    "https://warcraft.wiki.gg/wiki/Jed_Runewatcher",
+    "https://warcraft.wiki.gg/wiki/Goraluk_Anvilcrack",
+    "https://warcraft.wiki.gg/wiki/General_Drakkisath",
+    "https://warcraft.wiki.gg/wiki/Quest:Blackhand%27s_Command",
+    "https://warcraft.wiki.gg/wiki/Leeroy_Jenkins"
+  ],
+  "roadEnds": [
+    "The rune-sealed door",
+    "The room behind Drakkisath's wall"
+  ],
+  "seedWho": "Tari",
+  "cards": [
+    {
+      "id": "hall-of-blackhand",
+      "kind": "before",
+      "form": "title",
+      "subject": "The Hall of Blackhand",
+      "tag": "Before",
+      "lines": [
+        "Named for Rend's father — Blackhand the Destroyer, the first Warchief of the Horde. Rend claims the whole Horde by that bloodline and calls Thrall a usurper.",
+        "What he actually did to get it was go into business with a black dragon. Everything above this floor is the receipt."
+      ],
+      "spoiler": false
+    },
+    {
+      "id": "the-door",
+      "kind": "before",
+      "form": "chip",
+      "subject": "One stair, one locked door",
+      "tag": "The Seal of Ascension",
+      "lines": [
+        "Both halves of the Spire share a single entrance, and the upper one is behind a rune-sealed door partway up.",
+        "In 1.12 nobody gets through it without the seal on somebody's finger.",
+        "The door stayed keyed until patch 3.0.8, long after vanilla was over."
+      ],
+      "spoiler": false,
+      "t": 0.06,
+      "icon": "the-door"
+    },
+    {
+      "id": "emberseer",
+      "kind": "look",
+      "form": "chip",
+      "subject": "They are draining him in front of you",
+      "tag": "Pyroguard Emberseer",
+      "lines": [
+        "In the Hall of Binding, Blackhand Incarcerators stand in a ring channelling bonds into a fire elemental.",
+        "He is Ragnaros's, taken in the Burning Steppes and brought up here.",
+        "Kill the warlocks holding him and he breaks loose and comes for the orcs and for you."
+      ],
+      "spoiler": false,
+      "t": 0.14,
+      "icon": "emberseer"
+    },
+    {
+      "id": "awbee",
+      "kind": "story",
+      "form": "grave",
+      "subject": "The whelp in the side room will talk",
+      "tag": "Awbee",
+      "lines": [
+        "Two orcs are torturing a small blue wyrmling. Free him and he explains the building.",
+        "\"I watched in horror as they used my brothers and sisters in their experiments... From our essence would be created the chromatic flight.\"",
+        "The ones that failed went into the lava."
+      ],
+      "spoiler": true,
+      "t": 0.22,
+      "icon": "awbee"
+    },
+    {
+      "id": "the-rookery",
+      "kind": "story",
+      "form": "chip",
+      "subject": "This is the room from the video",
+      "tag": "The Rookery",
+      "lines": [
+        "The whelp-strewn egg chamber is where the most-watched moment in this game's history was filmed.",
+        "The guild was Pals For Life. The raid was counting whelps and planning when he charged.",
+        "The chicken was cooked during the planning."
+      ],
+      "spoiler": false,
+      "t": 0.3,
+      "icon": "the-rookery"
+    },
+    {
+      "id": "father-flame",
+      "kind": "beware",
+      "form": "chip",
+      "subject": "The eggs are the encounter",
+      "tag": "Father Flame",
+      "lines": [
+        "On the left side of the Rookery, ringed by eggs and dragonkin, sits an off-hand crystal.",
+        "Looting it summons five waves of guardians and hatchers, then Solakar Flamewreath.",
+        "The hatchers run between the eggs hatching whelps. Nothing in that room is scenery."
+      ],
+      "spoiler": false,
+      "t": 0.38,
+      "icon": "father-flame"
+    },
+    {
+      "id": "jed",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "He is not always here, or in the same place",
+      "tag": "Jed Runewatcher",
+      "lines": [
+        "A rare elite orc who spawns only sometimes, in one of two rooms: the armoursmith's, or the furnace.",
+        "Veterans check on the way in.",
+        "If he is in the furnace you will not reach him until after the arena."
+      ],
+      "spoiler": false,
+      "t": 0.46,
+      "icon": "jed"
+    },
+    {
+      "id": "goraluk",
+      "kind": "story",
+      "form": "chip",
+      "subject": "The smith who welched on a demon",
+      "tag": "Goraluk Anvilcrack",
+      "lines": [
+        "Blackhand Legion Armorsmith — the orc who forges for Rend's army.",
+        "He sold his soul to a satyr, broke the deal and ran with an unforged rune-covered breastplate.",
+        "He is why blacksmiths come up here at all."
+      ],
+      "spoiler": false,
+      "t": 0.54,
+      "icon": "goraluk"
+    },
+    {
+      "id": "the-gate",
+      "kind": "beware",
+      "form": "chip",
+      "subject": "Step into the middle and the way out shuts",
+      "tag": "Blackrock Stadium",
+      "lines": [
+        "The event triggers on entering the centre of the arena, and the southern gate closes behind you.",
+        "Anyone left outside it cannot help.",
+        "You can drop in from the western balcony. It does not save you."
+      ],
+      "spoiler": false,
+      "t": 0.62,
+      "icon": "the-gate"
+    },
+    {
+      "id": "nefarius",
+      "kind": "look",
+      "form": "grave",
+      "subject": "Somebody is watching from the balcony",
+      "tag": "Lord Victor Nefarius",
+      "lines": [
+        "Orcs spectate the arena from the western balcony, and so does a well-dressed human.",
+        "He is Nefarian wearing a person. When the waves fail him he sends Rend down himself.",
+        "After Rend dies he withdraws to Blackwing Lair, and you will meet him there."
+      ],
+      "spoiler": true,
+      "t": 0.7,
+      "icon": "nefarius"
+    },
+    {
+      "id": "gyth",
+      "kind": "notice",
+      "form": "grave",
+      "subject": "Rend does not walk in. He flies in.",
+      "tag": "Gyth",
+      "lines": [
+        "Gyth is a chromatic drake — Nefarian's crossbreed, bred in this building — and Rend's personal mount.",
+        "You fight the drake first. He dismounts when it dies.",
+        "The Warchief of the true Horde rides the proof that he answers to a dragon."
+      ],
+      "spoiler": true,
+      "t": 0.78,
+      "icon": "gyth"
+    },
+    {
+      "id": "the-beast",
+      "kind": "look",
+      "form": "grave",
+      "subject": "Skin it and a gnome climbs out",
+      "tag": "The Beast, in the furnace",
+      "lines": [
+        "Skinning the corpse yields a special skinner, and pops out a gnome who had been eaten.",
+        "He is fine.",
+        "It is one of the very few jokes in the building."
+      ],
+      "spoiler": true,
+      "t": 0.86,
+      "icon": "the-beast"
+    },
+    {
+      "id": "the-brand",
+      "kind": "notice",
+      "form": "grave",
+      "subject": "The last room is not a boss room",
+      "tag": "Drakkisath's Brand",
+      "lines": [
+        "The final boss is not an orc either — a black dragonspawn titled Hand of Nefarian, flanked by two chromatic guards from the same experiment that made Gyth.",
+        "Kill him and a small chamber behind where he stood opens.",
+        "Put your hand on the brand in it. That mark is the door to Blackwing Lair."
+      ],
+      "spoiler": true,
+      "t": 1.0,
+      "icon": "the-brand"
+    }
+  ]
+}

@@ -1,0 +1,180 @@
+{
+  "room": "blackrock-mountain",
+  "sources": [
+    "https://warcraft.wiki.gg/wiki/Blackrock_Mountain",
+    "https://warcraft.wiki.gg/wiki/Molten_Span",
+    "https://warcraft.wiki.gg/wiki/Molten_Bridge",
+    "https://warcraft.wiki.gg/wiki/Blackrock_Spire",
+    "https://warcraft.wiki.gg/wiki/Forgewright%27s_Tomb",
+    "https://warcraft.wiki.gg/wiki/Franclorn_Forgewright",
+    "https://warcraft.wiki.gg/wiki/Grinding_Quarry",
+    "https://warcraft.wiki.gg/wiki/Meeting_Stone"
+  ],
+  "roadEnds": [
+    "The Searing Gorge mouth",
+    "The chain to the central rock"
+  ],
+  "seedWho": "Tari",
+  "cards": [
+    {
+      "id": "headquarters",
+      "kind": "before",
+      "form": "title",
+      "subject": "The headquarters of the Horde",
+      "tag": "Before",
+      "lines": [
+        "The Shadow Council took this mountain first, and Orgrim Doomhammer led his raiders in against the warlocks to take it off them.",
+        "\"The spire became the domain of the Blackrock clan and the headquarter of the Horde for the Second War.\" The orcs still up there are what was left behind when that war ended."
+      ],
+      "spoiler": false
+    },
+    {
+      "id": "two-doors",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "Two doors, five dungeons",
+      "tag": "One interior",
+      "lines": [
+        "Only two instance portals are on the mountain: the Depths at the bottom, the Spire at the top.",
+        "Molten Core is reached from inside the Depths, and Blackwing Lair from the top of the Spire.",
+        "In 1.12 the two halves of the Spire are one instance behind one door."
+      ],
+      "spoiler": false,
+      "t": 0.08,
+      "icon": "two-doors"
+    },
+    {
+      "id": "the-molten-span",
+      "kind": "look",
+      "form": "chip",
+      "subject": "There is a rock hanging on chains",
+      "tag": "The Molten Span",
+      "lines": [
+        "The great central chamber has lava at the bottom and a wedge of the mountain suspended in the middle of it.",
+        "The route to the Depths runs across to that island, down to a ledge just above the lava, then through the Grinding Quarry.",
+        "It is the hinge of the whole building."
+      ],
+      "spoiler": false,
+      "t": 0.18,
+      "icon": "the-molten-span"
+    },
+    {
+      "id": "forgewrights-tomb",
+      "kind": "look",
+      "form": "chip",
+      "subject": "Somebody is buried inside it",
+      "tag": "Forgewright's Tomb",
+      "lines": [
+        "The tomb sits within the hanging rock. \"His tomb was placed at the entrance of the city he planned and built in honor of his efforts.\"",
+        "The same dwarf built the Stonewrought Dam in Loch Modan.",
+        "He is buried in the doorway of his own work, over a lake of fire."
+      ],
+      "spoiler": false,
+      "t": 0.26,
+      "icon": "forgewrights-tomb"
+    },
+    {
+      "id": "stacked",
+      "kind": "story",
+      "form": "chip",
+      "subject": "It is stacked, and the two halves are at war",
+      "tag": "Fire below, dragons above",
+      "lines": [
+        "Ragnaros retreated into the heart of the mountain. Deathwing sent Nefarian to take the upper reaches and the Dark Horde with them.",
+        "\"Ragnaros and Nefarian waged a brutal war for supremacy and control of the mountain.\"",
+        "The corridor you are standing in is the seam between them."
+      ],
+      "spoiler": false,
+      "t": 0.36,
+      "icon": "stacked"
+    },
+    {
+      "id": "no-wall",
+      "kind": "beware",
+      "form": "chip",
+      "subject": "There is no wall between the factions",
+      "tag": "Open world, not an instance",
+      "lines": [
+        "Alliance walking to Molten Core and Horde walking to the Spire use the same chamber, the same chain and the same ledges.",
+        "Both come in on foot from Searing Gorge or the Burning Steppes and converge inside.",
+        "Nothing in here separates them."
+      ],
+      "spoiler": false,
+      "t": 0.46,
+      "icon": "no-wall"
+    },
+    {
+      "id": "the-drop",
+      "kind": "beware",
+      "form": "chip",
+      "subject": "Nothing in here has to kill you",
+      "tag": "The Molten Span",
+      "lines": [
+        "Lava at the bottom, narrow chained walkways across the middle, and an approach that runs along a ledge just above it.",
+        "The mountain does most of the work itself."
+      ],
+      "spoiler": false,
+      "t": 0.54,
+      "icon": "the-drop"
+    },
+    {
+      "id": "the-blast",
+      "kind": "before",
+      "form": "chip",
+      "subject": "The mountain and both zones are one crater",
+      "tag": "What the explosion made",
+      "lines": [
+        "\"A raging volcano known as Blackrock Mountain soon towered over the ruined Dark Iron kingdom.\"",
+        "The wasteland to the south became the Burning Steppes. The chasm to the north became the Searing Gorge.",
+        "All three of them are the same wound, seen from different sides."
+      ],
+      "spoiler": false,
+      "t": 0.64,
+      "icon": "the-blast"
+    },
+    {
+      "id": "meeting-stones",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "The stones outside summon nobody",
+      "tag": "Meeting Stones, 1.12",
+      "lines": [
+        "They exist, and in vanilla they are group-finder objects and nothing else. Summoning through one arrives with Burning Crusade.",
+        "So everyone walks, every time.",
+        "That single fact is most of this mountain's culture."
+      ],
+      "spoiler": false,
+      "t": 0.74,
+      "icon": "meeting-stones"
+    },
+    {
+      "id": "the-names",
+      "kind": "look",
+      "form": "chip",
+      "subject": "Read the subzone names",
+      "tag": "Nothing is named for the tenants",
+      "lines": [
+        "The Molten Span. Stone Sentinel's Overlook. The Grinding Quarry. Forgewright's Tomb.",
+        "Not one of them is named for the orcs, or the dragons, or the fire.",
+        "It is all still dwarf work with other people living in it."
+      ],
+      "spoiler": false,
+      "t": 0.84,
+      "icon": "the-names"
+    },
+    {
+      "id": "one-view",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "If you stand anywhere, stand here",
+      "tag": "The chain to the central rock",
+      "lines": [
+        "Forgewright's tomb behind you, lava underneath, the Depths down and left along the ledge, the Spire up and away above.",
+        "It is the one point where all five dungeons are in the same direction."
+      ],
+      "spoiler": false,
+      "t": 1.0,
+      "icon": "one-view"
+    }
+  ]
+}

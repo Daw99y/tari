@@ -1,0 +1,183 @@
+{
+  "room": "gadgetzan",
+  "sources": [
+    "https://warcraft.wiki.gg/wiki/Gadgetzan",
+    "https://warcraft.wiki.gg/wiki/Gadgetzan_Bruiser",
+    "https://warcraft.wiki.gg/wiki/Auction_house",
+    "https://warcraft.wiki.gg/wiki/Thunderdrome",
+    "https://warcraft.wiki.gg/wiki/Gadgetzan_Water_Company",
+    "https://warcraft.wiki.gg/wiki/Alchemist_Pestlezugg",
+    "https://warcraft.wiki.gg/wiki/Teleportation_Pad",
+    "https://warcraft.wiki.gg/wiki/Ultrasafe_Transporter:_Gadgetzan",
+    "https://warcraft.wiki.gg/wiki/Steamwheedle_Cartel",
+    "https://warcraft.wiki.gg/wiki/Tanaris"
+  ],
+  "roadEnds": [
+    "The north gate",
+    "The Thunderdrome"
+  ],
+  "seedWho": "Tari",
+  "cards": [
+    {
+      "id": "it-was-jungle",
+      "kind": "before",
+      "form": "title",
+      "subject": "It was jungle",
+      "tag": "Before",
+      "lines": [
+        "Tanaris was Gurubashi troll country until the Sundering, and the sand took it inside a lifetime.",
+        "The goblins did not come for the desert. Steamwheedle built the port and this town together, as a link toward Undermine — and everything else in Gadgetzan is the cost of that one decision."
+      ],
+      "spoiler": false
+    },
+    {
+      "id": "the-neutral-ah",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "One of three in the world",
+      "tag": "The neutral auction house",
+      "lines": [
+        "Gadgetzan, Booty Bay and Everlook. Nowhere else.",
+        "It is the only lawful way an Alliance player and a Horde player can move goods to one another — no trade window, no mail across factions.",
+        "The listings sit in their own pool, apart from either side's."
+      ],
+      "spoiler": false,
+      "t": 0.08,
+      "icon": "the-neutral-ah"
+    },
+    {
+      "id": "the-bruisers",
+      "kind": "beware",
+      "form": "chip",
+      "subject": "They do not negotiate",
+      "tag": "Gadgetzan Bruisers",
+      "lines": [
+        "Start a fight in town and they converge on it.",
+        "In vanilla they are level fifty-seven, which is exactly why a level sixty could kill one, and why people did.",
+        "An early patch had to stop the guards attacking you again the moment you resurrected."
+      ],
+      "spoiler": false,
+      "t": 0.18,
+      "icon": "the-bruisers"
+    },
+    {
+      "id": "the-thunderdrome",
+      "kind": "look",
+      "form": "chip",
+      "subject": "The loophole in the middle of town",
+      "tag": "The Thunderdrome",
+      "lines": [
+        "The walled arena was built for fights where \"the bloodier the better\", and its walls used to block the guards' line of sight.",
+        "So both factions killed each other inside it while the bruisers stood outside, seeing nothing.",
+        "A neutral town's most famous feature is the hole in its neutrality."
+      ],
+      "spoiler": false,
+      "t": 0.28,
+      "icon": "the-thunderdrome"
+    },
+    {
+      "id": "road-warrior",
+      "kind": "look",
+      "form": "chip",
+      "subject": "The inn is called the Road Warrior",
+      "tag": "And the arena is the Thunderdrome",
+      "lines": [
+        "A walled scrap town in a desert, with a fighting pit and a water monopoly.",
+        "It is not accidentally post-apocalyptic.",
+        "It is a costume, and somebody put it on deliberately."
+      ],
+      "spoiler": false,
+      "t": 0.36,
+      "icon": "road-warrior"
+    },
+    {
+      "id": "the-water-company",
+      "kind": "story",
+      "form": "chip",
+      "subject": "The town is here because of wells",
+      "tag": "The Gadgetzan Water Company",
+      "lines": [
+        "A goblin utility drilling across the desert, and the Wastewander bandits took the ones at Waterspring Field.",
+        "The company's grievance list reads like a corporate memo: murdered employees, stolen resources, seized property.",
+        "Their answer is a bounty board. The water is worth more than the fight."
+      ],
+      "spoiler": false,
+      "t": 0.46,
+      "icon": "the-water-company"
+    },
+    {
+      "id": "nobody-in-charge",
+      "kind": "story",
+      "form": "chip",
+      "subject": "Nobody is in charge",
+      "tag": "No baron here, in 1.12",
+      "lines": [
+        "Booty Bay has Baron Revilgaz on his terrace. Ratchet has Gazlowe. Gadgetzan has neither — no throne, no boss, nobody to petition.",
+        "Marin Noggenfogger only becomes baron of this place years later.",
+        "Standing here now, he is an alchemist with a stall."
+      ],
+      "spoiler": false,
+      "t": 0.56,
+      "icon": "nobody-in-charge"
+    },
+    {
+      "id": "pestlezugg",
+      "kind": "story",
+      "form": "chip",
+      "subject": "The shopkeeper is the one sounding the alarm",
+      "tag": "Alchemist Pestlezugg",
+      "lines": [
+        "He spends the whole of vanilla analysing insect parts adventurers bring him back from Silithus and Un'Goro.",
+        "His conclusion: the silithid are organised under a queen, and something outside them is doing the controlling.",
+        "A vendor in a trading post worked out Ahn'Qiraj, and mostly nobody listened."
+      ],
+      "spoiler": false,
+      "t": 0.66,
+      "icon": "pestlezugg"
+    },
+    {
+      "id": "the-pad",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "The pad only receives",
+      "tag": "You cannot step on it and go anywhere",
+      "lines": [
+        "The device that uses it is an engineering item you trigger from anywhere in the world, and it misfires.",
+        "It can turn you into a kobold, a murloc or a troll and freeze you for ten seconds, or stamp an evil twin's face on you for two hours.",
+        "Or drop you a hundred yards up, outside town."
+      ],
+      "spoiler": false,
+      "t": 0.76,
+      "icon": "the-pad"
+    },
+    {
+      "id": "two-flight-masters",
+      "kind": "look",
+      "form": "chip",
+      "subject": "A dwarf and an orc, both working",
+      "tag": "The landing",
+      "lines": [
+        "A gryphon master and a wind rider master run this one town, taking money from opposite sides of a war.",
+        "The bruisers watch to make sure neither of their customers starts anything."
+      ],
+      "spoiler": false,
+      "t": 0.86,
+      "icon": "two-flight-masters"
+    },
+    {
+      "id": "four-towns",
+      "kind": "story",
+      "form": "chip",
+      "subject": "Four towns, and they talk to each other",
+      "tag": "The Steamwheedle Cartel",
+      "lines": [
+        "Ratchet, Booty Bay, Gadgetzan and Everlook are four separate reputations, and a kill near this town earns you standing here and half as much in each of the other three.",
+        "Get friendly enough and the guards will step in on your side.",
+        "Neutrality here is a service you can buy up."
+      ],
+      "spoiler": false,
+      "t": 1.0,
+      "icon": "four-towns"
+    }
+  ]
+}

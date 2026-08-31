@@ -1,0 +1,214 @@
+{
+  "room": "ruins-of-ahn-qiraj",
+  "sources": [
+    "https://warcraft.wiki.gg/wiki/Ruins_of_Ahn%27Qiraj",
+    "https://warcraft.wiki.gg/wiki/General_Rajaxx",
+    "https://warcraft.wiki.gg/wiki/Lieutenant_General_Andorov",
+    "https://warcraft.wiki.gg/wiki/Kaldorei_Elite",
+    "https://warcraft.wiki.gg/wiki/Kurinnaxx",
+    "https://warcraft.wiki.gg/wiki/Moam",
+    "https://warcraft.wiki.gg/wiki/Buru_the_Gorger",
+    "https://warcraft.wiki.gg/wiki/Ayamiss_the_Hunter",
+    "https://warcraft.wiki.gg/wiki/Ossirian_the_Unscarred",
+    "https://warcraft.wiki.gg/wiki/Cenarion_Circle"
+  ],
+  "roadEnds": [
+    "Kurinnaxx's pit",
+    "Ossirian's court"
+  ],
+  "seedWho": "Tari",
+  "cards": [
+    {
+      "id": "the-outer-city",
+      "kind": "before",
+      "form": "title",
+      "subject": "The outer city",
+      "tag": "Before",
+      "lines": [
+        "The aqir built this. The faction that took the south-west ransacked it, renamed itself qiraji, and slept in it for thousands of years while its numbers grew.",
+        "Then the gates closed for a thousand years and nobody swept up. It is not ruined by war so much as by neglect — an insect city that stopped being maintained."
+      ],
+      "spoiler": false
+    },
+    {
+      "id": "the-sky",
+      "kind": "look",
+      "form": "chip",
+      "subject": "You can look up",
+      "tag": "The only open-air raid",
+      "lines": [
+        "Molten Core, Blackwing Lair, Onyxia, Naxxramas, the Temple through the other door — every one of them is an interior.",
+        "This one is broken stonework on sand, under the Silithus sky.",
+        "You can ride a mount inside it."
+      ],
+      "spoiler": false,
+      "t": 0.06,
+      "icon": "the-sky"
+    },
+    {
+      "id": "twenty",
+      "kind": "before",
+      "form": "chip",
+      "subject": "Twenty, not forty",
+      "tag": "The size that let guilds exist",
+      "lines": [
+        "Vanilla raiding was forty people. This and Zul'Gurub were the exceptions.",
+        "They are the reason a guild could raid at all without a forty-person roster.",
+        "Retail later cut the Ruins to ten. In here it is twenty."
+      ],
+      "spoiler": false,
+      "t": 0.14,
+      "icon": "twenty"
+    },
+    {
+      "id": "kurinnaxx",
+      "kind": "beware",
+      "form": "chip",
+      "subject": "The first boss sees stealth",
+      "tag": "Kurinnaxx",
+      "lines": [
+        "An unusually wide aggro radius, and he spots rogues, so nobody scouts ahead of this one.",
+        "His sand trap silences casters and takes three quarters of your chance to hit.",
+        "You stand in a hole in the floor and wait it out."
+      ],
+      "spoiler": false,
+      "t": 0.22,
+      "icon": "kurinnaxx"
+    },
+    {
+      "id": "andorov",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "Five NPCs fight beside you",
+      "tag": "Lieutenant General Andorov",
+      "lines": [
+        "When Kurinnaxx dies a human general and four night elf sentinels spawn and hold the line with the raid through seven waves.",
+        "They can be kept alive or lost.",
+        "Almost nothing else in vanilla stands next to you and dies with you."
+      ],
+      "spoiler": false,
+      "t": 0.3,
+      "icon": "andorov"
+    },
+    {
+      "id": "commando",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "He is quoting Schwarzenegger",
+      "tag": "At an insect",
+      "lines": [
+        "Andorov opens the wave event with \"Remember, Rajaxx, when I said I'd kill you last? I lied...\" — verbatim Commando.",
+        "Mid-fight: \"If it bleeds, we can kill it.\" Verbatim Predator.",
+        "He is a human, leading four night elves."
+      ],
+      "spoiler": false,
+      "t": 0.38,
+      "icon": "commando"
+    },
+    {
+      "id": "rajaxx",
+      "kind": "story",
+      "form": "chip",
+      "subject": "He is shouting at somebody who is not there",
+      "tag": "General Rajaxx",
+      "lines": [
+        "Between waves: \"Staghelm will whimper and beg for his life, just as his whelp of a son did!\" and \"Fandral! Your time has come!\"",
+        "He killed Valstann Staghelm himself, in the war.",
+        "Fandral never comes. He is taunting an absent enemy across a millennium."
+      ],
+      "spoiler": false,
+      "t": 0.46,
+      "icon": "rajaxx"
+    },
+    {
+      "id": "the-shopkeeper",
+      "kind": "notice",
+      "form": "grave",
+      "subject": "If he lives, he sells you things",
+      "tag": "After Rajaxx",
+      "lines": [
+        "Andorov still standing at the end briefly opens a vendor window.",
+        "Then he goes: \"My work here is done. I'll be sure to let Mar'alith and the others at Cenarion Hold know that you helped me out...\"",
+        "A boss fight whose reward includes a merchant you had to keep alive."
+      ],
+      "spoiler": true,
+      "t": 0.54,
+      "icon": "the-shopkeeper"
+    },
+    {
+      "id": "moam",
+      "kind": "beware",
+      "form": "chip",
+      "subject": "A statue that has to be starved",
+      "tag": "Moam",
+      "lines": [
+        "He drains the raid's mana and stores it, and when he is full he throws the whole lot back as one explosion.",
+        "Casters drain him back down to keep him empty.",
+        "He also turns to stone periodically — immune, inert — and spits out mana fiends while he waits. He can be walked straight past."
+      ],
+      "spoiler": false,
+      "t": 0.62,
+      "icon": "moam"
+    },
+    {
+      "id": "buru",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "You kill him with his own eggs",
+      "tag": "Buru the Gorger",
+      "lines": [
+        "He cannot be taunted. He fixates on one player and gets faster the longer he chases them.",
+        "The raid blows up eggs while he is standing over them, which hurts him badly and resets his speed.",
+        "The entire fight is done by the floor."
+      ],
+      "spoiler": false,
+      "t": 0.7,
+      "icon": "buru"
+    },
+    {
+      "id": "ayamiss",
+      "kind": "look",
+      "form": "chip",
+      "subject": "The altar is not scenery",
+      "tag": "Ayamiss the Hunter",
+      "lines": [
+        "A random raider is pinned to the stone sacrifice platform, and larvae start crawling toward the body.",
+        "They have to be killed before they arrive.",
+        "Go and stand on it before you pull."
+      ],
+      "spoiler": false,
+      "t": 0.78,
+      "icon": "ayamiss"
+    },
+    {
+      "id": "ossirian",
+      "kind": "story",
+      "form": "grave",
+      "subject": "He is the one who threw the sword",
+      "tag": "Ossirian the Unscarred",
+      "lines": [
+        "The obsidian blade that brought a bronze dragon out of the sky was thrown by this Anubisath, and it very nearly killed him doing it.",
+        "C'Thun put him back together and bound his essence into the crystals scattered across his own floor.",
+        "The room is his leash, and you drag him around it."
+      ],
+      "spoiler": true,
+      "t": 0.88,
+      "icon": "ossirian"
+    },
+    {
+      "id": "the-shopping-list",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "What you carry out is a shopping list",
+      "tag": "Cenarion Circle",
+      "lines": [
+        "Scarabs and idols off the trash, ceremonial rings off the bosses, and all of it goes back to Cenarion Hold to be traded.",
+        "Your standing with the Circle decides what you are allowed to buy.",
+        "The bronze dragonflight's side of it is through the other door."
+      ],
+      "spoiler": false,
+      "t": 1.0,
+      "icon": "the-shopping-list"
+    }
+  ]
+}

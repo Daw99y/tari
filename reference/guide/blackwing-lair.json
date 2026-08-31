@@ -1,0 +1,214 @@
+{
+  "room": "blackwing-lair",
+  "sources": [
+    "https://warcraft.wiki.gg/wiki/Blackwing_Lair",
+    "https://warcraft.wiki.gg/wiki/Orb_of_Command",
+    "https://warcraft.wiki.gg/wiki/Dragonmaw_Garrison",
+    "https://warcraft.wiki.gg/wiki/Razorgore_the_Untamed",
+    "https://warcraft.wiki.gg/wiki/Vaelastrasz_the_Corrupt",
+    "https://warcraft.wiki.gg/wiki/Broodlord_Lashlayer",
+    "https://warcraft.wiki.gg/wiki/Crimson_Laboratories",
+    "https://warcraft.wiki.gg/wiki/Chromaggus",
+    "https://warcraft.wiki.gg/wiki/Nefarian",
+    "https://warcraft.wiki.gg/wiki/Nefarian_(tactics)",
+    "https://warcraft.wiki.gg/wiki/Nefarian%27s_Lair"
+  ],
+  "roadEnds": [
+    "The Dragonmaw Garrison",
+    "Nefarian's throne"
+  ],
+  "seedWho": "Tari",
+  "cards": [
+    {
+      "id": "the-garrison",
+      "kind": "before",
+      "form": "title",
+      "subject": "The Dragonmaw Garrison",
+      "tag": "Before",
+      "lines": [
+        "This was the top of Blackrock Spire and it was orc ground. The first room of the raid still carries the name, and is still full of orcs.",
+        "After Deathwing left for Draenor his children were sent to take the Blackrock orcs as their own army. The fortress at the summit stopped being a garrison and became a laboratory, and its soldiers became egg-guards."
+      ],
+      "spoiler": false
+    },
+    {
+      "id": "the-orb",
+      "kind": "before",
+      "form": "chip",
+      "subject": "There is no portal on the mountain",
+      "tag": "The Orb of Command",
+      "lines": [
+        "You get in by touching a rock at the end of a hall beside the Blackrock Spire entrance, and it puts you on the peak, past the whole upper dungeon.",
+        "In vanilla it only answered to somebody Drakkisath had branded.",
+        "The door is a shortcut, not an entrance."
+      ],
+      "spoiler": false,
+      "t": 0.06,
+      "icon": "the-orb"
+    },
+    {
+      "id": "razorgore",
+      "kind": "story",
+      "form": "grave",
+      "subject": "The first room is a demolition job",
+      "tag": "Razorgore the Untamed",
+      "lines": [
+        "The thirty black dragon eggs cannot be hurt by players. Only by him.",
+        "So you take an orb off his handler, mind-control the boss, and pilot him into smashing his master's clutch while the rest of the raid holds off the room.",
+        "Then he breaks free and turns on you."
+      ],
+      "spoiler": true,
+      "t": 0.14,
+      "icon": "razorgore"
+    },
+    {
+      "id": "vaelastrasz",
+      "kind": "story",
+      "form": "grave",
+      "subject": "He apologises before he kills you",
+      "tag": "Vaelastrasz the Corrupt",
+      "lines": [
+        "You have to talk to him to start it. \"I... I have failed. The Lord of Bla... The Lord of Blackrock is too powerful.\"",
+        "He asks you to kill him, and then buffs the entire raid with effectively unlimited mana so that you can do it fast enough.",
+        "He is fuelling his own execution."
+      ],
+      "spoiler": true,
+      "t": 0.22,
+      "icon": "vaelastrasz"
+    },
+    {
+      "id": "burning-adrenaline",
+      "kind": "beware",
+      "form": "chip",
+      "subject": "A gift you cannot refuse",
+      "tag": "Burning Adrenaline",
+      "lines": [
+        "Every fifteen seconds he hands somebody double damage and instant casts. Then they die and explode.",
+        "Healers get it too.",
+        "The correct play is to sprint away from everyone you were keeping alive, before the timer runs out."
+      ],
+      "spoiler": false,
+      "t": 0.3,
+      "icon": "burning-adrenaline"
+    },
+    {
+      "id": "suppression",
+      "kind": "beware",
+      "form": "chip",
+      "subject": "The one true rogue moment",
+      "tag": "The suppression room",
+      "lines": [
+        "Two rooms on the way to Broodlord are wired with devices that cut movement, attack and cast speed to a fifth, while whelps respawn without end.",
+        "Rogues stealth ahead and disarm them while forty people wait.",
+        "\"None of your kind should be here. You've doomed only yourselves!\""
+      ],
+      "spoiler": false,
+      "t": 0.38,
+      "icon": "suppression"
+    },
+    {
+      "id": "the-lab",
+      "kind": "look",
+      "form": "chip",
+      "subject": "There is a working alchemy lab in here",
+      "tag": "The Crimson Laboratories",
+      "lines": [
+        "One of only two in the old world, added three months after the raid opened so guilds could brew on site.",
+        "It is the honest signal of what this wing is.",
+        "Not a lair. A workshop, with technicians and spellbinders standing along the walls."
+      ],
+      "spoiler": false,
+      "t": 0.46,
+      "icon": "the-lab"
+    },
+    {
+      "id": "chromaggus",
+      "kind": "beware",
+      "form": "chip",
+      "subject": "A different monster each lockout",
+      "tag": "Chromaggus",
+      "lines": [
+        "He has five breath weapons, one per dragonflight, and uses two of them. The pair is fixed for the life of that instance and rerolled on the next.",
+        "The boss your guild learned last week is not the boss standing there this week."
+      ],
+      "spoiler": false,
+      "t": 0.54,
+      "icon": "chromaggus"
+    },
+    {
+      "id": "chromatic-mutation",
+      "kind": "beware",
+      "form": "chip",
+      "subject": "Collect all five and you stop being a player",
+      "tag": "Chromatic Mutation",
+      "lines": [
+        "He stacks five coloured afflictions across the raid — disease, poison, magic, curse, and one that just stuns you.",
+        "Hold all five at once and you turn into a hostile elite drakonid. It cannot be dispelled.",
+        "Your own raid has to kill you."
+      ],
+      "spoiler": false,
+      "t": 0.62,
+      "icon": "chromatic-mutation"
+    },
+    {
+      "id": "the-throne",
+      "kind": "story",
+      "form": "grave",
+      "subject": "The man on the throne is the dragon",
+      "tag": "Lord Victor Nefarius",
+      "lines": [
+        "The last chamber has a human nobleman sitting at the far end of it, and you have to walk up and speak to him to begin.",
+        "He is Nefarian, eldest son of Deathwing.",
+        "He has already spoken to you twice on the way in without ever showing you a scale."
+      ],
+      "spoiler": true,
+      "t": 0.7,
+      "icon": "the-throne"
+    },
+    {
+      "id": "class-calls",
+      "kind": "beware",
+      "form": "chip",
+      "subject": "The fight reads your raid roster",
+      "tag": "Nefarian's class calls",
+      "lines": [
+        "Paladins are forced to cast a protective blessing on Nefarian himself. Warlocks summon infernals against their own raid.",
+        "Priests' heals turn into damage on whoever they heal, and hunters' weapons are drained to nothing mid-fight.",
+        "It only calls the classes actually present."
+      ],
+      "spoiler": false,
+      "t": 0.78,
+      "icon": "class-calls"
+    },
+    {
+      "id": "bone-constructs",
+      "kind": "beware",
+      "form": "chip",
+      "subject": "The floor gets back up",
+      "tag": "Phase two",
+      "lines": [
+        "The first phase is forty-two drakonids, one of every colour he has bred.",
+        "At twenty percent he raises all of them again.",
+        "The ground you spent ten minutes clearing stands up underneath you."
+      ],
+      "spoiler": false,
+      "t": 0.88,
+      "icon": "bone-constructs"
+    },
+    {
+      "id": "the-view",
+      "kind": "look",
+      "form": "chip",
+      "subject": "Look out, and then look down",
+      "tag": "Nefarian's Lair",
+      "lines": [
+        "The final chamber opens onto Searing Gorge from near the peak — one of the widest views in the old world, with an invisible wall holding you in.",
+        "Then look at the throne itself. It is a smashed copy of the one in the Imperial Seat far below.",
+        "He took the dwarf king's furniture and broke it to fit."
+      ],
+      "spoiler": false,
+      "t": 1.0,
+      "icon": "the-view"
+    }
+  ]
+}

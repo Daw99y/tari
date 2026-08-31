@@ -1,0 +1,214 @@
+{
+  "room": "dire-maul-north",
+  "sources": [
+    "https://warcraft.wiki.gg/wiki/Dire_Maul_North",
+    "https://warcraft.wiki.gg/wiki/Gordok_Tribute",
+    "https://warcraft.wiki.gg/wiki/Mizzle_the_Crafty",
+    "https://warcraft.wiki.gg/wiki/King_Gordok",
+    "https://warcraft.wiki.gg/wiki/Cho%27Rush_the_Observer",
+    "https://warcraft.wiki.gg/wiki/Captain_Kromcrush",
+    "https://warcraft.wiki.gg/wiki/Guard_Slip%27kik",
+    "https://warcraft.wiki.gg/wiki/Stomper_Kreeg",
+    "https://warcraft.wiki.gg/wiki/Gordok_Ogre_Suit",
+    "https://warcraft.wiki.gg/wiki/Ogre_Tannin",
+    "https://warcraft.wiki.gg/wiki/Knot_Thimblejack%27s_Cache",
+    "https://warcraft.wiki.gg/wiki/Free_Knot!"
+  ],
+  "roadEnds": [
+    "Knot Thimblejack's chains",
+    "Gordok's Seat"
+  ],
+  "seedWho": "Tari",
+  "cards": [
+    {
+      "id": "gordok-commons",
+      "kind": "before",
+      "form": "title",
+      "subject": "Gordok Commons",
+      "tag": "Before",
+      "lines": [
+        "The ogres named this wing. The elves did not.",
+        "The Gordunni squat in ruined Highborne halls and hold court in them — the throne, the prisoner, the drinks vendor and the tribute chest all sit in somebody else's architecture."
+      ],
+      "spoiler": false
+    },
+    {
+      "id": "two-ways",
+      "kind": "before",
+      "form": "chip",
+      "subject": "Two ways to stand here",
+      "tag": "The honest run and the quiet one",
+      "lines": [
+        "Kill everything and take normal boss loot. Or hug the walls, thread the patrols, freeze one guard and talk another into walking off.",
+        "Same instance, two completely different games.",
+        "It is decided in the first corridor."
+      ],
+      "spoiler": false,
+      "t": 0.06,
+      "icon": "two-ways"
+    },
+    {
+      "id": "the-tribute",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "The loot counts what you did not kill",
+      "tag": "Gordok Tribute",
+      "lines": [
+        "Killing the king spawns a chest, and every named ogre still breathing when he falls adds a guaranteed item to it.",
+        "Clear the wing properly and it holds potions and food. Leave them all alive and it holds gear.",
+        "It is the one vanilla dungeon where restraint is the loot table."
+      ],
+      "spoiler": false,
+      "t": 0.14,
+      "icon": "the-tribute"
+    },
+    {
+      "id": "knot",
+      "kind": "beware",
+      "form": "chip",
+      "subject": "Freeing the goblin locks you out of the suit",
+      "tag": "Knot Thimblejack",
+      "lines": [
+        "He is chained in the Halls of Destruction. A shackle key off the ogres frees him and he leaves a cache of three-hundred-skill leatherworking and tailoring patterns behind.",
+        "But once he is gone he is gone.",
+        "He is also the only one who will trade you the ogre suit. Do the suit first."
+      ],
+      "spoiler": false,
+      "t": 0.22,
+      "icon": "knot"
+    },
+    {
+      "id": "the-suit",
+      "kind": "story",
+      "form": "chip",
+      "subject": "The suit is a playable race that never happened",
+      "tag": "Gordok Ogre Suit",
+      "lines": [
+        "It reuses ogre animations built while Blizzard was still considering ogres for the Horde. The idea was dropped.",
+        "What survived is a ten-minute costume with joke flavour text: \"It lifts AND supports!\"",
+        "Try /dance in it."
+      ],
+      "spoiler": false,
+      "t": 0.3,
+      "icon": "the-suit"
+    },
+    {
+      "id": "the-tannin",
+      "kind": "beware",
+      "form": "chip",
+      "subject": "The basket is a trap",
+      "tag": "Ogre Tannin",
+      "lines": [
+        "The suit needs tannin, and it is in a basket at the back of the first balcony, up the ramp.",
+        "Taking it spawns a Gordok Bushwacker on top of you.",
+        "On a tribute run, one careless pull here is the whole run."
+      ],
+      "spoiler": false,
+      "t": 0.38,
+      "icon": "the-tannin"
+    },
+    {
+      "id": "kromcrush",
+      "kind": "notice",
+      "form": "grave",
+      "subject": "You do not fight him. You gossip.",
+      "tag": "Captain Kromcrush",
+      "lines": [
+        "Wearing the suit, you can walk up to him and mention that Guard Fengus has been talking.",
+        "\"Hey, who Fengus callin' a gnoll lover?! Take da prisoners to da king...\"",
+        "He stomps off to settle it — leaving his post, and leaving himself alive for the tribute."
+      ],
+      "spoiler": true,
+      "t": 0.46,
+      "icon": "kromcrush"
+    },
+    {
+      "id": "slipkik",
+      "kind": "look",
+      "form": "chip",
+      "subject": "He buffs you from inside the ice",
+      "tag": "Guard Slip'kik",
+      "lines": [
+        "He tinkers with broken traps. Repair the frost trap on his patrol and it takes him, and he stays frozen for the rest of the run.",
+        "Once you are king he will happily talk to you and hand out Slip'kik's Savvy.",
+        "Still inside the block of ice."
+      ],
+      "spoiler": false,
+      "t": 0.54,
+      "icon": "slipkik"
+    },
+    {
+      "id": "kreeg",
+      "kind": "look",
+      "form": "chip",
+      "subject": "A boss who is a bar",
+      "tag": "Stomper Kreeg the Drunk",
+      "lines": [
+        "He blinds you with Booze Spit until you are king. After that he is a vendor with a menu — Gordok Green Grog, Kreeg's Stout Beatdown, Volatile Rum.",
+        "The only boss in the place whose defeat condition is arguably buying a drink off him instead."
+      ],
+      "spoiler": false,
+      "t": 0.62,
+      "icon": "kreeg"
+    },
+    {
+      "id": "cho-rush",
+      "kind": "look",
+      "form": "chip",
+      "subject": "Two heads, hired for it",
+      "tag": "Cho'Rush the Observer",
+      "lines": [
+        "The king's advisor is a two-headed ogre mage, on the theory that two heads would be twice as resourceful. He heals the king through the fight.",
+        "Spare him and he flips instantly.",
+        "\"Uh... I sorry I attack you boss. You no kill me, please OK?!\""
+      ],
+      "spoiler": false,
+      "t": 0.7,
+      "icon": "cho-rush"
+    },
+    {
+      "id": "the-succession",
+      "kind": "story",
+      "form": "grave",
+      "subject": "Whoever kills the king becomes the king",
+      "tag": "It is a mechanic, not a metaphor",
+      "lines": [
+        "Cho'Rush shouts \"The king is dead - OH NOES! Summon Mizzle da Crafty!\"",
+        "Mizzle has waited in the throne room through the whole fight. He inspects the body — \"Yar, he's dead all right\" — and hands you the crown.",
+        "The survivors go friendly and start selling you things."
+      ],
+      "spoiler": true,
+      "t": 0.8,
+      "icon": "the-succession"
+    },
+    {
+      "id": "the-buffs",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "Raiders came for three ogres they refused to kill",
+      "tag": "Fengus, Mol'dar, Slip'kik",
+      "lines": [
+        "Once you are king the three surviving guards buff you — attack power, stamina, spell crit, two hours each.",
+        "Molten Core and Blackwing Lair rosters ran tribute the way they ran flasks.",
+        "This dungeon's real endgame value was three ogres left standing."
+      ],
+      "spoiler": false,
+      "t": 0.9,
+      "icon": "the-buffs"
+    },
+    {
+      "id": "the-crown",
+      "kind": "story",
+      "form": "chip",
+      "subject": "The crown does not travel",
+      "tag": "What the lore says",
+      "lines": [
+        "The title belongs to whoever holds the room. Walk out of Dire Maul and the ogres pick somebody else.",
+        "Every run, the crown changes hands and changes back inside the hour."
+      ],
+      "spoiler": false,
+      "t": 1.0,
+      "icon": "the-crown"
+    }
+  ]
+}

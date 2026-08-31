@@ -1,0 +1,216 @@
+{
+  "room": "dire-maul-west",
+  "sources": [
+    "https://warcraft.wiki.gg/wiki/Dire_Maul_West",
+    "https://warcraft.wiki.gg/wiki/Immol%27thar",
+    "https://warcraft.wiki.gg/wiki/Athenaeum_(Dire_Maul)",
+    "https://warcraft.wiki.gg/wiki/Prince_Tortheldrin",
+    "https://warcraft.wiki.gg/wiki/Magister_Kalendris",
+    "https://warcraft.wiki.gg/wiki/Shen%27dralar",
+    "https://warcraft.wiki.gg/wiki/Libram_of_Focus",
+    "https://warcraft.wiki.gg/wiki/Skin_of_Shadow",
+    "https://warcraft.wiki.gg/wiki/Foror%27s_Compendium_of_Dragon_Slaying",
+    "https://warcraft.wiki.gg/wiki/Quest:Dreadsteed_of_Xoroth",
+    "https://warcraft.wiki.gg/wiki/Lord_Hel%27nurath",
+    "https://warcraft.wiki.gg/wiki/Ancient_Equine_Spirit",
+    "https://warcraft.wiki.gg/wiki/Tendris_Warpwood",
+    "https://warcraft.wiki.gg/wiki/Quest:Elven_Legends"
+  ],
+  "roadEnds": [
+    "The Capital Gardens",
+    "The Athenaeum"
+  ],
+  "seedWho": "Tari",
+  "cards": [
+    {
+      "id": "capital-gardens",
+      "kind": "before",
+      "form": "title",
+      "subject": "The Capital Gardens",
+      "tag": "Before",
+      "lines": [
+        "The wing's own subzone name is the before. The wiki: \"The area might once have been a pristine city park district, but now the trees stand gray and withered.\"",
+        "Tendris Warpwood, the ancient rooted at the entrance, was a defender of Eldre'Thalas. You are walking into a municipal park that outlived its city."
+      ],
+      "spoiler": false
+    },
+    {
+      "id": "the-milking",
+      "kind": "story",
+      "form": "chip",
+      "subject": "They did not cage him to stop him",
+      "tag": "Immol'thar",
+      "lines": [
+        "The Highborne imprisoned the demon in order to drink from him. They mastered siphoning his energy and used it to hold off death for nearly ten thousand years after the Well broke.",
+        "Every immortal librarian standing calmly upstairs is alive because of the thing screaming in the basement."
+      ],
+      "spoiler": false,
+      "t": 0.08,
+      "icon": "the-milking"
+    },
+    {
+      "id": "the-pylons",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "Five pylons hold the shield up",
+      "tag": "You tour the wing before the fight starts",
+      "lines": [
+        "One out in the gardens, two on the surrounding balconies, two inside the prison chamber itself, each held up by its own elite guardians.",
+        "Kill the guardians and the pylon goes dark.",
+        "Only when all five are out is the demon killable at all."
+      ],
+      "spoiler": false,
+      "t": 0.16,
+      "icon": "the-pylons"
+    },
+    {
+      "id": "the-prince",
+      "kind": "notice",
+      "form": "grave",
+      "subject": "You can walk right up to him",
+      "tag": "Prince Tortheldrin",
+      "lines": [
+        "He is standing in the Athenaeum from the moment you arrive, and he is not attackable.",
+        "He is untouchable for exactly as long as his power source lives.",
+        "Kill the demon he has been draining and he turns on you."
+      ],
+      "spoiler": true,
+      "t": 0.24,
+      "icon": "the-prince"
+    },
+    {
+      "id": "kalendris",
+      "kind": "story",
+      "form": "chip",
+      "subject": "The executioner, killed by one of the condemned",
+      "tag": "Magister Kalendris",
+      "lines": [
+        "When the prince ordered the slaughter of his own subjects, Kalendris was one of the lieutenants who carried it out.",
+        "During one of the massacres a victim fought back and mortally wounded him.",
+        "He is still here as a ghost, still guarding the man who gave the order."
+      ],
+      "spoiler": false,
+      "t": 0.32,
+      "icon": "kalendris"
+    },
+    {
+      "id": "illyanna",
+      "kind": "story",
+      "form": "chip",
+      "subject": "She was denied the ability to stop",
+      "tag": "Illyanna Ravenoak",
+      "lines": [
+        "When the prison started weakening he killed more Highborne to keep the supply up. Illyanna, her bear Ferra and Telmius Dreamseeker were among them.",
+        "He then used dark magic to bind her spirit back into her own body.",
+        "She fights beside her bear in the gardens because he would not let her be dead."
+      ],
+      "spoiler": false,
+      "t": 0.4,
+      "icon": "illyanna"
+    },
+    {
+      "id": "elven-legends",
+      "kind": "before",
+      "form": "chip",
+      "subject": "The errand is to identify a corpse",
+      "tag": "Elven Legends",
+      "lines": [
+        "A scholar at Feathermoon and a sage at Camp Mojache both send you into Dire Maul to find Telmius Dreamseeker and report what you find.",
+        "He is one of the prince's murder victims.",
+        "Finishing it is what makes the librarian take your Librams at all."
+      ],
+      "spoiler": false,
+      "t": 0.48,
+      "icon": "elven-legends"
+    },
+    {
+      "id": "the-librams",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "The rep for this wing is farmed in another dungeon",
+      "tag": "The Librams",
+      "lines": [
+        "Shen'dralar standing comes from handing in a Libram, repeatably. Each turn-in costs a Pristine Black Diamond, brilliant shards, and two Skin of Shadow.",
+        "Skin of Shadow drops only in Scholomance.",
+        "To grind reputation with a faction that lives in Dire Maul, you go run a school in the Plaguelands."
+      ],
+      "spoiler": false,
+      "t": 0.56,
+      "icon": "the-librams"
+    },
+    {
+      "id": "class-books",
+      "kind": "look",
+      "form": "chip",
+      "subject": "One book per class, once ever",
+      "tag": "Class-locked reading matter",
+      "lines": [
+        "Alongside the repeatables, each class had a single book it could hand in — the mage's Arcanist's Cookbook, the rogue's \"Garona: A Study on Stealth and Treachery\".",
+        "A rogue cannot hand in the cookbook.",
+        "It is the only reputation in vanilla gated on what you are allowed to read."
+      ],
+      "spoiler": false,
+      "t": 0.64,
+      "icon": "class-books"
+    },
+    {
+      "id": "forors",
+      "kind": "look",
+      "form": "chip",
+      "subject": "The rarest book here is a joke about EverQuest",
+      "tag": "Foror's Compendium",
+      "lines": [
+        "Its text is a straight parody of EverQuest raiding — hiding behind a wall to fight the dragon, a Complete Heal rotation of clerics, posing with the loot afterwards.",
+        "Flavour line: \"Several pages are blank.\"",
+        "It starts the chain that ends in Quel'Serrar."
+      ],
+      "spoiler": false,
+      "t": 0.72,
+      "icon": "forors"
+    },
+    {
+      "id": "dreadsteed",
+      "kind": "story",
+      "form": "chip",
+      "subject": "The warlock mount is summoned in this room",
+      "tag": "Dreadsteed of Xoroth, patch 1.4.0",
+      "lines": [
+        "An imp lays out a bell, a wheel and a candle for protection while portals in the demon's prison vomit Xorothian imps and dread guards.",
+        "Then Lord Hel'nurath turns up in person to argue that the horse is his."
+      ],
+      "spoiler": false,
+      "t": 0.8,
+      "icon": "dreadsteed"
+    },
+    {
+      "id": "equine-spirit",
+      "kind": "look",
+      "form": "chip",
+      "subject": "So is the paladin's",
+      "tag": "The Ancient Equine Spirit",
+      "lines": [
+        "Tendris Warpwood holds a ghost horse captive, and it can only be freed by his death. When he falls it breaks loose with a crash of thunder.",
+        "Soothed with horse feed, it blesses a paladin's barding.",
+        "Both class epic mount chains in vanilla end in this wing. It is a stable."
+      ],
+      "spoiler": false,
+      "t": 0.88,
+      "icon": "equine-spirit"
+    },
+    {
+      "id": "after",
+      "kind": "story",
+      "form": "grave",
+      "subject": "What killing him actually does",
+      "tag": "Written down years later",
+      "lines": [
+        "With the demon gone the Shen'dralar's immortality ends. They abandon the ruins, wander, and eventually go back to their own kin.",
+        "You do not destroy them.",
+        "You let them grow old, which is the first thing they have been allowed to do since the Sundering."
+      ],
+      "spoiler": true,
+      "t": 1.0,
+      "icon": "after"
+    }
+  ]
+}
