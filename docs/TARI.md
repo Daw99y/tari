@@ -282,7 +282,10 @@ Content appreciates instead of decaying, and every room becomes sixty rooms.
 
 ---
 
-## 5. The path
+## 5. The campfire
+
+*Called "the path" at `/path` until 2026-08-31. A path is somewhere you are
+going, and this page is somewhere you sit down.*
 
 The errand system merged with journey. **Not a to-do list — a letter waiting
 when you get home**, and it is Tari's letter.
@@ -521,7 +524,7 @@ built; retrofitting is a rewrite.
 ```
 ┌──────────┬───────────────────────┬──────────┐
 │ YOU      │                       │  IN THE  │
-│ the path │    THE ROOM           │  ROOM    │
+│ campfire │    THE ROOM           │  ROOM    │
 │ ─────────│    full-bleed art     │          │
 │ HERE NOW │    the guide          │  cursors │
 │ Duskwood │    the map, framed    │  names   │
@@ -626,7 +629,7 @@ so the discovery layer already has people in it when the new world lands.
 8. **The Tauri client**, including §9.1.
 9. **The wake.** The level-indexed layer.
 10. **Scrape → curate → shot list → shoot**, per §6.2.
-11. **The path.** Errands and journey merged.
+11. **The campfire.** Errands and journey merged.
 12. **The atlas**, then the rest of the old world.
 
 ---

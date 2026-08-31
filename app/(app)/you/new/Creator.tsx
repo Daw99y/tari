@@ -52,6 +52,7 @@ import {
 import { parseImport, type ParsedCharacter } from "@/lib/import";
 import { creditImport } from "@/lib/journey";
 import type { ClassId } from "@/lib/loot";
+import { carryMarks } from "@/lib/marks";
 import { getRoom, roomArt } from "@/lib/rooms";
 import { DEFAULT_LOOK, useBody, wrap, type Look } from "@/lib/use-body";
 import {
@@ -320,17 +321,45 @@ export default function Creator() {
   /* An imported name is the character's real one. Nothing here may reroll it. */
   const nameLocked = fromGame && !!(imported?.name ?? existing?.name);
 
+  /* WHO THIS IS, NOT WHICH ROW WAS OPEN.
+   *
+   * The key is a character's lasting name in the record: every mark the reader
+   * makes is filed under it, and lib/journey.ts reads the chains and the
+   * trainer back out by it. So it has to come from who the character *is*.
+   *
+   * It used to be `existing?.key ?? …`, and the screen arrives with whoever is
+   * in play already selected. Paste a second character's string over that
+   * without pressing "New character" first and the new one inherited the old
+   * one's key — which is to say the old one's ticks. Kacey, 2026-08-31: a
+   * level 17 rogue that had never seen Blackrock reported Molten Core
+   * attunement cleared, because it was answering to a level 60's name.
+   *
+   * An import names itself. Realm and name are the game's own identity for a
+   * character, so the same paste on another machine is the same character. The
+   * selected row's key is inherited only when the reader is editing that
+   * character rather than pasting somebody else over it — and a made body that
+   * has now been imported gives up its minted key for the real one, taking its
+   * old row with it rather than leaving a twin behind. */
+  const named =
+    imported?.realm && imported.name ? `${imported.realm}/${imported.name}` : null;
+  const sameName =
+    !!existing &&
+    !!imported?.name &&
+    existing.name.trim().toLowerCase() === imported.name.trim().toLowerCase();
+  const editingExisting = !!existing && (!named || named === existing.key || sameName);
+
   const accept = async () => {
     if (!ok) return;
     const key =
-      existing?.key ??
-      (imported?.realm && imported.name
-        ? `${imported.realm}/${imported.name}`
-        : `local/${crypto.randomUUID()}`);
+      named ?? (editingExisting ? existing!.key : `local/${crypto.randomUUID()}`);
+    /* Everything below falls back to what was already on file — but only when
+       the file is about this character. Pasting a stranger over the screen
+       must not hand them the last one's guild, gold or quest log. */
+    const was = editingExisting ? existing : null;
     const character: Character = {
       key,
       name,
-      realm: imported?.realm ?? existing?.realm ?? null,
+      realm: imported?.realm ?? (editingExisting ? (existing?.realm ?? null) : null),
       race,
       sex: gender === 1 ? 1 : 0,
       cls,
@@ -340,25 +369,34 @@ export default function Creator() {
       gear: [...gear],
       importedAt: imported
         ? new Date().toISOString()
-        : (existing?.importedAt ?? null),
-      guild: imported?.guild ?? existing?.guild ?? null,
-      played: imported?.played ?? existing?.played ?? null,
-      copper: imported?.copper ?? existing?.copper ?? null,
-      hearth: imported?.hearth ?? existing?.hearth ?? null,
-      zone: imported?.zone ?? existing?.zone ?? null,
-      professions: imported?.professions ?? existing?.professions ?? [],
+        : (was?.importedAt ?? null),
+      guild: imported?.guild ?? was?.guild ?? null,
+      played: imported?.played ?? was?.played ?? null,
+      copper: imported?.copper ?? was?.copper ?? null,
+      hearth: imported?.hearth ?? was?.hearth ?? null,
+      zone: imported?.zone ?? was?.zone ?? null,
+      professions: imported?.professions ?? was?.professions ?? [],
       /* The photograph, not the record. An import with nothing to say about
          the log leaves the last one standing rather than emptying it. */
-      questLog: imported?.questLogIds.length ? imported.questLogIds : existing?.questLog,
-      talentPicks: imported?.talentPicks.length ? imported.talentPicks : existing?.talentPicks,
+      questLog: imported?.questLogIds.length ? imported.questLogIds : was?.questLog,
+      talentPicks: imported?.talentPicks.length ? imported.talentPicks : was?.talentPicks,
     };
+    /* The minted row this character used to live under, now that the game has
+       given it a real name. Its record comes with it — the stars and ticks
+       made on a hand-made body belong to the character, not to the name it
+       was filed under — and then the old row goes, so the roster never holds
+       both at once. */
+    if (existing && editingExisting && existing.key !== key) {
+      carryMarks(existing.key, key);
+      removeCharacter(existing.key);
+    }
     saveCharacter(character);
 
     /* WHAT THE STRING ALREADY PROVED. `S:` is the spellbook and `Q:` is the
-       quest log, and lib/journey.ts turns them into the `done` marks /path
+       quest log, and lib/journey.ts turns them into the `done` marks /campfire
        reads — so a level 40 who has trained all the way up arrives at a
        trainer panel holding nothing, rather than being asked to tick forty
-       visits they made months ago. Awaited, so /path is right the first time
+       visits they made months ago. Awaited, so /campfire is right the first time
        it is opened; a class file is ~70 KB and this is once per import.
 
        It only ever adds (lib/marks.ts, setMarks). The addon reports what a

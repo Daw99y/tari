@@ -22,7 +22,7 @@
 
 import { useSyncExternalStore } from "react";
 
-import { MAX_MARKS, type Mark, type MarkKind, type SyncPull } from "./sync";
+import { MARK_KINDS, MAX_MARKS, type Mark, type MarkKind, type SyncPull } from "./sync";
 
 const KEY = "tari:marks";
 
@@ -188,6 +188,37 @@ export function setMarks(char: string, kind: MarkKind, subjects: string[], val: 
 
   commit({ on: { ...cur.on, [char]: kinds }, queue, since: cur.since });
   soon();
+}
+
+/**
+ * Carry one character's whole record to a new key.
+ *
+ * A character can be renamed exactly once in its life: a body the reader made
+ * by hand lives under a minted `local/…` key until the game itself names it,
+ * and the import that does the naming must not cost them the stars, the found
+ * marks and the ticks they made in the meantime
+ * (app/(app)/you/new/Creator.tsx).
+ *
+ * It copies rather than moves. The old key's rows are left where they are —
+ * the server has no delete-by-character and a half-finished move is worse
+ * than an orphan, which is a few rows nobody reads. `setMarks` only ever
+ * adds, so a key that already holds an answer keeps its own.
+ */
+export function carryMarks(from: string, to: string): void {
+  if (from === to) return;
+  const kinds = snapshot().on[from];
+  if (!kinds) return;
+  for (const kind of MARK_KINDS) {
+    const subjects = kinds[kind];
+    if (!subjects) continue;
+    /* `equip` is the one kind whose value carries the fact — which item is
+       planned into the slot — so it goes across one at a time. */
+    if (kind === "equip") {
+      for (const [subject, val] of Object.entries(subjects)) setMark(to, kind, subject, true, val);
+      continue;
+    }
+    setMarks(to, kind, Object.keys(subjects));
+  }
 }
 
 /* ---- the conversation */

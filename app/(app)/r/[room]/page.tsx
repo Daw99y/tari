@@ -26,7 +26,7 @@ import Room from "./Room";
 
 type Props = {
   params: Promise<{ room: string }>;
-  searchParams: Promise<{ class?: string; at?: string; item?: string; say?: string }>;
+  searchParams: Promise<{ class?: string; at?: string; item?: string; say?: string; map?: string }>;
 };
 
 /** 75 rooms, all known at build time and none of them changing between
@@ -87,7 +87,13 @@ export default async function RoomPage({ params, searchParams }: Props) {
      in front of a blank deck (docs/WELCOME.md §2.3). */
   const say = sp.say === "1";
 
+  /* `?map=1` — the door was about a place. The campfire's quest rows send the
+     reader to the zone a quest starts in, and what they came for is the map,
+     so it is already unfolded when they land (components/Dock.tsx). A room
+     with no plate simply has none to unfold. */
+  const map = sp.map === "1";
+
   return (
-    <Room room={room} past={past} drops={drops} cls={cls} level={level} guide={guide} plate={plate} hunt={hunt} pins={pins} open={open} say={say} />
+    <Room room={room} past={past} drops={drops} cls={cls} level={level} guide={guide} plate={plate} hunt={hunt} pins={pins} open={open} say={say} map={map} />
   );
 }

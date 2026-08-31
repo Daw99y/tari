@@ -382,7 +382,7 @@ export function parseImport(raw: string): ParseResult {
  * TA1 string from 6.2.0 arrived on 2026-08-31 with a faction, a class and no
  * race at all, and the creator quietly kept whatever race was on the picker.
  * A Horde rogue saved as a Human is not a cosmetic error: faction decides
- * which journey file `/path` reads and which half of the class quests exist.
+ * which journey file `/campfire` reads and which half of the class quests exist.
  *
  * `P:` answers it, and not by guessing. A 1.12 character knows exactly two
  * languages: their faction's — Common or Orcish — and their own race's. So

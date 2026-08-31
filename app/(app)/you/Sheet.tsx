@@ -13,7 +13,7 @@
  * page of them, no ranking and no order to walk them in; §2.1 allows a
  * doorway back into places and nothing else.
  *
- * THE LETTER IS NOT HERE ANY MORE. It moved to /path on 2026-08-31, with the
+ * THE LETTER IS NOT HERE ANY MORE. It moved to /campfire on 2026-08-31, with the
  * level's news beside it (lib/journey.ts). The sheet is the paperdoll and the
  * dressing room; the letter is about what changed, which is a different
  * question and now has its own paper. The arrows stay, because they are about
@@ -24,7 +24,7 @@
  * the app — "better than what you have, here". A slot that is behind and
  * that no room in your window answers gets nothing, because an arrow that
  * opened an empty list would be the app pointing at a door with no room
- * behind it. /path's letter still counts every behind slot, which is why the
+ * behind it. /campfire's letter still counts every behind slot, which is why the
  * arrows here can be fewer than the number it says there.
  *
  * IT DOES NOT WAIT FOR AN IMPORT. A made body wears nothing, and nothing is
@@ -40,7 +40,7 @@
  * WHAT IS SHOWN IS WHAT IS READ. The doll, the slots and the arrows all run
  * off `gear`, which is the plan over the import, because there is one
  * character and it wears what you told it to. A slot the reader dressed wears
- * a ring, and /path's letter counts them, so the plan is never quietly passed
+ * a ring, and /campfire's letter counts them, so the plan is never quietly passed
  * off as a fact.
  *
  * THE THIRD SLOT IS DRAWN AND NEVER WORN. Kacey, 2026-08-26: the ranged

@@ -63,9 +63,12 @@ type Props = {
   open?: number;
   /** `?say=1` — the kit's door. docs/WELCOME.md §2.3. */
   say?: boolean;
+  /** `?map=1` — the reader followed a door about a place, so the map is
+   *  already unfolded when they arrive. components/Dock.tsx. */
+  map?: boolean;
 };
 
-export default function Room({ room, past, drops, cls, level, guide, plate, hunt, pins, open, say }: Props) {
+export default function Room({ room, past, drops, cls, level, guide, plate, hunt, pins, open, say, map }: Props) {
   /* What this place was called before, when it was called something else. The
      guide's title card holds the pair: `subject` is the old name, `now` is the
      one on the map. Only a card that carries `now` is a rename — a room that
@@ -94,6 +97,7 @@ export default function Room({ room, past, drops, cls, level, guide, plate, hunt
         pins={pins}
         level={level}
         open={open}
+        map={map}
         kit={drops.length > 0 ? <Kit drops={drops} cls={cls} level={level} room={room.name} /> : undefined}
       >
         {/* TWO DECKS, ONE TABLE. What we wrote and what the room wrote are

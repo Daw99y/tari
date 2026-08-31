@@ -9,7 +9,8 @@
  * one Escape, one way to put a thing away.
  *
  * THE MAP IS LENT, NOT LOST. Whether the map stands open is the reader's
- * choice and it is remembered across rooms. So a subject opened over
+ * choice and it is remembered across rooms — and a map somebody else opened
+ * for them is not that choice, so it closes without changing it. So a subject opened over
  * another borrows the stage and gives it back: an item opened from the kit
  * returns to the kit; an item over an open map returns the map. One level
  * of memory, never a stack — a glance under a glance is still one glance.
@@ -105,6 +106,7 @@ export default function Dock({
   level,
   kit,
   open,
+  map,
   children,
 }: {
   /** Absent for the twenty-nine rooms with no plate. The dock still stands:
@@ -129,6 +131,12 @@ export default function Dock({
    *  (docs/DRESSING.md). Only ever one of `drops` — the room shows eight
    *  things and this opens one of them, never a ninth. */
   open?: number;
+  /** `?map=1` — the door was about a place rather than a page. The campfire's
+   *  quest rows send you to the zone a quest starts in, and arriving to a
+   *  folded map means the first thing you do is unfold it. Lent, not chosen:
+   *  it opens for this arrival and closing it does not change how the reader
+   *  reads every other room. */
+  map?: boolean;
   children: ReactNode;
 }) {
   const [subject, setSubject] = useState<Subject | null>(null);
@@ -145,6 +153,9 @@ export default function Dock({
   /** What an opened subject is standing on, to be given back when it closes.
    *  One level deep, on purpose. */
   const beneath = useRef<Kind | null>(null);
+  /** This map was handed to the reader by a link rather than chosen from the
+   *  compass, so closing it says nothing about how they like to read. */
+  const lent = useRef(false);
   const returnTo = useRef<HTMLElement | null>(null);
   const card = useRef<HTMLDivElement>(null);
   const kitCard = useRef<HTMLDivElement>(null);
@@ -158,12 +169,21 @@ export default function Dock({
       setHeld(asked);
       return;
     }
+    /* Then the link that asked for the place itself. It beats the remembered
+       fold for the same reason the item does: this arrival was about a map. */
+    if (map && plate) {
+      lent.current = true;
+      setSubject({ kind: "map" });
+      setFresh(false);
+      return;
+    }
     const saved = localStorage.getItem(KEY);
     if (saved === "open" && plate) setSubject({ kind: "map" });
     else if (saved === null && plate) setFresh(true);
-  }, [plate, open, drops]);
+  }, [plate, open, drops, map]);
 
   const setMap = useCallback((next: boolean) => {
+    lent.current = false;
     beneath.current = null;
     returnTo.current = null;
     setFocus(null);
@@ -211,8 +231,11 @@ export default function Dock({
     }
     if (subject?.kind === "map") {
       /* A lent map closes without a word; only a map the reader opened
-         writes the preference when it closes. */
-      if (!focus) localStorage.setItem(KEY, "closed");
+         writes the preference when it closes. A map is lent two ways: the
+         stage handed it over centred on a spot, or a link arrived asking
+         for it. */
+      if (!focus && !lent.current) localStorage.setItem(KEY, "closed");
+      lent.current = false;
       setFocus(null);
     }
     setSubject(null);

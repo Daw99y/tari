@@ -1,17 +1,21 @@
-/* THE PATH. docs/TARI.md §5 — the letter waiting when you get home, and the
-   paper it is written on. The sheet is a fixed composition because a paperdoll
+/* THE CAMPFIRE. docs/TARI.md §5 — the letter waiting when you get home, and
+   the paper it is written on. The sheet is a fixed composition because a paperdoll
    is one; this scrolls, because a letter is as long as its news.
 
    The art is the room the reader woke up in, the same picture /you stands on,
    so the two halves of one character read as one place. It fades into the
    table rather than ending, and everything below the fold is panels on --well.
 
-   THE ACCENT IS SPENT ONCE. DESIGN.md caps it at two places and forbids it on
-   headings and links; the only thing on this page that means "something here
-   is for you" is the trainer visit you have not made yet, so that is where it
-   goes and nowhere else. Everything done wears ink, not green. */
+   THE ACCENT IS SPENT ONCE, AND LENT ONCE. DESIGN.md caps it at two places;
+   the only thing on this page that means "something here is for you" is the
+   trainer visit you have not made yet, and that is still where it lands. The
+   five heading marks are the lending (2026-08-31, Kacey): green on a picture,
+   never on a word. They are held down by size rather than by strength — a
+   thinned accent on a dark ground is a duller green, not a quieter one — so
+   they read as the fire's light on the page rather than as five more things
+   asking. Anything done still wears ink. */
 
-.path {
+.campfire {
   position: absolute;
   inset: 0;
   overflow-y: auto;
@@ -137,6 +141,35 @@
   padding: 0 0.35rem;
 }
 
+/* The name and its mark, held together so the note can still sit out at the
+   far edge of the head. */
+.panelTitle {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  min-width: 0;
+}
+
+/* Rpg-Awesome, at a heading's size (components/RA.tsx). Kacey, 2026-08-31:
+   green, over the note at the top of this file that says headings never take
+   the accent. The rule stood while the accent meant "act on this" and the
+   marks are not asking for anything — so here it is the campfire's own light
+   falling on five small objects.
+
+   FULL STRENGTH, NOT A WASH. They were mixed down to 62% first and Kacey read
+   the result as a duller green rather than a quieter one, which is what any
+   accent does when you thin it against a dark ground: it loses the poison and
+   keeps the hue. So they take the colour whole, and what keeps them from
+   shouting is their size — a 0.95rem picture next to a 1rem word. The nudge
+   puts each glyph's foot on the name's baseline rather than its box. */
+.panelMark {
+  flex: none;
+  width: 0.95rem;
+  height: 0.95rem;
+  color: var(--accent);
+  transform: translateY(0.1em);
+}
+
 .panelName {
   margin: 0;
   font: 600 1rem / 1 var(--app-display);
@@ -170,10 +203,78 @@
 
 .visitHead {
   display: grid;
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns: auto 1fr auto auto;
   align-items: center;
   gap: 0.65rem;
   padding: 0 0.15rem 0.1rem;
+}
+
+/* THE HAND UNDER A SHUT VISIT. Four of the game's own spell icons, overlapped
+   the way a dealt hand is, each one further back and further gone than the
+   last. The fade is the sentence: there are more of these than you can see,
+   and the ones you can see are the front of a pile rather than the whole of
+   it. The ring is the row's own colour, cut round each icon so the overlap
+   reads as depth instead of as one wide smear.
+
+   It is drawn nowhere else on the page. A room's loot rows show one icon per
+   line because each line is a thing you might go and get; this is one line
+   about several things at once, which is the only place a pile is honest. */
+.stack {
+  display: flex;
+  align-items: center;
+  flex: none;
+  padding-right: 0.1rem;
+}
+
+.chip {
+  width: 1.55rem;
+  height: 1.55rem;
+  border-radius: 6px;
+  object-fit: cover;
+  background: rgba(242, 240, 234, 0.06);
+  box-shadow: 0 0 0 1.5px var(--panel-deep);
+  flex: none;
+}
+
+/* Enough overlap to be a pile, not so much that the second icon is a sliver:
+   a third of itself is the least a 1.55rem square can give up and still be
+   recognisable as the ability it is. */
+.chip + .chip {
+  margin-left: -0.52rem;
+}
+
+/* Front to back. Stated rather than reversed in the markup, so the order the
+   trainer teaches them in is the order they are written in. The last one is
+   still legible rather than a ghost — it is falling away, not disappearing. */
+.chip:nth-child(1) { z-index: 4; }
+.chip:nth-child(2) { z-index: 3; opacity: 0.72; }
+.chip:nth-child(3) { z-index: 2; opacity: 0.48; }
+.chip:nth-child(4) { z-index: 1; opacity: 0.28; }
+
+/* THE SAME HAND, SPENT. A bought visit shows what it bought — the ranks are
+   already on your bar and this is the only place the page says so with the
+   things themselves. Grey and half-lit, because a record must never out-shout
+   the rows above it that are still asking for gold. The ring changes colour
+   with the row: a made visit drops the deep panel and sits on the panel. */
+.made .stack {
+  filter: grayscale(1);
+}
+
+.made .chip {
+  box-shadow: 0 0 0 1.5px var(--panel);
+}
+
+.made .chip:nth-child(1) { opacity: 0.5; }
+.made .chip:nth-child(2) { opacity: 0.38; }
+.made .chip:nth-child(3) { opacity: 0.27; }
+.made .chip:nth-child(4) { opacity: 0.18; }
+
+/* Under about 26rem of panel the cost and the level are the whole story and
+   the hand is the first thing that can go. */
+@media (max-width: 30rem) {
+  .stack {
+    display: none;
+  }
 }
 
 .visitWords {
@@ -230,6 +331,40 @@
 
 .rowLink:hover {
   background: rgba(242, 240, 234, 0.05);
+}
+
+/* THE PLACE IS THE DOOR, AND IT SAYS SO.
+ *
+ * Kacey, 2026-08-31: these rows have opened their room since the day they were
+ * written and nobody could tell, because a whole row going faintly lighter
+ * under the pointer is not an offer — it is something you find out about after
+ * you have already decided not to try. The row is still the press; this is the
+ * one word that says what pressing it does.
+ *
+ * It goes on the place and never on the quest, because the place is where it
+ * lands. "The Deathstalkers · Undercity" opens Undercity with the map already
+ * unfolded (`?map=1`, components/Dock.tsx) — Tari has no page for a single
+ * quest and must not draw a line that promises one. The map is the honest
+ * answer to "where is this": the room's own plate, with its quest marks on it,
+ * rather than a card that would have to say "somewhere in Undercity".
+ *
+ * Dotted, and ink. A solid rule at this size reads as a spelling mistake, and
+ * the accent on this page is spent on the trainer visit you have not made. */
+.door {
+  text-decoration: underline dotted;
+  text-decoration-color: rgba(242, 240, 234, 0.3);
+  text-underline-offset: 0.22em;
+  transition: text-decoration-color 140ms var(--ease);
+}
+
+.rowLink:hover .door {
+  text-decoration-color: rgba(242, 240, 234, 0.75);
+}
+
+/* A step is a row inside a row: it keeps the chain's own left rule and gains
+   the press. */
+.step.rowLink {
+  border-radius: 0 var(--r-sm) var(--r-sm) 0;
 }
 
 .icon {
@@ -417,6 +552,28 @@
   padding: 0 0.35rem;
   color: var(--mute);
   font: 400 0.74rem / 1.5 var(--app-sans);
+}
+
+/* The trainer's foot carries a hand as well as a sentence, so it becomes a
+   row: the pile first, then the words about it. It wraps rather than squeezes
+   — the sentence names every ability and the pile only shows four. */
+.ahead {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  padding-top: 0.15rem;
+}
+
+.aheadWords {
+  flex: 1 1 14rem;
+}
+
+/* Held back from the visits above it. Those are a night's shopping; this is
+   weather. It keeps its colour — the abilities are real and the game's own
+   icons are how you recognise them — and loses its brightness instead. */
+.aheadHand {
+  opacity: 0.62;
 }
 
 .none {

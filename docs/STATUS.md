@@ -13,7 +13,7 @@ see them. Earlier references to `FOXTON.md` mean `docs/TARI.md`.
 
 ## 0. Latest — the path is built, 2026-08-31
 
-**`/path` exists: the trainer, the chains, the class quests and the letter.**
+**`/campfire` exists: the trainer, the chains, the class quests and the letter.**
 Whelp plz's four reader-facing tabs are one page, per `docs/CARRYOVER.md`
 §The path, which has the rulings and what is still open. The letter moved off
 `/you` and the rail's foot chip is split in two. Data copied from CPLUS into
@@ -36,14 +36,14 @@ awaited before the creator navigates.
 **The addon moved to TA2** (`addon/Tari/`, 0.2.0) with two fields: `L:` the
 quest log in progress and `K:` every talent's rank. Nothing is on CurseForge
 yet so the format was free; the tail is keyed and TA1 strings still read.
-`L:` is what lets `/path` tell a chain you are walking from one you have
+`L:` is what lets `/campfire` tell a chain you are walking from one you have
 never touched. **Kacey's installed copy is older than the repo's** — the
 2026-08-31 string carried no `A:`, `X:`, `Z:`, `H:` or `U:` — so it wants
 reinstalling from `addon/Tari/` before the new fields will appear.
 
 **Not built:** the room's half of the carry-over — the trainer's card inside
 the city room, an attunement step inside the instance room — which needs the
-`room`/`entry` reshape. Every row on `/path` that names a place is already a
+`room`/`entry` reshape. Every row on `/campfire` that names a place is already a
 door into it, so the page does not wait on that.
 
 **Room-telling is paused at 63/79.** `docs/TELLING.md` §8 still has the

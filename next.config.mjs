@@ -82,6 +82,12 @@ export default {
   // The item dictionary is read from disk at runtime; trace it into the route.
   outputFileTracingIncludes: { "/api/items": ["./reference/items.json"] },
   env: { NEXT_PUBLIC_APP_VERSION: version },
+  /* /path was the campfire's address until 2026-08-31 (docs/TARI.md §5). A
+   * bookmark is a promise, so the old name keeps working — permanently,
+   * because the page is not coming back to it. */
+  async redirects() {
+    return [{ source: "/path", destination: "/campfire", permanent: true }];
+  },
   async headers() {
     return [
       { source: "/:path*", headers: SECURITY },

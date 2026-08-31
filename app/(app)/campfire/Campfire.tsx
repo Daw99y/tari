@@ -1,6 +1,6 @@
 "use client";
 
-/* THE PATH. docs/TARI.md §5; docs/CARRYOVER.md.
+/* THE CAMPFIRE. docs/TARI.md §5; docs/CARRYOVER.md.
  *
  * Whelp plz had four tabs about the reader — Journey, Trainer, Attunements,
  * Errands — and each one was a table you were meant to work through. This is
@@ -26,6 +26,7 @@
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 
+import RA, { type RaName } from "@/components/RA";
 import {
   CLASS_NAME,
   START_ROOM,
@@ -47,6 +48,7 @@ import {
   walking,
   type Path as Journey,
   type Training,
+  type TrainSpell,
   type Walk,
 } from "@/lib/journey";
 import { isOn, setMark, useMarks } from "@/lib/marks";
@@ -56,15 +58,20 @@ import { getRoom, roomArt } from "@/lib/rooms";
 import { SPELL_ICONS } from "@/lib/spell-icons";
 import type { WornItem } from "@/lib/worn";
 
-import styles from "./path.module.css";
+import styles from "./campfire.module.css";
 
 const NO_ITEMS: number[] = [];
+
+/* Which visit the reader left open, per character. localStorage rather than a
+   mark: a mark is a fact about the character that follows them to another
+   machine, and this is a fact about a scroll position. */
+const VISIT_KEY = "tari:campfire:visit:";
 
 function icon(stem: string | undefined): string | null {
   return stem ? `https://render.worldofwarcraft.com/us/icons/56/${stem}.jpg` : null;
 }
 
-export default function Path() {
+export default function Campfire() {
   const [me, setMe] = useState<Character | null | undefined>(undefined);
   useEffect(() => setMe(loadCharacter()), []);
 
@@ -129,11 +136,20 @@ export default function Path() {
   );
 
   const [open, setOpen] = useState<string | null>(null);
-  /* WHICH VISIT IS OPEN. Null means the newest one you owe, which is the
-     answer to "what do I buy tonight" and the only visit most readers ever
-     want spelled out. Eight expanded visits is a price list, which is what
-     the old Trainer tab was and why nobody read it. */
+  /* WHICH VISIT IS OPEN, AND IT IS REMEMBERED. Null means the newest one you
+     owe, which is the answer to "what do I buy tonight" and the only visit
+     most readers ever want spelled out. Eight expanded visits is a price
+     list, which is what the old Trainer tab was and why nobody read it.
+     Kacey, 2026-08-31: whichever one you left open comes back with you, so a
+     reader working down an old level is not put back at the newest every
+     time they look at a room. A visit you have since bought is forgotten
+     rather than reopened empty — see `shown` below. */
   const [visit, setVisit] = useState<number | null>(null);
+  useEffect(() => {
+    if (!me) return;
+    const saved = localStorage.getItem(VISIT_KEY + me.key);
+    setVisit(saved === null ? null : Number(saved));
+  }, [me?.key]); // eslint-disable-line react-hooks/exhaustive-deps
   /* THE MADE VISITS ARE FOLDED. An imported level 40 has twenty of them and a
      column of twenty identical ticks reading "Bought" is a filing cabinet.
      They stay reachable — a tick you cannot take back is not a tick — behind
@@ -159,8 +175,16 @@ export default function Path() {
 
   const ranks = journey ? ranksOwed(journey) : 0;
   /* -1 is "the reader shut the one that was open", which is not the same as
-     never having touched it and must not spring back to the default. */
-  const shown = visit ?? journey?.owed.find((v) => v.fresh)?.level ?? -1;
+     never having touched it and must not spring back to the default. A
+     remembered level that is no longer owed — you went and bought it — is
+     dropped, because reopening it would open a visit with nothing under it. */
+  const kept = visit === -1 || journey?.owed.some((v) => v.level === visit) ? visit : null;
+  const shown = kept ?? journey?.owed.find((v) => v.fresh)?.level ?? -1;
+  const openVisit = (level: number) => {
+    const next = shown === level ? -1 : level;
+    setVisit(next);
+    localStorage.setItem(VISIT_KEY + me.key, String(next));
+  };
   const started = journey ? walking(journey) : [];
   const errands = journey?.errands ?? [];
   /* Everything your level has opened, ticked or not — a row that vanished
@@ -171,14 +195,14 @@ export default function Path() {
   const nextErrand = errands.find((e) => !e.open) ?? null;
 
   return (
-    <div className={styles.path}>
+    <div className={styles.campfire}>
       {home ? <img className={styles.art} src={roomArt(home.id)} alt="" /> : null}
       <div className={styles.scrim} />
 
       <div className={styles.page}>
         <header className={styles.head}>
           <p className={styles.eyebrow}>
-            The path · Level {me.level} {CLASS_NAME[me.cls]}
+            Campfire · Level {me.level} {CLASS_NAME[me.cls]}
           </p>
           <h1 className={styles.h1}>What changed</h1>
           <div className={styles.letter}>
@@ -199,7 +223,7 @@ export default function Path() {
           {journey && (journey.visits.length || journey.ahead) ? (
             <section className={`${styles.panel} ${styles.wide}`}>
               <div className={styles.panelHead}>
-                <h2 className={styles.panelName}>At your trainer</h2>
+                <Heading mark="book">At your trainer</Heading>
                 <span className={styles.panelNote}>
                   {ranks ? `${ranks} ${ranks === 1 ? "rank" : "ranks"} · ${money(journey.copper)}` : "up to date"}
                 </span>
@@ -221,7 +245,7 @@ export default function Path() {
                       <button
                         type="button"
                         className={styles.visitWords}
-                        onClick={() => setVisit(shown === v.level ? -1 : v.level)}
+                        onClick={() => openVisit(v.level)}
                         aria-expanded={shown === v.level}
                       >
                         <span className={styles.visitLevel}>
@@ -236,6 +260,7 @@ export default function Path() {
                               }`}
                         </span>
                       </button>
+                      {shown === v.level && !v.done ? null : <Stack spells={v.spells} />}
                       <span className={styles.cost}>{money(v.totalCostCopper)}</span>
                     </div>
 
@@ -272,10 +297,17 @@ export default function Path() {
                 </button>
               ) : null}
 
+              {/* WHAT IS STILL AHEAD OF YOU. The one line on the page about a
+                  level you have not reached, so it gets the hand too — dimmer
+                  than the visits you could walk in and buy tonight, because
+                  the gold is not the thing standing between you and it. */}
               {journey.ahead ? (
-                <p className={styles.foot}>
-                  At {journey.ahead.level}, {journey.ahead.spells.length} more —{" "}
-                  {journey.ahead.spells.map((s) => s.name).join(", ")}.
+                <p className={`${styles.foot} ${styles.ahead}`}>
+                  <Stack spells={journey.ahead.spells} className={styles.aheadHand} />
+                  <span className={styles.aheadWords}>
+                    At {journey.ahead.level}, {journey.ahead.spells.length} more —{" "}
+                    {journey.ahead.spells.map((sp) => sp.name).join(", ")}.
+                  </span>
                 </p>
               ) : null}
             </section>
@@ -285,7 +317,7 @@ export default function Path() {
           {journey?.chains.length ? (
             <section className={styles.panel}>
               <div className={styles.panelHead}>
-                <h2 className={styles.panelName}>The long chains</h2>
+                <Heading mark="chain">The long chains</Heading>
                 <span className={styles.panelNote}>
                   {started.length ? `${started.length} part-finished` : `${journey.chains.length} in all`}
                 </span>
@@ -309,7 +341,7 @@ export default function Path() {
           {reached.length || nextErrand ? (
             <section className={styles.panel}>
               <div className={styles.panelHead}>
-                <h2 className={styles.panelName}>Your own quests</h2>
+                <Heading mark="scroll-unfurled">Your own quests</Heading>
                 <span className={styles.panelNote}>
                   {openErrands.length ? `${openErrands.length} open` : "none open"}
                 </span>
@@ -336,7 +368,12 @@ export default function Path() {
                         <span className={styles.name}>{e.name}</span>
                         <span className={styles.line}>
                           Level {e.level}
-                          {where ? ` · ${where}` : ""}
+                          {where ? (
+                            <>
+                              {" · "}
+                              <span className={room ? styles.door : undefined}>{where}</span>
+                            </>
+                          ) : null}
                           {e.reward ? ` · ${e.reward}` : ""}
                         </span>
                       </span>
@@ -347,7 +384,7 @@ export default function Path() {
                   return (
                     <li key={e.questId}>
                       {room ? (
-                        <Link href={`/r/${room}`} className={`${cls} ${styles.rowLink}`}>
+                        <Link href={`/r/${room}?map=1`} className={`${cls} ${styles.rowLink}`}>
                           {body}
                         </Link>
                       ) : (
@@ -365,7 +402,7 @@ export default function Path() {
           {journey?.fading.length ? (
             <section className={styles.panel}>
               <div className={styles.panelHead}>
-                <h2 className={styles.panelName}>About to stop paying</h2>
+                <Heading mark="hourglass">About to stop paying</Heading>
                 <span className={styles.panelNote}>within two levels</span>
               </div>
               <ul className={styles.list}>
@@ -374,7 +411,9 @@ export default function Path() {
                     <>
                       <span className={styles.icon} />
                       <span className={styles.words}>
-                        <span className={styles.name}>{f.zone}</span>
+                        <span className={styles.name}>
+                          <span className={f.room ? styles.door : undefined}>{f.zone}</span>
+                        </span>
                         <span className={styles.line}>
                           {f.questCount} {f.questCount === 1 ? "quest" : "quests"} ·{" "}
                           {f.inLevels === 0 ? "greys out now" : `greys out at ${f.top + 1}`}
@@ -385,7 +424,7 @@ export default function Path() {
                   return (
                     <li key={f.zone}>
                       {f.room ? (
-                        <Link href={`/r/${f.room}`} className={`${styles.row} ${styles.rowLink}`}>
+                        <Link href={`/r/${f.room}?map=1`} className={`${styles.row} ${styles.rowLink}`}>
                           {body}
                         </Link>
                       ) : (
@@ -402,7 +441,7 @@ export default function Path() {
           {journey?.milestones.length ? (
             <section className={styles.panel}>
               <div className={styles.panelHead}>
-                <h2 className={styles.panelName}>Your trades</h2>
+                <Heading mark="anvil">Your trades</Heading>
                 <span className={styles.panelNote}>next threshold</span>
               </div>
               <ul className={styles.list}>
@@ -434,8 +473,57 @@ export default function Path() {
   );
 }
 
+/* WHAT IS UNDER A SHUT VISIT. "3 abilities" is a count, and a count is the
+   one thing about a trainer visit nobody is deciding on — you are deciding
+   whether tonight's gold buys anything you want. So the row carries the
+   things themselves: the game's own icons, dealt like a hand of cards and
+   falling away to the right, which is how you already know there are more
+   than the four you can see. Four is the cap because five is a texture.
+
+   They go when the visit opens, because the full rows are then saying the
+   same thing louder and with names on. A bought visit never opens, so it
+   keeps its hand for good — greyed, because it is a record of what you own
+   rather than a list of what tonight's gold buys (campfire.module.css). */
+function Stack({ spells, className }: { spells: TrainSpell[]; className?: string }) {
+  return (
+    <span className={className ? `${styles.stack} ${className}` : styles.stack} aria-hidden="true">
+      {spells.slice(0, 4).map((s) => {
+        const src = icon(SPELL_ICONS[s.spellId]);
+        return src ? (
+          <img key={s.spellId} className={styles.chip} src={src} alt="" loading="lazy" />
+        ) : (
+          <span key={s.spellId} className={styles.chip} />
+        );
+      })}
+    </span>
+  );
+}
+
+/* A PANEL'S NAME, WITH ITS MARK. Five panels of news, each one a heading and
+   a list, and at a glance they were five paragraphs of the same weight. The
+   mark is what tells them apart before the word is read: a chain for the
+   chains, an hourglass for the zones running out of quests you can still be
+   paid for. They are lit the campfire's own green, held back from full so
+   the trainer visit you have not made is still the loudest thing on the
+   page (campfire.module.css). */
+function Heading({ mark, children }: { mark: RaName; children: string }) {
+  return (
+    <span className={styles.panelTitle}>
+      <RA name={mark} className={styles.panelMark} />
+      <h2 className={styles.panelName}>{children}</h2>
+    </span>
+  );
+}
+
 /* A chain, shut. Pressing it opens the steps, and a step is the only thing in
-   here you tick one at a time — a chain is walked, not bought. */
+   here you tick one at a time — a chain is walked, not bought.
+
+   A STEP IS A DOOR TOO. Every place the pipeline names is a room Tari draws
+   (lib/journey.ts, roomOf), so a step that says "Blackrock Depths" opens it
+   with the map unfolded, the same way the class quests above do. The place
+   wears the door mark and the whole row is the press — the tick stays a tick,
+   and swallows its own click so ticking a step never walks you out of the
+   panel. */
 function Chain({
   walk,
   open,
@@ -481,12 +569,16 @@ function Chain({
           {walk.chain.steps.map((s) => {
             const on = ticked(questMark(s.questId));
             const where = s.startZone ?? s.startInstance;
-            return (
-              <li key={s.questId} className={`${styles.step} ${on ? styles.spent : ""}`}>
+            const room = roomOf(where);
+            const body = (
+              <>
                 <button
                   type="button"
                   className={`${styles.tick} ${on ? styles.tickOn : ""}`}
-                  onClick={() => tick(questMark(s.questId))}
+                  onClick={(ev) => {
+                    ev.preventDefault();
+                    tick(questMark(s.questId));
+                  }}
                   aria-label={`Mark ${s.name} as done`}
                   aria-pressed={on}
                 >
@@ -494,11 +586,27 @@ function Chain({
                 </button>
                 <span className={styles.words}>
                   <span className={styles.name}>{s.name}</span>
-                  {where ? <span className={styles.line}>{where}</span> : null}
+                  {where ? (
+                    <span className={styles.line}>
+                      <span className={room ? styles.door : undefined}>{where}</span>
+                    </span>
+                  ) : null}
                 </span>
                 {!on && s.questId === walk.next?.questId && walk.started ? (
                   <span className={styles.held}>In your log</span>
                 ) : null}
+              </>
+            );
+            const cls = `${styles.step} ${on ? styles.spent : ""}`;
+            return (
+              <li key={s.questId}>
+                {room ? (
+                  <Link href={`/r/${room}?map=1`} className={`${cls} ${styles.rowLink}`}>
+                    {body}
+                  </Link>
+                ) : (
+                  <span className={cls}>{body}</span>
+                )}
               </li>
             );
           })}

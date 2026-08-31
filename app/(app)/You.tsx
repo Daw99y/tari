@@ -22,6 +22,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
+import RA from "@/components/RA";
 import {
   CLASS_NAME,
   RACE_NAME,
@@ -44,24 +45,6 @@ function Clyde() {
         fill="currentColor"
         d="M107.7 8.07A105.15 105.15 0 0 0 81.47 0a72.06 72.06 0 0 0-3.36 6.83 97.68 97.68 0 0 0-29.11 0A72.37 72.37 0 0 0 45.64 0a105.89 105.89 0 0 0-26.25 8.09C2.79 32.65-1.71 56.6.54 80.21A105.73 105.73 0 0 0 32.71 96.36a77.7 77.7 0 0 0 6.89-11.11 68.42 68.42 0 0 1-10.85-5.18c.91-.66 1.8-1.34 2.66-2a75.57 75.57 0 0 0 64.32 0c.87.71 1.76 1.39 2.66 2a68.68 68.68 0 0 1-10.87 5.19 77 77 0 0 0 6.89 11.1 105.25 105.25 0 0 0 32.19-16.14c2.64-27.38-4.51-51.11-18.9-72.15ZM42.45 65.69C36.18 65.69 31 60 31 53s5-12.74 11.43-12.74S54 46 53.89 53s-5.05 12.69-11.44 12.69Zm42.24 0C78.41 65.69 73.25 60 73.25 53s5-12.74 11.44-12.74S96.23 46 96.12 53s-5.04 12.69-11.43 12.69Z"
       />
-    </svg>
-  );
-}
-
-/* The path's own mark: a trail bending away, and the reader standing on it.
-   Drawn rather than borrowed — nothing in the client means "the road you are
-   on", and a footprint would have been a metaphor about walking. */
-function Trail() {
-  return (
-    <svg className={styles.meTrail} viewBox="0 0 20 20" fill="none" aria-hidden="true" focusable="false">
-      <path
-        d="M5.5 17.5c0-3.2 3-4 5-5.2 2-1.2 3.2-2.3 3.2-4.1 0-2-1.6-3.4-3.6-3.4-1.9 0-3.3 1.1-3.3 2.6"
-        stroke="currentColor"
-        strokeWidth="1.6"
-        strokeLinecap="round"
-        strokeDasharray="0.1 3.4"
-      />
-      <circle cx="5.5" cy="17.5" r="1.7" fill="currentColor" />
     </svg>
   );
 }
@@ -120,14 +103,14 @@ export default function You({
               questions about one character and the rail has room for one
               thing at its foot. */}
           <Link
-            href="/path"
+            href="/campfire"
             className={styles.mePath}
-            data-on={pathname === "/path" ? "" : undefined}
+            data-on={pathname === "/campfire" ? "" : undefined}
             style={{ ["--cls" as string]: CLASS_COLOR[me.cls] }}
           >
-            <Trail />
+            <RA name="campfire" className={styles.meFire} />
             <span className={styles.meWords}>
-              <span className={styles.mePathName}>The path</span>
+              <span className={styles.mePathName}>Campfire</span>
               <span className={styles.meLine}>What changed</span>
             </span>
           </Link>
