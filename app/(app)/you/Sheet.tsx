@@ -21,11 +21,18 @@
  *
  * THE ARROW ONLY STANDS WHERE THERE IS AN ANSWER. It is the summons' own
  * green arrow (components/UpArrow.tsx), which means one thing everywhere in
- * the app — "better than what you have, here". A slot that is behind and
- * that no room in your window answers gets nothing, because an arrow that
- * opened an empty list would be the app pointing at a door with no room
- * behind it. /campfire's letter still counts every behind slot, which is why the
- * arrows here can be fewer than the number it says there.
+ * the app — "there is gear for this, here". A slot no room in your window
+ * answers gets nothing, because an arrow that opened an empty list would be
+ * the app pointing at a door with no room behind it. /campfire's letter counts
+ * only the slots the level has actually left behind, which is why it can say
+ * less than the arrows here show.
+ *
+ * AND IT ASKS THE RAIL'S QUESTION. Kacey, 2026-08-31: the arrow used to stand
+ * only on slots that were old or empty, so a rail full of green counts sat
+ * beside a paperdoll with nothing on it. Both surfaces run one filter now
+ * (lib/path.ts, readPath) — anything the rail counts for a zone can be
+ * reached from the slot it fills. The panel's heading carries the difference
+ * the arrow no longer does: "Fills in", "Better in", or "Also in".
  *
  * IT DOES NOT WAIT FOR AN IMPORT. A made body wears nothing, and nothing is
  * behind everything — sixteen arrows is the honest answer to a naked level
@@ -73,6 +80,7 @@ import {
   trades,
   type Character,
 } from "@/lib/character";
+import { ItemHover } from "@/components/ItemTooltip";
 import SlotGlyph from "@/components/SlotGlyph";
 import UpArrow from "@/components/UpArrow";
 import { QUALITY } from "@/lib/doll";
@@ -80,7 +88,7 @@ import type { ClassId } from "@/lib/loot";
 import { isOn, setMark, useMarks } from "@/lib/marks";
 import { offeredIn, readPath, type BehindSlot } from "@/lib/path";
 import { clearSlot, overlay, planKey, planSlot, plannedAt } from "@/lib/plan";
-import { rowFromPlate, rowFromWardrobe, type RowItem } from "@/lib/plate-item";
+import { plateItem, rowFromPlate, rowFromWardrobe, type RowItem } from "@/lib/plate-item";
 import { getRoom, roomArt } from "@/lib/rooms";
 import { DEFAULT_LOOK, useBody } from "@/lib/use-body";
 import { heldGear, itemsByEntry, TWO_HANDED, type Item as WardrobeItem } from "@/lib/wardrobe";
@@ -216,6 +224,9 @@ export default function Sheet() {
       label: at === 17 ? thirdSlot(me.cls) : GEAR_SLOTS[at],
       item: row,
       itemId,
+      /* The dictionary row for what is worn, so the card can quote the game
+         at the cursor. The sheet already fetched exactly these ids. */
+      worn: itemId ? dict?.[itemId] : undefined,
       planned: plan.has(at),
       behind: behind.get(at)?.rooms.length ? behind.get(at)! : null,
       rooms: open?.at === at && open.kind === "rooms",
@@ -317,6 +328,7 @@ function Slot({
   label,
   item,
   itemId,
+  worn,
   align,
   planned,
   behind,
@@ -338,6 +350,10 @@ function Slot({
   label: string;
   item: RowItem | null;
   itemId: number;
+  /** The dictionary's own fields for what is worn here, once the fetch has
+   *  landed. Absent on an empty slot, and on an id the dictionary has never
+   *  heard of. */
+  worn: WornItem | undefined;
   align?: "right";
   planned: boolean;
   behind: BehindSlot | null;
@@ -429,6 +445,23 @@ function Slot({
     return () => el.removeEventListener("scroll", check);
   }, [rooms]);
 
+  /* The worn item as the tooltip reads it — the dictionary's fields spelled
+     out (lib/plate-item.ts). Null until the sheet's one fetch lands, and on
+     an empty slot, and the card is drawn without a plate either way. */
+  const wornPlate = worn ? plateItem(itemId, worn) : null;
+
+  const card = (
+    <button
+      ref={press}
+      type="button"
+      className={styles.press}
+      aria-expanded={drawer}
+      aria-label={planned ? `${label}: ${item?.name ?? "worn"}, chosen by you — change it` : `${label}: choose what to wear`}
+      onPointerDown={stop}
+      onClick={onDrawer}
+    />
+  );
+
   return (
     <li
       className={styles.slot}
@@ -462,16 +495,28 @@ function Slot({
       </span>
 
       {/* The card is the drawer's press. A slot on a paperdoll means
-          "change this", and now there is something to change it to. */}
-      <button
-        ref={press}
-        type="button"
-        className={styles.press}
-        aria-expanded={drawer}
-        aria-label={planned ? `${label}: ${item?.name ?? "worn"}, chosen by you — change it` : `${label}: choose what to wear`}
-        onPointerDown={stop}
-        onClick={onDrawer}
-      />
+          "change this", and now there is something to change it to.
+
+          AND HOVERING IT ASKS FOR THE PLATE. Kacey, 2026-08-31: the drawer's
+          own rows quote the game at the cursor (Row.tsx) and the paperdoll,
+          which is the one place a reader is actually comparing what they have
+          against what they could have, did not. It could not: the press is
+          absolute and covers the card, so a plate hung on the icon or the
+          name underneath it would never see a pointer. So the press is the
+          trigger.
+
+          `inLink` for the same reason a row's name uses it — hover opens the
+          plate, the click goes on through to the drawer, and the tooltip
+          never steals the press. `quiet` because the sheet holds the
+          dictionary and not the world (lib/plate-item.ts): the game's half of
+          the plate is the half it can honestly quote. */}
+      {wornPlate ? (
+        <ItemHover item={wornPlate} level={level} quiet inLink focusable={false} className={styles.pressHover}>
+          {card}
+        </ItemHover>
+      ) : (
+        card
+      )}
 
       {/* THE SUMMONS, OFF THE CARD. Kacey, 2026-08-26: it stands beside the
           slot as its own object now, and says how many. A mark inside the
@@ -498,7 +543,14 @@ function Slot({
 
       {rooms && behind ? (
         <div className={styles.panel} onPointerDown={stop}>
-          <p className={styles.roomsHead}>{behind.empty ? "Fills in" : "Better in"}</p>
+          {/* Three headings for three true things. Empty: the rooms fill it.
+              Behind: what is in it is older than your level, so the rooms
+              are better. Neither: the rooms have something for this slot and
+              the sheet does not know whose is stronger — "Also in" says that
+              without pretending to a comparison it has not made. */}
+          <p className={styles.roomsHead}>
+            {behind.empty ? "Fills in" : behind.behind ? "Better in" : "Also in"}
+          </p>
           <ul ref={list} className={styles.list} data-more={more ? "" : undefined}>
             {offers.map((g) => (
               <li key={g.room} className={styles.group}>

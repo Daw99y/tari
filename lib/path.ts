@@ -1,9 +1,16 @@
 /**
  * THE PATH. docs/DROPS.md step 6; TARI.md §5.
  *
- * The one question that crosses rooms: which of your slots the level has left
- * behind, and which places answer them. Two surfaces read it — the letter's
- * line on /you, and the quiet mark on the sheet's own slots.
+ * The one question that crosses rooms: which of your slots the world has
+ * something for, and where. Two surfaces read it — the letter's line on
+ * /campfire, and the summons on the sheet's own slots.
+ *
+ * IT ANSWERS SLOTS, IT DOES NOT ONLY ACCUSE THEM. Kacey, 2026-08-31: it used
+ * to speak about behind slots alone, which meant the rail could count eight
+ * things in Loch Modan while the paperdoll beside it showed no arrow at all.
+ * A slot is in the path when the window has gear for it; `behind` is a field
+ * on it rather than the gate, and the letter is the one reader that still
+ * filters on that field.
  *
  * IT NAMES PLACES, IT DOES NOT RANK THEM. §2.1 refuses a ranked catalogue
  * across zones and DROPS.md refuses a wishlist page, so nothing here sorts
@@ -33,11 +40,17 @@ export type Answer = {
   at: number;
 };
 
-/** A slot the level has left behind, and where it fills. */
+/** A slot the world has something for, and where it comes from. */
 export type BehindSlot = {
   /** Index into GEAR_SLOTS — the slot id the sheet draws, minus one. */
   at: number;
   label: string;
+  /**
+   * The level has left this slot behind: empty, or wearing something the
+   * rooms would no longer hand you. The letter counts these and nothing
+   * else. A slot that is not behind can still be here — see readPath.
+   */
+  behind: boolean;
   /** Nothing worn there at all, rather than something old. */
   empty: boolean;
   /** Room ids that answer it, in the rail's order. Possibly none. */
@@ -116,33 +129,49 @@ export function readPath(
      reason — so the sheet does not accuse it. */
   const twoHanded = dict[String(gear[MAIN_HAND] ?? 0)]?.s === "Two-Hand";
 
-  const behind: BehindSlot[] = [];
+  /* Every slot is asked, not only the behind ones. Kacey, 2026-08-31: the
+     rail counts what a zone is holding for you and the sheet counted only
+     the slots you had let go stale, so a reader looking at eight arrows in
+     Loch Modan and none on their own paperdoll was being told two things by
+     one app. The gate on the arrow is now the same gate the rail's badge
+     runs — is there anything in there for this slot — and `behind` stays as
+     a field so the letter can go on counting only what is actually old. */
+  const slots: BehindSlot[] = [];
   for (const at of PATH_SLOTS) {
     if (at === OFF_HAND && twoHanded) continue;
     const id = gear[at] ?? 0;
     const worn = id ? dict[String(id)] : undefined;
     if (id && !worn) continue;
-    if (!isBehind(worn, level)) continue;
-    behind.push({ at, label: GEAR_SLOTS[at], empty: !id, rooms: [], answers: [] });
+    slots.push({
+      at,
+      label: GEAR_SLOTS[at],
+      behind: isBehind(worn, level),
+      empty: !id,
+      rooms: [],
+      answers: [],
+    });
   }
-  if (behind.length === 0) return behind;
+  if (slots.length === 0) return slots;
 
   /* One pass over the world: what each room still has open, as slot bits, and
      the rows themselves so the arrow can show them. */
-  const want = behind.reduce((bits, s) => bits | (FILLS[s.at] ?? 0), 0);
+  const want = slots.reduce((bits, s) => bits | (FILLS[s.at] ?? 0), 0);
   for (const room of RAIL_ORDER) {
     const rows = panelRows(room, cls, level).filter((row) => !found(row[0]));
     let open = 0;
     for (const row of rows) open |= 1 << row[3];
     if (!(open & want)) continue;
-    for (const s of behind) {
+    for (const s of slots) {
       const fills = FILLS[s.at] ?? 0;
       if (!(open & fills)) continue;
       s.rooms.push(room);
       for (const row of rows) if (fills & (1 << row[3])) s.answers.push({ itemId: row[0], room, at: row[1] });
     }
   }
-  return behind;
+
+  /* A slot that is neither behind nor answered by anything is not a fact
+     about anybody — it is the nineteen-row form the sheet already draws. */
+  return slots.filter((s) => s.behind || s.answers.length > 0);
 }
 
 /**
@@ -212,8 +241,12 @@ function names(ids: string[]): string {
  * it — and where two places do that equally, the rail's order picks, because
  * the order you pass through the world is nobody's opinion.
  */
-export function letter(path: BehindSlot[], planned = 0): string[] {
+export function letter(all: BehindSlot[], planned = 0): string[] {
   const yours = planned > 0 ? [`${up(count(planned))} ${planned === 1 ? "slot is" : "slots are"} yours, not the game's.`] : [];
+  /* The path carries every answered slot now, so the letter takes back the
+     ones it was always about: a slot with a current item in it and a room
+     full of alternatives is not a slot the level has left behind. */
+  const path = all.filter((s) => s.behind);
   if (path.length === 0) return yours;
 
   const old = path.filter((s) => !s.empty).length;

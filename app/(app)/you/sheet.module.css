@@ -656,6 +656,17 @@
   position: relative;
 }
 
+/* The plate's trigger, which is the press wearing a second hat. The tooltip
+ * hangs its handlers on a span of its own, so that span has to be the thing
+ * the pointer meets — it takes the press's old geometry and the press fills
+ * it. Nothing is drawn here: it is a hit area with a button in it. */
+.pressHover {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: inherit;
+}
+
 /* The whole card is the press, so the mark does not have to be a target. */
 .press {
   position: absolute;
