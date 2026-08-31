@@ -1,0 +1,217 @@
+{
+  "room": "western-plaguelands",
+  "sources": [
+    "https://warcraft.wiki.gg/wiki/Western_Plaguelands",
+    "https://warcraft.wiki.gg/wiki/Andorhal",
+    "https://warcraft.wiki.gg/wiki/Ruins_of_Andorhal",
+    "https://warcraft.wiki.gg/wiki/Dalson%27s_Tears",
+    "https://warcraft.wiki.gg/wiki/Plague_cauldron",
+    "https://warcraft.wiki.gg/wiki/Sorrow_Hill",
+    "https://warcraft.wiki.gg/wiki/Uther%27s_Tomb",
+    "https://warcraft.wiki.gg/wiki/Caer_Darrow",
+    "https://warcraft.wiki.gg/wiki/Spectral_Essence",
+    "https://warcraft.wiki.gg/wiki/Scholomance",
+    "https://warcraft.wiki.gg/wiki/Hearthglen",
+    "https://warcraft.wiki.gg/wiki/Tirion_Fordring",
+    "https://warcraft.wiki.gg/wiki/Northridge_Lumber_Camp"
+  ],
+  "roadEnds": [
+    "The Bulwark",
+    "The Thondroril River"
+  ],
+  "seedWho": "Tari",
+  "cards": [
+    {
+      "id": "the-granary",
+      "kind": "before",
+      "form": "title",
+      "subject": "Lordaeron's granary",
+      "tag": "Before",
+      "lines": [
+        "Andorhal was the distribution centre for all agricultural supply in the northern provinces. Hearthglen was the seat of regional government.",
+        "The Cult of the Damned did not invade this place. They poisoned the grain and let the carts do the rest."
+      ],
+      "spoiler": false
+    },
+    {
+      "id": "the-cauldrons",
+      "kind": "story",
+      "form": "chip",
+      "subject": "The four cauldrons",
+      "tag": "One per farmstead",
+      "lines": [
+        "Felstone, Dalson's, Gahrron's and the Writhing Haunt. Four cauldrons, four Cauldron Lords, each brewing a different mix.",
+        "The Argent Dawn's plan is not to smash them. You sample each one and re-dose it — turn the plague on the Scourge.",
+        "You poison the poison."
+      ],
+      "spoiler": false,
+      "t": 0.08,
+      "icon": "the-cauldrons"
+    },
+    {
+      "id": "dalsons-outhouse",
+      "kind": "look",
+      "form": "chip",
+      "subject": "Farmer Dalson's outhouse",
+      "tag": "Dalson's Tears",
+      "lines": [
+        "Dalson did not die in his fields. He turned, and got shut in his own outhouse, and he is still in there.",
+        "Mrs. Dalson wanders the farm as a skeleton. Her diary in the house holds the key to the door.",
+        "The subzone's real name here is Dalson's Tears. Cataclysm flattened it to Dalson's Farm."
+      ],
+      "spoiler": false,
+      "t": 0.16,
+      "icon": "dalsons-outhouse"
+    },
+    {
+      "id": "three-oclock",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "Every watch stopped at three",
+      "tag": "Ruins of Andorhal",
+      "lines": [
+        "The clock on the ruined town hall is frozen at three. So is every pocket watch in the lockboxes out in the rubble.",
+        "Chromie — a bronze dragon wearing a gnome — is the one who notices, and points at parasites nesting in the grain silos.",
+        "Something tried to edit this city out of the timeline."
+      ],
+      "spoiler": false,
+      "t": 0.24,
+      "icon": "three-oclock"
+    },
+    {
+      "id": "outdoor-dungeon",
+      "kind": "before",
+      "form": "chip",
+      "subject": "Andorhal was built as an outdoor dungeon",
+      "tag": "Cut down before launch",
+      "lines": [
+        "In beta the ruins were walled and everything inside them was elite — an open-air instance, and among the hardest content in the game.",
+        "The walls came down, the buildings were scattered and the spawns thinned.",
+        "Araj the Summoner, still elite in the middle of it, is what is left of the original."
+      ],
+      "spoiler": false,
+      "t": 0.3,
+      "icon": "outdoor-dungeon"
+    },
+    {
+      "id": "uthers-tomb",
+      "kind": "look",
+      "form": "chip",
+      "subject": "Uther's Tomb",
+      "tag": "Sorrow Hill",
+      "lines": [
+        "Survivors carried his torn body up the cemetery hill and built over it. The ground is still consecrated, and both factions can stand on it.",
+        "The epitaph ends: \"so long as we honor his example, it shall never fade. — Anonymous.\"",
+        "Nobody signed it."
+      ],
+      "spoiler": false,
+      "t": 0.38,
+      "icon": "uthers-tomb"
+    },
+    {
+      "id": "sorrow-hill",
+      "kind": "story",
+      "form": "chip",
+      "subject": "It was just a cemetery",
+      "tag": "Sorrow Hill",
+      "lines": [
+        "Andorhal's graveyard, rich in crypts and poor in plots. Then the defence killed people faster than anyone could bury them.",
+        "South of the cemetery is a mass grave where the living burned their own dead — not for hygiene, out of fear.",
+        "Then the cauldrons started and all of it got back up."
+      ],
+      "spoiler": false,
+      "t": 0.44,
+      "icon": "sorrow-hill"
+    },
+    {
+      "id": "spectral-essence",
+      "kind": "look",
+      "form": "chip",
+      "subject": "You cannot see the village",
+      "tag": "Caer Darrow",
+      "lines": [
+        "The island looks like bare ruins and hostile undead. A whole village of ghosts is standing on it and you need a trinket to see them.",
+        "The Spectral Essence comes off a Scholomance chain. Thirteen spirits appear: a magistrate, a baker, guardsmen.",
+        "One of them is a dead man who sells recipes. Deleted in 4.0.3a."
+      ],
+      "spoiler": false,
+      "t": 0.54,
+      "icon": "spectral-essence"
+    },
+    {
+      "id": "the-barovs",
+      "kind": "story",
+      "form": "chip",
+      "subject": "A school under the lake",
+      "tag": "Caer Darrow",
+      "lines": [
+        "The Barov family lived in the keep, wanted to live forever, and signed with Kel'Thuzad. Their catacombs became a necromancy school.",
+        "A different plague — before the Scourge's — killed everyone on the island inside six months.",
+        "The family's own servants were the raw material. That was the tuition."
+      ],
+      "spoiler": false,
+      "t": 0.62,
+      "icon": "the-barovs"
+    },
+    {
+      "id": "hearthglen",
+      "kind": "beware",
+      "form": "chip",
+      "subject": "The green corner",
+      "tag": "Hearthglen",
+      "lines": [
+        "Walk north-east far enough and the grass comes back. Actual trees, a working lumber mill, a mine, walls that held.",
+        "They held because the Scourge was beaten off them during the Scourging.",
+        "The Scarlet Crusade holds it now, out of Mardenholde Keep. In vanilla it is a place you look at from the ridge."
+      ],
+      "spoiler": false,
+      "t": 0.78,
+      "icon": "hearthglen"
+    },
+    {
+      "id": "tirion",
+      "kind": "story",
+      "form": "chip",
+      "subject": "The man who spared an orc",
+      "tag": "Tirion Fordring",
+      "lines": [
+        "He owned that keep. He found an old orc hiding nearby and refused to hand him over, so Lordaeron tried him, stripped his powers and exiled him.",
+        "In 1.12 he is a hermit in a hut by the river. Not Highlord, no Ashbringer, nothing.",
+        "His wife told their son his father was dead."
+      ],
+      "spoiler": false,
+      "t": 0.86,
+      "icon": "tirion"
+    },
+    {
+      "id": "in-dreams",
+      "kind": "story",
+      "form": "grave",
+      "subject": "In Dreams",
+      "tag": "Hearthglen",
+      "lines": [
+        "The son grew up to command the Scarlet Crusade here. Tirion sends you in disguise with three objects to remind Taelan who he is.",
+        "It works. He renounces the Crusade at the gate.",
+        "Grand Inquisitor Isillien kills him in the road for it, in front of his father."
+      ],
+      "spoiler": true,
+      "t": 0.94,
+      "icon": "in-dreams"
+    },
+    {
+      "id": "termites",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "The termites",
+      "tag": "Northridge Lumber Camp",
+      "lines": [
+        "The Scarlet Crusade runs a working sawmill up here, cutting the last unblighted timber in the zone.",
+        "Both factions send you to do the same thing about it: collect termites, and let them into the lumber pile.",
+        "The pettiest act of war in the Plaguelands, and both sides thought of it alone."
+      ],
+      "spoiler": false,
+      "t": 1.0,
+      "icon": "termites"
+    }
+  ]
+}

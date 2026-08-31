@@ -1,0 +1,217 @@
+{
+  "room": "winterspring",
+  "sources": [
+    "https://warcraft.wiki.gg/wiki/Winterspring",
+    "https://warcraft.wiki.gg/wiki/Lake_Kel%27Theril",
+    "https://warcraft.wiki.gg/wiki/Crystal_of_Zin-Malor",
+    "https://warcraft.wiki.gg/wiki/Winterfall_Firewater",
+    "https://warcraft.wiki.gg/wiki/Timbermaw_Post",
+    "https://warcraft.wiki.gg/wiki/Wintersaber_Trainers",
+    "https://warcraft.wiki.gg/wiki/Frostsaber_Rock",
+    "https://warcraft.wiki.gg/wiki/Everlook",
+    "https://warcraft.wiki.gg/wiki/Frostfire_Hot_Springs",
+    "https://warcraft.wiki.gg/wiki/Lorax",
+    "https://warcraft.wiki.gg/wiki/Haleh",
+    "https://warcraft.wiki.gg/wiki/Mazthoril",
+    "https://warcraft.wiki.gg/wiki/Darkwhisper_Gorge",
+    "https://warcraft.wiki.gg/wiki/Ice_Thistle_Hills"
+  ],
+  "roadEnds": [
+    "The Timbermaw tunnel",
+    "Darkwhisper Gorge"
+  ],
+  "seedWho": "Tari",
+  "cards": [
+    {
+      "id": "kel-theril",
+      "kind": "before",
+      "form": "title",
+      "subject": "Kel'Theril",
+      "tag": "Before",
+      "lines": [
+        "A Highborne city. Its people stole the Crystal of Zin-Malor from Azshara, played with it, and shattered it — and the shattering cursed them.",
+        "The Sundering dropped what was left under water and the water froze. When you walk out onto that ice you are standing on a roof."
+      ],
+      "spoiler": false
+    },
+    {
+      "id": "twice",
+      "kind": "story",
+      "form": "chip",
+      "subject": "It happened twice",
+      "tag": "Lake Kel'Theril",
+      "lines": [
+        "About a century before the game, high elves came down from Quel'Thalas looking for the crystal's shards.",
+        "They are ghosts in the same ruins now.",
+        "Two sets of dead elves, ten thousand years apart, same mistake, same ice."
+      ],
+      "spoiler": false,
+      "t": 0.08,
+      "icon": "twice"
+    },
+    {
+      "id": "firewater",
+      "kind": "story",
+      "form": "chip",
+      "subject": "The furbolgs are drugged",
+      "tag": "Winterfall Firewater",
+      "lines": [
+        "A satyr brewed it out of corrupted Felwood matter and gave it to the Winterfall for exactly this reason. It is addictive and it makes them paranoid.",
+        "Players farmed the bottles as a cheap attack power buff.",
+        "What you get out of one is half what they get."
+      ],
+      "spoiler": false,
+      "t": 0.16,
+      "icon": "firewater"
+    },
+    {
+      "id": "timbermaw-post",
+      "kind": "story",
+      "form": "chip",
+      "subject": "Timbermaw Post",
+      "tag": "No Timbermaw in it",
+      "lines": [
+        "The camp on the road west of the lake is named for the friendly furbolgs, and it is held by the corrupted Winterfall, who took it.",
+        "The name is the only thing left of who lived there.",
+        "The corruption in this zone is not finished. It is still moving."
+      ],
+      "spoiler": false,
+      "t": 0.24,
+      "icon": "timbermaw-post"
+    },
+    {
+      "id": "the-cat",
+      "kind": "beware",
+      "form": "chip",
+      "subject": "Two exalted grinds for one cat",
+      "tag": "Wintersaber Trainers",
+      "lines": [
+        "Rivern Frostwind sits on top of Frostsaber Rock and will not sell you one until you are Exalted. Then he charges a hundred gold.",
+        "Anyone who is not a night elf needs Exalted with Darnassus for the riding skill on top of that.",
+        "It is hundreds of runs, and it is the most notorious grind in the game."
+      ],
+      "spoiler": false,
+      "t": 0.32,
+      "icon": "the-cat"
+    },
+    {
+      "id": "the-loop",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "The grind runs on the drug",
+      "tag": "What the repeatables are",
+      "lines": [
+        "The quests that buy the cat are meat runs and Winterfall killing — and the firewater comes off the same furbolgs.",
+        "You clear out a tribe somebody else poisoned in order to be sold a cat."
+      ],
+      "spoiler": false,
+      "t": 0.4,
+      "icon": "the-loop"
+    },
+    {
+      "id": "everlook",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "Everlook has nobody in charge",
+      "tag": "The only goblin town without a boss",
+      "lines": [
+        "Ratchet, Gadgetzan and Booty Bay each have a named goblin running them. Everlook does not, and the wiki can only guess at who it might be.",
+        "The goblins are up here for the last untapped thorium and arcanite on the continent.",
+        "Neutrality is the price of the ore."
+      ],
+      "spoiler": false,
+      "t": 0.48,
+      "icon": "everlook"
+    },
+    {
+      "id": "hot-springs",
+      "kind": "look",
+      "form": "chip",
+      "subject": "Steam in a zone that never thaws",
+      "tag": "Frostfire Hot Springs",
+      "lines": [
+        "Donova Snowden camps beside boiling pools in the far west of a permanently frozen zone and cannot explain them.",
+        "Her working theory is demonic bleed-through from Darkwhisper Gorge, right across the map.",
+        "Water from these pools is what purifies the firewater."
+      ],
+      "spoiler": false,
+      "t": 0.56,
+      "icon": "hot-springs"
+    },
+    {
+      "id": "the-lorax",
+      "kind": "look",
+      "form": "chip",
+      "subject": "A satyr who will talk to you",
+      "tag": "The Lorax",
+      "lines": [
+        "Neutral to both factions, standing at the night elf temple ruins, handing out blacksmithing quests — in a game where satyrs are otherwise always hostile.",
+        "He speaks Eredun at you unprompted: \"Aman asj ze sorankar, karkun.\"",
+        "He is named after the Dr. Seuss character."
+      ],
+      "spoiler": false,
+      "t": 0.64,
+      "icon": "the-lorax"
+    },
+    {
+      "id": "haleh",
+      "kind": "story",
+      "form": "grave",
+      "subject": "Onyxia's key ends in a cave up here",
+      "tag": "Mazthoril",
+      "lines": [
+        "You cannot walk to Haleh. You step onto a portal rune on the floor at the deepest point of the cave and it takes you to her.",
+        "She is Malygos's consort, and the first consort ever to outlive an Aspect.",
+        "The Alliance side of the Drakefire Amulet finishes with her."
+      ],
+      "spoiler": true,
+      "t": 0.72,
+      "icon": "haleh"
+    },
+    {
+      "id": "darkwhisper",
+      "kind": "beware",
+      "form": "chip",
+      "subject": "Darkwhisper Gorge",
+      "tag": "The Legion, not the cult",
+      "lines": [
+        "Demons that survived Archimonde's defeat at Hyjal retreated down the ravine in the far east and are still in it.",
+        "The Twilight's Hammer only take the gorge in Cataclysm. In here it is the Burning Legion.",
+        "Elite, five-man difficulty, outdoors, with no instance portal anywhere."
+      ],
+      "spoiler": false,
+      "t": 0.8,
+      "icon": "darkwhisper"
+    },
+    {
+      "id": "elementium",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "Thunderfury's smelter lives among them",
+      "tag": "Smelt Elementium",
+      "lines": [
+        "The high elf who teaches the skill stands inside Darkwhisper Gorge, in the middle of the demons.",
+        "Every Thunderfury in vanilla came through this spot.",
+        "So did the warlocks and priests farming the gorge for their epic chains."
+      ],
+      "spoiler": false,
+      "t": 0.88,
+      "icon": "elementium"
+    },
+    {
+      "id": "black-lotus",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "The yetis were incidental",
+      "tag": "Ice Thistle Hills",
+      "lines": [
+        "The cave south-east of Everlook had thorium inside it and one of vanilla's Black Lotus spawn points at its mouth.",
+        "That herb gated every raid flask on the server.",
+        "People did not camp this cave for the yetis."
+      ],
+      "spoiler": false,
+      "t": 1.0,
+      "icon": "black-lotus"
+    }
+  ]
+}

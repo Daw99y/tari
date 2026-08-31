@@ -1,0 +1,209 @@
+{
+  "room": "deadwind-pass",
+  "sources": [
+    "https://warcraft.wiki.gg/wiki/Deadwind_Pass",
+    "https://warcraft.wiki.gg/wiki/Deadwind_Pass_quests",
+    "https://warcraft.wiki.gg/wiki/Karazhan",
+    "https://warcraft.wiki.gg/wiki/Forgotten_Crypt",
+    "https://warcraft.wiki.gg/wiki/Morgan%27s_Plot",
+    "https://warcraft.wiki.gg/wiki/Upside-down_Sinners",
+    "https://warcraft.wiki.gg/wiki/Deadwind_ogre",
+    "https://warcraft.wiki.gg/wiki/Ariden"
+  ],
+  "roadEnds": [
+    "The Duskwood border",
+    "The Swamp of Sorrows border"
+  ],
+  "seedWho": "Tari",
+  "cards": [
+    {
+      "id": "the-forgotten-crypt",
+      "kind": "before",
+      "form": "title",
+      "subject": "The Forgotten Crypt",
+      "tag": "Before",
+      "lines": [
+        "There is a finished-looking dungeon under the churchyard behind Karazhan. It was present at launch and shut for years.",
+        "The level designer who built it, John Staats: \"Additional quest areas. It turned out we didn't need them so I never finished them.\""
+      ],
+      "spoiler": false
+    },
+    {
+      "id": "no-quests",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "There are no quests here",
+      "tag": "None. At all.",
+      "lines": [
+        "The wiki is flat about it: in the original World of Warcraft, Deadwind Pass had no quests whatsoever.",
+        "Every quest this zone has ever had arrived with Burning Crusade or later."
+      ],
+      "spoiler": false,
+      "t": 0.08,
+      "icon": "no-quests"
+    },
+    {
+      "id": "nobody-home",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "And nobody to talk to",
+      "tag": "Zero friendly NPCs",
+      "lines": [
+        "The friendly characters the wiki lists here are all Violet Eye, and they arrive with the raid.",
+        "There is no flight master either — you rely on Darkshire or Stonard.",
+        "You cannot fly in, fly out, sleep, sell, repair or speak to a soul."
+      ],
+      "spoiler": false,
+      "t": 0.16,
+      "icon": "nobody-home"
+    },
+    {
+      "id": "the-corridor",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "The only road",
+      "tag": "Duskwood to the Swamp",
+      "lines": [
+        "The land bridge east out of Duskwood, and the only overland way toward the Dark Portal.",
+        "With no flight path in the zone, everybody who crosses it walks it.",
+        "It is a corridor with a locked building in the middle."
+      ],
+      "spoiler": false,
+      "t": 0.24,
+      "icon": "the-corridor"
+    },
+    {
+      "id": "no-door",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "The tower has no door that works",
+      "tag": "Karazhan, 1.12",
+      "lines": [
+        "It is a world model. You can walk to it and all the way around it. There is no portal, no lockout, no inside.",
+        "The raid is two years away.",
+        "The lore reason is that after Medivh was killed the tower sealed itself off from the world."
+      ],
+      "spoiler": false,
+      "t": 0.32,
+      "icon": "no-door"
+    },
+    {
+      "id": "aegwynn",
+      "kind": "story",
+      "form": "chip",
+      "subject": "A woman built it",
+      "tag": "Aegwynn",
+      "lines": [
+        "The Guardian raised Karazhan on a nexus of ley lines six hundred years before the First War, as a refuge from the Council and a conduit for the lines.",
+        "Her son Medivh inherited it, was possessed by Sargeras, and opened the Dark Portal from inside it.",
+        "All of that is in the game. None of it is in this zone."
+      ],
+      "spoiler": false,
+      "t": 0.4,
+      "icon": "aegwynn"
+    },
+    {
+      "id": "the-blight",
+      "kind": "look",
+      "form": "chip",
+      "subject": "The land is dead because the man died",
+      "tag": "Why the sky is grey",
+      "lines": [
+        "Fel energy came out of Medivh's body when he was killed and blighted everything around it.",
+        "Trees \"reduced to withered husks\", marshes \"a desiccated waste\", and the sky \"a sepulchral gray with the sun covered in a burial shroud\".",
+        "The weather is only ever storming or about to."
+      ],
+      "spoiler": false,
+      "t": 0.48,
+      "icon": "the-blight"
+    },
+    {
+      "id": "morgans-plot",
+      "kind": "look",
+      "form": "chip",
+      "subject": "Walk round the back",
+      "tag": "Morgan's Plot",
+      "lines": [
+        "The crypt door is in the cemetery behind the tower — a small decrepit church, a graveyard, a gate.",
+        "It is right there, at eye level, and it is shut.",
+        "Nothing in the zone tells you what is behind it."
+      ],
+      "spoiler": false,
+      "t": 0.56,
+      "icon": "morgans-plot"
+    },
+    {
+      "id": "ghost-run",
+      "kind": "story",
+      "form": "grave",
+      "subject": "You could get in by dying",
+      "tag": "The ghost run",
+      "lines": [
+        "The gate turns back living players. It does not turn back spirits.",
+        "For a while you could die next to it and walk through as a ghost.",
+        "Blocked in Burning Crusade. Whether it works on any given server is a server question."
+      ],
+      "spoiler": true,
+      "t": 0.64,
+      "icon": "ghost-run"
+    },
+    {
+      "id": "sinners",
+      "kind": "story",
+      "form": "grave",
+      "subject": "The room they never showed anyone",
+      "tag": "Upside-down Sinners",
+      "lines": [
+        "One of the unfinished chambers has humans hanging upside down in the water on ropes and chains.",
+        "Everyone assumed it was cut for ratings. Blizzard denied it — \"More likely we just changed our minds.\"",
+        "The subzone names read like a discarded design doc: Pauper's Walk, The Slough of Despair, The Pit of Criminals."
+      ],
+      "spoiler": true,
+      "t": 0.72,
+      "icon": "sinners"
+    },
+    {
+      "id": "the-ogres",
+      "kind": "look",
+      "form": "chip",
+      "subject": "The ogres are here for no reason",
+      "tag": "The Vice",
+      "lines": [
+        "They hold the south of the zone. The wiki, flatly: no quests, and \"no real use other than to farm resources\".",
+        "They are also at war with the zone's giant spiders, and nothing anywhere explains why."
+      ],
+      "spoiler": false,
+      "t": 0.8,
+      "icon": "the-ogres"
+    },
+    {
+      "id": "nothing-grows",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "Nothing grows here",
+      "tag": "No herbs, no ore",
+      "lines": [
+        "\"Barren and devoid of any useful resources — herbs do not grow here, and there are no precious metals to be found.\"",
+        "A zone in the mid-fifties with no gathering nodes in it at all is very close to unique."
+      ],
+      "spoiler": false,
+      "t": 0.88,
+      "icon": "nothing-grows"
+    },
+    {
+      "id": "aridens-camp",
+      "kind": "story",
+      "form": "chip",
+      "subject": "Anonymous for eleven years",
+      "tag": "Ariden's Camp",
+      "lines": [
+        "The abandoned merchant camp is there from launch and nobody in vanilla could tell you whose it was.",
+        "Ariden — a charlatan who sold Medivh counterfeit artifacts and was cursed to hunt real ones forever — was only named in 2016.",
+        "In here it is scenery with no answer attached."
+      ],
+      "spoiler": false,
+      "t": 1.0,
+      "icon": "aridens-camp"
+    }
+  ]
+}

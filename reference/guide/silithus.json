@@ -1,0 +1,215 @@
+{
+  "room": "silithus",
+  "sources": [
+    "https://warcraft.wiki.gg/wiki/Silithus",
+    "https://warcraft.wiki.gg/wiki/Patch_1.8.0",
+    "https://warcraft.wiki.gg/wiki/Valor%27s_Rest",
+    "https://warcraft.wiki.gg/wiki/War_of_the_Shifting_Sands",
+    "https://warcraft.wiki.gg/wiki/Southwind_Village",
+    "https://warcraft.wiki.gg/wiki/Anachronos",
+    "https://warcraft.wiki.gg/wiki/Ahn%27Qiraj_War_Effort",
+    "https://warcraft.wiki.gg/wiki/Windstone",
+    "https://warcraft.wiki.gg/wiki/Abyssal_Council",
+    "https://warcraft.wiki.gg/wiki/Cenarion_Hold",
+    "https://warcraft.wiki.gg/wiki/Cenarion_Circle",
+    "https://warcraft.wiki.gg/wiki/Highlord_Demitrian"
+  ],
+  "roadEnds": [
+    "Valor's Rest",
+    "The Scarab Dais"
+  ],
+  "seedWho": "Tari",
+  "cards": [
+    {
+      "id": "valors-rest",
+      "kind": "before",
+      "form": "title",
+      "subject": "Valor's Rest",
+      "tag": "Before",
+      "lines": [
+        "Until patch 1.8 this zone was barely built, and the little Cenarion camp in the north that everyone now rides straight past was where you arrived. It held the flight path.",
+        "1.8 moved the flight paths to a new Cenarion Hold and changed the scale of the zone map itself."
+      ],
+      "spoiler": false
+    },
+    {
+      "id": "the-wall",
+      "kind": "look",
+      "form": "chip",
+      "subject": "The wall is not masonry",
+      "tag": "The Scarab Wall",
+      "lines": [
+        "Anachronos and Fandral's druids raised it together in one act: the ground split and a barrier of stone and colossal roots came up out of it.",
+        "It is a druid working as much as a dragon one.",
+        "It is the last thing built in the War of the Shifting Sands."
+      ],
+      "spoiler": false,
+      "t": 0.08,
+      "icon": "the-wall"
+    },
+    {
+      "id": "southwind",
+      "kind": "story",
+      "form": "chip",
+      "subject": "The feint that broke an archdruid",
+      "tag": "Southwind Village",
+      "lines": [
+        "The qiraji faked an attack here to draw out Valstann Staghelm, Fandral's son, who held the village.",
+        "He was surrounded and torn apart in front of his father.",
+        "The night elf army lost its nerve, and the desert took everything back."
+      ],
+      "spoiler": false,
+      "t": 0.16,
+      "icon": "southwind"
+    },
+    {
+      "id": "the-scepter",
+      "kind": "story",
+      "form": "chip",
+      "subject": "Which is why the scepter was in pieces",
+      "tag": "Anachronos",
+      "lines": [
+        "Fandral smashed the Scepter of the Shifting Sands in grief, and Anachronos scattered the shards to Vaelastrasz, Azuregos and Eranikus. He kept one.",
+        "Ten thousand years later, putting it back together is a tour of the other flights.",
+        "Red, blue, green, bronze."
+      ],
+      "spoiler": false,
+      "t": 0.24,
+      "icon": "the-scepter"
+    },
+    {
+      "id": "the-gong",
+      "kind": "story",
+      "form": "chip",
+      "subject": "Rung once per server, ever",
+      "tag": "The Scarab Gong",
+      "lines": [
+        "Only the one player holding the finished scepter can strike it, and only after the whole realm has hauled in war supplies for months.",
+        "Medivh was the first realm to open the gates, in January 2006.",
+        "Blizzard later opened them automatically on new realms, and the reward mount became unobtainable for good."
+      ],
+      "spoiler": false,
+      "t": 0.32,
+      "icon": "the-gong"
+    },
+    {
+      "id": "ten-hours",
+      "kind": "story",
+      "form": "chip",
+      "subject": "The ten hours",
+      "tag": "What came out",
+      "lines": [
+        "One server-wide line: \"The ancient gates of Ahn'Qiraj open, revealing the horrors of a forgotten war.\" Then three colossi broke into Kalimdor at once.",
+        "Nine hours of army build-up, then one hour of fighting at the wall itself.",
+        "The gates never closed again."
+      ],
+      "spoiler": false,
+      "t": 0.4,
+      "icon": "ten-hours"
+    },
+    {
+      "id": "the-hives",
+      "kind": "look",
+      "form": "chip",
+      "subject": "Zora, Ashi, Regal",
+      "tag": "The three hives",
+      "lines": [
+        "Three silithid structures with tunnel systems under them, and thorium running through the tunnels — small, rich, and covered in ooze.",
+        "The three colossi that burst out of Kalimdor when the gates opened carried the same three names."
+      ],
+      "spoiler": false,
+      "t": 0.48,
+      "icon": "the-hives"
+    },
+    {
+      "id": "twilight-trappings",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "You had to dress as a cultist",
+      "tag": "The windstones",
+      "lines": [
+        "A wind stone cannot be touched unless you are wearing the Twilight Trappings — three statless cloth pieces whose only set bonus is permission to interact with one.",
+        "The gear is consumed on use.",
+        "Every summon in this zone costs a farmed disguise."
+      ],
+      "spoiler": false,
+      "t": 0.56,
+      "icon": "twilight-trappings"
+    },
+    {
+      "id": "abyssal-council",
+      "kind": "story",
+      "form": "chip",
+      "subject": "The stones are a telephone",
+      "tag": "The Abyssal Council",
+      "lines": [
+        "The council commands the Twilight's Hammer through the arcane wind stones dotted around these camps. Only mid-ranked cultists could speak through them.",
+        "Four Abyssal Lords, one to an element, with dukes and templars beneath.",
+        "Players did not find a summoning prop. They stole the handset."
+      ],
+      "spoiler": false,
+      "t": 0.64,
+      "icon": "abyssal-council"
+    },
+    {
+      "id": "encrypted-texts",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "The grind is reading the enemy's mail",
+      "tag": "Cenarion Circle",
+      "lines": [
+        "Patch 1.8 made Twilight's Hammer and silithid kills award reputation with a faction whose entire grind is fought inside one zone.",
+        "The encrypted texts you loot off cultists are the currency.",
+        "You farm a cult's paperwork until druids trust you."
+      ],
+      "spoiler": false,
+      "t": 0.72,
+      "icon": "encrypted-texts"
+    },
+    {
+      "id": "demitrian",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "Thunderfury ends in a scorpid pit",
+      "tag": "Highlord Demitrian",
+      "lines": [
+        "A lone human stands in the Ravaged Twilight Camp in the far north-west. He was Twilight's Hammer until he tried to enslave Thunderaan and ended up serving him instead.",
+        "Bring him the Bindings: \"You have recovered my Master's eternal prison!\"",
+        "The legendary sword is finished in a corner of a desert."
+      ],
+      "spoiler": false,
+      "t": 0.8,
+      "icon": "demitrian"
+    },
+    {
+      "id": "cenarion-hold",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "There is no bank",
+      "tag": "Cenarion Hold",
+      "lines": [
+        "Inn, mailbox, stables, anvil and forge — and deliberately no bank and no auction house, at the staging ground for a forty-man raid.",
+        "Both factions' flight masters sit in the same camp.",
+        "It is a druid fort that happens to have an army parked in it."
+      ],
+      "spoiler": false,
+      "t": 0.88,
+      "icon": "cenarion-hold"
+    },
+    {
+      "id": "grakkarond",
+      "kind": "story",
+      "form": "chip",
+      "subject": "They brought down a dragon once",
+      "tag": "Grakkarond",
+      "lines": [
+        "The qiraji could not reach anything flying. Except once: an Anubisath threw an obsidian sword and took the bronze dragon Grakkarond out of the air.",
+        "Grounded, he nearly killed the thing that threw it before the swarm closed over him.",
+        "The site of his death is sacred to them."
+      ],
+      "spoiler": false,
+      "t": 0.96,
+      "icon": "grakkarond"
+    }
+  ]
+}

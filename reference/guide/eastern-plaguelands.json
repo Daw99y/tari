@@ -1,0 +1,218 @@
+{
+  "room": "eastern-plaguelands",
+  "sources": [
+    "https://warcraft.wiki.gg/wiki/Eastern_Plaguelands",
+    "https://warcraft.wiki.gg/wiki/Eastern_Plaguelands_(Classic)",
+    "https://warcraft.wiki.gg/wiki/Naxxramas_(Classic)",
+    "https://warcraft.wiki.gg/wiki/A_Game_of_Towers",
+    "https://warcraft.wiki.gg/wiki/Marris_Stead",
+    "https://warcraft.wiki.gg/wiki/Nathanos_Blightcaller",
+    "https://warcraft.wiki.gg/wiki/Light%27s_Hope_Chapel",
+    "https://warcraft.wiki.gg/wiki/Corin%27s_Crossing",
+    "https://warcraft.wiki.gg/wiki/Noxious_Glade",
+    "https://warcraft.wiki.gg/wiki/Terrordale",
+    "https://warcraft.wiki.gg/wiki/Quel%27Lithien_Lodge",
+    "https://warcraft.wiki.gg/wiki/Tyr%27s_Hand",
+    "https://warcraft.wiki.gg/wiki/Stratholme"
+  ],
+  "roadEnds": [
+    "Light's Hope Chapel",
+    "The gates of Stratholme"
+  ],
+  "seedWho": "Tari",
+  "cards": [
+    {
+      "id": "the-eastweald",
+      "kind": "before",
+      "form": "title",
+      "subject": "The Eastweald",
+      "now": "Eastern Plaguelands",
+      "tag": "Before",
+      "lines": [
+        "A province of the Kingdom of Lordaeron — farms, roads and small villages. Not Darrowmere, which is the lake and the island west of the river.",
+        "It died when Arthas culled Stratholme and the plague ran north out of the city."
+      ],
+      "spoiler": false
+    },
+    {
+      "id": "naxxramas",
+      "kind": "look",
+      "form": "chip",
+      "subject": "There is a necropolis in the sky",
+      "tag": "Naxxramas, over Plaguewood",
+      "lines": [
+        "Kel'Thuzad's citadel floats above the north of this zone and you can see it from the ground, on this map, in this expansion.",
+        "You get in from a runic circle at a spire in Plaguewood, and only if the Argent Dawn has attuned you.",
+        "It moves to Northrend in Wrath. In here it is overhead."
+      ],
+      "spoiler": false,
+      "t": 0.08,
+      "icon": "naxxramas"
+    },
+    {
+      "id": "argent-dawn",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "The faction is the Argent Dawn",
+      "tag": "Not the Crusade",
+      "lines": [
+        "The Argent Crusade does not exist. Tyr's Hand belongs to the Scarlet Crusade and nobody has liberated anything.",
+        "Past Tyr's Hand the eastern edge is simply the zone border — New Avalon and the death knight start are Wrath.",
+        "The Scourge story here is unfinished, and stays unfinished."
+      ],
+      "spoiler": false,
+      "t": 0.14,
+      "icon": "argent-dawn"
+    },
+    {
+      "id": "lights-hope",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "One lit building",
+      "tag": "Light's Hope Chapel",
+      "lines": [
+        "Inn, mailbox, stables, anvil, flight master — and neutral, so both factions stand at the same fire in the worst zone in the game.",
+        "Every scourgestone you pull off a corpse comes back here.",
+        "It is the only fixed point in the Plaguelands."
+      ],
+      "spoiler": false,
+      "t": 0.22,
+      "icon": "lights-hope"
+    },
+    {
+      "id": "nathanos",
+      "kind": "story",
+      "form": "chip",
+      "subject": "He is standing in his own dooryard",
+      "tag": "The Marris Stead",
+      "lines": [
+        "Marris is his family name and this farm is his. Nathanos was killed here during the Scourging by Ramstein the Gorger.",
+        "That is the same abomination you fight as a boss inside Stratholme, up the road.",
+        "Sylvanas took him back off the Lich King and sent him home."
+      ],
+      "spoiler": false,
+      "t": 0.3,
+      "icon": "nathanos"
+    },
+    {
+      "id": "corins-crossing",
+      "kind": "beware",
+      "form": "chip",
+      "subject": "Corin's Crossing",
+      "tag": "The Unseen Servants",
+      "lines": [
+        "A crossroads town packed solid with Scourge and the Cult of the Damned.",
+        "Its speciality is invisible, and it sees through stealth.",
+        "The wiki's own advice is that rogues should not try to sneak the town."
+      ],
+      "spoiler": false,
+      "t": 0.38,
+      "icon": "corins-crossing"
+    },
+    {
+      "id": "ziggurats",
+      "kind": "look",
+      "form": "chip",
+      "subject": "The spires are not ruins",
+      "tag": "Scourge ziggurats",
+      "lines": [
+        "The crystalline structures over Plaguewood and the glades are not broken Lordaeron buildings. Nothing human ever looked like that.",
+        "Nothing else in the Eastern Kingdoms does either.",
+        "The only comparable skyline in this zone is the thing floating above it."
+      ],
+      "spoiler": false,
+      "t": 0.46,
+      "icon": "ziggurats"
+    },
+    {
+      "id": "noxious-glade",
+      "kind": "look",
+      "form": "chip",
+      "subject": "The Noxious Glade",
+      "tag": "Go and stand in the colour",
+      "lines": [
+        "Thick sickly green air sitting over dark purple ground, with ziggurats and a slaughterhouse in it.",
+        "It is the most saturated and least natural-looking spot in the zone.",
+        "Worth the walk for the palette alone."
+      ],
+      "spoiler": false,
+      "t": 0.54,
+      "icon": "noxious-glade"
+    },
+    {
+      "id": "terrordale",
+      "kind": "look",
+      "form": "chip",
+      "subject": "Terrordale",
+      "tag": "Nobody wrote the old name down",
+      "lines": [
+        "A ghost town in the far north-west, reached through a crypt-fiend tunnel.",
+        "The wiki says outright it \"likely had a much less morbid name before the invasion\".",
+        "Terrordale is what people started calling it. It is not what it was called."
+      ],
+      "spoiler": false,
+      "t": 0.62,
+      "icon": "terrordale"
+    },
+    {
+      "id": "quel-lithien",
+      "kind": "story",
+      "form": "chip",
+      "subject": "Quel'Lithien Lodge",
+      "tag": "Friendly, for now",
+      "lines": [
+        "A high elven hunting lodge on the road to the sealed gates of Quel'Thalas, held by rangers who refused Silvermoon's new magic and never went home.",
+        "In 1.12 they are alive and they will talk to you.",
+        "Nearly every one of them becomes Wretched later. You are in the last years of it."
+      ],
+      "spoiler": false,
+      "t": 0.7,
+      "icon": "quel-lithien"
+    },
+    {
+      "id": "tyrs-hand",
+      "kind": "story",
+      "form": "chip",
+      "subject": "Tyr's Hand",
+      "tag": "A walled city inside a dead zone",
+      "lines": [
+        "The Scarlet Crusade hold this whole corner — a cathedral, an abbey, walls, a working population, in the middle of the Scourge.",
+        "Its Crusaders drop raw coin, so level sixties farmed it for gold for years.",
+        "That is what most veterans actually remember it as."
+      ],
+      "spoiler": false,
+      "t": 0.78,
+      "icon": "tyrs-hand"
+    },
+    {
+      "id": "a-game-of-towers",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "The four towers can be taken",
+      "tag": "Patch 1.12, the last one",
+      "lines": [
+        "Crown Guard, Eastwall, Northpass and Plaguewood, captured tug-of-war style, and holding them gives your entire faction extra damage against undead in the zone.",
+        "It arrived in the final vanilla patch.",
+        "Vanilla — but only just."
+      ],
+      "spoiler": false,
+      "t": 0.88,
+      "icon": "a-game-of-towers"
+    },
+    {
+      "id": "stratholme",
+      "kind": "look",
+      "form": "chip",
+      "subject": "The gates of Stratholme",
+      "tag": "Two doors, two dungeons",
+      "lines": [
+        "The dead city sits on the northern edge and you walk its outside wall to reach it: a main gate, and a service entrance round the side.",
+        "Inside, the Scarlet Crusade hold the living quarter and the Baron holds everything else.",
+        "From the road it is walls and smoke. It is still burning."
+      ],
+      "spoiler": false,
+      "t": 1.0,
+      "icon": "stratholme"
+    }
+  ]
+}

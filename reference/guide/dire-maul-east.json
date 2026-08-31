@@ -1,0 +1,212 @@
+{
+  "room": "dire-maul-east",
+  "sources": [
+    "https://warcraft.wiki.gg/wiki/Dire_Maul_East",
+    "https://warcraft.wiki.gg/wiki/Crescent_Key",
+    "https://warcraft.wiki.gg/wiki/Pusillin",
+    "https://warcraft.wiki.gg/wiki/Azj%27Tordin",
+    "https://warcraft.wiki.gg/wiki/Zevrim_Thornhoof",
+    "https://warcraft.wiki.gg/wiki/Ironbark_the_Redeemed",
+    "https://warcraft.wiki.gg/wiki/Hydrospawn",
+    "https://warcraft.wiki.gg/wiki/Lethtendris",
+    "https://warcraft.wiki.gg/wiki/Alzzin_the_Wildshaper",
+    "https://warcraft.wiki.gg/wiki/Felvine_Shard",
+    "https://warcraft.wiki.gg/wiki/Isalien"
+  ],
+  "roadEnds": [
+    "The Warpwood gate",
+    "Alzzin's hall"
+  ],
+  "seedWho": "Tari",
+  "cards": [
+    {
+      "id": "eldretharr",
+      "kind": "before",
+      "form": "title",
+      "subject": "The Shrine of Eldretharr",
+      "tag": "Before",
+      "lines": [
+        "A Highborne shrine stood in the heart of this wing, and it held an artifact of fertility.",
+        "Alzzin corrupted the shrine, and that is where his hold over the forest comes from. The wing is a greenhouse now. The shrine is still under it."
+      ],
+      "spoiler": false
+    },
+    {
+      "id": "the-front-door",
+      "kind": "story",
+      "form": "chip",
+      "subject": "This was the front door",
+      "tag": "The Crescent Key",
+      "lines": [
+        "In vanilla the Crescent Key opens the doors into the West and North wings, and the only source of that key is an imp in here.",
+        "East is not the optional wing. Every tribute run and every trip to the library starts by chasing him.",
+        "The key requirement was removed in 4.0.3a."
+      ],
+      "spoiler": false,
+      "t": 0.08,
+      "icon": "the-front-door"
+    },
+    {
+      "id": "pusillin",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "You do not pull him. You talk to him.",
+      "tag": "Pusillin",
+      "lines": [
+        "He is not a boss you engage. You speak to him, he flees deeper into the wing, you catch him and speak again. Four times.",
+        "Only then does he turn, grow, and fight.",
+        "\"If you want the key, you'll have to catch me!\""
+      ],
+      "spoiler": false,
+      "t": 0.16,
+      "icon": "pusillin"
+    },
+    {
+      "id": "an-insult",
+      "kind": "look",
+      "form": "chip",
+      "subject": "His name is an insult",
+      "tag": "Pusillanimous — faint-hearted",
+      "lines": [
+        "A coward by name and by design.",
+        "The buff he takes when he finally turns and fights is called Spirit of Runn Tum. The recipe he drops is Runn Tum Tuber Surprise.",
+        "He powers up on his own cooking."
+      ],
+      "spoiler": false,
+      "t": 0.24,
+      "icon": "an-insult"
+    },
+    {
+      "id": "azj-tordin",
+      "kind": "story",
+      "form": "chip",
+      "subject": "He robbed the one who got out",
+      "tag": "Azj'Tordin",
+      "lines": [
+        "Azj'Tordin is a Shen'dralar who walked out of Eldre'Thalas rather than live under the prince. He gave up immortality to leave.",
+        "Pusillin took his tome and his key and carried them back into the city he had escaped.",
+        "He waits outside at Lariss Pavilion for somebody to fetch them."
+      ],
+      "spoiler": false,
+      "t": 0.32,
+      "icon": "azj-tordin"
+    },
+    {
+      "id": "zevrim",
+      "kind": "beware",
+      "form": "chip",
+      "subject": "He pulls you onto the altar",
+      "tag": "Zevrim Thornhoof",
+      "lines": [
+        "The satyr works an altar above a pool, and his Sacrifice teleports a player up onto it and drains them.",
+        "You are not damaged by the ritual. You are moved into it."
+      ],
+      "spoiler": false,
+      "t": 0.4,
+      "icon": "zevrim"
+    },
+    {
+      "id": "hydrospawn",
+      "kind": "look",
+      "form": "chip",
+      "subject": "The thing in the water under it",
+      "tag": "Hydrospawn",
+      "lines": [
+        "A water elemental sits in the pool beneath that altar.",
+        "It is the only elemental in the whole of Dire Maul that is neither nature nor arcane.",
+        "The wiki notes the oddity and offers no explanation. Nobody else has one either."
+      ],
+      "spoiler": false,
+      "t": 0.48,
+      "icon": "hydrospawn"
+    },
+    {
+      "id": "ironbark",
+      "kind": "look",
+      "form": "grave",
+      "subject": "The tree opens the last door",
+      "tag": "Ironbark the Redeemed",
+      "lines": [
+        "An Ancient of War stands enslaved in the wing. Kill Zevrim and he changes his name mid-instance.",
+        "\"At last... Freed from his cursed grasp!\" Ask him and he answers \"As you wish...\" and smashes down the sealed door.",
+        "Then he spends the last of himself and goes back to the Dream."
+      ],
+      "spoiler": true,
+      "t": 0.56,
+      "icon": "ironbark"
+    },
+    {
+      "id": "lethtendris",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "She is not a blood elf here",
+      "tag": "Lethtendris",
+      "lines": [
+        "Every modern source calls her a blood elf warlock. In vanilla she predates blood elves entirely — that model arrives with Burning Crusade.",
+        "Her web is described as built out of sacrificial victims, to siphon the wing's corruption into herself.",
+        "Pimgib is the imp she casts Enlarge on."
+      ],
+      "spoiler": false,
+      "t": 0.64,
+      "icon": "lethtendris"
+    },
+    {
+      "id": "alzzin",
+      "kind": "story",
+      "form": "chip",
+      "subject": "He studied under Xavius",
+      "tag": "Alzzin the Wildshaper",
+      "lines": [
+        "An arcane illusionist trained by the first satyr himself, who came to Feralas after Hyjal to carry on the work.",
+        "Corrupting the shrine is what makes him a wildshaper. He did not learn the forest. He took it."
+      ],
+      "spoiler": false,
+      "t": 0.72,
+      "icon": "alzzin"
+    },
+    {
+      "id": "three-animals",
+      "kind": "beware",
+      "form": "grave",
+      "subject": "He fights you as three animals",
+      "tag": "Satyr, bear, dire wolf",
+      "lines": [
+        "He shifts between all three mid-fight, each with its own kit, and calls imps near the end.",
+        "The satyr who corrupts nature fights you by wearing it."
+      ],
+      "spoiler": true,
+      "t": 0.8,
+      "icon": "three-animals"
+    },
+    {
+      "id": "felvine",
+      "kind": "notice",
+      "form": "chip",
+      "subject": "The plant behind him",
+      "tag": "Felvine Shard",
+      "lines": [
+        "The Felvine grows at his back and is inert while he lives. Shards can only be taken once he is dead.",
+        "Bind on pickup, one per character, and you can loot one without holding the quest at all.",
+        "They buy standing with the Shen'dralar."
+      ],
+      "spoiler": false,
+      "t": 0.88,
+      "icon": "felvine"
+    },
+    {
+      "id": "isalien",
+      "kind": "story",
+      "form": "grave",
+      "subject": "A ghost you light yourself",
+      "tag": "Isalien",
+      "lines": [
+        "A night elf priestess came to Eldre'Thalas carrying a fragment of Lord Valthalak's amulet. Alzzin's forces ambushed and killed her.",
+        "Her ghost haunts the hall he sits in, and it is not there until you call it.",
+        "You light a brazier after he is dead and she comes back."
+      ],
+      "spoiler": true,
+      "t": 1.0,
+      "icon": "isalien"
+    }
+  ]
+}
