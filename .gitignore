@@ -77,3 +77,7 @@ layered-cities/
 # Session parking for files on their way out, and python's droppings.
 _to_delete/
 __pycache__/
+
+# Preview renders from scripts/world-shapes.py. Checking the traced world
+# by eye; the shipped artefact is reference/world.json.
+.world-check/

@@ -9,6 +9,11 @@
 
 import ReactDOM from "react-dom";
 
+/* RPG Awesome, imported on this route rather than in the root layout: the
+ * webfont is the landing page's, and the app inside uses the game's own
+ * icons (lib/spell-icons.ts) rather than a second icon vocabulary. */
+import "rpg-awesome/css/rpg-awesome.min.css";
+
 import Debuff from "@/components/Debuff";
 import FoxMark from "@/components/FoxMark";
 import HeroCurtain from "./HeroCurtain";
@@ -19,6 +24,9 @@ import { SUCCUBUS_ASSETS } from "@/lib/succubus";
 
 import Reveal from "./Reveal";
 import Scaled from "./mock/Scaled";
+import Armory from "./Armory";
+import Board from "./Board";
+import Fire from "./Fire";
 import { SHOT_H, SHOT_W } from "./mock/shots";
 import mock from "./mock/mock.module.css";
 import styles from "./page.module.css";
@@ -85,30 +93,67 @@ const STOPPED = [
   { kind: "rested", name: "Rested", note: "Paid to do nothing.", m2: "/lab/m2/Sleep_State_Head.m2", zoom: 1.15 },
 ] as const;
 
-/* ---- the world: five rooms in the hand, the rest counted */
+/* ---- the promises
+ *
+ * EVERY LINE HERE IS TRUE OF THE BUILD, TODAY. That is the only rule, and it
+ * is worth stating because this list failed it once: it claimed the addon
+ * suppressed notifications during combat and inside instances. The addon
+ * registers eight events (addon/Tari/Tari.lua) and none of them is combat or
+ * instance state, and it has no network — it writes a string you paste. It
+ * could not have kept that promise in either half.
+ *
+ * A promise about a feature that does not exist is not a promise, it is a
+ * roadmap with a halo on it. Rested went the same way: docs/WELCOME.md §4 is
+ * a proposal, nothing in lib/ implements it, so "time away pays" came off and
+ * the true half of it — nothing is counting — stayed.
+ *
+ * Second column is the mechanism, and it has to be checkable in the repo. */
+const REFUSALS: [string, string, string][] = [
+  [
+    "ra-bell",
+    "Nothing here can interrupt you.",
+    "There are no notifications, no email and no push. Tari is a page you open, and it is only ever where you left it.",
+  ],
+  [
+    "ra-hourglass",
+    "Nothing punishes a week off.",
+    "No streaks, no dailies, nothing to defend. Come back in a month and nothing was lost, because nothing was counting.",
+  ],
+  [
+    "ra-scroll-unfurled",
+    "The page ends.",
+    "The deck runs out. There is no feed under it, and nothing loads when you reach the bottom.",
+  ],
+  [
+    "ra-podium",
+    "Nothing ranks you.",
+    "You are never in a table with other people.",
+  ],
+  [
+    "ra-gold-bar",
+    "No number that only goes up.",
+    "No points, no score, no totals. Nothing here adds up what you have done.",
+  ],
+  [
+    "ra-broadhead-arrow",
+    "A pin says look, never go.",
+    "A warning tells you what is there. It never tells you where to stand, or which way to walk.",
+  ],
+];
 
-const HAND = ["stormwind-city", "stranglethorn-vale", "winterspring", "zul-gurub", "orgrimmar"];
-const HAND_NAME: Record<string, string> = {
-  "stormwind-city": "Stormwind",
-  "stranglethorn-vale": "Stranglethorn Vale",
-  winterspring: "Winterspring",
-  "zul-gurub": "Zul’Gurub",
-  orgrimmar: "Orgrimmar",
-};
-
-/* ---- what a growth team ships by default, refused line by line */
-
-/* Each line is a PROPERTY, not a feature we declined to build. A refusal
- * named after a feature dies the day the feature arrives wearing a better
- * shape — "no notifications" was false the moment a reminder to go fishing
- * was worth sending. A property survives it. docs/WELCOME.md §8. */
-const REFUSALS = [
-  ["Nothing interrupts.", "Tari never rings mid-dungeon."],
-  ["Nothing punishes a week off.", "Come back in a month. Nothing was lost."],
-  ["Nothing scrolls forever.", "The page ends."],
-  ["Nothing ranks you.", "You are not in a table with other people."],
-  ["Nothing only goes up.", "No points, no score, no counts."],
-  ["Nothing points.", "A pin says look, never go."],
+/* ---- the rulesets Tari already reads
+ *
+ * `lib/bnet.ts` sends one namespace, `profile-classic1x-{region}`, and
+ * docs/ARMORY-FINDING.md records what that covers: Era, Hardcore and Season
+ * of Discovery. **Anniversary is not in it** and was claimed here in error.
+ * SoD is left off for the opposite reason — the namespace answers for it, but
+ * reference/items.json stops at item 25818 and SoD's items start above
+ * 200000, so a SoD character would arrive wearing nothing. Two rulesets is a
+ * smaller boast than four and it is one the code can back. */
+const EDITIONS: { name: string; note: string; live: boolean }[] = [
+  { name: "Classic Era", note: "Read through the armory today. Every item resolves.", live: true },
+  { name: "Hardcore", note: "The same ruleset behind the same door.", live: true },
+  { name: "Classic+", note: "New zones become new rooms, shot by the players standing in them.", live: false },
 ];
 
 export default async function Page() {
@@ -172,6 +217,7 @@ export default async function Page() {
       {/* ================= the idea */}
       <section className={styles.section} data-tone="pink" aria-labelledby="idea-h">
         <Reveal className={styles.copy}>
+          <i className={`ra ra-bear-trap ${styles.mark}`} aria-hidden="true" />
           <p className={styles.badge}>The point</p>
           <h2 id="idea-h" className={styles.h2}>
             Built to <em>stop</em> you.
@@ -195,6 +241,7 @@ export default async function Page() {
       {/* ================= presence: the app's own window on Undercity */}
       <section className={styles.section} data-tone="blue" aria-labelledby="room-h">
         <Reveal className={styles.copy}>
+          <i className={`ra ra-speech-bubbles ${styles.mark}`} aria-hidden="true" />
           <p className={styles.badge}>Live rooms</p>
           <h2 id="room-h" className={styles.h2}>
             Walk in. <em>See who's there.</em>
@@ -210,9 +257,31 @@ export default async function Page() {
         <p className={styles.caption}>The app, at size. Real room, invented people.</p>
       </section>
 
+      {/* ================= the armory door */}
+      <section className={`${styles.section} ${styles.banded}`} data-tone="green" aria-labelledby="armory-h">
+        <Reveal className={styles.copy}>
+          <i className={`ra ra-knight-helmet ${styles.mark}`} aria-hidden="true" />
+          <p className={styles.badge}>New · the armory</p>
+          <h2 id="armory-h" className={styles.h2}>
+            No download. <em>Type your name.</em>
+          </h2>
+          <p className={styles.body}>
+            Blizzard put Classic on the armory. We read it. Your character, your gear, your guild — Classic Era and
+            Hardcore, in about ten seconds. The addon comes later, if you want it.
+          </p>
+        </Reveal>
+        <Reveal className={styles.wide}>
+          <Armory />
+        </Reveal>
+        <p className={styles.caption}>
+          Live, against Blizzard&rsquo;s own API. Try your own character &mdash; nothing is stored until you sign in.
+        </p>
+      </section>
+
       {/* ================= the sheet: /you, as the app draws it */}
       <section className={styles.section} data-tone="gold" aria-labelledby="you-h">
         <Reveal className={styles.copy}>
+          <i className={`ra ra-player ${styles.mark}`} aria-hidden="true" />
           <p className={styles.badge}>Your character</p>
           <h2 id="you-h" className={styles.h2}>
             Paste one line. <em>That's you.</em>
@@ -229,9 +298,32 @@ export default async function Page() {
         <p className={styles.caption}>Live 3D from the 1.12 client. Yours stands at /you. Armory import works too.</p>
       </section>
 
+      {/* ================= the campfire — what changed while you were away */}
+      <section className={`${styles.section} ${styles.banded}`} data-tone="pink" aria-labelledby="fire-h">
+        <Reveal className={styles.copy}>
+          <i className={`ra ra-campfire ${styles.mark}`} aria-hidden="true" />
+          <p className={styles.badge}>The campfire</p>
+          <h2 id="fire-h" className={styles.h2}>
+            A letter. <em>Not a to-do list.</em>
+          </h2>
+          <p className={styles.body}>
+            Your trainer, the chain you are part-way down, the class quest that just opened, the quests about to grey
+            out. Whelp plz had four tabs for this. Tari has one page, and it opens by telling you what moved.
+          </p>
+        </Reveal>
+        <Reveal className={styles.wide}>
+          <Fire />
+        </Reveal>
+        <p className={styles.caption}>
+          Sentences, in the game&rsquo;s own order. Nothing is scored, nothing is ranked, and nothing you tick ever
+          leaves the page.
+        </p>
+      </section>
+
       {/* ================= the deck: what the room tells, and what people leave */}
       <section className={styles.section} data-tone="purple" aria-labelledby="guide-h">
         <Reveal className={styles.copy}>
+          <i className={`ra ra-book ${styles.mark}`} aria-hidden="true" />
           <p className={styles.badge}>The deck</p>
           <h2 id="guide-h" className={styles.h2}>
             Lore you can <em>pick up.</em>
@@ -247,81 +339,88 @@ export default async function Page() {
         <p className={styles.caption}>Spoilers stay buried until you dig. The deck ends; there is no feed under it.</p>
       </section>
 
-      {/* ================= the world */}
+      {/* ================= the world, as a board */}
       <section className={styles.section} data-tone="green" aria-labelledby="world-h">
         <Reveal className={styles.copy}>
+          <i className={`ra ra-compass ${styles.mark}`} aria-hidden="true" />
           <p className={styles.badge}>The world</p>
           <h2 id="world-h" className={styles.h2}>
-            79 rooms. <em>All real.</em>
-          </h2>
-          <p className={styles.body}>Every zone, dungeon, raid and city, shot in-game at the right hour.</p>
-        </Reveal>
-        <Reveal className={styles.hand}>
-          {HAND.map((id) => (
-            <figure key={id} className={styles.handCard}>
-              <img src={roomThumb(id)} alt={HAND_NAME[id]} loading="lazy" decoding="async" />
-              <figcaption>{HAND_NAME[id]}</figcaption>
-            </figure>
-          ))}
-        </Reveal>
-        <Reveal className={styles.handMore}>
-          <span className={styles.badge}>+ 74 more</span>
-        </Reveal>
-      </section>
-
-      {/* ================= classic+ */}
-      <section className={styles.section} data-tone="gold" aria-labelledby="plus-h">
-        <Reveal className={styles.copy}>
-          <p className={styles.badge}>Classic+</p>
-          <h2 id="plus-h" className={styles.h2}>
-            Classic+ drops? <em>Day one.</em>
+            Every place is a <em>room.</em>
           </h2>
           <p className={styles.body}>
-            Nothing here is welded to one Azeroth. If we can read the new world, new zones become new rooms the day
-            they open, shot by the players standing in them.
+            Seventy-nine of them, and there is no server list. One Azeroth, every realm, both factions &mdash; walk
+            into any of these and see who is already there.
           </p>
         </Reveal>
-        <Reveal className={styles.plusRow}>
-          <figure className={styles.plusCell}>
-            <img src={roomThumb("duskwood")} alt="" loading="lazy" />
-            <figcaption>Duskwood · day one</figcaption>
-          </figure>
-          <figure className={`${styles.plusCell} ${styles.plusEmpty}`}>
-            <figcaption>New zone · unmapped</figcaption>
-          </figure>
-          <figure className={`${styles.plusCell} ${styles.plusEmpty}`}>
-            <figcaption>New dungeon · unmapped</figcaption>
-          </figure>
-          <figure className={`${styles.plusCell} ${styles.plusEmpty}`}>
-            <figcaption>New raid · unmapped</figcaption>
-          </figure>
+        <Reveal className={styles.wide}>
+          <Board />
         </Reveal>
+        <p className={styles.caption}>
+          Occupancy is illustrative until the doors open. Every name is a door.
+        </p>
       </section>
 
-      {/* ================= the refusals */}
+      {/* ================= classic+ — the page's one band
+           Every other section on this page is a centred column on the same
+           ground. This one is a full-width band with its own surface and its
+           copy shoved left, because it sits third in a run of four
+           medium sections and the run had stopped having a shape. The
+           difference is structural, not decorative: nothing else here is
+           allowed to look like this. */}
+      <section className={`${styles.section} ${styles.banded} ${styles.band}`} data-tone="gold" aria-labelledby="plus-h">
+        <div className={styles.bandInner}>
+          <Reveal className={styles.bandCopy}>
+            <i className={`ra ra-sprout ${styles.mark}`} aria-hidden="true" />
+            <p className={styles.badge}>Classic+</p>
+            <h2 id="plus-h" className={styles.bandH2}>
+              Not welded to <em>one Azeroth.</em>
+            </h2>
+            <p className={styles.bandBody}>
+              Tari reads a character through Blizzard&rsquo;s own Classic API and draws the world from its own files.
+              When a new ruleset opens, it is a new set of rooms rather than a new product.
+            </p>
+          </Reveal>
+
+          <Reveal className={styles.bandList}>
+            <ol className={styles.editions}>
+              {EDITIONS.map((e, i) => (
+                <li key={e.name} className={styles.edition} data-live={e.live || undefined}>
+                  <span className={styles.editionNum}>{String(i + 1).padStart(2, "0")}</span>
+                  <strong>{e.name}</strong>
+                  <span className={styles.editionNote}>{e.note}</span>
+                  <span className={styles.editionState}>{e.live ? "Reading now" : "The day it opens"}</span>
+                </li>
+              ))}
+            </ol>
+          </Reveal>
+
+          <p className={styles.bandProof}>
+            One item database, patch 1.12, <strong>10,532 rows</strong> — both live rulesets run on it, and
+            Blizzard&rsquo;s own Classic profile API answers for both.
+          </p>
+        </div>
+      </section>
+
+      {/* ================= the promises */}
       <section className={styles.section} data-tone="blue" aria-labelledby="no-h">
         <Reveal className={styles.copy}>
+          <i className={`ra ra-shield ${styles.mark}`} aria-hidden="true" />
           <p className={styles.badge}>Promises</p>
           <h2 id="no-h" className={styles.h2}>
-            Stuff we <em>won't</em> do.
+            Six we can <em>keep.</em>
           </h2>
+          <p className={styles.body}>
+            Not features we skipped. Each one is a property of how Tari is built, which is why it survives the feature
+            that would otherwise break it.
+          </p>
         </Reveal>
-        <ul className={styles.noList} role="list">
-          {REFUSALS.map(([what, then], i) => (
+        <ul className={styles.promises} role="list">
+          {REFUSALS.map(([icon, what, why], i) => (
             <li key={what}>
-              <Reveal delay={(i % 2) * 80} className={styles.no}>
-                <span className={styles.noWell} aria-hidden="true">
-                  <svg viewBox="0 0 24 24" className={styles.noGlyph}>
-                    <circle cx="12" cy="12" r="8.4" fill="none" stroke="currentColor" strokeWidth="1.8" />
-                    <path d="M6.1 17.9 17.9 6.1" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
-                  </svg>
-                  <span className={styles.noRing} />
-                </span>
-                <span className={styles.noText}>
-                  <span className={styles.noWhat}>{what}</span>
-                  <span className={styles.noThen}>{then}</span>
-                  <span className={styles.noBar} aria-hidden="true" />
-                </span>
+              <Reveal delay={(i % 3) * 70} className={styles.promise}>
+                <i className={`ra ${icon} ${styles.promiseIcon}`} aria-hidden="true" />
+                <strong className={styles.promiseWhat}>{what}</strong>
+                <span className={styles.promiseWhy}>{why}</span>
               </Reveal>
             </li>
           ))}

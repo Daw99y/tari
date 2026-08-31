@@ -360,6 +360,29 @@
   justify-items: center;
 }
 
+/* A block that takes the section's whole measure instead of .copy's column.
+ * The world map is the first of these; the reveal still wraps it, so the
+ * width lives here rather than on the map itself. */
+.wide {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* One RPG Awesome glyph per section, in the acid. It stands above the badge
+ * and is the first thing that arrives, so a reader skimming the page gets a
+ * shape per beat before they get a word. Decorative only — every section is
+ * still titled and labelled in text. */
+.mark {
+  display: block;
+  font-size: clamp(2.1rem, 3.4vw, 2.9rem);
+  line-height: 1;
+  color: var(--accent);
+  /* The acid is a light source everywhere else on the page; here too, but
+   * quietly — a glyph with a hard glow reads as a badge from 2009. */
+  filter: drop-shadow(0 0 18px rgba(182, 255, 46, 0.28));
+}
+
 .badge {
   margin: 0;
   display: inline-flex;
@@ -483,213 +506,229 @@
   mix-blend-mode: screen;
 }
 
-/* ---- the world: five rooms in the hand */
+/* ---- the banded sections
+ *
+ * The page alternates: a full-size window on the product sits on the page's
+ * own ground, and the breather after it sits on a lifted surface. Three
+ * sections take the band — the armory and the campfire, which are the
+ * breathers between the three windows, and Classic+.
+ *
+ * THE WORLD DELIBERATELY DOES NOT, even though it is a breather too. It
+ * stands immediately above Classic+, and two bands touching fuse into one
+ * nineteen-hundred-pixel slab with a pair of hairlines stranded in the middle
+ * of it. It stays on the ground so the band under it still arrives. */
 
-.hand {
-  display: flex;
-  justify-content: center;
-  padding: 1.5rem 1rem 2.5rem;
-  max-width: 100%;
-}
-
-.handCard {
-  margin: 0 -0.9rem;
-  width: clamp(9rem, 16vw, 13rem);
-  padding: 0.45rem 0.45rem 0.7rem;
-  border-radius: 18px;
-  background: var(--panel);
+.banded {
+  background: linear-gradient(
+    180deg,
+    rgba(242, 240, 234, 0.058) 0%,
+    rgba(242, 240, 234, 0.016) 100%
+  );
   box-shadow:
-    inset 0 0 0 1px rgba(242, 240, 234, 0.12),
-    0 20px 45px -18px rgba(0, 0, 0, 0.8);
-  transition:
-    transform 350ms var(--pop),
-    z-index 0s;
+    inset 0 1px 0 0 rgba(242, 240, 234, 0.14),
+    inset 0 -1px 0 0 rgba(242, 240, 234, 0.14);
 }
 
-.handCard img {
-  width: 100%;
-  aspect-ratio: 16 / 11;
-  object-fit: cover;
-  border-radius: 13px;
-  display: block;
+/* ---- classic+: the band that is also the page's one shout
+ *
+ * Same surface as the other two, and everything else about it different:
+ * copy shoved left, display-size type, and the rulesets dealt across the foot
+ * as three tall cards. It is the only left-aligned block on the page.
+ *
+ * It is deliberately the tallest thing here that is not a window on the
+ * product, because it sits in the middle of a run of medium sections that had
+ * stopped having a shape. A first attempt put the copy and the ledger side by
+ * side and came out SHORTER than the section it replaced — two columns halve
+ * a block's height, they do not raise it. */
+
+.band {
+  padding-block: clamp(7rem, 17vh, 13rem);
+  justify-items: stretch;
 }
 
-.handCard figcaption {
-  padding-top: 0.55rem;
-  text-align: center;
-  font: 700 0.78rem/1.2 var(--round);
-  letter-spacing: 0;
-  color: var(--ink);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.handCard:nth-child(1) {
-  transform: rotate(-9deg) translateY(1.7rem);
-}
-.handCard:nth-child(2) {
-  transform: rotate(-4.5deg) translateY(0.45rem);
-}
-.handCard:nth-child(4) {
-  transform: rotate(4.5deg) translateY(0.45rem);
-}
-.handCard:nth-child(5) {
-  transform: rotate(9deg) translateY(1.7rem);
-}
-
-.handCard:hover {
-  transform: rotate(0deg) translateY(-0.6rem) scale(1.05);
-  position: relative;
-  z-index: 5;
-}
-
-.handMore {
+.bandInner {
+  width: min(100%, 74rem);
+  margin: 0 auto;
   display: grid;
-  justify-items: center;
+  gap: clamp(2.5rem, 5vw, 4rem);
 }
 
-/* ---- classic+ */
-
-.plusRow {
-  width: min(100%, 58rem);
+/* The one block of copy on the page that is not centred. */
+.bandCopy {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 1rem;
+  gap: 1.15rem;
+  justify-items: start;
+  text-align: left;
+  max-width: 34rem;
 }
 
-.plusCell {
+/* Display size. The band is the page's one shout, and a band with body-size
+ * type in it is just a stripe. */
+.bandH2 {
   margin: 0;
-  display: grid;
-  gap: 0.55rem;
+  font-family: var(--round);
+  font-weight: 800;
+  font-size: clamp(2.9rem, 5.4vw, 4.6rem);
+  line-height: 0.98;
+  letter-spacing: -0.028em;
+  text-wrap: balance;
 }
 
-.plusCell img {
-  width: 100%;
-  aspect-ratio: 16 / 10;
-  object-fit: cover;
-  border-radius: 14px;
-  box-shadow: inset 0 0 0 1px rgba(242, 240, 234, 0.1);
-}
-
-.plusCell figcaption {
-  font: 700 0.6rem/1.4 var(--round);
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+.bandBody {
+  margin: 0;
+  max-width: 30rem;
+  font: 600 clamp(1rem, 1.3vw, 1.18rem)/1.55 var(--sans);
   color: var(--mute);
+  text-wrap: pretty;
 }
 
-.plusEmpty::before {
-  content: "";
-  display: block;
-  aspect-ratio: 16 / 10;
-  border-radius: 14px;
-  border: 2px dashed rgba(242, 240, 234, 0.2);
+.bandProof {
+  margin: 0;
+  font: 500 0.74rem/1.6 var(--mono);
+  letter-spacing: 0.01em;
+  color: rgba(242, 240, 234, 0.42);
+  max-width: 44rem;
 }
 
-/* ---- the refusals */
+.bandProof strong {
+  color: var(--accent);
+  font-weight: 700;
+}
 
-.noList {
+/* ---- the rulesets, dealt across the foot */
+
+.editions {
   list-style: none;
   margin: 0;
   padding: 0;
-  width: min(100%, 54rem);
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1rem;
 }
 
-.noList > li {
+/* Tall cards, not rows: each one is a column of four things with the state
+ * pinned to the bottom, so the three read as a hand rather than a list. */
+.edition {
   display: grid;
-}
-
-/* Cut from the same glass as the effect chips in The point: components/
- * debuff.module.css `.large`. A refusal is a status you carry, so it wears
- * the frame a status wears. */
-.no {
-  --accent: var(--tone);
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 0.95rem;
-  align-items: center;
-  padding: 1.05rem 1.15rem 1.05rem 0.95rem;
+  grid-template-rows: auto auto 1fr auto;
+  gap: 0.55rem;
+  min-height: 13rem;
+  padding: 1.4rem 1.35rem 1.3rem;
   border-radius: 20px;
-  background:
-    linear-gradient(to bottom, rgba(242, 240, 234, 0.05), rgba(242, 240, 234, 0) 42%),
-    rgba(13, 13, 19, 0.92);
-  border: 0.5px solid rgba(242, 240, 234, 0.16);
-  box-shadow:
-    0 1px 0 rgba(242, 240, 234, 0.05) inset,
-    0 14px 34px -14px rgba(0, 0, 0, 0.65);
-  transition: transform 300ms var(--pop);
+  background: rgba(242, 240, 234, 0.045);
+  box-shadow: inset 0 0 0 1px rgba(242, 240, 234, 0.11);
 }
 
-.no:hover {
-  transform: translateY(-3px);
+/* The one that has not happened yet wears the acid, so the hand reads left to
+ * right as two facts and one promise. */
+.edition:not([data-live]) {
+  background: color-mix(in srgb, var(--accent) 10%, transparent);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent) 36%, transparent);
 }
 
-/* The icon well the effect chips carry, holding the one glyph a refusal has:
- * the thing, crossed out. The keyline is the section's tone, the way a debuff
- * keyline is its school. */
-.noWell {
-  position: relative;
-  display: block;
-  width: 3rem;
-  height: 3rem;
-  border-radius: 10px;
-  background: rgba(242, 240, 234, 0.06);
+.editionNum {
+  font: 700 0.72rem/1 var(--mono);
+  color: rgba(242, 240, 234, 0.28);
+  font-variant-numeric: tabular-nums;
+}
+
+.edition:not([data-live]) .editionNum {
+  color: color-mix(in srgb, var(--accent) 70%, transparent);
+}
+
+.edition strong {
+  font: 800 clamp(1.3rem, 2.1vw, 1.7rem)/1.05 var(--round);
+  letter-spacing: -0.022em;
+}
+
+.editionNote {
+  font: 600 0.84rem/1.5 var(--sans);
+  color: var(--mute);
+  text-wrap: pretty;
+}
+
+.editionState {
+  align-self: end;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.42rem;
+  font: 700 0.58rem/1 var(--mono);
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--accent);
+  white-space: nowrap;
+}
+
+.editionState::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+@media (max-width: 62rem) {
+  .editions {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .edition {
+    min-height: 0;
+  }
+}
+
+/* ---- the promises */
+
+.promises {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: min(100%, 66rem);
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.promise {
+  height: 100%;
+  display: grid;
+  align-content: start;
+  gap: 0.5rem;
+  padding: 1.3rem 1.25rem 1.4rem;
+  border-radius: 16px;
+  background: rgba(242, 240, 234, 0.04);
+  box-shadow: inset 0 0 0 1px rgba(242, 240, 234, 0.11);
+}
+
+.promiseIcon {
+  font-size: 1.7rem;
+  line-height: 1;
   color: var(--accent);
 }
 
-.noGlyph {
-  position: absolute;
-  inset: 0.6rem;
+.promiseWhat {
+  font: 800 1.08rem/1.2 var(--round);
+  letter-spacing: -0.015em;
+  text-wrap: balance;
 }
 
-.noRing {
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  box-shadow:
-    inset 0 0 0 1px color-mix(in srgb, var(--accent) 65%, transparent),
-    inset 0 0 10px color-mix(in srgb, var(--accent) 22%, transparent);
+/* The mechanism, and it is deliberately the small print: a reader who only
+ * takes the headline still gets a true sentence. */
+.promiseWhy {
+  font: 600 0.82rem/1.5 var(--sans);
+  color: var(--mute);
+  text-wrap: pretty;
 }
 
-.noText {
-  display: grid;
-  gap: 0.32rem;
-  min-width: 0;
-}
-
-.noWhat {
-  font: 600 1rem/1.25 var(--sans);
-  letter-spacing: -0.01em;
-}
-
-.noThen {
-  color: rgba(242, 240, 234, 0.62);
-  font: 400 0.82rem/1.35 var(--sans);
-}
-
-/* The track a debuff's timer runs in, with nothing running in it. Nothing
- * here fills, so nothing here drains. */
-.noBar {
-  display: block;
-  height: 3px;
-  margin-top: 0.25rem;
-  border-radius: 999px;
-  background: rgba(242, 240, 234, 0.12);
-}
-
-/* ---- the end */
+/* ---- the name, and the end */
 
 .end {
   padding-bottom: clamp(2rem, 5vh, 3rem);
 }
 
 .endFox {
-  height: 3rem;
   width: auto;
+  height: 3rem;
   fill: var(--ink);
   margin-bottom: 0.5rem;
 }
@@ -701,14 +740,50 @@
 .small {
   margin: clamp(3rem, 8vh, 5rem) 0 0;
   max-width: 44rem;
-  text-align: center;
-  font-size: 0.78rem;
-  font-weight: 600;
-  line-height: 1.5;
+  font: 600 0.78rem/1.5 var(--sans);
   color: rgba(242, 240, 234, 0.42);
+  text-align: center;
 }
 
-/* ---- motion and narrow */
+/* =====================================================================
+   NARROWER, AND STILLER
+   ===================================================================== */
+
+@media (max-width: 64rem) {
+  .effects {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .editions,
+  .promises {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 48rem) {
+  .title {
+    max-width: none;
+    padding-bottom: 5.5rem;
+  }
+
+  .credit {
+    text-align: left;
+    line-height: 1.4;
+    left: 1.25rem;
+    right: 1.25rem;
+  }
+
+  .button {
+    padding: 0.55rem 0.9rem;
+    font-size: 0.78rem;
+  }
+
+  .effects,
+  .editions,
+  .promises {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
 
 @media (prefers-reduced-motion: reduce) {
   .scene,
@@ -717,54 +792,18 @@
   .yellCaret {
     animation: none;
   }
+
   .figure,
   .effect {
     transition: none;
   }
+
   .page [data-reveal],
   .effectCard,
-  .handCard,
-  .no,
+  .promise,
   .button {
     opacity: 1;
     transform: none !important;
     transition: none;
-  }
-}
-
-@media (max-width: 64rem) {
-  .effects {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-@media (max-width: 48rem) {
-  .title {
-    padding-bottom: 5.5rem;
-    max-width: none;
-  }
-  .credit {
-    left: 1.25rem;
-    right: 1.25rem;
-    text-align: left;
-    line-height: 1.4;
-  }
-  .button {
-    padding: 0.55rem 0.9rem;
-    font-size: 0.78rem;
-  }
-  .effects,
-  .noList {
-    grid-template-columns: minmax(0, 1fr);
-  }
-  .hand {
-    flex-wrap: wrap;
-    gap: 1rem;
-  }
-  .handCard {
-    margin: 0;
-  }
-  .plusRow {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
