@@ -1,0 +1,3069 @@
+{
+  "class": "warlock",
+  "abilities": [
+    {
+      "level": 1,
+      "spells": [
+        {
+          "spellId": 348,
+          "name": "Immolate",
+          "rank": 1,
+          "costCopper": 10,
+          "knownBy": [
+            348,
+            707,
+            1094,
+            2941,
+            11665,
+            11667,
+            11668,
+            25309
+          ]
+        }
+      ],
+      "totalCostCopper": 10
+    },
+    {
+      "level": 4,
+      "spells": [
+        {
+          "spellId": 172,
+          "name": "Corruption",
+          "rank": 1,
+          "costCopper": 100,
+          "knownBy": [
+            172,
+            6222,
+            6223,
+            7648,
+            11671,
+            11672,
+            25311
+          ]
+        },
+        {
+          "spellId": 702,
+          "name": "Curse of Weakness",
+          "rank": 1,
+          "costCopper": 100,
+          "knownBy": [
+            702,
+            1108,
+            6205,
+            7646,
+            11707,
+            11708
+          ]
+        }
+      ],
+      "totalCostCopper": 200
+    },
+    {
+      "level": 6,
+      "spells": [
+        {
+          "spellId": 1454,
+          "name": "Life Tap",
+          "rank": 1,
+          "costCopper": 100,
+          "knownBy": [
+            1454,
+            1455,
+            1456,
+            11687,
+            11688,
+            11689
+          ]
+        },
+        {
+          "spellId": 695,
+          "name": "Shadow Bolt",
+          "rank": 2,
+          "costCopper": 100,
+          "knownBy": [
+            695,
+            705,
+            1088,
+            1106,
+            7641,
+            11659,
+            11660,
+            11661,
+            25307
+          ]
+        }
+      ],
+      "totalCostCopper": 200
+    },
+    {
+      "level": 8,
+      "spells": [
+        {
+          "spellId": 980,
+          "name": "Curse of Agony",
+          "rank": 1,
+          "costCopper": 200,
+          "knownBy": [
+            980,
+            1014,
+            6217,
+            11711,
+            11712,
+            11713
+          ]
+        },
+        {
+          "spellId": 5782,
+          "name": "Fear",
+          "rank": 1,
+          "costCopper": 200,
+          "knownBy": [
+            5782,
+            6213,
+            6215
+          ]
+        }
+      ],
+      "totalCostCopper": 400
+    },
+    {
+      "level": 10,
+      "spells": [
+        {
+          "spellId": 6201,
+          "name": "Create Healthstone (Minor)",
+          "rank": null,
+          "costCopper": 300,
+          "knownBy": [
+            6201
+          ]
+        },
+        {
+          "spellId": 696,
+          "name": "Demon Skin",
+          "rank": 2,
+          "costCopper": 300,
+          "knownBy": [
+            696
+          ]
+        },
+        {
+          "spellId": 1120,
+          "name": "Drain Soul",
+          "rank": 1,
+          "costCopper": 300,
+          "knownBy": [
+            1120,
+            8288,
+            8289,
+            11675
+          ]
+        },
+        {
+          "spellId": 707,
+          "name": "Immolate",
+          "rank": 2,
+          "costCopper": 300,
+          "knownBy": [
+            707,
+            1094,
+            2941,
+            11665,
+            11667,
+            11668,
+            25309
+          ]
+        }
+      ],
+      "totalCostCopper": 1200
+    },
+    {
+      "level": 12,
+      "spells": [
+        {
+          "spellId": 1108,
+          "name": "Curse of Weakness",
+          "rank": 2,
+          "costCopper": 600,
+          "knownBy": [
+            1108,
+            6205,
+            7646,
+            11707,
+            11708
+          ]
+        },
+        {
+          "spellId": 755,
+          "name": "Health Funnel",
+          "rank": 1,
+          "costCopper": 600,
+          "knownBy": [
+            755,
+            3698,
+            3699,
+            3700,
+            11693,
+            11694,
+            11695
+          ]
+        },
+        {
+          "spellId": 705,
+          "name": "Shadow Bolt",
+          "rank": 3,
+          "costCopper": 600,
+          "knownBy": [
+            705,
+            1088,
+            1106,
+            7641,
+            11659,
+            11660,
+            11661,
+            25307
+          ]
+        }
+      ],
+      "totalCostCopper": 1800
+    },
+    {
+      "level": 14,
+      "spells": [
+        {
+          "spellId": 6222,
+          "name": "Corruption",
+          "rank": 2,
+          "costCopper": 900,
+          "knownBy": [
+            6222,
+            6223,
+            7648,
+            11671,
+            11672,
+            25311
+          ]
+        },
+        {
+          "spellId": 704,
+          "name": "Curse of Recklessness",
+          "rank": 1,
+          "costCopper": 900,
+          "knownBy": [
+            704,
+            7658,
+            7659,
+            11717
+          ]
+        },
+        {
+          "spellId": 689,
+          "name": "Drain Life",
+          "rank": 1,
+          "costCopper": 900,
+          "knownBy": [
+            689,
+            699,
+            709,
+            7651,
+            11699,
+            11700
+          ]
+        }
+      ],
+      "totalCostCopper": 2700
+    },
+    {
+      "level": 16,
+      "spells": [
+        {
+          "spellId": 1455,
+          "name": "Life Tap",
+          "rank": 2,
+          "costCopper": 1200,
+          "knownBy": [
+            1455,
+            1456,
+            11687,
+            11688,
+            11689
+          ]
+        },
+        {
+          "spellId": 5697,
+          "name": "Unending Breath",
+          "rank": null,
+          "costCopper": 1200,
+          "knownBy": [
+            5697
+          ]
+        }
+      ],
+      "totalCostCopper": 2400
+    },
+    {
+      "level": 18,
+      "spells": [
+        {
+          "spellId": 693,
+          "name": "Create Soulstone (Minor)",
+          "rank": null,
+          "costCopper": 1500,
+          "knownBy": [
+            693
+          ]
+        },
+        {
+          "spellId": 1014,
+          "name": "Curse of Agony",
+          "rank": 2,
+          "costCopper": 1500,
+          "knownBy": [
+            1014,
+            6217,
+            11711,
+            11712,
+            11713
+          ]
+        },
+        {
+          "spellId": 5676,
+          "name": "Searing Pain",
+          "rank": 1,
+          "costCopper": 1500,
+          "knownBy": [
+            5676,
+            17919,
+            17920,
+            17921,
+            17922,
+            17923
+          ]
+        }
+      ],
+      "totalCostCopper": 4500
+    },
+    {
+      "level": 20,
+      "spells": [
+        {
+          "spellId": 706,
+          "name": "Demon Armor",
+          "rank": 1,
+          "costCopper": 2000,
+          "knownBy": [
+            706,
+            1086,
+            11733,
+            11734,
+            11735,
+            12956
+          ]
+        },
+        {
+          "spellId": 3698,
+          "name": "Health Funnel",
+          "rank": 2,
+          "costCopper": 2000,
+          "knownBy": [
+            3698,
+            3699,
+            3700,
+            11693,
+            11694,
+            11695
+          ]
+        },
+        {
+          "spellId": 1094,
+          "name": "Immolate",
+          "rank": 3,
+          "costCopper": 2000,
+          "knownBy": [
+            1094,
+            2941,
+            11665,
+            11667,
+            11668,
+            25309
+          ]
+        },
+        {
+          "spellId": 5740,
+          "name": "Rain of Fire",
+          "rank": 1,
+          "costCopper": 2000,
+          "knownBy": [
+            5740,
+            6219,
+            11677,
+            11678,
+            19474
+          ]
+        },
+        {
+          "spellId": 698,
+          "name": "Ritual of Summoning",
+          "rank": null,
+          "costCopper": 2000,
+          "knownBy": [
+            698
+          ]
+        },
+        {
+          "spellId": 1088,
+          "name": "Shadow Bolt",
+          "rank": 4,
+          "costCopper": 2000,
+          "knownBy": [
+            1088,
+            1106,
+            7641,
+            11659,
+            11660,
+            11661,
+            25307
+          ]
+        }
+      ],
+      "totalCostCopper": 12000
+    },
+    {
+      "level": 22,
+      "spells": [
+        {
+          "spellId": 6202,
+          "name": "Create Healthstone (Lesser)",
+          "rank": null,
+          "costCopper": 2500,
+          "knownBy": [
+            6202
+          ]
+        },
+        {
+          "spellId": 6205,
+          "name": "Curse of Weakness",
+          "rank": 3,
+          "costCopper": 2500,
+          "knownBy": [
+            6205,
+            7646,
+            11707,
+            11708
+          ]
+        },
+        {
+          "spellId": 699,
+          "name": "Drain Life",
+          "rank": 2,
+          "costCopper": 2500,
+          "knownBy": [
+            699,
+            709,
+            7651,
+            11699,
+            11700
+          ]
+        },
+        {
+          "spellId": 126,
+          "name": "Eye of Kilrogg",
+          "rank": null,
+          "costCopper": 2500,
+          "knownBy": [
+            126
+          ]
+        }
+      ],
+      "totalCostCopper": 10000
+    },
+    {
+      "level": 24,
+      "spells": [
+        {
+          "spellId": 6223,
+          "name": "Corruption",
+          "rank": 3,
+          "costCopper": 3000,
+          "knownBy": [
+            6223,
+            7648,
+            11671,
+            11672,
+            25311
+          ]
+        },
+        {
+          "spellId": 5138,
+          "name": "Drain Mana",
+          "rank": 1,
+          "costCopper": 3000,
+          "knownBy": [
+            5138,
+            6226,
+            11703,
+            11704,
+            18394
+          ]
+        },
+        {
+          "spellId": 8288,
+          "name": "Drain Soul",
+          "rank": 2,
+          "costCopper": 3000,
+          "knownBy": [
+            8288,
+            8289,
+            11675
+          ]
+        },
+        {
+          "spellId": 5500,
+          "name": "Sense Demons",
+          "rank": null,
+          "costCopper": 3000,
+          "knownBy": [
+            5500
+          ]
+        },
+        {
+          "spellId": 18867,
+          "name": "Shadowburn",
+          "rank": 2,
+          "costCopper": 150,
+          "knownBy": [
+            18867,
+            18868,
+            18869,
+            18870,
+            18871
+          ],
+          "optional": true
+        }
+      ],
+      "totalCostCopper": 12150
+    },
+    {
+      "level": 26,
+      "spells": [
+        {
+          "spellId": 1714,
+          "name": "Curse of Tongues",
+          "rank": 1,
+          "costCopper": 4000,
+          "knownBy": [
+            1714,
+            11719
+          ]
+        },
+        {
+          "spellId": 132,
+          "name": "Detect Lesser Invisibility",
+          "rank": null,
+          "costCopper": 4000,
+          "knownBy": [
+            132
+          ]
+        },
+        {
+          "spellId": 1456,
+          "name": "Life Tap",
+          "rank": 3,
+          "costCopper": 4000,
+          "knownBy": [
+            1456,
+            11687,
+            11688,
+            11689
+          ]
+        },
+        {
+          "spellId": 17919,
+          "name": "Searing Pain",
+          "rank": 2,
+          "costCopper": 4000,
+          "knownBy": [
+            17919,
+            17920,
+            17921,
+            17922,
+            17923
+          ]
+        }
+      ],
+      "totalCostCopper": 16000
+    },
+    {
+      "level": 28,
+      "spells": [
+        {
+          "spellId": 710,
+          "name": "Banish",
+          "rank": 1,
+          "costCopper": 5000,
+          "knownBy": [
+            710,
+            18647
+          ]
+        },
+        {
+          "spellId": 6366,
+          "name": "Create Firestone (Lesser)",
+          "rank": null,
+          "costCopper": 5000,
+          "knownBy": [
+            6366
+          ]
+        },
+        {
+          "spellId": 6217,
+          "name": "Curse of Agony",
+          "rank": 3,
+          "costCopper": 5000,
+          "knownBy": [
+            6217,
+            11711,
+            11712,
+            11713
+          ]
+        },
+        {
+          "spellId": 7658,
+          "name": "Curse of Recklessness",
+          "rank": 2,
+          "costCopper": 5000,
+          "knownBy": [
+            7658,
+            7659,
+            11717
+          ]
+        },
+        {
+          "spellId": 3699,
+          "name": "Health Funnel",
+          "rank": 3,
+          "costCopper": 5000,
+          "knownBy": [
+            3699,
+            3700,
+            11693,
+            11694,
+            11695
+          ]
+        },
+        {
+          "spellId": 1106,
+          "name": "Shadow Bolt",
+          "rank": 5,
+          "costCopper": 5000,
+          "knownBy": [
+            1106,
+            7641,
+            11659,
+            11660,
+            11661,
+            25307
+          ]
+        }
+      ],
+      "totalCostCopper": 30000
+    },
+    {
+      "level": 30,
+      "spells": [
+        {
+          "spellId": 20752,
+          "name": "Create Soulstone (Lesser)",
+          "rank": null,
+          "costCopper": 6000,
+          "knownBy": [
+            20752
+          ]
+        },
+        {
+          "spellId": 1086,
+          "name": "Demon Armor",
+          "rank": 2,
+          "costCopper": 6000,
+          "knownBy": [
+            1086,
+            11733,
+            11734,
+            11735
+          ]
+        },
+        {
+          "spellId": 709,
+          "name": "Drain Life",
+          "rank": 3,
+          "costCopper": 6000,
+          "knownBy": [
+            709,
+            7651,
+            11699,
+            11700
+          ]
+        },
+        {
+          "spellId": 1098,
+          "name": "Enslave Demon",
+          "rank": 1,
+          "costCopper": 6000,
+          "knownBy": [
+            1098,
+            11725,
+            11726
+          ]
+        },
+        {
+          "spellId": 1949,
+          "name": "Hellfire",
+          "rank": 1,
+          "costCopper": 6000,
+          "knownBy": [
+            1949,
+            11683,
+            11684
+          ]
+        },
+        {
+          "spellId": 2941,
+          "name": "Immolate",
+          "rank": 4,
+          "costCopper": 6000,
+          "knownBy": [
+            2941,
+            11665,
+            11667,
+            11668,
+            25309
+          ]
+        }
+      ],
+      "totalCostCopper": 36000
+    },
+    {
+      "level": 32,
+      "spells": [
+        {
+          "spellId": 7646,
+          "name": "Curse of Weakness",
+          "rank": 4,
+          "costCopper": 7000,
+          "knownBy": [
+            7646,
+            11707,
+            11708
+          ]
+        },
+        {
+          "spellId": 1490,
+          "name": "Curse of the Elements",
+          "rank": 1,
+          "costCopper": 7000,
+          "knownBy": [
+            1490,
+            11721,
+            11722
+          ]
+        },
+        {
+          "spellId": 6213,
+          "name": "Fear",
+          "rank": 2,
+          "costCopper": 7000,
+          "knownBy": [
+            6213,
+            6215
+          ]
+        },
+        {
+          "spellId": 6229,
+          "name": "Shadow Ward",
+          "rank": 1,
+          "costCopper": 7000,
+          "knownBy": [
+            6229,
+            11739,
+            11740,
+            28610
+          ]
+        },
+        {
+          "spellId": 18868,
+          "name": "Shadowburn",
+          "rank": 3,
+          "costCopper": 350,
+          "knownBy": [
+            18868,
+            18869,
+            18870,
+            18871
+          ],
+          "optional": true
+        }
+      ],
+      "totalCostCopper": 28350
+    },
+    {
+      "level": 34,
+      "spells": [
+        {
+          "spellId": 7648,
+          "name": "Corruption",
+          "rank": 4,
+          "costCopper": 8000,
+          "knownBy": [
+            7648,
+            11671,
+            11672,
+            25311
+          ]
+        },
+        {
+          "spellId": 5699,
+          "name": "Create Healthstone",
+          "rank": null,
+          "costCopper": 8000,
+          "knownBy": [
+            5699
+          ]
+        },
+        {
+          "spellId": 6226,
+          "name": "Drain Mana",
+          "rank": 2,
+          "costCopper": 8000,
+          "knownBy": [
+            6226,
+            11703,
+            11704
+          ]
+        },
+        {
+          "spellId": 6219,
+          "name": "Rain of Fire",
+          "rank": 2,
+          "costCopper": 8000,
+          "knownBy": [
+            6219,
+            11677,
+            11678
+          ]
+        },
+        {
+          "spellId": 17920,
+          "name": "Searing Pain",
+          "rank": 3,
+          "costCopper": 8000,
+          "knownBy": [
+            17920,
+            17921,
+            17922,
+            17923
+          ]
+        }
+      ],
+      "totalCostCopper": 40000
+    },
+    {
+      "level": 36,
+      "spells": [
+        {
+          "spellId": 17951,
+          "name": "Create Firestone",
+          "rank": null,
+          "costCopper": 9000,
+          "knownBy": [
+            17951
+          ]
+        },
+        {
+          "spellId": 2362,
+          "name": "Create Spellstone",
+          "rank": null,
+          "costCopper": 9000,
+          "knownBy": [
+            2362
+          ]
+        },
+        {
+          "spellId": 3700,
+          "name": "Health Funnel",
+          "rank": 4,
+          "costCopper": 9000,
+          "knownBy": [
+            3700,
+            11693,
+            11694,
+            11695
+          ]
+        },
+        {
+          "spellId": 11687,
+          "name": "Life Tap",
+          "rank": 4,
+          "costCopper": 9000,
+          "knownBy": [
+            11687,
+            11688,
+            11689
+          ]
+        },
+        {
+          "spellId": 7641,
+          "name": "Shadow Bolt",
+          "rank": 6,
+          "costCopper": 9000,
+          "knownBy": [
+            7641,
+            11659,
+            11660,
+            11661,
+            25307
+          ]
+        }
+      ],
+      "totalCostCopper": 45000
+    },
+    {
+      "level": 38,
+      "spells": [
+        {
+          "spellId": 11711,
+          "name": "Curse of Agony",
+          "rank": 4,
+          "costCopper": 10000,
+          "knownBy": [
+            11711,
+            11712,
+            11713
+          ]
+        },
+        {
+          "spellId": 2970,
+          "name": "Detect Invisibility",
+          "rank": null,
+          "costCopper": 10000,
+          "knownBy": [
+            2970
+          ]
+        },
+        {
+          "spellId": 7651,
+          "name": "Drain Life",
+          "rank": 4,
+          "costCopper": 10000,
+          "knownBy": [
+            7651,
+            11699,
+            11700
+          ]
+        },
+        {
+          "spellId": 8289,
+          "name": "Drain Soul",
+          "rank": 3,
+          "costCopper": 10000,
+          "knownBy": [
+            8289,
+            11675
+          ]
+        },
+        {
+          "spellId": 18879,
+          "name": "Siphon Life",
+          "rank": 2,
+          "costCopper": 500,
+          "knownBy": [
+            18879,
+            18880,
+            18881
+          ],
+          "optional": true
+        }
+      ],
+      "totalCostCopper": 40500
+    },
+    {
+      "level": 40,
+      "spells": [
+        {
+          "spellId": 20755,
+          "name": "Create Soulstone",
+          "rank": null,
+          "costCopper": 11000,
+          "knownBy": [
+            20755
+          ]
+        },
+        {
+          "spellId": 11733,
+          "name": "Demon Armor",
+          "rank": 3,
+          "costCopper": 11000,
+          "knownBy": [
+            11733,
+            11734,
+            11735
+          ]
+        },
+        {
+          "spellId": 5484,
+          "name": "Howl of Terror",
+          "rank": 1,
+          "costCopper": 11000,
+          "knownBy": [
+            5484,
+            17928
+          ]
+        },
+        {
+          "spellId": 11665,
+          "name": "Immolate",
+          "rank": 5,
+          "costCopper": 11000,
+          "knownBy": [
+            11665,
+            11667,
+            11668,
+            25309
+          ]
+        },
+        {
+          "spellId": 18869,
+          "name": "Shadowburn",
+          "rank": 4,
+          "costCopper": 550,
+          "knownBy": [
+            18869,
+            18870,
+            18871
+          ],
+          "optional": true
+        }
+      ],
+      "totalCostCopper": 44550
+    },
+    {
+      "level": 42,
+      "spells": [
+        {
+          "spellId": 7659,
+          "name": "Curse of Recklessness",
+          "rank": 3,
+          "costCopper": 11000,
+          "knownBy": [
+            7659,
+            11717
+          ]
+        },
+        {
+          "spellId": 11707,
+          "name": "Curse of Weakness",
+          "rank": 5,
+          "costCopper": 11000,
+          "knownBy": [
+            11707,
+            11708
+          ]
+        },
+        {
+          "spellId": 6789,
+          "name": "Death Coil",
+          "rank": 1,
+          "costCopper": 11000,
+          "knownBy": [
+            6789,
+            17925,
+            17926
+          ]
+        },
+        {
+          "spellId": 11683,
+          "name": "Hellfire",
+          "rank": 2,
+          "costCopper": 9900,
+          "knownBy": [
+            11683,
+            11684
+          ]
+        },
+        {
+          "spellId": 17921,
+          "name": "Searing Pain",
+          "rank": 4,
+          "costCopper": 11000,
+          "knownBy": [
+            17921,
+            17922,
+            17923
+          ]
+        },
+        {
+          "spellId": 11739,
+          "name": "Shadow Ward",
+          "rank": 2,
+          "costCopper": 11000,
+          "knownBy": [
+            11739,
+            11740,
+            28610
+          ]
+        }
+      ],
+      "totalCostCopper": 64900
+    },
+    {
+      "level": 44,
+      "spells": [
+        {
+          "spellId": 11671,
+          "name": "Corruption",
+          "rank": 5,
+          "costCopper": 12000,
+          "knownBy": [
+            11671,
+            11672,
+            25311
+          ]
+        },
+        {
+          "spellId": 17862,
+          "name": "Curse of Shadow",
+          "rank": 1,
+          "costCopper": 12000,
+          "knownBy": [
+            17862,
+            17937
+          ]
+        },
+        {
+          "spellId": 11703,
+          "name": "Drain Mana",
+          "rank": 3,
+          "costCopper": 12000,
+          "knownBy": [
+            11703,
+            11704
+          ]
+        },
+        {
+          "spellId": 11725,
+          "name": "Enslave Demon",
+          "rank": 2,
+          "costCopper": 12000,
+          "knownBy": [
+            11725,
+            11726
+          ]
+        },
+        {
+          "spellId": 11693,
+          "name": "Health Funnel",
+          "rank": 5,
+          "costCopper": 12000,
+          "knownBy": [
+            11693,
+            11694,
+            11695
+          ]
+        },
+        {
+          "spellId": 11659,
+          "name": "Shadow Bolt",
+          "rank": 7,
+          "costCopper": 12000,
+          "knownBy": [
+            11659,
+            11660,
+            11661,
+            25307
+          ]
+        }
+      ],
+      "totalCostCopper": 72000
+    },
+    {
+      "level": 46,
+      "spells": [
+        {
+          "spellId": 18647,
+          "name": "Banish",
+          "rank": 2,
+          "costCopper": 13000,
+          "knownBy": [
+            18647
+          ]
+        },
+        {
+          "spellId": 17952,
+          "name": "Create Firestone (Greater)",
+          "rank": null,
+          "costCopper": 13000,
+          "knownBy": [
+            17952
+          ]
+        },
+        {
+          "spellId": 11729,
+          "name": "Create Healthstone (Greater)",
+          "rank": null,
+          "costCopper": 13000,
+          "knownBy": [
+            11729
+          ]
+        },
+        {
+          "spellId": 11721,
+          "name": "Curse of the Elements",
+          "rank": 2,
+          "costCopper": 13000,
+          "knownBy": [
+            11721,
+            11722
+          ]
+        },
+        {
+          "spellId": 11699,
+          "name": "Drain Life",
+          "rank": 5,
+          "costCopper": 13000,
+          "knownBy": [
+            11699,
+            11700
+          ]
+        },
+        {
+          "spellId": 11688,
+          "name": "Life Tap",
+          "rank": 5,
+          "costCopper": 13000,
+          "knownBy": [
+            11688,
+            11689
+          ]
+        },
+        {
+          "spellId": 11677,
+          "name": "Rain of Fire",
+          "rank": 3,
+          "costCopper": 13000,
+          "knownBy": [
+            11677,
+            11678
+          ]
+        }
+      ],
+      "totalCostCopper": 91000
+    },
+    {
+      "level": 48,
+      "spells": [
+        {
+          "spellId": 18930,
+          "name": "Conflagrate",
+          "rank": 2,
+          "costCopper": 700,
+          "knownBy": [
+            18930,
+            18931,
+            18932
+          ],
+          "optional": true
+        },
+        {
+          "spellId": 17727,
+          "name": "Create Spellstone (Greater)",
+          "rank": null,
+          "costCopper": 14000,
+          "knownBy": [
+            17727
+          ]
+        },
+        {
+          "spellId": 11712,
+          "name": "Curse of Agony",
+          "rank": 5,
+          "costCopper": 14000,
+          "knownBy": [
+            11712,
+            11713
+          ]
+        },
+        {
+          "spellId": 18870,
+          "name": "Shadowburn",
+          "rank": 5,
+          "costCopper": 700,
+          "knownBy": [
+            18870,
+            18871
+          ],
+          "optional": true
+        },
+        {
+          "spellId": 18880,
+          "name": "Siphon Life",
+          "rank": 3,
+          "costCopper": 700,
+          "knownBy": [
+            18880,
+            18881
+          ],
+          "optional": true
+        },
+        {
+          "spellId": 6353,
+          "name": "Soul Fire",
+          "rank": 1,
+          "costCopper": 14000,
+          "knownBy": [
+            6353,
+            17924
+          ]
+        }
+      ],
+      "totalCostCopper": 44100
+    },
+    {
+      "level": 50,
+      "spells": [
+        {
+          "spellId": 20756,
+          "name": "Create Soulstone (Greater)",
+          "rank": null,
+          "costCopper": 15000,
+          "knownBy": [
+            20756
+          ]
+        },
+        {
+          "spellId": 11719,
+          "name": "Curse of Tongues",
+          "rank": 2,
+          "costCopper": 15000,
+          "knownBy": [
+            11719
+          ]
+        },
+        {
+          "spellId": 18937,
+          "name": "Dark Pact",
+          "rank": 2,
+          "costCopper": 750,
+          "knownBy": [
+            18937,
+            18938
+          ],
+          "optional": true
+        },
+        {
+          "spellId": 17925,
+          "name": "Death Coil",
+          "rank": 2,
+          "costCopper": 15000,
+          "knownBy": [
+            17925,
+            17926
+          ]
+        },
+        {
+          "spellId": 11734,
+          "name": "Demon Armor",
+          "rank": 4,
+          "costCopper": 15000,
+          "knownBy": [
+            11734,
+            11735
+          ]
+        },
+        {
+          "spellId": 11743,
+          "name": "Detect Greater Invisibility",
+          "rank": null,
+          "costCopper": 15000,
+          "knownBy": [
+            11743
+          ]
+        },
+        {
+          "spellId": 11667,
+          "name": "Immolate",
+          "rank": 6,
+          "costCopper": 15000,
+          "knownBy": [
+            11667,
+            11668,
+            25309
+          ]
+        },
+        {
+          "spellId": 17922,
+          "name": "Searing Pain",
+          "rank": 5,
+          "costCopper": 15000,
+          "knownBy": [
+            17922,
+            17923
+          ]
+        }
+      ],
+      "totalCostCopper": 105750
+    },
+    {
+      "level": 52,
+      "spells": [
+        {
+          "spellId": 11708,
+          "name": "Curse of Weakness",
+          "rank": 6,
+          "costCopper": 18000,
+          "knownBy": [
+            11708
+          ]
+        },
+        {
+          "spellId": 11675,
+          "name": "Drain Soul",
+          "rank": 4,
+          "costCopper": 18000,
+          "knownBy": [
+            11675
+          ]
+        },
+        {
+          "spellId": 11694,
+          "name": "Health Funnel",
+          "rank": 6,
+          "costCopper": 18000,
+          "knownBy": [
+            11694,
+            11695
+          ]
+        },
+        {
+          "spellId": 11660,
+          "name": "Shadow Bolt",
+          "rank": 8,
+          "costCopper": 18000,
+          "knownBy": [
+            11660,
+            11661,
+            25307
+          ]
+        },
+        {
+          "spellId": 11740,
+          "name": "Shadow Ward",
+          "rank": 3,
+          "costCopper": 18000,
+          "knownBy": [
+            11740,
+            28610
+          ]
+        }
+      ],
+      "totalCostCopper": 90000
+    },
+    {
+      "level": 54,
+      "spells": [
+        {
+          "spellId": 18931,
+          "name": "Conflagrate",
+          "rank": 3,
+          "costCopper": 1000,
+          "knownBy": [
+            18931,
+            18932
+          ],
+          "optional": true
+        },
+        {
+          "spellId": 11672,
+          "name": "Corruption",
+          "rank": 6,
+          "costCopper": 20000,
+          "knownBy": [
+            11672,
+            25311
+          ]
+        },
+        {
+          "spellId": 11700,
+          "name": "Drain Life",
+          "rank": 6,
+          "costCopper": 20000,
+          "knownBy": [
+            11700
+          ]
+        },
+        {
+          "spellId": 11684,
+          "name": "Hellfire",
+          "rank": 3,
+          "costCopper": 18000,
+          "knownBy": [
+            11684
+          ]
+        },
+        {
+          "spellId": 17928,
+          "name": "Howl of Terror",
+          "rank": 2,
+          "costCopper": 20000,
+          "knownBy": [
+            17928
+          ]
+        }
+      ],
+      "totalCostCopper": 79000
+    },
+    {
+      "level": 56,
+      "spells": [
+        {
+          "spellId": 17953,
+          "name": "Create Firestone (Major)",
+          "rank": null,
+          "costCopper": 22000,
+          "knownBy": [
+            17953
+          ]
+        },
+        {
+          "spellId": 11717,
+          "name": "Curse of Recklessness",
+          "rank": 4,
+          "costCopper": 22000,
+          "knownBy": [
+            11717
+          ]
+        },
+        {
+          "spellId": 17937,
+          "name": "Curse of Shadow",
+          "rank": 2,
+          "costCopper": 22000,
+          "knownBy": [
+            17937
+          ]
+        },
+        {
+          "spellId": 6215,
+          "name": "Fear",
+          "rank": 3,
+          "costCopper": 22000,
+          "knownBy": [
+            6215
+          ]
+        },
+        {
+          "spellId": 11689,
+          "name": "Life Tap",
+          "rank": 6,
+          "costCopper": 22000,
+          "knownBy": [
+            11689
+          ]
+        },
+        {
+          "spellId": 18871,
+          "name": "Shadowburn",
+          "rank": 6,
+          "costCopper": 22000,
+          "knownBy": [
+            18871
+          ],
+          "optional": true
+        },
+        {
+          "spellId": 17924,
+          "name": "Soul Fire",
+          "rank": 2,
+          "costCopper": 22000,
+          "knownBy": [
+            17924
+          ]
+        }
+      ],
+      "totalCostCopper": 154000
+    },
+    {
+      "level": 58,
+      "spells": [
+        {
+          "spellId": 11730,
+          "name": "Create Healthstone (Major)",
+          "rank": null,
+          "costCopper": 24000,
+          "knownBy": [
+            11730
+          ]
+        },
+        {
+          "spellId": 11713,
+          "name": "Curse of Agony",
+          "rank": 6,
+          "costCopper": 24000,
+          "knownBy": [
+            11713
+          ]
+        },
+        {
+          "spellId": 17926,
+          "name": "Death Coil",
+          "rank": 3,
+          "costCopper": 24000,
+          "knownBy": [
+            17926
+          ]
+        },
+        {
+          "spellId": 11726,
+          "name": "Enslave Demon",
+          "rank": 3,
+          "costCopper": 24000,
+          "knownBy": [
+            11726
+          ]
+        },
+        {
+          "spellId": 11678,
+          "name": "Rain of Fire",
+          "rank": 4,
+          "costCopper": 24000,
+          "knownBy": [
+            11678
+          ]
+        },
+        {
+          "spellId": 17923,
+          "name": "Searing Pain",
+          "rank": 6,
+          "costCopper": 24000,
+          "knownBy": [
+            17923
+          ]
+        },
+        {
+          "spellId": 18881,
+          "name": "Siphon Life",
+          "rank": 4,
+          "costCopper": 1200,
+          "knownBy": [
+            18881
+          ],
+          "optional": true
+        }
+      ],
+      "totalCostCopper": 145200
+    },
+    {
+      "level": 60,
+      "spells": [
+        {
+          "spellId": 18932,
+          "name": "Conflagrate",
+          "rank": 4,
+          "costCopper": 1300,
+          "knownBy": [
+            18932
+          ],
+          "optional": true
+        },
+        {
+          "spellId": 20757,
+          "name": "Create Soulstone (Major)",
+          "rank": null,
+          "costCopper": 26000,
+          "knownBy": [
+            20757
+          ]
+        },
+        {
+          "spellId": 17728,
+          "name": "Create Spellstone (Major)",
+          "rank": null,
+          "costCopper": 26000,
+          "knownBy": [
+            17728
+          ]
+        },
+        {
+          "spellId": 603,
+          "name": "Curse of Doom",
+          "rank": null,
+          "costCopper": 26000,
+          "knownBy": [
+            603
+          ]
+        },
+        {
+          "spellId": 11722,
+          "name": "Curse of the Elements",
+          "rank": 3,
+          "costCopper": 26000,
+          "knownBy": [
+            11722
+          ]
+        },
+        {
+          "spellId": 18938,
+          "name": "Dark Pact",
+          "rank": 3,
+          "costCopper": 1300,
+          "knownBy": [
+            18938
+          ],
+          "optional": true
+        },
+        {
+          "spellId": 11735,
+          "name": "Demon Armor",
+          "rank": 5,
+          "costCopper": 26000,
+          "knownBy": [
+            11735
+          ]
+        },
+        {
+          "spellId": 11695,
+          "name": "Health Funnel",
+          "rank": 7,
+          "costCopper": 26000,
+          "knownBy": [
+            11695
+          ]
+        },
+        {
+          "spellId": 11668,
+          "name": "Immolate",
+          "rank": 7,
+          "costCopper": 26000,
+          "knownBy": [
+            11668,
+            25309
+          ]
+        },
+        {
+          "spellId": 11661,
+          "name": "Shadow Bolt",
+          "rank": 9,
+          "costCopper": 26000,
+          "knownBy": [
+            11661,
+            25307
+          ]
+        }
+      ],
+      "totalCostCopper": 210600
+    }
+  ],
+  "classQuests": [
+    {
+      "level": 1,
+      "name": "Beginnings",
+      "startZone": "Dun Morogh",
+      "startInstance": null,
+      "reward": "Summon Imp",
+      "rewardItemId": null,
+      "rewardItem": null,
+      "questId": 1599,
+      "faction": "alliance"
+    },
+    {
+      "level": 1,
+      "name": "Piercing the Veil",
+      "startZone": "Tirisfal Glades",
+      "startInstance": null,
+      "reward": "Summon Imp",
+      "rewardItemId": null,
+      "rewardItem": null,
+      "questId": 1470,
+      "faction": "horde"
+    },
+    {
+      "level": 1,
+      "name": "The Stolen Tome",
+      "startZone": "Elwynn Forest",
+      "startInstance": null,
+      "reward": "Summon Imp",
+      "rewardItemId": null,
+      "rewardItem": null,
+      "questId": 1598,
+      "faction": "alliance"
+    },
+    {
+      "level": 1,
+      "name": "Vile Familiars",
+      "startZone": "Durotar",
+      "startInstance": null,
+      "reward": "Summon Imp",
+      "rewardItemId": null,
+      "rewardItem": null,
+      "questId": 1485,
+      "faction": "horde"
+    },
+    {
+      "level": 10,
+      "name": "The Binding",
+      "startZone": "Undercity",
+      "startInstance": null,
+      "reward": "Summon Voidwalker",
+      "rewardItemId": null,
+      "rewardItem": null,
+      "questId": 1471,
+      "faction": "horde"
+    },
+    {
+      "level": 10,
+      "name": "The Binding",
+      "startZone": "Orgrimmar",
+      "startInstance": null,
+      "reward": "Summon Voidwalker",
+      "rewardItemId": null,
+      "rewardItem": null,
+      "questId": 1504,
+      "faction": "horde"
+    },
+    {
+      "level": 10,
+      "name": "The Binding",
+      "startZone": "Stormwind City",
+      "startInstance": null,
+      "reward": "Summon Voidwalker",
+      "rewardItemId": null,
+      "rewardItem": null,
+      "questId": 1689,
+      "faction": "alliance"
+    },
+    {
+      "level": 20,
+      "name": "The Binding",
+      "startZone": "Undercity",
+      "startInstance": null,
+      "reward": "Summon Succubus",
+      "rewardItemId": null,
+      "rewardItem": null,
+      "questId": 1474,
+      "faction": "horde"
+    },
+    {
+      "level": 20,
+      "name": "The Binding",
+      "startZone": "Orgrimmar",
+      "startInstance": null,
+      "reward": "Summon Succubus",
+      "rewardItemId": null,
+      "rewardItem": null,
+      "questId": 1513,
+      "faction": "horde"
+    },
+    {
+      "level": 20,
+      "name": "The Binding",
+      "startZone": "Stormwind City",
+      "startInstance": null,
+      "reward": "Summon Succubus",
+      "rewardItemId": null,
+      "rewardItem": null,
+      "questId": 1739,
+      "faction": "alliance"
+    },
+    {
+      "level": 20,
+      "name": "The Orb of Soran'ruk",
+      "startZone": "The Barrens",
+      "startInstance": null,
+      "reward": "Staff of Soran'ruk",
+      "rewardItemId": null,
+      "rewardItem": null,
+      "questId": 1740,
+      "faction": "both",
+      "rewardChoices": [
+        {
+          "itemId": 6898,
+          "item": {
+            "name": "Orb of Soran'ruk",
+            "iconName": "inv_misc_orb_03",
+            "wowheadUrl": "https://www.wowhead.com/classic/item=6898",
+            "slot": "Held",
+            "quality": "Uncommon",
+            "requiredLevel": 0,
+            "itemLevel": 25,
+            "stats": [],
+            "bind": "pickup",
+            "sellPriceCopper": 4132,
+            "effects": [
+              "Equip: Increase Fire Dam +4",
+              "Equip: Increase Shadow Dam +4",
+              "Use: Restore Life"
+            ]
+          }
+        },
+        {
+          "itemId": 15109,
+          "item": {
+            "name": "Staff of Soran'ruk",
+            "iconName": "inv_staff_09",
+            "wowheadUrl": "https://www.wowhead.com/classic/item=15109",
+            "slot": "Two-Hand",
+            "itemSubclass": "Staff",
+            "quality": "Uncommon",
+            "requiredLevel": 0,
+            "itemLevel": 25,
+            "stats": [],
+            "bind": "pickup",
+            "sellPriceCopper": 3344,
+            "damage": {
+              "min": 39,
+              "max": 59,
+              "speed": 2.9
+            },
+            "durability": 75,
+            "effects": [
+              "Equip: Increase Shadow Dam +9",
+              "Equip: Increase Fire Dam +9"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "level": 30,
+      "name": "The Binding",
+      "startZone": "The Barrens",
+      "startInstance": null,
+      "reward": "Summon Felhunter",
+      "rewardItemId": null,
+      "rewardItem": null,
+      "questId": 1795,
+      "faction": "both"
+    },
+    {
+      "level": 31,
+      "name": "The Completed Robe",
+      "startZone": "The Barrens",
+      "startInstance": null,
+      "reward": "Enchanted Gold Bloodrobe",
+      "rewardItemId": 6900,
+      "rewardItem": {
+        "name": "Enchanted Gold Bloodrobe",
+        "iconName": "inv_chest_cloth_25",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=6900",
+        "slot": "Chest",
+        "itemSubclass": "Cloth",
+        "quality": "Rare",
+        "requiredLevel": 0,
+        "itemLevel": 38,
+        "stats": [
+          {
+            "type": "Stamina",
+            "value": 10
+          },
+          {
+            "type": "Intellect",
+            "value": 17
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 4685,
+        "armor": 55,
+        "durability": 80
+      },
+      "questId": 4786,
+      "faction": "both"
+    },
+    {
+      "level": 35,
+      "name": "The Completed Orb of Dar'Orahil",
+      "startZone": "The Barrens",
+      "startInstance": null,
+      "reward": "Staff of Dar'Orahil",
+      "rewardItemId": null,
+      "rewardItem": null,
+      "questId": 4964,
+      "faction": "both",
+      "rewardChoices": [
+        {
+          "itemId": 15108,
+          "item": {
+            "name": "Orb of Dar'Orahil",
+            "iconName": "inv_misc_orb_03",
+            "wowheadUrl": "https://www.wowhead.com/classic/item=15108",
+            "slot": "Held",
+            "quality": "Rare",
+            "requiredLevel": 0,
+            "itemLevel": 40,
+            "stats": [
+              {
+                "type": "Intellect",
+                "value": 5
+              }
+            ],
+            "bind": "pickup",
+            "sellPriceCopper": 5000,
+            "effects": [
+              "Equip: Increase Shadow Dam +14",
+              "Use: Restore Life"
+            ]
+          }
+        },
+        {
+          "itemId": 15106,
+          "item": {
+            "name": "Staff of Dar'Orahil",
+            "iconName": "inv_staff_12",
+            "wowheadUrl": "https://www.wowhead.com/classic/item=15106",
+            "slot": "Two-Hand",
+            "itemSubclass": "Staff",
+            "quality": "Uncommon",
+            "requiredLevel": 0,
+            "itemLevel": 40,
+            "stats": [
+              {
+                "type": "Intellect",
+                "value": 6
+              },
+              {
+                "type": "Stamina",
+                "value": 3
+              }
+            ],
+            "bind": "pickup",
+            "sellPriceCopper": 14447,
+            "damage": {
+              "min": 62,
+              "max": 94,
+              "speed": 2.7
+            },
+            "durability": 85,
+            "effects": [
+              "Equip: Increase Shadow Dam +19"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "level": 35,
+      "name": "The Completed Orb of Noh'Orahil",
+      "startZone": "The Barrens",
+      "startInstance": null,
+      "reward": "Staff of Noh'Orahil",
+      "rewardItemId": null,
+      "rewardItem": null,
+      "questId": 4975,
+      "faction": "both",
+      "rewardChoices": [
+        {
+          "itemId": 15107,
+          "item": {
+            "name": "Orb of Noh'Orahil",
+            "iconName": "inv_misc_orb_03",
+            "wowheadUrl": "https://www.wowhead.com/classic/item=15107",
+            "slot": "Held",
+            "quality": "Rare",
+            "requiredLevel": 0,
+            "itemLevel": 40,
+            "stats": [
+              {
+                "type": "Intellect",
+                "value": 5
+              }
+            ],
+            "bind": "pickup",
+            "sellPriceCopper": 5000,
+            "effects": [
+              "Equip: Increase Fire Dam +14",
+              "Use: Restore Life"
+            ]
+          }
+        },
+        {
+          "itemId": 15105,
+          "item": {
+            "name": "Staff of Noh'Orahil",
+            "iconName": "inv_staff_14",
+            "wowheadUrl": "https://www.wowhead.com/classic/item=15105",
+            "slot": "Two-Hand",
+            "itemSubclass": "Staff",
+            "quality": "Uncommon",
+            "requiredLevel": 0,
+            "itemLevel": 40,
+            "stats": [
+              {
+                "type": "Intellect",
+                "value": 6
+              },
+              {
+                "type": "Stamina",
+                "value": 3
+              }
+            ],
+            "bind": "pickup",
+            "sellPriceCopper": 14397,
+            "damage": {
+              "min": 62,
+              "max": 94,
+              "speed": 2.7
+            },
+            "durability": 85,
+            "effects": [
+              "Equip: Increase Fire Dam +19"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "level": 40,
+      "name": "Summon Felsteed",
+      "startZone": "The Barrens",
+      "startInstance": null,
+      "reward": "Summon Felsteed",
+      "rewardItemId": null,
+      "rewardItem": null,
+      "questId": 4490,
+      "faction": "both"
+    },
+    {
+      "level": 50,
+      "name": "Kroshius' Infernal Core",
+      "startZone": "Felwood",
+      "startInstance": null,
+      "reward": "Inferno",
+      "rewardItemId": null,
+      "rewardItem": null,
+      "questId": 7603,
+      "faction": "both"
+    },
+    {
+      "level": 54,
+      "name": "Harnessing Shadows",
+      "startZone": "Feralas",
+      "startInstance": "Dire Maul",
+      "reward": "Royal Seal of Eldre'Thalas",
+      "rewardItemId": 18467,
+      "rewardItem": {
+        "name": "Royal Seal of Eldre'Thalas",
+        "iconName": "inv_jewelry_talisman_10",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=18467",
+        "slot": "Trinket",
+        "quality": "Rare",
+        "requiredLevel": 0,
+        "itemLevel": 62,
+        "stats": [],
+        "bind": "pickup",
+        "unique": true,
+        "sellPriceCopper": 0,
+        "effects": [
+          "Equip: Increase Spell Dam +23"
+        ]
+      },
+      "questId": 7502,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Doomcaller's Circlet",
+      "startZone": "Silithus",
+      "startInstance": "Ahn'Qiraj",
+      "reward": "Doomcaller's Circlet",
+      "rewardItemId": 21337,
+      "rewardItem": {
+        "name": "Doomcaller's Circlet",
+        "iconName": "inv_helmet_06",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=21337",
+        "slot": "Head",
+        "itemSubclass": "Cloth",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 81,
+        "stats": [
+          {
+            "type": "Intellect",
+            "value": 24
+          },
+          {
+            "type": "Spirit",
+            "value": 6
+          },
+          {
+            "type": "Stamina",
+            "value": 27
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 54661,
+        "armor": 100,
+        "durability": 60,
+        "effects": [
+          "Equip: Increase Spell Dam +33",
+          "Equip: Increased Critical Spell +1",
+          "Equip: Increased Spell Hit Chance +1"
+        ]
+      },
+      "questId": 8662,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Doomcaller's Footwraps",
+      "startZone": "Silithus",
+      "startInstance": "Ahn'Qiraj",
+      "reward": "Doomcaller's Footwraps",
+      "rewardItemId": 21338,
+      "rewardItem": {
+        "name": "Doomcaller's Footwraps",
+        "iconName": "inv_boots_cloth_02",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=21338",
+        "slot": "Feet",
+        "itemSubclass": "Cloth",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 78,
+        "stats": [
+          {
+            "type": "Intellect",
+            "value": 16
+          },
+          {
+            "type": "Spirit",
+            "value": 3
+          },
+          {
+            "type": "Stamina",
+            "value": 20
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 47395,
+        "armor": 82,
+        "durability": 50,
+        "effects": [
+          "Equip: Increase Spell Dam +28",
+          "Equip: Increased Spell Penetration +10"
+        ]
+      },
+      "questId": 8660,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Doomcaller's Mantle",
+      "startZone": "Silithus",
+      "startInstance": "Ahn'Qiraj",
+      "reward": "Doomcaller's Mantle",
+      "rewardItemId": 21335,
+      "rewardItem": {
+        "name": "Doomcaller's Mantle",
+        "iconName": "inv_shoulder_03",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=21335",
+        "slot": "Shoulder",
+        "itemSubclass": "Cloth",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 78,
+        "stats": [
+          {
+            "type": "Intellect",
+            "value": 11
+          },
+          {
+            "type": "Spirit",
+            "value": 4
+          },
+          {
+            "type": "Stamina",
+            "value": 20
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 46868,
+        "armor": 89,
+        "durability": 60,
+        "effects": [
+          "Equip: Increase Spell Dam +28",
+          "Equip: Increased Spell Penetration +10",
+          "Equip: Increased Spell Hit Chance +1"
+        ]
+      },
+      "questId": 8664,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Doomcaller's Robes",
+      "startZone": "Silithus",
+      "startInstance": "Ahn'Qiraj",
+      "reward": "Doomcaller's Robes",
+      "rewardItemId": 21334,
+      "rewardItem": {
+        "name": "Doomcaller's Robes",
+        "iconName": "inv_chest_cloth_12",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=21334",
+        "slot": "Chest",
+        "itemSubclass": "Cloth",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 88,
+        "stats": [
+          {
+            "type": "Intellect",
+            "value": 17
+          },
+          {
+            "type": "Spirit",
+            "value": 7
+          },
+          {
+            "type": "Stamina",
+            "value": 23
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 101407,
+        "armor": 133,
+        "durability": 100,
+        "effects": [
+          "Equip: Increase Spell Dam +41",
+          "Equip: Increased Critical Spell +1",
+          "Equip: Increased Spell Penetration +20"
+        ]
+      },
+      "questId": 8661,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Doomcaller's Trousers",
+      "startZone": "Silithus",
+      "startInstance": "Ahn'Qiraj",
+      "reward": "Doomcaller's Trousers",
+      "rewardItemId": 21336,
+      "rewardItem": {
+        "name": "Doomcaller's Trousers",
+        "iconName": "inv_pants_cloth_02",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=21336",
+        "slot": "Legs",
+        "itemSubclass": "Cloth",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 81,
+        "stats": [
+          {
+            "type": "Intellect",
+            "value": 24
+          },
+          {
+            "type": "Spirit",
+            "value": 9
+          },
+          {
+            "type": "Stamina",
+            "value": 28
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 72615,
+        "armor": 107,
+        "durability": 75,
+        "effects": [
+          "Equip: Increase Spell Dam +34",
+          "Equip: Increased Critical Spell +1"
+        ]
+      },
+      "questId": 8663,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Dreadsteed of Xoroth",
+      "startZone": "Burning Steppes",
+      "startInstance": null,
+      "reward": "Summon Dreadsteed, Riding",
+      "rewardItemId": null,
+      "rewardItem": null,
+      "questId": 7631,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Kezan's Taint",
+      "startZone": "Stranglethorn Vale",
+      "startInstance": null,
+      "reward": "Kezan's Taint",
+      "rewardItemId": 19602,
+      "rewardItem": {
+        "name": "Kezan's Taint",
+        "iconName": "inv_jewelry_necklace_23",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=19602",
+        "slot": "Neck",
+        "quality": "Uncommon",
+        "requiredLevel": 0,
+        "itemLevel": 60,
+        "stats": [
+          {
+            "type": "Stamina",
+            "value": 10
+          }
+        ],
+        "bind": "pickup",
+        "unique": true,
+        "sellPriceCopper": 0,
+        "effects": [
+          "Equip: Increase Spell Dam +12"
+        ]
+      },
+      "questId": 8106,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Kezan's Unstoppable Taint",
+      "startZone": "Stranglethorn Vale",
+      "startInstance": null,
+      "reward": "Kezan's Unstoppable Taint",
+      "rewardItemId": 19605,
+      "rewardItem": {
+        "name": "Kezan's Unstoppable Taint",
+        "iconName": "inv_jewelry_necklace_26",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=19605",
+        "slot": "Neck",
+        "quality": "Epic",
+        "requiredLevel": 0,
+        "itemLevel": 65,
+        "stats": [
+          {
+            "type": "Stamina",
+            "value": 13
+          },
+          {
+            "type": "Intellect",
+            "value": 8
+          }
+        ],
+        "bind": "pickup",
+        "unique": true,
+        "sellPriceCopper": 0,
+        "effects": [
+          "Equip: Increase Spell Dam +14",
+          "Equip: Improved Rain of Fire/Hellfire"
+        ]
+      },
+      "questId": 8109,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Kris of Unspoken Names",
+      "startZone": "Silithus",
+      "startInstance": null,
+      "reward": "Kris of Unspoken Names",
+      "rewardItemId": 21416,
+      "rewardItem": {
+        "name": "Kris of Unspoken Names",
+        "iconName": "inv_weapon_shortblade_27",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=21416",
+        "slot": "One-Hand",
+        "itemSubclass": "Dagger",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 70,
+        "stats": [
+          {
+            "type": "Stamina",
+            "value": 9
+          },
+          {
+            "type": "Intellect",
+            "value": 7
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 0,
+        "damage": {
+          "min": 39,
+          "max": 86,
+          "speed": 1.5
+        },
+        "durability": 75,
+        "effects": [
+          "Equip: Increase Spell Dam +59"
+        ]
+      },
+      "questId": 8710,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Paragons of Power: The Demoniac's Mantle",
+      "startZone": "Stranglethorn Vale",
+      "startInstance": null,
+      "reward": "Zandalar Demoniac's Mantle",
+      "rewardItemId": 19849,
+      "rewardItem": {
+        "name": "Zandalar Demoniac's Mantle",
+        "iconName": "inv_shoulder_17",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=19849",
+        "slot": "Shoulder",
+        "itemSubclass": "Cloth",
+        "quality": "Epic",
+        "requiredLevel": 0,
+        "itemLevel": 61,
+        "stats": [
+          {
+            "type": "Stamina",
+            "value": 23
+          },
+          {
+            "type": "Intellect",
+            "value": 19
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 0,
+        "armor": 71,
+        "durability": 60,
+        "effects": [
+          "Equip: Increase Spell Dam +12"
+        ]
+      },
+      "questId": 8076,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Paragons of Power: The Demoniac's Robes",
+      "startZone": "Stranglethorn Vale",
+      "startInstance": null,
+      "reward": "Zandalar Demoniac's Robe",
+      "rewardItemId": 20033,
+      "rewardItem": {
+        "name": "Zandalar Demoniac's Robe",
+        "iconName": "inv_chest_cloth_12",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=20033",
+        "slot": "Chest",
+        "itemSubclass": "Cloth",
+        "quality": "Epic",
+        "requiredLevel": 0,
+        "itemLevel": 65,
+        "stats": [
+          {
+            "type": "Stamina",
+            "value": 35
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 0,
+        "armor": 100,
+        "durability": 100,
+        "effects": [
+          "Equip: Increased Spell Hit Chance +1",
+          "Equip: Increase Spell Dam +27"
+        ]
+      },
+      "questId": 8077,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Paragons of Power: The Demoniac's Wraps",
+      "startZone": "Stranglethorn Vale",
+      "startInstance": null,
+      "reward": "Zandalar Demoniac's Wraps",
+      "rewardItemId": 19848,
+      "rewardItem": {
+        "name": "Zandalar Demoniac's Wraps",
+        "iconName": "inv_bracer_07",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=19848",
+        "slot": "Wrist",
+        "itemSubclass": "Cloth",
+        "quality": "Epic",
+        "requiredLevel": 0,
+        "itemLevel": 61,
+        "stats": [
+          {
+            "type": "Stamina",
+            "value": 15
+          },
+          {
+            "type": "Intellect",
+            "value": 8
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 0,
+        "armor": 41,
+        "durability": 35,
+        "effects": [
+          "Equip: Increase Spell Dam +16"
+        ]
+      },
+      "questId": 8059,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Plagueheart Belt",
+      "startZone": "Eastern Plaguelands",
+      "startInstance": null,
+      "reward": "Plagueheart Belt",
+      "rewardItemId": 22510,
+      "rewardItem": {
+        "name": "Plagueheart Belt",
+        "iconName": "inv_belt_03",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=22510",
+        "slot": "Waist",
+        "itemSubclass": "Cloth",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 88,
+        "stats": [
+          {
+            "type": "Stamina",
+            "value": 23
+          },
+          {
+            "type": "Intellect",
+            "value": 12
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 53215,
+        "armor": 75,
+        "durability": 35,
+        "effects": [
+          "Equip: Increase Spell Dam +34",
+          "Equip: Increased Critical Spell +1"
+        ]
+      },
+      "questId": 9109,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Plagueheart Bindings",
+      "startZone": "Eastern Plaguelands",
+      "startInstance": null,
+      "reward": "Plagueheart Bindings",
+      "rewardItemId": 22511,
+      "rewardItem": {
+        "name": "Plagueheart Bindings",
+        "iconName": "inv_bracer_13",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=22511",
+        "slot": "Wrist",
+        "itemSubclass": "Cloth",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 88,
+        "stats": [
+          {
+            "type": "Stamina",
+            "value": 23
+          },
+          {
+            "type": "Intellect",
+            "value": 14
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 53407,
+        "armor": 58,
+        "durability": 35,
+        "effects": [
+          "Equip: Increase Spell Dam +23"
+        ]
+      },
+      "questId": 9110,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Plagueheart Circlet",
+      "startZone": "Eastern Plaguelands",
+      "startInstance": null,
+      "reward": "Plagueheart Circlet",
+      "rewardItemId": 22506,
+      "rewardItem": {
+        "name": "Plagueheart Circlet",
+        "iconName": "inv_crown_01",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=22506",
+        "slot": "Head",
+        "itemSubclass": "Cloth",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 88,
+        "stats": [
+          {
+            "type": "Stamina",
+            "value": 28
+          },
+          {
+            "type": "Intellect",
+            "value": 25
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 78676,
+        "armor": 108,
+        "durability": 60,
+        "effects": [
+          "Equip: Increase Spell Dam +33",
+          "Equip: Increased Critical Spell +2",
+          "Equip: Increased Spell Hit Chance +1"
+        ]
+      },
+      "questId": 9105,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Plagueheart Gloves",
+      "startZone": "Eastern Plaguelands",
+      "startInstance": null,
+      "reward": "Plagueheart Gloves",
+      "rewardItemId": 22509,
+      "rewardItem": {
+        "name": "Plagueheart Gloves",
+        "iconName": "inv_gauntlets_17",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=22509",
+        "slot": "Hands",
+        "itemSubclass": "Cloth",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 88,
+        "stats": [
+          {
+            "type": "Stamina",
+            "value": 25
+          },
+          {
+            "type": "Intellect",
+            "value": 17
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 53023,
+        "armor": 83,
+        "durability": 35,
+        "effects": [
+          "Equip: Increased Critical Spell +1",
+          "Equip: Increase Spell Dam +26"
+        ]
+      },
+      "questId": 9108,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Plagueheart Leggings",
+      "startZone": "Eastern Plaguelands",
+      "startInstance": null,
+      "reward": "Plagueheart Leggings",
+      "rewardItemId": 22505,
+      "rewardItem": {
+        "name": "Plagueheart Leggings",
+        "iconName": "inv_pants_cloth_05",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=22505",
+        "slot": "Legs",
+        "itemSubclass": "Cloth",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 88,
+        "stats": [
+          {
+            "type": "Stamina",
+            "value": 30
+          },
+          {
+            "type": "Intellect",
+            "value": 25
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 104517,
+        "armor": 116,
+        "durability": 75,
+        "effects": [
+          "Equip: Increased Critical Spell +1",
+          "Equip: Increase Spell Dam +37",
+          "Equip: Increased Spell Penetration +10"
+        ]
+      },
+      "questId": 9104,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Plagueheart Robe",
+      "startZone": "Eastern Plaguelands",
+      "startInstance": null,
+      "reward": "Plagueheart Robe",
+      "rewardItemId": 22504,
+      "rewardItem": {
+        "name": "Plagueheart Robe",
+        "iconName": "inv_chest_cloth_43",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=22504",
+        "slot": "Chest",
+        "itemSubclass": "Cloth",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 92,
+        "stats": [
+          {
+            "type": "Stamina",
+            "value": 27
+          },
+          {
+            "type": "Intellect",
+            "value": 22
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 126586,
+        "armor": 138,
+        "durability": 100,
+        "effects": [
+          "Equip: Increased Spell Hit Chance +1",
+          "Equip: Increase Spell Dam +51",
+          "Equip: Increased Critical Spell +1"
+        ]
+      },
+      "questId": 9103,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Plagueheart Sandals",
+      "startZone": "Eastern Plaguelands",
+      "startInstance": null,
+      "reward": "Plagueheart Sandals",
+      "rewardItemId": 22508,
+      "rewardItem": {
+        "name": "Plagueheart Sandals",
+        "iconName": "inv_boots_fabric_01",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=22508",
+        "slot": "Feet",
+        "itemSubclass": "Cloth",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 86,
+        "stats": [
+          {
+            "type": "Stamina",
+            "value": 20
+          },
+          {
+            "type": "Intellect",
+            "value": 16
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 71878,
+        "armor": 89,
+        "durability": 50,
+        "effects": [
+          "Equip: Increase Spell Dam +32",
+          "Equip: Increased Critical Spell +1"
+        ]
+      },
+      "questId": 9107,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Plagueheart Shoulderpads",
+      "startZone": "Eastern Plaguelands",
+      "startInstance": null,
+      "reward": "Plagueheart Shoulderpads",
+      "rewardItemId": 22507,
+      "rewardItem": {
+        "name": "Plagueheart Shoulderpads",
+        "iconName": "inv_shoulder_25",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=22507",
+        "slot": "Shoulder",
+        "itemSubclass": "Cloth",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 86,
+        "stats": [
+          {
+            "type": "Stamina",
+            "value": 22
+          },
+          {
+            "type": "Intellect",
+            "value": 12
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 71623,
+        "armor": 97,
+        "durability": 60,
+        "effects": [
+          "Equip: Increased Spell Hit Chance +1",
+          "Equip: Increase Spell Dam +36"
+        ]
+      },
+      "questId": 9106,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Ring of Unspoken Names",
+      "startZone": "Silithus",
+      "startInstance": null,
+      "reward": "Ring of Unspoken Names",
+      "rewardItemId": 21417,
+      "rewardItem": {
+        "name": "Ring of Unspoken Names",
+        "iconName": "inv_jewelry_ring_ahnqiraj_03",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=21417",
+        "slot": "Finger",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 65,
+        "stats": [
+          {
+            "type": "Stamina",
+            "value": 12
+          }
+        ],
+        "bind": "pickup",
+        "unique": true,
+        "sellPriceCopper": 0,
+        "effects": [
+          "Equip: Increased Critical Spell +1",
+          "Equip: Increase Spell Dam +14",
+          "Equip: Increased Spell Hit Chance +1"
+        ]
+      },
+      "questId": 8702,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Shroud of Unspoken Names",
+      "startZone": "Silithus",
+      "startInstance": null,
+      "reward": "Shroud of Unspoken Names",
+      "rewardItemId": 21418,
+      "rewardItem": {
+        "name": "Shroud of Unspoken Names",
+        "iconName": "inv_misc_cape_20",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=21418",
+        "slot": "Back",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 67,
+        "stats": [
+          {
+            "type": "Stamina",
+            "value": 16
+          },
+          {
+            "type": "Intellect",
+            "value": 9
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 0,
+        "armor": 52,
+        "effects": [
+          "Equip: Increase Spell Dam +18"
+        ]
+      },
+      "questId": 8694,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Suppression",
+      "startZone": "Blasted Lands",
+      "startInstance": null,
+      "reward": "Ritual of Doom",
+      "rewardItemId": null,
+      "rewardItem": null,
+      "questId": 7583,
+      "faction": "both"
+    }
+  ],
+  "professionMilestones": [
+    {
+      "skill": "First Aid",
+      "atSkill": 50,
+      "levelHint": 10,
+      "action": "Train Journeyman First Aid",
+      "where": "any First Aid trainer"
+    },
+    {
+      "skill": "First Aid",
+      "atSkill": 125,
+      "levelHint": 20,
+      "action": "Buy Expert First Aid — Under Wraps",
+      "itemId": 16084,
+      "where": "Deneb Walker (Arathi Highlands) / Balai Lok'Wein (Dustwallow Marsh)"
+    },
+    {
+      "skill": "First Aid",
+      "atSkill": 225,
+      "levelHint": 35,
+      "action": "Complete Triage",
+      "questId": [
+        6624,
+        6622
+      ],
+      "where": "Doctor Gustaf VanHowzen (Dustwallow Marsh) / Doctor Gregory Victor (Arathi Highlands)"
+    },
+    {
+      "skill": "Cooking",
+      "atSkill": 50,
+      "levelHint": 10,
+      "action": "Train Journeyman Cooking",
+      "where": "any Cooking trainer"
+    },
+    {
+      "skill": "Cooking",
+      "atSkill": 125,
+      "levelHint": 20,
+      "action": "Buy the Expert Cookbook",
+      "itemId": 16072,
+      "where": "Shandrina (Ashenvale) / Wulan (Desolace)"
+    },
+    {
+      "skill": "Cooking",
+      "atSkill": 225,
+      "levelHint": 35,
+      "action": "Complete Clamlette Surprise",
+      "questId": 6610,
+      "where": "Dirge Quikcleave (Tanaris)"
+    },
+    {
+      "skill": "Fishing",
+      "atSkill": 50,
+      "levelHint": 10,
+      "action": "Train Journeyman Fishing",
+      "where": "any Fishing trainer"
+    },
+    {
+      "skill": "Fishing",
+      "atSkill": 125,
+      "levelHint": 20,
+      "action": "Buy Expert Fishing — The Bass and You",
+      "itemId": 16083,
+      "where": "Old Man Heming (Stranglethorn Vale)"
+    },
+    {
+      "skill": "Fishing",
+      "atSkill": 225,
+      "levelHint": 35,
+      "action": "Complete Nat Pagle, Angler Extreme",
+      "questId": 6607,
+      "where": "Nat Pagle (Dustwallow Marsh)"
+    }
+  ]
+}

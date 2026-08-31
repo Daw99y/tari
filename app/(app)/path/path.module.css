@@ -1,0 +1,518 @@
+/* THE PATH. docs/TARI.md §5 — the letter waiting when you get home, and the
+   paper it is written on. The sheet is a fixed composition because a paperdoll
+   is one; this scrolls, because a letter is as long as its news.
+
+   The art is the room the reader woke up in, the same picture /you stands on,
+   so the two halves of one character read as one place. It fades into the
+   table rather than ending, and everything below the fold is panels on --well.
+
+   THE ACCENT IS SPENT ONCE. DESIGN.md caps it at two places and forbids it on
+   headings and links; the only thing on this page that means "something here
+   is for you" is the trainer visit you have not made yet, so that is where it
+   goes and nowhere else. Everything done wears ink, not green. */
+
+.path {
+  position: absolute;
+  inset: 0;
+  overflow-y: auto;
+  isolation: isolate;
+  background: var(--well);
+  color: var(--ink);
+  font-family: var(--app-sans);
+}
+
+.art {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: -2;
+  height: min(62vh, 34rem);
+  width: 100%;
+  object-fit: cover;
+  object-position: 50% 42%;
+  filter: saturate(0.7) contrast(1.05) brightness(0.62);
+}
+
+.scrim {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  height: min(62vh, 34rem);
+  pointer-events: none;
+  background:
+    linear-gradient(to bottom, rgba(6, 6, 10, 0.55) 0%, rgba(6, 6, 10, 0.15) 26%),
+    linear-gradient(to top, var(--well) 0%, rgba(11, 10, 18, 0.75) 22%, rgba(11, 10, 18, 0) 62%);
+}
+
+.page {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 74rem);
+  margin: 0 auto;
+  padding: clamp(2.75rem, 8vh, 5rem) clamp(1.25rem, 3vw, 2.25rem) clamp(3rem, 8vh, 5rem);
+  display: grid;
+  gap: clamp(1.75rem, 4vh, 3rem);
+}
+
+/* ---- the letter */
+
+.head {
+  display: grid;
+  justify-items: center;
+  gap: 0.55rem;
+  text-align: center;
+}
+
+.eyebrow {
+  margin: 0;
+  color: var(--mute);
+  font: 500 0.68rem / 1 var(--mono);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.h1 {
+  margin: 0;
+  font: 600 clamp(1.75rem, 3.4vw, 2.5rem) / 1.08 var(--app-display);
+  letter-spacing: -0.025em;
+}
+
+.letter {
+  margin: 0.35rem 0 0;
+  max-width: 34rem;
+  display: grid;
+  gap: 0.15rem;
+}
+
+.letterLine {
+  margin: 0;
+  font: 500 0.95rem / 1.55 var(--sans);
+  letter-spacing: -0.005em;
+  color: rgba(242, 240, 234, 0.58);
+  text-wrap: balance;
+}
+
+.letterLine:first-child {
+  color: rgba(242, 240, 234, 0.88);
+}
+
+.quiet {
+  margin: 0;
+  color: var(--mute);
+  font: 400 0.95rem / 1.55 var(--sans);
+}
+
+/* ---- the panels */
+
+.grid {
+  display: grid;
+  gap: clamp(1rem, 1.6vw, 1.4rem);
+  grid-template-columns: repeat(auto-fit, minmax(23rem, 1fr));
+  align-items: start;
+}
+
+/* The trainer runs deeper than the rest and earns the full width when there
+   is room for two columns beside it. */
+.wide {
+  grid-column: 1 / -1;
+}
+
+.panel {
+  background: var(--panel);
+  border-radius: var(--r-lg);
+  padding: 1.15rem 1.15rem 0.9rem;
+  display: grid;
+  gap: 0.85rem;
+  align-content: start;
+}
+
+.panelHead {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0 0.35rem;
+}
+
+.panelName {
+  margin: 0;
+  font: 600 1rem / 1 var(--app-display);
+  letter-spacing: -0.015em;
+}
+
+.panelNote {
+  color: var(--mute);
+  font: 500 0.7rem / 1 var(--mono);
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.2rem;
+}
+
+/* ---- a trainer visit: a trip, not a spell */
+
+.visit {
+  background: var(--panel-deep);
+  border-radius: var(--r-md);
+  padding: 0.7rem 0.75rem 0.5rem;
+  display: grid;
+  gap: 0.35rem;
+}
+
+.visitHead {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0 0.15rem 0.1rem;
+}
+
+.visitWords {
+  display: grid;
+  gap: 0.1rem;
+  min-width: 0;
+}
+
+.visitLevel {
+  font: 600 0.85rem / 1.1 var(--round);
+  letter-spacing: -0.01em;
+}
+
+.visitLine {
+  color: var(--mute);
+  font: 400 0.72rem / 1.2 var(--app-sans);
+}
+
+/* The one green on the page. */
+.fresh {
+  display: inline-block;
+  width: 0.4rem;
+  height: 0.4rem;
+  margin-left: 0.45rem;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0.5rem var(--accent-glow);
+  vertical-align: 0.08rem;
+}
+
+.cost {
+  color: var(--mute);
+  font: 500 0.72rem / 1 var(--mono);
+  white-space: nowrap;
+}
+
+/* ---- a row: a spell, a step, an errand, a zone */
+
+.row {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.4rem 0.5rem;
+  border-radius: var(--r-sm);
+  min-width: 0;
+}
+
+.rowLink {
+  color: inherit;
+  text-decoration: none;
+  transition: background 140ms var(--ease);
+}
+
+.rowLink:hover {
+  background: rgba(242, 240, 234, 0.05);
+}
+
+.icon {
+  width: 1.9rem;
+  height: 1.9rem;
+  border-radius: var(--r-sm);
+  object-fit: cover;
+  background: rgba(242, 240, 234, 0.06);
+  flex: none;
+}
+
+.words {
+  display: grid;
+  gap: 0.08rem;
+  min-width: 0;
+}
+
+.name {
+  font: 600 0.84rem / 1.25 var(--round);
+  letter-spacing: -0.005em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.line {
+  color: var(--mute);
+  font: 400 0.72rem / 1.3 var(--app-sans);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.spent {
+  color: var(--mute);
+}
+
+.spent .name {
+  text-decoration: line-through;
+  text-decoration-color: rgba(242, 240, 234, 0.3);
+}
+
+/* ---- the tick. A ring, the sheet's own register, filled with ink when it
+   is yours. Never the accent: a hundred green ticks is not an accent. */
+
+.tick {
+  appearance: none;
+  flex: none;
+  width: 1.05rem;
+  height: 1.05rem;
+  padding: 0;
+  border: 1.5px solid var(--rule);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--panel-deep);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition:
+    background 140ms var(--ease),
+    border-color 140ms var(--ease),
+    transform 140ms var(--pop);
+}
+
+.tick:hover {
+  border-color: rgba(242, 240, 234, 0.45);
+}
+
+.tick:active {
+  transform: scale(0.92);
+}
+
+.tick:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
+}
+
+.tickOn {
+  background: var(--ink);
+  border-color: var(--ink);
+}
+
+.tick svg {
+  width: 0.62rem;
+  height: 0.62rem;
+  opacity: 0;
+}
+
+.tickOn svg {
+  opacity: 1;
+}
+
+/* ---- a chain */
+
+.chain {
+  display: grid;
+  gap: 0.3rem;
+}
+
+.chainHead {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  padding: 0.5rem;
+  border: 0;
+  border-radius: var(--r-sm);
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+  font: inherit;
+  transition: background 140ms var(--ease);
+}
+
+.chainHead:hover {
+  background: rgba(242, 240, 234, 0.05);
+}
+
+.chainHead:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: -2px;
+}
+
+.tally {
+  color: var(--mute);
+  font: 500 0.72rem / 1 var(--mono);
+  white-space: nowrap;
+}
+
+.stamp {
+  font: 600 0.6rem / 1 var(--mono);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--mute);
+  border: 1px solid var(--rule);
+  border-radius: var(--r-pill);
+  padding: 0.25rem 0.5rem;
+  white-space: nowrap;
+}
+
+.locked {
+  opacity: 0.55;
+}
+
+.steps {
+  margin: 0 0 0.35rem;
+  padding: 0 0 0 0.5rem;
+  list-style: none;
+  display: grid;
+  gap: 0.1rem;
+}
+
+/* The rung a step hangs off, so eight steps read as one chain rather than
+   eight errands that happen to be stacked. */
+.step {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.32rem 0.5rem 0.32rem 0.75rem;
+  border-left: 1px solid var(--hair);
+  min-width: 0;
+}
+
+.bar {
+  height: 2px;
+  border-radius: 2px;
+  background: rgba(242, 240, 234, 0.1);
+  overflow: hidden;
+  margin: 0 0.5rem;
+}
+
+.barOn {
+  height: 100%;
+  background: rgba(242, 240, 234, 0.45);
+  transition: width 220ms var(--ease);
+}
+
+/* ---- the foot */
+
+.foot {
+  margin: 0;
+  padding: 0 0.35rem;
+  color: var(--mute);
+  font: 400 0.74rem / 1.5 var(--app-sans);
+}
+
+.none {
+  display: grid;
+  place-content: center;
+  gap: 0.75rem;
+  justify-items: center;
+  height: 100%;
+  text-align: center;
+}
+
+.noneLink {
+  color: var(--ground);
+  background: var(--ink);
+  text-decoration: none;
+  font: 700 0.85rem / 1 var(--sans);
+  padding: 0.7rem 1.15rem;
+  border-radius: var(--r-pill);
+}
+
+/* A trainer visit already made. It stays on the page so the tick can be taken
+   back, and it gets out of the way of the ones that have not been. */
+.made {
+  background: transparent;
+  box-shadow: inset 0 0 0 1px var(--hair);
+  padding-bottom: 0.7rem;
+}
+
+.made .visitLevel,
+.made .cost {
+  color: var(--mute);
+}
+
+/* The visit's words are the press that spells it out. A button, so it has to
+   give back the grid cell's own alignment. */
+.visitWords {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  justify-items: start;
+}
+
+.visitWords:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+/* The fold under the trainer's list. Quiet text, not a control with chrome —
+   DESIGN.md's "a disabled or not-yet button reads as quiet text", and this is
+   the same weight of thing: a door onto what you have already done. */
+.fold {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  width: 100%;
+  padding: 0.5rem 0.35rem 0.35rem;
+  text-align: left;
+  color: var(--mute);
+  font: 500 0.74rem / 1.4 var(--app-sans);
+  cursor: pointer;
+  border-radius: var(--r-sm);
+  transition: color 140ms var(--ease);
+}
+
+.fold:hover {
+  color: var(--ink);
+}
+
+.fold:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: -2px;
+}
+
+/* IN YOUR LOG. The addon's TA2 `L:` field, said in the one place it changes
+   what a row means: this is not something to go and start, it is in your bag.
+   A ring rather than a fill, so it reads as a state and not as a stamp — the
+   CLEARED stamp is a finished thing and these two must not be confused. */
+.held {
+  font: 500 0.62rem / 1 var(--mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(242, 240, 234, 0.72);
+  border: 1px solid var(--rule);
+  border-radius: var(--r-pill);
+  padding: 0.24rem 0.5rem;
+  white-space: nowrap;
+}
+
+/* The step row makes room for it. */
+.step {
+  grid-template-columns: auto 1fr auto;
+}

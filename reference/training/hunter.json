@@ -1,0 +1,2610 @@
+{
+  "class": "hunter",
+  "abilities": [
+    {
+      "level": 1,
+      "spells": [
+        {
+          "spellId": 1494,
+          "name": "Track Beasts",
+          "rank": null,
+          "costCopper": 10,
+          "knownBy": [
+            1494
+          ]
+        }
+      ],
+      "totalCostCopper": 10
+    },
+    {
+      "level": 4,
+      "spells": [
+        {
+          "spellId": 13163,
+          "name": "Aspect of the Monkey",
+          "rank": null,
+          "costCopper": 100,
+          "knownBy": [
+            13163
+          ]
+        },
+        {
+          "spellId": 1978,
+          "name": "Serpent Sting",
+          "rank": 1,
+          "costCopper": 100,
+          "knownBy": [
+            1978,
+            13549,
+            13550,
+            13551,
+            13552,
+            13553,
+            13554,
+            13555,
+            25295
+          ]
+        }
+      ],
+      "totalCostCopper": 200
+    },
+    {
+      "level": 6,
+      "spells": [
+        {
+          "spellId": 3044,
+          "name": "Arcane Shot",
+          "rank": 1,
+          "costCopper": 100,
+          "knownBy": [
+            3044,
+            14281,
+            14282,
+            14283,
+            14284,
+            14285,
+            14286,
+            14287
+          ]
+        },
+        {
+          "spellId": 1130,
+          "name": "Hunter's Mark",
+          "rank": 1,
+          "costCopper": 100,
+          "knownBy": [
+            1130,
+            14323,
+            14324,
+            14325
+          ]
+        }
+      ],
+      "totalCostCopper": 200
+    },
+    {
+      "level": 8,
+      "spells": [
+        {
+          "spellId": 5116,
+          "name": "Concussive Shot",
+          "rank": null,
+          "costCopper": 200,
+          "knownBy": [
+            5116
+          ]
+        },
+        {
+          "spellId": 3127,
+          "name": "Parry",
+          "rank": null,
+          "costCopper": 200,
+          "knownBy": [
+            3127
+          ]
+        },
+        {
+          "spellId": 14260,
+          "name": "Raptor Strike",
+          "rank": 2,
+          "costCopper": 200,
+          "knownBy": [
+            14260,
+            14261,
+            14262,
+            14263,
+            14264,
+            14265,
+            14266
+          ]
+        }
+      ],
+      "totalCostCopper": 600
+    },
+    {
+      "level": 10,
+      "spells": [
+        {
+          "spellId": 13165,
+          "name": "Aspect of the Hawk",
+          "rank": 1,
+          "costCopper": 400,
+          "knownBy": [
+            13165,
+            14318,
+            14319,
+            14320,
+            14321,
+            14322,
+            25296
+          ]
+        },
+        {
+          "spellId": 13549,
+          "name": "Serpent Sting",
+          "rank": 2,
+          "costCopper": 400,
+          "knownBy": [
+            13549,
+            13550,
+            13551,
+            13552,
+            13553,
+            13554,
+            13555,
+            25295
+          ]
+        },
+        {
+          "spellId": 19883,
+          "name": "Track Humanoids",
+          "rank": null,
+          "costCopper": 400,
+          "knownBy": [
+            19883
+          ]
+        }
+      ],
+      "totalCostCopper": 1200
+    },
+    {
+      "level": 12,
+      "spells": [
+        {
+          "spellId": 14281,
+          "name": "Arcane Shot",
+          "rank": 2,
+          "costCopper": 600,
+          "knownBy": [
+            14281,
+            14282,
+            14283,
+            14284,
+            14285,
+            14286,
+            14287
+          ]
+        },
+        {
+          "spellId": 20736,
+          "name": "Distracting Shot",
+          "rank": 1,
+          "costCopper": 600,
+          "knownBy": [
+            14274,
+            15629,
+            15630,
+            15631,
+            15632,
+            20736
+          ]
+        },
+        {
+          "spellId": 136,
+          "name": "Mend Pet",
+          "rank": 1,
+          "costCopper": 600,
+          "knownBy": [
+            136,
+            3111,
+            3661,
+            3662,
+            13542,
+            13543,
+            13544
+          ]
+        },
+        {
+          "spellId": 2974,
+          "name": "Wing Clip",
+          "rank": 1,
+          "costCopper": 600,
+          "knownBy": [
+            2974,
+            14267,
+            14268,
+            27633
+          ]
+        }
+      ],
+      "totalCostCopper": 2400
+    },
+    {
+      "level": 14,
+      "spells": [
+        {
+          "spellId": 6197,
+          "name": "Eagle Eye",
+          "rank": null,
+          "costCopper": 1200,
+          "knownBy": [
+            6197
+          ]
+        },
+        {
+          "spellId": 1002,
+          "name": "Eyes of the Beast",
+          "rank": null,
+          "costCopper": 1200,
+          "knownBy": [
+            1002
+          ]
+        },
+        {
+          "spellId": 1513,
+          "name": "Scare Beast",
+          "rank": 1,
+          "costCopper": 1200,
+          "knownBy": [
+            1513,
+            14326,
+            14327
+          ]
+        }
+      ],
+      "totalCostCopper": 3600
+    },
+    {
+      "level": 16,
+      "spells": [
+        {
+          "spellId": 13795,
+          "name": "Immolation Trap",
+          "rank": 1,
+          "costCopper": 1800,
+          "knownBy": [
+            13795,
+            14302,
+            14303,
+            14304,
+            14305
+          ]
+        },
+        {
+          "spellId": 1495,
+          "name": "Mongoose Bite",
+          "rank": 1,
+          "costCopper": 1800,
+          "knownBy": [
+            1495,
+            14269,
+            14270,
+            14271
+          ]
+        },
+        {
+          "spellId": 14261,
+          "name": "Raptor Strike",
+          "rank": 3,
+          "costCopper": 1800,
+          "knownBy": [
+            14261,
+            14262,
+            14263,
+            14264,
+            14265,
+            14266
+          ]
+        }
+      ],
+      "totalCostCopper": 5400
+    },
+    {
+      "level": 18,
+      "spells": [
+        {
+          "spellId": 14318,
+          "name": "Aspect of the Hawk",
+          "rank": 2,
+          "costCopper": 2000,
+          "knownBy": [
+            14318,
+            14319,
+            14320,
+            14321,
+            14322,
+            25296
+          ]
+        },
+        {
+          "spellId": 2643,
+          "name": "Multi-Shot",
+          "rank": 1,
+          "costCopper": 2000,
+          "knownBy": [
+            2643,
+            14288,
+            14289,
+            14290,
+            25294
+          ]
+        },
+        {
+          "spellId": 13550,
+          "name": "Serpent Sting",
+          "rank": 3,
+          "costCopper": 2000,
+          "knownBy": [
+            13550,
+            13551,
+            13552,
+            13553,
+            13554,
+            13555,
+            25295
+          ]
+        },
+        {
+          "spellId": 19884,
+          "name": "Track Undead",
+          "rank": null,
+          "costCopper": 2000,
+          "knownBy": [
+            19884
+          ]
+        }
+      ],
+      "totalCostCopper": 8000
+    },
+    {
+      "level": 20,
+      "spells": [
+        {
+          "spellId": 14282,
+          "name": "Arcane Shot",
+          "rank": 3,
+          "costCopper": 2200,
+          "knownBy": [
+            14282,
+            14283,
+            14284,
+            14285,
+            14286,
+            14287
+          ]
+        },
+        {
+          "spellId": 5118,
+          "name": "Aspect of the Cheetah",
+          "rank": null,
+          "costCopper": 2200,
+          "knownBy": [
+            5118
+          ]
+        },
+        {
+          "spellId": 781,
+          "name": "Disengage",
+          "rank": 1,
+          "costCopper": 2200,
+          "knownBy": [
+            781,
+            14272,
+            14273
+          ]
+        },
+        {
+          "spellId": 14274,
+          "name": "Distracting Shot",
+          "rank": 2,
+          "costCopper": 2200,
+          "knownBy": [
+            14274,
+            15629,
+            15630,
+            15631,
+            15632
+          ]
+        },
+        {
+          "spellId": 674,
+          "name": "Dual Wield",
+          "rank": null,
+          "costCopper": 2200,
+          "knownBy": [
+            674
+          ]
+        },
+        {
+          "spellId": 1499,
+          "name": "Freezing Trap",
+          "rank": 1,
+          "costCopper": 2200,
+          "knownBy": [
+            1499,
+            14310,
+            14311,
+            27753
+          ]
+        },
+        {
+          "spellId": 3111,
+          "name": "Mend Pet",
+          "rank": 2,
+          "costCopper": 2200,
+          "knownBy": [
+            3111,
+            3661,
+            3662,
+            13542,
+            13543,
+            13544
+          ]
+        }
+      ],
+      "totalCostCopper": 15400
+    },
+    {
+      "level": 22,
+      "spells": [
+        {
+          "spellId": 14323,
+          "name": "Hunter's Mark",
+          "rank": 2,
+          "costCopper": 6000,
+          "knownBy": [
+            14323,
+            14324,
+            14325
+          ]
+        },
+        {
+          "spellId": 3043,
+          "name": "Scorpid Sting",
+          "rank": 1,
+          "costCopper": 6000,
+          "knownBy": [
+            3043,
+            14275,
+            14276,
+            14277
+          ]
+        }
+      ],
+      "totalCostCopper": 12000
+    },
+    {
+      "level": 24,
+      "spells": [
+        {
+          "spellId": 1462,
+          "name": "Beast Lore",
+          "rank": null,
+          "costCopper": 7000,
+          "knownBy": [
+            1462
+          ]
+        },
+        {
+          "spellId": 14262,
+          "name": "Raptor Strike",
+          "rank": 4,
+          "costCopper": 7000,
+          "knownBy": [
+            14262,
+            14263,
+            14264,
+            14265,
+            14266
+          ]
+        },
+        {
+          "spellId": 19885,
+          "name": "Track Hidden",
+          "rank": null,
+          "costCopper": 7000,
+          "knownBy": [
+            19885
+          ]
+        }
+      ],
+      "totalCostCopper": 21000
+    },
+    {
+      "level": 26,
+      "spells": [
+        {
+          "spellId": 14302,
+          "name": "Immolation Trap",
+          "rank": 2,
+          "costCopper": 7000,
+          "knownBy": [
+            14302,
+            14303,
+            14304,
+            14305
+          ]
+        },
+        {
+          "spellId": 3045,
+          "name": "Rapid Fire",
+          "rank": null,
+          "costCopper": 7000,
+          "knownBy": [
+            3045
+          ]
+        },
+        {
+          "spellId": 13551,
+          "name": "Serpent Sting",
+          "rank": 4,
+          "costCopper": 7000,
+          "knownBy": [
+            13551,
+            13552,
+            13553,
+            13554,
+            13555,
+            25295
+          ]
+        },
+        {
+          "spellId": 19880,
+          "name": "Track Elementals",
+          "rank": null,
+          "costCopper": 7000,
+          "knownBy": [
+            19880
+          ]
+        }
+      ],
+      "totalCostCopper": 28000
+    },
+    {
+      "level": 28,
+      "spells": [
+        {
+          "spellId": 20900,
+          "name": "Aimed Shot",
+          "rank": 2,
+          "costCopper": 400,
+          "knownBy": [
+            20900,
+            20901,
+            20902,
+            20903,
+            20904,
+            27632
+          ],
+          "optional": true
+        },
+        {
+          "spellId": 14283,
+          "name": "Arcane Shot",
+          "rank": 4,
+          "costCopper": 8000,
+          "knownBy": [
+            14283,
+            14284,
+            14285,
+            14286,
+            14287
+          ]
+        },
+        {
+          "spellId": 14319,
+          "name": "Aspect of the Hawk",
+          "rank": 3,
+          "costCopper": 8000,
+          "knownBy": [
+            14319,
+            14320,
+            14321,
+            14322,
+            25296
+          ]
+        },
+        {
+          "spellId": 13809,
+          "name": "Frost Trap",
+          "rank": null,
+          "costCopper": 8000,
+          "knownBy": [
+            13809
+          ]
+        },
+        {
+          "spellId": 3661,
+          "name": "Mend Pet",
+          "rank": 3,
+          "costCopper": 8000,
+          "knownBy": [
+            3661,
+            3662,
+            13542,
+            13543,
+            13544
+          ]
+        }
+      ],
+      "totalCostCopper": 32400
+    },
+    {
+      "level": 30,
+      "spells": [
+        {
+          "spellId": 13161,
+          "name": "Aspect of the Beast",
+          "rank": null,
+          "costCopper": 8000,
+          "knownBy": [
+            13161
+          ]
+        },
+        {
+          "spellId": 15629,
+          "name": "Distracting Shot",
+          "rank": 3,
+          "costCopper": 8000,
+          "knownBy": [
+            15629,
+            15630,
+            15631,
+            15632
+          ]
+        },
+        {
+          "spellId": 5384,
+          "name": "Feign Death",
+          "rank": null,
+          "costCopper": 8000,
+          "knownBy": [
+            5384
+          ]
+        },
+        {
+          "spellId": 14269,
+          "name": "Mongoose Bite",
+          "rank": 2,
+          "costCopper": 8000,
+          "knownBy": [
+            14269,
+            14270,
+            14271
+          ]
+        },
+        {
+          "spellId": 14288,
+          "name": "Multi-Shot",
+          "rank": 2,
+          "costCopper": 8000,
+          "knownBy": [
+            14288,
+            14289,
+            14290,
+            25294
+          ]
+        },
+        {
+          "spellId": 14326,
+          "name": "Scare Beast",
+          "rank": 2,
+          "costCopper": 8000,
+          "knownBy": [
+            14326,
+            14327
+          ]
+        }
+      ],
+      "totalCostCopper": 48000
+    },
+    {
+      "level": 32,
+      "spells": [
+        {
+          "spellId": 1543,
+          "name": "Flare",
+          "rank": null,
+          "costCopper": 10000,
+          "knownBy": [
+            1543
+          ]
+        },
+        {
+          "spellId": 14263,
+          "name": "Raptor Strike",
+          "rank": 5,
+          "costCopper": 10000,
+          "knownBy": [
+            14263,
+            14264,
+            14265,
+            14266
+          ]
+        },
+        {
+          "spellId": 14275,
+          "name": "Scorpid Sting",
+          "rank": 2,
+          "costCopper": 10000,
+          "knownBy": [
+            14275,
+            14276,
+            14277
+          ]
+        },
+        {
+          "spellId": 19878,
+          "name": "Track Demons",
+          "rank": null,
+          "costCopper": 10000,
+          "knownBy": [
+            19878
+          ]
+        }
+      ],
+      "totalCostCopper": 40000
+    },
+    {
+      "level": 34,
+      "spells": [
+        {
+          "spellId": 14272,
+          "name": "Disengage",
+          "rank": 2,
+          "costCopper": 12000,
+          "knownBy": [
+            14272,
+            14273
+          ]
+        },
+        {
+          "spellId": 13813,
+          "name": "Explosive Trap",
+          "rank": 1,
+          "costCopper": 12000,
+          "knownBy": [
+            13813,
+            14316,
+            14317
+          ]
+        },
+        {
+          "spellId": 13552,
+          "name": "Serpent Sting",
+          "rank": 5,
+          "costCopper": 12000,
+          "knownBy": [
+            13552,
+            13553,
+            13554,
+            13555,
+            25295
+          ]
+        }
+      ],
+      "totalCostCopper": 36000
+    },
+    {
+      "level": 36,
+      "spells": [
+        {
+          "spellId": 20901,
+          "name": "Aimed Shot",
+          "rank": 3,
+          "costCopper": 700,
+          "knownBy": [
+            20901,
+            20902,
+            20903,
+            20904,
+            27632
+          ],
+          "optional": true
+        },
+        {
+          "spellId": 14284,
+          "name": "Arcane Shot",
+          "rank": 5,
+          "costCopper": 14000,
+          "knownBy": [
+            14284,
+            14285,
+            14286,
+            14287
+          ]
+        },
+        {
+          "spellId": 14303,
+          "name": "Immolation Trap",
+          "rank": 3,
+          "costCopper": 14000,
+          "knownBy": [
+            14303,
+            14304,
+            14305
+          ]
+        },
+        {
+          "spellId": 3662,
+          "name": "Mend Pet",
+          "rank": 4,
+          "costCopper": 14000,
+          "knownBy": [
+            3662,
+            13542,
+            13543,
+            13544
+          ]
+        },
+        {
+          "spellId": 3034,
+          "name": "Viper Sting",
+          "rank": 1,
+          "costCopper": 14000,
+          "knownBy": [
+            3034,
+            14279,
+            14280
+          ]
+        }
+      ],
+      "totalCostCopper": 56700
+    },
+    {
+      "level": 38,
+      "spells": [
+        {
+          "spellId": 14320,
+          "name": "Aspect of the Hawk",
+          "rank": 4,
+          "costCopper": 16000,
+          "knownBy": [
+            14320,
+            14321,
+            14322,
+            25296
+          ]
+        },
+        {
+          "spellId": 14267,
+          "name": "Wing Clip",
+          "rank": 2,
+          "costCopper": 16000,
+          "knownBy": [
+            14267,
+            14268,
+            27633
+          ]
+        }
+      ],
+      "totalCostCopper": 32000
+    },
+    {
+      "level": 40,
+      "spells": [
+        {
+          "spellId": 13159,
+          "name": "Aspect of the Pack",
+          "rank": null,
+          "costCopper": 18000,
+          "knownBy": [
+            13159
+          ]
+        },
+        {
+          "spellId": 15630,
+          "name": "Distracting Shot",
+          "rank": 4,
+          "costCopper": 18000,
+          "knownBy": [
+            15630,
+            15631,
+            15632
+          ]
+        },
+        {
+          "spellId": 14310,
+          "name": "Freezing Trap",
+          "rank": 2,
+          "costCopper": 18000,
+          "knownBy": [
+            14310,
+            14311,
+            27753
+          ]
+        },
+        {
+          "spellId": 14324,
+          "name": "Hunter's Mark",
+          "rank": 3,
+          "costCopper": 18000,
+          "knownBy": [
+            14324,
+            14325
+          ]
+        },
+        {
+          "spellId": 8737,
+          "name": "Mail",
+          "rank": null,
+          "costCopper": 18000,
+          "knownBy": [
+            8737
+          ]
+        },
+        {
+          "spellId": 14264,
+          "name": "Raptor Strike",
+          "rank": 6,
+          "costCopper": 18000,
+          "knownBy": [
+            14264,
+            14265,
+            14266
+          ]
+        },
+        {
+          "spellId": 19882,
+          "name": "Track Giants",
+          "rank": null,
+          "costCopper": 18000,
+          "knownBy": [
+            19882
+          ]
+        },
+        {
+          "spellId": 1510,
+          "name": "Volley",
+          "rank": 1,
+          "costCopper": 18000,
+          "knownBy": [
+            1510,
+            14294,
+            14295
+          ]
+        }
+      ],
+      "totalCostCopper": 144000
+    },
+    {
+      "level": 42,
+      "spells": [
+        {
+          "spellId": 20909,
+          "name": "Counterattack",
+          "rank": 2,
+          "costCopper": 1200,
+          "knownBy": [
+            20909,
+            20910
+          ],
+          "optional": true
+        },
+        {
+          "spellId": 14289,
+          "name": "Multi-Shot",
+          "rank": 3,
+          "costCopper": 24000,
+          "knownBy": [
+            14289,
+            14290,
+            25294
+          ]
+        },
+        {
+          "spellId": 14276,
+          "name": "Scorpid Sting",
+          "rank": 3,
+          "costCopper": 24000,
+          "knownBy": [
+            14276,
+            14277
+          ]
+        },
+        {
+          "spellId": 13553,
+          "name": "Serpent Sting",
+          "rank": 6,
+          "costCopper": 24000,
+          "knownBy": [
+            13553,
+            13554,
+            13555,
+            25295
+          ]
+        }
+      ],
+      "totalCostCopper": 73200
+    },
+    {
+      "level": 44,
+      "spells": [
+        {
+          "spellId": 20902,
+          "name": "Aimed Shot",
+          "rank": 4,
+          "costCopper": 1300,
+          "knownBy": [
+            20902,
+            20903,
+            20904,
+            27632
+          ],
+          "optional": true
+        },
+        {
+          "spellId": 14285,
+          "name": "Arcane Shot",
+          "rank": 6,
+          "costCopper": 26000,
+          "knownBy": [
+            14285,
+            14286,
+            14287
+          ]
+        },
+        {
+          "spellId": 14316,
+          "name": "Explosive Trap",
+          "rank": 2,
+          "costCopper": 26000,
+          "knownBy": [
+            14316,
+            14317
+          ]
+        },
+        {
+          "spellId": 13542,
+          "name": "Mend Pet",
+          "rank": 5,
+          "costCopper": 26000,
+          "knownBy": [
+            13542,
+            13543,
+            13544
+          ]
+        },
+        {
+          "spellId": 14270,
+          "name": "Mongoose Bite",
+          "rank": 3,
+          "costCopper": 26000,
+          "knownBy": [
+            14270,
+            14271
+          ]
+        }
+      ],
+      "totalCostCopper": 105300
+    },
+    {
+      "level": 46,
+      "spells": [
+        {
+          "spellId": 20043,
+          "name": "Aspect of the Wild",
+          "rank": 1,
+          "costCopper": 28000,
+          "knownBy": [
+            20043,
+            20190
+          ]
+        },
+        {
+          "spellId": 14304,
+          "name": "Immolation Trap",
+          "rank": 4,
+          "costCopper": 28000,
+          "knownBy": [
+            14304,
+            14305
+          ]
+        },
+        {
+          "spellId": 14327,
+          "name": "Scare Beast",
+          "rank": 3,
+          "costCopper": 28000,
+          "knownBy": [
+            14327
+          ]
+        },
+        {
+          "spellId": 14279,
+          "name": "Viper Sting",
+          "rank": 2,
+          "costCopper": 28000,
+          "knownBy": [
+            14279,
+            14280
+          ]
+        }
+      ],
+      "totalCostCopper": 112000
+    },
+    {
+      "level": 48,
+      "spells": [
+        {
+          "spellId": 14321,
+          "name": "Aspect of the Hawk",
+          "rank": 5,
+          "costCopper": 32000,
+          "knownBy": [
+            14321,
+            14322,
+            25296
+          ]
+        },
+        {
+          "spellId": 14273,
+          "name": "Disengage",
+          "rank": 3,
+          "costCopper": 32000,
+          "knownBy": [
+            14273
+          ]
+        },
+        {
+          "spellId": 14265,
+          "name": "Raptor Strike",
+          "rank": 7,
+          "costCopper": 32000,
+          "knownBy": [
+            14265,
+            14266
+          ]
+        }
+      ],
+      "totalCostCopper": 96000
+    },
+    {
+      "level": 50,
+      "spells": [
+        {
+          "spellId": 15631,
+          "name": "Distracting Shot",
+          "rank": 5,
+          "costCopper": 36000,
+          "knownBy": [
+            15631,
+            15632
+          ]
+        },
+        {
+          "spellId": 13554,
+          "name": "Serpent Sting",
+          "rank": 7,
+          "costCopper": 36000,
+          "knownBy": [
+            13554,
+            13555,
+            25295
+          ]
+        },
+        {
+          "spellId": 19879,
+          "name": "Track Dragonkin",
+          "rank": null,
+          "costCopper": 36000,
+          "knownBy": [
+            19879
+          ]
+        },
+        {
+          "spellId": 20905,
+          "name": "Trueshot Aura",
+          "rank": 2,
+          "costCopper": 1800,
+          "knownBy": [
+            20905,
+            20906
+          ],
+          "optional": true
+        },
+        {
+          "spellId": 14294,
+          "name": "Volley",
+          "rank": 2,
+          "costCopper": 36000,
+          "knownBy": [
+            14294,
+            14295
+          ]
+        },
+        {
+          "spellId": 24132,
+          "name": "Wyvern Sting",
+          "rank": 2,
+          "costCopper": 1800,
+          "knownBy": [
+            24132,
+            24133,
+            24134,
+            24135
+          ],
+          "optional": true
+        }
+      ],
+      "totalCostCopper": 147600
+    },
+    {
+      "level": 52,
+      "spells": [
+        {
+          "spellId": 20903,
+          "name": "Aimed Shot",
+          "rank": 5,
+          "costCopper": 2000,
+          "knownBy": [
+            20903,
+            20904,
+            27632
+          ],
+          "optional": true
+        },
+        {
+          "spellId": 14286,
+          "name": "Arcane Shot",
+          "rank": 7,
+          "costCopper": 40000,
+          "knownBy": [
+            14286,
+            14287
+          ]
+        },
+        {
+          "spellId": 13543,
+          "name": "Mend Pet",
+          "rank": 6,
+          "costCopper": 40000,
+          "knownBy": [
+            13543,
+            13544
+          ]
+        },
+        {
+          "spellId": 14277,
+          "name": "Scorpid Sting",
+          "rank": 4,
+          "costCopper": 40000,
+          "knownBy": [
+            14277
+          ]
+        }
+      ],
+      "totalCostCopper": 122000
+    },
+    {
+      "level": 54,
+      "spells": [
+        {
+          "spellId": 20910,
+          "name": "Counterattack",
+          "rank": 3,
+          "costCopper": 2100,
+          "knownBy": [
+            20910
+          ],
+          "optional": true
+        },
+        {
+          "spellId": 14317,
+          "name": "Explosive Trap",
+          "rank": 3,
+          "costCopper": 42000,
+          "knownBy": [
+            14317
+          ]
+        },
+        {
+          "spellId": 14290,
+          "name": "Multi-Shot",
+          "rank": 4,
+          "costCopper": 42000,
+          "knownBy": [
+            14290,
+            25294
+          ]
+        }
+      ],
+      "totalCostCopper": 86100
+    },
+    {
+      "level": 56,
+      "spells": [
+        {
+          "spellId": 20190,
+          "name": "Aspect of the Wild",
+          "rank": 2,
+          "costCopper": 46000,
+          "knownBy": [
+            20190
+          ]
+        },
+        {
+          "spellId": 14305,
+          "name": "Immolation Trap",
+          "rank": 5,
+          "costCopper": 46000,
+          "knownBy": [
+            14305
+          ]
+        },
+        {
+          "spellId": 14266,
+          "name": "Raptor Strike",
+          "rank": 8,
+          "costCopper": 46000,
+          "knownBy": [
+            14266
+          ]
+        },
+        {
+          "spellId": 14280,
+          "name": "Viper Sting",
+          "rank": 3,
+          "costCopper": 46000,
+          "knownBy": [
+            14280
+          ]
+        }
+      ],
+      "totalCostCopper": 184000
+    },
+    {
+      "level": 58,
+      "spells": [
+        {
+          "spellId": 14322,
+          "name": "Aspect of the Hawk",
+          "rank": 6,
+          "costCopper": 48000,
+          "knownBy": [
+            14322,
+            25296
+          ]
+        },
+        {
+          "spellId": 14325,
+          "name": "Hunter's Mark",
+          "rank": 4,
+          "costCopper": 48000,
+          "knownBy": [
+            14325
+          ]
+        },
+        {
+          "spellId": 14271,
+          "name": "Mongoose Bite",
+          "rank": 4,
+          "costCopper": 48000,
+          "knownBy": [
+            14271
+          ]
+        },
+        {
+          "spellId": 13555,
+          "name": "Serpent Sting",
+          "rank": 8,
+          "costCopper": 48000,
+          "knownBy": [
+            13555,
+            25295
+          ]
+        },
+        {
+          "spellId": 14295,
+          "name": "Volley",
+          "rank": 3,
+          "costCopper": 48000,
+          "knownBy": [
+            14295
+          ]
+        }
+      ],
+      "totalCostCopper": 240000
+    },
+    {
+      "level": 60,
+      "spells": [
+        {
+          "spellId": 20904,
+          "name": "Aimed Shot",
+          "rank": 6,
+          "costCopper": 2500,
+          "knownBy": [
+            20904,
+            27632
+          ],
+          "optional": true
+        },
+        {
+          "spellId": 14287,
+          "name": "Arcane Shot",
+          "rank": 8,
+          "costCopper": 50000,
+          "knownBy": [
+            14287
+          ]
+        },
+        {
+          "spellId": 15632,
+          "name": "Distracting Shot",
+          "rank": 6,
+          "costCopper": 50000,
+          "knownBy": [
+            15632
+          ]
+        },
+        {
+          "spellId": 14311,
+          "name": "Freezing Trap",
+          "rank": 3,
+          "costCopper": 50000,
+          "knownBy": [
+            14311,
+            27753
+          ]
+        },
+        {
+          "spellId": 13544,
+          "name": "Mend Pet",
+          "rank": 7,
+          "costCopper": 50000,
+          "knownBy": [
+            13544
+          ]
+        },
+        {
+          "spellId": 20906,
+          "name": "Trueshot Aura",
+          "rank": 3,
+          "costCopper": 2500,
+          "knownBy": [
+            20906
+          ],
+          "optional": true
+        },
+        {
+          "spellId": 14268,
+          "name": "Wing Clip",
+          "rank": 3,
+          "costCopper": 5000,
+          "knownBy": [
+            14268,
+            27633
+          ]
+        },
+        {
+          "spellId": 24133,
+          "name": "Wyvern Sting",
+          "rank": 3,
+          "costCopper": 2500,
+          "knownBy": [
+            24133,
+            24135
+          ],
+          "optional": true
+        }
+      ],
+      "totalCostCopper": 212500
+    }
+  ],
+  "classQuests": [
+    {
+      "level": 10,
+      "name": "Taming the Beast",
+      "startZone": "Durotar",
+      "startInstance": null,
+      "reward": "Tame Beast, Call Pet, Dismiss Pet",
+      "rewardItemId": null,
+      "rewardItem": null,
+      "questId": 6082,
+      "faction": "horde"
+    },
+    {
+      "level": 10,
+      "name": "Taming the Beast",
+      "startZone": "Dun Morogh",
+      "startInstance": null,
+      "reward": "Tame Beast, Call Pet, Dismiss Pet",
+      "rewardItemId": null,
+      "rewardItem": null,
+      "questId": 6085,
+      "faction": "alliance"
+    },
+    {
+      "level": 10,
+      "name": "Taming the Beast",
+      "startZone": "Mulgore",
+      "startInstance": null,
+      "reward": "Tame Beast, Call Pet, Dismiss Pet",
+      "rewardItemId": null,
+      "rewardItem": null,
+      "questId": 6088,
+      "faction": "horde"
+    },
+    {
+      "level": 10,
+      "name": "Taming the Beast",
+      "startZone": "Teldrassil",
+      "startInstance": null,
+      "reward": "Tame Beast, Call Pet, Dismiss Pet",
+      "rewardItemId": null,
+      "rewardItem": null,
+      "questId": 6102,
+      "faction": "alliance"
+    },
+    {
+      "level": 10,
+      "name": "Training the Beast",
+      "startZone": "Durotar",
+      "startInstance": null,
+      "reward": "Beast Training, Feed Pet, Revive Pet",
+      "rewardItemId": null,
+      "rewardItem": null,
+      "questId": 6081,
+      "faction": "horde"
+    },
+    {
+      "level": 10,
+      "name": "Training the Beast",
+      "startZone": "Dun Morogh",
+      "startInstance": null,
+      "reward": "Beast Training, Feed Pet, Revive Pet",
+      "rewardItemId": null,
+      "rewardItem": null,
+      "questId": 6086,
+      "faction": "alliance"
+    },
+    {
+      "level": 10,
+      "name": "Training the Beast",
+      "startZone": "Mulgore",
+      "startInstance": null,
+      "reward": "Beast Training, Feed Pet, Revive Pet",
+      "rewardItemId": null,
+      "rewardItem": null,
+      "questId": 6089,
+      "faction": "horde"
+    },
+    {
+      "level": 10,
+      "name": "Training the Beast",
+      "startZone": "Teldrassil",
+      "startInstance": null,
+      "reward": "Beast Training, Feed Pet, Revive Pet",
+      "rewardItemId": null,
+      "rewardItem": null,
+      "questId": 6103,
+      "faction": "alliance"
+    },
+    {
+      "level": 54,
+      "name": "The Greatest Race of Hunters",
+      "startZone": "Feralas",
+      "startInstance": "Dire Maul",
+      "reward": "Royal Seal of Eldre'Thalas",
+      "rewardItemId": 18473,
+      "rewardItem": {
+        "name": "Royal Seal of Eldre'Thalas",
+        "iconName": "inv_jewelry_talisman_10",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=18473",
+        "slot": "Trinket",
+        "quality": "Rare",
+        "requiredLevel": 0,
+        "itemLevel": 62,
+        "stats": [],
+        "bind": "pickup",
+        "unique": true,
+        "sellPriceCopper": 0,
+        "effects": [
+          "Equip: Attack Power Ranged +48"
+        ]
+      },
+      "questId": 7503,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "A Proper String",
+      "startZone": null,
+      "startInstance": null,
+      "reward": "Enchanted Black Dragon Sinew",
+      "rewardItemId": 18724,
+      "rewardItem": {
+        "name": "Enchanted Black Dragon Sinew",
+        "iconName": "spell_holy_dispelmagic",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=18724",
+        "slot": null,
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 71,
+        "stats": [],
+        "bind": "pickup",
+        "unique": true,
+        "sellPriceCopper": 0
+      },
+      "questId": 7635,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Ancient Sinew Wrapped Lamina",
+      "startZone": null,
+      "startInstance": null,
+      "reward": "Ancient Sinew Wrapped Lamina",
+      "rewardItemId": 18714,
+      "rewardItem": {
+        "name": "Ancient Sinew Wrapped Lamina",
+        "iconName": "inv_misc_quiver_03",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=18714",
+        "slot": "type18",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 75,
+        "stats": [],
+        "bind": "pickup",
+        "unique": true,
+        "sellPriceCopper": 0,
+        "effects": [
+          "Equip: Haste +15"
+        ]
+      },
+      "questId": 7634,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Cloak of the Unseen Path",
+      "startZone": "Silithus",
+      "startInstance": null,
+      "reward": "Cloak of the Unseen Path",
+      "rewardItemId": 21403,
+      "rewardItem": {
+        "name": "Cloak of the Unseen Path",
+        "iconName": "inv_misc_cape_15",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=21403",
+        "slot": "Back",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 67,
+        "stats": [
+          {
+            "type": "Agility",
+            "value": 17
+          },
+          {
+            "type": "Stamina",
+            "value": 13
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 0,
+        "armor": 52,
+        "effects": [
+          "Equip: Increased Hit Chance +1"
+        ]
+      },
+      "questId": 8696,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Cryptstalker Boots",
+      "startZone": "Eastern Plaguelands",
+      "startInstance": null,
+      "reward": "Cryptstalker Boots",
+      "rewardItemId": 22440,
+      "rewardItem": {
+        "name": "Cryptstalker Boots",
+        "iconName": "inv_boots_chain_05",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=22440",
+        "slot": "Feet",
+        "itemSubclass": "Mail",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 86,
+        "stats": [
+          {
+            "type": "Agility",
+            "value": 33
+          },
+          {
+            "type": "Stamina",
+            "value": 19
+          },
+          {
+            "type": "Intellect",
+            "value": 8
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 102391,
+        "armor": 372,
+        "durability": 70,
+        "effects": [
+          "Equip: Increased Hit Chance +1"
+        ]
+      },
+      "questId": 9058,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Cryptstalker Girdle",
+      "startZone": "Eastern Plaguelands",
+      "startInstance": null,
+      "reward": "Cryptstalker Girdle",
+      "rewardItemId": 22442,
+      "rewardItem": {
+        "name": "Cryptstalker Girdle",
+        "iconName": "inv_belt_22",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=22442",
+        "slot": "Waist",
+        "itemSubclass": "Mail",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 88,
+        "stats": [
+          {
+            "type": "Agility",
+            "value": 23
+          },
+          {
+            "type": "Stamina",
+            "value": 22
+          },
+          {
+            "type": "Intellect",
+            "value": 12
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 75494,
+        "armor": 311,
+        "durability": 50,
+        "effects": [
+          "Equip: Increased Hit Chance +1",
+          "Equip: Increased Critical +1",
+          "Equip: Increased Mana Regen +3"
+        ]
+      },
+      "questId": 9060,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Cryptstalker Handguards",
+      "startZone": "Eastern Plaguelands",
+      "startInstance": null,
+      "reward": "Cryptstalker Handguards",
+      "rewardItemId": 22441,
+      "rewardItem": {
+        "name": "Cryptstalker Handguards",
+        "iconName": "inv_gauntlets_25",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=22441",
+        "slot": "Hands",
+        "itemSubclass": "Mail",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 88,
+        "stats": [
+          {
+            "type": "Agility",
+            "value": 24
+          },
+          {
+            "type": "Intellect",
+            "value": 15
+          },
+          {
+            "type": "Stamina",
+            "value": 21
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 75205,
+        "armor": 346,
+        "durability": 50,
+        "effects": [
+          "Equip: Increased Critical +1",
+          "Equip: Increased Mana Regen +4"
+        ]
+      },
+      "questId": 9059,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Cryptstalker Headpiece",
+      "startZone": "Eastern Plaguelands",
+      "startInstance": null,
+      "reward": "Cryptstalker Headpiece",
+      "rewardItemId": 22438,
+      "rewardItem": {
+        "name": "Cryptstalker Headpiece",
+        "iconName": "inv_helmet_15",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=22438",
+        "slot": "Head",
+        "itemSubclass": "Mail",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 88,
+        "stats": [
+          {
+            "type": "Agility",
+            "value": 31
+          },
+          {
+            "type": "Stamina",
+            "value": 30
+          },
+          {
+            "type": "Intellect",
+            "value": 12
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 111521,
+        "armor": 449,
+        "durability": 85,
+        "effects": [
+          "Equip: Increased Critical +2",
+          "Equip: Increased Mana Regen +3"
+        ]
+      },
+      "questId": 9056,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Cryptstalker Legguards",
+      "startZone": "Eastern Plaguelands",
+      "startInstance": null,
+      "reward": "Cryptstalker Legguards",
+      "rewardItemId": 22437,
+      "rewardItem": {
+        "name": "Cryptstalker Legguards",
+        "iconName": "inv_pants_mail_15",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=22437",
+        "slot": "Legs",
+        "itemSubclass": "Mail",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 88,
+        "stats": [
+          {
+            "type": "Agility",
+            "value": 42
+          },
+          {
+            "type": "Stamina",
+            "value": 26
+          },
+          {
+            "type": "Intellect",
+            "value": 10
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 159599,
+        "armor": 484,
+        "durability": 105,
+        "effects": [
+          "Equip: Increased Critical +1",
+          "Equip: Increased Mana Regen +6"
+        ]
+      },
+      "questId": 9055,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Cryptstalker Spaulders",
+      "startZone": "Eastern Plaguelands",
+      "startInstance": null,
+      "reward": "Cryptstalker Spaulders",
+      "rewardItemId": 22439,
+      "rewardItem": {
+        "name": "Cryptstalker Spaulders",
+        "iconName": "inv_shoulder_14",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=22439",
+        "slot": "Shoulder",
+        "itemSubclass": "Mail",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 86,
+        "stats": [
+          {
+            "type": "Agility",
+            "value": 29
+          },
+          {
+            "type": "Stamina",
+            "value": 23
+          },
+          {
+            "type": "Intellect",
+            "value": 10
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 101997,
+        "armor": 406,
+        "durability": 85,
+        "effects": [
+          "Equip: Increased Critical +1"
+        ]
+      },
+      "questId": 9057,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Cryptstalker Tunic",
+      "startZone": "Eastern Plaguelands",
+      "startInstance": null,
+      "reward": "Cryptstalker Tunic",
+      "rewardItemId": 22436,
+      "rewardItem": {
+        "name": "Cryptstalker Tunic",
+        "iconName": "inv_chest_chain_15",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=22436",
+        "slot": "Chest",
+        "itemSubclass": "Mail",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 92,
+        "stats": [
+          {
+            "type": "Agility",
+            "value": 45
+          },
+          {
+            "type": "Stamina",
+            "value": 27
+          },
+          {
+            "type": "Intellect",
+            "value": 15
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 193311,
+        "armor": 576,
+        "durability": 140,
+        "effects": [
+          "Equip: Increased Hit Chance +1",
+          "Equip: Increased Critical +1",
+          "Equip: Increased Mana Regen +4"
+        ]
+      },
+      "questId": 9054,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Cryptstalker Wristguards",
+      "startZone": "Eastern Plaguelands",
+      "startInstance": null,
+      "reward": "Cryptstalker Wristguards",
+      "rewardItemId": 22443,
+      "rewardItem": {
+        "name": "Cryptstalker Wristguards",
+        "iconName": "inv_bracer_02",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=22443",
+        "slot": "Wrist",
+        "itemSubclass": "Mail",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 88,
+        "stats": [
+          {
+            "type": "Agility",
+            "value": 26
+          },
+          {
+            "type": "Stamina",
+            "value": 16
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 75782,
+        "armor": 242,
+        "durability": 50,
+        "effects": [
+          "Equip: Increased Hit Chance +1"
+        ]
+      },
+      "questId": 9061,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Paragons of Power: The Predator's Belt",
+      "startZone": "Stranglethorn Vale",
+      "startInstance": null,
+      "reward": "Zandalar Predator's Belt",
+      "rewardItemId": 19832,
+      "rewardItem": {
+        "name": "Zandalar Predator's Belt",
+        "iconName": "inv_belt_19",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=19832",
+        "slot": "Waist",
+        "itemSubclass": "Mail",
+        "quality": "Epic",
+        "requiredLevel": 0,
+        "itemLevel": 61,
+        "stats": [
+          {
+            "type": "Intellect",
+            "value": 12
+          },
+          {
+            "type": "Agility",
+            "value": 20
+          },
+          {
+            "type": "Stamina",
+            "value": 12
+          },
+          {
+            "type": "Spirit",
+            "value": 9
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 0,
+        "armor": 221,
+        "durability": 50,
+        "effects": [
+          "Equip: Increased Hit Chance +1"
+        ]
+      },
+      "questId": 8066,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Paragons of Power: The Predator's Bracers",
+      "startZone": "Stranglethorn Vale",
+      "startInstance": null,
+      "reward": "Zandalar Predator's Bracers",
+      "rewardItemId": 19833,
+      "rewardItem": {
+        "name": "Zandalar Predator's Bracers",
+        "iconName": "inv_bracer_18",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=19833",
+        "slot": "Wrist",
+        "itemSubclass": "Mail",
+        "quality": "Epic",
+        "requiredLevel": 0,
+        "itemLevel": 61,
+        "stats": [
+          {
+            "type": "Intellect",
+            "value": 10
+          },
+          {
+            "type": "Stamina",
+            "value": 10
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 0,
+        "armor": 172,
+        "durability": 50,
+        "effects": [
+          "Equip: Attack Power Ranged +34",
+          "Equip: Increased Mana Regen +4"
+        ]
+      },
+      "questId": 8062,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Paragons of Power: The Predator's Mantle",
+      "startZone": "Stranglethorn Vale",
+      "startInstance": null,
+      "reward": "Zandalar Predator's Mantle",
+      "rewardItemId": 19831,
+      "rewardItem": {
+        "name": "Zandalar Predator's Mantle",
+        "iconName": "inv_shoulder_22",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=19831",
+        "slot": "Shoulder",
+        "itemSubclass": "Mail",
+        "quality": "Epic",
+        "requiredLevel": 0,
+        "itemLevel": 68,
+        "stats": [
+          {
+            "type": "Agility",
+            "value": 22
+          },
+          {
+            "type": "Stamina",
+            "value": 15
+          },
+          {
+            "type": "Intellect",
+            "value": 11
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 0,
+        "armor": 326,
+        "durability": 85,
+        "effects": [
+          "Equip: Increased Mana Regen +4"
+        ]
+      },
+      "questId": 8067,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Scythe of the Unseen Path",
+      "startZone": "Silithus",
+      "startInstance": null,
+      "reward": "Scythe of the Unseen Path",
+      "rewardItemId": 21401,
+      "rewardItem": {
+        "name": "Scythe of the Unseen Path",
+        "iconName": "inv_axe_15",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=21401",
+        "slot": "One-Hand",
+        "itemSubclass": "Axe",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 70,
+        "stats": [
+          {
+            "type": "Agility",
+            "value": 16
+          },
+          {
+            "type": "Stamina",
+            "value": 9
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 0,
+        "damage": {
+          "min": 86,
+          "max": 161,
+          "speed": 2.4
+        },
+        "durability": 105,
+        "effects": [
+          "Equip: Increased Mana Regen +3"
+        ]
+      },
+      "questId": 8712,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Signet of the Unseen Path",
+      "startZone": "Silithus",
+      "startInstance": null,
+      "reward": "Signet of the Unseen Path",
+      "rewardItemId": 21402,
+      "rewardItem": {
+        "name": "Signet of the Unseen Path",
+        "iconName": "inv_jewelry_ring_ahnqiraj_03",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=21402",
+        "slot": "Finger",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 65,
+        "stats": [
+          {
+            "type": "Agility",
+            "value": 19
+          },
+          {
+            "type": "Stamina",
+            "value": 11
+          },
+          {
+            "type": "Intellect",
+            "value": 8
+          }
+        ],
+        "bind": "pickup",
+        "unique": true,
+        "sellPriceCopper": 0
+      },
+      "questId": 8704,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Striker's Diadem",
+      "startZone": "Silithus",
+      "startInstance": "Ahn'Qiraj",
+      "reward": "Striker's Diadem",
+      "rewardItemId": 21366,
+      "rewardItem": {
+        "name": "Striker's Diadem",
+        "iconName": "inv_helmet_73",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=21366",
+        "slot": "Head",
+        "itemSubclass": "Mail",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 81,
+        "stats": [
+          {
+            "type": "Agility",
+            "value": 29
+          },
+          {
+            "type": "Intellect",
+            "value": 18
+          },
+          {
+            "type": "Spirit",
+            "value": 10
+          },
+          {
+            "type": "Stamina",
+            "value": 26
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 86939,
+        "armor": 416,
+        "durability": 85,
+        "effects": [
+          "Equip: Increased Critical +1",
+          "Equip: Increase Spell Dam +12"
+        ]
+      },
+      "questId": 8657,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Striker's Footguards",
+      "startZone": "Silithus",
+      "startInstance": "Ahn'Qiraj",
+      "reward": "Striker's Footguards",
+      "rewardItemId": 21365,
+      "rewardItem": {
+        "name": "Striker's Footguards",
+        "iconName": "inv_boots_chain_08",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=21365",
+        "slot": "Feet",
+        "itemSubclass": "Mail",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 78,
+        "stats": [
+          {
+            "type": "Agility",
+            "value": 31
+          },
+          {
+            "type": "Intellect",
+            "value": 8
+          },
+          {
+            "type": "Spirit",
+            "value": 6
+          },
+          {
+            "type": "Stamina",
+            "value": 16
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 75168,
+        "armor": 340,
+        "durability": 70,
+        "effects": [
+          "Equip: Increase Spell Dam +6"
+        ]
+      },
+      "questId": 8626,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Striker's Hauberk",
+      "startZone": "Silithus",
+      "startInstance": "Ahn'Qiraj",
+      "reward": "Striker's Hauberk",
+      "rewardItemId": 21370,
+      "rewardItem": {
+        "name": "Striker's Hauberk",
+        "iconName": "inv_chest_chain_04",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=21370",
+        "slot": "Chest",
+        "itemSubclass": "Mail",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 88,
+        "stats": [
+          {
+            "type": "Agility",
+            "value": 39
+          },
+          {
+            "type": "Intellect",
+            "value": 15
+          },
+          {
+            "type": "Spirit",
+            "value": 7
+          },
+          {
+            "type": "Stamina",
+            "value": 26
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 149787,
+        "armor": 553,
+        "durability": 140,
+        "effects": [
+          "Equip: Increased Critical +1",
+          "Equip: Increase Spell Dam +9"
+        ]
+      },
+      "questId": 8656,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Striker's Leggings",
+      "startZone": "Silithus",
+      "startInstance": "Ahn'Qiraj",
+      "reward": "Striker's Leggings",
+      "rewardItemId": 21368,
+      "rewardItem": {
+        "name": "Striker's Leggings",
+        "iconName": "inv_pants_mail_11",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=21368",
+        "slot": "Legs",
+        "itemSubclass": "Mail",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 81,
+        "stats": [
+          {
+            "type": "Agility",
+            "value": 36
+          },
+          {
+            "type": "Intellect",
+            "value": 14
+          },
+          {
+            "type": "Spirit",
+            "value": 10
+          },
+          {
+            "type": "Stamina",
+            "value": 22
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 105630,
+        "armor": 448,
+        "durability": 105,
+        "effects": [
+          "Equip: Increased Critical +1",
+          "Equip: Increase Spell Dam +9"
+        ]
+      },
+      "questId": 8658,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Striker's Pauldrons",
+      "startZone": "Silithus",
+      "startInstance": "Ahn'Qiraj",
+      "reward": "Striker's Pauldrons",
+      "rewardItemId": 21367,
+      "rewardItem": {
+        "name": "Striker's Pauldrons",
+        "iconName": "inv_shoulder_36",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=21367",
+        "slot": "Shoulder",
+        "itemSubclass": "Mail",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 81,
+        "stats": [
+          {
+            "type": "Agility",
+            "value": 26
+          },
+          {
+            "type": "Intellect",
+            "value": 11
+          },
+          {
+            "type": "Spirit",
+            "value": 5
+          },
+          {
+            "type": "Stamina",
+            "value": 24
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 87626,
+        "armor": 384,
+        "durability": 85,
+        "effects": [
+          "Equip: Increase Spell Dam +6"
+        ]
+      },
+      "questId": 8659,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "The Maelstrom's Tendril",
+      "startZone": "Stranglethorn Vale",
+      "startInstance": null,
+      "reward": "Maelstrom's Tendril",
+      "rewardItemId": 19618,
+      "rewardItem": {
+        "name": "Maelstrom's Tendril",
+        "iconName": "inv_jewelry_necklace_23",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=19618",
+        "slot": "Neck",
+        "quality": "Uncommon",
+        "requiredLevel": 0,
+        "itemLevel": 60,
+        "stats": [
+          {
+            "type": "Agility",
+            "value": 12
+          },
+          {
+            "type": "Stamina",
+            "value": 7
+          }
+        ],
+        "bind": "pickup",
+        "unique": true,
+        "sellPriceCopper": 0
+      },
+      "questId": 8145,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "The Maelstrom's Wrath",
+      "startZone": "Stranglethorn Vale",
+      "startInstance": null,
+      "reward": "Maelstrom's Wrath",
+      "rewardItemId": 19621,
+      "rewardItem": {
+        "name": "Maelstrom's Wrath",
+        "iconName": "inv_jewelry_necklace_26",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=19621",
+        "slot": "Neck",
+        "quality": "Epic",
+        "requiredLevel": 0,
+        "itemLevel": 65,
+        "stats": [
+          {
+            "type": "Agility",
+            "value": 15
+          },
+          {
+            "type": "Intellect",
+            "value": 6
+          },
+          {
+            "type": "Stamina",
+            "value": 9
+          }
+        ],
+        "bind": "pickup",
+        "unique": true,
+        "sellPriceCopper": 0,
+        "effects": [
+          "Equip: Improved Feign Death"
+        ]
+      },
+      "questId": 8148,
+      "faction": "both"
+    }
+  ],
+  "professionMilestones": [
+    {
+      "skill": "First Aid",
+      "atSkill": 50,
+      "levelHint": 10,
+      "action": "Train Journeyman First Aid",
+      "where": "any First Aid trainer"
+    },
+    {
+      "skill": "First Aid",
+      "atSkill": 125,
+      "levelHint": 20,
+      "action": "Buy Expert First Aid — Under Wraps",
+      "itemId": 16084,
+      "where": "Deneb Walker (Arathi Highlands) / Balai Lok'Wein (Dustwallow Marsh)"
+    },
+    {
+      "skill": "First Aid",
+      "atSkill": 225,
+      "levelHint": 35,
+      "action": "Complete Triage",
+      "questId": [
+        6624,
+        6622
+      ],
+      "where": "Doctor Gustaf VanHowzen (Dustwallow Marsh) / Doctor Gregory Victor (Arathi Highlands)"
+    },
+    {
+      "skill": "Cooking",
+      "atSkill": 50,
+      "levelHint": 10,
+      "action": "Train Journeyman Cooking",
+      "where": "any Cooking trainer"
+    },
+    {
+      "skill": "Cooking",
+      "atSkill": 125,
+      "levelHint": 20,
+      "action": "Buy the Expert Cookbook",
+      "itemId": 16072,
+      "where": "Shandrina (Ashenvale) / Wulan (Desolace)"
+    },
+    {
+      "skill": "Cooking",
+      "atSkill": 225,
+      "levelHint": 35,
+      "action": "Complete Clamlette Surprise",
+      "questId": 6610,
+      "where": "Dirge Quikcleave (Tanaris)"
+    },
+    {
+      "skill": "Fishing",
+      "atSkill": 50,
+      "levelHint": 10,
+      "action": "Train Journeyman Fishing",
+      "where": "any Fishing trainer"
+    },
+    {
+      "skill": "Fishing",
+      "atSkill": 125,
+      "levelHint": 20,
+      "action": "Buy Expert Fishing — The Bass and You",
+      "itemId": 16083,
+      "where": "Old Man Heming (Stranglethorn Vale)"
+    },
+    {
+      "skill": "Fishing",
+      "atSkill": 225,
+      "levelHint": 35,
+      "action": "Complete Nat Pagle, Angler Extreme",
+      "questId": 6607,
+      "where": "Nat Pagle (Dustwallow Marsh)"
+    }
+  ]
+}

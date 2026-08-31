@@ -154,6 +154,42 @@ export function setMark(
   soon();
 }
 
+/**
+ * Many marks of one kind, in one commit.
+ *
+ * The import credits a level 40's whole history at once — forty trainer
+ * visits, a dozen finished quests — and forty calls to `setMark` is forty
+ * writes to disk and forty renders of every subscribed surface. It is also
+ * forty chances for a tab to close half way through a fact that was true all
+ * at once. This is the same write, said once.
+ *
+ * IT ONLY ADDS. The addon reports what a character has, never what it has not
+ * — a spellbook with no Eviscerate is a rogue who has not bought it *or* a
+ * client that did not say, and those are not the same. So an import can turn
+ * a mark on and can never turn one off, and a hand-tick it disagrees with
+ * stands. Taking a mark back stays `setMark`, one at a time, by hand.
+ */
+export function setMarks(char: string, kind: MarkKind, subjects: string[], val: string | null = null): void {
+  if (subjects.length === 0) return;
+  const cur = snapshot();
+  const kinds = { ...(cur.on[char] ?? {}) };
+  const on = { ...(kinds[kind] ?? {}) };
+
+  const fresh = subjects.filter((subject) => on[subject] === undefined);
+  if (fresh.length === 0) return;
+  for (const subject of fresh) on[subject] = val;
+  kinds[kind] = on;
+
+  const same = (q: Queued) => q.mark.char === char && q.mark.kind === kind && fresh.includes(q.mark.subject);
+  const queue = [
+    ...cur.queue.filter((q) => !same(q)),
+    ...fresh.map((subject) => ({ seq: ++seq, mark: { char, kind, subject, val, on: true } })),
+  ];
+
+  commit({ on: { ...cur.on, [char]: kinds }, queue, since: cur.since });
+  soon();
+}
+
 /* ---- the conversation */
 
 /** 401 is signed out and 404 is a deploy with no database. Both mean there is

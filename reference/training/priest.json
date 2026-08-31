@@ -1,0 +1,3913 @@
+{
+  "class": "priest",
+  "abilities": [
+    {
+      "level": 1,
+      "spells": [
+        {
+          "spellId": 1243,
+          "name": "Power Word: Fortitude",
+          "rank": 1,
+          "costCopper": 10,
+          "knownBy": [
+            1243,
+            1244,
+            1245,
+            2791,
+            10937,
+            10938,
+            23947,
+            23948
+          ]
+        }
+      ],
+      "totalCostCopper": 10
+    },
+    {
+      "level": 4,
+      "spells": [
+        {
+          "spellId": 2052,
+          "name": "Lesser Heal",
+          "rank": 2,
+          "costCopper": 100,
+          "knownBy": [
+            2052,
+            2053
+          ]
+        },
+        {
+          "spellId": 589,
+          "name": "Shadow Word: Pain",
+          "rank": 1,
+          "costCopper": 100,
+          "knownBy": [
+            589,
+            594,
+            970,
+            992,
+            2767,
+            10892,
+            10893,
+            10894,
+            27605
+          ]
+        }
+      ],
+      "totalCostCopper": 200
+    },
+    {
+      "level": 6,
+      "spells": [
+        {
+          "spellId": 17,
+          "name": "Power Word: Shield",
+          "rank": 1,
+          "costCopper": 100,
+          "knownBy": [
+            17,
+            592,
+            600,
+            3747,
+            6065,
+            6066,
+            10898,
+            10899,
+            10900,
+            10901,
+            27607
+          ]
+        },
+        {
+          "spellId": 591,
+          "name": "Smite",
+          "rank": 2,
+          "costCopper": 100,
+          "knownBy": [
+            591,
+            598,
+            984,
+            1004,
+            6060,
+            10933,
+            10934
+          ]
+        }
+      ],
+      "totalCostCopper": 200
+    },
+    {
+      "level": 8,
+      "spells": [
+        {
+          "spellId": 586,
+          "name": "Fade",
+          "rank": 1,
+          "costCopper": 200,
+          "knownBy": [
+            586,
+            9578,
+            9579,
+            9592,
+            10941,
+            10942
+          ]
+        },
+        {
+          "spellId": 139,
+          "name": "Renew",
+          "rank": 1,
+          "costCopper": 200,
+          "knownBy": [
+            139,
+            6074,
+            6075,
+            6076,
+            6077,
+            6078,
+            10927,
+            10928,
+            10929,
+            25315,
+            27606
+          ]
+        }
+      ],
+      "totalCostCopper": 400
+    },
+    {
+      "level": 10,
+      "spells": [
+        {
+          "spellId": 2053,
+          "name": "Lesser Heal",
+          "rank": 3,
+          "costCopper": 300,
+          "knownBy": [
+            2053
+          ]
+        },
+        {
+          "spellId": 8092,
+          "name": "Mind Blast",
+          "rank": 1,
+          "costCopper": 300,
+          "knownBy": [
+            8092,
+            8102,
+            8103,
+            8104,
+            8105,
+            8106,
+            10945,
+            10946,
+            10947
+          ]
+        },
+        {
+          "spellId": 2006,
+          "name": "Resurrection",
+          "rank": 1,
+          "costCopper": 300,
+          "knownBy": [
+            2006,
+            2010,
+            10880,
+            10881,
+            20770
+          ]
+        },
+        {
+          "spellId": 594,
+          "name": "Shadow Word: Pain",
+          "rank": 2,
+          "costCopper": 300,
+          "knownBy": [
+            594,
+            970,
+            992,
+            2767,
+            10892,
+            10893,
+            10894,
+            27605
+          ]
+        }
+      ],
+      "totalCostCopper": 1200
+    },
+    {
+      "level": 12,
+      "spells": [
+        {
+          "spellId": 588,
+          "name": "Inner Fire",
+          "rank": 1,
+          "costCopper": 800,
+          "knownBy": [
+            588,
+            602,
+            1006,
+            7128,
+            10951,
+            10952
+          ]
+        },
+        {
+          "spellId": 1244,
+          "name": "Power Word: Fortitude",
+          "rank": 2,
+          "costCopper": 800,
+          "knownBy": [
+            1244,
+            1245,
+            2791,
+            10937,
+            10938,
+            23947,
+            23948
+          ]
+        },
+        {
+          "spellId": 592,
+          "name": "Power Word: Shield",
+          "rank": 2,
+          "costCopper": 800,
+          "knownBy": [
+            592,
+            600,
+            3747,
+            6065,
+            6066,
+            10898,
+            10899,
+            10900,
+            10901,
+            27607
+          ]
+        }
+      ],
+      "totalCostCopper": 2400
+    },
+    {
+      "level": 14,
+      "spells": [
+        {
+          "spellId": 528,
+          "name": "Cure Disease",
+          "rank": null,
+          "costCopper": 1200,
+          "knownBy": [
+            528
+          ]
+        },
+        {
+          "spellId": 8122,
+          "name": "Psychic Scream",
+          "rank": 1,
+          "costCopper": 1200,
+          "knownBy": [
+            8122,
+            8124,
+            10888,
+            10890,
+            27610
+          ]
+        },
+        {
+          "spellId": 6074,
+          "name": "Renew",
+          "rank": 2,
+          "costCopper": 1200,
+          "knownBy": [
+            6074,
+            6075,
+            6076,
+            6077,
+            6078,
+            10927,
+            10928,
+            10929,
+            25315,
+            27606
+          ]
+        },
+        {
+          "spellId": 598,
+          "name": "Smite",
+          "rank": 3,
+          "costCopper": 1200,
+          "knownBy": [
+            598,
+            984,
+            1004,
+            6060,
+            10933,
+            10934
+          ]
+        }
+      ],
+      "totalCostCopper": 4800
+    },
+    {
+      "level": 16,
+      "spells": [
+        {
+          "spellId": 2054,
+          "name": "Heal",
+          "rank": 1,
+          "costCopper": 1600,
+          "knownBy": [
+            2054,
+            2055,
+            6063,
+            6064
+          ]
+        },
+        {
+          "spellId": 8102,
+          "name": "Mind Blast",
+          "rank": 2,
+          "costCopper": 1600,
+          "knownBy": [
+            8102,
+            8103,
+            8104,
+            8105,
+            8106,
+            10945,
+            10946,
+            10947
+          ]
+        }
+      ],
+      "totalCostCopper": 3200
+    },
+    {
+      "level": 18,
+      "spells": [
+        {
+          "spellId": 19236,
+          "name": "Desperate Prayer",
+          "rank": 2,
+          "costCopper": 100,
+          "knownBy": [
+            19236,
+            19238,
+            19240,
+            19241,
+            19242,
+            19243
+          ]
+        },
+        {
+          "spellId": 527,
+          "name": "Dispel Magic",
+          "rank": 1,
+          "costCopper": 2000,
+          "knownBy": [
+            527,
+            988,
+            27609
+          ]
+        },
+        {
+          "spellId": 600,
+          "name": "Power Word: Shield",
+          "rank": 3,
+          "costCopper": 2000,
+          "knownBy": [
+            600,
+            3747,
+            6065,
+            6066,
+            10898,
+            10899,
+            10900,
+            10901,
+            27607
+          ]
+        },
+        {
+          "spellId": 970,
+          "name": "Shadow Word: Pain",
+          "rank": 3,
+          "costCopper": 2000,
+          "knownBy": [
+            970,
+            992,
+            2767,
+            10892,
+            10893,
+            10894,
+            27605
+          ]
+        },
+        {
+          "spellId": 19296,
+          "name": "Starshards",
+          "rank": 2,
+          "costCopper": 100,
+          "knownBy": [
+            19296,
+            19299,
+            19302,
+            19303,
+            19304,
+            19305
+          ]
+        }
+      ],
+      "totalCostCopper": 6200
+    },
+    {
+      "level": 20,
+      "spells": [
+        {
+          "spellId": 9578,
+          "name": "Fade",
+          "rank": 2,
+          "costCopper": 3000,
+          "knownBy": [
+            9578,
+            9579,
+            9592,
+            10941,
+            10942
+          ]
+        },
+        {
+          "spellId": 2061,
+          "name": "Flash Heal",
+          "rank": 1,
+          "costCopper": 3000,
+          "knownBy": [
+            2061,
+            9472,
+            9473,
+            9474,
+            10915,
+            10916,
+            10917,
+            27608
+          ]
+        },
+        {
+          "spellId": 19281,
+          "name": "Hex of Weakness",
+          "rank": 2,
+          "costCopper": 150,
+          "knownBy": [
+            19281,
+            19282,
+            19283,
+            19284,
+            19285,
+            25816
+          ]
+        },
+        {
+          "spellId": 14914,
+          "name": "Holy Fire",
+          "rank": 1,
+          "costCopper": 3000,
+          "knownBy": [
+            14914,
+            15261,
+            15262,
+            15263,
+            15264,
+            15265,
+            15266,
+            15267
+          ],
+          "optional": true
+        },
+        {
+          "spellId": 7128,
+          "name": "Inner Fire",
+          "rank": 2,
+          "costCopper": 3000,
+          "knownBy": [
+            602,
+            1006,
+            7128,
+            10951,
+            10952
+          ]
+        },
+        {
+          "spellId": 453,
+          "name": "Mind Soothe",
+          "rank": 1,
+          "costCopper": 3000,
+          "knownBy": [
+            453,
+            8192,
+            10953
+          ]
+        },
+        {
+          "spellId": 6075,
+          "name": "Renew",
+          "rank": 3,
+          "costCopper": 3000,
+          "knownBy": [
+            6075,
+            6076,
+            6077,
+            6078,
+            10927,
+            10928,
+            10929,
+            25315,
+            27606
+          ]
+        },
+        {
+          "spellId": 9484,
+          "name": "Shackle Undead",
+          "rank": 1,
+          "costCopper": 3000,
+          "knownBy": [
+            9484,
+            9485,
+            10955
+          ]
+        },
+        {
+          "spellId": 19261,
+          "name": "Touch of Weakness",
+          "rank": 2,
+          "costCopper": 200,
+          "knownBy": [
+            19249,
+            19251,
+            19252,
+            19253,
+            19254,
+            19261,
+            19262,
+            19264,
+            19265,
+            19266
+          ]
+        }
+      ],
+      "totalCostCopper": 21350
+    },
+    {
+      "level": 22,
+      "spells": [
+        {
+          "spellId": 2055,
+          "name": "Heal",
+          "rank": 2,
+          "costCopper": 4000,
+          "knownBy": [
+            2055,
+            6063,
+            6064
+          ]
+        },
+        {
+          "spellId": 8103,
+          "name": "Mind Blast",
+          "rank": 3,
+          "costCopper": 4000,
+          "knownBy": [
+            8103,
+            8104,
+            8105,
+            8106,
+            10945,
+            10946,
+            10947
+          ]
+        },
+        {
+          "spellId": 2096,
+          "name": "Mind Vision",
+          "rank": 1,
+          "costCopper": 4000,
+          "knownBy": [
+            2096,
+            10909
+          ]
+        },
+        {
+          "spellId": 2010,
+          "name": "Resurrection",
+          "rank": 2,
+          "costCopper": 4000,
+          "knownBy": [
+            2010,
+            10880,
+            10881,
+            20770
+          ]
+        },
+        {
+          "spellId": 984,
+          "name": "Smite",
+          "rank": 4,
+          "costCopper": 4000,
+          "knownBy": [
+            984,
+            1004,
+            6060,
+            10933,
+            10934
+          ]
+        }
+      ],
+      "totalCostCopper": 20000
+    },
+    {
+      "level": 24,
+      "spells": [
+        {
+          "spellId": 15262,
+          "name": "Holy Fire",
+          "rank": 2,
+          "costCopper": 5000,
+          "knownBy": [
+            15261,
+            15262,
+            15263,
+            15264,
+            15265,
+            15266,
+            15267
+          ],
+          "optional": true
+        },
+        {
+          "spellId": 8129,
+          "name": "Mana Burn",
+          "rank": 1,
+          "costCopper": 5000,
+          "knownBy": [
+            8129,
+            8131,
+            10874,
+            10875,
+            10876
+          ]
+        },
+        {
+          "spellId": 1245,
+          "name": "Power Word: Fortitude",
+          "rank": 3,
+          "costCopper": 5000,
+          "knownBy": [
+            1245,
+            2791,
+            10937,
+            10938,
+            23947,
+            23948
+          ]
+        },
+        {
+          "spellId": 3747,
+          "name": "Power Word: Shield",
+          "rank": 4,
+          "costCopper": 5000,
+          "knownBy": [
+            3747,
+            6065,
+            6066,
+            10898,
+            10899,
+            10900,
+            10901,
+            27607
+          ]
+        }
+      ],
+      "totalCostCopper": 20000
+    },
+    {
+      "level": 26,
+      "spells": [
+        {
+          "spellId": 19238,
+          "name": "Desperate Prayer",
+          "rank": 3,
+          "costCopper": 300,
+          "knownBy": [
+            19238,
+            19240,
+            19241,
+            19242,
+            19243
+          ]
+        },
+        {
+          "spellId": 9472,
+          "name": "Flash Heal",
+          "rank": 2,
+          "costCopper": 6000,
+          "knownBy": [
+            9472,
+            9473,
+            9474,
+            10915,
+            10916,
+            10917,
+            27608
+          ]
+        },
+        {
+          "spellId": 6076,
+          "name": "Renew",
+          "rank": 4,
+          "costCopper": 6000,
+          "knownBy": [
+            6076,
+            6077,
+            6078,
+            10927,
+            10928,
+            10929,
+            25315,
+            27606
+          ]
+        },
+        {
+          "spellId": 992,
+          "name": "Shadow Word: Pain",
+          "rank": 4,
+          "costCopper": 6000,
+          "knownBy": [
+            992,
+            2767,
+            10892,
+            10893,
+            10894,
+            27605
+          ]
+        },
+        {
+          "spellId": 19299,
+          "name": "Starshards",
+          "rank": 3,
+          "costCopper": 300,
+          "knownBy": [
+            19299,
+            19302,
+            19303,
+            19304,
+            19305
+          ]
+        }
+      ],
+      "totalCostCopper": 18600
+    },
+    {
+      "level": 28,
+      "spells": [
+        {
+          "spellId": 19276,
+          "name": "Devouring Plague",
+          "rank": 2,
+          "costCopper": 400,
+          "knownBy": [
+            19276,
+            19277,
+            19278,
+            19279,
+            19280
+          ]
+        },
+        {
+          "spellId": 6063,
+          "name": "Heal",
+          "rank": 3,
+          "costCopper": 8000,
+          "knownBy": [
+            6063,
+            6064
+          ]
+        },
+        {
+          "spellId": 15430,
+          "name": "Holy Nova",
+          "rank": 2,
+          "costCopper": 400,
+          "knownBy": [
+            15430,
+            15431,
+            23458,
+            23459,
+            27799,
+            27800,
+            27801,
+            27803,
+            27804,
+            27805
+          ],
+          "optional": true
+        },
+        {
+          "spellId": 8104,
+          "name": "Mind Blast",
+          "rank": 4,
+          "costCopper": 8000,
+          "knownBy": [
+            8104,
+            8105,
+            8106,
+            10945,
+            10946,
+            10947
+          ]
+        },
+        {
+          "spellId": 17311,
+          "name": "Mind Flay",
+          "rank": 2,
+          "costCopper": 400,
+          "knownBy": [
+            17311,
+            17312,
+            17313,
+            17314,
+            18807
+          ],
+          "optional": true
+        },
+        {
+          "spellId": 8124,
+          "name": "Psychic Scream",
+          "rank": 2,
+          "costCopper": 8000,
+          "knownBy": [
+            8124,
+            10888,
+            10890,
+            27610
+          ]
+        },
+        {
+          "spellId": 19308,
+          "name": "Shadowguard",
+          "rank": 2,
+          "costCopper": 400,
+          "knownBy": [
+            19308,
+            19309,
+            19310,
+            19311,
+            19312,
+            28378,
+            28379,
+            28380,
+            28381,
+            28382
+          ]
+        }
+      ],
+      "totalCostCopper": 25600
+    },
+    {
+      "level": 30,
+      "spells": [
+        {
+          "spellId": 19289,
+          "name": "Elune's Grace",
+          "rank": 2,
+          "costCopper": 500,
+          "knownBy": [
+            19289,
+            19291,
+            19292,
+            19293
+          ]
+        },
+        {
+          "spellId": 9579,
+          "name": "Fade",
+          "rank": 3,
+          "costCopper": 10000,
+          "knownBy": [
+            9579,
+            9592,
+            10941,
+            10942
+          ]
+        },
+        {
+          "spellId": 19271,
+          "name": "Feedback",
+          "rank": 2,
+          "costCopper": 450,
+          "knownBy": [
+            19271,
+            19273,
+            19274,
+            19275
+          ]
+        },
+        {
+          "spellId": 19282,
+          "name": "Hex of Weakness",
+          "rank": 3,
+          "costCopper": 500,
+          "knownBy": [
+            19282,
+            19283,
+            19284,
+            19285,
+            25816
+          ]
+        },
+        {
+          "spellId": 15263,
+          "name": "Holy Fire",
+          "rank": 3,
+          "costCopper": 10000,
+          "knownBy": [
+            15261,
+            15263,
+            15264,
+            15265,
+            15266,
+            15267
+          ],
+          "optional": true
+        },
+        {
+          "spellId": 602,
+          "name": "Inner Fire",
+          "rank": 3,
+          "costCopper": 10000,
+          "knownBy": [
+            602,
+            1006,
+            10951,
+            10952
+          ]
+        },
+        {
+          "spellId": 605,
+          "name": "Mind Control",
+          "rank": 1,
+          "costCopper": 10000,
+          "knownBy": [
+            605,
+            10911,
+            10912
+          ]
+        },
+        {
+          "spellId": 6065,
+          "name": "Power Word: Shield",
+          "rank": 5,
+          "costCopper": 10000,
+          "knownBy": [
+            6065,
+            6066,
+            10898,
+            10899,
+            10900,
+            10901,
+            27607
+          ]
+        },
+        {
+          "spellId": 596,
+          "name": "Prayer of Healing",
+          "rank": 1,
+          "costCopper": 10000,
+          "knownBy": [
+            596,
+            996,
+            10960,
+            10961,
+            25316
+          ]
+        },
+        {
+          "spellId": 976,
+          "name": "Shadow Protection",
+          "rank": 1,
+          "costCopper": 10000,
+          "knownBy": [
+            976,
+            10957,
+            10958,
+            16874
+          ]
+        },
+        {
+          "spellId": 1004,
+          "name": "Smite",
+          "rank": 5,
+          "costCopper": 10000,
+          "knownBy": [
+            1004,
+            6060,
+            10933,
+            10934
+          ]
+        },
+        {
+          "spellId": 19262,
+          "name": "Touch of Weakness",
+          "rank": 3,
+          "costCopper": 500,
+          "knownBy": [
+            19251,
+            19252,
+            19253,
+            19254,
+            19262,
+            19264,
+            19265,
+            19266
+          ]
+        }
+      ],
+      "totalCostCopper": 81950
+    },
+    {
+      "level": 32,
+      "spells": [
+        {
+          "spellId": 552,
+          "name": "Abolish Disease",
+          "rank": null,
+          "costCopper": 11000,
+          "knownBy": [
+            552
+          ]
+        },
+        {
+          "spellId": 9473,
+          "name": "Flash Heal",
+          "rank": 3,
+          "costCopper": 11000,
+          "knownBy": [
+            9473,
+            9474,
+            10915,
+            10916,
+            10917,
+            27608
+          ]
+        },
+        {
+          "spellId": 8131,
+          "name": "Mana Burn",
+          "rank": 2,
+          "costCopper": 11000,
+          "knownBy": [
+            8131,
+            10874,
+            10875,
+            10876
+          ]
+        },
+        {
+          "spellId": 6077,
+          "name": "Renew",
+          "rank": 5,
+          "costCopper": 11000,
+          "knownBy": [
+            6077,
+            6078,
+            10927,
+            10928,
+            10929,
+            25315,
+            27606
+          ]
+        }
+      ],
+      "totalCostCopper": 44000
+    },
+    {
+      "level": 34,
+      "spells": [
+        {
+          "spellId": 19240,
+          "name": "Desperate Prayer",
+          "rank": 4,
+          "costCopper": 600,
+          "knownBy": [
+            19240,
+            19241,
+            19242,
+            19243
+          ]
+        },
+        {
+          "spellId": 6064,
+          "name": "Heal",
+          "rank": 4,
+          "costCopper": 12000,
+          "knownBy": [
+            6064
+          ]
+        },
+        {
+          "spellId": 1706,
+          "name": "Levitate",
+          "rank": null,
+          "costCopper": 12000,
+          "knownBy": [
+            1706
+          ]
+        },
+        {
+          "spellId": 8105,
+          "name": "Mind Blast",
+          "rank": 5,
+          "costCopper": 12000,
+          "knownBy": [
+            8105,
+            8106,
+            10945,
+            10946,
+            10947
+          ]
+        },
+        {
+          "spellId": 10880,
+          "name": "Resurrection",
+          "rank": 3,
+          "costCopper": 12000,
+          "knownBy": [
+            10880,
+            10881,
+            20770
+          ]
+        },
+        {
+          "spellId": 2767,
+          "name": "Shadow Word: Pain",
+          "rank": 5,
+          "costCopper": 12000,
+          "knownBy": [
+            2767,
+            10892,
+            10893,
+            10894,
+            27605
+          ]
+        },
+        {
+          "spellId": 19302,
+          "name": "Starshards",
+          "rank": 4,
+          "costCopper": 600,
+          "knownBy": [
+            19302,
+            19303,
+            19304,
+            19305
+          ]
+        }
+      ],
+      "totalCostCopper": 61200
+    },
+    {
+      "level": 36,
+      "spells": [
+        {
+          "spellId": 19277,
+          "name": "Devouring Plague",
+          "rank": 3,
+          "costCopper": 700,
+          "knownBy": [
+            19277,
+            19278,
+            19279,
+            19280
+          ]
+        },
+        {
+          "spellId": 988,
+          "name": "Dispel Magic",
+          "rank": 2,
+          "costCopper": 14000,
+          "knownBy": [
+            988,
+            27609
+          ]
+        },
+        {
+          "spellId": 15264,
+          "name": "Holy Fire",
+          "rank": 4,
+          "costCopper": 14000,
+          "knownBy": [
+            15261,
+            15264,
+            15265,
+            15266,
+            15267
+          ],
+          "optional": true
+        },
+        {
+          "spellId": 15431,
+          "name": "Holy Nova",
+          "rank": 3,
+          "costCopper": 700,
+          "knownBy": [
+            15431,
+            23459,
+            27799,
+            27800,
+            27801,
+            27803,
+            27804,
+            27805
+          ],
+          "optional": true
+        },
+        {
+          "spellId": 17312,
+          "name": "Mind Flay",
+          "rank": 3,
+          "costCopper": 700,
+          "knownBy": [
+            17312,
+            17313,
+            17314,
+            18807
+          ],
+          "optional": true
+        },
+        {
+          "spellId": 8192,
+          "name": "Mind Soothe",
+          "rank": 2,
+          "costCopper": 14000,
+          "knownBy": [
+            8192,
+            10953
+          ]
+        },
+        {
+          "spellId": 2791,
+          "name": "Power Word: Fortitude",
+          "rank": 4,
+          "costCopper": 14000,
+          "knownBy": [
+            2791,
+            10937,
+            10938,
+            23947,
+            23948
+          ]
+        },
+        {
+          "spellId": 6066,
+          "name": "Power Word: Shield",
+          "rank": 6,
+          "costCopper": 14000,
+          "knownBy": [
+            6066,
+            10898,
+            10899,
+            10900,
+            10901,
+            27607
+          ]
+        },
+        {
+          "spellId": 19309,
+          "name": "Shadowguard",
+          "rank": 3,
+          "costCopper": 700,
+          "knownBy": [
+            19309,
+            19310,
+            19311,
+            19312,
+            28379,
+            28380,
+            28381,
+            28382
+          ]
+        }
+      ],
+      "totalCostCopper": 72800
+    },
+    {
+      "level": 38,
+      "spells": [
+        {
+          "spellId": 9474,
+          "name": "Flash Heal",
+          "rank": 4,
+          "costCopper": 16000,
+          "knownBy": [
+            9474,
+            10915,
+            10916,
+            10917,
+            27608
+          ]
+        },
+        {
+          "spellId": 6078,
+          "name": "Renew",
+          "rank": 6,
+          "costCopper": 16000,
+          "knownBy": [
+            6078,
+            10927,
+            10928,
+            10929,
+            25315,
+            27606
+          ]
+        },
+        {
+          "spellId": 6060,
+          "name": "Smite",
+          "rank": 6,
+          "costCopper": 16000,
+          "knownBy": [
+            6060,
+            10933,
+            10934
+          ]
+        }
+      ],
+      "totalCostCopper": 48000
+    },
+    {
+      "level": 40,
+      "spells": [
+        {
+          "spellId": 14818,
+          "name": "Divine Spirit",
+          "rank": 2,
+          "costCopper": 900,
+          "knownBy": [
+            14818,
+            14819,
+            16875,
+            27841
+          ],
+          "optional": true
+        },
+        {
+          "spellId": 19291,
+          "name": "Elune's Grace",
+          "rank": 3,
+          "costCopper": 900,
+          "knownBy": [
+            19291,
+            19292,
+            19293
+          ]
+        },
+        {
+          "spellId": 9592,
+          "name": "Fade",
+          "rank": 4,
+          "costCopper": 18000,
+          "knownBy": [
+            9592,
+            10941,
+            10942
+          ]
+        },
+        {
+          "spellId": 19273,
+          "name": "Feedback",
+          "rank": 3,
+          "costCopper": 810,
+          "knownBy": [
+            19273,
+            19274,
+            19275
+          ]
+        },
+        {
+          "spellId": 2060,
+          "name": "Greater Heal",
+          "rank": 1,
+          "costCopper": 18000,
+          "knownBy": [
+            2060,
+            10963,
+            10964,
+            10965,
+            25314
+          ]
+        },
+        {
+          "spellId": 19283,
+          "name": "Hex of Weakness",
+          "rank": 4,
+          "costCopper": 900,
+          "knownBy": [
+            19283,
+            19284,
+            19285,
+            25816
+          ]
+        },
+        {
+          "spellId": 1006,
+          "name": "Inner Fire",
+          "rank": 4,
+          "costCopper": 18000,
+          "knownBy": [
+            1006,
+            10951,
+            10952
+          ]
+        },
+        {
+          "spellId": 10874,
+          "name": "Mana Burn",
+          "rank": 3,
+          "costCopper": 18000,
+          "knownBy": [
+            10874,
+            10875,
+            10876
+          ]
+        },
+        {
+          "spellId": 8106,
+          "name": "Mind Blast",
+          "rank": 6,
+          "costCopper": 18000,
+          "knownBy": [
+            8106,
+            10945,
+            10946,
+            10947
+          ]
+        },
+        {
+          "spellId": 996,
+          "name": "Prayer of Healing",
+          "rank": 2,
+          "costCopper": 18000,
+          "knownBy": [
+            996,
+            10960,
+            10961,
+            25316
+          ]
+        },
+        {
+          "spellId": 9485,
+          "name": "Shackle Undead",
+          "rank": 2,
+          "costCopper": 18000,
+          "knownBy": [
+            9485,
+            10955
+          ]
+        },
+        {
+          "spellId": 19264,
+          "name": "Touch of Weakness",
+          "rank": 4,
+          "costCopper": 900,
+          "knownBy": [
+            19252,
+            19253,
+            19254,
+            19264,
+            19265,
+            19266
+          ]
+        }
+      ],
+      "totalCostCopper": 130410
+    },
+    {
+      "level": 42,
+      "spells": [
+        {
+          "spellId": 19241,
+          "name": "Desperate Prayer",
+          "rank": 5,
+          "costCopper": 1100,
+          "knownBy": [
+            19241,
+            19242,
+            19243
+          ]
+        },
+        {
+          "spellId": 15265,
+          "name": "Holy Fire",
+          "rank": 5,
+          "costCopper": 22000,
+          "knownBy": [
+            15261,
+            15265,
+            15266,
+            15267
+          ],
+          "optional": true
+        },
+        {
+          "spellId": 10898,
+          "name": "Power Word: Shield",
+          "rank": 7,
+          "costCopper": 22000,
+          "knownBy": [
+            10898,
+            10899,
+            10900,
+            10901,
+            27607
+          ]
+        },
+        {
+          "spellId": 10888,
+          "name": "Psychic Scream",
+          "rank": 3,
+          "costCopper": 22000,
+          "knownBy": [
+            10888,
+            10890,
+            27610
+          ]
+        },
+        {
+          "spellId": 10957,
+          "name": "Shadow Protection",
+          "rank": 2,
+          "costCopper": 22000,
+          "knownBy": [
+            10957,
+            10958,
+            16874
+          ]
+        },
+        {
+          "spellId": 10892,
+          "name": "Shadow Word: Pain",
+          "rank": 6,
+          "costCopper": 22000,
+          "knownBy": [
+            10892,
+            10893,
+            10894,
+            27605
+          ]
+        },
+        {
+          "spellId": 19303,
+          "name": "Starshards",
+          "rank": 5,
+          "costCopper": 1100,
+          "knownBy": [
+            19303,
+            19304,
+            19305
+          ]
+        }
+      ],
+      "totalCostCopper": 112200
+    },
+    {
+      "level": 44,
+      "spells": [
+        {
+          "spellId": 19278,
+          "name": "Devouring Plague",
+          "rank": 4,
+          "costCopper": 1200,
+          "knownBy": [
+            19278,
+            19279,
+            19280
+          ]
+        },
+        {
+          "spellId": 10915,
+          "name": "Flash Heal",
+          "rank": 5,
+          "costCopper": 24000,
+          "knownBy": [
+            10915,
+            10916,
+            10917,
+            27608
+          ]
+        },
+        {
+          "spellId": 27799,
+          "name": "Holy Nova",
+          "rank": 4,
+          "costCopper": 1200,
+          "knownBy": [
+            27799,
+            27800,
+            27801,
+            27803,
+            27804,
+            27805
+          ],
+          "optional": true
+        },
+        {
+          "spellId": 10911,
+          "name": "Mind Control",
+          "rank": 2,
+          "costCopper": 24000,
+          "knownBy": [
+            10911,
+            10912
+          ]
+        },
+        {
+          "spellId": 17313,
+          "name": "Mind Flay",
+          "rank": 4,
+          "costCopper": 1200,
+          "knownBy": [
+            17313,
+            17314,
+            18807
+          ],
+          "optional": true
+        },
+        {
+          "spellId": 10909,
+          "name": "Mind Vision",
+          "rank": 2,
+          "costCopper": 24000,
+          "knownBy": [
+            10909
+          ]
+        },
+        {
+          "spellId": 10927,
+          "name": "Renew",
+          "rank": 7,
+          "costCopper": 24000,
+          "knownBy": [
+            10927,
+            10928,
+            10929,
+            25315,
+            27606
+          ]
+        },
+        {
+          "spellId": 19310,
+          "name": "Shadowguard",
+          "rank": 4,
+          "costCopper": 1000,
+          "knownBy": [
+            19310,
+            19311,
+            19312,
+            28380,
+            28381,
+            28382
+          ]
+        }
+      ],
+      "totalCostCopper": 100600
+    },
+    {
+      "level": 46,
+      "spells": [
+        {
+          "spellId": 10963,
+          "name": "Greater Heal",
+          "rank": 2,
+          "costCopper": 26000,
+          "knownBy": [
+            10963,
+            10964,
+            10965,
+            25314
+          ]
+        },
+        {
+          "spellId": 10945,
+          "name": "Mind Blast",
+          "rank": 7,
+          "costCopper": 26000,
+          "knownBy": [
+            10945,
+            10946,
+            10947
+          ]
+        },
+        {
+          "spellId": 10881,
+          "name": "Resurrection",
+          "rank": 4,
+          "costCopper": 26000,
+          "knownBy": [
+            10881,
+            20770
+          ]
+        },
+        {
+          "spellId": 10933,
+          "name": "Smite",
+          "rank": 7,
+          "costCopper": 26000,
+          "knownBy": [
+            10933,
+            10934
+          ]
+        }
+      ],
+      "totalCostCopper": 104000
+    },
+    {
+      "level": 48,
+      "spells": [
+        {
+          "spellId": 15266,
+          "name": "Holy Fire",
+          "rank": 6,
+          "costCopper": 28000,
+          "knownBy": [
+            15261,
+            15266,
+            15267
+          ],
+          "optional": true
+        },
+        {
+          "spellId": 10875,
+          "name": "Mana Burn",
+          "rank": 4,
+          "costCopper": 28000,
+          "knownBy": [
+            10875,
+            10876
+          ]
+        },
+        {
+          "spellId": 10937,
+          "name": "Power Word: Fortitude",
+          "rank": 5,
+          "costCopper": 28000,
+          "knownBy": [
+            10937,
+            10938,
+            23947,
+            23948
+          ]
+        },
+        {
+          "spellId": 10899,
+          "name": "Power Word: Shield",
+          "rank": 8,
+          "costCopper": 28000,
+          "knownBy": [
+            10899,
+            10900,
+            10901,
+            27607
+          ]
+        }
+      ],
+      "totalCostCopper": 112000
+    },
+    {
+      "level": 50,
+      "spells": [
+        {
+          "spellId": 19242,
+          "name": "Desperate Prayer",
+          "rank": 6,
+          "costCopper": 1500,
+          "knownBy": [
+            19242,
+            19243
+          ]
+        },
+        {
+          "spellId": 14819,
+          "name": "Divine Spirit",
+          "rank": 3,
+          "costCopper": 1500,
+          "knownBy": [
+            14819,
+            16875,
+            27841
+          ],
+          "optional": true
+        },
+        {
+          "spellId": 19292,
+          "name": "Elune's Grace",
+          "rank": 4,
+          "costCopper": 1500,
+          "knownBy": [
+            19292,
+            19293
+          ]
+        },
+        {
+          "spellId": 10941,
+          "name": "Fade",
+          "rank": 5,
+          "costCopper": 30000,
+          "knownBy": [
+            10941,
+            10942
+          ]
+        },
+        {
+          "spellId": 10916,
+          "name": "Flash Heal",
+          "rank": 6,
+          "costCopper": 30000,
+          "knownBy": [
+            10916,
+            10917,
+            27608
+          ]
+        },
+        {
+          "spellId": 19284,
+          "name": "Hex of Weakness",
+          "rank": 5,
+          "costCopper": 1500,
+          "knownBy": [
+            19284,
+            19285,
+            25816
+          ]
+        },
+        {
+          "spellId": 10951,
+          "name": "Inner Fire",
+          "rank": 5,
+          "costCopper": 30000,
+          "knownBy": [
+            10951,
+            10952
+          ]
+        },
+        {
+          "spellId": 27870,
+          "name": "Lightwell",
+          "rank": 2,
+          "costCopper": 1200,
+          "knownBy": [
+            27870,
+            27871
+          ]
+        },
+        {
+          "spellId": 10960,
+          "name": "Prayer of Healing",
+          "rank": 3,
+          "costCopper": 30000,
+          "knownBy": [
+            10960,
+            10961,
+            25316
+          ]
+        },
+        {
+          "spellId": 10928,
+          "name": "Renew",
+          "rank": 8,
+          "costCopper": 30000,
+          "knownBy": [
+            10928,
+            10929,
+            25315,
+            27606
+          ]
+        },
+        {
+          "spellId": 10893,
+          "name": "Shadow Word: Pain",
+          "rank": 7,
+          "costCopper": 30000,
+          "knownBy": [
+            10893,
+            10894,
+            27605
+          ]
+        },
+        {
+          "spellId": 19304,
+          "name": "Starshards",
+          "rank": 6,
+          "costCopper": 1500,
+          "knownBy": [
+            19304,
+            19305
+          ]
+        },
+        {
+          "spellId": 19265,
+          "name": "Touch of Weakness",
+          "rank": 5,
+          "costCopper": 1500,
+          "knownBy": [
+            19253,
+            19254,
+            19265,
+            19266
+          ]
+        }
+      ],
+      "totalCostCopper": 190200
+    },
+    {
+      "level": 52,
+      "spells": [
+        {
+          "spellId": 19279,
+          "name": "Devouring Plague",
+          "rank": 5,
+          "costCopper": 1900,
+          "knownBy": [
+            19279,
+            19280
+          ]
+        },
+        {
+          "spellId": 10964,
+          "name": "Greater Heal",
+          "rank": 3,
+          "costCopper": 38000,
+          "knownBy": [
+            10964,
+            10965,
+            25314
+          ]
+        },
+        {
+          "spellId": 27800,
+          "name": "Holy Nova",
+          "rank": 5,
+          "costCopper": 1900,
+          "knownBy": [
+            27800,
+            27801,
+            27804,
+            27805
+          ],
+          "optional": true
+        },
+        {
+          "spellId": 10946,
+          "name": "Mind Blast",
+          "rank": 8,
+          "costCopper": 38000,
+          "knownBy": [
+            10946,
+            10947
+          ]
+        },
+        {
+          "spellId": 17314,
+          "name": "Mind Flay",
+          "rank": 5,
+          "costCopper": 1900,
+          "knownBy": [
+            17314,
+            18807
+          ],
+          "optional": true
+        },
+        {
+          "spellId": 10953,
+          "name": "Mind Soothe",
+          "rank": 3,
+          "costCopper": 38000,
+          "knownBy": [
+            10953
+          ]
+        },
+        {
+          "spellId": 19311,
+          "name": "Shadowguard",
+          "rank": 5,
+          "costCopper": 1200,
+          "knownBy": [
+            19311,
+            19312,
+            28381,
+            28382
+          ]
+        }
+      ],
+      "totalCostCopper": 120900
+    },
+    {
+      "level": 54,
+      "spells": [
+        {
+          "spellId": 15267,
+          "name": "Holy Fire",
+          "rank": 7,
+          "costCopper": 40000,
+          "knownBy": [
+            15261,
+            15267
+          ],
+          "optional": true
+        },
+        {
+          "spellId": 10900,
+          "name": "Power Word: Shield",
+          "rank": 9,
+          "costCopper": 40000,
+          "knownBy": [
+            10900,
+            10901,
+            27607
+          ]
+        },
+        {
+          "spellId": 10934,
+          "name": "Smite",
+          "rank": 8,
+          "costCopper": 40000,
+          "knownBy": [
+            10934
+          ]
+        }
+      ],
+      "totalCostCopper": 120000
+    },
+    {
+      "level": 56,
+      "spells": [
+        {
+          "spellId": 10917,
+          "name": "Flash Heal",
+          "rank": 7,
+          "costCopper": 42000,
+          "knownBy": [
+            10917,
+            27608
+          ]
+        },
+        {
+          "spellId": 10876,
+          "name": "Mana Burn",
+          "rank": 5,
+          "costCopper": 42000,
+          "knownBy": [
+            10876
+          ]
+        },
+        {
+          "spellId": 10890,
+          "name": "Psychic Scream",
+          "rank": 4,
+          "costCopper": 42000,
+          "knownBy": [
+            10890,
+            27610
+          ]
+        },
+        {
+          "spellId": 10929,
+          "name": "Renew",
+          "rank": 9,
+          "costCopper": 42000,
+          "knownBy": [
+            10929,
+            25315,
+            27606
+          ]
+        },
+        {
+          "spellId": 10958,
+          "name": "Shadow Protection",
+          "rank": 3,
+          "costCopper": 42000,
+          "knownBy": [
+            10958,
+            16874
+          ]
+        }
+      ],
+      "totalCostCopper": 210000
+    },
+    {
+      "level": 58,
+      "spells": [
+        {
+          "spellId": 19243,
+          "name": "Desperate Prayer",
+          "rank": 7,
+          "costCopper": 2200,
+          "knownBy": [
+            19243
+          ]
+        },
+        {
+          "spellId": 10965,
+          "name": "Greater Heal",
+          "rank": 4,
+          "costCopper": 44000,
+          "knownBy": [
+            10965,
+            25314
+          ]
+        },
+        {
+          "spellId": 10947,
+          "name": "Mind Blast",
+          "rank": 9,
+          "costCopper": 44000,
+          "knownBy": [
+            10947
+          ]
+        },
+        {
+          "spellId": 10912,
+          "name": "Mind Control",
+          "rank": 3,
+          "costCopper": 44000,
+          "knownBy": [
+            10912
+          ]
+        },
+        {
+          "spellId": 20770,
+          "name": "Resurrection",
+          "rank": 5,
+          "costCopper": 44000,
+          "knownBy": [
+            20770
+          ]
+        },
+        {
+          "spellId": 10894,
+          "name": "Shadow Word: Pain",
+          "rank": 8,
+          "costCopper": 44000,
+          "knownBy": [
+            10894,
+            27605
+          ]
+        },
+        {
+          "spellId": 19305,
+          "name": "Starshards",
+          "rank": 7,
+          "costCopper": 2200,
+          "knownBy": [
+            19305
+          ]
+        }
+      ],
+      "totalCostCopper": 224400
+    },
+    {
+      "level": 60,
+      "spells": [
+        {
+          "spellId": 19280,
+          "name": "Devouring Plague",
+          "rank": 6,
+          "costCopper": 2300,
+          "knownBy": [
+            19280
+          ]
+        },
+        {
+          "spellId": 27841,
+          "name": "Divine Spirit",
+          "rank": 4,
+          "costCopper": 2300,
+          "knownBy": [
+            27841
+          ],
+          "optional": true
+        },
+        {
+          "spellId": 19293,
+          "name": "Elune's Grace",
+          "rank": 5,
+          "costCopper": 2070,
+          "knownBy": [
+            19293
+          ]
+        },
+        {
+          "spellId": 10942,
+          "name": "Fade",
+          "rank": 6,
+          "costCopper": 46000,
+          "knownBy": [
+            10942
+          ]
+        },
+        {
+          "spellId": 19285,
+          "name": "Hex of Weakness",
+          "rank": 6,
+          "costCopper": 2300,
+          "knownBy": [
+            19285,
+            25816
+          ]
+        },
+        {
+          "spellId": 15261,
+          "name": "Holy Fire",
+          "rank": 8,
+          "costCopper": 46000,
+          "knownBy": [
+            15261
+          ],
+          "optional": true
+        },
+        {
+          "spellId": 27801,
+          "name": "Holy Nova",
+          "rank": 6,
+          "costCopper": 2300,
+          "knownBy": [
+            27801,
+            27805
+          ],
+          "optional": true
+        },
+        {
+          "spellId": 10952,
+          "name": "Inner Fire",
+          "rank": 6,
+          "costCopper": 46000,
+          "knownBy": [
+            10952
+          ]
+        },
+        {
+          "spellId": 27871,
+          "name": "Lightwell",
+          "rank": 3,
+          "costCopper": 1500,
+          "knownBy": [
+            27871
+          ]
+        },
+        {
+          "spellId": 18807,
+          "name": "Mind Flay",
+          "rank": 6,
+          "costCopper": 2300,
+          "knownBy": [
+            18807
+          ],
+          "optional": true
+        },
+        {
+          "spellId": 10938,
+          "name": "Power Word: Fortitude",
+          "rank": 6,
+          "costCopper": 46000,
+          "knownBy": [
+            10938,
+            23948
+          ]
+        },
+        {
+          "spellId": 10901,
+          "name": "Power Word: Shield",
+          "rank": 10,
+          "costCopper": 46000,
+          "knownBy": [
+            10901,
+            27607
+          ]
+        },
+        {
+          "spellId": 10961,
+          "name": "Prayer of Healing",
+          "rank": 4,
+          "costCopper": 46000,
+          "knownBy": [
+            10961,
+            25316
+          ]
+        },
+        {
+          "spellId": 27681,
+          "name": "Prayer of Spirit",
+          "rank": 1,
+          "costCopper": 2300,
+          "knownBy": [
+            27681
+          ]
+        },
+        {
+          "spellId": 10955,
+          "name": "Shackle Undead",
+          "rank": 3,
+          "costCopper": 41400,
+          "knownBy": [
+            10955
+          ]
+        },
+        {
+          "spellId": 19312,
+          "name": "Shadowguard",
+          "rank": 6,
+          "costCopper": 2300,
+          "knownBy": [
+            19312,
+            28382
+          ]
+        },
+        {
+          "spellId": 19266,
+          "name": "Touch of Weakness",
+          "rank": 6,
+          "costCopper": 2070,
+          "knownBy": [
+            19254,
+            19266
+          ]
+        }
+      ],
+      "totalCostCopper": 339140
+    }
+  ],
+  "classQuests": [
+    {
+      "level": 5,
+      "name": "Garments of Darkness",
+      "startZone": "Tirisfal Glades",
+      "startInstance": null,
+      "reward": "Acolyte's Sacrificial Robes",
+      "rewardItemId": 16607,
+      "rewardItem": {
+        "name": "Acolyte's Sacrificial Robes",
+        "iconName": "inv_chest_cloth_19",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=16607",
+        "slot": "Chest",
+        "itemSubclass": "Cloth",
+        "quality": "Uncommon",
+        "requiredLevel": 0,
+        "itemLevel": 5,
+        "stats": [
+          {
+            "type": "Spirit",
+            "value": 1
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 16,
+        "armor": 10,
+        "durability": 40
+      },
+      "questId": 5650,
+      "faction": "horde"
+    },
+    {
+      "level": 5,
+      "name": "Garments of Spirituality",
+      "startZone": "Durotar",
+      "startInstance": null,
+      "reward": "Juju Hex Robes",
+      "rewardItemId": 16606,
+      "rewardItem": {
+        "name": "Juju Hex Robes",
+        "iconName": "inv_chest_cloth_04",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=16606",
+        "slot": "Chest",
+        "itemSubclass": "Cloth",
+        "quality": "Uncommon",
+        "requiredLevel": 0,
+        "itemLevel": 5,
+        "stats": [
+          {
+            "type": "Spirit",
+            "value": 1
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 17,
+        "armor": 10,
+        "durability": 40
+      },
+      "questId": 5648,
+      "faction": "horde"
+    },
+    {
+      "level": 5,
+      "name": "Garments of the Light",
+      "startZone": "Elwynn Forest",
+      "startInstance": null,
+      "reward": "Friar's Robes of the Light",
+      "rewardItemId": 16605,
+      "rewardItem": {
+        "name": "Friar's Robes of the Light",
+        "iconName": "inv_chest_cloth_04",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=16605",
+        "slot": "Chest",
+        "itemSubclass": "Cloth",
+        "quality": "Uncommon",
+        "requiredLevel": 0,
+        "itemLevel": 5,
+        "stats": [
+          {
+            "type": "Spirit",
+            "value": 1
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 17,
+        "armor": 10,
+        "durability": 40
+      },
+      "questId": 5624,
+      "faction": "alliance"
+    },
+    {
+      "level": 5,
+      "name": "Garments of the Light",
+      "startZone": "Dun Morogh",
+      "startInstance": null,
+      "reward": "Friar's Robes of the Light",
+      "rewardItemId": 16605,
+      "rewardItem": {
+        "name": "Friar's Robes of the Light",
+        "iconName": "inv_chest_cloth_04",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=16605",
+        "slot": "Chest",
+        "itemSubclass": "Cloth",
+        "quality": "Uncommon",
+        "requiredLevel": 0,
+        "itemLevel": 5,
+        "stats": [
+          {
+            "type": "Spirit",
+            "value": 1
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 17,
+        "armor": 10,
+        "durability": 40
+      },
+      "questId": 5625,
+      "faction": "alliance"
+    },
+    {
+      "level": 5,
+      "name": "Garments of the Moon",
+      "startZone": "Teldrassil",
+      "startInstance": null,
+      "reward": "Moon Robes of Elune",
+      "rewardItemId": 16604,
+      "rewardItem": {
+        "name": "Moon Robes of Elune",
+        "iconName": "inv_chest_cloth_36",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=16604",
+        "slot": "Chest",
+        "itemSubclass": "Cloth",
+        "quality": "Uncommon",
+        "requiredLevel": 0,
+        "itemLevel": 5,
+        "stats": [
+          {
+            "type": "Spirit",
+            "value": 1
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 17,
+        "armor": 10,
+        "durability": 40
+      },
+      "questId": 5621,
+      "faction": "alliance"
+    },
+    {
+      "level": 10,
+      "name": "Desperate Prayer",
+      "startZone": "Teldrassil",
+      "startInstance": null,
+      "reward": "Desperate Prayer (Rank 1)",
+      "rewardItemId": null,
+      "rewardItem": null,
+      "questId": 5634,
+      "faction": "alliance"
+    },
+    {
+      "level": 10,
+      "name": "Desperate Prayer",
+      "startZone": "Dun Morogh",
+      "startInstance": null,
+      "reward": "Desperate Prayer (Rank 1)",
+      "rewardItemId": null,
+      "rewardItem": null,
+      "questId": 5635,
+      "faction": "alliance"
+    },
+    {
+      "level": 10,
+      "name": "Desperate Prayer",
+      "startZone": "Elwynn Forest",
+      "startInstance": null,
+      "reward": "Desperate Prayer (Rank 1)",
+      "rewardItemId": null,
+      "rewardItem": null,
+      "questId": 5637,
+      "faction": "alliance"
+    },
+    {
+      "level": 10,
+      "name": "Desperate Prayer",
+      "startZone": "Stormwind City",
+      "startInstance": null,
+      "reward": "Desperate Prayer (Rank 1)",
+      "rewardItemId": null,
+      "rewardItem": null,
+      "questId": 5638,
+      "faction": "alliance"
+    },
+    {
+      "level": 10,
+      "name": "Desperate Prayer",
+      "startZone": "Ironforge",
+      "startInstance": null,
+      "reward": "Desperate Prayer (Rank 1)",
+      "rewardItemId": null,
+      "rewardItem": null,
+      "questId": 5639,
+      "faction": "alliance"
+    },
+    {
+      "level": 10,
+      "name": "Hex of Weakness",
+      "startZone": "Orgrimmar",
+      "startInstance": null,
+      "reward": "Hex of Weakness (Rank 1)",
+      "rewardItemId": null,
+      "rewardItem": null,
+      "questId": 5652,
+      "faction": "horde"
+    },
+    {
+      "level": 10,
+      "name": "Hex of Weakness",
+      "startZone": "Mulgore",
+      "startInstance": null,
+      "reward": "Hex of Weakness (Rank 1)",
+      "rewardItemId": null,
+      "rewardItem": null,
+      "questId": 5654,
+      "faction": "horde"
+    },
+    {
+      "level": 10,
+      "name": "Hex of Weakness",
+      "startZone": "Durotar",
+      "startInstance": null,
+      "reward": "Hex of Weakness (Rank 1)",
+      "rewardItemId": null,
+      "rewardItem": null,
+      "questId": 5655,
+      "faction": "horde"
+    },
+    {
+      "level": 10,
+      "name": "Hex of Weakness",
+      "startZone": "Undercity",
+      "startInstance": null,
+      "reward": "Hex of Weakness (Rank 1)",
+      "rewardItemId": null,
+      "rewardItem": null,
+      "questId": 5656,
+      "faction": "horde"
+    },
+    {
+      "level": 10,
+      "name": "Returning Home",
+      "startZone": "Elwynn Forest",
+      "startInstance": null,
+      "reward": "Starshards (Rank 1)",
+      "rewardItemId": null,
+      "rewardItem": null,
+      "questId": 5628,
+      "faction": "alliance"
+    },
+    {
+      "level": 10,
+      "name": "Returning Home",
+      "startZone": "Teldrassil",
+      "startInstance": null,
+      "reward": "Starshards (Rank 1)",
+      "rewardItemId": null,
+      "rewardItem": null,
+      "questId": 5629,
+      "faction": "alliance"
+    },
+    {
+      "level": 10,
+      "name": "Returning Home",
+      "startZone": "Dun Morogh",
+      "startInstance": null,
+      "reward": "Starshards (Rank 1)",
+      "rewardItemId": null,
+      "rewardItem": null,
+      "questId": 5630,
+      "faction": "alliance"
+    },
+    {
+      "level": 10,
+      "name": "Returning Home",
+      "startZone": "Stormwind City",
+      "startInstance": null,
+      "reward": "Starshards (Rank 1)",
+      "rewardItemId": null,
+      "rewardItem": null,
+      "questId": 5631,
+      "faction": "alliance"
+    },
+    {
+      "level": 10,
+      "name": "Returning Home",
+      "startZone": "Ironforge",
+      "startInstance": null,
+      "reward": "Starshards (Rank 1)",
+      "rewardItemId": null,
+      "rewardItem": null,
+      "questId": 5633,
+      "faction": "alliance"
+    },
+    {
+      "level": 10,
+      "name": "Stars of Elune",
+      "startZone": "Teldrassil",
+      "startInstance": null,
+      "reward": "Starshards (Rank 1)",
+      "rewardItemId": null,
+      "rewardItem": null,
+      "questId": 5627,
+      "faction": "alliance"
+    },
+    {
+      "level": 10,
+      "name": "Touch of Weakness",
+      "startZone": "Undercity",
+      "startInstance": null,
+      "reward": "Touch of Weakness (Rank 1)",
+      "rewardItemId": null,
+      "rewardItem": null,
+      "questId": 5658,
+      "faction": "horde"
+    },
+    {
+      "level": 10,
+      "name": "Touch of Weakness",
+      "startZone": "Durotar",
+      "startInstance": null,
+      "reward": "Touch of Weakness (Rank 1)",
+      "rewardItemId": null,
+      "rewardItem": null,
+      "questId": 5660,
+      "faction": "horde"
+    },
+    {
+      "level": 10,
+      "name": "Touch of Weakness",
+      "startZone": "Mulgore",
+      "startInstance": null,
+      "reward": "Touch of Weakness (Rank 1)",
+      "rewardItemId": null,
+      "rewardItem": null,
+      "questId": 5661,
+      "faction": "horde"
+    },
+    {
+      "level": 10,
+      "name": "Touch of Weakness",
+      "startZone": "Orgrimmar",
+      "startInstance": null,
+      "reward": "Touch of Weakness (Rank 1)",
+      "rewardItemId": null,
+      "rewardItem": null,
+      "questId": 5662,
+      "faction": "horde"
+    },
+    {
+      "level": 10,
+      "name": "Touch of Weakness",
+      "startZone": "Tirisfal Glades",
+      "startInstance": null,
+      "reward": "Touch of Weakness (Rank 1)",
+      "rewardItemId": null,
+      "rewardItem": null,
+      "questId": 5663,
+      "faction": "horde"
+    },
+    {
+      "level": 20,
+      "name": "A Lack of Fear",
+      "startZone": "Stormwind City",
+      "startInstance": null,
+      "reward": "Fear Ward",
+      "rewardItemId": null,
+      "rewardItem": null,
+      "questId": 5641,
+      "faction": "alliance"
+    },
+    {
+      "level": 20,
+      "name": "A Lack of Fear",
+      "startZone": "Ironforge",
+      "startInstance": null,
+      "reward": "Fear Ward",
+      "rewardItemId": null,
+      "rewardItem": null,
+      "questId": 5645,
+      "faction": "alliance"
+    },
+    {
+      "level": 20,
+      "name": "A Lack of Fear",
+      "startZone": "Teldrassil",
+      "startInstance": null,
+      "reward": "Fear Ward",
+      "rewardItemId": null,
+      "rewardItem": null,
+      "questId": 5647,
+      "faction": "alliance"
+    },
+    {
+      "level": 20,
+      "name": "Arcane Feedback",
+      "startZone": "Stormwind City",
+      "startInstance": null,
+      "reward": "Feedback (Rank 1)",
+      "rewardItemId": null,
+      "rewardItem": null,
+      "questId": 5676,
+      "faction": "alliance"
+    },
+    {
+      "level": 20,
+      "name": "Arcane Feedback",
+      "startZone": "Ironforge",
+      "startInstance": null,
+      "reward": "Desperate Prayer (Rank 1)",
+      "rewardItemId": null,
+      "rewardItem": null,
+      "questId": 5677,
+      "faction": "alliance"
+    },
+    {
+      "level": 20,
+      "name": "Devouring Plague",
+      "startZone": "Orgrimmar",
+      "startInstance": null,
+      "reward": "Devouring Plague (Rank 1)",
+      "rewardItemId": null,
+      "rewardItem": null,
+      "questId": 5644,
+      "faction": "horde"
+    },
+    {
+      "level": 20,
+      "name": "Devouring Plague",
+      "startZone": "Mulgore",
+      "startInstance": null,
+      "reward": "Devouring Plague (Rank 1)",
+      "rewardItemId": null,
+      "rewardItem": null,
+      "questId": 5646,
+      "faction": "horde"
+    },
+    {
+      "level": 20,
+      "name": "Devouring Plague",
+      "startZone": "Undercity",
+      "startInstance": null,
+      "reward": "Devouring Plague (Rank 1)",
+      "rewardItemId": null,
+      "rewardItem": null,
+      "questId": 5679,
+      "faction": "horde"
+    },
+    {
+      "level": 20,
+      "name": "Elune's Grace",
+      "startZone": "Teldrassil",
+      "startInstance": null,
+      "reward": "Elune's Grace (Rank 1)",
+      "rewardItemId": null,
+      "rewardItem": null,
+      "questId": 5672,
+      "faction": "alliance"
+    },
+    {
+      "level": 20,
+      "name": "Elune's Grace",
+      "startZone": "Stormwind City",
+      "startInstance": null,
+      "reward": "Elune's Grace (Rank 1)",
+      "rewardItemId": null,
+      "rewardItem": null,
+      "questId": 5673,
+      "faction": "alliance"
+    },
+    {
+      "level": 20,
+      "name": "Elune's Grace",
+      "startZone": "Ironforge",
+      "startInstance": null,
+      "reward": "Elune's Grace (Rank 1)",
+      "rewardItemId": null,
+      "rewardItem": null,
+      "questId": 5675,
+      "faction": "alliance"
+    },
+    {
+      "level": 20,
+      "name": "Shadowguard",
+      "startZone": "Mulgore",
+      "startInstance": null,
+      "reward": "Shadowguard (Rank 1)",
+      "rewardItemId": null,
+      "rewardItem": null,
+      "questId": 5642,
+      "faction": "horde"
+    },
+    {
+      "level": 20,
+      "name": "Shadowguard",
+      "startZone": "Undercity",
+      "startInstance": null,
+      "reward": "Shadowguard (Rank 1)",
+      "rewardItemId": null,
+      "rewardItem": null,
+      "questId": 5643,
+      "faction": "horde"
+    },
+    {
+      "level": 20,
+      "name": "Shadowguard",
+      "startZone": "Orgrimmar",
+      "startInstance": null,
+      "reward": "Shadowguard (Rank 1)",
+      "rewardItemId": null,
+      "rewardItem": null,
+      "questId": 5680,
+      "faction": "horde"
+    },
+    {
+      "level": 50,
+      "name": "Blood of Morphaz",
+      "startZone": "Azshara",
+      "startInstance": null,
+      "reward": "Mark of the Wild (Rank 6)",
+      "rewardItemId": null,
+      "rewardItem": null,
+      "questId": 8257,
+      "faction": "both",
+      "rewardChoices": [
+        {
+          "itemId": 19990,
+          "item": {
+            "name": "Blessed Prayer Beads",
+            "iconName": "inv_jewelry_necklace_11",
+            "wowheadUrl": "https://www.wowhead.com/classic/item=19990",
+            "slot": "Trinket",
+            "quality": "Rare",
+            "requiredLevel": 0,
+            "itemLevel": 52,
+            "stats": [],
+            "bind": "pickup",
+            "sellPriceCopper": 0,
+            "effects": [
+              "Use: Prayer Beads Blessing +190"
+            ]
+          }
+        },
+        {
+          "itemId": 20082,
+          "item": {
+            "name": "Woestave",
+            "iconName": null,
+            "wowheadUrl": "https://www.wowhead.com/classic/item=20082",
+            "slot": "Ranged",
+            "itemSubclass": "Wand",
+            "quality": "Rare",
+            "requiredLevel": 0,
+            "itemLevel": 52,
+            "stats": [
+              {
+                "type": "Stamina",
+                "value": 3
+              }
+            ],
+            "bind": "pickup",
+            "sellPriceCopper": 24229,
+            "damage": {
+              "min": 68,
+              "max": 127,
+              "speed": 1.9
+            },
+            "durability": 65,
+            "effects": [
+              "Equip: Increase Shadow Dam +11"
+            ]
+          }
+        },
+        {
+          "itemId": 20006,
+          "item": {
+            "name": "Circle of Hope",
+            "iconName": null,
+            "wowheadUrl": "https://www.wowhead.com/classic/item=20006",
+            "slot": "Finger",
+            "quality": "Rare",
+            "requiredLevel": 0,
+            "itemLevel": 52,
+            "stats": [],
+            "bind": "pickup",
+            "sellPriceCopper": 0,
+            "effects": [
+              "Equip: Increased Critical Holy Spells"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "level": 54,
+      "name": "Holy Bologna: What the Light Won't Tell You",
+      "startZone": "Feralas",
+      "startInstance": "Dire Maul",
+      "reward": "Royal Seal of Eldre'Thalas",
+      "rewardItemId": 18469,
+      "rewardItem": {
+        "name": "Royal Seal of Eldre'Thalas",
+        "iconName": "inv_jewelry_talisman_10",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=18469",
+        "slot": "Trinket",
+        "quality": "Rare",
+        "requiredLevel": 0,
+        "itemLevel": 62,
+        "stats": [],
+        "bind": "pickup",
+        "unique": true,
+        "sellPriceCopper": 0,
+        "effects": [
+          "Equip: Increase Healing +33",
+          "Equip: Increased Mana Regen +4"
+        ]
+      },
+      "questId": 7504,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Belt of Faith",
+      "startZone": "Eastern Plaguelands",
+      "startInstance": null,
+      "reward": "Belt of Faith",
+      "rewardItemId": 22518,
+      "rewardItem": {
+        "name": "Belt of Faith",
+        "iconName": "inv_belt_08",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=22518",
+        "slot": "Waist",
+        "itemSubclass": "Cloth",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 88,
+        "stats": [
+          {
+            "type": "Intellect",
+            "value": 23
+          },
+          {
+            "type": "Stamina",
+            "value": 18
+          },
+          {
+            "type": "Spirit",
+            "value": 17
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 50917,
+        "armor": 75,
+        "durability": 35,
+        "effects": [
+          "Equip: Increase Healing +48"
+        ]
+      },
+      "questId": 9117,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Bindings of Faith",
+      "startZone": "Eastern Plaguelands",
+      "startInstance": null,
+      "reward": "Bindings of Faith",
+      "rewardItemId": 22519,
+      "rewardItem": {
+        "name": "Bindings of Faith",
+        "iconName": "inv_bracer_13",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=22519",
+        "slot": "Wrist",
+        "itemSubclass": "Cloth",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 88,
+        "stats": [
+          {
+            "type": "Stamina",
+            "value": 11
+          },
+          {
+            "type": "Intellect",
+            "value": 15
+          },
+          {
+            "type": "Spirit",
+            "value": 17
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 51109,
+        "armor": 58,
+        "durability": 35,
+        "effects": [
+          "Equip: Increase Healing +40"
+        ]
+      },
+      "questId": 9118,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Circlet of Faith",
+      "startZone": "Eastern Plaguelands",
+      "startInstance": null,
+      "reward": "Circlet of Faith",
+      "rewardItemId": 22514,
+      "rewardItem": {
+        "name": "Circlet of Faith",
+        "iconName": "inv_crown_01",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=22514",
+        "slot": "Head",
+        "itemSubclass": "Cloth",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 88,
+        "stats": [
+          {
+            "type": "Spirit",
+            "value": 22
+          },
+          {
+            "type": "Intellect",
+            "value": 22
+          },
+          {
+            "type": "Stamina",
+            "value": 22
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 80969,
+        "armor": 108,
+        "durability": 60,
+        "effects": [
+          "Equip: Increase Healing +75",
+          "Equip: Increased Mana Regen +5"
+        ]
+      },
+      "questId": 9113,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Footwraps of the Oracle",
+      "startZone": "Silithus",
+      "startInstance": "Ahn'Qiraj",
+      "reward": "Footwraps of the Oracle",
+      "rewardItemId": 21349,
+      "rewardItem": {
+        "name": "Footwraps of the Oracle",
+        "iconName": "inv_boots_cloth_07",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=21349",
+        "slot": "Feet",
+        "itemSubclass": "Cloth",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 78,
+        "stats": [
+          {
+            "type": "Intellect",
+            "value": 17
+          },
+          {
+            "type": "Spirit",
+            "value": 12
+          },
+          {
+            "type": "Stamina",
+            "value": 20
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 45805,
+        "armor": 112,
+        "durability": 50,
+        "effects": [
+          "Equip: Increase Spell Dam +21",
+          "Equip: Increased Mana Regen +3"
+        ]
+      },
+      "questId": 8596,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Gavel of Infinite Wisdom",
+      "startZone": "Silithus",
+      "startInstance": null,
+      "reward": "Gavel of Infinite Wisdom",
+      "rewardItemId": 21410,
+      "rewardItem": {
+        "name": "Gavel of Infinite Wisdom",
+        "iconName": "inv_mace22",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=21410",
+        "slot": "Main Hand",
+        "itemSubclass": "Mace",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 70,
+        "stats": [
+          {
+            "type": "Intellect",
+            "value": 11
+          },
+          {
+            "type": "Stamina",
+            "value": 10
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 0,
+        "damage": {
+          "min": 70,
+          "max": 154,
+          "speed": 2.7
+        },
+        "durability": 105,
+        "effects": [
+          "Equip: Increased Mana Regen +4",
+          "Equip: Increase Healing +90"
+        ]
+      },
+      "questId": 8705,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Gloves of Faith",
+      "startZone": "Eastern Plaguelands",
+      "startInstance": null,
+      "reward": "Gloves of Faith",
+      "rewardItemId": 22517,
+      "rewardItem": {
+        "name": "Gloves of Faith",
+        "iconName": "inv_gauntlets_17",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=22517",
+        "slot": "Hands",
+        "itemSubclass": "Cloth",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 88,
+        "stats": [
+          {
+            "type": "Spirit",
+            "value": 22
+          },
+          {
+            "type": "Intellect",
+            "value": 21
+          },
+          {
+            "type": "Stamina",
+            "value": 16
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 54551,
+        "armor": 83,
+        "durability": 35,
+        "effects": [
+          "Equip: Increase Healing +40",
+          "Equip: Increased Mana Regen +4"
+        ]
+      },
+      "questId": 9116,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Leggings of Faith",
+      "startZone": "Eastern Plaguelands",
+      "startInstance": null,
+      "reward": "Leggings of Faith",
+      "rewardItemId": 22513,
+      "rewardItem": {
+        "name": "Leggings of Faith",
+        "iconName": "inv_pants_cloth_05",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=22513",
+        "slot": "Legs",
+        "itemSubclass": "Cloth",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 88,
+        "stats": [
+          {
+            "type": "Spirit",
+            "value": 28
+          },
+          {
+            "type": "Intellect",
+            "value": 26
+          },
+          {
+            "type": "Stamina",
+            "value": 25
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 107574,
+        "armor": 116,
+        "durability": 75,
+        "effects": [
+          "Equip: Increase Healing +66"
+        ]
+      },
+      "questId": 9112,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Mantle of the Oracle",
+      "startZone": "Silithus",
+      "startInstance": "Ahn'Qiraj",
+      "reward": "Mantle of the Oracle",
+      "rewardItemId": 21350,
+      "rewardItem": {
+        "name": "Mantle of the Oracle",
+        "iconName": "inv_shoulder_03",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=21350",
+        "slot": "Shoulder",
+        "itemSubclass": "Cloth",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 78,
+        "stats": [
+          {
+            "type": "Intellect",
+            "value": 20
+          },
+          {
+            "type": "Spirit",
+            "value": 8
+          },
+          {
+            "type": "Stamina",
+            "value": 21
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 45983,
+        "armor": 119,
+        "durability": 60,
+        "effects": [
+          "Equip: Increase Spell Dam +20",
+          "Equip: Increased Mana Regen +3",
+          "Equip: Increased Spell Penetration +10"
+        ]
+      },
+      "questId": 8594,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Paragons of Power: The Confessor's Bindings",
+      "startZone": "Stranglethorn Vale",
+      "startInstance": null,
+      "reward": "Zandalar Confessor's Bindings",
+      "rewardItemId": 19842,
+      "rewardItem": {
+        "name": "Zandalar Confessor's Bindings",
+        "iconName": "inv_belt_08",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=19842",
+        "slot": "Waist",
+        "itemSubclass": "Cloth",
+        "quality": "Epic",
+        "requiredLevel": 0,
+        "itemLevel": 61,
+        "stats": [
+          {
+            "type": "Intellect",
+            "value": 20
+          },
+          {
+            "type": "Stamina",
+            "value": 12
+          },
+          {
+            "type": "Spirit",
+            "value": 12
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 0,
+        "armor": 53,
+        "durability": 35,
+        "effects": [
+          "Equip: Increase Healing +26"
+        ]
+      },
+      "questId": 8070,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Paragons of Power: The Confessor's Mantle",
+      "startZone": "Stranglethorn Vale",
+      "startInstance": null,
+      "reward": "Zandalar Confessor's Mantle",
+      "rewardItemId": 19841,
+      "rewardItem": {
+        "name": "Zandalar Confessor's Mantle",
+        "iconName": "inv_shoulder_01",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=19841",
+        "slot": "Shoulder",
+        "itemSubclass": "Cloth",
+        "quality": "Epic",
+        "requiredLevel": 0,
+        "itemLevel": 68,
+        "stats": [
+          {
+            "type": "Intellect",
+            "value": 24
+          },
+          {
+            "type": "Spirit",
+            "value": 15
+          },
+          {
+            "type": "Stamina",
+            "value": 11
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 0,
+        "armor": 78,
+        "durability": 60,
+        "effects": [
+          "Equip: Increase Healing +22"
+        ]
+      },
+      "questId": 8071,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Paragons of Power: The Confessor's Wraps",
+      "startZone": "Stranglethorn Vale",
+      "startInstance": null,
+      "reward": "Zandalar Confessor's Wraps",
+      "rewardItemId": 19843,
+      "rewardItem": {
+        "name": "Zandalar Confessor's Wraps",
+        "iconName": "inv_bracer_07",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=19843",
+        "slot": "Wrist",
+        "itemSubclass": "Cloth",
+        "quality": "Epic",
+        "requiredLevel": 0,
+        "itemLevel": 61,
+        "stats": [
+          {
+            "type": "Intellect",
+            "value": 11
+          },
+          {
+            "type": "Spirit",
+            "value": 12
+          },
+          {
+            "type": "Stamina",
+            "value": 10
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 0,
+        "armor": 41,
+        "durability": 35,
+        "effects": [
+          "Equip: Increase Healing +24"
+        ]
+      },
+      "questId": 8061,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Ring of Infinite Wisdom",
+      "startZone": "Silithus",
+      "startInstance": null,
+      "reward": "Ring of Infinite Wisdom",
+      "rewardItemId": 21411,
+      "rewardItem": {
+        "name": "Ring of Infinite Wisdom",
+        "iconName": "inv_jewelry_ring_ahnqiraj_03",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=21411",
+        "slot": "Finger",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 65,
+        "stats": [
+          {
+            "type": "Intellect",
+            "value": 13
+          },
+          {
+            "type": "Stamina",
+            "value": 10
+          }
+        ],
+        "bind": "pickup",
+        "unique": true,
+        "sellPriceCopper": 0,
+        "effects": [
+          "Equip: Increased Mana Regen +5"
+        ]
+      },
+      "questId": 8697,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Robe of Faith",
+      "startZone": "Eastern Plaguelands",
+      "startInstance": null,
+      "reward": "Robe of Faith",
+      "rewardItemId": 22512,
+      "rewardItem": {
+        "name": "Robe of Faith",
+        "iconName": "inv_chest_cloth_43",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=22512",
+        "slot": "Chest",
+        "itemSubclass": "Cloth",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 92,
+        "stats": [
+          {
+            "type": "Spirit",
+            "value": 21
+          },
+          {
+            "type": "Intellect",
+            "value": 27
+          },
+          {
+            "type": "Stamina",
+            "value": 26
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 130290,
+        "armor": 138,
+        "durability": 100,
+        "effects": [
+          "Equip: Increase Healing +64",
+          "Equip: Increased Mana Regen +5"
+        ]
+      },
+      "questId": 9111,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Sandals of Faith",
+      "startZone": "Eastern Plaguelands",
+      "startInstance": null,
+      "reward": "Sandals of Faith",
+      "rewardItemId": 22516,
+      "rewardItem": {
+        "name": "Sandals of Faith",
+        "iconName": "inv_boots_fabric_01",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=22516",
+        "slot": "Feet",
+        "itemSubclass": "Cloth",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 86,
+        "stats": [
+          {
+            "type": "Spirit",
+            "value": 13
+          },
+          {
+            "type": "Stamina",
+            "value": 19
+          },
+          {
+            "type": "Intellect",
+            "value": 22
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 73958,
+        "armor": 89,
+        "durability": 50,
+        "effects": [
+          "Equip: Increased Mana Regen +6",
+          "Equip: Increase Healing +44"
+        ]
+      },
+      "questId": 9115,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Shoulderpads of Faith",
+      "startZone": "Eastern Plaguelands",
+      "startInstance": null,
+      "reward": "Shoulderpads of Faith",
+      "rewardItemId": 22515,
+      "rewardItem": {
+        "name": "Shoulderpads of Faith",
+        "iconName": "inv_shoulder_25",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=22515",
+        "slot": "Shoulder",
+        "itemSubclass": "Cloth",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 86,
+        "stats": [
+          {
+            "type": "Spirit",
+            "value": 17
+          },
+          {
+            "type": "Intellect",
+            "value": 18
+          },
+          {
+            "type": "Stamina",
+            "value": 17
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 73703,
+        "armor": 97,
+        "durability": 60,
+        "effects": [
+          "Equip: Increase Healing +51",
+          "Equip: Increased Mana Regen +3"
+        ]
+      },
+      "questId": 9114,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Shroud of Infinite Wisdom",
+      "startZone": "Silithus",
+      "startInstance": null,
+      "reward": "Shroud of Infinite Wisdom",
+      "rewardItemId": 21412,
+      "rewardItem": {
+        "name": "Shroud of Infinite Wisdom",
+        "iconName": "inv_misc_cape_16",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=21412",
+        "slot": "Back",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 67,
+        "stats": [
+          {
+            "type": "Intellect",
+            "value": 14
+          },
+          {
+            "type": "Stamina",
+            "value": 12
+          },
+          {
+            "type": "Spirit",
+            "value": 11
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 0,
+        "armor": 52,
+        "effects": [
+          "Equip: Increase Healing +24"
+        ]
+      },
+      "questId": 8689,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "The All-Seeing Eye of Zuldazar",
+      "startZone": "Stranglethorn Vale",
+      "startInstance": null,
+      "reward": "The All-Seeing Eye of Zuldazar",
+      "rewardItemId": 19594,
+      "rewardItem": {
+        "name": "The All-Seeing Eye of Zuldazar",
+        "iconName": "inv_jewelry_necklace_26",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=19594",
+        "slot": "Neck",
+        "quality": "Epic",
+        "requiredLevel": 0,
+        "itemLevel": 65,
+        "stats": [
+          {
+            "type": "Intellect",
+            "value": 8
+          },
+          {
+            "type": "Spirit",
+            "value": 13
+          },
+          {
+            "type": "Stamina",
+            "value": 8
+          }
+        ],
+        "bind": "pickup",
+        "unique": true,
+        "sellPriceCopper": 0,
+        "effects": [
+          "Equip: Increase Healing +18",
+          "Equip: Improved Power Word: Shield"
+        ]
+      },
+      "questId": 8052,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "The Eye of Zuldazar",
+      "startZone": "Stranglethorn Vale",
+      "startInstance": null,
+      "reward": "The Eye of Zuldazar",
+      "rewardItemId": 19591,
+      "rewardItem": {
+        "name": "The Eye of Zuldazar",
+        "iconName": "inv_jewelry_necklace_23",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=19591",
+        "slot": "Neck",
+        "quality": "Uncommon",
+        "requiredLevel": 0,
+        "itemLevel": 60,
+        "stats": [
+          {
+            "type": "Intellect",
+            "value": 7
+          },
+          {
+            "type": "Spirit",
+            "value": 10
+          },
+          {
+            "type": "Stamina",
+            "value": 6
+          }
+        ],
+        "bind": "pickup",
+        "unique": true,
+        "sellPriceCopper": 0
+      },
+      "questId": 8049,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Tiara of the Oracle",
+      "startZone": "Silithus",
+      "startInstance": "Ahn'Qiraj",
+      "reward": "Tiara of the Oracle",
+      "rewardItemId": 21348,
+      "rewardItem": {
+        "name": "Tiara of the Oracle",
+        "iconName": "inv_helmet_06",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=21348",
+        "slot": "Head",
+        "itemSubclass": "Cloth",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 81,
+        "stats": [
+          {
+            "type": "Intellect",
+            "value": 22
+          },
+          {
+            "type": "Spirit",
+            "value": 16
+          },
+          {
+            "type": "Stamina",
+            "value": 22
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 52826,
+        "armor": 150,
+        "durability": 60,
+        "effects": [
+          "Equip: Increase Spell Dam +28",
+          "Equip: Increased Mana Regen +7",
+          "Equip: Increased Spell Hit Chance +1"
+        ]
+      },
+      "questId": 8592,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Trousers of the Oracle",
+      "startZone": "Silithus",
+      "startInstance": "Ahn'Qiraj",
+      "reward": "Trousers of the Oracle",
+      "rewardItemId": 21352,
+      "rewardItem": {
+        "name": "Trousers of the Oracle",
+        "iconName": "inv_pants_cloth_07",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=21352",
+        "slot": "Legs",
+        "itemSubclass": "Cloth",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 81,
+        "stats": [
+          {
+            "type": "Intellect",
+            "value": 24
+          },
+          {
+            "type": "Spirit",
+            "value": 14
+          },
+          {
+            "type": "Stamina",
+            "value": 23
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 71514,
+        "armor": 157,
+        "durability": 75,
+        "effects": [
+          "Equip: Increase Spell Dam +33",
+          "Equip: Increased Mana Regen +6"
+        ]
+      },
+      "questId": 8593,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Vestments of the Oracle",
+      "startZone": "Silithus",
+      "startInstance": "Ahn'Qiraj",
+      "reward": "Vestments of the Oracle",
+      "rewardItemId": 21351,
+      "rewardItem": {
+        "name": "Vestments of the Oracle",
+        "iconName": "inv_chest_cloth_10",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=21351",
+        "slot": "Chest",
+        "itemSubclass": "Cloth",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 88,
+        "stats": [
+          {
+            "type": "Intellect",
+            "value": 26
+          },
+          {
+            "type": "Spirit",
+            "value": 15
+          },
+          {
+            "type": "Stamina",
+            "value": 23
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 100253,
+        "armor": 183,
+        "durability": 100,
+        "effects": [
+          "Equip: Increase Spell Dam +36",
+          "Equip: Increased Critical Spell +1",
+          "Equip: Increased Spell Penetration +10"
+        ]
+      },
+      "questId": 8603,
+      "faction": "both"
+    }
+  ],
+  "professionMilestones": [
+    {
+      "skill": "First Aid",
+      "atSkill": 50,
+      "levelHint": 10,
+      "action": "Train Journeyman First Aid",
+      "where": "any First Aid trainer"
+    },
+    {
+      "skill": "First Aid",
+      "atSkill": 125,
+      "levelHint": 20,
+      "action": "Buy Expert First Aid — Under Wraps",
+      "itemId": 16084,
+      "where": "Deneb Walker (Arathi Highlands) / Balai Lok'Wein (Dustwallow Marsh)"
+    },
+    {
+      "skill": "First Aid",
+      "atSkill": 225,
+      "levelHint": 35,
+      "action": "Complete Triage",
+      "questId": [
+        6624,
+        6622
+      ],
+      "where": "Doctor Gustaf VanHowzen (Dustwallow Marsh) / Doctor Gregory Victor (Arathi Highlands)"
+    },
+    {
+      "skill": "Cooking",
+      "atSkill": 50,
+      "levelHint": 10,
+      "action": "Train Journeyman Cooking",
+      "where": "any Cooking trainer"
+    },
+    {
+      "skill": "Cooking",
+      "atSkill": 125,
+      "levelHint": 20,
+      "action": "Buy the Expert Cookbook",
+      "itemId": 16072,
+      "where": "Shandrina (Ashenvale) / Wulan (Desolace)"
+    },
+    {
+      "skill": "Cooking",
+      "atSkill": 225,
+      "levelHint": 35,
+      "action": "Complete Clamlette Surprise",
+      "questId": 6610,
+      "where": "Dirge Quikcleave (Tanaris)"
+    },
+    {
+      "skill": "Fishing",
+      "atSkill": 50,
+      "levelHint": 10,
+      "action": "Train Journeyman Fishing",
+      "where": "any Fishing trainer"
+    },
+    {
+      "skill": "Fishing",
+      "atSkill": 125,
+      "levelHint": 20,
+      "action": "Buy Expert Fishing — The Bass and You",
+      "itemId": 16083,
+      "where": "Old Man Heming (Stranglethorn Vale)"
+    },
+    {
+      "skill": "Fishing",
+      "atSkill": 225,
+      "levelHint": 35,
+      "action": "Complete Nat Pagle, Angler Extreme",
+      "questId": 6607,
+      "where": "Nat Pagle (Dustwallow Marsh)"
+    }
+  ]
+}

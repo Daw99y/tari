@@ -7,19 +7,25 @@
  * not drawn, and the corner prints the trades rather than every skill line
  * the client reports (lib/character.ts, trades). docs/CHARACTER.md.
  *
- * AND THE PATH. docs/DROPS.md step 6: the letter's line under the name, and
- * the upgrade arrow on any slot the level has left behind — pressed, it names
- * the rooms that answer it, and those names are doors. That is the whole
- * cross-zone surface. There is no page of them, no ranking and no order to
- * walk them in; §2.1 allows a doorway back into places and nothing else.
+ * AND THE PATH'S ARROWS. docs/DROPS.md step 6: the upgrade arrow on any slot
+ * the level has left behind — pressed, it names the rooms that answer it, and
+ * those names are doors. That is the whole cross-zone surface. There is no
+ * page of them, no ranking and no order to walk them in; §2.1 allows a
+ * doorway back into places and nothing else.
+ *
+ * THE LETTER IS NOT HERE ANY MORE. It moved to /path on 2026-08-31, with the
+ * level's news beside it (lib/journey.ts). The sheet is the paperdoll and the
+ * dressing room; the letter is about what changed, which is a different
+ * question and now has its own paper. The arrows stay, because they are about
+ * a slot you are looking at rather than about the character as a whole.
  *
  * THE ARROW ONLY STANDS WHERE THERE IS AN ANSWER. It is the summons' own
  * green arrow (components/UpArrow.tsx), which means one thing everywhere in
  * the app — "better than what you have, here". A slot that is behind and
  * that no room in your window answers gets nothing, because an arrow that
  * opened an empty list would be the app pointing at a door with no room
- * behind it. The letter's first sentence still counts every behind slot,
- * which is why the arrows can be fewer than the number it says.
+ * behind it. /path's letter still counts every behind slot, which is why the
+ * arrows here can be fewer than the number it says there.
  *
  * IT DOES NOT WAIT FOR AN IMPORT. A made body wears nothing, and nothing is
  * behind everything — sixteen arrows is the honest answer to a naked level
@@ -31,11 +37,11 @@
  * What you choose is an `equip` mark laid over the import — the import is
  * never written on, and taking the slot back gives it straight up again.
  *
- * WHAT IS SHOWN IS WHAT IS READ. The doll, the slots, the letter and the
- * arrows all run off `gear`, which is the plan over the import, because there
- * is one character and it wears what you told it to. The letter's third
- * sentence is what stops that being a lie: it counts how many of the slots it
- * just described are the reader's own doing. Each one also wears a ring.
+ * WHAT IS SHOWN IS WHAT IS READ. The doll, the slots and the arrows all run
+ * off `gear`, which is the plan over the import, because there is one
+ * character and it wears what you told it to. A slot the reader dressed wears
+ * a ring, and /path's letter counts them, so the plan is never quietly passed
+ * off as a fact.
  *
  * THE THIRD SLOT IS DRAWN AND NEVER WORN. Kacey, 2026-08-26: the ranged
  * socket is back on the sheet — a hunter's bow is the slot that matters most
@@ -74,7 +80,7 @@ import UpArrow from "@/components/UpArrow";
 import { QUALITY } from "@/lib/doll";
 import type { ClassId } from "@/lib/loot";
 import { isOn, setMark, useMarks } from "@/lib/marks";
-import { letter, offeredIn, readPath, type BehindSlot } from "@/lib/path";
+import { offeredIn, readPath, type BehindSlot } from "@/lib/path";
 import { clearSlot, overlay, planKey, planSlot, plannedAt } from "@/lib/plan";
 import { rowFromPlate, rowFromWardrobe, type RowItem } from "@/lib/plate-item";
 import { getRoom, roomArt } from "@/lib/rooms";
@@ -157,7 +163,6 @@ export default function Sheet() {
   /* Which room, if any, is holding each item right now — so a drawer row
      knows whether its name is a door. Same filter as the arrows. */
   const where = useMemo(() => (me ? offeredIn(me.cls, me.level) : new Map<number, string>()), [me]);
-  const lines = useMemo(() => letter(path, plan.size), [path, plan]);
 
   /* One panel at a time, whichever kind. Escape and a press anywhere else put
      it away — the room's own contract for anything that opens over the art. */
@@ -251,18 +256,6 @@ export default function Sheet() {
             {me.guild ? <span className={styles.realm}> · &lt;{me.guild}&gt;</span> : null}
           </p>
           <h1 className={styles.name}>{me.name}</h1>
-          {/* Always drawn, and tall enough for its longest self. The letter
-              grows a line when something is planned and loses one when the
-              plan closes a slot, and a header that changes height re-centres
-              both gear columns under it — the sheet must not move because the
-              reader put a hat on. */}
-          <div className={styles.letter}>
-            {lines.map((l) => (
-              <p key={l} className={styles.letterLine}>
-                {l}
-              </p>
-            ))}
-          </div>
         </header>
 
         <ul className={`${styles.column} ${styles.left}`} aria-label="Worn, left">

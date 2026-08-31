@@ -1,7 +1,7 @@
 # Writing a room — the method
 
-**Fifty-seven of seventy-nine rooms are told. This is how the other
-twenty-two get written.** Follow it exactly and the new rooms will match the ones that exist.
+**Sixty-three of seventy-nine rooms are told. This is how the other
+sixteen get written.** Follow it exactly and the new rooms will match the ones that exist.
 
 Read `docs/TARI.md` §6 first — the argument. This file is the procedure.
 
@@ -173,27 +173,28 @@ and the dev server must run in Kacey's own terminal. Load the room there.
 
 ---
 
-## 6. What is left — twenty-two rooms
+## 6. What is left — sixteen rooms
 
 Written: alterac-mountains, arathi-highlands, ashenvale, azshara, badlands,
 blackfathom-deeps, blackrock-depths, blasted-lands, burning-steppes,
-darkshore, darnassus, desolace, dun-morogh, durotar, duskwood,
-dustwallow-marsh, elwynn-forest, felwood, feralas, gnomeregan,
-hillsbrad-foothills, ironforge, loch-modan, maraudon, moonglade, mulgore,
-orgrimmar, ragefire-chasm, razorfen-downs, razorfen-kraul,
-redridge-mountains, scarlet-monastery, searing-gorge, shadowfang-keep,
-silverpine-forest, stonetalon-mountains, stormwind-city,
-stranglethorn-vale, swamp-of-sorrows, tanaris, teldrassil, the-barrens,
-the-deadmines, the-hinterlands, the-stockade, the-temple-of-atal-hakkar,
-thousand-needles, thunder-bluff, tirisfal-glades, uldaman, un-goro-crater,
-undercity, wailing-caverns, westfall, wetlands, zul-farrak, zul-gurub.
+darkshore, darnassus, deadwind-pass, desolace, dire-maul-east, dun-morogh,
+durotar, duskwood, dustwallow-marsh, eastern-plaguelands, elwynn-forest,
+felwood, feralas, gnomeregan, hillsbrad-foothills, ironforge, loch-modan,
+maraudon, moonglade, mulgore, orgrimmar, ragefire-chasm, razorfen-downs,
+razorfen-kraul, redridge-mountains, scarlet-monastery, searing-gorge,
+shadowfang-keep, silithus, silverpine-forest, stonetalon-mountains,
+stormwind-city, stranglethorn-vale, swamp-of-sorrows, tanaris, teldrassil,
+the-barrens, the-deadmines, the-hinterlands, the-stockade,
+the-temple-of-atal-hakkar, thousand-needles, thunder-bluff,
+tirisfal-glades, uldaman, un-goro-crater, undercity, wailing-caverns,
+western-plaguelands, westfall, wetlands, winterspring, zul-farrak,
+zul-gurub.
 
-**Wave 5 — the endgame, the hubs and the raids (22)**
-western-plaguelands, dire-maul-east, eastern-plaguelands, silithus,
-winterspring, deadwind-pass, dire-maul-north, dire-maul-west,
-lower-blackrock-spire, stratholme, scholomance, upper-blackrock-spire,
-molten-core, blackwing-lair, ahn-qiraj, naxxramas, onyxia-s-lair,
-ruins-of-ahn-qiraj, blackrock-mountain, gadgetzan, northshire, ratchet
+**Wave 5 — the endgame, the hubs and the raids (16)**
+dire-maul-north, dire-maul-west, lower-blackrock-spire, stratholme,
+scholomance, upper-blackrock-spire, molten-core, blackwing-lair,
+ahn-qiraj, naxxramas, onyxia-s-lair, ruins-of-ahn-qiraj,
+blackrock-mountain, gadgetzan, northshire, ratchet
 
 
 **Six rooms per batch** is the working rhythm: six research agents in one call,
@@ -249,10 +250,10 @@ where the blp name is a file in `public/lab/doll/items/icons/` without the
 `ls public/lab/doll/items/icons | sed 's/^icons_//; s/\.webp$//'` and search it
 by concept before choosing. It refuses the whole batch if any source is missing.
 
-**Wave 5, four batches:**
+**Wave 5, four batches. Batch 1 is done.**
 
-1. western-plaguelands, dire-maul-east, eastern-plaguelands, silithus,
-   winterspring, deadwind-pass
+1. ~~western-plaguelands, dire-maul-east, eastern-plaguelands, silithus,
+   winterspring, deadwind-pass~~ — written, 13 cards each, checked, tsc clean.
 2. dire-maul-north, dire-maul-west, lower-blackrock-spire,
    upper-blackrock-spire, stratholme, scholomance
 3. molten-core, blackwing-lair, ahn-qiraj, naxxramas, onyxia-s-lair,
@@ -283,6 +284,15 @@ not dungeons, so expect fewer than thirteen cards each and do not pad.
 - **Blackrock Mountain** — the room is the shared exterior and the chasm, not
   any of the five instances hanging off it. Blackrock Depths and Burning Steppes
   already carry the two-sieges card; do not repeat it.
+- **Already carried from outside, do not repeat**: Feralas has Dire Maul's
+  1.3.0 arrival, Eldre'Thalas and Tortheldrin; Tanaris has Anachronos at the
+  gates and the sealed Caverns of Time; Tirisfal has the Bulwark; Felwood has
+  the Timbermaw tunnel and its rep grind. Check the neighbour's file first.
+- **Winterspring** — Darkwhisper Gorge is the Burning Legion in 1.12, not the
+  Twilight's Hammer; that swap is Cataclysm. Hibernal Cavern is Storm Peaks.
+- **Deadwind Pass** — the Karazhan Crypts 5-man is Season of Discovery, 2025.
+  The vanilla thing is the Forgotten Crypt, closed. Grand Magus Doane is
+  Redridge and Cataclysm.
 - **The hubs** — gadgetzan, northshire and ratchet are small. Stranglethorn,
   Tanaris, the Barrens and Elwynn already point at them from outside; check
   those files before writing so the cards do not collide.

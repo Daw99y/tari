@@ -1,6 +1,6 @@
 # Tari — status and handoff
 
-Updated 2026-08-30.
+Updated 2026-08-31.
 
 **This doc holds the state. `docs/TARI.md` holds the argument — read its §0
 before anything else.**
@@ -11,13 +11,50 @@ see them. Earlier references to `FOXTON.md` mean `docs/TARI.md`.
 
 ---
 
-## 0. Latest — waves 3 and 4 are told, 2026-08-31
+## 0. Latest — the path is built, 2026-08-31
 
-**Fifty-seven of seventy-nine rooms have a guide file.** Seven batches this
-run, forty-two rooms, all by `docs/TELLING.md`'s method: six research agents in
-one call, wiki-only (CC BY-SA), vanilla 1.12, high-confidence entries only.
-**Wave 3 and wave 4 are both closed, and wave 5 has started. Twenty-two rooms
-are left, all of them wave 5.**
+**`/path` exists: the trainer, the chains, the class quests and the letter.**
+Whelp plz's four reader-facing tabs are one page, per `docs/CARRYOVER.md`
+§The path, which has the rulings and what is still open. The letter moved off
+`/you` and the rail's foot chip is split in two. Data copied from CPLUS into
+`reference/training/` and `reference/journey/`; `lib/journey.ts` reads it;
+ticks are `done` marks on whelp plz's own subjects. `npx tsc --noEmit` clean,
+driven in the browser at 800 and 1440 wide.
+
+**The import credits it.** `S:` (the spellbook) and `Q:` (the quest log) have
+been parsed since `lib/import.ts` was written, and `matchImport` has been sat
+in that file unused waiting for the catalogue `lib/journey.ts` now builds.
+Pasting a string ticks the trainer visits, class quests and profession
+milestones it proves, so a levelled character does not arrive at forty
+unticked boxes. Two creator bugs fell out of testing it and are fixed: a
+string with no `A:` race token left a Horde character on whatever race the
+picker was showing (the faction is now taken from the string, and the race
+inferred from the languages in `P:` — a 1.12 character knows their faction's
+language and their own, so the other one names the race); and the credit is
+awaited before the creator navigates.
+
+**The addon moved to TA2** (`addon/Tari/`, 0.2.0) with two fields: `L:` the
+quest log in progress and `K:` every talent's rank. Nothing is on CurseForge
+yet so the format was free; the tail is keyed and TA1 strings still read.
+`L:` is what lets `/path` tell a chain you are walking from one you have
+never touched. **Kacey's installed copy is older than the repo's** — the
+2026-08-31 string carried no `A:`, `X:`, `Z:`, `H:` or `U:` — so it wants
+reinstalling from `addon/Tari/` before the new fields will appear.
+
+**Not built:** the room's half of the carry-over — the trainer's card inside
+the city room, an attunement step inside the instance room — which needs the
+`room`/`entry` reshape. Every row on `/path` that names a place is already a
+door into it, so the page does not wait on that.
+
+**Room-telling is paused at 63/79.** `docs/TELLING.md` §8 still has the
+sixteen and the method; nothing about it changed this pass.
+
+## 0.05 Earlier — wave 5 batch 1 is told, 2026-08-31
+
+**Sixty-three of seventy-nine rooms have a guide file.** Wave 5's first batch
+went in this pass by `docs/TELLING.md`'s method: six research agents in one
+call, wiki-only (CC BY-SA), vanilla 1.12, high-confidence entries only.
+**Sixteen rooms are left, all of them wave 5.**
 
 - **Wave 3 (17)** — darkshore, loch-modan, silverpine-forest, westfall,
   the-barrens, ragefire-chasm, the-deadmines, redridge-mountains,
@@ -28,13 +65,37 @@ are left, all of them wave 5.**
   swamp-of-sorrows, razorfen-downs, uldaman, feralas, tanaris, the-hinterlands,
   searing-gorge, zul-farrak, azshara, blasted-lands, maraudon, felwood,
   un-goro-crater, the-temple-of-atal-hakkar.
-- **Wave 5, opened (3)** — blackrock-depths, burning-steppes, moonglade. The
-  twenty-two still to write are the Plaguelands, Dire Maul's three wings, the
-  Spires, Stratholme, Scholomance, the five raids, Silithus, Winterspring,
-  Deadwind Pass, Blackrock Mountain itself, and the four hubs.
+- **Wave 5, opened (3)** — blackrock-depths, burning-steppes, moonglade.
+- **Wave 5 batch 1 (6), this pass** — western-plaguelands, dire-maul-east,
+  eastern-plaguelands, silithus, winterspring, deadwind-pass. Thirteen cards
+  each, seventy-eight cards, seventy-two new icons.
+- **Left (16)** — dire-maul-north, dire-maul-west, lower-blackrock-spire,
+  upper-blackrock-spire, stratholme, scholomance, molten-core, blackwing-lair,
+  ahn-qiraj, ruins-of-ahn-qiraj, naxxramas, onyxia-s-lair, blackrock-mountain,
+  gadgetzan, northshire, ratchet. `docs/TELLING.md` §8 has them in batches.
 
-526 cards and 484 new icons under `public/story/`, `npx tsc --noEmit` clean.
+797 cards and 739 icons under `public/story/`. `scripts/telling/check.py check`
+passes for all six new rooms; `npx tsc --noEmit` clean.
 **Nothing is committed** — no git command was run over the bridge, per §7.
+
+**What batch 1 learned:**
+
+- **Check the neighbour's file before writing.** Feralas already carries Dire
+  Maul's 1.3.0 arrival, Eldre'Thalas and Tortheldrin, so Dire Maul East had to
+  find what is specific to standing inside the wing. Tanaris carries Anachronos
+  at the gates; Tirisfal carries the Bulwark; Felwood carries the Timbermaw
+  tunnel. Those cards were cut from the new rooms rather than repeated.
+- **Three more retcons caught by the agents**, all added to §8: Darkwhisper
+  Gorge is the Burning Legion in 1.12 and only becomes Twilight's Hammer in
+  Cataclysm; the Karazhan Crypts five-man is Season of Discovery (2025) and the
+  vanilla thing is the closed Forgotten Crypt; Grand Magus Doane is Redridge and
+  Cataclysm, not Deadwind Pass.
+- **Eastern Plaguelands is the batch's one real rename** — the Eastweald, a
+  province of Lordaeron — so it is the only new room with a `now` on its title
+  card. Western Plaguelands has no attested old regional name and correctly
+  takes none.
+- **The tooling held.** `check.py wire`, `icons.py` and `check.py check` did the
+  whole mechanical half of the batch with no hand-editing of `lib/guide.ts`.
 
 **The method is now tooled.** `scripts/telling/` holds the wire, icon and
 validate helpers this run was built on, and `docs/TELLING.md` §8 documents them

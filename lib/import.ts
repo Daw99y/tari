@@ -6,6 +6,13 @@ import type { ClassId, Faction } from "./types";
  *
  *   WP2;WARRIOR;Horde;60;G:…;Q:…;S:…;P:…;B:…;T:…;R:…;H:…;Z:…;M:123456
  *
+ * TA2 adds two: `L:` the quest log as it stands, and `K:` every talent's rank.
+ * `Q:` is only what is finished, so without `L:` a chain four steps in and one
+ * nobody has touched are the same string; `T:` is three totals, so without
+ * `K:` a talent-gated trainer row can only be excused rather than decided.
+ * Both are read exactly like every other key — an older string simply has
+ * fewer of them, which is the whole point of a keyed tail.
+ *
  * Semicolon-separated, one line, versioned by prefix. `G:` is 19 itemIds in
  * WoW slot order, 0 = empty. `Q:`, `S:` and `B:` are sorted ids as base36 — the
  * first id, then dot-separated deltas. `P:` is Name=rank pairs. `T:` is points
@@ -95,6 +102,10 @@ export type ParsedCharacter = {
   /** TA1 (docs/CHARACTER.md). Race token as the client spells it ("Gnome",
       "Scourge"), sex as the client counts it (2 male, 3 female), the guild,
       and seconds played. Null from any older string. */
+  /** Quest ids in the log right now — started, not finished. TA2. */
+  questLogIds: number[];
+  /** Every talent's rank, per tree, in the client's order. TA2. */
+  talentPicks: number[][];
   race: string | null;
   sex: 2 | 3 | null;
   guild: string | null;
@@ -109,8 +120,16 @@ export type JournalEntry = { kind: JournalKind; zone: string; level: number; tim
 
 /** Every prefix this site reads, and it never drops one. SW1 is WP1 under the
     addon's old name; WP1 is WP2 without the five fields WP2 added; TA1 is
-    WP2 under Tari's name with five more. */
-const KNOWN_VERSIONS = new Set(["TA1", "WP2", "WP1", "SW1"]);
+    WP2 under Tari's name with five more; TA2 is TA1 plus `L:` and `K:`.
+
+    NEWEST FIRST, AND THE FIRST ONE NAMES THE SITE. The refusal below quotes
+    this list's head, so a version bump that forgets this line tells the
+    reader their own addon is from the future — which is exactly what shipped
+    for ten minutes on 2026-08-31. Adding a prefix to the addon means adding
+    it here in the same breath. */
+const KNOWN_VERSIONS = ["TA2", "TA1", "WP2", "WP1", "SW1"] as const;
+const READS = new Set<string>(KNOWN_VERSIONS);
+const NEWEST = KNOWN_VERSIONS[0];
 
 const JOURNAL_KINDS = new Set(["l", "z", "d", "q"]);
 
@@ -163,17 +182,17 @@ export function parseImport(raw: string): ParseResult {
     if (!/^(TA|WP|SW)\d+$/.test(version))
       return {
         ok: false,
-        error: "Not an export — the string /tari gives you starts with TA1.",
+        error: `Not an export — the string /tari gives you starts with ${NEWEST}.`,
       };
     /* Every version this site has ever emitted, and it keeps reading all of
        them: the fields are keyed, so an older string is simply one with fewer
        of them. A newer prefix is refused rather than half-read, because the
        one thing a future version can change that this code cannot survive is
        the four positional fields in front. */
-    if (!KNOWN_VERSIONS.has(version))
+    if (!READS.has(version))
       return {
         ok: false,
-        error: `This is a ${version} string from a newer addon; this site reads TA1.`,
+        error: `This is a ${version} string from a newer addon; this site reads ${NEWEST}.`,
       };
 
     const cls = CLASS_TOKENS[fields[1]?.trim().toUpperCase() ?? ""];
@@ -199,6 +218,8 @@ export function parseImport(raw: string): ParseResult {
       gear: [],
       questIds: [],
       spellIds: [],
+      questLogIds: [],
+      talentPicks: [],
       professions: [],
       copper: null,
       bagIds: [],
@@ -239,6 +260,19 @@ export function parseImport(raw: string): ParseResult {
           break;
         case "S":
           character.spellIds = decodeIds(value);
+          break;
+        case "L":
+          character.questLogIds = decodeIds(value);
+          break;
+        case "K":
+          /* One digit per talent, trees split on the dot. A tree with no
+             points is a run of zeroes rather than an absent tree, so an empty
+             segment is a malformed field and drops the whole thing — the same
+             rule `T:` follows, and for the same reason: wrong is worse than
+             missing. */
+          character.talentPicks = /^[0-9]*(\.[0-9]*)*$/.test(value)
+            ? value.split(".").map((tree) => tree.split("").map(Number))
+            : [];
           break;
         case "P":
           character.professions = value
@@ -323,6 +357,13 @@ export function parseImport(raw: string): ParseResult {
       }
     }
 
+    /* The one field this module fills in rather than reads. See
+       `raceFromLanguages` — the string states a faction and some builds omit
+       the race, and a faction the creator ignores is the wrong journey file. */
+    if (!character.race) {
+      character.race = raceFromLanguages(character.professions, character.faction);
+    }
+
     return { ok: true, character };
   } catch {
     /* The contract over everything above: this function does not throw. */
@@ -334,6 +375,48 @@ export function parseImport(raw: string): ParseResult {
     "first aid" are one skill. The same slug lib/journey.ts keys milestones
     with, stated twice because sharing it would make this module import one
     that imports the world. */
+/**
+ * THE RACE, WHEN THE STRING DOES NOT SAY.
+ *
+ * `R:` is the race token and some builds of the addon do not emit it — a
+ * TA1 string from 6.2.0 arrived on 2026-08-31 with a faction, a class and no
+ * race at all, and the creator quietly kept whatever race was on the picker.
+ * A Horde rogue saved as a Human is not a cosmetic error: faction decides
+ * which journey file `/path` reads and which half of the class quests exist.
+ *
+ * `P:` answers it, and not by guessing. A 1.12 character knows exactly two
+ * languages: their faction's — Common or Orcish — and their own race's. So
+ * the language that is not the faction's names the race outright, and when
+ * there is only the faction's, the character is the race whose own language
+ * that is: a Human, or an Orc.
+ *
+ * It is still only a fallback. A string that carries `R:` is believed over
+ * this, because a field the client filled in beats a field it implied.
+ */
+const RACE_BY_LANGUAGE: Record<string, string> = {
+  gutterspeak: "Scourge",
+  darnassian: "NightElf",
+  dwarvish: "Dwarf",
+  gnomish: "Gnome",
+  taurahe: "Tauren",
+  troll: "Troll",
+  orcish: "Orc",
+  common: "Human",
+};
+
+export function raceFromLanguages(
+  professions: { name: string; rank: number }[],
+  faction: Faction
+): string | null {
+  const spoken = professions
+    .map((p) => /^language:\s*(.+)$/i.exec(p.name.trim())?.[1]?.trim().toLowerCase())
+    .filter((v): v is string => !!v);
+  if (spoken.length === 0) return null;
+  const common = faction === "horde" ? "orcish" : "common";
+  const own = spoken.find((l) => l !== common) ?? spoken.find((l) => l === common);
+  return own ? (RACE_BY_LANGUAGE[own] ?? null) : null;
+}
+
 export function skillSlug(s: string): string {
   return s.toLowerCase().replace(/[^a-z0-9]+/g, "");
 }

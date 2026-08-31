@@ -1,14 +1,20 @@
 -- Tari: /tari exports a paste-able character string. docs/CHARACTER.md.
 --
--- Format (TA1) — WP2 under a new prefix, five fields added, nothing changed:
---   TA1;CLASS;Faction;level;G:gear;Q:quests;S:spells;P:profs;N:name;E:realm;
+-- Format (TA2) — TA1 with two fields added, nothing changed:
+--   TA2;CLASS;Faction;level;G:gear;Q:quests;S:spells;P:profs;N:name;E:realm;
 --       B:bags;T:talents;R:reps;H:hearth;Z:zone;A:race;X:sex;U:guild;W:played;
---       J:journal;M:copper
+--       J:journal;L:questlog;K:talentpicks;M:copper
 --   G: 19 slot itemIds in slot order, 0 = empty, comma-separated
 --   Q/S/B: sorted ids, base36 first id then base36 deltas, dot-separated
 --   P: Name=rank pairs · T: points per talent tree · R: Name=standingId pairs
 --   H: hearth · Z: zone at export · N: name · E: realm — plain text
 --   A: race token · X: sex (2 male, 3 female) · U: guild · W: seconds played
+--   L: the quest log as it stands — ids, same encoding as Q. Q says what is
+--      finished and only that, so a chain four steps in and one never touched
+--      read identically without this. New in TA2.
+--   K: every talent's rank, one digit each, in GetTalentInfo's order, trees
+--      separated by dots. T is the three totals and cannot say which. New in
+--      TA2.
 --   J: the journal — kind|zone|level|time entries, dot-separated. Kinds:
 --      l levelled · z entered a zone · d died · q turned in a quest.
 --      Time is unix seconds, base36. See "the journal" below.
@@ -145,6 +151,72 @@ local function completedQuests()
   return ""
 end
 
+-- WHAT IS OPEN, not what is finished. `completedQuests` above answers the
+-- second question and the site has only ever had that one, which makes a
+-- half-walked attunement chain look exactly like one nobody has started.
+--
+-- Collapsed headers hide their quests from the log's own count, so the
+-- headers are opened to read and put back exactly as they were — the same
+-- courtesy `reputations` pays the reputation pane, and for the same reason:
+-- the reader did not ask us to tidy their UI.
+local function openQuests()
+  local ids = {}
+
+  if C_QuestLog and C_QuestLog.GetNumQuestLogEntries and C_QuestLog.GetInfo then
+    for i = 1, C_QuestLog.GetNumQuestLogEntries() do
+      local info = C_QuestLog.GetInfo(i)
+      if info and not info.isHeader and info.questID and info.questID > 0 then
+        ids[#ids + 1] = info.questID
+      end
+    end
+    if #ids > 0 then return encodeIds(ids) end
+  end
+
+  if not GetNumQuestLogEntries or not GetQuestLogTitle then return "" end
+
+  local opened = {}
+  local i = 1
+  while i <= (GetNumQuestLogEntries()) do
+    local title, _, _, isHeader, isCollapsed = GetQuestLogTitle(i)
+    if not title then break end
+    if isHeader and isCollapsed and ExpandQuestHeader then
+      opened[title] = true
+      ExpandQuestHeader(i)
+    else
+      i = i + 1
+    end
+  end
+
+  for j = 1, GetNumQuestLogEntries() do
+    local _, _, _, isHeader = GetQuestLogTitle(j)
+    if not isHeader then
+      local id
+      if GetQuestLogQuestID then id = GetQuestLogQuestID(j) end
+      if not id and SelectQuestLogEntry and GetQuestLogSelection then
+        local was = GetQuestLogSelection()
+        SelectQuestLogEntry(j)
+        if GetQuestID then id = GetQuestID() end
+        if was and was > 0 then SelectQuestLogEntry(was) end
+      end
+      if id and id > 0 then ids[#ids + 1] = id end
+    end
+  end
+
+  if CollapseQuestHeader then
+    local k = 1
+    while k <= GetNumQuestLogEntries() do
+      local title, _, _, isHeader, isCollapsed = GetQuestLogTitle(k)
+      if not title then break end
+      if isHeader and not isCollapsed and opened[title] then
+        CollapseQuestHeader(k)
+      end
+      k = k + 1
+    end
+  end
+
+  return encodeIds(ids)
+end
+
 local function knownSpells()
   local ids = {}
   for tab = 1, GetNumSpellTabs() do
@@ -190,6 +262,30 @@ local function talents()
     t[#t + 1] = spent
   end
   return table.concat(t, ".")
+end
+
+-- Every talent's rank, one digit each, in the client's own order, trees
+-- separated by dots. `talents` above is the three totals, which is enough to
+-- name a build and not enough to answer the one question the site actually
+-- asks: whether this character has the talent that a trainer row hangs off.
+-- Ranks are 0–5 in 1.12, so a digit each and no separator inside a tree.
+local function talentPicks()
+  if not GetNumTalentTabs or not GetNumTalents or not GetTalentInfo then
+    return ""
+  end
+  local trees = {}
+  for tab = 1, GetNumTalentTabs() do
+    local row = {}
+    for i = 1, GetNumTalents(tab) do
+      local _, _, _, _, rank = GetTalentInfo(tab, i)
+      rank = tonumber(rank) or 0
+      if rank < 0 then rank = 0 end
+      if rank > 9 then rank = 9 end
+      row[#row + 1] = rank
+    end
+    trees[#trees + 1] = table.concat(row)
+  end
+  return table.concat(trees, ".")
 end
 
 -- Standings for FACTIONS. Collapsed headers are opened to read and put back.
@@ -265,7 +361,7 @@ local function buildString()
   local _, class = UnitClass("player")
   local _, raceToken = UnitRace("player")
   local parts = {
-    "TA1",
+    "TA2",
     class,
     UnitFactionGroup("player") or "",
     UnitLevel("player"),
@@ -287,6 +383,8 @@ local function buildString()
     field("U", clean(GetGuildInfo and GetGuildInfo("player") or "")),
     field("W", db().played),
     field("J", journal()),
+    field("L", openQuests()),
+    field("K", talentPicks()),
   }
   for _, part in ipairs(tail) do
     if part then parts[#parts + 1] = part end

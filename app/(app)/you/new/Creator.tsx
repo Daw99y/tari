@@ -50,6 +50,7 @@ import {
   type Character,
 } from "@/lib/character";
 import { parseImport, type ParsedCharacter } from "@/lib/import";
+import { creditImport } from "@/lib/journey";
 import type { ClassId } from "@/lib/loot";
 import { getRoom, roomArt } from "@/lib/rooms";
 import { DEFAULT_LOOK, useBody, wrap, type Look } from "@/lib/use-body";
@@ -234,7 +235,20 @@ export default function Creator() {
     setCls(c.cls);
     setLevelText(String(clampLevel(c.level)));
     if (c.name) setName(c.name);
-    if (c.race && RACE_TOKEN[c.race]) setRace(RACE_TOKEN[c.race]);
+    /* THE SIDE THE STRING STATES WINS. The race token settles it where the
+       addon sends one, and lib/import.ts infers it from the spoken languages
+       where it does not. If both fail, the faction is still stated outright in
+       the third field, and leaving a Horde rogue on the Human the picker
+       happened to be showing would put them in the wrong journey file, the
+       wrong class quests and the wrong capital. */
+    const token = c.race ? RACE_TOKEN[c.race] : undefined;
+    if (token) setRace(token);
+    else if (FACTION_OF[race] !== c.faction) {
+      const side = Object.keys(FACTION_OF)
+        .map(Number)
+        .filter((r) => FACTION_OF[r] === c.faction && CLASSES_OF[r]?.includes(c.cls));
+      if (side.length) setRace(side[0]);
+    }
     if (c.sex) setGender(c.sex === 3 ? 1 : 0);
   };
 
@@ -270,6 +284,8 @@ export default function Creator() {
         gear: data.gear,
         questIds: [],
         spellIds: [],
+        questLogIds: [],
+        talentPicks: [],
         professions: [],
         copper: null,
         bagIds: [],
@@ -304,7 +320,7 @@ export default function Creator() {
   /* An imported name is the character's real one. Nothing here may reroll it. */
   const nameLocked = fromGame && !!(imported?.name ?? existing?.name);
 
-  const accept = () => {
+  const accept = async () => {
     if (!ok) return;
     const key =
       existing?.key ??
@@ -331,8 +347,31 @@ export default function Creator() {
       hearth: imported?.hearth ?? existing?.hearth ?? null,
       zone: imported?.zone ?? existing?.zone ?? null,
       professions: imported?.professions ?? existing?.professions ?? [],
+      /* The photograph, not the record. An import with nothing to say about
+         the log leaves the last one standing rather than emptying it. */
+      questLog: imported?.questLogIds.length ? imported.questLogIds : existing?.questLog,
+      talentPicks: imported?.talentPicks.length ? imported.talentPicks : existing?.talentPicks,
     };
     saveCharacter(character);
+
+    /* WHAT THE STRING ALREADY PROVED. `S:` is the spellbook and `Q:` is the
+       quest log, and lib/journey.ts turns them into the `done` marks /path
+       reads — so a level 40 who has trained all the way up arrives at a
+       trainer panel holding nothing, rather than being asked to tick forty
+       visits they made months ago. Awaited, so /path is right the first time
+       it is opened; a class file is ~70 KB and this is once per import.
+
+       It only ever adds (lib/marks.ts, setMarks). The addon reports what a
+       character has and never what it has not, so a missing spell is not
+       evidence of anything and must not take a tick back. */
+    if (imported) {
+      try {
+        await creditImport(key, imported);
+      } catch {
+        /* No credit is a page with more ticking to do, not a broken import. */
+      }
+    }
+
     router.push(`/r/${START_ROOM[race]}?class=${cls}&at=${character.level}`);
   };
 

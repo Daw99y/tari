@@ -1,0 +1,3323 @@
+{
+  "class": "warrior",
+  "abilities": [
+    {
+      "level": 1,
+      "spells": [
+        {
+          "spellId": 6673,
+          "name": "Battle Shout",
+          "rank": 1,
+          "costCopper": 10,
+          "knownBy": [
+            5242,
+            6192,
+            6673,
+            11549,
+            11550,
+            11551,
+            25289,
+            27578
+          ]
+        }
+      ],
+      "totalCostCopper": 10
+    },
+    {
+      "level": 4,
+      "spells": [
+        {
+          "spellId": 100,
+          "name": "Charge",
+          "rank": 1,
+          "costCopper": 100,
+          "knownBy": [
+            100,
+            6178,
+            11578
+          ]
+        },
+        {
+          "spellId": 772,
+          "name": "Rend",
+          "rank": 1,
+          "costCopper": 100,
+          "knownBy": [
+            772,
+            6546,
+            6547,
+            6548,
+            11572,
+            11573,
+            11574
+          ]
+        }
+      ],
+      "totalCostCopper": 200
+    },
+    {
+      "level": 6,
+      "spells": [
+        {
+          "spellId": 877,
+          "name": "Elemental Fury",
+          "rank": null,
+          "costCopper": 100,
+          "knownBy": [
+            877
+          ]
+        },
+        {
+          "spellId": 3127,
+          "name": "Parry",
+          "rank": null,
+          "costCopper": 100,
+          "knownBy": [
+            3127
+          ]
+        },
+        {
+          "spellId": 6343,
+          "name": "Thunder Clap",
+          "rank": 1,
+          "costCopper": 100,
+          "knownBy": [
+            6343,
+            8198,
+            8204,
+            8205,
+            11580,
+            11581,
+            13532
+          ]
+        }
+      ],
+      "totalCostCopper": 300
+    },
+    {
+      "level": 8,
+      "spells": [
+        {
+          "spellId": 1715,
+          "name": "Hamstring",
+          "rank": 1,
+          "costCopper": 200,
+          "knownBy": [
+            1715,
+            7372,
+            7373,
+            27584
+          ]
+        },
+        {
+          "spellId": 284,
+          "name": "Heroic Strike",
+          "rank": 2,
+          "costCopper": 200,
+          "knownBy": [
+            284,
+            285,
+            1608,
+            11564,
+            11565,
+            11566,
+            11567,
+            25286,
+            25712
+          ]
+        }
+      ],
+      "totalCostCopper": 400
+    },
+    {
+      "level": 10,
+      "spells": [
+        {
+          "spellId": 2687,
+          "name": "Bloodrage",
+          "rank": null,
+          "costCopper": 600,
+          "knownBy": [
+            2687
+          ]
+        },
+        {
+          "spellId": 6546,
+          "name": "Rend",
+          "rank": 2,
+          "costCopper": 600,
+          "knownBy": [
+            6546,
+            6547,
+            6548,
+            11572,
+            11573,
+            11574
+          ]
+        }
+      ],
+      "totalCostCopper": 1200
+    },
+    {
+      "level": 12,
+      "spells": [
+        {
+          "spellId": 5242,
+          "name": "Battle Shout",
+          "rank": 2,
+          "costCopper": 1000,
+          "knownBy": [
+            5242,
+            6192,
+            11549,
+            11550,
+            11551,
+            25289,
+            27578
+          ]
+        },
+        {
+          "spellId": 7384,
+          "name": "Overpower",
+          "rank": 1,
+          "costCopper": 1000,
+          "knownBy": [
+            7384,
+            7887,
+            11584,
+            11585
+          ]
+        },
+        {
+          "spellId": 72,
+          "name": "Shield Bash",
+          "rank": 1,
+          "costCopper": 1000,
+          "knownBy": [
+            72,
+            1671,
+            1672
+          ]
+        }
+      ],
+      "totalCostCopper": 3000
+    },
+    {
+      "level": 14,
+      "spells": [
+        {
+          "spellId": 1160,
+          "name": "Demoralizing Shout",
+          "rank": 1,
+          "costCopper": 1500,
+          "knownBy": [
+            1160,
+            6190,
+            11554,
+            11555,
+            11556,
+            27579
+          ]
+        },
+        {
+          "spellId": 6572,
+          "name": "Revenge",
+          "rank": 1,
+          "costCopper": 1500,
+          "knownBy": [
+            6572,
+            6574,
+            7379,
+            11600,
+            11601,
+            25288
+          ]
+        }
+      ],
+      "totalCostCopper": 3000
+    },
+    {
+      "level": 16,
+      "spells": [
+        {
+          "spellId": 285,
+          "name": "Heroic Strike",
+          "rank": 3,
+          "costCopper": 2000,
+          "knownBy": [
+            285,
+            1608,
+            11564,
+            11565,
+            11566,
+            11567,
+            25286,
+            25712
+          ]
+        },
+        {
+          "spellId": 694,
+          "name": "Mocking Blow",
+          "rank": 1,
+          "costCopper": 2000,
+          "knownBy": [
+            694,
+            7400,
+            7402,
+            20559,
+            20560
+          ]
+        },
+        {
+          "spellId": 2565,
+          "name": "Shield Block",
+          "rank": null,
+          "costCopper": 2000,
+          "knownBy": [
+            2565
+          ]
+        }
+      ],
+      "totalCostCopper": 6000
+    },
+    {
+      "level": 18,
+      "spells": [
+        {
+          "spellId": 676,
+          "name": "Disarm",
+          "rank": null,
+          "costCopper": 3000,
+          "knownBy": [
+            676
+          ]
+        },
+        {
+          "spellId": 8198,
+          "name": "Thunder Clap",
+          "rank": 2,
+          "costCopper": 3000,
+          "knownBy": [
+            8198,
+            8204,
+            8205,
+            11580,
+            11581
+          ]
+        }
+      ],
+      "totalCostCopper": 6000
+    },
+    {
+      "level": 20,
+      "spells": [
+        {
+          "spellId": 845,
+          "name": "Cleave",
+          "rank": 1,
+          "costCopper": 4000,
+          "knownBy": [
+            845,
+            7369,
+            11608,
+            11609,
+            20569
+          ]
+        },
+        {
+          "spellId": 674,
+          "name": "Dual Wield",
+          "rank": null,
+          "costCopper": 4000,
+          "knownBy": [
+            674
+          ]
+        },
+        {
+          "spellId": 5246,
+          "name": "Intimidating Shout",
+          "rank": null,
+          "costCopper": 6000,
+          "knownBy": [
+            5246
+          ]
+        },
+        {
+          "spellId": 6547,
+          "name": "Rend",
+          "rank": 3,
+          "costCopper": 4000,
+          "knownBy": [
+            6547,
+            6548,
+            11572,
+            11573,
+            11574
+          ]
+        },
+        {
+          "spellId": 20230,
+          "name": "Retaliation",
+          "rank": null,
+          "costCopper": 4000,
+          "knownBy": [
+            20230
+          ]
+        }
+      ],
+      "totalCostCopper": 22000
+    },
+    {
+      "level": 22,
+      "spells": [
+        {
+          "spellId": 6192,
+          "name": "Battle Shout",
+          "rank": 3,
+          "costCopper": 6000,
+          "knownBy": [
+            6192,
+            11549,
+            11550,
+            11551,
+            25289,
+            27578
+          ]
+        },
+        {
+          "spellId": 7405,
+          "name": "Sunder Armor",
+          "rank": 2,
+          "costCopper": 6000,
+          "knownBy": [
+            7405,
+            8380,
+            11596,
+            11597
+          ]
+        }
+      ],
+      "totalCostCopper": 12000
+    },
+    {
+      "level": 24,
+      "spells": [
+        {
+          "spellId": 6190,
+          "name": "Demoralizing Shout",
+          "rank": 2,
+          "costCopper": 8000,
+          "knownBy": [
+            6190,
+            11554,
+            11555,
+            11556,
+            27579
+          ]
+        },
+        {
+          "spellId": 5308,
+          "name": "Execute",
+          "rank": 1,
+          "costCopper": 8000,
+          "knownBy": [
+            5308,
+            20658,
+            20660,
+            20661,
+            20662
+          ]
+        },
+        {
+          "spellId": 1608,
+          "name": "Heroic Strike",
+          "rank": 4,
+          "costCopper": 8000,
+          "knownBy": [
+            1608,
+            11564,
+            11565,
+            11566,
+            11567,
+            25286
+          ]
+        },
+        {
+          "spellId": 6574,
+          "name": "Revenge",
+          "rank": 2,
+          "costCopper": 8000,
+          "knownBy": [
+            6574,
+            7379,
+            11600,
+            11601,
+            25288
+          ]
+        }
+      ],
+      "totalCostCopper": 32000
+    },
+    {
+      "level": 26,
+      "spells": [
+        {
+          "spellId": 1161,
+          "name": "Challenging Shout",
+          "rank": null,
+          "costCopper": 10000,
+          "knownBy": [
+            1161
+          ]
+        },
+        {
+          "spellId": 6178,
+          "name": "Charge",
+          "rank": 2,
+          "costCopper": 10000,
+          "knownBy": [
+            6178,
+            11578
+          ]
+        },
+        {
+          "spellId": 7400,
+          "name": "Mocking Blow",
+          "rank": 2,
+          "costCopper": 10000,
+          "knownBy": [
+            7400,
+            7402,
+            20559,
+            20560
+          ]
+        }
+      ],
+      "totalCostCopper": 30000
+    },
+    {
+      "level": 28,
+      "spells": [
+        {
+          "spellId": 7887,
+          "name": "Overpower",
+          "rank": 2,
+          "costCopper": 11000,
+          "knownBy": [
+            7887,
+            11584,
+            11585
+          ]
+        },
+        {
+          "spellId": 871,
+          "name": "Shield Wall",
+          "rank": null,
+          "costCopper": 11000,
+          "knownBy": [
+            871
+          ]
+        },
+        {
+          "spellId": 8204,
+          "name": "Thunder Clap",
+          "rank": 3,
+          "costCopper": 11000,
+          "knownBy": [
+            8204,
+            8205,
+            11580,
+            11581
+          ]
+        }
+      ],
+      "totalCostCopper": 33000
+    },
+    {
+      "level": 30,
+      "spells": [
+        {
+          "spellId": 7369,
+          "name": "Cleave",
+          "rank": 2,
+          "costCopper": 12000,
+          "knownBy": [
+            7369,
+            11608,
+            11609,
+            20569
+          ]
+        },
+        {
+          "spellId": 6548,
+          "name": "Rend",
+          "rank": 4,
+          "costCopper": 12000,
+          "knownBy": [
+            6548,
+            11572,
+            11573,
+            11574
+          ]
+        },
+        {
+          "spellId": 1464,
+          "name": "Slam",
+          "rank": 1,
+          "costCopper": 12000,
+          "knownBy": [
+            1464,
+            8820,
+            11604,
+            11605
+          ]
+        }
+      ],
+      "totalCostCopper": 36000
+    },
+    {
+      "level": 32,
+      "spells": [
+        {
+          "spellId": 11549,
+          "name": "Battle Shout",
+          "rank": 4,
+          "costCopper": 14000,
+          "knownBy": [
+            11549,
+            11550,
+            11551,
+            25289,
+            27578
+          ]
+        },
+        {
+          "spellId": 18499,
+          "name": "Berserker Rage",
+          "rank": null,
+          "costCopper": 14000,
+          "knownBy": [
+            18499
+          ]
+        },
+        {
+          "spellId": 20658,
+          "name": "Execute",
+          "rank": 2,
+          "costCopper": 14000,
+          "knownBy": [
+            20658,
+            20660,
+            20661,
+            20662
+          ]
+        },
+        {
+          "spellId": 7372,
+          "name": "Hamstring",
+          "rank": 2,
+          "costCopper": 14000,
+          "knownBy": [
+            7372,
+            7373,
+            27584
+          ]
+        },
+        {
+          "spellId": 11564,
+          "name": "Heroic Strike",
+          "rank": 5,
+          "costCopper": 14000,
+          "knownBy": [
+            11564,
+            11565,
+            11566,
+            11567,
+            25286
+          ]
+        },
+        {
+          "spellId": 1671,
+          "name": "Shield Bash",
+          "rank": 2,
+          "costCopper": 14000,
+          "knownBy": [
+            1671,
+            1672
+          ]
+        }
+      ],
+      "totalCostCopper": 84000
+    },
+    {
+      "level": 34,
+      "spells": [
+        {
+          "spellId": 11554,
+          "name": "Demoralizing Shout",
+          "rank": 3,
+          "costCopper": 16000,
+          "knownBy": [
+            11554,
+            11555,
+            11556,
+            27579
+          ]
+        },
+        {
+          "spellId": 7379,
+          "name": "Revenge",
+          "rank": 3,
+          "costCopper": 16000,
+          "knownBy": [
+            7379,
+            11600,
+            11601,
+            25288
+          ]
+        },
+        {
+          "spellId": 8380,
+          "name": "Sunder Armor",
+          "rank": 3,
+          "costCopper": 16000,
+          "knownBy": [
+            8380,
+            11596,
+            11597
+          ]
+        }
+      ],
+      "totalCostCopper": 48000
+    },
+    {
+      "level": 36,
+      "spells": [
+        {
+          "spellId": 7402,
+          "name": "Mocking Blow",
+          "rank": 3,
+          "costCopper": 18000,
+          "knownBy": [
+            7402,
+            20559,
+            20560
+          ]
+        },
+        {
+          "spellId": 1680,
+          "name": "Whirlwind",
+          "rank": null,
+          "costCopper": 18000,
+          "knownBy": [
+            1680
+          ]
+        }
+      ],
+      "totalCostCopper": 36000
+    },
+    {
+      "level": 38,
+      "spells": [
+        {
+          "spellId": 6552,
+          "name": "Pummel",
+          "rank": 1,
+          "costCopper": 20000,
+          "knownBy": [
+            6552,
+            6554,
+            13491
+          ]
+        },
+        {
+          "spellId": 8820,
+          "name": "Slam",
+          "rank": 2,
+          "costCopper": 20000,
+          "knownBy": [
+            8820,
+            11604,
+            11605
+          ]
+        },
+        {
+          "spellId": 8205,
+          "name": "Thunder Clap",
+          "rank": 4,
+          "costCopper": 20000,
+          "knownBy": [
+            8205,
+            11580,
+            11581
+          ]
+        }
+      ],
+      "totalCostCopper": 60000
+    },
+    {
+      "level": 40,
+      "spells": [
+        {
+          "spellId": 11608,
+          "name": "Cleave",
+          "rank": 3,
+          "costCopper": 22000,
+          "knownBy": [
+            11608,
+            11609,
+            20569
+          ]
+        },
+        {
+          "spellId": 20660,
+          "name": "Execute",
+          "rank": 3,
+          "costCopper": 22000,
+          "knownBy": [
+            20660,
+            20661,
+            20662
+          ]
+        },
+        {
+          "spellId": 11565,
+          "name": "Heroic Strike",
+          "rank": 6,
+          "costCopper": 22000,
+          "knownBy": [
+            11565,
+            11566,
+            11567,
+            25286
+          ]
+        },
+        {
+          "spellId": 750,
+          "name": "Plate Mail",
+          "rank": null,
+          "costCopper": 22000,
+          "knownBy": [
+            750
+          ]
+        },
+        {
+          "spellId": 11572,
+          "name": "Rend",
+          "rank": 5,
+          "costCopper": 22000,
+          "knownBy": [
+            11572,
+            11573,
+            11574
+          ]
+        }
+      ],
+      "totalCostCopper": 110000
+    },
+    {
+      "level": 42,
+      "spells": [
+        {
+          "spellId": 11550,
+          "name": "Battle Shout",
+          "rank": 5,
+          "costCopper": 32000,
+          "knownBy": [
+            11550,
+            11551,
+            25289,
+            27578
+          ]
+        },
+        {
+          "spellId": 20616,
+          "name": "Intercept",
+          "rank": 2,
+          "costCopper": 32000,
+          "knownBy": [
+            20616,
+            20617,
+            27577
+          ]
+        }
+      ],
+      "totalCostCopper": 64000
+    },
+    {
+      "level": 44,
+      "spells": [
+        {
+          "spellId": 11555,
+          "name": "Demoralizing Shout",
+          "rank": 4,
+          "costCopper": 34000,
+          "knownBy": [
+            11555,
+            11556,
+            27579
+          ]
+        },
+        {
+          "spellId": 11584,
+          "name": "Overpower",
+          "rank": 3,
+          "costCopper": 34000,
+          "knownBy": [
+            11584,
+            11585
+          ]
+        },
+        {
+          "spellId": 11600,
+          "name": "Revenge",
+          "rank": 4,
+          "costCopper": 34000,
+          "knownBy": [
+            11600,
+            11601,
+            25288
+          ]
+        }
+      ],
+      "totalCostCopper": 102000
+    },
+    {
+      "level": 46,
+      "spells": [
+        {
+          "spellId": 11578,
+          "name": "Charge",
+          "rank": 3,
+          "costCopper": 36000,
+          "knownBy": [
+            11578
+          ]
+        },
+        {
+          "spellId": 20559,
+          "name": "Mocking Blow",
+          "rank": 4,
+          "costCopper": 36000,
+          "knownBy": [
+            20559,
+            20560
+          ]
+        },
+        {
+          "spellId": 11604,
+          "name": "Slam",
+          "rank": 3,
+          "costCopper": 36000,
+          "knownBy": [
+            11604,
+            11605
+          ]
+        },
+        {
+          "spellId": 11596,
+          "name": "Sunder Armor",
+          "rank": 4,
+          "costCopper": 36000,
+          "knownBy": [
+            11596,
+            11597
+          ]
+        }
+      ],
+      "totalCostCopper": 144000
+    },
+    {
+      "level": 48,
+      "spells": [
+        {
+          "spellId": 23892,
+          "name": "Bloodthirst",
+          "rank": 2,
+          "costCopper": 2000,
+          "knownBy": [
+            23892,
+            23893,
+            23894
+          ]
+        },
+        {
+          "spellId": 20661,
+          "name": "Execute",
+          "rank": 4,
+          "costCopper": 40000,
+          "knownBy": [
+            20661,
+            20662
+          ]
+        },
+        {
+          "spellId": 11566,
+          "name": "Heroic Strike",
+          "rank": 7,
+          "costCopper": 40000,
+          "knownBy": [
+            11566,
+            11567,
+            25286
+          ]
+        },
+        {
+          "spellId": 21551,
+          "name": "Mortal Strike",
+          "rank": 2,
+          "costCopper": 200,
+          "knownBy": [
+            21551,
+            21552,
+            21553,
+            27580
+          ],
+          "optional": true
+        },
+        {
+          "spellId": 23923,
+          "name": "Shield Slam",
+          "rank": 2,
+          "costCopper": 200,
+          "knownBy": [
+            23923,
+            23924,
+            23925
+          ]
+        },
+        {
+          "spellId": 11580,
+          "name": "Thunder Clap",
+          "rank": 5,
+          "costCopper": 40000,
+          "knownBy": [
+            11580,
+            11581
+          ]
+        }
+      ],
+      "totalCostCopper": 122400
+    },
+    {
+      "level": 50,
+      "spells": [
+        {
+          "spellId": 11609,
+          "name": "Cleave",
+          "rank": 4,
+          "costCopper": 42000,
+          "knownBy": [
+            11609,
+            20569
+          ]
+        },
+        {
+          "spellId": 1719,
+          "name": "Recklessness",
+          "rank": null,
+          "costCopper": 42000,
+          "knownBy": [
+            1719
+          ]
+        },
+        {
+          "spellId": 11573,
+          "name": "Rend",
+          "rank": 6,
+          "costCopper": 42000,
+          "knownBy": [
+            11573,
+            11574
+          ]
+        }
+      ],
+      "totalCostCopper": 126000
+    },
+    {
+      "level": 52,
+      "spells": [
+        {
+          "spellId": 11551,
+          "name": "Battle Shout",
+          "rank": 6,
+          "costCopper": 54000,
+          "knownBy": [
+            11551,
+            25289,
+            27578
+          ]
+        },
+        {
+          "spellId": 20617,
+          "name": "Intercept",
+          "rank": 3,
+          "costCopper": 54000,
+          "knownBy": [
+            20617,
+            27577
+          ]
+        },
+        {
+          "spellId": 1672,
+          "name": "Shield Bash",
+          "rank": 3,
+          "costCopper": 54000,
+          "knownBy": [
+            1672
+          ]
+        }
+      ],
+      "totalCostCopper": 162000
+    },
+    {
+      "level": 54,
+      "spells": [
+        {
+          "spellId": 23893,
+          "name": "Bloodthirst",
+          "rank": 3,
+          "costCopper": 2800,
+          "knownBy": [
+            23893,
+            23894
+          ]
+        },
+        {
+          "spellId": 11556,
+          "name": "Demoralizing Shout",
+          "rank": 5,
+          "costCopper": 56000,
+          "knownBy": [
+            11556,
+            27579
+          ]
+        },
+        {
+          "spellId": 7373,
+          "name": "Hamstring",
+          "rank": 3,
+          "costCopper": 56000,
+          "knownBy": [
+            7373,
+            27584
+          ]
+        },
+        {
+          "spellId": 21552,
+          "name": "Mortal Strike",
+          "rank": 3,
+          "costCopper": 2800,
+          "knownBy": [
+            21552,
+            21553,
+            27580
+          ],
+          "optional": true
+        },
+        {
+          "spellId": 11601,
+          "name": "Revenge",
+          "rank": 5,
+          "costCopper": 56000,
+          "knownBy": [
+            11601,
+            25288
+          ]
+        },
+        {
+          "spellId": 23924,
+          "name": "Shield Slam",
+          "rank": 3,
+          "costCopper": 2800,
+          "knownBy": [
+            23924,
+            23925
+          ]
+        },
+        {
+          "spellId": 11605,
+          "name": "Slam",
+          "rank": 4,
+          "costCopper": 56000,
+          "knownBy": [
+            11605
+          ]
+        }
+      ],
+      "totalCostCopper": 232400
+    },
+    {
+      "level": 56,
+      "spells": [
+        {
+          "spellId": 20662,
+          "name": "Execute",
+          "rank": 5,
+          "costCopper": 58000,
+          "knownBy": [
+            20662
+          ]
+        },
+        {
+          "spellId": 11567,
+          "name": "Heroic Strike",
+          "rank": 8,
+          "costCopper": 58000,
+          "knownBy": [
+            11567,
+            25286
+          ]
+        },
+        {
+          "spellId": 20560,
+          "name": "Mocking Blow",
+          "rank": 5,
+          "costCopper": 58000,
+          "knownBy": [
+            20560
+          ]
+        }
+      ],
+      "totalCostCopper": 174000
+    },
+    {
+      "level": 58,
+      "spells": [
+        {
+          "spellId": 6554,
+          "name": "Pummel",
+          "rank": 2,
+          "costCopper": 60000,
+          "knownBy": [
+            6554
+          ]
+        },
+        {
+          "spellId": 11597,
+          "name": "Sunder Armor",
+          "rank": 5,
+          "costCopper": 60000,
+          "knownBy": [
+            11597
+          ]
+        },
+        {
+          "spellId": 11581,
+          "name": "Thunder Clap",
+          "rank": 6,
+          "costCopper": 60000,
+          "knownBy": [
+            11581
+          ]
+        }
+      ],
+      "totalCostCopper": 180000
+    },
+    {
+      "level": 60,
+      "spells": [
+        {
+          "spellId": 23894,
+          "name": "Bloodthirst",
+          "rank": 4,
+          "costCopper": 3100,
+          "knownBy": [
+            23894
+          ]
+        },
+        {
+          "spellId": 20569,
+          "name": "Cleave",
+          "rank": 5,
+          "costCopper": 62000,
+          "knownBy": [
+            20569
+          ]
+        },
+        {
+          "spellId": 21553,
+          "name": "Mortal Strike",
+          "rank": 4,
+          "costCopper": 3100,
+          "knownBy": [
+            21553,
+            27580
+          ],
+          "optional": true
+        },
+        {
+          "spellId": 11585,
+          "name": "Overpower",
+          "rank": 4,
+          "costCopper": 62000,
+          "knownBy": [
+            11585
+          ]
+        },
+        {
+          "spellId": 11574,
+          "name": "Rend",
+          "rank": 7,
+          "costCopper": 62000,
+          "knownBy": [
+            11574
+          ]
+        },
+        {
+          "spellId": 23925,
+          "name": "Shield Slam",
+          "rank": 4,
+          "costCopper": 3100,
+          "knownBy": [
+            23925
+          ]
+        }
+      ],
+      "totalCostCopper": 195300
+    }
+  ],
+  "classQuests": [
+    {
+      "level": 10,
+      "name": "Bartleby's Mug",
+      "startZone": "Stormwind City",
+      "startInstance": null,
+      "reward": "Defensive Stance, Sunder Armor (Rank 1), Taunt",
+      "rewardItemId": null,
+      "rewardItem": null,
+      "questId": 1665,
+      "faction": "alliance"
+    },
+    {
+      "level": 10,
+      "name": "Dead-tooth Jack",
+      "startZone": "Elwynn Forest",
+      "startInstance": null,
+      "reward": "Haggard's Axe",
+      "rewardItemId": null,
+      "rewardItem": null,
+      "questId": 1667,
+      "faction": "alliance",
+      "rewardChoices": [
+        {
+          "itemId": 6979,
+          "item": {
+            "name": "Haggard's Axe",
+            "iconName": "inv_axe_01",
+            "wowheadUrl": "https://www.wowhead.com/classic/item=6979",
+            "slot": "Main Hand",
+            "itemSubclass": "Axe",
+            "quality": "Uncommon",
+            "requiredLevel": 0,
+            "itemLevel": 15,
+            "stats": [
+              {
+                "type": "Stamina",
+                "value": 1
+              }
+            ],
+            "bind": "pickup",
+            "sellPriceCopper": 675,
+            "damage": {
+              "min": 14,
+              "max": 28,
+              "speed": 2.7
+            },
+            "durability": 50
+          }
+        },
+        {
+          "itemId": 6983,
+          "item": {
+            "name": "Haggard's Hammer",
+            "iconName": "inv_hammer_08",
+            "wowheadUrl": "https://www.wowhead.com/classic/item=6983",
+            "slot": "Main Hand",
+            "itemSubclass": "Mace",
+            "quality": "Uncommon",
+            "requiredLevel": 0,
+            "itemLevel": 15,
+            "stats": [
+              {
+                "type": "Stamina",
+                "value": 1
+              }
+            ],
+            "bind": "pickup",
+            "sellPriceCopper": 685,
+            "damage": {
+              "min": 12,
+              "max": 23,
+              "speed": 2.3
+            },
+            "durability": 50
+          }
+        },
+        {
+          "itemId": 6980,
+          "item": {
+            "name": "Haggard's Dagger",
+            "iconName": "inv_weapon_shortblade_15",
+            "wowheadUrl": "https://www.wowhead.com/classic/item=6980",
+            "slot": "One-Hand",
+            "itemSubclass": "Dagger",
+            "quality": "Uncommon",
+            "requiredLevel": 0,
+            "itemLevel": 15,
+            "stats": [
+              {
+                "type": "Stamina",
+                "value": 1
+              }
+            ],
+            "bind": "pickup",
+            "sellPriceCopper": 677,
+            "damage": {
+              "min": 9,
+              "max": 17,
+              "speed": 1.7
+            },
+            "durability": 35
+          }
+        },
+        {
+          "itemId": 6985,
+          "item": {
+            "name": "Haggard's Sword",
+            "iconName": "inv_sword_04",
+            "wowheadUrl": "https://www.wowhead.com/classic/item=6985",
+            "slot": "Main Hand",
+            "itemSubclass": "Sword",
+            "quality": "Uncommon",
+            "requiredLevel": 0,
+            "itemLevel": 15,
+            "stats": [
+              {
+                "type": "Stamina",
+                "value": 1
+              }
+            ],
+            "bind": "pickup",
+            "sellPriceCopper": 690,
+            "damage": {
+              "min": 11,
+              "max": 21,
+              "speed": 2.1
+            },
+            "durability": 50
+          }
+        }
+      ]
+    },
+    {
+      "level": 10,
+      "name": "Forged Steel",
+      "startZone": "The Barrens",
+      "startInstance": null,
+      "reward": "Thun'grim's Axe",
+      "rewardItemId": null,
+      "rewardItem": null,
+      "questId": 1503,
+      "faction": "horde",
+      "rewardChoices": [
+        {
+          "itemId": 7326,
+          "item": {
+            "name": "Thun'grim's Axe",
+            "iconName": "inv_axe_01",
+            "wowheadUrl": "https://www.wowhead.com/classic/item=7326",
+            "slot": "Main Hand",
+            "itemSubclass": "Axe",
+            "quality": "Uncommon",
+            "requiredLevel": 0,
+            "itemLevel": 15,
+            "stats": [
+              {
+                "type": "Stamina",
+                "value": 1
+              }
+            ],
+            "bind": "pickup",
+            "sellPriceCopper": 696,
+            "damage": {
+              "min": 14,
+              "max": 28,
+              "speed": 2.7
+            },
+            "durability": 50
+          }
+        },
+        {
+          "itemId": 7328,
+          "item": {
+            "name": "Thun'grim's Mace",
+            "iconName": "inv_mace_12",
+            "wowheadUrl": "https://www.wowhead.com/classic/item=7328",
+            "slot": "Main Hand",
+            "itemSubclass": "Mace",
+            "quality": "Uncommon",
+            "requiredLevel": 0,
+            "itemLevel": 15,
+            "stats": [
+              {
+                "type": "Stamina",
+                "value": 1
+              }
+            ],
+            "bind": "pickup",
+            "sellPriceCopper": 701,
+            "damage": {
+              "min": 12,
+              "max": 23,
+              "speed": 2.3
+            },
+            "durability": 50
+          }
+        },
+        {
+          "itemId": 7327,
+          "item": {
+            "name": "Thun'grim's Dagger",
+            "iconName": "inv_weapon_shortblade_05",
+            "wowheadUrl": "https://www.wowhead.com/classic/item=7327",
+            "slot": "One-Hand",
+            "itemSubclass": "Dagger",
+            "quality": "Uncommon",
+            "requiredLevel": 0,
+            "itemLevel": 15,
+            "stats": [
+              {
+                "type": "Stamina",
+                "value": 1
+              }
+            ],
+            "bind": "pickup",
+            "sellPriceCopper": 698,
+            "damage": {
+              "min": 9,
+              "max": 17,
+              "speed": 1.7
+            },
+            "durability": 35
+          }
+        },
+        {
+          "itemId": 7329,
+          "item": {
+            "name": "Thun'grim's Sword",
+            "iconName": "inv_sword_04",
+            "wowheadUrl": "https://www.wowhead.com/classic/item=7329",
+            "slot": "Main Hand",
+            "itemSubclass": "Sword",
+            "quality": "Uncommon",
+            "requiredLevel": 0,
+            "itemLevel": 15,
+            "stats": [
+              {
+                "type": "Stamina",
+                "value": 1
+              }
+            ],
+            "bind": "pickup",
+            "sellPriceCopper": 703,
+            "damage": {
+              "min": 11,
+              "max": 21,
+              "speed": 2.1
+            },
+            "durability": 50
+          }
+        }
+      ]
+    },
+    {
+      "level": 10,
+      "name": "Grey Iron Weapons",
+      "startZone": "Ironforge",
+      "startInstance": null,
+      "reward": "Umbral Axe",
+      "rewardItemId": null,
+      "rewardItem": null,
+      "questId": 1682,
+      "faction": "alliance",
+      "rewardChoices": [
+        {
+          "itemId": 6978,
+          "item": {
+            "name": "Umbral Axe",
+            "iconName": "inv_axe_17",
+            "wowheadUrl": "https://www.wowhead.com/classic/item=6978",
+            "slot": "Main Hand",
+            "itemSubclass": "Axe",
+            "quality": "Uncommon",
+            "requiredLevel": 0,
+            "itemLevel": 15,
+            "stats": [
+              {
+                "type": "Stamina",
+                "value": 1
+              }
+            ],
+            "bind": "pickup",
+            "sellPriceCopper": 672,
+            "damage": {
+              "min": 14,
+              "max": 28,
+              "speed": 2.7
+            },
+            "durability": 50
+          }
+        },
+        {
+          "itemId": 6982,
+          "item": {
+            "name": "Umbral Mace",
+            "iconName": "inv_mace_12",
+            "wowheadUrl": "https://www.wowhead.com/classic/item=6982",
+            "slot": "Main Hand",
+            "itemSubclass": "Mace",
+            "quality": "Uncommon",
+            "requiredLevel": 0,
+            "itemLevel": 15,
+            "stats": [
+              {
+                "type": "Stamina",
+                "value": 1
+              }
+            ],
+            "bind": "pickup",
+            "sellPriceCopper": 683,
+            "damage": {
+              "min": 12,
+              "max": 23,
+              "speed": 2.3
+            },
+            "durability": 50
+          }
+        },
+        {
+          "itemId": 6981,
+          "item": {
+            "name": "Umbral Dagger",
+            "iconName": "inv_weapon_shortblade_15",
+            "wowheadUrl": "https://www.wowhead.com/classic/item=6981",
+            "slot": "One-Hand",
+            "itemSubclass": "Dagger",
+            "quality": "Uncommon",
+            "requiredLevel": 0,
+            "itemLevel": 15,
+            "stats": [
+              {
+                "type": "Stamina",
+                "value": 1
+              }
+            ],
+            "bind": "pickup",
+            "sellPriceCopper": 680,
+            "damage": {
+              "min": 9,
+              "max": 17,
+              "speed": 1.7
+            },
+            "durability": 35
+          }
+        },
+        {
+          "itemId": 6984,
+          "item": {
+            "name": "Umbral Sword",
+            "iconName": "inv_sword_04",
+            "wowheadUrl": "https://www.wowhead.com/classic/item=6984",
+            "slot": "Main Hand",
+            "itemSubclass": "Sword",
+            "quality": "Uncommon",
+            "requiredLevel": 0,
+            "itemLevel": 15,
+            "stats": [
+              {
+                "type": "Stamina",
+                "value": 1
+              }
+            ],
+            "bind": "pickup",
+            "sellPriceCopper": 688,
+            "damage": {
+              "min": 11,
+              "max": 21,
+              "speed": 2.1
+            },
+            "durability": 50
+          }
+        }
+      ]
+    },
+    {
+      "level": 10,
+      "name": "Heirloom Weapon",
+      "startZone": "Tirisfal Glades",
+      "startInstance": null,
+      "reward": "Heirloom Axe",
+      "rewardItemId": null,
+      "rewardItem": null,
+      "questId": 1822,
+      "faction": "horde",
+      "rewardChoices": [
+        {
+          "itemId": 7115,
+          "item": {
+            "name": "Heirloom Axe",
+            "iconName": "inv_axe_17",
+            "wowheadUrl": "https://www.wowhead.com/classic/item=7115",
+            "slot": "Main Hand",
+            "itemSubclass": "Axe",
+            "quality": "Uncommon",
+            "requiredLevel": 0,
+            "itemLevel": 15,
+            "stats": [
+              {
+                "type": "Stamina",
+                "value": 1
+              }
+            ],
+            "bind": "pickup",
+            "sellPriceCopper": 683,
+            "damage": {
+              "min": 14,
+              "max": 28,
+              "speed": 2.7
+            },
+            "durability": 50
+          }
+        },
+        {
+          "itemId": 7117,
+          "item": {
+            "name": "Heirloom Hammer",
+            "iconName": "inv_hammer_12",
+            "wowheadUrl": "https://www.wowhead.com/classic/item=7117",
+            "slot": "Main Hand",
+            "itemSubclass": "Mace",
+            "quality": "Uncommon",
+            "requiredLevel": 0,
+            "itemLevel": 15,
+            "stats": [
+              {
+                "type": "Stamina",
+                "value": 1
+              }
+            ],
+            "bind": "pickup",
+            "sellPriceCopper": 688,
+            "damage": {
+              "min": 12,
+              "max": 23,
+              "speed": 2.3
+            },
+            "durability": 50
+          }
+        },
+        {
+          "itemId": 7116,
+          "item": {
+            "name": "Heirloom Dagger",
+            "iconName": "inv_weapon_shortblade_15",
+            "wowheadUrl": "https://www.wowhead.com/classic/item=7116",
+            "slot": "One-Hand",
+            "itemSubclass": "Dagger",
+            "quality": "Uncommon",
+            "requiredLevel": 0,
+            "itemLevel": 15,
+            "stats": [
+              {
+                "type": "Stamina",
+                "value": 1
+              }
+            ],
+            "bind": "pickup",
+            "sellPriceCopper": 685,
+            "damage": {
+              "min": 9,
+              "max": 17,
+              "speed": 1.7
+            },
+            "durability": 35
+          }
+        },
+        {
+          "itemId": 7118,
+          "item": {
+            "name": "Heirloom Sword",
+            "iconName": "inv_sword_04",
+            "wowheadUrl": "https://www.wowhead.com/classic/item=7118",
+            "slot": "Main Hand",
+            "itemSubclass": "Sword",
+            "quality": "Uncommon",
+            "requiredLevel": 0,
+            "itemLevel": 15,
+            "stats": [
+              {
+                "type": "Stamina",
+                "value": 1
+              }
+            ],
+            "bind": "pickup",
+            "sellPriceCopper": 690,
+            "damage": {
+              "min": 11,
+              "max": 21,
+              "speed": 2.1
+            },
+            "durability": 50
+          }
+        }
+      ]
+    },
+    {
+      "level": 10,
+      "name": "Path of Defense",
+      "startZone": "The Barrens",
+      "startInstance": null,
+      "reward": "Defensive Stance, Sunder Armor (Rank 1), Taunt",
+      "rewardItemId": null,
+      "rewardItem": null,
+      "questId": 1498,
+      "faction": "horde"
+    },
+    {
+      "level": 10,
+      "name": "Ulag the Cleaver",
+      "startZone": "Tirisfal Glades",
+      "startInstance": null,
+      "reward": "Defensive Stance, Sunder Armor (Rank 1), Taunt",
+      "rewardItemId": null,
+      "rewardItem": null,
+      "questId": 1819,
+      "faction": "horde"
+    },
+    {
+      "level": 10,
+      "name": "Vejrek",
+      "startZone": "Ironforge",
+      "startInstance": null,
+      "reward": "Defensive Stance, Sunder Armor (Rank 1), Taunt",
+      "rewardItemId": null,
+      "rewardItem": null,
+      "questId": 1678,
+      "faction": "alliance"
+    },
+    {
+      "level": 10,
+      "name": "Vorlus Vilehoof",
+      "startZone": "Teldrassil",
+      "startInstance": null,
+      "reward": "Defensive Stance, Sunder Armor (Rank 1), Taunt",
+      "rewardItemId": null,
+      "rewardItem": null,
+      "questId": 1683,
+      "faction": "alliance"
+    },
+    {
+      "level": 10,
+      "name": "Weapons of Elunite",
+      "startZone": "Teldrassil",
+      "startInstance": null,
+      "reward": "Elunite Axe",
+      "rewardItemId": null,
+      "rewardItem": null,
+      "questId": 1693,
+      "faction": "alliance",
+      "rewardChoices": [
+        {
+          "itemId": 6966,
+          "item": {
+            "name": "Elunite Axe",
+            "iconName": "inv_axe_04",
+            "wowheadUrl": "https://www.wowhead.com/classic/item=6966",
+            "slot": "Main Hand",
+            "itemSubclass": "Axe",
+            "quality": "Uncommon",
+            "requiredLevel": 0,
+            "itemLevel": 15,
+            "stats": [
+              {
+                "type": "Stamina",
+                "value": 1
+              }
+            ],
+            "bind": "pickup",
+            "sellPriceCopper": 693,
+            "damage": {
+              "min": 14,
+              "max": 28,
+              "speed": 2.7
+            },
+            "durability": 50
+          }
+        },
+        {
+          "itemId": 6968,
+          "item": {
+            "name": "Elunite Hammer",
+            "iconName": "inv_hammer_20",
+            "wowheadUrl": "https://www.wowhead.com/classic/item=6968",
+            "slot": "Main Hand",
+            "itemSubclass": "Mace",
+            "quality": "Uncommon",
+            "requiredLevel": 0,
+            "itemLevel": 15,
+            "stats": [
+              {
+                "type": "Stamina",
+                "value": 1
+              }
+            ],
+            "bind": "pickup",
+            "sellPriceCopper": 698,
+            "damage": {
+              "min": 12,
+              "max": 23,
+              "speed": 2.3
+            },
+            "durability": 50
+          }
+        },
+        {
+          "itemId": 6969,
+          "item": {
+            "name": "Elunite Dagger",
+            "iconName": "inv_weapon_shortblade_05",
+            "wowheadUrl": "https://www.wowhead.com/classic/item=6969",
+            "slot": "One-Hand",
+            "itemSubclass": "Dagger",
+            "quality": "Uncommon",
+            "requiredLevel": 0,
+            "itemLevel": 15,
+            "stats": [
+              {
+                "type": "Stamina",
+                "value": 1
+              }
+            ],
+            "bind": "pickup",
+            "sellPriceCopper": 701,
+            "damage": {
+              "min": 9,
+              "max": 17,
+              "speed": 1.7
+            },
+            "durability": 35
+          }
+        },
+        {
+          "itemId": 6967,
+          "item": {
+            "name": "Elunite Sword",
+            "iconName": "inv_sword_04",
+            "wowheadUrl": "https://www.wowhead.com/classic/item=6967",
+            "slot": "Main Hand",
+            "itemSubclass": "Sword",
+            "quality": "Uncommon",
+            "requiredLevel": 0,
+            "itemLevel": 15,
+            "stats": [
+              {
+                "type": "Stamina",
+                "value": 1
+              }
+            ],
+            "bind": "pickup",
+            "sellPriceCopper": 696,
+            "damage": {
+              "min": 11,
+              "max": 21,
+              "speed": 2.1
+            },
+            "durability": 50
+          }
+        }
+      ]
+    },
+    {
+      "level": 20,
+      "name": "Brutal Gauntlets",
+      "startZone": "Durotar",
+      "startInstance": null,
+      "reward": "Brutal Gauntlets",
+      "rewardItemId": 7129,
+      "rewardItem": {
+        "name": "Brutal Gauntlets",
+        "iconName": "inv_gauntlets_04",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=7129",
+        "slot": "Hands",
+        "itemSubclass": "Mail",
+        "quality": "Uncommon",
+        "requiredLevel": 0,
+        "itemLevel": 31,
+        "stats": [
+          {
+            "type": "Strength",
+            "value": 6
+          },
+          {
+            "type": "Stamina",
+            "value": 6
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 1546,
+        "armor": 126,
+        "durability": 35
+      },
+      "questId": 1843,
+      "faction": "horde"
+    },
+    {
+      "level": 20,
+      "name": "Brutal Hauberk",
+      "startZone": "The Barrens",
+      "startInstance": null,
+      "reward": "Brutal Hauberk",
+      "rewardItemId": 7133,
+      "rewardItem": {
+        "name": "Brutal Hauberk",
+        "iconName": "inv_chest_chain_07",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=7133",
+        "slot": "Chest",
+        "itemSubclass": "Mail",
+        "quality": "Rare",
+        "requiredLevel": 0,
+        "itemLevel": 30,
+        "stats": [
+          {
+            "type": "Stamina",
+            "value": 14
+          },
+          {
+            "type": "Strength",
+            "value": 5
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 3098,
+        "armor": 218,
+        "durability": 120,
+        "effects": [
+          "Use: Rage"
+        ]
+      },
+      "questId": 1848,
+      "faction": "horde"
+    },
+    {
+      "level": 20,
+      "name": "Brutal Helm",
+      "startZone": "Mulgore",
+      "startInstance": null,
+      "reward": "Brutal Helm",
+      "rewardItemId": 7130,
+      "rewardItem": {
+        "name": "Brutal Helm",
+        "iconName": "inv_helmet_02",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=7130",
+        "slot": "Head",
+        "itemSubclass": "Mail",
+        "quality": "Uncommon",
+        "requiredLevel": 0,
+        "itemLevel": 31,
+        "stats": [
+          {
+            "type": "Stamina",
+            "value": 8
+          },
+          {
+            "type": "Agility",
+            "value": 7
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 2328,
+        "armor": 163,
+        "durability": 60
+      },
+      "questId": 1845,
+      "faction": "horde"
+    },
+    {
+      "level": 20,
+      "name": "Brutal Legguards",
+      "startZone": "Undercity",
+      "startInstance": null,
+      "reward": "Brutal Legguards",
+      "rewardItemId": 7132,
+      "rewardItem": {
+        "name": "Brutal Legguards",
+        "iconName": "inv_pants_03",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=7132",
+        "slot": "Legs",
+        "itemSubclass": "Mail",
+        "quality": "Uncommon",
+        "requiredLevel": 0,
+        "itemLevel": 29,
+        "stats": [
+          {
+            "type": "Strength",
+            "value": 7
+          },
+          {
+            "type": "Stamina",
+            "value": 7
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 2338,
+        "armor": 171,
+        "durability": 75
+      },
+      "questId": 1847,
+      "faction": "horde"
+    },
+    {
+      "level": 20,
+      "name": "Furen's Armor",
+      "startZone": "Stormwind City",
+      "startInstance": null,
+      "reward": "Fire Hardened Hauberk",
+      "rewardItemId": 6972,
+      "rewardItem": {
+        "name": "Fire Hardened Hauberk",
+        "iconName": "inv_chest_chain_07",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=6972",
+        "slot": "Chest",
+        "itemSubclass": "Mail",
+        "quality": "Rare",
+        "requiredLevel": 0,
+        "itemLevel": 30,
+        "stats": [
+          {
+            "type": "Stamina",
+            "value": 14
+          },
+          {
+            "type": "Strength",
+            "value": 5
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 3242,
+        "armor": 218,
+        "durability": 120,
+        "effects": [
+          "Use: Rage"
+        ]
+      },
+      "questId": 1782,
+      "faction": "alliance"
+    },
+    {
+      "level": 20,
+      "name": "Grimand's Armor",
+      "startZone": "Stormwind City",
+      "startInstance": null,
+      "reward": "Fire Hardened Coif",
+      "rewardItemId": 6971,
+      "rewardItem": {
+        "name": "Fire Hardened Coif",
+        "iconName": "inv_helmet_39",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=6971",
+        "slot": "Head",
+        "itemSubclass": "Mail",
+        "quality": "Uncommon",
+        "requiredLevel": 0,
+        "itemLevel": 31,
+        "stats": [
+          {
+            "type": "Stamina",
+            "value": 8
+          },
+          {
+            "type": "Agility",
+            "value": 7
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 2221,
+        "armor": 163,
+        "durability": 60
+      },
+      "questId": 1706,
+      "faction": "alliance"
+    },
+    {
+      "level": 20,
+      "name": "Klockmort's Creation",
+      "startZone": "Ironforge",
+      "startInstance": null,
+      "reward": "Fire Hardened Gauntlets",
+      "rewardItemId": 6974,
+      "rewardItem": {
+        "name": "Fire Hardened Gauntlets",
+        "iconName": "inv_gauntlets_04",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=6974",
+        "slot": "Hands",
+        "itemSubclass": "Mail",
+        "quality": "Uncommon",
+        "requiredLevel": 0,
+        "itemLevel": 31,
+        "stats": [
+          {
+            "type": "Strength",
+            "value": 6
+          },
+          {
+            "type": "Stamina",
+            "value": 6
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 1497,
+        "armor": 126,
+        "durability": 35
+      },
+      "questId": 1709,
+      "faction": "alliance"
+    },
+    {
+      "level": 20,
+      "name": "Mathiel's Armor",
+      "startZone": "Teldrassil",
+      "startInstance": null,
+      "reward": "Fire Hardened Leggings",
+      "rewardItemId": 6973,
+      "rewardItem": {
+        "name": "Fire Hardened Leggings",
+        "iconName": "inv_pants_03",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=6973",
+        "slot": "Legs",
+        "itemSubclass": "Mail",
+        "quality": "Uncommon",
+        "requiredLevel": 0,
+        "itemLevel": 29,
+        "stats": [
+          {
+            "type": "Strength",
+            "value": 7
+          },
+          {
+            "type": "Stamina",
+            "value": 7
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 2465,
+        "armor": 171,
+        "durability": 75
+      },
+      "questId": 1711,
+      "faction": "alliance"
+    },
+    {
+      "level": 20,
+      "name": "The Shieldsmith",
+      "startZone": "Redridge Mountains",
+      "startInstance": null,
+      "reward": "Furen's Favor",
+      "rewardItemId": 6970,
+      "rewardItem": {
+        "name": "Furen's Favor",
+        "iconName": "inv_shield_05",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=6970",
+        "slot": "Shield",
+        "itemSubclass": "Shield",
+        "quality": "Uncommon",
+        "requiredLevel": 0,
+        "itemLevel": 20,
+        "stats": [
+          {
+            "type": "Strength",
+            "value": 3
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 906,
+        "armor": 411,
+        "durability": 65
+      },
+      "questId": 1702,
+      "faction": "alliance"
+    },
+    {
+      "level": 20,
+      "name": "Trial at the Field of Giants",
+      "startZone": "The Barrens",
+      "startInstance": null,
+      "reward": "Ruga's Bulwark",
+      "rewardItemId": 7120,
+      "rewardItem": {
+        "name": "Ruga's Bulwark",
+        "iconName": "inv_shield_14",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=7120",
+        "slot": "Shield",
+        "itemSubclass": "Shield",
+        "quality": "Uncommon",
+        "requiredLevel": 0,
+        "itemLevel": 20,
+        "stats": [
+          {
+            "type": "Strength",
+            "value": 3
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 895,
+        "armor": 411,
+        "durability": 65
+      },
+      "questId": 1824,
+      "faction": "horde"
+    },
+    {
+      "level": 30,
+      "name": "The Affray",
+      "startZone": "The Barrens",
+      "startInstance": null,
+      "reward": "Berserker Stance, Intercept (Rank 1)",
+      "rewardItemId": null,
+      "rewardItem": null,
+      "questId": 1719,
+      "faction": "both"
+    },
+    {
+      "level": 30,
+      "name": "Whirlwind Weapon",
+      "startZone": "Alterac Mountains",
+      "startInstance": null,
+      "reward": "Whirlwind Axe",
+      "rewardItemId": null,
+      "rewardItem": null,
+      "questId": 1792,
+      "faction": "both",
+      "rewardChoices": [
+        {
+          "itemId": 6975,
+          "item": {
+            "name": "Whirlwind Axe",
+            "iconName": "inv_axe_12",
+            "wowheadUrl": "https://www.wowhead.com/classic/item=6975",
+            "slot": "Two-Hand",
+            "itemSubclass": "Axe",
+            "quality": "Rare",
+            "requiredLevel": 0,
+            "itemLevel": 40,
+            "stats": [
+              {
+                "type": "Strength",
+                "value": 15
+              },
+              {
+                "type": "Stamina",
+                "value": 14
+              }
+            ],
+            "bind": "pickup",
+            "sellPriceCopper": 16766,
+            "damage": {
+              "min": 102,
+              "max": 154,
+              "speed": 3.6
+            },
+            "durability": 100
+          }
+        },
+        {
+          "itemId": 6977,
+          "item": {
+            "name": "Whirlwind Sword",
+            "iconName": "inv_sword_15",
+            "wowheadUrl": "https://www.wowhead.com/classic/item=6977",
+            "slot": "Two-Hand",
+            "itemSubclass": "Sword",
+            "quality": "Rare",
+            "requiredLevel": 0,
+            "itemLevel": 40,
+            "stats": [
+              {
+                "type": "Stamina",
+                "value": 14
+              },
+              {
+                "type": "Strength",
+                "value": 15
+              }
+            ],
+            "bind": "pickup",
+            "sellPriceCopper": 17325,
+            "damage": {
+              "min": 82,
+              "max": 124,
+              "speed": 2.9
+            },
+            "durability": 100
+          }
+        },
+        {
+          "itemId": 6976,
+          "item": {
+            "name": "Whirlwind Warhammer",
+            "iconName": "inv_hammer_08",
+            "wowheadUrl": "https://www.wowhead.com/classic/item=6976",
+            "slot": "Two-Hand",
+            "itemSubclass": "Mace",
+            "quality": "Rare",
+            "requiredLevel": 0,
+            "itemLevel": 40,
+            "stats": [
+              {
+                "type": "Stamina",
+                "value": 14
+              },
+              {
+                "type": "Strength",
+                "value": 15
+              }
+            ],
+            "bind": "pickup",
+            "sellPriceCopper": 17264,
+            "damage": {
+              "min": 97,
+              "max": 146,
+              "speed": 3.4
+            },
+            "durability": 100
+          }
+        }
+      ]
+    },
+    {
+      "level": 54,
+      "name": "Codex of Defense",
+      "startZone": "Feralas",
+      "startInstance": "Dire Maul",
+      "reward": "Royal Seal of Eldre'Thalas",
+      "rewardItemId": 18466,
+      "rewardItem": {
+        "name": "Royal Seal of Eldre'Thalas",
+        "iconName": "inv_jewelry_talisman_10",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=18466",
+        "slot": "Trinket",
+        "quality": "Rare",
+        "requiredLevel": 0,
+        "itemLevel": 62,
+        "stats": [],
+        "bind": "pickup",
+        "unique": true,
+        "sellPriceCopper": 0,
+        "effects": [
+          "Equip: Increased Armor +200"
+        ]
+      },
+      "questId": 7499,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Conqueror's Breastplate",
+      "startZone": "Silithus",
+      "startInstance": "Ahn'Qiraj",
+      "reward": "Conqueror's Breastplate",
+      "rewardItemId": 21331,
+      "rewardItem": {
+        "name": "Conqueror's Breastplate",
+        "iconName": "inv_chest_plate12",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=21331",
+        "slot": "Chest",
+        "itemSubclass": "Plate",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 88,
+        "stats": [
+          {
+            "type": "Agility",
+            "value": 24
+          },
+          {
+            "type": "Strength",
+            "value": 34
+          },
+          {
+            "type": "Stamina",
+            "value": 38
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 100263,
+        "armor": 985,
+        "durability": 165,
+        "effects": [
+          "Equip: Increased Defense +6"
+        ]
+      },
+      "questId": 8562,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Conqueror's Crown",
+      "startZone": "Silithus",
+      "startInstance": "Ahn'Qiraj",
+      "reward": "Conqueror's Crown",
+      "rewardItemId": 21329,
+      "rewardItem": {
+        "name": "Conqueror's Crown",
+        "iconName": "inv_helmet_72",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=21329",
+        "slot": "Head",
+        "itemSubclass": "Plate",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 81,
+        "stats": [
+          {
+            "type": "Agility",
+            "value": 18
+          },
+          {
+            "type": "Strength",
+            "value": 29
+          },
+          {
+            "type": "Stamina",
+            "value": 34
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 53037,
+        "armor": 739,
+        "durability": 100,
+        "effects": [
+          "Equip: Increased Defense +6"
+        ]
+      },
+      "questId": 8561,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Conqueror's Greaves",
+      "startZone": "Silithus",
+      "startInstance": "Ahn'Qiraj",
+      "reward": "Conqueror's Greaves",
+      "rewardItemId": 21333,
+      "rewardItem": {
+        "name": "Conqueror's Greaves",
+        "iconName": "inv_boots_plate_05",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=21333",
+        "slot": "Feet",
+        "itemSubclass": "Plate",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 78,
+        "stats": [
+          {
+            "type": "Agility",
+            "value": 17
+          },
+          {
+            "type": "Strength",
+            "value": 21
+          },
+          {
+            "type": "Stamina",
+            "value": 23
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 46519,
+        "armor": 604,
+        "durability": 75,
+        "effects": [
+          "Equip: Increased Defense +4"
+        ]
+      },
+      "questId": 8559,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Conqueror's Legguards",
+      "startZone": "Silithus",
+      "startInstance": "Ahn'Qiraj",
+      "reward": "Conqueror's Legguards",
+      "rewardItemId": 21332,
+      "rewardItem": {
+        "name": "Conqueror's Legguards",
+        "iconName": "inv_pants_plate_03",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=21332",
+        "slot": "Legs",
+        "itemSubclass": "Plate",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 81,
+        "stats": [
+          {
+            "type": "Agility",
+            "value": 21
+          },
+          {
+            "type": "Strength",
+            "value": 33
+          },
+          {
+            "type": "Stamina",
+            "value": 24
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 71529,
+        "armor": 796,
+        "durability": 120,
+        "effects": [
+          "Equip: Increased Defense +6",
+          "Equip: Increased Hit Chance +1"
+        ]
+      },
+      "questId": 8560,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Conqueror's Spaulders",
+      "startZone": "Silithus",
+      "startInstance": "Ahn'Qiraj",
+      "reward": "Conqueror's Spaulders",
+      "rewardItemId": 21330,
+      "rewardItem": {
+        "name": "Conqueror's Spaulders",
+        "iconName": "inv_shoulder_35",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=21330",
+        "slot": "Shoulder",
+        "itemSubclass": "Plate",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 78,
+        "stats": [
+          {
+            "type": "Agility",
+            "value": 16
+          },
+          {
+            "type": "Strength",
+            "value": 20
+          },
+          {
+            "type": "Stamina",
+            "value": 21
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 45987,
+        "armor": 659,
+        "durability": 100,
+        "effects": [
+          "Equip: Increased Defense +4",
+          "Equip: Increased Hit Chance +1"
+        ]
+      },
+      "questId": 8544,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Drape of Unyielding Strength",
+      "startZone": "Silithus",
+      "startInstance": null,
+      "reward": "Drape of Unyielding Strength",
+      "rewardItemId": 21394,
+      "rewardItem": {
+        "name": "Drape of Unyielding Strength",
+        "iconName": "inv_misc_cape_20",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=21394",
+        "slot": "Back",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 67,
+        "stats": [
+          {
+            "type": "Strength",
+            "value": 15
+          },
+          {
+            "type": "Agility",
+            "value": 9
+          },
+          {
+            "type": "Stamina",
+            "value": 9
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 0,
+        "armor": 52,
+        "effects": [
+          "Equip: Increased Hit Chance +1"
+        ]
+      },
+      "questId": 8557,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Dreadnaught Bracers",
+      "startZone": "Eastern Plaguelands",
+      "startInstance": null,
+      "reward": "Dreadnaught Bracers",
+      "rewardItemId": 22423,
+      "rewardItem": {
+        "name": "Dreadnaught Bracers",
+        "iconName": "inv_bracer_15",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=22423",
+        "slot": "Wrist",
+        "itemSubclass": "Plate",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 88,
+        "stats": [
+          {
+            "type": "Strength",
+            "value": 14
+          },
+          {
+            "type": "Stamina",
+            "value": 28
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 50527,
+        "armor": 431,
+        "durability": 55,
+        "effects": [
+          "Equip: Increased Defense +5"
+        ]
+      },
+      "questId": 9042,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Dreadnaught Breastplate",
+      "startZone": "Eastern Plaguelands",
+      "startInstance": null,
+      "reward": "Dreadnaught Breastplate",
+      "rewardItemId": 22416,
+      "rewardItem": {
+        "name": "Dreadnaught Breastplate",
+        "iconName": "inv_chest_plate02",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=22416",
+        "slot": "Chest",
+        "itemSubclass": "Plate",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 92,
+        "stats": [
+          {
+            "type": "Strength",
+            "value": 21
+          },
+          {
+            "type": "Stamina",
+            "value": 43
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 128887,
+        "armor": 1027,
+        "durability": 165,
+        "effects": [
+          "Equip: Increased Defense +13",
+          "Equip: Increased Dodge +1",
+          "Equip: Increased Hit Chance +2"
+        ]
+      },
+      "questId": 9034,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Dreadnaught Gauntlets",
+      "startZone": "Eastern Plaguelands",
+      "startInstance": null,
+      "reward": "Dreadnaught Gauntlets",
+      "rewardItemId": 22421,
+      "rewardItem": {
+        "name": "Dreadnaught Gauntlets",
+        "iconName": "inv_gauntlets_28",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=22421",
+        "slot": "Hands",
+        "itemSubclass": "Plate",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 88,
+        "stats": [
+          {
+            "type": "Stamina",
+            "value": 27
+          },
+          {
+            "type": "Strength",
+            "value": 17
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 53974,
+        "armor": 615,
+        "durability": 55,
+        "effects": [
+          "Equip: Increased Defense +9",
+          "Equip: Increased Block +3",
+          "Equip: Block Value +21"
+        ]
+      },
+      "questId": 9040,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Dreadnaught Helmet",
+      "startZone": "Eastern Plaguelands",
+      "startInstance": null,
+      "reward": "Dreadnaught Helmet",
+      "rewardItemId": 22418,
+      "rewardItem": {
+        "name": "Dreadnaught Helmet",
+        "iconName": "inv_helmet_58",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=22418",
+        "slot": "Head",
+        "itemSubclass": "Plate",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 88,
+        "stats": [
+          {
+            "type": "Stamina",
+            "value": 45
+          },
+          {
+            "type": "Strength",
+            "value": 21
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 80096,
+        "armor": 800,
+        "durability": 100,
+        "effects": [
+          "Equip: Increased Dodge +1",
+          "Equip: Increased Defense +14"
+        ]
+      },
+      "questId": 9037,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Dreadnaught Legplates",
+      "startZone": "Eastern Plaguelands",
+      "startInstance": null,
+      "reward": "Dreadnaught Legplates",
+      "rewardItemId": 22417,
+      "rewardItem": {
+        "name": "Dreadnaught Legplates",
+        "iconName": "inv_pants_plate_05",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=22417",
+        "slot": "Legs",
+        "itemSubclass": "Plate",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 88,
+        "stats": [
+          {
+            "type": "Strength",
+            "value": 23
+          },
+          {
+            "type": "Stamina",
+            "value": 37
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 106420,
+        "armor": 861,
+        "durability": 120,
+        "effects": [
+          "Equip: Increased Defense +13",
+          "Equip: Increased Dodge +1",
+          "Equip: Block Value +32"
+        ]
+      },
+      "questId": 9036,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Dreadnaught Pauldrons",
+      "startZone": "Eastern Plaguelands",
+      "startInstance": null,
+      "reward": "Dreadnaught Pauldrons",
+      "rewardItemId": 22419,
+      "rewardItem": {
+        "name": "Dreadnaught Pauldrons",
+        "iconName": "inv_shoulder_29",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=22419",
+        "slot": "Shoulder",
+        "itemSubclass": "Plate",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 86,
+        "stats": [
+          {
+            "type": "Stamina",
+            "value": 29
+          },
+          {
+            "type": "Strength",
+            "value": 16
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 72911,
+        "armor": 722,
+        "durability": 100,
+        "effects": [
+          "Equip: Increased Hit Chance +1",
+          "Equip: Block Value +21",
+          "Equip: Increased Defense +9"
+        ]
+      },
+      "questId": 9038,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Dreadnaught Sabatons",
+      "startZone": "Eastern Plaguelands",
+      "startInstance": null,
+      "reward": "Dreadnaught Sabatons",
+      "rewardItemId": 22420,
+      "rewardItem": {
+        "name": "Dreadnaught Sabatons",
+        "iconName": "inv_boots_plate_06",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=22420",
+        "slot": "Feet",
+        "itemSubclass": "Plate",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 86,
+        "stats": [
+          {
+            "type": "Strength",
+            "value": 15
+          },
+          {
+            "type": "Stamina",
+            "value": 34
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 73173,
+        "armor": 662,
+        "durability": 75,
+        "effects": [
+          "Equip: Increased Defense +9",
+          "Equip: Increased Dodge +1"
+        ]
+      },
+      "questId": 9039,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Dreadnaught Waistguard",
+      "startZone": "Eastern Plaguelands",
+      "startInstance": null,
+      "reward": "Dreadnaught Waistguard",
+      "rewardItemId": 22422,
+      "rewardItem": {
+        "name": "Dreadnaught Waistguard",
+        "iconName": "inv_belt_27",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=22422",
+        "slot": "Waist",
+        "itemSubclass": "Plate",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 88,
+        "stats": [
+          {
+            "type": "Strength",
+            "value": 20
+          },
+          {
+            "type": "Stamina",
+            "value": 26
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 50334,
+        "armor": 554,
+        "durability": 55,
+        "effects": [
+          "Equip: Block Value +18",
+          "Equip: Increased Block +3",
+          "Equip: Increased Defense +9"
+        ]
+      },
+      "questId": 9041,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Paragons of Power: The Vindicator's Armguards",
+      "startZone": "Stranglethorn Vale",
+      "startInstance": null,
+      "reward": "Zandalar Vindicator's Armguards",
+      "rewardItemId": 19824,
+      "rewardItem": {
+        "name": "Zandalar Vindicator's Armguards",
+        "iconName": "inv_bracer_14",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=19824",
+        "slot": "Wrist",
+        "itemSubclass": "Plate",
+        "quality": "Epic",
+        "requiredLevel": 0,
+        "itemLevel": 61,
+        "stats": [
+          {
+            "type": "Strength",
+            "value": 13
+          },
+          {
+            "type": "Stamina",
+            "value": 13
+          },
+          {
+            "type": "Agility",
+            "value": 13
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 0,
+        "armor": 304,
+        "durability": 55
+      },
+      "questId": 8058,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Paragons of Power: The Vindicator's Belt",
+      "startZone": "Stranglethorn Vale",
+      "startInstance": null,
+      "reward": "Zandalar Vindicator's Belt",
+      "rewardItemId": 19823,
+      "rewardItem": {
+        "name": "Zandalar Vindicator's Belt",
+        "iconName": "inv_belt_32",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=19823",
+        "slot": "Waist",
+        "itemSubclass": "Plate",
+        "quality": "Epic",
+        "requiredLevel": 0,
+        "itemLevel": 61,
+        "stats": [
+          {
+            "type": "Strength",
+            "value": 25
+          },
+          {
+            "type": "Stamina",
+            "value": 10
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 0,
+        "armor": 391,
+        "durability": 55,
+        "effects": [
+          "Equip: Increased Critical +1"
+        ]
+      },
+      "questId": 8078,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Paragons of Power: The Vindicator's Breastplate",
+      "startZone": "Stranglethorn Vale",
+      "startInstance": null,
+      "reward": "Zandalar Vindicator's Breastplate",
+      "rewardItemId": 19822,
+      "rewardItem": {
+        "name": "Zandalar Vindicator's Breastplate",
+        "iconName": "inv_chest_plate07",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=19822",
+        "slot": "Chest",
+        "itemSubclass": "Plate",
+        "quality": "Epic",
+        "requiredLevel": 0,
+        "itemLevel": 65,
+        "stats": [
+          {
+            "type": "Strength",
+            "value": 23
+          },
+          {
+            "type": "Stamina",
+            "value": 24
+          },
+          {
+            "type": "Agility",
+            "value": 15
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 0,
+        "armor": 828,
+        "durability": 165,
+        "effects": [
+          "Equip: Increased Defense +4"
+        ]
+      },
+      "questId": 8079,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Sickle of Unyielding Strength",
+      "startZone": "Silithus",
+      "startInstance": null,
+      "reward": "Sickle of Unyielding Strength",
+      "rewardItemId": 21392,
+      "rewardItem": {
+        "name": "Sickle of Unyielding Strength",
+        "iconName": "inv_axe_15",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=21392",
+        "slot": "One-Hand",
+        "itemSubclass": "Axe",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 70,
+        "stats": [
+          {
+            "type": "Strength",
+            "value": 15
+          },
+          {
+            "type": "Agility",
+            "value": 6
+          },
+          {
+            "type": "Stamina",
+            "value": 9
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 0,
+        "damage": {
+          "min": 75,
+          "max": 141,
+          "speed": 2.1
+        },
+        "durability": 105,
+        "effects": [
+          "Equip: Increased Defense +4"
+        ]
+      },
+      "questId": 8558,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Signet of Unyielding Strength",
+      "startZone": "Silithus",
+      "startInstance": null,
+      "reward": "Signet of Unyielding Strength",
+      "rewardItemId": 21393,
+      "rewardItem": {
+        "name": "Signet of Unyielding Strength",
+        "iconName": "inv_jewelry_ring_ahnqiraj_03",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=21393",
+        "slot": "Finger",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 65,
+        "stats": [
+          {
+            "type": "Strength",
+            "value": 11
+          },
+          {
+            "type": "Stamina",
+            "value": 14
+          }
+        ],
+        "bind": "pickup",
+        "unique": true,
+        "sellPriceCopper": 0,
+        "effects": [
+          "Equip: Increased Critical +1"
+        ]
+      },
+      "questId": 8556,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Strength of Mount Mugamba",
+      "startZone": "Stranglethorn Vale",
+      "startInstance": null,
+      "reward": "Strength of Mugamba",
+      "rewardItemId": 19574,
+      "rewardItem": {
+        "name": "Strength of Mugamba",
+        "iconName": "inv_jewelry_necklace_23",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=19574",
+        "slot": "Neck",
+        "quality": "Uncommon",
+        "requiredLevel": 0,
+        "itemLevel": 60,
+        "stats": [
+          {
+            "type": "Stamina",
+            "value": 10
+          },
+          {
+            "type": "Strength",
+            "value": 7
+          }
+        ],
+        "bind": "pickup",
+        "unique": true,
+        "sellPriceCopper": 0,
+        "effects": [
+          "Equip: Increased Defense +4"
+        ]
+      },
+      "questId": 8041,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "The Rage of Mount Mugamba",
+      "startZone": "Stranglethorn Vale",
+      "startInstance": null,
+      "reward": "Rage of Mugamba",
+      "rewardItemId": 19577,
+      "rewardItem": {
+        "name": "Rage of Mugamba",
+        "iconName": "inv_jewelry_necklace_26",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=19577",
+        "slot": "Neck",
+        "quality": "Epic",
+        "requiredLevel": 0,
+        "itemLevel": 65,
+        "stats": [
+          {
+            "type": "Agility",
+            "value": 8
+          },
+          {
+            "type": "Strength",
+            "value": 8
+          },
+          {
+            "type": "Stamina",
+            "value": 13
+          }
+        ],
+        "bind": "pickup",
+        "unique": true,
+        "sellPriceCopper": 0,
+        "effects": [
+          "Equip: Increased Defense +6",
+          "Equip: Increased Block +2",
+          "Equip: Improved Hamstring"
+        ]
+      },
+      "questId": 8044,
+      "faction": "both"
+    }
+  ],
+  "professionMilestones": [
+    {
+      "skill": "First Aid",
+      "atSkill": 50,
+      "levelHint": 10,
+      "action": "Train Journeyman First Aid",
+      "where": "any First Aid trainer"
+    },
+    {
+      "skill": "First Aid",
+      "atSkill": 125,
+      "levelHint": 20,
+      "action": "Buy Expert First Aid — Under Wraps",
+      "itemId": 16084,
+      "where": "Deneb Walker (Arathi Highlands) / Balai Lok'Wein (Dustwallow Marsh)"
+    },
+    {
+      "skill": "First Aid",
+      "atSkill": 225,
+      "levelHint": 35,
+      "action": "Complete Triage",
+      "questId": [
+        6624,
+        6622
+      ],
+      "where": "Doctor Gustaf VanHowzen (Dustwallow Marsh) / Doctor Gregory Victor (Arathi Highlands)"
+    },
+    {
+      "skill": "Cooking",
+      "atSkill": 50,
+      "levelHint": 10,
+      "action": "Train Journeyman Cooking",
+      "where": "any Cooking trainer"
+    },
+    {
+      "skill": "Cooking",
+      "atSkill": 125,
+      "levelHint": 20,
+      "action": "Buy the Expert Cookbook",
+      "itemId": 16072,
+      "where": "Shandrina (Ashenvale) / Wulan (Desolace)"
+    },
+    {
+      "skill": "Cooking",
+      "atSkill": 225,
+      "levelHint": 35,
+      "action": "Complete Clamlette Surprise",
+      "questId": 6610,
+      "where": "Dirge Quikcleave (Tanaris)"
+    },
+    {
+      "skill": "Fishing",
+      "atSkill": 50,
+      "levelHint": 10,
+      "action": "Train Journeyman Fishing",
+      "where": "any Fishing trainer"
+    },
+    {
+      "skill": "Fishing",
+      "atSkill": 125,
+      "levelHint": 20,
+      "action": "Buy Expert Fishing — The Bass and You",
+      "itemId": 16083,
+      "where": "Old Man Heming (Stranglethorn Vale)"
+    },
+    {
+      "skill": "Fishing",
+      "atSkill": 225,
+      "levelHint": 35,
+      "action": "Complete Nat Pagle, Angler Extreme",
+      "questId": 6607,
+      "where": "Nat Pagle (Dustwallow Marsh)"
+    }
+  ]
+}

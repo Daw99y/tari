@@ -1,6 +1,8 @@
 # Carry-over — where whelp plz lands in Tari
 
-Written 2026-08-25. Answers "how do upgrades, errands, trainer etc. come
+Written 2026-08-25. **Trainer, attunements, errands and journey were built on
+2026-08-31 — see §The path, below. The table's rulings held; what changed is
+that they landed on their own page rather than inside the room.** Answers "how do upgrades, errands, trainer etc. come
 across". The rule is `TARI.md` §2.1: a feature lives if it makes someone
 linger in a place. Whelp plz had five tabs and a zone page. Tari has two
 surfaces: **the room** (`/r/[room]`) and **the path** (`/you`). Every old
@@ -69,3 +71,90 @@ pins, drops, a trainer nearby, a chain that starts there, and a level band
 that makes the "at 24" filter mean something. **Duskwood** is the one every
 doc already uses as the example. Eastern Plaguelands is the one with a
 working map. Either; pick one and do not do two.
+
+
+## The path, built 2026-08-31
+
+The four reader-facing tabs — Journey, Trainer, Attunements, Errands — are one
+page at **`/path`**, and the letter that used to sit under the name on `/you`
+moved there with them. `/you` is the paperdoll and the dressing room; `/path`
+is what changed. The rail's foot chip is split in two to match: the character
+plate opens `/you`, the half under it opens `/path`.
+
+**What was built**
+
+- `reference/training/*.json` (nine classes, 644 KB) and
+  `reference/journey/{alliance,horde}.json` (34 KB), copied from CPLUS
+  unchanged. Training is a per-class dynamic import; the reader fetches one.
+- `lib/spell-icons.ts`, whelp plz's own 45 KB stem table, copied unchanged.
+- `lib/journey.ts` — the reading. Trainer visits owed, attunement chains with
+  progress, class quests sided and levelled, zones about to grey out, the next
+  profession threshold. Plus `journeyLetter`, the level's half of §5's letter.
+- `app/(app)/path/` — the surface. `lib/path.ts` is untouched and still writes
+  the gear half; the page prints the level's sentences first because what you
+  are wearing is the older news.
+
+**The rulings this pass made**
+
+- **The ticks are whelp plz's own subjects** — `q:{questId}`, `t:{level}`,
+  `p:{skill}:{atSkill}` — on the existing `done` mark kind. When the addon
+  starts reporting a spellbook or a quest log, an import lands in the same
+  store with no migration.
+- **A trainer visit is one tick, not five.** You go once and buy the lot.
+- **Nothing ticked ever leaves the page.** A row that vanished when you ticked
+  it is a tick you cannot take back. Done visits keep their row and lose their
+  list; done errands stay in place, struck through.
+- **Only the newest owed visit is spelled out.** Eight expanded visits is the
+  price list the old Trainer tab was.
+- **Class quests are sided.** The table holds every race's version of the same
+  errand and half of them are in cities that would kill this character.
+- **Nothing is ranked.** Whelp plz's `lib/plan.ts` scored every move against
+  every other one and printed a winner; that is the ranked catalogue §2.1
+  refuses, and it is what made the old tab a chore list. Everything comes back
+  in the game's own order.
+- **One green on the page**, on the newest visit you have not bought — the
+  only thing on it that means "something here is for you".
+
+**Still open**
+
+- **The room's half is not built.** The table above puts the trainer's card in
+  the city room and an attunement step in the instance room where it is picked
+  up. That needs the `room`/`entry` reshape in §The one structural change, and
+  `/path` deliberately does not wait for it — every row that names a place is
+  already a door into that room.
+- **Five pipeline names are not rooms**: three battlegrounds (correct — Tari
+  has no room for a queue), "Dire Maul" as the building rather than a wing,
+  and "Stormwind City", which is aliased in `lib/journey.ts`.
+- ~~The import does not write `done`.~~ **Done, same day.** `lib/import.ts`
+  already held `matchImport` and had held it all along; what was missing was
+  the catalogue to match against, and its own header said that came from
+  `lib/journey.ts`. `importCatalog` + `creditImport` join the two ends and
+  `you/new/Creator.tsx` awaits the credit before it navigates. Proved against
+  a real level 17 rogue string: eight trainer visits, one class quest and one
+  profession milestone credited, and `/path` opens saying "up to date".
+  `setMarks` in `lib/marks.ts` is the one-commit write it needed, and it only
+  ever adds — the addon reports what a character has, never what it has not,
+  so an import can never take a hand-tick back.
+- ~~Two fields the addon could send and does not.~~ **Added, same day: TA2.**
+  `L:` is the quest log as it stands and `K:` is every talent's rank, one
+  digit each. The addon is not on CurseForge yet, so the format was free to
+  move; the tail is keyed, so a TA1 string is simply one with two fewer
+  fields and still reads. `L:` is the one that changes what `/path` can say —
+  a chain whose next step is in your bag now says **In your log** and leads
+  the letter, because it is the only thing on the page you could be *doing*
+  rather than starting.
+  **`KNOWN_VERSIONS` in `lib/import.ts` is the other half of a bump** and it
+  was forgotten for ten minutes: the addon emitted TA2 while the site still
+  refused anything but TA1, so the reader was told their own addon was from
+  the future. The list is newest-first now and the refusal quotes its head,
+  so the message cannot drift from the list again — but adding a prefix to
+  the addon still means adding it there in the same breath. `K:` is parsed and stored and nothing reads it yet:
+  the talent-gated trainer rows it would settle need a talent→row map out of
+  CPLUS first, and until that exists `optional` is still the honest answer.
+- **The quest log is a photograph, not a record.** It is kept on the
+  character and replaced by the next import, never turned into marks — a mark
+  is something the reader did and does not take back, and a quest leaves the
+  log the moment it is handed in.
+- **The rail chip carries no count.** `waiting()` in `lib/journey.ts` returns
+  one, but the chip would have to load a 70 KB class file on every page in the
+  app to show it.

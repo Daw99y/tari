@@ -1183,3 +1183,100 @@
     animation: none;
   }
 }
+
+/* ---- the foot, split in two. docs/TARI.md §5.
+ *
+ * The plate answers "who am I"; the path answers "what happened to them".
+ * They are one object with a cut through it rather than two chips: shared
+ * width, a 2px gap, and the outer corners rounded while the inner two are
+ * nearly square, which is the only thing that makes a split read as a split
+ * and not as a list. No hairline between them — the gap is the divider
+ * (docs/DESIGN.md). */
+
+.meSplit {
+  display: grid;
+  gap: 2px;
+}
+
+.meSplit .mePlate {
+  border-radius: 9px 9px 3px 3px;
+}
+
+.mePath {
+  --cls: var(--ink);
+
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  min-height: 2.2rem;
+  padding: 0.35rem 0.5rem;
+  border-radius: 3px 3px 9px 9px;
+  text-decoration: none;
+  overflow: hidden;
+  isolation: isolate;
+  box-shadow: inset 0 0 0 0.5px color-mix(in srgb, var(--cls) 20%, transparent);
+  transition: background-color 200ms ease, box-shadow 200ms ease;
+}
+
+/* The wash runs from the same edge as the plate's, at half the strength, so
+   the two halves are lit by one light and the character's colour still lands
+   on the plate rather than being spread across both. */
+.mePath::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(120% 150% at 0% 50%, var(--cls) 0%, transparent 62%);
+  opacity: 0.08;
+  transition: opacity 220ms ease;
+}
+
+.mePath:hover {
+  background: rgba(242, 240, 234, 0.045);
+  box-shadow: inset 0 0 0 0.5px color-mix(in srgb, var(--cls) 45%, transparent);
+}
+
+.mePath:hover::before {
+  opacity: 0.18;
+}
+
+.mePath:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: -2px;
+}
+
+/* Where you already are takes the keyline, never the accent — the rail's own
+   rule for the room you are standing in. */
+.mePlate[data-on],
+.mePath[data-on] {
+  background: rgba(242, 240, 234, 0.06);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--cls) 55%, transparent);
+}
+
+.mePath[data-on]::before {
+  opacity: 0.2;
+}
+
+.meTrail {
+  flex: none;
+  width: 1.35rem;
+  height: 1.35rem;
+  margin: 0 0.375rem;
+  color: rgba(242, 240, 234, 0.5);
+  transition: color 220ms ease;
+}
+
+.mePath:hover .meTrail,
+.mePath[data-on] .meTrail {
+  color: var(--cls);
+}
+
+.mePathName {
+  font: 600 0.78rem/1.1 var(--app-sans);
+  letter-spacing: -0.01em;
+  color: rgba(242, 240, 234, 0.86);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

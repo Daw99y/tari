@@ -48,6 +48,24 @@ function Clyde() {
   );
 }
 
+/* The path's own mark: a trail bending away, and the reader standing on it.
+   Drawn rather than borrowed — nothing in the client means "the road you are
+   on", and a footprint would have been a metaphor about walking. */
+function Trail() {
+  return (
+    <svg className={styles.meTrail} viewBox="0 0 20 20" fill="none" aria-hidden="true" focusable="false">
+      <path
+        d="M5.5 17.5c0-3.2 3-4 5-5.2 2-1.2 3.2-2.3 3.2-4.1 0-2-1.6-3.4-3.6-3.4-1.9 0-3.3 1.1-3.3 2.6"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+        strokeDasharray="0.1 3.4"
+      />
+      <circle cx="5.5" cy="17.5" r="1.7" fill="currentColor" />
+    </svg>
+  );
+}
+
 export default function You({
   handle,
   canSignIn,
@@ -76,23 +94,44 @@ export default function You({
           </span>
         </Link>
       ) : (
-        <Link
-          href="/you"
-          className={styles.mePlate}
-          style={{ ["--cls" as string]: CLASS_COLOR[me.cls] }}
-          aria-label={`${me.name}, level ${me.level} ${RACE_NAME[me.race]} ${CLASS_NAME[me.cls]}. Open your sheet.`}
-        >
-          <span className={styles.mePortrait}>
-            <img src={racePortrait(me.race, me.sex)} alt="" decoding="async" />
-            <img className={styles.meClass} src={classIcon(me.cls)} alt="" decoding="async" />
-          </span>
-          <span className={styles.meWords}>
-            <span className={styles.meName}>{me.name}</span>
-            <span className={styles.meLine}>
-              {me.level} · {RACE_NAME[me.race]} {CLASS_NAME[me.cls]}
+        <div className={styles.meSplit}>
+          <Link
+            href="/you"
+            className={styles.mePlate}
+            data-on={pathname === "/you" ? "" : undefined}
+            style={{ ["--cls" as string]: CLASS_COLOR[me.cls] }}
+            aria-label={`${me.name}, level ${me.level} ${RACE_NAME[me.race]} ${CLASS_NAME[me.cls]}. Open your sheet.`}
+          >
+            <span className={styles.mePortrait}>
+              <img src={racePortrait(me.race, me.sex)} alt="" decoding="async" />
+              <img className={styles.meClass} src={classIcon(me.cls)} alt="" decoding="async" />
             </span>
-          </span>
-        </Link>
+            <span className={styles.meWords}>
+              <span className={styles.meName}>{me.name}</span>
+              <span className={styles.meLine}>
+                {me.level} · {RACE_NAME[me.race]} {CLASS_NAME[me.cls]}
+              </span>
+            </span>
+          </Link>
+
+          {/* THE OTHER HALF. The plate is who you are; this is what has
+              happened to them since you last looked (docs/TARI.md §5). One
+              object cut in two rather than two chips, because they are two
+              questions about one character and the rail has room for one
+              thing at its foot. */}
+          <Link
+            href="/path"
+            className={styles.mePath}
+            data-on={pathname === "/path" ? "" : undefined}
+            style={{ ["--cls" as string]: CLASS_COLOR[me.cls] }}
+          >
+            <Trail />
+            <span className={styles.meWords}>
+              <span className={styles.mePathName}>The path</span>
+              <span className={styles.meLine}>What changed</span>
+            </span>
+          </Link>
+        </div>
       )}
 
       {!canSignIn ? null : handle ? (

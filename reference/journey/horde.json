@@ -1,0 +1,813 @@
+{
+  "faction": "horde",
+  "attunements": [
+    {
+      "name": "Molten Core Attunement",
+      "target": "Molten Core",
+      "kind": "attunement",
+      "minLevel": 55,
+      "keyItemId": null,
+      "steps": [
+        {
+          "questId": 7848,
+          "name": "Attunement to the Core",
+          "startZone": "Burning Steppes",
+          "startInstance": null,
+          "questLevel": 60,
+          "minLevel": 55
+        }
+      ]
+    },
+    {
+      "name": "Blackwing Lair Attunement",
+      "target": "Blackwing Lair",
+      "kind": "attunement",
+      "minLevel": 55,
+      "keyItemId": null,
+      "steps": [
+        {
+          "questId": 7761,
+          "name": "Blackhand's Command",
+          "startZone": "Burning Steppes",
+          "startInstance": null,
+          "questLevel": 60,
+          "minLevel": 55
+        }
+      ]
+    },
+    {
+      "name": "Onyxia's Lair Attunement",
+      "target": "Onyxia's Lair",
+      "kind": "attunement",
+      "minLevel": 55,
+      "keyItemId": 16309,
+      "steps": [
+        {
+          "questId": 6585,
+          "name": "The Test of Skulls, Axtroz",
+          "startZone": "Dustwallow Marsh",
+          "startInstance": null,
+          "questLevel": 60,
+          "minLevel": 55
+        },
+        {
+          "questId": 6601,
+          "name": "Ascension...",
+          "startZone": "Dustwallow Marsh",
+          "startInstance": null,
+          "questLevel": 60,
+          "minLevel": 55
+        },
+        {
+          "questId": 6602,
+          "name": "Blood of the Black Dragon Champion",
+          "startZone": "Desolace",
+          "startInstance": null,
+          "questLevel": 60,
+          "minLevel": 55
+        }
+      ]
+    },
+    {
+      "name": "Seal of Ascension",
+      "target": "Blackrock Spire",
+      "kind": "key",
+      "minLevel": 57,
+      "keyItemId": 12344,
+      "steps": [
+        {
+          "questId": 4742,
+          "name": "Seal of Ascension",
+          "startZone": null,
+          "startInstance": null,
+          "questLevel": 60,
+          "minLevel": 57
+        },
+        {
+          "questId": 4743,
+          "name": "Seal of Ascension",
+          "startZone": null,
+          "startInstance": null,
+          "questLevel": 60,
+          "minLevel": 57
+        }
+      ]
+    },
+    {
+      "name": "The Skeleton Key",
+      "target": "Scholomance",
+      "kind": "key",
+      "minLevel": 55,
+      "keyItemId": 13704,
+      "steps": [
+        {
+          "questId": 5096,
+          "name": "Scarlet Diversions",
+          "startZone": "Western Plaguelands",
+          "startInstance": null,
+          "questLevel": 53,
+          "minLevel": 50
+        },
+        {
+          "questId": 5098,
+          "name": "All Along the Watchtowers",
+          "startZone": "Western Plaguelands",
+          "startInstance": null,
+          "questLevel": 56,
+          "minLevel": 50
+        },
+        {
+          "questId": 838,
+          "name": "Scholomance",
+          "startZone": "Western Plaguelands",
+          "startInstance": null,
+          "questLevel": 55,
+          "minLevel": 55
+        },
+        {
+          "questId": 964,
+          "name": "Skeletal Fragments",
+          "startZone": "Western Plaguelands",
+          "startInstance": null,
+          "questLevel": 57,
+          "minLevel": 55
+        },
+        {
+          "questId": 5514,
+          "name": "Mold Rhymes With...",
+          "startZone": "Western Plaguelands",
+          "startInstance": null,
+          "questLevel": 57,
+          "minLevel": 55
+        },
+        {
+          "questId": 5802,
+          "name": "Fire Plume Forged",
+          "startZone": "Tanaris",
+          "startInstance": null,
+          "questLevel": 57,
+          "minLevel": 55
+        },
+        {
+          "questId": 5804,
+          "name": "Araj's Scarab",
+          "startZone": "Western Plaguelands",
+          "startInstance": null,
+          "questLevel": 60,
+          "minLevel": 55
+        },
+        {
+          "questId": 5511,
+          "name": "The Key to Scholomance",
+          "startZone": "Western Plaguelands",
+          "startInstance": null,
+          "questLevel": 60,
+          "minLevel": 55
+        }
+      ]
+    },
+    {
+      "name": "Scepter of Celebras",
+      "target": "Maraudon",
+      "kind": "key",
+      "minLevel": 41,
+      "keyItemId": 17191,
+      "steps": [
+        {
+          "questId": 7044,
+          "name": "Legends of Maraudon",
+          "startZone": "Desolace",
+          "startInstance": null,
+          "questLevel": 49,
+          "minLevel": 41
+        },
+        {
+          "questId": 7046,
+          "name": "The Scepter of Celebras",
+          "startZone": null,
+          "startInstance": null,
+          "questLevel": 49,
+          "minLevel": 41
+        }
+      ]
+    }
+  ],
+  "dungeons": [
+    {
+      "name": "Ahn'Qiraj",
+      "kind": "raid",
+      "entranceZone": "Silithus",
+      "requiredLevel": 50,
+      "band": [
+        60,
+        62
+      ],
+      "requires": null,
+      "endgame": true
+    },
+    {
+      "name": "Blackfathom Deeps",
+      "kind": "dungeon",
+      "entranceZone": "Darkshore",
+      "requiredLevel": 10,
+      "band": [
+        22,
+        26
+      ],
+      "requires": null,
+      "endgame": false
+    },
+    {
+      "name": "Blackrock Depths",
+      "kind": "dungeon",
+      "entranceZone": "Searing Gorge",
+      "requiredLevel": 40,
+      "band": [
+        50,
+        55
+      ],
+      "requires": null,
+      "endgame": false
+    },
+    {
+      "name": "Blackrock Spire",
+      "kind": "dungeon",
+      "entranceZone": "Burning Steppes",
+      "requiredLevel": 45,
+      "band": [
+        54,
+        60
+      ],
+      "requires": "Seal of Ascension",
+      "endgame": true
+    },
+    {
+      "name": "Blackwing Lair",
+      "kind": "raid",
+      "entranceZone": "Burning Steppes",
+      "requiredLevel": 50,
+      "band": [
+        60,
+        62
+      ],
+      "requires": "Blackwing Lair Attunement",
+      "endgame": true
+    },
+    {
+      "name": "Dire Maul",
+      "kind": "dungeon",
+      "entranceZone": "Feralas",
+      "requiredLevel": 45,
+      "band": [
+        54,
+        60
+      ],
+      "requires": null,
+      "endgame": true
+    },
+    {
+      "name": "Gnomeregan",
+      "kind": "dungeon",
+      "entranceZone": "Dun Morogh",
+      "requiredLevel": 15,
+      "band": [
+        28,
+        32
+      ],
+      "requires": null,
+      "endgame": false
+    },
+    {
+      "name": "Maraudon",
+      "kind": "dungeon",
+      "entranceZone": "Desolace",
+      "requiredLevel": 35,
+      "band": [
+        42,
+        47
+      ],
+      "requires": "Scepter of Celebras",
+      "endgame": false
+    },
+    {
+      "name": "Molten Core",
+      "kind": "raid",
+      "entranceZone": "Burning Steppes",
+      "requiredLevel": 50,
+      "band": [
+        61,
+        62
+      ],
+      "requires": "Molten Core Attunement",
+      "endgame": true
+    },
+    {
+      "name": "Naxxramas",
+      "kind": "raid",
+      "entranceZone": "Eastern Plaguelands",
+      "requiredLevel": 51,
+      "band": [
+        60,
+        62
+      ],
+      "requires": null,
+      "endgame": true
+    },
+    {
+      "name": "Onyxia's Lair",
+      "kind": "raid",
+      "entranceZone": "Dustwallow Marsh",
+      "requiredLevel": 50,
+      "band": [
+        62,
+        63
+      ],
+      "requires": "Onyxia's Lair Attunement",
+      "endgame": true
+    },
+    {
+      "name": "Ragefire Chasm",
+      "kind": "dungeon",
+      "entranceZone": "Orgrimmar",
+      "requiredLevel": 8,
+      "band": [
+        14,
+        14
+      ],
+      "requires": null,
+      "endgame": false
+    },
+    {
+      "name": "Razorfen Downs",
+      "kind": "dungeon",
+      "entranceZone": "The Barrens",
+      "requiredLevel": 25,
+      "band": [
+        35,
+        38
+      ],
+      "requires": null,
+      "endgame": false
+    },
+    {
+      "name": "Razorfen Kraul",
+      "kind": "dungeon",
+      "entranceZone": "The Barrens",
+      "requiredLevel": 15,
+      "band": [
+        26,
+        30
+      ],
+      "requires": null,
+      "endgame": false
+    },
+    {
+      "name": "Ruins of Ahn'Qiraj",
+      "kind": "raid",
+      "entranceZone": "Silithus",
+      "requiredLevel": 50,
+      "band": [
+        55,
+        61
+      ],
+      "requires": null,
+      "endgame": true
+    },
+    {
+      "name": "Scarlet Monastery",
+      "kind": "dungeon",
+      "entranceZone": "Tirisfal Glades",
+      "requiredLevel": 20,
+      "band": [
+        32,
+        38
+      ],
+      "requires": null,
+      "endgame": false
+    },
+    {
+      "name": "Scholomance",
+      "kind": "dungeon",
+      "entranceZone": "Western Plaguelands",
+      "requiredLevel": 45,
+      "band": [
+        58,
+        60
+      ],
+      "requires": "The Skeleton Key",
+      "endgame": true
+    },
+    {
+      "name": "Shadowfang Keep",
+      "kind": "dungeon",
+      "entranceZone": "Silverpine Forest",
+      "requiredLevel": 10,
+      "band": [
+        18,
+        24
+      ],
+      "requires": null,
+      "endgame": false
+    },
+    {
+      "name": "Stratholme",
+      "kind": "dungeon",
+      "entranceZone": "Eastern Plaguelands",
+      "requiredLevel": 45,
+      "band": [
+        56,
+        60
+      ],
+      "requires": null,
+      "endgame": true
+    },
+    {
+      "name": "The Deadmines",
+      "kind": "dungeon",
+      "entranceZone": "Westfall",
+      "requiredLevel": 10,
+      "band": [
+        18,
+        20
+      ],
+      "requires": null,
+      "endgame": false
+    },
+    {
+      "name": "The Stockade",
+      "kind": "dungeon",
+      "entranceZone": "Stormwind City",
+      "requiredLevel": 15,
+      "band": [
+        24,
+        26
+      ],
+      "requires": null,
+      "endgame": false
+    },
+    {
+      "name": "The Temple of Atal'Hakkar",
+      "kind": "dungeon",
+      "entranceZone": "Swamp of Sorrows",
+      "requiredLevel": 35,
+      "band": [
+        46,
+        50
+      ],
+      "requires": null,
+      "endgame": false
+    },
+    {
+      "name": "Uldaman",
+      "kind": "dungeon",
+      "entranceZone": "Badlands",
+      "requiredLevel": 30,
+      "band": [
+        36,
+        44
+      ],
+      "requires": null,
+      "endgame": false
+    },
+    {
+      "name": "Wailing Caverns",
+      "kind": "dungeon",
+      "entranceZone": "The Barrens",
+      "requiredLevel": 10,
+      "band": [
+        18,
+        20
+      ],
+      "requires": null,
+      "endgame": false
+    },
+    {
+      "name": "Zul'Farrak",
+      "kind": "dungeon",
+      "entranceZone": "Tanaris",
+      "requiredLevel": 35,
+      "band": [
+        45,
+        46
+      ],
+      "requires": null,
+      "endgame": false
+    },
+    {
+      "name": "Zul'Gurub",
+      "kind": "raid",
+      "entranceZone": "Stranglethorn Vale",
+      "requiredLevel": 50,
+      "band": [
+        60,
+        61
+      ],
+      "requires": null,
+      "endgame": true
+    }
+  ],
+  "zoneBands": [
+    {
+      "zone": "Alterac Mountains",
+      "band": null,
+      "questCount": 1
+    },
+    {
+      "zone": "Alterac Valley",
+      "band": null,
+      "questCount": 5
+    },
+    {
+      "zone": "Arathi Basin",
+      "band": null,
+      "questCount": 0
+    },
+    {
+      "zone": "Arathi Highlands",
+      "band": [
+        34,
+        41
+      ],
+      "questCount": 28
+    },
+    {
+      "zone": "Ashenvale",
+      "band": [
+        22,
+        30
+      ],
+      "questCount": 20
+    },
+    {
+      "zone": "Azshara",
+      "band": [
+        52,
+        60
+      ],
+      "questCount": 18
+    },
+    {
+      "zone": "Badlands",
+      "band": [
+        37,
+        58
+      ],
+      "questCount": 36
+    },
+    {
+      "zone": "Blasted Lands",
+      "band": [
+        50,
+        55
+      ],
+      "questCount": 9
+    },
+    {
+      "zone": "Burning Steppes",
+      "band": [
+        53,
+        60
+      ],
+      "questCount": 38
+    },
+    {
+      "zone": "Darkshore",
+      "band": null,
+      "questCount": 0
+    },
+    {
+      "zone": "Deadwind Pass",
+      "band": null,
+      "questCount": 0
+    },
+    {
+      "zone": "Desolace",
+      "band": [
+        32,
+        49
+      ],
+      "questCount": 35
+    },
+    {
+      "zone": "Dun Morogh",
+      "band": null,
+      "questCount": 0
+    },
+    {
+      "zone": "Durotar",
+      "band": [
+        3,
+        12
+      ],
+      "questCount": 34
+    },
+    {
+      "zone": "Duskwood",
+      "band": null,
+      "questCount": 4
+    },
+    {
+      "zone": "Dustwallow Marsh",
+      "band": [
+        35,
+        45
+      ],
+      "questCount": 23
+    },
+    {
+      "zone": "Eastern Plaguelands",
+      "band": [
+        56,
+        60
+      ],
+      "questCount": 85
+    },
+    {
+      "zone": "Elwynn Forest",
+      "band": null,
+      "questCount": 0
+    },
+    {
+      "zone": "Felwood",
+      "band": [
+        51,
+        58
+      ],
+      "questCount": 23
+    },
+    {
+      "zone": "Feralas",
+      "band": [
+        43,
+        52
+      ],
+      "questCount": 34
+    },
+    {
+      "zone": "Hillsbrad Foothills",
+      "band": [
+        22,
+        39
+      ],
+      "questCount": 31
+    },
+    {
+      "zone": "Loch Modan",
+      "band": null,
+      "questCount": 0
+    },
+    {
+      "zone": "Moonglade",
+      "band": [
+        57,
+        60
+      ],
+      "questCount": 12
+    },
+    {
+      "zone": "Mulgore",
+      "band": [
+        3,
+        10
+      ],
+      "questCount": 31
+    },
+    {
+      "zone": "Redridge Mountains",
+      "band": null,
+      "questCount": 1
+    },
+    {
+      "zone": "Searing Gorge",
+      "band": [
+        48,
+        50
+      ],
+      "questCount": 11
+    },
+    {
+      "zone": "Silithus",
+      "band": [
+        57,
+        60
+      ],
+      "questCount": 43
+    },
+    {
+      "zone": "Silverpine Forest",
+      "band": [
+        11,
+        20
+      ],
+      "questCount": 32
+    },
+    {
+      "zone": "Stonetalon Mountains",
+      "band": [
+        18,
+        26
+      ],
+      "questCount": 26
+    },
+    {
+      "zone": "Stranglethorn Vale",
+      "band": [
+        33,
+        51
+      ],
+      "questCount": 53
+    },
+    {
+      "zone": "Swamp of Sorrows",
+      "band": [
+        36,
+        55
+      ],
+      "questCount": 16
+    },
+    {
+      "zone": "Tanaris",
+      "band": [
+        45,
+        60
+      ],
+      "questCount": 72
+    },
+    {
+      "zone": "Teldrassil",
+      "band": null,
+      "questCount": 0
+    },
+    {
+      "zone": "The Barrens",
+      "band": [
+        13,
+        25
+      ],
+      "questCount": 77
+    },
+    {
+      "zone": "The Hinterlands",
+      "band": [
+        45,
+        51
+      ],
+      "questCount": 24
+    },
+    {
+      "zone": "Thousand Needles",
+      "band": [
+        26,
+        38
+      ],
+      "questCount": 46
+    },
+    {
+      "zone": "Tirisfal Glades",
+      "band": [
+        3,
+        12
+      ],
+      "questCount": 42
+    },
+    {
+      "zone": "Un'Goro Crater",
+      "band": [
+        52,
+        55
+      ],
+      "questCount": 35
+    },
+    {
+      "zone": "Warsong Gulch",
+      "band": null,
+      "questCount": 0
+    },
+    {
+      "zone": "Western Plaguelands",
+      "band": [
+        54,
+        60
+      ],
+      "questCount": 45
+    },
+    {
+      "zone": "Westfall",
+      "band": null,
+      "questCount": 3
+    },
+    {
+      "zone": "Wetlands",
+      "band": null,
+      "questCount": 0
+    },
+    {
+      "zone": "Winterspring",
+      "band": [
+        54,
+        60
+      ],
+      "questCount": 27
+    }
+  ]
+}

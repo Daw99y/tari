@@ -2,6 +2,6 @@
 ## Title: Tari
 ## Notes: /tari exports your character for tari.gg
 ## Author: Kacey
-## Version: 0.1.0
+## Version: 0.2.0
 ## SavedVariablesPerCharacter: TariChar
 Tari.lua

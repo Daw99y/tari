@@ -1,0 +1,3033 @@
+{
+  "class": "shaman",
+  "abilities": [
+    {
+      "level": 1,
+      "spells": [
+        {
+          "spellId": 8017,
+          "name": "Rockbiter Weapon",
+          "rank": 1,
+          "costCopper": 10,
+          "knownBy": [
+            8017,
+            8018,
+            8019,
+            10399,
+            16314,
+            16315,
+            16316
+          ]
+        }
+      ],
+      "totalCostCopper": 10
+    },
+    {
+      "level": 4,
+      "spells": [
+        {
+          "spellId": 8042,
+          "name": "Earth Shock",
+          "rank": 1,
+          "costCopper": 100,
+          "knownBy": [
+            8042,
+            8044,
+            8045,
+            8046,
+            10412,
+            10413,
+            10414
+          ]
+        }
+      ],
+      "totalCostCopper": 100
+    },
+    {
+      "level": 6,
+      "spells": [
+        {
+          "spellId": 2484,
+          "name": "Earthbind Totem",
+          "rank": null,
+          "costCopper": 100,
+          "knownBy": [
+            2484
+          ]
+        },
+        {
+          "spellId": 332,
+          "name": "Healing Wave",
+          "rank": 2,
+          "costCopper": 100,
+          "knownBy": [
+            332,
+            547,
+            913,
+            939,
+            959,
+            8005,
+            10395,
+            10396,
+            25357
+          ]
+        }
+      ],
+      "totalCostCopper": 200
+    },
+    {
+      "level": 8,
+      "spells": [
+        {
+          "spellId": 8044,
+          "name": "Earth Shock",
+          "rank": 2,
+          "costCopper": 100,
+          "knownBy": [
+            8044,
+            8045,
+            8046,
+            10412,
+            10413,
+            10414
+          ]
+        },
+        {
+          "spellId": 529,
+          "name": "Lightning Bolt",
+          "rank": 2,
+          "costCopper": 100,
+          "knownBy": [
+            529,
+            548,
+            915,
+            943,
+            6041,
+            10391,
+            10392,
+            15207,
+            15208
+          ]
+        },
+        {
+          "spellId": 324,
+          "name": "Lightning Shield",
+          "rank": 1,
+          "costCopper": 100,
+          "knownBy": [
+            324,
+            325,
+            905,
+            945,
+            8134,
+            10431,
+            10432,
+            26363,
+            26364,
+            26365,
+            26366,
+            26367,
+            26369,
+            26370
+          ]
+        },
+        {
+          "spellId": 8018,
+          "name": "Rockbiter Weapon",
+          "rank": 2,
+          "costCopper": 100,
+          "knownBy": [
+            8018,
+            8019,
+            10399,
+            16314,
+            16315,
+            16316
+          ]
+        },
+        {
+          "spellId": 5730,
+          "name": "Stoneclaw Totem",
+          "rank": 1,
+          "costCopper": 100,
+          "knownBy": [
+            5730,
+            6390,
+            6391,
+            6392,
+            10427,
+            10428
+          ]
+        }
+      ],
+      "totalCostCopper": 500
+    },
+    {
+      "level": 10,
+      "spells": [
+        {
+          "spellId": 8050,
+          "name": "Flame Shock",
+          "rank": 1,
+          "costCopper": 400,
+          "knownBy": [
+            8050,
+            8052,
+            8053,
+            10447,
+            10448,
+            29228
+          ]
+        },
+        {
+          "spellId": 8024,
+          "name": "Flametongue Weapon",
+          "rank": 1,
+          "costCopper": 400,
+          "knownBy": [
+            8024,
+            8027,
+            8030,
+            16339,
+            16341,
+            16342
+          ]
+        },
+        {
+          "spellId": 8075,
+          "name": "Strength of Earth Totem",
+          "rank": 1,
+          "costCopper": 400,
+          "knownBy": [
+            8075,
+            8160,
+            8161,
+            10442,
+            25361
+          ]
+        }
+      ],
+      "totalCostCopper": 1200
+    },
+    {
+      "level": 12,
+      "spells": [
+        {
+          "spellId": 2008,
+          "name": "Ancestral Spirit",
+          "rank": 1,
+          "costCopper": 800,
+          "knownBy": [
+            2008,
+            20609,
+            20610,
+            20776,
+            20777
+          ]
+        },
+        {
+          "spellId": 1535,
+          "name": "Fire Nova Totem",
+          "rank": 1,
+          "costCopper": 800,
+          "knownBy": [
+            1535,
+            8498,
+            8499,
+            11314,
+            11315,
+            27623
+          ]
+        },
+        {
+          "spellId": 547,
+          "name": "Healing Wave",
+          "rank": 3,
+          "costCopper": 800,
+          "knownBy": [
+            547,
+            913,
+            939,
+            959,
+            8005,
+            10395,
+            10396,
+            25357
+          ]
+        },
+        {
+          "spellId": 370,
+          "name": "Purge",
+          "rank": 1,
+          "costCopper": 720,
+          "knownBy": [
+            370,
+            8012,
+            27626
+          ]
+        }
+      ],
+      "totalCostCopper": 3120
+    },
+    {
+      "level": 14,
+      "spells": [
+        {
+          "spellId": 2870,
+          "name": "Cure Disease",
+          "rank": null,
+          "costCopper": 900,
+          "knownBy": [
+            2870
+          ]
+        },
+        {
+          "spellId": 8045,
+          "name": "Earth Shock",
+          "rank": 3,
+          "costCopper": 900,
+          "knownBy": [
+            8045,
+            8046,
+            10412,
+            10413,
+            10414
+          ]
+        },
+        {
+          "spellId": 548,
+          "name": "Lightning Bolt",
+          "rank": 3,
+          "costCopper": 900,
+          "knownBy": [
+            548,
+            915,
+            943,
+            6041,
+            10391,
+            10392,
+            15207,
+            15208
+          ]
+        },
+        {
+          "spellId": 8154,
+          "name": "Stoneskin Totem",
+          "rank": 2,
+          "costCopper": 900,
+          "knownBy": [
+            8154,
+            8155,
+            10406,
+            10407,
+            10408
+          ]
+        }
+      ],
+      "totalCostCopper": 3600
+    },
+    {
+      "level": 16,
+      "spells": [
+        {
+          "spellId": 526,
+          "name": "Cure Poison",
+          "rank": null,
+          "costCopper": 1800,
+          "knownBy": [
+            526
+          ]
+        },
+        {
+          "spellId": 325,
+          "name": "Lightning Shield",
+          "rank": 2,
+          "costCopper": 1800,
+          "knownBy": [
+            325,
+            905,
+            945,
+            8134,
+            10431,
+            10432,
+            26363,
+            26365,
+            26366,
+            26367,
+            26369,
+            26370
+          ]
+        },
+        {
+          "spellId": 8019,
+          "name": "Rockbiter Weapon",
+          "rank": 3,
+          "costCopper": 1800,
+          "knownBy": [
+            8019,
+            10399,
+            16314,
+            16315,
+            16316
+          ]
+        }
+      ],
+      "totalCostCopper": 5400
+    },
+    {
+      "level": 18,
+      "spells": [
+        {
+          "spellId": 8052,
+          "name": "Flame Shock",
+          "rank": 2,
+          "costCopper": 2000,
+          "knownBy": [
+            8052,
+            8053,
+            10447,
+            10448,
+            29228
+          ]
+        },
+        {
+          "spellId": 8027,
+          "name": "Flametongue Weapon",
+          "rank": 2,
+          "costCopper": 2000,
+          "knownBy": [
+            8027,
+            8030,
+            16339,
+            16341,
+            16342
+          ]
+        },
+        {
+          "spellId": 913,
+          "name": "Healing Wave",
+          "rank": 4,
+          "costCopper": 2000,
+          "knownBy": [
+            913,
+            939,
+            959,
+            8005,
+            10395,
+            10396,
+            25357
+          ]
+        },
+        {
+          "spellId": 6390,
+          "name": "Stoneclaw Totem",
+          "rank": 2,
+          "costCopper": 2000,
+          "knownBy": [
+            6390,
+            6391,
+            6392,
+            10427,
+            10428
+          ]
+        },
+        {
+          "spellId": 8143,
+          "name": "Tremor Totem",
+          "rank": null,
+          "costCopper": 2000,
+          "knownBy": [
+            8143
+          ]
+        }
+      ],
+      "totalCostCopper": 10000
+    },
+    {
+      "level": 20,
+      "spells": [
+        {
+          "spellId": 8056,
+          "name": "Frost Shock",
+          "rank": 1,
+          "costCopper": 2200,
+          "knownBy": [
+            8056,
+            8058,
+            10472,
+            10473
+          ]
+        },
+        {
+          "spellId": 8033,
+          "name": "Frostbrand Weapon",
+          "rank": 1,
+          "costCopper": 2200,
+          "knownBy": [
+            8033,
+            8038,
+            10456,
+            16355,
+            16356
+          ]
+        },
+        {
+          "spellId": 2645,
+          "name": "Ghost Wolf",
+          "rank": null,
+          "costCopper": 2200,
+          "knownBy": [
+            2645
+          ]
+        },
+        {
+          "spellId": 8004,
+          "name": "Lesser Healing Wave",
+          "rank": 1,
+          "costCopper": 2200,
+          "knownBy": [
+            8004,
+            8008,
+            8010,
+            10466,
+            10467,
+            10468,
+            27624
+          ]
+        },
+        {
+          "spellId": 915,
+          "name": "Lightning Bolt",
+          "rank": 4,
+          "costCopper": 2200,
+          "knownBy": [
+            915,
+            943,
+            6041,
+            10391,
+            10392,
+            15207,
+            15208
+          ]
+        },
+        {
+          "spellId": 6363,
+          "name": "Searing Totem",
+          "rank": 2,
+          "costCopper": 2200,
+          "knownBy": [
+            6363,
+            6364,
+            6365,
+            10437,
+            10438
+          ]
+        }
+      ],
+      "totalCostCopper": 13200
+    },
+    {
+      "level": 22,
+      "spells": [
+        {
+          "spellId": 8498,
+          "name": "Fire Nova Totem",
+          "rank": 2,
+          "costCopper": 3000,
+          "knownBy": [
+            8498,
+            8499,
+            11314,
+            11315,
+            27623
+          ]
+        },
+        {
+          "spellId": 8166,
+          "name": "Poison Cleansing Totem",
+          "rank": null,
+          "costCopper": 3000,
+          "knownBy": [
+            8166
+          ]
+        },
+        {
+          "spellId": 131,
+          "name": "Water Breathing",
+          "rank": null,
+          "costCopper": 3000,
+          "knownBy": [
+            131
+          ]
+        }
+      ],
+      "totalCostCopper": 9000
+    },
+    {
+      "level": 24,
+      "spells": [
+        {
+          "spellId": 20609,
+          "name": "Ancestral Spirit",
+          "rank": 2,
+          "costCopper": 3500,
+          "knownBy": [
+            20609,
+            20610,
+            20776,
+            20777
+          ]
+        },
+        {
+          "spellId": 8046,
+          "name": "Earth Shock",
+          "rank": 4,
+          "costCopper": 3500,
+          "knownBy": [
+            8046,
+            10412,
+            10413,
+            10414
+          ]
+        },
+        {
+          "spellId": 8181,
+          "name": "Frost Resistance Totem",
+          "rank": 1,
+          "costCopper": 3500,
+          "knownBy": [
+            8181,
+            10478,
+            10479
+          ]
+        },
+        {
+          "spellId": 939,
+          "name": "Healing Wave",
+          "rank": 5,
+          "costCopper": 3500,
+          "knownBy": [
+            939,
+            959,
+            8005,
+            10395,
+            10396,
+            25357
+          ]
+        },
+        {
+          "spellId": 905,
+          "name": "Lightning Shield",
+          "rank": 3,
+          "costCopper": 3500,
+          "knownBy": [
+            905,
+            945,
+            8134,
+            10431,
+            10432,
+            26363,
+            26366,
+            26367,
+            26369,
+            26370
+          ]
+        },
+        {
+          "spellId": 10399,
+          "name": "Rockbiter Weapon",
+          "rank": 4,
+          "costCopper": 3500,
+          "knownBy": [
+            10399,
+            16314,
+            16315,
+            16316
+          ]
+        },
+        {
+          "spellId": 8155,
+          "name": "Stoneskin Totem",
+          "rank": 3,
+          "costCopper": 3500,
+          "knownBy": [
+            8155,
+            10406,
+            10407,
+            10408
+          ]
+        },
+        {
+          "spellId": 8160,
+          "name": "Strength of Earth Totem",
+          "rank": 2,
+          "costCopper": 3500,
+          "knownBy": [
+            8160,
+            8161,
+            10442,
+            25361
+          ]
+        }
+      ],
+      "totalCostCopper": 28000
+    },
+    {
+      "level": 26,
+      "spells": [
+        {
+          "spellId": 6196,
+          "name": "Far Sight",
+          "rank": null,
+          "costCopper": 4000,
+          "knownBy": [
+            6196
+          ]
+        },
+        {
+          "spellId": 8030,
+          "name": "Flametongue Weapon",
+          "rank": 3,
+          "costCopper": 4000,
+          "knownBy": [
+            8030,
+            16339,
+            16341,
+            16342
+          ]
+        },
+        {
+          "spellId": 943,
+          "name": "Lightning Bolt",
+          "rank": 5,
+          "costCopper": 4000,
+          "knownBy": [
+            943,
+            6041,
+            10391,
+            10392,
+            15207,
+            15208
+          ]
+        },
+        {
+          "spellId": 8190,
+          "name": "Magma Totem",
+          "rank": 1,
+          "costCopper": 4000,
+          "knownBy": [
+            8187,
+            8190,
+            10579,
+            10580,
+            10581,
+            10585,
+            10586,
+            10587
+          ]
+        },
+        {
+          "spellId": 5675,
+          "name": "Mana Spring Totem",
+          "rank": 1,
+          "costCopper": 4000,
+          "knownBy": [
+            5675,
+            10495,
+            10496,
+            10497
+          ]
+        }
+      ],
+      "totalCostCopper": 20000
+    },
+    {
+      "level": 28,
+      "spells": [
+        {
+          "spellId": 8184,
+          "name": "Fire Resistance Totem",
+          "rank": 1,
+          "costCopper": 6000,
+          "knownBy": [
+            8184,
+            10537,
+            10538
+          ]
+        },
+        {
+          "spellId": 8053,
+          "name": "Flame Shock",
+          "rank": 3,
+          "costCopper": 6000,
+          "knownBy": [
+            8053,
+            10447,
+            10448,
+            29228
+          ]
+        },
+        {
+          "spellId": 8227,
+          "name": "Flametongue Totem",
+          "rank": 1,
+          "costCopper": 6000,
+          "knownBy": [
+            8227,
+            8249,
+            10526,
+            16387
+          ]
+        },
+        {
+          "spellId": 8038,
+          "name": "Frostbrand Weapon",
+          "rank": 2,
+          "costCopper": 6000,
+          "knownBy": [
+            8038,
+            10456,
+            16355,
+            16356
+          ]
+        },
+        {
+          "spellId": 8008,
+          "name": "Lesser Healing Wave",
+          "rank": 2,
+          "costCopper": 6000,
+          "knownBy": [
+            8008,
+            8010,
+            10466,
+            10467,
+            10468,
+            27624
+          ]
+        },
+        {
+          "spellId": 6391,
+          "name": "Stoneclaw Totem",
+          "rank": 3,
+          "costCopper": 6000,
+          "knownBy": [
+            6391,
+            6392,
+            10427,
+            10428
+          ]
+        },
+        {
+          "spellId": 546,
+          "name": "Water Walking",
+          "rank": null,
+          "costCopper": 6000,
+          "knownBy": [
+            546
+          ]
+        }
+      ],
+      "totalCostCopper": 42000
+    },
+    {
+      "level": 30,
+      "spells": [
+        {
+          "spellId": 556,
+          "name": "Astral Recall",
+          "rank": null,
+          "costCopper": 7000,
+          "knownBy": [
+            556
+          ]
+        },
+        {
+          "spellId": 8177,
+          "name": "Grounding Totem",
+          "rank": null,
+          "costCopper": 7000,
+          "knownBy": [
+            8177
+          ]
+        },
+        {
+          "spellId": 6375,
+          "name": "Healing Stream Totem",
+          "rank": 2,
+          "costCopper": 7000,
+          "knownBy": [
+            6375,
+            6377,
+            10462,
+            10463
+          ]
+        },
+        {
+          "spellId": 10595,
+          "name": "Nature Resistance Totem",
+          "rank": 1,
+          "costCopper": 7000,
+          "knownBy": [
+            10595,
+            10600,
+            10601
+          ]
+        },
+        {
+          "spellId": 20608,
+          "name": "Reincarnation",
+          "rank": null,
+          "costCopper": 7000,
+          "knownBy": [
+            20608
+          ]
+        },
+        {
+          "spellId": 6364,
+          "name": "Searing Totem",
+          "rank": 3,
+          "costCopper": 7000,
+          "knownBy": [
+            6364,
+            6365,
+            10437,
+            10438
+          ]
+        },
+        {
+          "spellId": 8232,
+          "name": "Windfury Weapon",
+          "rank": 1,
+          "costCopper": 7000,
+          "knownBy": [
+            8232,
+            8233,
+            8235,
+            8236,
+            10484,
+            10486,
+            16361,
+            16362
+          ]
+        }
+      ],
+      "totalCostCopper": 49000
+    },
+    {
+      "level": 32,
+      "spells": [
+        {
+          "spellId": 421,
+          "name": "Chain Lightning",
+          "rank": 1,
+          "costCopper": 8000,
+          "knownBy": [
+            421,
+            930,
+            2860,
+            10605
+          ]
+        },
+        {
+          "spellId": 8499,
+          "name": "Fire Nova Totem",
+          "rank": 3,
+          "costCopper": 8000,
+          "knownBy": [
+            8499,
+            11314,
+            11315,
+            27623
+          ]
+        },
+        {
+          "spellId": 959,
+          "name": "Healing Wave",
+          "rank": 6,
+          "costCopper": 8000,
+          "knownBy": [
+            959,
+            8005,
+            10395,
+            10396,
+            25357
+          ]
+        },
+        {
+          "spellId": 6041,
+          "name": "Lightning Bolt",
+          "rank": 6,
+          "costCopper": 8000,
+          "knownBy": [
+            6041,
+            10391,
+            10392,
+            15207,
+            15208
+          ]
+        },
+        {
+          "spellId": 945,
+          "name": "Lightning Shield",
+          "rank": 4,
+          "costCopper": 8000,
+          "knownBy": [
+            945,
+            8134,
+            10431,
+            10432,
+            26363,
+            26367,
+            26369,
+            26370
+          ]
+        },
+        {
+          "spellId": 8012,
+          "name": "Purge",
+          "rank": 2,
+          "costCopper": 7200,
+          "knownBy": [
+            8012,
+            27626
+          ]
+        },
+        {
+          "spellId": 8512,
+          "name": "Windfury Totem",
+          "rank": 1,
+          "costCopper": 8000,
+          "knownBy": [
+            8512,
+            8516,
+            10608,
+            10610,
+            10613,
+            10614,
+            27621
+          ]
+        }
+      ],
+      "totalCostCopper": 55200
+    },
+    {
+      "level": 34,
+      "spells": [
+        {
+          "spellId": 8058,
+          "name": "Frost Shock",
+          "rank": 2,
+          "costCopper": 9000,
+          "knownBy": [
+            8058,
+            10472,
+            10473
+          ]
+        },
+        {
+          "spellId": 16314,
+          "name": "Rockbiter Weapon",
+          "rank": 5,
+          "costCopper": 9000,
+          "knownBy": [
+            16314,
+            16315,
+            16316
+          ]
+        },
+        {
+          "spellId": 6495,
+          "name": "Sentry Totem",
+          "rank": null,
+          "costCopper": 9000,
+          "knownBy": [
+            6495
+          ]
+        },
+        {
+          "spellId": 10406,
+          "name": "Stoneskin Totem",
+          "rank": 4,
+          "costCopper": 9000,
+          "knownBy": [
+            10406,
+            10407,
+            10408
+          ]
+        }
+      ],
+      "totalCostCopper": 36000
+    },
+    {
+      "level": 36,
+      "spells": [
+        {
+          "spellId": 20610,
+          "name": "Ancestral Spirit",
+          "rank": 3,
+          "costCopper": 10000,
+          "knownBy": [
+            20610,
+            20776,
+            20777
+          ]
+        },
+        {
+          "spellId": 10412,
+          "name": "Earth Shock",
+          "rank": 5,
+          "costCopper": 10000,
+          "knownBy": [
+            10412,
+            10413,
+            10414
+          ]
+        },
+        {
+          "spellId": 16339,
+          "name": "Flametongue Weapon",
+          "rank": 4,
+          "costCopper": 10000,
+          "knownBy": [
+            16339,
+            16341,
+            16342
+          ]
+        },
+        {
+          "spellId": 8010,
+          "name": "Lesser Healing Wave",
+          "rank": 3,
+          "costCopper": 10000,
+          "knownBy": [
+            8010,
+            10466,
+            10467,
+            10468,
+            27624
+          ]
+        },
+        {
+          "spellId": 10585,
+          "name": "Magma Totem",
+          "rank": 2,
+          "costCopper": 10000,
+          "knownBy": [
+            10579,
+            10580,
+            10581,
+            10585,
+            10586,
+            10587
+          ]
+        },
+        {
+          "spellId": 10495,
+          "name": "Mana Spring Totem",
+          "rank": 2,
+          "costCopper": 10000,
+          "knownBy": [
+            10495,
+            10496,
+            10497
+          ]
+        },
+        {
+          "spellId": 15107,
+          "name": "Windwall Totem",
+          "rank": 1,
+          "costCopper": 10000,
+          "knownBy": [
+            15107,
+            15111,
+            15112
+          ]
+        }
+      ],
+      "totalCostCopper": 70000
+    },
+    {
+      "level": 38,
+      "spells": [
+        {
+          "spellId": 8170,
+          "name": "Disease Cleansing Totem",
+          "rank": null,
+          "costCopper": 11000,
+          "knownBy": [
+            8170
+          ]
+        },
+        {
+          "spellId": 8249,
+          "name": "Flametongue Totem",
+          "rank": 2,
+          "costCopper": 11000,
+          "knownBy": [
+            8249,
+            10526,
+            16387
+          ]
+        },
+        {
+          "spellId": 10478,
+          "name": "Frost Resistance Totem",
+          "rank": 2,
+          "costCopper": 11000,
+          "knownBy": [
+            10478,
+            10479
+          ]
+        },
+        {
+          "spellId": 10456,
+          "name": "Frostbrand Weapon",
+          "rank": 3,
+          "costCopper": 11000,
+          "knownBy": [
+            10456,
+            16355,
+            16356
+          ]
+        },
+        {
+          "spellId": 10391,
+          "name": "Lightning Bolt",
+          "rank": 7,
+          "costCopper": 11000,
+          "knownBy": [
+            10391,
+            10392,
+            15207,
+            15208
+          ]
+        },
+        {
+          "spellId": 6392,
+          "name": "Stoneclaw Totem",
+          "rank": 4,
+          "costCopper": 11000,
+          "knownBy": [
+            6392,
+            10427,
+            10428
+          ]
+        },
+        {
+          "spellId": 8161,
+          "name": "Strength of Earth Totem",
+          "rank": 3,
+          "costCopper": 11000,
+          "knownBy": [
+            8161,
+            10442,
+            25361
+          ]
+        }
+      ],
+      "totalCostCopper": 77000
+    },
+    {
+      "level": 40,
+      "spells": [
+        {
+          "spellId": 1064,
+          "name": "Chain Heal",
+          "rank": 1,
+          "costCopper": 12000,
+          "knownBy": [
+            1064,
+            10622,
+            10623
+          ]
+        },
+        {
+          "spellId": 930,
+          "name": "Chain Lightning",
+          "rank": 2,
+          "costCopper": 12000,
+          "knownBy": [
+            930,
+            2860,
+            10605
+          ]
+        },
+        {
+          "spellId": 10447,
+          "name": "Flame Shock",
+          "rank": 4,
+          "costCopper": 12000,
+          "knownBy": [
+            10447,
+            10448,
+            29228
+          ]
+        },
+        {
+          "spellId": 6377,
+          "name": "Healing Stream Totem",
+          "rank": 3,
+          "costCopper": 12000,
+          "knownBy": [
+            6377,
+            10462,
+            10463
+          ]
+        },
+        {
+          "spellId": 8005,
+          "name": "Healing Wave",
+          "rank": 7,
+          "costCopper": 12000,
+          "knownBy": [
+            8005,
+            10395,
+            10396,
+            25357
+          ]
+        },
+        {
+          "spellId": 8134,
+          "name": "Lightning Shield",
+          "rank": 5,
+          "costCopper": 12000,
+          "knownBy": [
+            8134,
+            10431,
+            10432,
+            26363,
+            26369,
+            26370
+          ]
+        },
+        {
+          "spellId": 8737,
+          "name": "Mail",
+          "rank": null,
+          "costCopper": 12000,
+          "knownBy": [
+            8737
+          ]
+        },
+        {
+          "spellId": 6365,
+          "name": "Searing Totem",
+          "rank": 4,
+          "costCopper": 12000,
+          "knownBy": [
+            6365,
+            10437,
+            10438
+          ]
+        },
+        {
+          "spellId": 8235,
+          "name": "Windfury Weapon",
+          "rank": 2,
+          "costCopper": 12000,
+          "knownBy": [
+            8235,
+            8236,
+            10484,
+            10486,
+            16361,
+            16362
+          ]
+        }
+      ],
+      "totalCostCopper": 108000
+    },
+    {
+      "level": 42,
+      "spells": [
+        {
+          "spellId": 11314,
+          "name": "Fire Nova Totem",
+          "rank": 4,
+          "costCopper": 16000,
+          "knownBy": [
+            11314,
+            11315,
+            27623
+          ]
+        },
+        {
+          "spellId": 10537,
+          "name": "Fire Resistance Totem",
+          "rank": 2,
+          "costCopper": 16000,
+          "knownBy": [
+            10537,
+            10538
+          ]
+        },
+        {
+          "spellId": 8835,
+          "name": "Grace of Air Totem",
+          "rank": 1,
+          "costCopper": 16000,
+          "knownBy": [
+            8835,
+            10627,
+            25359
+          ]
+        },
+        {
+          "spellId": 10613,
+          "name": "Windfury Totem",
+          "rank": 2,
+          "costCopper": 16000,
+          "knownBy": [
+            10608,
+            10610,
+            10613,
+            10614,
+            27621
+          ]
+        }
+      ],
+      "totalCostCopper": 64000
+    },
+    {
+      "level": 44,
+      "spells": [
+        {
+          "spellId": 10466,
+          "name": "Lesser Healing Wave",
+          "rank": 4,
+          "costCopper": 18000,
+          "knownBy": [
+            10466,
+            10467,
+            10468,
+            27624
+          ]
+        },
+        {
+          "spellId": 10392,
+          "name": "Lightning Bolt",
+          "rank": 8,
+          "costCopper": 18000,
+          "knownBy": [
+            10392,
+            15207,
+            15208
+          ]
+        },
+        {
+          "spellId": 10600,
+          "name": "Nature Resistance Totem",
+          "rank": 2,
+          "costCopper": 18000,
+          "knownBy": [
+            10600,
+            10601
+          ]
+        },
+        {
+          "spellId": 16315,
+          "name": "Rockbiter Weapon",
+          "rank": 6,
+          "costCopper": 18000,
+          "knownBy": [
+            16315,
+            16316
+          ]
+        },
+        {
+          "spellId": 10407,
+          "name": "Stoneskin Totem",
+          "rank": 5,
+          "costCopper": 18000,
+          "knownBy": [
+            10407,
+            10408
+          ]
+        }
+      ],
+      "totalCostCopper": 90000
+    },
+    {
+      "level": 46,
+      "spells": [
+        {
+          "spellId": 10622,
+          "name": "Chain Heal",
+          "rank": 2,
+          "costCopper": 20000,
+          "knownBy": [
+            10622,
+            10623
+          ]
+        },
+        {
+          "spellId": 16341,
+          "name": "Flametongue Weapon",
+          "rank": 5,
+          "costCopper": 20000,
+          "knownBy": [
+            16341,
+            16342
+          ]
+        },
+        {
+          "spellId": 10472,
+          "name": "Frost Shock",
+          "rank": 3,
+          "costCopper": 20000,
+          "knownBy": [
+            10472,
+            10473
+          ]
+        },
+        {
+          "spellId": 10586,
+          "name": "Magma Totem",
+          "rank": 3,
+          "costCopper": 20000,
+          "knownBy": [
+            10580,
+            10581,
+            10586,
+            10587
+          ]
+        },
+        {
+          "spellId": 10496,
+          "name": "Mana Spring Totem",
+          "rank": 3,
+          "costCopper": 20000,
+          "knownBy": [
+            10496,
+            10497
+          ]
+        },
+        {
+          "spellId": 15111,
+          "name": "Windwall Totem",
+          "rank": 2,
+          "costCopper": 20000,
+          "knownBy": [
+            15111,
+            15112
+          ]
+        }
+      ],
+      "totalCostCopper": 120000
+    },
+    {
+      "level": 48,
+      "spells": [
+        {
+          "spellId": 20776,
+          "name": "Ancestral Spirit",
+          "rank": 4,
+          "costCopper": 22000,
+          "knownBy": [
+            20776,
+            20777
+          ]
+        },
+        {
+          "spellId": 2860,
+          "name": "Chain Lightning",
+          "rank": 3,
+          "costCopper": 22000,
+          "knownBy": [
+            2860,
+            10605
+          ]
+        },
+        {
+          "spellId": 10413,
+          "name": "Earth Shock",
+          "rank": 6,
+          "costCopper": 22000,
+          "knownBy": [
+            10413,
+            10414
+          ]
+        },
+        {
+          "spellId": 10526,
+          "name": "Flametongue Totem",
+          "rank": 3,
+          "costCopper": 22000,
+          "knownBy": [
+            10526,
+            16387
+          ]
+        },
+        {
+          "spellId": 16355,
+          "name": "Frostbrand Weapon",
+          "rank": 4,
+          "costCopper": 22000,
+          "knownBy": [
+            16355,
+            16356
+          ]
+        },
+        {
+          "spellId": 10395,
+          "name": "Healing Wave",
+          "rank": 8,
+          "costCopper": 22000,
+          "knownBy": [
+            10395,
+            10396,
+            25357
+          ]
+        },
+        {
+          "spellId": 10431,
+          "name": "Lightning Shield",
+          "rank": 6,
+          "costCopper": 22000,
+          "knownBy": [
+            10431,
+            10432,
+            26363,
+            26370
+          ]
+        },
+        {
+          "spellId": 17354,
+          "name": "Mana Tide Totem",
+          "rank": 2,
+          "costCopper": 55000,
+          "knownBy": [
+            17354,
+            17359
+          ],
+          "optional": true
+        },
+        {
+          "spellId": 10427,
+          "name": "Stoneclaw Totem",
+          "rank": 5,
+          "costCopper": 22000,
+          "knownBy": [
+            10427,
+            10428
+          ]
+        }
+      ],
+      "totalCostCopper": 231000
+    },
+    {
+      "level": 50,
+      "spells": [
+        {
+          "spellId": 10462,
+          "name": "Healing Stream Totem",
+          "rank": 4,
+          "costCopper": 24000,
+          "knownBy": [
+            10462,
+            10463
+          ]
+        },
+        {
+          "spellId": 15207,
+          "name": "Lightning Bolt",
+          "rank": 9,
+          "costCopper": 24000,
+          "knownBy": [
+            15207,
+            15208
+          ]
+        },
+        {
+          "spellId": 10437,
+          "name": "Searing Totem",
+          "rank": 5,
+          "costCopper": 24000,
+          "knownBy": [
+            10437,
+            10438
+          ]
+        },
+        {
+          "spellId": 25908,
+          "name": "Tranquil Air Totem",
+          "rank": null,
+          "costCopper": 24000,
+          "knownBy": [
+            25908
+          ]
+        },
+        {
+          "spellId": 10486,
+          "name": "Windfury Weapon",
+          "rank": 3,
+          "costCopper": 24000,
+          "knownBy": [
+            10484,
+            10486,
+            16361,
+            16362
+          ]
+        }
+      ],
+      "totalCostCopper": 120000
+    },
+    {
+      "level": 52,
+      "spells": [
+        {
+          "spellId": 11315,
+          "name": "Fire Nova Totem",
+          "rank": 5,
+          "costCopper": 27000,
+          "knownBy": [
+            11315,
+            27623
+          ]
+        },
+        {
+          "spellId": 10448,
+          "name": "Flame Shock",
+          "rank": 5,
+          "costCopper": 27000,
+          "knownBy": [
+            10448,
+            29228
+          ]
+        },
+        {
+          "spellId": 10467,
+          "name": "Lesser Healing Wave",
+          "rank": 5,
+          "costCopper": 27000,
+          "knownBy": [
+            10467,
+            10468,
+            27624
+          ]
+        },
+        {
+          "spellId": 10442,
+          "name": "Strength of Earth Totem",
+          "rank": 4,
+          "costCopper": 27000,
+          "knownBy": [
+            10442,
+            25361
+          ]
+        },
+        {
+          "spellId": 10614,
+          "name": "Windfury Totem",
+          "rank": 3,
+          "costCopper": 27000,
+          "knownBy": [
+            10610,
+            10614,
+            27621
+          ]
+        }
+      ],
+      "totalCostCopper": 135000
+    },
+    {
+      "level": 54,
+      "spells": [
+        {
+          "spellId": 10623,
+          "name": "Chain Heal",
+          "rank": 3,
+          "costCopper": 29000,
+          "knownBy": [
+            10623
+          ]
+        },
+        {
+          "spellId": 10479,
+          "name": "Frost Resistance Totem",
+          "rank": 3,
+          "costCopper": 29000,
+          "knownBy": [
+            10479
+          ]
+        },
+        {
+          "spellId": 16316,
+          "name": "Rockbiter Weapon",
+          "rank": 7,
+          "costCopper": 29000,
+          "knownBy": [
+            16316
+          ]
+        },
+        {
+          "spellId": 10408,
+          "name": "Stoneskin Totem",
+          "rank": 6,
+          "costCopper": 29000,
+          "knownBy": [
+            10408
+          ]
+        }
+      ],
+      "totalCostCopper": 116000
+    },
+    {
+      "level": 56,
+      "spells": [
+        {
+          "spellId": 10605,
+          "name": "Chain Lightning",
+          "rank": 4,
+          "costCopper": 30000,
+          "knownBy": [
+            10605
+          ]
+        },
+        {
+          "spellId": 16342,
+          "name": "Flametongue Weapon",
+          "rank": 6,
+          "costCopper": 30000,
+          "knownBy": [
+            16342
+          ]
+        },
+        {
+          "spellId": 10627,
+          "name": "Grace of Air Totem",
+          "rank": 2,
+          "costCopper": 30000,
+          "knownBy": [
+            10627,
+            25359
+          ]
+        },
+        {
+          "spellId": 10396,
+          "name": "Healing Wave",
+          "rank": 9,
+          "costCopper": 30000,
+          "knownBy": [
+            10396,
+            25357
+          ]
+        },
+        {
+          "spellId": 15208,
+          "name": "Lightning Bolt",
+          "rank": 10,
+          "costCopper": 30000,
+          "knownBy": [
+            15208
+          ]
+        },
+        {
+          "spellId": 10432,
+          "name": "Lightning Shield",
+          "rank": 7,
+          "costCopper": 30000,
+          "knownBy": [
+            10432,
+            26363
+          ]
+        },
+        {
+          "spellId": 10587,
+          "name": "Magma Totem",
+          "rank": 4,
+          "costCopper": 30000,
+          "knownBy": [
+            10581,
+            10587
+          ]
+        },
+        {
+          "spellId": 10497,
+          "name": "Mana Spring Totem",
+          "rank": 4,
+          "costCopper": 30000,
+          "knownBy": [
+            10497
+          ]
+        },
+        {
+          "spellId": 15112,
+          "name": "Windwall Totem",
+          "rank": 3,
+          "costCopper": 30000,
+          "knownBy": [
+            15112
+          ]
+        }
+      ],
+      "totalCostCopper": 270000
+    },
+    {
+      "level": 58,
+      "spells": [
+        {
+          "spellId": 10538,
+          "name": "Fire Resistance Totem",
+          "rank": 3,
+          "costCopper": 32000,
+          "knownBy": [
+            10538
+          ]
+        },
+        {
+          "spellId": 16387,
+          "name": "Flametongue Totem",
+          "rank": 4,
+          "costCopper": 32000,
+          "knownBy": [
+            16387
+          ]
+        },
+        {
+          "spellId": 10473,
+          "name": "Frost Shock",
+          "rank": 4,
+          "costCopper": 32000,
+          "knownBy": [
+            10473
+          ]
+        },
+        {
+          "spellId": 16356,
+          "name": "Frostbrand Weapon",
+          "rank": 5,
+          "costCopper": 32000,
+          "knownBy": [
+            16356
+          ]
+        },
+        {
+          "spellId": 17359,
+          "name": "Mana Tide Totem",
+          "rank": 3,
+          "costCopper": 80000,
+          "knownBy": [
+            17359
+          ],
+          "optional": true
+        },
+        {
+          "spellId": 10428,
+          "name": "Stoneclaw Totem",
+          "rank": 6,
+          "costCopper": 32000,
+          "knownBy": [
+            10428
+          ]
+        }
+      ],
+      "totalCostCopper": 240000
+    },
+    {
+      "level": 60,
+      "spells": [
+        {
+          "spellId": 20777,
+          "name": "Ancestral Spirit",
+          "rank": 5,
+          "costCopper": 34000,
+          "knownBy": [
+            20777
+          ]
+        },
+        {
+          "spellId": 10414,
+          "name": "Earth Shock",
+          "rank": 7,
+          "costCopper": 34000,
+          "knownBy": [
+            10414
+          ]
+        },
+        {
+          "spellId": 10463,
+          "name": "Healing Stream Totem",
+          "rank": 5,
+          "costCopper": 34000,
+          "knownBy": [
+            10463
+          ]
+        },
+        {
+          "spellId": 10468,
+          "name": "Lesser Healing Wave",
+          "rank": 6,
+          "costCopper": 34000,
+          "knownBy": [
+            10468,
+            27624
+          ]
+        },
+        {
+          "spellId": 10601,
+          "name": "Nature Resistance Totem",
+          "rank": 3,
+          "costCopper": 34000,
+          "knownBy": [
+            10601
+          ]
+        },
+        {
+          "spellId": 10438,
+          "name": "Searing Totem",
+          "rank": 6,
+          "costCopper": 34000,
+          "knownBy": [
+            10438
+          ]
+        },
+        {
+          "spellId": 16362,
+          "name": "Windfury Weapon",
+          "rank": 4,
+          "costCopper": 34000,
+          "knownBy": [
+            16361,
+            16362
+          ]
+        }
+      ],
+      "totalCostCopper": 238000
+    }
+  ],
+  "classQuests": [
+    {
+      "level": 4,
+      "name": "Call of Earth",
+      "startZone": "Durotar",
+      "startInstance": null,
+      "reward": "Stoneskin Totem (Rank 1)",
+      "rewardItemId": null,
+      "rewardItem": null,
+      "questId": 1518,
+      "faction": "horde"
+    },
+    {
+      "level": 10,
+      "name": "Call of Fire",
+      "startZone": "Durotar",
+      "startInstance": null,
+      "reward": "Searing Totem (Rank 1)",
+      "rewardItemId": null,
+      "rewardItem": null,
+      "questId": 1527,
+      "faction": "horde"
+    },
+    {
+      "level": 20,
+      "name": "Call of Water",
+      "startZone": null,
+      "startInstance": null,
+      "reward": "Healing Stream Totem (Rank 1)",
+      "rewardItemId": null,
+      "rewardItem": null,
+      "questId": 96,
+      "faction": "horde"
+    },
+    {
+      "level": 30,
+      "name": "Call of Air",
+      "startZone": "Orgrimmar",
+      "startInstance": null,
+      "reward": "Swift Wind",
+      "rewardItemId": null,
+      "rewardItem": null,
+      "questId": 1531,
+      "faction": "horde"
+    },
+    {
+      "level": 30,
+      "name": "Call of Air",
+      "startZone": "Mulgore",
+      "startInstance": null,
+      "reward": "Swift Wind",
+      "rewardItemId": null,
+      "rewardItem": null,
+      "questId": 1532,
+      "faction": "horde"
+    },
+    {
+      "level": 54,
+      "name": "Frost Shock and You",
+      "startZone": "Feralas",
+      "startInstance": "Dire Maul",
+      "reward": "Royal Seal of Eldre'Thalas",
+      "rewardItemId": 18471,
+      "rewardItem": {
+        "name": "Royal Seal of Eldre'Thalas",
+        "iconName": "inv_jewelry_talisman_10",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=18471",
+        "slot": "Trinket",
+        "quality": "Rare",
+        "requiredLevel": 0,
+        "itemLevel": 62,
+        "stats": [],
+        "bind": "pickup",
+        "unique": true,
+        "sellPriceCopper": 0,
+        "effects": [
+          "Equip: Increase Spell Dam +23"
+        ]
+      },
+      "questId": 7505,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Cloak of the Gathering Storm",
+      "startZone": "Silithus",
+      "startInstance": null,
+      "reward": "Cloak of the Gathering Storm",
+      "rewardItemId": 21400,
+      "rewardItem": {
+        "name": "Cloak of the Gathering Storm",
+        "iconName": "inv_misc_cape_16",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=21400",
+        "slot": "Back",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 67,
+        "stats": [
+          {
+            "type": "Intellect",
+            "value": 13
+          },
+          {
+            "type": "Stamina",
+            "value": 10
+          },
+          {
+            "type": "Strength",
+            "value": 11
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 0,
+        "armor": 52,
+        "effects": [
+          "Equip: Increase Spell Dam +14"
+        ]
+      },
+      "questId": 8690,
+      "faction": "horde"
+    },
+    {
+      "level": 60,
+      "name": "Earthshatter Boots",
+      "startZone": "Eastern Plaguelands",
+      "startInstance": null,
+      "reward": "Earthshatter Boots",
+      "rewardItemId": 22468,
+      "rewardItem": {
+        "name": "Earthshatter Boots",
+        "iconName": "inv_boots_chain_05",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=22468",
+        "slot": "Feet",
+        "itemSubclass": "Mail",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 86,
+        "stats": [
+          {
+            "type": "Stamina",
+            "value": 20
+          },
+          {
+            "type": "Intellect",
+            "value": 25
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 105504,
+        "armor": 372,
+        "durability": 70,
+        "effects": [
+          "Equip: Increase Healing +37",
+          "Equip: Increased Mana Regen +6"
+        ]
+      },
+      "questId": 9072,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Earthshatter Girdle",
+      "startZone": "Eastern Plaguelands",
+      "startInstance": null,
+      "reward": "Earthshatter Girdle",
+      "rewardItemId": 22470,
+      "rewardItem": {
+        "name": "Earthshatter Girdle",
+        "iconName": "inv_belt_22",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=22470",
+        "slot": "Waist",
+        "itemSubclass": "Mail",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 88,
+        "stats": [
+          {
+            "type": "Intellect",
+            "value": 25
+          },
+          {
+            "type": "Stamina",
+            "value": 18
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 79846,
+        "armor": 311,
+        "durability": 50,
+        "effects": [
+          "Equip: Increased Mana Regen +7",
+          "Equip: Increase Healing +42"
+        ]
+      },
+      "questId": 9074,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Earthshatter Handguards",
+      "startZone": "Eastern Plaguelands",
+      "startInstance": null,
+      "reward": "Earthshatter Handguards",
+      "rewardItemId": 22469,
+      "rewardItem": {
+        "name": "Earthshatter Handguards",
+        "iconName": "inv_gauntlets_25",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=22469",
+        "slot": "Hands",
+        "itemSubclass": "Mail",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 88,
+        "stats": [
+          {
+            "type": "Stamina",
+            "value": 21
+          },
+          {
+            "type": "Intellect",
+            "value": 28
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 77491,
+        "armor": 346,
+        "durability": 50,
+        "effects": [
+          "Equip: Increase Healing +35",
+          "Equip: Increased Mana Regen +6"
+        ]
+      },
+      "questId": 9073,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Earthshatter Headpiece",
+      "startZone": "Eastern Plaguelands",
+      "startInstance": null,
+      "reward": "Earthshatter Headpiece",
+      "rewardItemId": 22466,
+      "rewardItem": {
+        "name": "Earthshatter Headpiece",
+        "iconName": "inv_helmet_15",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=22466",
+        "slot": "Head",
+        "itemSubclass": "Mail",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 88,
+        "stats": [
+          {
+            "type": "Stamina",
+            "value": 26
+          },
+          {
+            "type": "Intellect",
+            "value": 30
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 114949,
+        "armor": 449,
+        "durability": 85,
+        "effects": [
+          "Equip: Increase Healing +68",
+          "Equip: Increased Mana Regen +8"
+        ]
+      },
+      "questId": 9070,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Earthshatter Legguards",
+      "startZone": "Eastern Plaguelands",
+      "startInstance": null,
+      "reward": "Earthshatter Legguards",
+      "rewardItemId": 22465,
+      "rewardItem": {
+        "name": "Earthshatter Legguards",
+        "iconName": "inv_pants_mail_15",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=22465",
+        "slot": "Legs",
+        "itemSubclass": "Mail",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 88,
+        "stats": [
+          {
+            "type": "Stamina",
+            "value": 28
+          },
+          {
+            "type": "Intellect",
+            "value": 30
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 152688,
+        "armor": 484,
+        "durability": 105,
+        "effects": [
+          "Equip: Increase Healing +59",
+          "Equip: Increased Mana Regen +9"
+        ]
+      },
+      "questId": 9069,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Earthshatter Spaulders",
+      "startZone": "Eastern Plaguelands",
+      "startInstance": null,
+      "reward": "Earthshatter Spaulders",
+      "rewardItemId": 22467,
+      "rewardItem": {
+        "name": "Earthshatter Spaulders",
+        "iconName": "inv_shoulder_14",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=22467",
+        "slot": "Shoulder",
+        "itemSubclass": "Mail",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 86,
+        "stats": [
+          {
+            "type": "Stamina",
+            "value": 24
+          },
+          {
+            "type": "Intellect",
+            "value": 19
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 105109,
+        "armor": 406,
+        "durability": 85,
+        "effects": [
+          "Equip: Increase Healing +42",
+          "Equip: Increased Mana Regen +6"
+        ]
+      },
+      "questId": 9071,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Earthshatter Tunic",
+      "startZone": "Eastern Plaguelands",
+      "startInstance": null,
+      "reward": "Earthshatter Tunic",
+      "rewardItemId": 22464,
+      "rewardItem": {
+        "name": "Earthshatter Tunic",
+        "iconName": "inv_chest_chain_15",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=22464",
+        "slot": "Chest",
+        "itemSubclass": "Mail",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 92,
+        "stats": [
+          {
+            "type": "Stamina",
+            "value": 26
+          },
+          {
+            "type": "Intellect",
+            "value": 32
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 184892,
+        "armor": 576,
+        "durability": 140,
+        "effects": [
+          "Equip: Increase Healing +59",
+          "Equip: Increased Mana Regen +12"
+        ]
+      },
+      "questId": 9068,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Earthshatter Wristguards",
+      "startZone": "Eastern Plaguelands",
+      "startInstance": null,
+      "reward": "Earthshatter Wristguards",
+      "rewardItemId": 22471,
+      "rewardItem": {
+        "name": "Earthshatter Wristguards",
+        "iconName": "inv_bracer_02",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=22471",
+        "slot": "Wrist",
+        "itemSubclass": "Mail",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 88,
+        "stats": [
+          {
+            "type": "Stamina",
+            "value": 17
+          },
+          {
+            "type": "Intellect",
+            "value": 18
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 80127,
+        "armor": 242,
+        "durability": 50,
+        "effects": [
+          "Equip: Increase Healing +33",
+          "Equip: Increased Mana Regen +4"
+        ]
+      },
+      "questId": 9075,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Hammer of the Gathering Storm",
+      "startZone": "Silithus",
+      "startInstance": null,
+      "reward": "Hammer of the Gathering Storm",
+      "rewardItemId": 21398,
+      "rewardItem": {
+        "name": "Hammer of the Gathering Storm",
+        "iconName": "inv_mace22",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=21398",
+        "slot": "Main Hand",
+        "itemSubclass": "Mace",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 70,
+        "stats": [
+          {
+            "type": "Stamina",
+            "value": 10
+          },
+          {
+            "type": "Intellect",
+            "value": 9
+          },
+          {
+            "type": "Strength",
+            "value": 7
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 0,
+        "damage": {
+          "min": 62,
+          "max": 137,
+          "speed": 2.4
+        },
+        "durability": 105,
+        "effects": [
+          "Equip: Increase Spell Dam +53"
+        ]
+      },
+      "questId": 8706,
+      "faction": "horde"
+    },
+    {
+      "level": 60,
+      "name": "Paragons of Power: The Augur's Belt",
+      "startZone": "Stranglethorn Vale",
+      "startInstance": null,
+      "reward": "Zandalar Augur's Belt",
+      "rewardItemId": 19829,
+      "rewardItem": {
+        "name": "Zandalar Augur's Belt",
+        "iconName": "inv_belt_19",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=19829",
+        "slot": "Waist",
+        "itemSubclass": "Mail",
+        "quality": "Epic",
+        "requiredLevel": 0,
+        "itemLevel": 61,
+        "stats": [
+          {
+            "type": "Intellect",
+            "value": 21
+          },
+          {
+            "type": "Stamina",
+            "value": 10
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 0,
+        "armor": 221,
+        "durability": 50,
+        "effects": [
+          "Equip: Increase Spell Dam +12",
+          "Equip: Increased Mana Regen +4"
+        ]
+      },
+      "questId": 8074,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Paragons of Power: The Augur's Bracers",
+      "startZone": "Stranglethorn Vale",
+      "startInstance": null,
+      "reward": "Zandalar Augur's Bracers",
+      "rewardItemId": 19830,
+      "rewardItem": {
+        "name": "Zandalar Augur's Bracers",
+        "iconName": "inv_bracer_15",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=19830",
+        "slot": "Wrist",
+        "itemSubclass": "Mail",
+        "quality": "Epic",
+        "requiredLevel": 0,
+        "itemLevel": 61,
+        "stats": [
+          {
+            "type": "Stamina",
+            "value": 12
+          },
+          {
+            "type": "Intellect",
+            "value": 11
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 0,
+        "armor": 172,
+        "durability": 50,
+        "effects": [
+          "Equip: Increase Spell Dam +13",
+          "Equip: Increased Mana Regen +4"
+        ]
+      },
+      "questId": 8056,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Paragons of Power: The Augur's Hauberk",
+      "startZone": "Stranglethorn Vale",
+      "startInstance": null,
+      "reward": "Zandalar Augur's Hauberk",
+      "rewardItemId": 19828,
+      "rewardItem": {
+        "name": "Zandalar Augur's Hauberk",
+        "iconName": "inv_chest_fur",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=19828",
+        "slot": "Chest",
+        "itemSubclass": "Mail",
+        "quality": "Epic",
+        "requiredLevel": 0,
+        "itemLevel": 65,
+        "stats": [
+          {
+            "type": "Stamina",
+            "value": 19
+          },
+          {
+            "type": "Intellect",
+            "value": 15
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 0,
+        "armor": 416,
+        "durability": 140,
+        "effects": [
+          "Equip: Increase Spell Dam +34",
+          "Equip: Increased Critical Spell +1"
+        ]
+      },
+      "questId": 8075,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Ring of the Gathering Storm",
+      "startZone": "Silithus",
+      "startInstance": null,
+      "reward": "Ring of the Gathering Storm",
+      "rewardItemId": 21399,
+      "rewardItem": {
+        "name": "Ring of the Gathering Storm",
+        "iconName": "inv_jewelry_ring_ahnqiraj_03",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=21399",
+        "slot": "Finger",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 65,
+        "stats": [
+          {
+            "type": "Strength",
+            "value": 8
+          },
+          {
+            "type": "Agility",
+            "value": 9
+          },
+          {
+            "type": "Intellect",
+            "value": 11
+          },
+          {
+            "type": "Stamina",
+            "value": 10
+          }
+        ],
+        "bind": "pickup",
+        "unique": true,
+        "sellPriceCopper": 0,
+        "effects": [
+          "Equip: Increase Spell Dam +12"
+        ]
+      },
+      "questId": 8698,
+      "faction": "horde"
+    },
+    {
+      "level": 60,
+      "name": "Stormcaller's Diadem",
+      "startZone": "Silithus",
+      "startInstance": "Ahn'Qiraj",
+      "reward": "Stormcaller's Diadem",
+      "rewardItemId": 21372,
+      "rewardItem": {
+        "name": "Stormcaller's Diadem",
+        "iconName": "inv_helmet_73",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=21372",
+        "slot": "Head",
+        "itemSubclass": "Mail",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 81,
+        "stats": [
+          {
+            "type": "Agility",
+            "value": 8
+          },
+          {
+            "type": "Strength",
+            "value": 12
+          },
+          {
+            "type": "Intellect",
+            "value": 22
+          },
+          {
+            "type": "Spirit",
+            "value": 12
+          },
+          {
+            "type": "Stamina",
+            "value": 22
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 80445,
+        "armor": 416,
+        "durability": 85,
+        "effects": [
+          "Equip: Increase Spell Dam +32",
+          "Equip: Increased Critical Spell +1"
+        ]
+      },
+      "questId": 8623,
+      "faction": "horde"
+    },
+    {
+      "level": 60,
+      "name": "Stormcaller's Footguards",
+      "startZone": "Silithus",
+      "startInstance": "Ahn'Qiraj",
+      "reward": "Stormcaller's Footguards",
+      "rewardItemId": 21373,
+      "rewardItem": {
+        "name": "Stormcaller's Footguards",
+        "iconName": "inv_boots_chain_07",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=21373",
+        "slot": "Feet",
+        "itemSubclass": "Mail",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 78,
+        "stats": [
+          {
+            "type": "Agility",
+            "value": 9
+          },
+          {
+            "type": "Strength",
+            "value": 12
+          },
+          {
+            "type": "Intellect",
+            "value": 14
+          },
+          {
+            "type": "Spirit",
+            "value": 6
+          },
+          {
+            "type": "Stamina",
+            "value": 14
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 70067,
+        "armor": 340,
+        "durability": 70,
+        "effects": [
+          "Equip: Increase Spell Dam +22",
+          "Equip: Increased Spell Penetration +10",
+          "Equip: Increased Mana Regen +4"
+        ]
+      },
+      "questId": 8621,
+      "faction": "horde"
+    },
+    {
+      "level": 60,
+      "name": "Stormcaller's Hauberk",
+      "startZone": "Silithus",
+      "startInstance": "Ahn'Qiraj",
+      "reward": "Stormcaller's Hauberk",
+      "rewardItemId": 21374,
+      "rewardItem": {
+        "name": "Stormcaller's Hauberk",
+        "iconName": "inv_chest_chain_13",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=21374",
+        "slot": "Chest",
+        "itemSubclass": "Mail",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 88,
+        "stats": [
+          {
+            "type": "Agility",
+            "value": 10
+          },
+          {
+            "type": "Strength",
+            "value": 11
+          },
+          {
+            "type": "Intellect",
+            "value": 24
+          },
+          {
+            "type": "Spirit",
+            "value": 11
+          },
+          {
+            "type": "Stamina",
+            "value": 24
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 152080,
+        "armor": 553,
+        "durability": 140,
+        "effects": [
+          "Equip: Increase Spell Dam +32",
+          "Equip: Increased Critical +1",
+          "Equip: Increased Critical Spell +1"
+        ]
+      },
+      "questId": 8622,
+      "faction": "horde"
+    },
+    {
+      "level": 60,
+      "name": "Stormcaller's Leggings",
+      "startZone": "Silithus",
+      "startInstance": "Ahn'Qiraj",
+      "reward": "Stormcaller's Leggings",
+      "rewardItemId": 21375,
+      "rewardItem": {
+        "name": "Stormcaller's Leggings",
+        "iconName": "inv_pants_mail_10",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=21375",
+        "slot": "Legs",
+        "itemSubclass": "Mail",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 81,
+        "stats": [
+          {
+            "type": "Agility",
+            "value": 9
+          },
+          {
+            "type": "Strength",
+            "value": 12
+          },
+          {
+            "type": "Intellect",
+            "value": 22
+          },
+          {
+            "type": "Spirit",
+            "value": 12
+          },
+          {
+            "type": "Stamina",
+            "value": 22
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 108479,
+        "armor": 448,
+        "durability": 105,
+        "effects": [
+          "Equip: Increase Spell Dam +29",
+          "Equip: Increased Critical Spell +1",
+          "Equip: Increased Mana Regen +4"
+        ]
+      },
+      "questId": 8624,
+      "faction": "horde"
+    },
+    {
+      "level": 60,
+      "name": "Stormcaller's Pauldrons",
+      "startZone": "Silithus",
+      "startInstance": "Ahn'Qiraj",
+      "reward": "Stormcaller's Pauldrons",
+      "rewardItemId": 21376,
+      "rewardItem": {
+        "name": "Stormcaller's Pauldrons",
+        "iconName": "inv_shoulder_03",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=21376",
+        "slot": "Shoulder",
+        "itemSubclass": "Mail",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 78,
+        "stats": [
+          {
+            "type": "Agility",
+            "value": 10
+          },
+          {
+            "type": "Strength",
+            "value": 10
+          },
+          {
+            "type": "Intellect",
+            "value": 13
+          },
+          {
+            "type": "Spirit",
+            "value": 6
+          },
+          {
+            "type": "Stamina",
+            "value": 15
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 70861,
+        "armor": 371,
+        "durability": 85,
+        "effects": [
+          "Equip: Increase Spell Dam +28",
+          "Equip: Increased Mana Regen +3"
+        ]
+      },
+      "questId": 8602,
+      "faction": "horde"
+    },
+    {
+      "level": 60,
+      "name": "The Unmarred Vision of Voodress",
+      "startZone": "Stranglethorn Vale",
+      "startInstance": null,
+      "reward": "Unmarred Vision of Voodress",
+      "rewardItemId": 19609,
+      "rewardItem": {
+        "name": "Unmarred Vision of Voodress",
+        "iconName": "inv_jewelry_necklace_26",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=19609",
+        "slot": "Neck",
+        "quality": "Epic",
+        "requiredLevel": 0,
+        "itemLevel": 65,
+        "stats": [
+          {
+            "type": "Strength",
+            "value": 6
+          },
+          {
+            "type": "Intellect",
+            "value": 10
+          },
+          {
+            "type": "Spirit",
+            "value": 9
+          },
+          {
+            "type": "Stamina",
+            "value": 10
+          }
+        ],
+        "bind": "pickup",
+        "unique": true,
+        "sellPriceCopper": 0,
+        "effects": [
+          "Equip: Copy of Improved Mana/Health Totems"
+        ]
+      },
+      "questId": 8119,
+      "faction": "horde"
+    },
+    {
+      "level": 60,
+      "name": "Vision of Voodress",
+      "startZone": "Stranglethorn Vale",
+      "startInstance": null,
+      "reward": "Vision of Voodress",
+      "rewardItemId": 19606,
+      "rewardItem": {
+        "name": "Vision of Voodress",
+        "iconName": "inv_jewelry_necklace_23",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=19606",
+        "slot": "Neck",
+        "quality": "Uncommon",
+        "requiredLevel": 0,
+        "itemLevel": 60,
+        "stats": [
+          {
+            "type": "Intellect",
+            "value": 8
+          },
+          {
+            "type": "Spirit",
+            "value": 7
+          },
+          {
+            "type": "Stamina",
+            "value": 8
+          }
+        ],
+        "bind": "pickup",
+        "unique": true,
+        "sellPriceCopper": 0
+      },
+      "questId": 8116,
+      "faction": "horde"
+    }
+  ],
+  "professionMilestones": [
+    {
+      "skill": "First Aid",
+      "atSkill": 50,
+      "levelHint": 10,
+      "action": "Train Journeyman First Aid",
+      "where": "any First Aid trainer"
+    },
+    {
+      "skill": "First Aid",
+      "atSkill": 125,
+      "levelHint": 20,
+      "action": "Buy Expert First Aid — Under Wraps",
+      "itemId": 16084,
+      "where": "Deneb Walker (Arathi Highlands) / Balai Lok'Wein (Dustwallow Marsh)"
+    },
+    {
+      "skill": "First Aid",
+      "atSkill": 225,
+      "levelHint": 35,
+      "action": "Complete Triage",
+      "questId": [
+        6624,
+        6622
+      ],
+      "where": "Doctor Gustaf VanHowzen (Dustwallow Marsh) / Doctor Gregory Victor (Arathi Highlands)"
+    },
+    {
+      "skill": "Cooking",
+      "atSkill": 50,
+      "levelHint": 10,
+      "action": "Train Journeyman Cooking",
+      "where": "any Cooking trainer"
+    },
+    {
+      "skill": "Cooking",
+      "atSkill": 125,
+      "levelHint": 20,
+      "action": "Buy the Expert Cookbook",
+      "itemId": 16072,
+      "where": "Shandrina (Ashenvale) / Wulan (Desolace)"
+    },
+    {
+      "skill": "Cooking",
+      "atSkill": 225,
+      "levelHint": 35,
+      "action": "Complete Clamlette Surprise",
+      "questId": 6610,
+      "where": "Dirge Quikcleave (Tanaris)"
+    },
+    {
+      "skill": "Fishing",
+      "atSkill": 50,
+      "levelHint": 10,
+      "action": "Train Journeyman Fishing",
+      "where": "any Fishing trainer"
+    },
+    {
+      "skill": "Fishing",
+      "atSkill": 125,
+      "levelHint": 20,
+      "action": "Buy Expert Fishing — The Bass and You",
+      "itemId": 16083,
+      "where": "Old Man Heming (Stranglethorn Vale)"
+    },
+    {
+      "skill": "Fishing",
+      "atSkill": 225,
+      "levelHint": 35,
+      "action": "Complete Nat Pagle, Angler Extreme",
+      "questId": 6607,
+      "where": "Nat Pagle (Dustwallow Marsh)"
+    }
+  ]
+}

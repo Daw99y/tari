@@ -1,0 +1,3689 @@
+{
+  "class": "mage",
+  "abilities": [
+    {
+      "level": 1,
+      "spells": [
+        {
+          "spellId": 1459,
+          "name": "Arcane Intellect",
+          "rank": 1,
+          "costCopper": 10,
+          "knownBy": [
+            1459,
+            1460,
+            1461,
+            10156,
+            10157,
+            16876
+          ]
+        },
+        {
+          "spellId": 168,
+          "name": "Frost Armor",
+          "rank": 1,
+          "costCopper": 1,
+          "knownBy": [
+            168,
+            7300,
+            7301
+          ]
+        }
+      ],
+      "totalCostCopper": 11
+    },
+    {
+      "level": 4,
+      "spells": [
+        {
+          "spellId": 5504,
+          "name": "Conjure Water",
+          "rank": 1,
+          "costCopper": 100,
+          "knownBy": [
+            5504,
+            5505,
+            5506,
+            6127,
+            10138,
+            10139,
+            10140
+          ]
+        },
+        {
+          "spellId": 116,
+          "name": "Frostbolt",
+          "rank": 1,
+          "costCopper": 100,
+          "knownBy": [
+            116,
+            205,
+            837,
+            7322,
+            8406,
+            8407,
+            8408,
+            10179,
+            10180,
+            10181,
+            25304
+          ]
+        }
+      ],
+      "totalCostCopper": 200
+    },
+    {
+      "level": 6,
+      "spells": [
+        {
+          "spellId": 587,
+          "name": "Conjure Food",
+          "rank": 1,
+          "costCopper": 100,
+          "knownBy": [
+            587,
+            597,
+            990,
+            6129,
+            10144,
+            10145,
+            28612
+          ]
+        },
+        {
+          "spellId": 2136,
+          "name": "Fire Blast",
+          "rank": 1,
+          "costCopper": 100,
+          "knownBy": [
+            2136,
+            2137,
+            2138,
+            8412,
+            8413,
+            10197,
+            10199
+          ]
+        },
+        {
+          "spellId": 143,
+          "name": "Fireball",
+          "rank": 2,
+          "costCopper": 100,
+          "knownBy": [
+            143,
+            145,
+            3140,
+            8400,
+            8401,
+            8402,
+            10148,
+            10149,
+            10150,
+            10151,
+            25306
+          ]
+        }
+      ],
+      "totalCostCopper": 300
+    },
+    {
+      "level": 8,
+      "spells": [
+        {
+          "spellId": 5143,
+          "name": "Arcane Missiles",
+          "rank": 1,
+          "costCopper": 200,
+          "knownBy": [
+            5143,
+            5144,
+            5145,
+            7269,
+            7270,
+            8416,
+            8417,
+            8418,
+            8419,
+            10211,
+            10212,
+            10273,
+            10274,
+            25345,
+            25346
+          ]
+        },
+        {
+          "spellId": 205,
+          "name": "Frostbolt",
+          "rank": 2,
+          "costCopper": 200,
+          "knownBy": [
+            205,
+            837,
+            7322,
+            8406,
+            8407,
+            8408,
+            10179,
+            10180,
+            10181,
+            25304
+          ]
+        },
+        {
+          "spellId": 118,
+          "name": "Polymorph",
+          "rank": 1,
+          "costCopper": 200,
+          "knownBy": [
+            118,
+            12824,
+            12825,
+            12826
+          ]
+        }
+      ],
+      "totalCostCopper": 600
+    },
+    {
+      "level": 10,
+      "spells": [
+        {
+          "spellId": 5505,
+          "name": "Conjure Water",
+          "rank": 2,
+          "costCopper": 400,
+          "knownBy": [
+            5505,
+            5506,
+            6127,
+            10138,
+            10139,
+            10140
+          ]
+        },
+        {
+          "spellId": 7300,
+          "name": "Frost Armor",
+          "rank": 2,
+          "costCopper": 400,
+          "knownBy": [
+            7300,
+            7301
+          ]
+        },
+        {
+          "spellId": 122,
+          "name": "Frost Nova",
+          "rank": 1,
+          "costCopper": 400,
+          "knownBy": [
+            122,
+            865,
+            6131,
+            10230
+          ]
+        }
+      ],
+      "totalCostCopper": 1200
+    },
+    {
+      "level": 12,
+      "spells": [
+        {
+          "spellId": 597,
+          "name": "Conjure Food",
+          "rank": 2,
+          "costCopper": 600,
+          "knownBy": [
+            597,
+            990,
+            6129,
+            10144,
+            10145,
+            28612
+          ]
+        },
+        {
+          "spellId": 604,
+          "name": "Dampen Magic",
+          "rank": 1,
+          "costCopper": 600,
+          "knownBy": [
+            604,
+            8450,
+            8451,
+            10173,
+            10174
+          ]
+        },
+        {
+          "spellId": 145,
+          "name": "Fireball",
+          "rank": 3,
+          "costCopper": 600,
+          "knownBy": [
+            145,
+            3140,
+            8400,
+            8401,
+            8402,
+            10148,
+            10149,
+            10150,
+            10151,
+            25306
+          ]
+        },
+        {
+          "spellId": 130,
+          "name": "Slow Fall",
+          "rank": null,
+          "costCopper": 600,
+          "knownBy": [
+            130
+          ]
+        }
+      ],
+      "totalCostCopper": 2400
+    },
+    {
+      "level": 14,
+      "spells": [
+        {
+          "spellId": 1449,
+          "name": "Arcane Explosion",
+          "rank": 1,
+          "costCopper": 900,
+          "knownBy": [
+            1449,
+            8437,
+            8438,
+            8439,
+            10201,
+            10202
+          ]
+        },
+        {
+          "spellId": 1460,
+          "name": "Arcane Intellect",
+          "rank": 2,
+          "costCopper": 900,
+          "knownBy": [
+            1460,
+            1461,
+            10156,
+            10157,
+            16876
+          ]
+        },
+        {
+          "spellId": 2137,
+          "name": "Fire Blast",
+          "rank": 2,
+          "costCopper": 900,
+          "knownBy": [
+            2137,
+            2138,
+            8412,
+            8413,
+            10197,
+            10199
+          ]
+        },
+        {
+          "spellId": 837,
+          "name": "Frostbolt",
+          "rank": 3,
+          "costCopper": 900,
+          "knownBy": [
+            837,
+            7322,
+            8406,
+            8407,
+            8408,
+            10179,
+            10180,
+            10181,
+            25304
+          ]
+        }
+      ],
+      "totalCostCopper": 3600
+    },
+    {
+      "level": 16,
+      "spells": [
+        {
+          "spellId": 5144,
+          "name": "Arcane Missiles",
+          "rank": 2,
+          "costCopper": 1500,
+          "knownBy": [
+            5144,
+            5145,
+            7269,
+            7270,
+            8416,
+            8417,
+            8418,
+            8419,
+            10211,
+            10212,
+            10273,
+            10274,
+            25345,
+            25346
+          ]
+        },
+        {
+          "spellId": 2855,
+          "name": "Detect Magic",
+          "rank": null,
+          "costCopper": 1500,
+          "knownBy": [
+            2855
+          ]
+        },
+        {
+          "spellId": 2120,
+          "name": "Flamestrike",
+          "rank": 1,
+          "costCopper": 1500,
+          "knownBy": [
+            2120,
+            2121,
+            8422,
+            8423,
+            10215,
+            10216
+          ]
+        }
+      ],
+      "totalCostCopper": 4500
+    },
+    {
+      "level": 18,
+      "spells": [
+        {
+          "spellId": 1008,
+          "name": "Amplify Magic",
+          "rank": 1,
+          "costCopper": 1800,
+          "knownBy": [
+            1008,
+            8455,
+            10169,
+            10170
+          ]
+        },
+        {
+          "spellId": 3140,
+          "name": "Fireball",
+          "rank": 4,
+          "costCopper": 1800,
+          "knownBy": [
+            3140,
+            8400,
+            8401,
+            8402,
+            10148,
+            10149,
+            10150,
+            10151,
+            25306
+          ]
+        },
+        {
+          "spellId": 475,
+          "name": "Remove Lesser Curse",
+          "rank": null,
+          "costCopper": 1800,
+          "knownBy": [
+            475
+          ]
+        }
+      ],
+      "totalCostCopper": 5400
+    },
+    {
+      "level": 20,
+      "spells": [
+        {
+          "spellId": 1953,
+          "name": "Blink",
+          "rank": null,
+          "costCopper": 2000,
+          "knownBy": [
+            1953
+          ]
+        },
+        {
+          "spellId": 10,
+          "name": "Blizzard",
+          "rank": 1,
+          "costCopper": 2000,
+          "knownBy": [
+            10,
+            6141,
+            8427,
+            10185,
+            10186,
+            10187,
+            27618
+          ]
+        },
+        {
+          "spellId": 5506,
+          "name": "Conjure Water",
+          "rank": 3,
+          "costCopper": 2000,
+          "knownBy": [
+            5506,
+            6127,
+            10138,
+            10139,
+            10140
+          ]
+        },
+        {
+          "spellId": 12051,
+          "name": "Evocation",
+          "rank": null,
+          "costCopper": 2000,
+          "knownBy": [
+            12051
+          ]
+        },
+        {
+          "spellId": 543,
+          "name": "Fire Ward",
+          "rank": 1,
+          "costCopper": 2000,
+          "knownBy": [
+            543,
+            8457,
+            8458,
+            10223,
+            10225
+          ]
+        },
+        {
+          "spellId": 7301,
+          "name": "Frost Armor",
+          "rank": 3,
+          "costCopper": 2000,
+          "knownBy": [
+            7301
+          ]
+        },
+        {
+          "spellId": 7322,
+          "name": "Frostbolt",
+          "rank": 4,
+          "costCopper": 2000,
+          "knownBy": [
+            7322,
+            8406,
+            8407,
+            8408,
+            10179,
+            10180,
+            10181,
+            25304
+          ]
+        },
+        {
+          "spellId": 1463,
+          "name": "Mana Shield",
+          "rank": 1,
+          "costCopper": 2000,
+          "knownBy": [
+            1463,
+            8494,
+            8495,
+            10191,
+            10192,
+            10193
+          ]
+        },
+        {
+          "spellId": 12824,
+          "name": "Polymorph",
+          "rank": 2,
+          "costCopper": 2000,
+          "knownBy": [
+            12824,
+            12825,
+            12826
+          ]
+        },
+        {
+          "spellId": 3562,
+          "name": "Teleport: Ironforge",
+          "rank": null,
+          "costCopper": 2000,
+          "knownBy": [
+            3562
+          ]
+        },
+        {
+          "spellId": 3567,
+          "name": "Teleport: Orgrimmar",
+          "rank": null,
+          "costCopper": 2000,
+          "knownBy": [
+            3567
+          ]
+        },
+        {
+          "spellId": 3561,
+          "name": "Teleport: Stormwind",
+          "rank": null,
+          "costCopper": 2000,
+          "knownBy": [
+            3561
+          ]
+        },
+        {
+          "spellId": 3563,
+          "name": "Teleport: Undercity",
+          "rank": null,
+          "costCopper": 2000,
+          "knownBy": [
+            3563
+          ]
+        }
+      ],
+      "totalCostCopper": 26000
+    },
+    {
+      "level": 22,
+      "spells": [
+        {
+          "spellId": 8437,
+          "name": "Arcane Explosion",
+          "rank": 2,
+          "costCopper": 3000,
+          "knownBy": [
+            8437,
+            8438,
+            8439,
+            10201,
+            10202
+          ]
+        },
+        {
+          "spellId": 990,
+          "name": "Conjure Food",
+          "rank": 3,
+          "costCopper": 3000,
+          "knownBy": [
+            990,
+            6129,
+            10144,
+            10145,
+            28612
+          ]
+        },
+        {
+          "spellId": 2138,
+          "name": "Fire Blast",
+          "rank": 3,
+          "costCopper": 3000,
+          "knownBy": [
+            2138,
+            8412,
+            8413,
+            10197,
+            10199
+          ]
+        },
+        {
+          "spellId": 6143,
+          "name": "Frost Ward",
+          "rank": 1,
+          "costCopper": 3000,
+          "knownBy": [
+            6143,
+            8461,
+            8462,
+            10177,
+            28609
+          ]
+        },
+        {
+          "spellId": 2948,
+          "name": "Scorch",
+          "rank": 1,
+          "costCopper": 3000,
+          "knownBy": [
+            2948,
+            8444,
+            8445,
+            8446,
+            10205,
+            10206,
+            10207
+          ]
+        }
+      ],
+      "totalCostCopper": 15000
+    },
+    {
+      "level": 24,
+      "spells": [
+        {
+          "spellId": 5145,
+          "name": "Arcane Missiles",
+          "rank": 3,
+          "costCopper": 4000,
+          "knownBy": [
+            5145,
+            7270,
+            8416,
+            8417,
+            8418,
+            8419,
+            10211,
+            10212,
+            10273,
+            10274,
+            25345,
+            25346
+          ]
+        },
+        {
+          "spellId": 2139,
+          "name": "Counterspell",
+          "rank": null,
+          "costCopper": 4000,
+          "knownBy": [
+            2139
+          ]
+        },
+        {
+          "spellId": 8450,
+          "name": "Dampen Magic",
+          "rank": 2,
+          "costCopper": 4000,
+          "knownBy": [
+            8450,
+            8451,
+            10173,
+            10174
+          ]
+        },
+        {
+          "spellId": 8400,
+          "name": "Fireball",
+          "rank": 5,
+          "costCopper": 4000,
+          "knownBy": [
+            8400,
+            8401,
+            8402,
+            10148,
+            10149,
+            10150,
+            10151,
+            25306
+          ]
+        },
+        {
+          "spellId": 2121,
+          "name": "Flamestrike",
+          "rank": 2,
+          "costCopper": 4000,
+          "knownBy": [
+            2121,
+            8422,
+            8423,
+            10215,
+            10216
+          ]
+        },
+        {
+          "spellId": 12505,
+          "name": "Pyroblast",
+          "rank": 2,
+          "costCopper": 200,
+          "knownBy": [
+            12505,
+            12522,
+            12523,
+            12524,
+            12525,
+            12526,
+            18809
+          ],
+          "optional": true
+        }
+      ],
+      "totalCostCopper": 20200
+    },
+    {
+      "level": 26,
+      "spells": [
+        {
+          "spellId": 120,
+          "name": "Cone of Cold",
+          "rank": 1,
+          "costCopper": 5000,
+          "knownBy": [
+            120,
+            8492,
+            10159,
+            10160,
+            10161
+          ]
+        },
+        {
+          "spellId": 865,
+          "name": "Frost Nova",
+          "rank": 2,
+          "costCopper": 5000,
+          "knownBy": [
+            865,
+            6131,
+            10230
+          ]
+        },
+        {
+          "spellId": 8406,
+          "name": "Frostbolt",
+          "rank": 5,
+          "costCopper": 5000,
+          "knownBy": [
+            8406,
+            8407,
+            8408,
+            10179,
+            10180,
+            10181,
+            25304
+          ]
+        }
+      ],
+      "totalCostCopper": 15000
+    },
+    {
+      "level": 28,
+      "spells": [
+        {
+          "spellId": 1461,
+          "name": "Arcane Intellect",
+          "rank": 3,
+          "costCopper": 7000,
+          "knownBy": [
+            1461,
+            10156,
+            10157,
+            16876
+          ]
+        },
+        {
+          "spellId": 6141,
+          "name": "Blizzard",
+          "rank": 2,
+          "costCopper": 7000,
+          "knownBy": [
+            6141,
+            8427,
+            10185,
+            10186,
+            10187,
+            27618
+          ]
+        },
+        {
+          "spellId": 759,
+          "name": "Conjure Mana Agate",
+          "rank": null,
+          "costCopper": 7000,
+          "knownBy": [
+            759
+          ]
+        },
+        {
+          "spellId": 8494,
+          "name": "Mana Shield",
+          "rank": 2,
+          "costCopper": 7000,
+          "knownBy": [
+            8494,
+            8495,
+            10191,
+            10192,
+            10193
+          ]
+        },
+        {
+          "spellId": 8444,
+          "name": "Scorch",
+          "rank": 2,
+          "costCopper": 7000,
+          "knownBy": [
+            8444,
+            8445,
+            8446,
+            10205,
+            10206,
+            10207
+          ]
+        }
+      ],
+      "totalCostCopper": 35000
+    },
+    {
+      "level": 30,
+      "spells": [
+        {
+          "spellId": 8455,
+          "name": "Amplify Magic",
+          "rank": 2,
+          "costCopper": 8000,
+          "knownBy": [
+            8455,
+            10169,
+            10170
+          ]
+        },
+        {
+          "spellId": 8438,
+          "name": "Arcane Explosion",
+          "rank": 3,
+          "costCopper": 8000,
+          "knownBy": [
+            8438,
+            8439,
+            10201,
+            10202
+          ]
+        },
+        {
+          "spellId": 6127,
+          "name": "Conjure Water",
+          "rank": 4,
+          "costCopper": 8000,
+          "knownBy": [
+            6127,
+            10138,
+            10139,
+            10140
+          ]
+        },
+        {
+          "spellId": 8412,
+          "name": "Fire Blast",
+          "rank": 4,
+          "costCopper": 8000,
+          "knownBy": [
+            8412,
+            8413,
+            10197,
+            10199
+          ]
+        },
+        {
+          "spellId": 8457,
+          "name": "Fire Ward",
+          "rank": 2,
+          "costCopper": 8000,
+          "knownBy": [
+            8457,
+            8458,
+            10223,
+            10225
+          ]
+        },
+        {
+          "spellId": 8401,
+          "name": "Fireball",
+          "rank": 6,
+          "costCopper": 8000,
+          "knownBy": [
+            8401,
+            8402,
+            10148,
+            10149,
+            10150,
+            10151,
+            25306
+          ]
+        },
+        {
+          "spellId": 7302,
+          "name": "Ice Armor",
+          "rank": 1,
+          "costCopper": 8000,
+          "knownBy": [
+            7302,
+            7320,
+            10219,
+            10220
+          ]
+        },
+        {
+          "spellId": 12522,
+          "name": "Pyroblast",
+          "rank": 3,
+          "costCopper": 400,
+          "knownBy": [
+            12522,
+            12523,
+            12524,
+            12525,
+            12526,
+            18809
+          ],
+          "optional": true
+        },
+        {
+          "spellId": 3565,
+          "name": "Teleport: Darnassus",
+          "rank": null,
+          "costCopper": 8000,
+          "knownBy": [
+            3565
+          ]
+        },
+        {
+          "spellId": 3566,
+          "name": "Teleport: Thunder Bluff",
+          "rank": null,
+          "costCopper": 8000,
+          "knownBy": [
+            3566
+          ]
+        }
+      ],
+      "totalCostCopper": 72400
+    },
+    {
+      "level": 32,
+      "spells": [
+        {
+          "spellId": 8416,
+          "name": "Arcane Missiles",
+          "rank": 4,
+          "costCopper": 10000,
+          "knownBy": [
+            8416,
+            8417,
+            8418,
+            8419,
+            10211,
+            10212,
+            10273,
+            10274,
+            25345,
+            25346
+          ]
+        },
+        {
+          "spellId": 6129,
+          "name": "Conjure Food",
+          "rank": 4,
+          "costCopper": 10000,
+          "knownBy": [
+            6129,
+            10144,
+            10145,
+            28612
+          ]
+        },
+        {
+          "spellId": 8422,
+          "name": "Flamestrike",
+          "rank": 3,
+          "costCopper": 10000,
+          "knownBy": [
+            8422,
+            8423,
+            10215,
+            10216
+          ]
+        },
+        {
+          "spellId": 8461,
+          "name": "Frost Ward",
+          "rank": 2,
+          "costCopper": 10000,
+          "knownBy": [
+            8461,
+            8462,
+            10177,
+            28609
+          ]
+        },
+        {
+          "spellId": 8407,
+          "name": "Frostbolt",
+          "rank": 6,
+          "costCopper": 10000,
+          "knownBy": [
+            8407,
+            8408,
+            10179,
+            10180,
+            10181,
+            25304
+          ]
+        }
+      ],
+      "totalCostCopper": 50000
+    },
+    {
+      "level": 34,
+      "spells": [
+        {
+          "spellId": 8492,
+          "name": "Cone of Cold",
+          "rank": 2,
+          "costCopper": 12000,
+          "knownBy": [
+            8492,
+            10159,
+            10160,
+            10161
+          ]
+        },
+        {
+          "spellId": 6117,
+          "name": "Mage Armor",
+          "rank": 1,
+          "costCopper": 13000,
+          "knownBy": [
+            6117,
+            22782,
+            22783
+          ]
+        },
+        {
+          "spellId": 8445,
+          "name": "Scorch",
+          "rank": 3,
+          "costCopper": 12000,
+          "knownBy": [
+            8445,
+            8446,
+            10205,
+            10206,
+            10207
+          ]
+        }
+      ],
+      "totalCostCopper": 37000
+    },
+    {
+      "level": 36,
+      "spells": [
+        {
+          "spellId": 13018,
+          "name": "Blast Wave",
+          "rank": 2,
+          "costCopper": 650,
+          "knownBy": [
+            13018,
+            13019,
+            13020,
+            13021
+          ],
+          "optional": true
+        },
+        {
+          "spellId": 8427,
+          "name": "Blizzard",
+          "rank": 3,
+          "costCopper": 13000,
+          "knownBy": [
+            8427,
+            10185,
+            10186,
+            10187,
+            27618
+          ]
+        },
+        {
+          "spellId": 8451,
+          "name": "Dampen Magic",
+          "rank": 3,
+          "costCopper": 15000,
+          "knownBy": [
+            8451,
+            10173,
+            10174
+          ]
+        },
+        {
+          "spellId": 8402,
+          "name": "Fireball",
+          "rank": 7,
+          "costCopper": 13000,
+          "knownBy": [
+            8402,
+            10148,
+            10149,
+            10150,
+            10151,
+            25306
+          ]
+        },
+        {
+          "spellId": 8495,
+          "name": "Mana Shield",
+          "rank": 3,
+          "costCopper": 13000,
+          "knownBy": [
+            8495,
+            10191,
+            10192,
+            10193
+          ]
+        },
+        {
+          "spellId": 12523,
+          "name": "Pyroblast",
+          "rank": 4,
+          "costCopper": 650,
+          "knownBy": [
+            12523,
+            12524,
+            12525,
+            12526,
+            18809
+          ],
+          "optional": true
+        }
+      ],
+      "totalCostCopper": 55300
+    },
+    {
+      "level": 38,
+      "spells": [
+        {
+          "spellId": 8439,
+          "name": "Arcane Explosion",
+          "rank": 4,
+          "costCopper": 14000,
+          "knownBy": [
+            8439,
+            10201,
+            10202
+          ]
+        },
+        {
+          "spellId": 3552,
+          "name": "Conjure Mana Jade",
+          "rank": null,
+          "costCopper": 14000,
+          "knownBy": [
+            3552
+          ]
+        },
+        {
+          "spellId": 8413,
+          "name": "Fire Blast",
+          "rank": 5,
+          "costCopper": 14000,
+          "knownBy": [
+            8413,
+            10197,
+            10199
+          ]
+        },
+        {
+          "spellId": 8408,
+          "name": "Frostbolt",
+          "rank": 7,
+          "costCopper": 14000,
+          "knownBy": [
+            8408,
+            10179,
+            10180,
+            10181,
+            25304
+          ]
+        }
+      ],
+      "totalCostCopper": 56000
+    },
+    {
+      "level": 40,
+      "spells": [
+        {
+          "spellId": 8417,
+          "name": "Arcane Missiles",
+          "rank": 5,
+          "costCopper": 15000,
+          "knownBy": [
+            8417,
+            8418,
+            10211,
+            10212,
+            10273,
+            10274,
+            25345,
+            25346
+          ]
+        },
+        {
+          "spellId": 10138,
+          "name": "Conjure Water",
+          "rank": 5,
+          "costCopper": 15000,
+          "knownBy": [
+            10138,
+            10139,
+            10140
+          ]
+        },
+        {
+          "spellId": 8458,
+          "name": "Fire Ward",
+          "rank": 3,
+          "costCopper": 15000,
+          "knownBy": [
+            8458,
+            10223,
+            10225
+          ]
+        },
+        {
+          "spellId": 8423,
+          "name": "Flamestrike",
+          "rank": 4,
+          "costCopper": 15000,
+          "knownBy": [
+            8423,
+            10215,
+            10216
+          ]
+        },
+        {
+          "spellId": 6131,
+          "name": "Frost Nova",
+          "rank": 3,
+          "costCopper": 15000,
+          "knownBy": [
+            6131,
+            10230
+          ]
+        },
+        {
+          "spellId": 7320,
+          "name": "Ice Armor",
+          "rank": 2,
+          "costCopper": 15000,
+          "knownBy": [
+            7320,
+            10219,
+            10220
+          ]
+        },
+        {
+          "spellId": 12825,
+          "name": "Polymorph",
+          "rank": 3,
+          "costCopper": 15000,
+          "knownBy": [
+            12825,
+            12826
+          ]
+        },
+        {
+          "spellId": 11416,
+          "name": "Portal: Ironforge",
+          "rank": null,
+          "costCopper": 15000,
+          "knownBy": [
+            11416
+          ]
+        },
+        {
+          "spellId": 11417,
+          "name": "Portal: Orgrimmar",
+          "rank": null,
+          "costCopper": 15000,
+          "knownBy": [
+            11417
+          ]
+        },
+        {
+          "spellId": 10059,
+          "name": "Portal: Stormwind",
+          "rank": null,
+          "costCopper": 15000,
+          "knownBy": [
+            10059
+          ]
+        },
+        {
+          "spellId": 11418,
+          "name": "Portal: Undercity",
+          "rank": null,
+          "costCopper": 15000,
+          "knownBy": [
+            11418
+          ]
+        },
+        {
+          "spellId": 8446,
+          "name": "Scorch",
+          "rank": 4,
+          "costCopper": 15000,
+          "knownBy": [
+            8446,
+            10205,
+            10206,
+            10207
+          ]
+        }
+      ],
+      "totalCostCopper": 180000
+    },
+    {
+      "level": 42,
+      "spells": [
+        {
+          "spellId": 10169,
+          "name": "Amplify Magic",
+          "rank": 3,
+          "costCopper": 18000,
+          "knownBy": [
+            10169,
+            10170
+          ]
+        },
+        {
+          "spellId": 10156,
+          "name": "Arcane Intellect",
+          "rank": 4,
+          "costCopper": 22750,
+          "knownBy": [
+            10156,
+            10157,
+            16876
+          ]
+        },
+        {
+          "spellId": 10159,
+          "name": "Cone of Cold",
+          "rank": 3,
+          "costCopper": 22750,
+          "knownBy": [
+            10159,
+            10160,
+            10161
+          ]
+        },
+        {
+          "spellId": 10144,
+          "name": "Conjure Food",
+          "rank": 5,
+          "costCopper": 22750,
+          "knownBy": [
+            10144,
+            10145,
+            28612
+          ]
+        },
+        {
+          "spellId": 10148,
+          "name": "Fireball",
+          "rank": 8,
+          "costCopper": 22750,
+          "knownBy": [
+            10148,
+            10149,
+            10150,
+            10151,
+            25306
+          ]
+        },
+        {
+          "spellId": 8462,
+          "name": "Frost Ward",
+          "rank": 3,
+          "costCopper": 18000,
+          "knownBy": [
+            8462,
+            10177,
+            28609
+          ]
+        },
+        {
+          "spellId": 12524,
+          "name": "Pyroblast",
+          "rank": 5,
+          "costCopper": 900,
+          "knownBy": [
+            12524,
+            12525,
+            12526,
+            18809
+          ],
+          "optional": true
+        }
+      ],
+      "totalCostCopper": 127900
+    },
+    {
+      "level": 44,
+      "spells": [
+        {
+          "spellId": 13019,
+          "name": "Blast Wave",
+          "rank": 3,
+          "costCopper": 1150,
+          "knownBy": [
+            13019,
+            13020,
+            13021
+          ],
+          "optional": true
+        },
+        {
+          "spellId": 10185,
+          "name": "Blizzard",
+          "rank": 4,
+          "costCopper": 23000,
+          "knownBy": [
+            10185,
+            10186,
+            10187,
+            27618
+          ]
+        },
+        {
+          "spellId": 10179,
+          "name": "Frostbolt",
+          "rank": 8,
+          "costCopper": 23000,
+          "knownBy": [
+            10179,
+            10180,
+            10181,
+            25304
+          ]
+        },
+        {
+          "spellId": 10191,
+          "name": "Mana Shield",
+          "rank": 4,
+          "costCopper": 23000,
+          "knownBy": [
+            10191,
+            10192,
+            10193
+          ]
+        }
+      ],
+      "totalCostCopper": 70150
+    },
+    {
+      "level": 46,
+      "spells": [
+        {
+          "spellId": 10201,
+          "name": "Arcane Explosion",
+          "rank": 5,
+          "costCopper": 26000,
+          "knownBy": [
+            10201,
+            10202
+          ]
+        },
+        {
+          "spellId": 10197,
+          "name": "Fire Blast",
+          "rank": 6,
+          "costCopper": 26000,
+          "knownBy": [
+            10197,
+            10199
+          ]
+        },
+        {
+          "spellId": 13031,
+          "name": "Ice Barrier",
+          "rank": 2,
+          "costCopper": 6500,
+          "knownBy": [
+            13031,
+            13032,
+            13033
+          ],
+          "optional": true
+        },
+        {
+          "spellId": 22782,
+          "name": "Mage Armor",
+          "rank": 2,
+          "costCopper": 28000,
+          "knownBy": [
+            22782,
+            22783
+          ]
+        },
+        {
+          "spellId": 10205,
+          "name": "Scorch",
+          "rank": 5,
+          "costCopper": 26000,
+          "knownBy": [
+            10205,
+            10206,
+            10207
+          ]
+        }
+      ],
+      "totalCostCopper": 112500
+    },
+    {
+      "level": 48,
+      "spells": [
+        {
+          "spellId": 10211,
+          "name": "Arcane Missiles",
+          "rank": 6,
+          "costCopper": 28000,
+          "knownBy": [
+            10211,
+            10212,
+            10273,
+            10274,
+            25345,
+            25346
+          ]
+        },
+        {
+          "spellId": 10053,
+          "name": "Conjure Mana Citrine",
+          "rank": null,
+          "costCopper": 28000,
+          "knownBy": [
+            10053
+          ]
+        },
+        {
+          "spellId": 10173,
+          "name": "Dampen Magic",
+          "rank": 4,
+          "costCopper": 28000,
+          "knownBy": [
+            10173,
+            10174
+          ]
+        },
+        {
+          "spellId": 10149,
+          "name": "Fireball",
+          "rank": 9,
+          "costCopper": 28000,
+          "knownBy": [
+            10149,
+            10150,
+            10151,
+            25306
+          ]
+        },
+        {
+          "spellId": 10215,
+          "name": "Flamestrike",
+          "rank": 5,
+          "costCopper": 28000,
+          "knownBy": [
+            10215,
+            10216
+          ]
+        },
+        {
+          "spellId": 12525,
+          "name": "Pyroblast",
+          "rank": 6,
+          "costCopper": 900,
+          "knownBy": [
+            12525,
+            12526,
+            18809
+          ],
+          "optional": true
+        }
+      ],
+      "totalCostCopper": 140900
+    },
+    {
+      "level": 50,
+      "spells": [
+        {
+          "spellId": 10160,
+          "name": "Cone of Cold",
+          "rank": 4,
+          "costCopper": 32000,
+          "knownBy": [
+            10160,
+            10161
+          ]
+        },
+        {
+          "spellId": 10139,
+          "name": "Conjure Water",
+          "rank": 6,
+          "costCopper": 32000,
+          "knownBy": [
+            10139,
+            10140
+          ]
+        },
+        {
+          "spellId": 10223,
+          "name": "Fire Ward",
+          "rank": 4,
+          "costCopper": 32000,
+          "knownBy": [
+            10223,
+            10225
+          ]
+        },
+        {
+          "spellId": 10180,
+          "name": "Frostbolt",
+          "rank": 9,
+          "costCopper": 32000,
+          "knownBy": [
+            10180,
+            10181,
+            25304
+          ]
+        },
+        {
+          "spellId": 10219,
+          "name": "Ice Armor",
+          "rank": 3,
+          "costCopper": 32000,
+          "knownBy": [
+            10219,
+            10220
+          ]
+        },
+        {
+          "spellId": 11419,
+          "name": "Portal: Darnassus",
+          "rank": null,
+          "costCopper": 32000,
+          "knownBy": [
+            11419
+          ]
+        },
+        {
+          "spellId": 11420,
+          "name": "Portal: Thunder Bluff",
+          "rank": null,
+          "costCopper": 32000,
+          "knownBy": [
+            11420
+          ]
+        }
+      ],
+      "totalCostCopper": 224000
+    },
+    {
+      "level": 52,
+      "spells": [
+        {
+          "spellId": 13020,
+          "name": "Blast Wave",
+          "rank": 4,
+          "costCopper": 1750,
+          "knownBy": [
+            13020,
+            13021
+          ],
+          "optional": true
+        },
+        {
+          "spellId": 10186,
+          "name": "Blizzard",
+          "rank": 5,
+          "costCopper": 35000,
+          "knownBy": [
+            10186,
+            10187,
+            27618
+          ]
+        },
+        {
+          "spellId": 10145,
+          "name": "Conjure Food",
+          "rank": 6,
+          "costCopper": 35000,
+          "knownBy": [
+            10145,
+            28612
+          ]
+        },
+        {
+          "spellId": 10177,
+          "name": "Frost Ward",
+          "rank": 4,
+          "costCopper": 35000,
+          "knownBy": [
+            10177,
+            28609
+          ]
+        },
+        {
+          "spellId": 13032,
+          "name": "Ice Barrier",
+          "rank": 3,
+          "costCopper": 8750,
+          "knownBy": [
+            13032,
+            13033
+          ],
+          "optional": true
+        },
+        {
+          "spellId": 10192,
+          "name": "Mana Shield",
+          "rank": 5,
+          "costCopper": 35000,
+          "knownBy": [
+            10192,
+            10193
+          ]
+        },
+        {
+          "spellId": 10206,
+          "name": "Scorch",
+          "rank": 6,
+          "costCopper": 35000,
+          "knownBy": [
+            10206,
+            10207
+          ]
+        }
+      ],
+      "totalCostCopper": 185500
+    },
+    {
+      "level": 54,
+      "spells": [
+        {
+          "spellId": 10170,
+          "name": "Amplify Magic",
+          "rank": 4,
+          "costCopper": 36000,
+          "knownBy": [
+            10170
+          ]
+        },
+        {
+          "spellId": 10202,
+          "name": "Arcane Explosion",
+          "rank": 6,
+          "costCopper": 36000,
+          "knownBy": [
+            10202
+          ]
+        },
+        {
+          "spellId": 10199,
+          "name": "Fire Blast",
+          "rank": 7,
+          "costCopper": 36000,
+          "knownBy": [
+            10199
+          ]
+        },
+        {
+          "spellId": 10150,
+          "name": "Fireball",
+          "rank": 10,
+          "costCopper": 36000,
+          "knownBy": [
+            10150,
+            10151,
+            25306
+          ]
+        },
+        {
+          "spellId": 10230,
+          "name": "Frost Nova",
+          "rank": 4,
+          "costCopper": 36000,
+          "knownBy": [
+            10230
+          ]
+        },
+        {
+          "spellId": 12526,
+          "name": "Pyroblast",
+          "rank": 7,
+          "costCopper": 1800,
+          "knownBy": [
+            12526,
+            18809
+          ],
+          "optional": true
+        }
+      ],
+      "totalCostCopper": 181800
+    },
+    {
+      "level": 56,
+      "spells": [
+        {
+          "spellId": 10157,
+          "name": "Arcane Intellect",
+          "rank": 5,
+          "costCopper": 38000,
+          "knownBy": [
+            10157,
+            16876
+          ]
+        },
+        {
+          "spellId": 10212,
+          "name": "Arcane Missiles",
+          "rank": 7,
+          "costCopper": 38000,
+          "knownBy": [
+            10212,
+            10274,
+            25345,
+            25346
+          ]
+        },
+        {
+          "spellId": 10216,
+          "name": "Flamestrike",
+          "rank": 6,
+          "costCopper": 38000,
+          "knownBy": [
+            10216
+          ]
+        },
+        {
+          "spellId": 10181,
+          "name": "Frostbolt",
+          "rank": 10,
+          "costCopper": 38000,
+          "knownBy": [
+            10181,
+            25304
+          ]
+        }
+      ],
+      "totalCostCopper": 152000
+    },
+    {
+      "level": 58,
+      "spells": [
+        {
+          "spellId": 10161,
+          "name": "Cone of Cold",
+          "rank": 5,
+          "costCopper": 40000,
+          "knownBy": [
+            10161
+          ]
+        },
+        {
+          "spellId": 10054,
+          "name": "Conjure Mana Ruby",
+          "rank": null,
+          "costCopper": 40000,
+          "knownBy": [
+            10054
+          ]
+        },
+        {
+          "spellId": 13033,
+          "name": "Ice Barrier",
+          "rank": 4,
+          "costCopper": 9000,
+          "knownBy": [
+            13033
+          ],
+          "optional": true
+        },
+        {
+          "spellId": 22783,
+          "name": "Mage Armor",
+          "rank": 3,
+          "costCopper": 40000,
+          "knownBy": [
+            22783
+          ]
+        },
+        {
+          "spellId": 10207,
+          "name": "Scorch",
+          "rank": 7,
+          "costCopper": 40000,
+          "knownBy": [
+            10207
+          ]
+        }
+      ],
+      "totalCostCopper": 169000
+    },
+    {
+      "level": 60,
+      "spells": [
+        {
+          "spellId": 13021,
+          "name": "Blast Wave",
+          "rank": 5,
+          "costCopper": 2100,
+          "knownBy": [
+            13021
+          ],
+          "optional": true
+        },
+        {
+          "spellId": 10187,
+          "name": "Blizzard",
+          "rank": 6,
+          "costCopper": 42000,
+          "knownBy": [
+            10187,
+            27618
+          ]
+        },
+        {
+          "spellId": 10174,
+          "name": "Dampen Magic",
+          "rank": 5,
+          "costCopper": 42000,
+          "knownBy": [
+            10174
+          ]
+        },
+        {
+          "spellId": 10225,
+          "name": "Fire Ward",
+          "rank": 5,
+          "costCopper": 42000,
+          "knownBy": [
+            10225
+          ]
+        },
+        {
+          "spellId": 10151,
+          "name": "Fireball",
+          "rank": 11,
+          "costCopper": 42000,
+          "knownBy": [
+            10151,
+            25306
+          ]
+        },
+        {
+          "spellId": 10220,
+          "name": "Ice Armor",
+          "rank": 4,
+          "costCopper": 42000,
+          "knownBy": [
+            10220
+          ]
+        },
+        {
+          "spellId": 10193,
+          "name": "Mana Shield",
+          "rank": 6,
+          "costCopper": 42000,
+          "knownBy": [
+            10193
+          ]
+        },
+        {
+          "spellId": 12826,
+          "name": "Polymorph",
+          "rank": 4,
+          "costCopper": 42000,
+          "knownBy": [
+            12826
+          ]
+        },
+        {
+          "spellId": 18809,
+          "name": "Pyroblast",
+          "rank": 8,
+          "costCopper": 1890,
+          "knownBy": [
+            18809
+          ],
+          "optional": true
+        }
+      ],
+      "totalCostCopper": 297990
+    }
+  ],
+  "classQuests": [
+    {
+      "level": 10,
+      "name": "Ju-Ju Heaps",
+      "startZone": "Durotar",
+      "startInstance": null,
+      "reward": "Ley Orb",
+      "rewardItemId": null,
+      "rewardItem": null,
+      "questId": 1884,
+      "faction": "horde",
+      "rewardChoices": [
+        {
+          "itemId": 7508,
+          "item": {
+            "name": "Ley Orb",
+            "iconName": "inv_misc_orb_01",
+            "wowheadUrl": "https://www.wowhead.com/classic/item=7508",
+            "slot": "Held",
+            "quality": "Uncommon",
+            "requiredLevel": 0,
+            "itemLevel": 10,
+            "stats": [
+              {
+                "type": "Spirit",
+                "value": 1
+              }
+            ],
+            "bind": "pickup",
+            "sellPriceCopper": 400,
+            "effects": [
+              "Use: Replenish Mana I"
+            ]
+          }
+        },
+        {
+          "itemId": 9513,
+          "item": {
+            "name": "Ley Staff",
+            "iconName": "inv_staff_21",
+            "wowheadUrl": "https://www.wowhead.com/classic/item=9513",
+            "slot": "Two-Hand",
+            "itemSubclass": "Staff",
+            "quality": "Uncommon",
+            "requiredLevel": 0,
+            "itemLevel": 10,
+            "stats": [
+              {
+                "type": "Spirit",
+                "value": 1
+              },
+              {
+                "type": "Intellect",
+                "value": 1
+              }
+            ],
+            "bind": "pickup",
+            "sellPriceCopper": 305,
+            "damage": {
+              "min": 16,
+              "max": 25,
+              "speed": 2.9
+            },
+            "durability": 45
+          }
+        }
+      ]
+    },
+    {
+      "level": 10,
+      "name": "Mage-tastic Gizmonitor",
+      "startZone": "Ironforge",
+      "startInstance": null,
+      "reward": "Arcane Orb",
+      "rewardItemId": null,
+      "rewardItem": null,
+      "questId": 1880,
+      "faction": "alliance",
+      "rewardChoices": [
+        {
+          "itemId": 7507,
+          "item": {
+            "name": "Arcane Orb",
+            "iconName": "inv_misc_orb_01",
+            "wowheadUrl": "https://www.wowhead.com/classic/item=7507",
+            "slot": "Held",
+            "quality": "Uncommon",
+            "requiredLevel": 0,
+            "itemLevel": 10,
+            "stats": [
+              {
+                "type": "Spirit",
+                "value": 1
+              }
+            ],
+            "bind": "pickup",
+            "sellPriceCopper": 400,
+            "effects": [
+              "Use: Replenish Mana I"
+            ]
+          }
+        },
+        {
+          "itemId": 9514,
+          "item": {
+            "name": "Arcane Staff",
+            "iconName": "inv_staff_10",
+            "wowheadUrl": "https://www.wowhead.com/classic/item=9514",
+            "slot": "Two-Hand",
+            "itemSubclass": "Staff",
+            "quality": "Uncommon",
+            "requiredLevel": 0,
+            "itemLevel": 10,
+            "stats": [
+              {
+                "type": "Spirit",
+                "value": 1
+              },
+              {
+                "type": "Intellect",
+                "value": 1
+              }
+            ],
+            "bind": "pickup",
+            "sellPriceCopper": 306,
+            "damage": {
+              "min": 16,
+              "max": 25,
+              "speed": 2.9
+            },
+            "durability": 45
+          }
+        }
+      ]
+    },
+    {
+      "level": 10,
+      "name": "Mirror Lake",
+      "startZone": "Stormwind City",
+      "startInstance": null,
+      "reward": "Ley Orb",
+      "rewardItemId": null,
+      "rewardItem": null,
+      "questId": 1861,
+      "faction": "alliance",
+      "rewardChoices": [
+        {
+          "itemId": 7508,
+          "item": {
+            "name": "Ley Orb",
+            "iconName": "inv_misc_orb_01",
+            "wowheadUrl": "https://www.wowhead.com/classic/item=7508",
+            "slot": "Held",
+            "quality": "Uncommon",
+            "requiredLevel": 0,
+            "itemLevel": 10,
+            "stats": [
+              {
+                "type": "Spirit",
+                "value": 1
+              }
+            ],
+            "bind": "pickup",
+            "sellPriceCopper": 400,
+            "effects": [
+              "Use: Replenish Mana I"
+            ]
+          }
+        },
+        {
+          "itemId": 9513,
+          "item": {
+            "name": "Ley Staff",
+            "iconName": "inv_staff_21",
+            "wowheadUrl": "https://www.wowhead.com/classic/item=9513",
+            "slot": "Two-Hand",
+            "itemSubclass": "Staff",
+            "quality": "Uncommon",
+            "requiredLevel": 0,
+            "itemLevel": 10,
+            "stats": [
+              {
+                "type": "Spirit",
+                "value": 1
+              },
+              {
+                "type": "Intellect",
+                "value": 1
+              }
+            ],
+            "bind": "pickup",
+            "sellPriceCopper": 305,
+            "damage": {
+              "min": 16,
+              "max": 25,
+              "speed": 2.9
+            },
+            "durability": 45
+          }
+        }
+      ]
+    },
+    {
+      "level": 10,
+      "name": "The Balnir Farmstead",
+      "startZone": "Undercity",
+      "startInstance": null,
+      "reward": "Arcane Orb",
+      "rewardItemId": null,
+      "rewardItem": null,
+      "questId": 1882,
+      "faction": "horde",
+      "rewardChoices": [
+        {
+          "itemId": 7507,
+          "item": {
+            "name": "Arcane Orb",
+            "iconName": "inv_misc_orb_01",
+            "wowheadUrl": "https://www.wowhead.com/classic/item=7507",
+            "slot": "Held",
+            "quality": "Uncommon",
+            "requiredLevel": 0,
+            "itemLevel": 10,
+            "stats": [
+              {
+                "type": "Spirit",
+                "value": 1
+              }
+            ],
+            "bind": "pickup",
+            "sellPriceCopper": 400,
+            "effects": [
+              "Use: Replenish Mana I"
+            ]
+          }
+        },
+        {
+          "itemId": 9514,
+          "item": {
+            "name": "Arcane Staff",
+            "iconName": "inv_staff_10",
+            "wowheadUrl": "https://www.wowhead.com/classic/item=9514",
+            "slot": "Two-Hand",
+            "itemSubclass": "Staff",
+            "quality": "Uncommon",
+            "requiredLevel": 0,
+            "itemLevel": 10,
+            "stats": [
+              {
+                "type": "Spirit",
+                "value": 1
+              },
+              {
+                "type": "Intellect",
+                "value": 1
+              }
+            ],
+            "bind": "pickup",
+            "sellPriceCopper": 306,
+            "damage": {
+              "min": 16,
+              "max": 25,
+              "speed": 2.9
+            },
+            "durability": 45
+          }
+        }
+      ]
+    },
+    {
+      "level": 15,
+      "name": "Manaweave Robe",
+      "startZone": "Stormwind City",
+      "startInstance": null,
+      "reward": "Manaweave Robe",
+      "rewardItemId": 7509,
+      "rewardItem": {
+        "name": "Manaweave Robe",
+        "iconName": "inv_chest_cloth_36",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=7509",
+        "slot": "Chest",
+        "itemSubclass": "Cloth",
+        "quality": "Uncommon",
+        "requiredLevel": 0,
+        "itemLevel": 20,
+        "stats": [
+          {
+            "type": "Intellect",
+            "value": 6
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 553,
+        "armor": 34,
+        "durability": 60
+      },
+      "questId": 1941,
+      "faction": "alliance"
+    },
+    {
+      "level": 15,
+      "name": "Spellfire Robes",
+      "startZone": "Undercity",
+      "startInstance": null,
+      "reward": "Lesser Spellfire Robes",
+      "rewardItemId": 7510,
+      "rewardItem": {
+        "name": "Lesser Spellfire Robes",
+        "iconName": "inv_chest_cloth_18",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=7510",
+        "slot": "Chest",
+        "itemSubclass": "Cloth",
+        "quality": "Uncommon",
+        "requiredLevel": 0,
+        "itemLevel": 20,
+        "stats": [
+          {
+            "type": "Intellect",
+            "value": 6
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 556,
+        "armor": 34,
+        "durability": 60
+      },
+      "questId": 1962,
+      "faction": "horde"
+    },
+    {
+      "level": 26,
+      "name": "Astral Knot Garment",
+      "startZone": "Stormwind City",
+      "startInstance": null,
+      "reward": "Astral Knot Robe",
+      "rewardItemId": null,
+      "rewardItem": null,
+      "questId": 1942,
+      "faction": "alliance",
+      "rewardChoices": [
+        {
+          "itemId": 7511,
+          "item": {
+            "name": "Astral Knot Robe",
+            "iconName": "inv_chest_cloth_04",
+            "wowheadUrl": "https://www.wowhead.com/classic/item=7511",
+            "slot": "Chest",
+            "itemSubclass": "Cloth",
+            "quality": "Uncommon",
+            "requiredLevel": 0,
+            "itemLevel": 31,
+            "stats": [
+              {
+                "type": "Intellect",
+                "value": 6
+              },
+              {
+                "type": "Stamina",
+                "value": 6
+              },
+              {
+                "type": "Spirit",
+                "value": 6
+              }
+            ],
+            "bind": "pickup",
+            "sellPriceCopper": 1938,
+            "armor": 44,
+            "durability": 70
+          }
+        },
+        {
+          "itemId": 9516,
+          "item": {
+            "name": "Astral Knot Blouse",
+            "iconName": "inv_shirt_11",
+            "wowheadUrl": "https://www.wowhead.com/classic/item=9516",
+            "slot": "Chest",
+            "itemSubclass": "Cloth",
+            "quality": "Uncommon",
+            "requiredLevel": 0,
+            "itemLevel": 31,
+            "stats": [
+              {
+                "type": "Stamina",
+                "value": 6
+              },
+              {
+                "type": "Intellect",
+                "value": 9
+              }
+            ],
+            "bind": "pickup",
+            "sellPriceCopper": 2071,
+            "armor": 44,
+            "durability": 70
+          }
+        }
+      ]
+    },
+    {
+      "level": 26,
+      "name": "Nether-lace Garment",
+      "startZone": "The Barrens",
+      "startInstance": null,
+      "reward": "Nether-lace Robe",
+      "rewardItemId": null,
+      "rewardItem": null,
+      "questId": 1946,
+      "faction": "horde",
+      "rewardChoices": [
+        {
+          "itemId": 7512,
+          "item": {
+            "name": "Nether-lace Robe",
+            "iconName": "inv_chest_cloth_20",
+            "wowheadUrl": "https://www.wowhead.com/classic/item=7512",
+            "slot": "Chest",
+            "itemSubclass": "Cloth",
+            "quality": "Uncommon",
+            "requiredLevel": 0,
+            "itemLevel": 31,
+            "stats": [
+              {
+                "type": "Intellect",
+                "value": 6
+              },
+              {
+                "type": "Stamina",
+                "value": 6
+              },
+              {
+                "type": "Spirit",
+                "value": 6
+              }
+            ],
+            "bind": "pickup",
+            "sellPriceCopper": 1945,
+            "armor": 44,
+            "durability": 70
+          }
+        },
+        {
+          "itemId": 9515,
+          "item": {
+            "name": "Nether-lace Tunic",
+            "iconName": null,
+            "wowheadUrl": "https://www.wowhead.com/classic/item=9515",
+            "slot": "Chest",
+            "itemSubclass": "Cloth",
+            "quality": "Uncommon",
+            "requiredLevel": 0,
+            "itemLevel": 31,
+            "stats": [
+              {
+                "type": "Stamina",
+                "value": 6
+              },
+              {
+                "type": "Intellect",
+                "value": 9
+              }
+            ],
+            "bind": "pickup",
+            "sellPriceCopper": 2011,
+            "armor": 44,
+            "durability": 70
+          }
+        }
+      ]
+    },
+    {
+      "level": 30,
+      "name": "Mage's Wand",
+      "startZone": "Dustwallow Marsh",
+      "startInstance": null,
+      "reward": "Icefury Wand",
+      "rewardItemId": null,
+      "rewardItem": null,
+      "questId": 1952,
+      "faction": "both",
+      "rewardChoices": [
+        {
+          "itemId": 7514,
+          "item": {
+            "name": "Icefury Wand",
+            "iconName": "inv_wand_05",
+            "wowheadUrl": "https://www.wowhead.com/classic/item=7514",
+            "slot": "Ranged",
+            "itemSubclass": "Wand",
+            "quality": "Rare",
+            "requiredLevel": 0,
+            "itemLevel": 40,
+            "stats": [
+              {
+                "type": "Intellect",
+                "value": 3
+              }
+            ],
+            "bind": "pickup",
+            "sellPriceCopper": 9842,
+            "damage": {
+              "min": 41,
+              "max": 78,
+              "speed": 1.6
+            },
+            "durability": 65,
+            "effects": [
+              "Equip: Increase Frost Dam +9"
+            ]
+          }
+        },
+        {
+          "itemId": 11263,
+          "item": {
+            "name": "Nether Force Wand",
+            "iconName": "inv_wand_07",
+            "wowheadUrl": "https://www.wowhead.com/classic/item=11263",
+            "slot": "Ranged",
+            "itemSubclass": "Wand",
+            "quality": "Rare",
+            "requiredLevel": 0,
+            "itemLevel": 40,
+            "stats": [
+              {
+                "type": "Intellect",
+                "value": 3
+              }
+            ],
+            "bind": "pickup",
+            "sellPriceCopper": 10103,
+            "damage": {
+              "min": 39,
+              "max": 73,
+              "speed": 1.5
+            },
+            "durability": 65,
+            "effects": [
+              "Equip: Increase Arcane Dam +9"
+            ]
+          }
+        },
+        {
+          "itemId": 7513,
+          "item": {
+            "name": "Ragefire Wand",
+            "iconName": "inv_wand_09",
+            "wowheadUrl": "https://www.wowhead.com/classic/item=7513",
+            "slot": "Ranged",
+            "itemSubclass": "Wand",
+            "quality": "Rare",
+            "requiredLevel": 0,
+            "itemLevel": 40,
+            "stats": [
+              {
+                "type": "Intellect",
+                "value": 3
+              }
+            ],
+            "bind": "pickup",
+            "sellPriceCopper": 9805,
+            "damage": {
+              "min": 36,
+              "max": 68,
+              "speed": 1.4
+            },
+            "durability": 65,
+            "effects": [
+              "Equip: Increase Fire Dam +9"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "level": 35,
+      "name": "Celestial Power",
+      "startZone": "Dustwallow Marsh",
+      "startInstance": null,
+      "reward": "Celestial Stave",
+      "rewardItemId": null,
+      "rewardItem": null,
+      "questId": 1958,
+      "faction": "both",
+      "rewardChoices": [
+        {
+          "itemId": 7515,
+          "item": {
+            "name": "Celestial Orb",
+            "iconName": "inv_misc_orb_03",
+            "wowheadUrl": "https://www.wowhead.com/classic/item=7515",
+            "slot": "Held",
+            "quality": "Rare",
+            "requiredLevel": 0,
+            "itemLevel": 40,
+            "stats": [
+              {
+                "type": "Intellect",
+                "value": 3
+              }
+            ],
+            "bind": "pickup",
+            "sellPriceCopper": 5382,
+            "effects": [
+              "Equip: Increase Spell Dam +13",
+              "Use: Replenish Mana II"
+            ]
+          }
+        },
+        {
+          "itemId": 9517,
+          "item": {
+            "name": "Celestial Stave",
+            "iconName": "inv_staff_14",
+            "wowheadUrl": "https://www.wowhead.com/classic/item=9517",
+            "slot": "Two-Hand",
+            "itemSubclass": "Staff",
+            "quality": "Rare",
+            "requiredLevel": 0,
+            "itemLevel": 40,
+            "stats": [
+              {
+                "type": "Intellect",
+                "value": 8
+              }
+            ],
+            "bind": "pickup",
+            "sellPriceCopper": 15737,
+            "damage": {
+              "min": 85,
+              "max": 129,
+              "speed": 3.0
+            },
+            "durability": 100,
+            "effects": [
+              "Equip: Increase Spell Dam +22"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "level": 50,
+      "name": "Magecraft",
+      "startZone": "Mulgore",
+      "startInstance": null,
+      "reward": "Teleport to Azshara Tower",
+      "rewardItemId": null,
+      "rewardItem": null,
+      "questId": 8250,
+      "faction": "both"
+    },
+    {
+      "level": 54,
+      "name": "The Arcanist's Cookbook",
+      "startZone": "Feralas",
+      "startInstance": "Dire Maul",
+      "reward": "Royal Seal of Eldre'Thalas",
+      "rewardItemId": 18468,
+      "rewardItem": {
+        "name": "Royal Seal of Eldre'Thalas",
+        "iconName": "inv_jewelry_talisman_10",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=18468",
+        "slot": "Trinket",
+        "quality": "Rare",
+        "requiredLevel": 0,
+        "itemLevel": 62,
+        "stats": [],
+        "bind": "pickup",
+        "unique": true,
+        "sellPriceCopper": 0,
+        "effects": [
+          "Equip: Increased Mana Regen +8"
+        ]
+      },
+      "questId": 7500,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Arcane Refreshment",
+      "startZone": "Feralas",
+      "startInstance": "Dire Maul",
+      "reward": "Conjure Water (Rank 7)",
+      "rewardItemId": null,
+      "rewardItem": null,
+      "questId": 7463,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Band of Vaulted Secrets",
+      "startZone": "Silithus",
+      "startInstance": null,
+      "reward": "Band of Vaulted Secrets",
+      "rewardItemId": 21414,
+      "rewardItem": {
+        "name": "Band of Vaulted Secrets",
+        "iconName": "inv_jewelry_ring_ahnqiraj_03",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=21414",
+        "slot": "Finger",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 65,
+        "stats": [
+          {
+            "type": "Stamina",
+            "value": 9
+          }
+        ],
+        "bind": "pickup",
+        "unique": true,
+        "sellPriceCopper": 0,
+        "effects": [
+          "Equip: Increase Spell Dam +18",
+          "Equip: Increased Critical Spell +1"
+        ]
+      },
+      "questId": 8699,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Blade of Vaulted Secrets",
+      "startZone": "Silithus",
+      "startInstance": null,
+      "reward": "Blade of Vaulted Secrets",
+      "rewardItemId": 21413,
+      "rewardItem": {
+        "name": "Blade of Vaulted Secrets",
+        "iconName": "inv_sword_57",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=21413",
+        "slot": "Main Hand",
+        "itemSubclass": "Sword",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 70,
+        "stats": [
+          {
+            "type": "Intellect",
+            "value": 16
+          },
+          {
+            "type": "Stamina",
+            "value": 8
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 0,
+        "damage": {
+          "min": 60,
+          "max": 131,
+          "speed": 2.3
+        },
+        "durability": 105,
+        "effects": [
+          "Equip: Increased Spell Hit Chance +1",
+          "Equip: Increase Spell Dam +40"
+        ]
+      },
+      "questId": 8707,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Drape of Vaulted Secrets",
+      "startZone": "Silithus",
+      "startInstance": null,
+      "reward": "Drape of Vaulted Secrets",
+      "rewardItemId": 21415,
+      "rewardItem": {
+        "name": "Drape of Vaulted Secrets",
+        "iconName": "inv_misc_cape_19",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=21415",
+        "slot": "Back",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 67,
+        "stats": [
+          {
+            "type": "Intellect",
+            "value": 9
+          },
+          {
+            "type": "Stamina",
+            "value": 14
+          },
+          {
+            "type": "Spirit",
+            "value": 6
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 0,
+        "armor": 52,
+        "effects": [
+          "Equip: Increase Spell Dam +18"
+        ]
+      },
+      "questId": 8691,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Enigma Boots",
+      "startZone": "Silithus",
+      "startInstance": "Ahn'Qiraj",
+      "reward": "Enigma Boots",
+      "rewardItemId": 21344,
+      "rewardItem": {
+        "name": "Enigma Boots",
+        "iconName": "inv_boots_cloth_03",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=21344",
+        "slot": "Feet",
+        "itemSubclass": "Cloth",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 78,
+        "stats": [
+          {
+            "type": "Intellect",
+            "value": 15
+          },
+          {
+            "type": "Spirit",
+            "value": 6
+          },
+          {
+            "type": "Stamina",
+            "value": 15
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 48453,
+        "armor": 82,
+        "durability": 50,
+        "effects": [
+          "Equip: Increase Spell Dam +28",
+          "Equip: Increased Spell Hit Chance +1",
+          "Equip: Increased Mana Regen +4"
+        ]
+      },
+      "questId": 8634,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Enigma Circlet",
+      "startZone": "Silithus",
+      "startInstance": "Ahn'Qiraj",
+      "reward": "Enigma Circlet",
+      "rewardItemId": 21347,
+      "rewardItem": {
+        "name": "Enigma Circlet",
+        "iconName": "inv_helmet_06",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=21347",
+        "slot": "Head",
+        "itemSubclass": "Cloth",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 81,
+        "stats": [
+          {
+            "type": "Intellect",
+            "value": 24
+          },
+          {
+            "type": "Spirit",
+            "value": 12
+          },
+          {
+            "type": "Stamina",
+            "value": 24
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 58170,
+        "armor": 100,
+        "durability": 60,
+        "effects": [
+          "Equip: Increase Spell Dam +33",
+          "Equip: Increased Critical Spell +1",
+          "Equip: Increased Spell Hit Chance +1"
+        ]
+      },
+      "questId": 8632,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Enigma Leggings",
+      "startZone": "Silithus",
+      "startInstance": "Ahn'Qiraj",
+      "reward": "Enigma Leggings",
+      "rewardItemId": 21346,
+      "rewardItem": {
+        "name": "Enigma Leggings",
+        "iconName": "inv_pants_cloth_08",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=21346",
+        "slot": "Legs",
+        "itemSubclass": "Cloth",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 81,
+        "stats": [
+          {
+            "type": "Intellect",
+            "value": 26
+          },
+          {
+            "type": "Spirit",
+            "value": 8
+          },
+          {
+            "type": "Stamina",
+            "value": 21
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 77286,
+        "armor": 107,
+        "durability": 75,
+        "effects": [
+          "Equip: Increase Spell Dam +34",
+          "Equip: Increased Critical Spell +1",
+          "Equip: Increased Mana Regen +5"
+        ]
+      },
+      "questId": 8631,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Enigma Robes",
+      "startZone": "Silithus",
+      "startInstance": "Ahn'Qiraj",
+      "reward": "Enigma Robes",
+      "rewardItemId": 21343,
+      "rewardItem": {
+        "name": "Enigma Robes",
+        "iconName": "inv_chest_cloth_11",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=21343",
+        "slot": "Chest",
+        "itemSubclass": "Cloth",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 88,
+        "stats": [
+          {
+            "type": "Intellect",
+            "value": 23
+          },
+          {
+            "type": "Spirit",
+            "value": 7
+          },
+          {
+            "type": "Stamina",
+            "value": 19
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 104850,
+        "armor": 133,
+        "durability": 100,
+        "effects": [
+          "Equip: Increase Spell Dam +39",
+          "Equip: Increased Critical Spell +1",
+          "Equip: Increased Spell Penetration +20"
+        ]
+      },
+      "questId": 8633,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Enigma Shoulderpads",
+      "startZone": "Silithus",
+      "startInstance": "Ahn'Qiraj",
+      "reward": "Enigma Shoulderpads",
+      "rewardItemId": 21345,
+      "rewardItem": {
+        "name": "Enigma Shoulderpads",
+        "iconName": "inv_shoulder_03",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=21345",
+        "slot": "Shoulder",
+        "itemSubclass": "Cloth",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 78,
+        "stats": [
+          {
+            "type": "Intellect",
+            "value": 12
+          },
+          {
+            "type": "Spirit",
+            "value": 4
+          },
+          {
+            "type": "Stamina",
+            "value": 16
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 49895,
+        "armor": 89,
+        "durability": 60,
+        "effects": [
+          "Equip: Increase Spell Dam +30",
+          "Equip: Increased Spell Penetration +10",
+          "Equip: Increased Mana Regen +4"
+        ]
+      },
+      "questId": 8625,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Fragmented Magic",
+      "startZone": "Azshara",
+      "startInstance": null,
+      "reward": "Polymorph: Pig",
+      "rewardItemId": null,
+      "rewardItem": null,
+      "questId": 9364,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Frostfire Belt",
+      "startZone": "Eastern Plaguelands",
+      "startInstance": null,
+      "reward": "Frostfire Belt",
+      "rewardItemId": 22502,
+      "rewardItem": {
+        "name": "Frostfire Belt",
+        "iconName": "inv_belt_03",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=22502",
+        "slot": "Waist",
+        "itemSubclass": "Cloth",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 88,
+        "stats": [
+          {
+            "type": "Spirit",
+            "value": 10
+          },
+          {
+            "type": "Stamina",
+            "value": 19
+          },
+          {
+            "type": "Intellect",
+            "value": 21
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 51686,
+        "armor": 75,
+        "durability": 35,
+        "effects": [
+          "Equip: Increase Spell Dam +28",
+          "Equip: Increased Spell Hit Chance +1"
+        ]
+      },
+      "questId": 9101,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Frostfire Bindings",
+      "startZone": "Eastern Plaguelands",
+      "startInstance": null,
+      "reward": "Frostfire Bindings",
+      "rewardItemId": 22503,
+      "rewardItem": {
+        "name": "Frostfire Bindings",
+        "iconName": "inv_bracer_13",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=22503",
+        "slot": "Wrist",
+        "itemSubclass": "Cloth",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 88,
+        "stats": [
+          {
+            "type": "Stamina",
+            "value": 14
+          },
+          {
+            "type": "Intellect",
+            "value": 15
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 51879,
+        "armor": 58,
+        "durability": 35,
+        "effects": [
+          "Equip: Increased Spell Penetration +10",
+          "Equip: Increase Spell Dam +27"
+        ]
+      },
+      "questId": 9102,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Frostfire Circlet",
+      "startZone": "Eastern Plaguelands",
+      "startInstance": null,
+      "reward": "Frostfire Circlet",
+      "rewardItemId": 22498,
+      "rewardItem": {
+        "name": "Frostfire Circlet",
+        "iconName": "inv_crown_01",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=22498",
+        "slot": "Head",
+        "itemSubclass": "Cloth",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 88,
+        "stats": [
+          {
+            "type": "Stamina",
+            "value": 22
+          },
+          {
+            "type": "Intellect",
+            "value": 23
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 74316,
+        "armor": 108,
+        "durability": 60,
+        "effects": [
+          "Equip: Increase Spell Dam +35",
+          "Equip: Increased Spell Hit Chance +1",
+          "Equip: Increased Critical Spell +2"
+        ]
+      },
+      "questId": 9097,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Frostfire Gloves",
+      "startZone": "Eastern Plaguelands",
+      "startInstance": null,
+      "reward": "Frostfire Gloves",
+      "rewardItemId": 22501,
+      "rewardItem": {
+        "name": "Frostfire Gloves",
+        "iconName": "inv_gauntlets_17",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=22501",
+        "slot": "Hands",
+        "itemSubclass": "Cloth",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 88,
+        "stats": [
+          {
+            "type": "Stamina",
+            "value": 17
+          },
+          {
+            "type": "Intellect",
+            "value": 19
+          },
+          {
+            "type": "Spirit",
+            "value": 10
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 50116,
+        "armor": 83,
+        "durability": 35,
+        "effects": [
+          "Equip: Increase Spell Dam +36"
+        ]
+      },
+      "questId": 9100,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Frostfire Leggings",
+      "startZone": "Eastern Plaguelands",
+      "startInstance": null,
+      "reward": "Frostfire Leggings",
+      "rewardItemId": 22497,
+      "rewardItem": {
+        "name": "Frostfire Leggings",
+        "iconName": "inv_pants_cloth_05",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=22497",
+        "slot": "Legs",
+        "itemSubclass": "Cloth",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 88,
+        "stats": [
+          {
+            "type": "Spirit",
+            "value": 10
+          },
+          {
+            "type": "Intellect",
+            "value": 26
+          },
+          {
+            "type": "Stamina",
+            "value": 25
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 109114,
+        "armor": 116,
+        "durability": 75,
+        "effects": [
+          "Equip: Increased Spell Hit Chance +1",
+          "Equip: Increase Spell Dam +46"
+        ]
+      },
+      "questId": 9096,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Frostfire Robe",
+      "startZone": "Eastern Plaguelands",
+      "startInstance": null,
+      "reward": "Frostfire Robe",
+      "rewardItemId": 22496,
+      "rewardItem": {
+        "name": "Frostfire Robe",
+        "iconName": "inv_chest_cloth_43",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=22496",
+        "slot": "Chest",
+        "itemSubclass": "Cloth",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 92,
+        "stats": [
+          {
+            "type": "Stamina",
+            "value": 21
+          },
+          {
+            "type": "Intellect",
+            "value": 27
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 132173,
+        "armor": 138,
+        "durability": 100,
+        "effects": [
+          "Equip: Increase Spell Dam +47",
+          "Equip: Increased Spell Hit Chance +1",
+          "Equip: Increased Critical Spell +1"
+        ]
+      },
+      "questId": 9095,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Frostfire Sandals",
+      "startZone": "Eastern Plaguelands",
+      "startInstance": null,
+      "reward": "Frostfire Sandals",
+      "rewardItemId": 22500,
+      "rewardItem": {
+        "name": "Frostfire Sandals",
+        "iconName": "inv_boots_fabric_01",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=22500",
+        "slot": "Feet",
+        "itemSubclass": "Cloth",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 86,
+        "stats": [
+          {
+            "type": "Spirit",
+            "value": 10
+          },
+          {
+            "type": "Intellect",
+            "value": 18
+          },
+          {
+            "type": "Stamina",
+            "value": 17
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 67930,
+        "armor": 89,
+        "durability": 50,
+        "effects": [
+          "Equip: Increased Critical Spell +1",
+          "Equip: Increase Spell Dam +28"
+        ]
+      },
+      "questId": 9099,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Frostfire Shoulderpads",
+      "startZone": "Eastern Plaguelands",
+      "startInstance": null,
+      "reward": "Frostfire Shoulderpads",
+      "rewardItemId": 22499,
+      "rewardItem": {
+        "name": "Frostfire Shoulderpads",
+        "iconName": "inv_shoulder_25",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=22499",
+        "slot": "Shoulder",
+        "itemSubclass": "Cloth",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 86,
+        "stats": [
+          {
+            "type": "Stamina",
+            "value": 17
+          },
+          {
+            "type": "Intellect",
+            "value": 18
+          },
+          {
+            "type": "Spirit",
+            "value": 9
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 67669,
+        "armor": 97,
+        "durability": 60,
+        "effects": [
+          "Equip: Increase Spell Dam +36"
+        ]
+      },
+      "questId": 9098,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Paragons of Power: The Illusionist's Mantle",
+      "startZone": "Stranglethorn Vale",
+      "startInstance": null,
+      "reward": "Zandalar Illusionist's Mantle",
+      "rewardItemId": 19845,
+      "rewardItem": {
+        "name": "Zandalar Illusionist's Mantle",
+        "iconName": "inv_shoulder_17",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=19845",
+        "slot": "Shoulder",
+        "itemSubclass": "Cloth",
+        "quality": "Epic",
+        "requiredLevel": 0,
+        "itemLevel": 61,
+        "stats": [
+          {
+            "type": "Intellect",
+            "value": 21
+          },
+          {
+            "type": "Stamina",
+            "value": 13
+          },
+          {
+            "type": "Spirit",
+            "value": 10
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 0,
+        "armor": 71,
+        "durability": 60,
+        "effects": [
+          "Equip: Increase Spell Dam +12"
+        ]
+      },
+      "questId": 8068,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Paragons of Power: The Illusionist's Robes",
+      "startZone": "Stranglethorn Vale",
+      "startInstance": null,
+      "reward": "Zandalar Illusionist's Robe",
+      "rewardItemId": 20034,
+      "rewardItem": {
+        "name": "Zandalar Illusionist's Robe",
+        "iconName": "inv_chest_cloth_12",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=20034",
+        "slot": "Chest",
+        "itemSubclass": "Cloth",
+        "quality": "Epic",
+        "requiredLevel": 0,
+        "itemLevel": 65,
+        "stats": [
+          {
+            "type": "Intellect",
+            "value": 24
+          },
+          {
+            "type": "Stamina",
+            "value": 23
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 0,
+        "armor": 100,
+        "durability": 100,
+        "effects": [
+          "Equip: Increased Spell Hit Chance +1",
+          "Equip: Increase Spell Dam +27"
+        ]
+      },
+      "questId": 8069,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Paragons of Power: The Illusionist's Wraps",
+      "startZone": "Stranglethorn Vale",
+      "startInstance": null,
+      "reward": "Zandalar Illusionist's Wraps",
+      "rewardItemId": 19846,
+      "rewardItem": {
+        "name": "Zandalar Illusionist's Wraps",
+        "iconName": "inv_bracer_07",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=19846",
+        "slot": "Wrist",
+        "itemSubclass": "Cloth",
+        "quality": "Epic",
+        "requiredLevel": 0,
+        "itemLevel": 61,
+        "stats": [
+          {
+            "type": "Intellect",
+            "value": 11
+          },
+          {
+            "type": "Stamina",
+            "value": 11
+          },
+          {
+            "type": "Spirit",
+            "value": 9
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 0,
+        "armor": 41,
+        "durability": 35,
+        "effects": [
+          "Equip: Increase Spell Dam +14"
+        ]
+      },
+      "questId": 8060,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "The Jewel of Kajaro",
+      "startZone": "Stranglethorn Vale",
+      "startInstance": null,
+      "reward": "Jewel of Kajaro",
+      "rewardItemId": 19601,
+      "rewardItem": {
+        "name": "Jewel of Kajaro",
+        "iconName": "inv_jewelry_necklace_26",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=19601",
+        "slot": "Neck",
+        "quality": "Epic",
+        "requiredLevel": 0,
+        "itemLevel": 65,
+        "stats": [
+          {
+            "type": "Intellect",
+            "value": 13
+          },
+          {
+            "type": "Spirit",
+            "value": 8
+          },
+          {
+            "type": "Stamina",
+            "value": 8
+          }
+        ],
+        "bind": "pickup",
+        "unique": true,
+        "sellPriceCopper": 0,
+        "effects": [
+          "Equip: Increase Spell Dam +9",
+          "Equip: Improved Counterspell"
+        ]
+      },
+      "questId": 8104,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "The Pebble of Kajaro",
+      "startZone": "Stranglethorn Vale",
+      "startInstance": null,
+      "reward": "Pebble of Kajaro",
+      "rewardItemId": 19598,
+      "rewardItem": {
+        "name": "Pebble of Kajaro",
+        "iconName": "inv_jewelry_necklace_23",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=19598",
+        "slot": "Neck",
+        "quality": "Uncommon",
+        "requiredLevel": 0,
+        "itemLevel": 60,
+        "stats": [
+          {
+            "type": "Intellect",
+            "value": 10
+          },
+          {
+            "type": "Stamina",
+            "value": 7
+          }
+        ],
+        "bind": "pickup",
+        "unique": true,
+        "sellPriceCopper": 0,
+        "effects": [
+          "Equip: Increase Spell Dam +7"
+        ]
+      },
+      "questId": 8101,
+      "faction": "both"
+    }
+  ],
+  "professionMilestones": [
+    {
+      "skill": "First Aid",
+      "atSkill": 50,
+      "levelHint": 10,
+      "action": "Train Journeyman First Aid",
+      "where": "any First Aid trainer"
+    },
+    {
+      "skill": "First Aid",
+      "atSkill": 125,
+      "levelHint": 20,
+      "action": "Buy Expert First Aid — Under Wraps",
+      "itemId": 16084,
+      "where": "Deneb Walker (Arathi Highlands) / Balai Lok'Wein (Dustwallow Marsh)"
+    },
+    {
+      "skill": "First Aid",
+      "atSkill": 225,
+      "levelHint": 35,
+      "action": "Complete Triage",
+      "questId": [
+        6624,
+        6622
+      ],
+      "where": "Doctor Gustaf VanHowzen (Dustwallow Marsh) / Doctor Gregory Victor (Arathi Highlands)"
+    },
+    {
+      "skill": "Cooking",
+      "atSkill": 50,
+      "levelHint": 10,
+      "action": "Train Journeyman Cooking",
+      "where": "any Cooking trainer"
+    },
+    {
+      "skill": "Cooking",
+      "atSkill": 125,
+      "levelHint": 20,
+      "action": "Buy the Expert Cookbook",
+      "itemId": 16072,
+      "where": "Shandrina (Ashenvale) / Wulan (Desolace)"
+    },
+    {
+      "skill": "Cooking",
+      "atSkill": 225,
+      "levelHint": 35,
+      "action": "Complete Clamlette Surprise",
+      "questId": 6610,
+      "where": "Dirge Quikcleave (Tanaris)"
+    },
+    {
+      "skill": "Fishing",
+      "atSkill": 50,
+      "levelHint": 10,
+      "action": "Train Journeyman Fishing",
+      "where": "any Fishing trainer"
+    },
+    {
+      "skill": "Fishing",
+      "atSkill": 125,
+      "levelHint": 20,
+      "action": "Buy Expert Fishing — The Bass and You",
+      "itemId": 16083,
+      "where": "Old Man Heming (Stranglethorn Vale)"
+    },
+    {
+      "skill": "Fishing",
+      "atSkill": 225,
+      "levelHint": 35,
+      "action": "Complete Nat Pagle, Angler Extreme",
+      "questId": 6607,
+      "where": "Nat Pagle (Dustwallow Marsh)"
+    }
+  ]
+}

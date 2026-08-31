@@ -1,0 +1,2792 @@
+{
+  "class": "paladin",
+  "abilities": [
+    {
+      "level": 1,
+      "spells": [
+        {
+          "spellId": 465,
+          "name": "Devotion Aura",
+          "rank": 1,
+          "costCopper": 10,
+          "knownBy": [
+            465,
+            643,
+            1032,
+            10290,
+            10291,
+            10292,
+            10293
+          ]
+        }
+      ],
+      "totalCostCopper": 10
+    },
+    {
+      "level": 4,
+      "spells": [
+        {
+          "spellId": 19740,
+          "name": "Blessing of Might",
+          "rank": 1,
+          "costCopper": 100,
+          "knownBy": [
+            19740,
+            19834,
+            19835,
+            19836,
+            19837,
+            19838,
+            25291
+          ]
+        },
+        {
+          "spellId": 20271,
+          "name": "Judgement",
+          "rank": null,
+          "costCopper": 100,
+          "knownBy": [
+            20271
+          ]
+        }
+      ],
+      "totalCostCopper": 200
+    },
+    {
+      "level": 6,
+      "spells": [
+        {
+          "spellId": 498,
+          "name": "Divine Protection",
+          "rank": 1,
+          "costCopper": 100,
+          "knownBy": [
+            498,
+            5573
+          ]
+        },
+        {
+          "spellId": 639,
+          "name": "Holy Light",
+          "rank": 2,
+          "costCopper": 100,
+          "knownBy": [
+            639,
+            647,
+            1026,
+            1042,
+            3472,
+            10328,
+            10329,
+            25292
+          ]
+        },
+        {
+          "spellId": 21082,
+          "name": "Seal of the Crusader",
+          "rank": 1,
+          "costCopper": 100,
+          "knownBy": [
+            20162,
+            20305,
+            20306,
+            20307,
+            20308,
+            21082
+          ]
+        }
+      ],
+      "totalCostCopper": 300
+    },
+    {
+      "level": 8,
+      "spells": [
+        {
+          "spellId": 853,
+          "name": "Hammer of Justice",
+          "rank": 1,
+          "costCopper": 100,
+          "knownBy": [
+            853,
+            5588,
+            5589,
+            10308
+          ]
+        },
+        {
+          "spellId": 3127,
+          "name": "Parry",
+          "rank": null,
+          "costCopper": 100,
+          "knownBy": [
+            3127
+          ]
+        },
+        {
+          "spellId": 1152,
+          "name": "Purify",
+          "rank": null,
+          "costCopper": 100,
+          "knownBy": [
+            1152
+          ]
+        }
+      ],
+      "totalCostCopper": 300
+    },
+    {
+      "level": 10,
+      "spells": [
+        {
+          "spellId": 1022,
+          "name": "Blessing of Protection",
+          "rank": 1,
+          "costCopper": 300,
+          "knownBy": [
+            1022,
+            5599,
+            10278
+          ]
+        },
+        {
+          "spellId": 10290,
+          "name": "Devotion Aura",
+          "rank": 2,
+          "costCopper": 300,
+          "knownBy": [
+            643,
+            1032,
+            10290,
+            10291,
+            10292,
+            10293
+          ]
+        },
+        {
+          "spellId": 633,
+          "name": "Lay on Hands",
+          "rank": 1,
+          "costCopper": 300,
+          "knownBy": [
+            633,
+            2800,
+            10310
+          ]
+        },
+        {
+          "spellId": 20287,
+          "name": "Seal of Righteousness",
+          "rank": 2,
+          "costCopper": 300,
+          "knownBy": [
+            20287,
+            20288,
+            20289,
+            20290,
+            20291,
+            20292,
+            20293,
+            25713,
+            25735,
+            25736,
+            25737,
+            25738,
+            25739,
+            25740
+          ]
+        }
+      ],
+      "totalCostCopper": 1200
+    },
+    {
+      "level": 12,
+      "spells": [
+        {
+          "spellId": 19834,
+          "name": "Blessing of Might",
+          "rank": 2,
+          "costCopper": 1000,
+          "knownBy": [
+            19834,
+            19835,
+            19836,
+            19837,
+            19838,
+            25291
+          ]
+        },
+        {
+          "spellId": 20162,
+          "name": "Seal of the Crusader",
+          "rank": 2,
+          "costCopper": 1000,
+          "knownBy": [
+            20162,
+            20305,
+            20306,
+            20307,
+            20308
+          ]
+        }
+      ],
+      "totalCostCopper": 2000
+    },
+    {
+      "level": 14,
+      "spells": [
+        {
+          "spellId": 19742,
+          "name": "Blessing of Wisdom",
+          "rank": 1,
+          "costCopper": 2000,
+          "knownBy": [
+            19742,
+            19850,
+            19852,
+            19853,
+            19854,
+            25290
+          ]
+        },
+        {
+          "spellId": 647,
+          "name": "Holy Light",
+          "rank": 3,
+          "costCopper": 2000,
+          "knownBy": [
+            647,
+            1026,
+            1042,
+            3472,
+            10328,
+            10329,
+            25292
+          ]
+        }
+      ],
+      "totalCostCopper": 4000
+    },
+    {
+      "level": 16,
+      "spells": [
+        {
+          "spellId": 7294,
+          "name": "Retribution Aura",
+          "rank": 1,
+          "costCopper": 3000,
+          "knownBy": [
+            7294,
+            10298,
+            10299,
+            10300,
+            10301
+          ]
+        },
+        {
+          "spellId": 25780,
+          "name": "Righteous Fury",
+          "rank": null,
+          "costCopper": 3000,
+          "knownBy": [
+            25780
+          ]
+        }
+      ],
+      "totalCostCopper": 6000
+    },
+    {
+      "level": 18,
+      "spells": [
+        {
+          "spellId": 1044,
+          "name": "Blessing of Freedom",
+          "rank": null,
+          "costCopper": 3500,
+          "knownBy": [
+            1044
+          ]
+        },
+        {
+          "spellId": 5573,
+          "name": "Divine Protection",
+          "rank": 2,
+          "costCopper": 3500,
+          "knownBy": [
+            5573
+          ]
+        },
+        {
+          "spellId": 20288,
+          "name": "Seal of Righteousness",
+          "rank": 3,
+          "costCopper": 3500,
+          "knownBy": [
+            20288,
+            20289,
+            20290,
+            20291,
+            20292,
+            20293,
+            25713,
+            25735,
+            25736,
+            25737,
+            25738,
+            25739
+          ]
+        }
+      ],
+      "totalCostCopper": 10500
+    },
+    {
+      "level": 20,
+      "spells": [
+        {
+          "spellId": 643,
+          "name": "Devotion Aura",
+          "rank": 3,
+          "costCopper": 4000,
+          "knownBy": [
+            643,
+            1032,
+            10291,
+            10292,
+            10293
+          ]
+        },
+        {
+          "spellId": 879,
+          "name": "Exorcism",
+          "rank": 1,
+          "costCopper": 4000,
+          "knownBy": [
+            879,
+            5614,
+            5615,
+            10312,
+            10313,
+            10314
+          ]
+        },
+        {
+          "spellId": 19750,
+          "name": "Flash of Light",
+          "rank": 1,
+          "costCopper": 4000,
+          "knownBy": [
+            19750,
+            19939,
+            19940,
+            19941,
+            19942,
+            19943
+          ]
+        }
+      ],
+      "totalCostCopper": 12000
+    },
+    {
+      "level": 22,
+      "spells": [
+        {
+          "spellId": 19835,
+          "name": "Blessing of Might",
+          "rank": 3,
+          "costCopper": 4000,
+          "knownBy": [
+            19835,
+            19836,
+            19837,
+            19838,
+            25291
+          ]
+        },
+        {
+          "spellId": 19746,
+          "name": "Concentration Aura",
+          "rank": null,
+          "costCopper": 4000,
+          "knownBy": [
+            19746
+          ]
+        },
+        {
+          "spellId": 1026,
+          "name": "Holy Light",
+          "rank": 4,
+          "costCopper": 4000,
+          "knownBy": [
+            1026,
+            1042,
+            3472,
+            10328,
+            10329,
+            25292
+          ]
+        },
+        {
+          "spellId": 20164,
+          "name": "Seal of Justice",
+          "rank": null,
+          "costCopper": 4000,
+          "knownBy": [
+            20164
+          ]
+        },
+        {
+          "spellId": 20305,
+          "name": "Seal of the Crusader",
+          "rank": 3,
+          "costCopper": 4000,
+          "knownBy": [
+            20305,
+            20306,
+            20307,
+            20308
+          ]
+        }
+      ],
+      "totalCostCopper": 20000
+    },
+    {
+      "level": 24,
+      "spells": [
+        {
+          "spellId": 5599,
+          "name": "Blessing of Protection",
+          "rank": 2,
+          "costCopper": 5000,
+          "knownBy": [
+            5599,
+            10278
+          ]
+        },
+        {
+          "spellId": 19850,
+          "name": "Blessing of Wisdom",
+          "rank": 2,
+          "costCopper": 5000,
+          "knownBy": [
+            19850,
+            19852,
+            19853,
+            19854,
+            25290
+          ]
+        },
+        {
+          "spellId": 5588,
+          "name": "Hammer of Justice",
+          "rank": 2,
+          "costCopper": 5000,
+          "knownBy": [
+            5588,
+            5589,
+            10308
+          ]
+        },
+        {
+          "spellId": 10322,
+          "name": "Redemption",
+          "rank": 2,
+          "costCopper": 5000,
+          "knownBy": [
+            10322,
+            10324,
+            20772,
+            20773
+          ]
+        },
+        {
+          "spellId": 2878,
+          "name": "Turn Undead",
+          "rank": 1,
+          "costCopper": 5000,
+          "knownBy": [
+            2878,
+            5627,
+            10326
+          ]
+        }
+      ],
+      "totalCostCopper": 25000
+    },
+    {
+      "level": 26,
+      "spells": [
+        {
+          "spellId": 1038,
+          "name": "Blessing of Salvation",
+          "rank": null,
+          "costCopper": 6000,
+          "knownBy": [
+            1038
+          ]
+        },
+        {
+          "spellId": 19939,
+          "name": "Flash of Light",
+          "rank": 2,
+          "costCopper": 6000,
+          "knownBy": [
+            19939,
+            19940,
+            19941,
+            19942,
+            19943
+          ]
+        },
+        {
+          "spellId": 10298,
+          "name": "Retribution Aura",
+          "rank": 2,
+          "costCopper": 6000,
+          "knownBy": [
+            10298,
+            10299,
+            10300,
+            10301
+          ]
+        },
+        {
+          "spellId": 20289,
+          "name": "Seal of Righteousness",
+          "rank": 4,
+          "costCopper": 6000,
+          "knownBy": [
+            20289,
+            20290,
+            20291,
+            20292,
+            20293,
+            25713,
+            25735,
+            25736,
+            25737,
+            25738
+          ]
+        }
+      ],
+      "totalCostCopper": 24000
+    },
+    {
+      "level": 28,
+      "spells": [
+        {
+          "spellId": 5614,
+          "name": "Exorcism",
+          "rank": 2,
+          "costCopper": 9000,
+          "knownBy": [
+            5614,
+            5615,
+            10312,
+            10313,
+            10314
+          ]
+        },
+        {
+          "spellId": 19876,
+          "name": "Shadow Resistance Aura",
+          "rank": 1,
+          "costCopper": 9000,
+          "knownBy": [
+            19876,
+            19895,
+            19896
+          ]
+        }
+      ],
+      "totalCostCopper": 18000
+    },
+    {
+      "level": 30,
+      "spells": [
+        {
+          "spellId": 20116,
+          "name": "Consecration",
+          "rank": 2,
+          "costCopper": 200,
+          "knownBy": [
+            20116,
+            20922,
+            20923,
+            20924
+          ]
+        },
+        {
+          "spellId": 10291,
+          "name": "Devotion Aura",
+          "rank": 4,
+          "costCopper": 11000,
+          "knownBy": [
+            1032,
+            10291,
+            10292,
+            10293
+          ]
+        },
+        {
+          "spellId": 19752,
+          "name": "Divine Intervention",
+          "rank": null,
+          "costCopper": 11000,
+          "knownBy": [
+            19752
+          ]
+        },
+        {
+          "spellId": 1042,
+          "name": "Holy Light",
+          "rank": 5,
+          "costCopper": 11000,
+          "knownBy": [
+            1042,
+            3472,
+            10328,
+            10329,
+            25292
+          ]
+        },
+        {
+          "spellId": 2800,
+          "name": "Lay on Hands",
+          "rank": 2,
+          "costCopper": 11000,
+          "knownBy": [
+            2800,
+            10310
+          ]
+        },
+        {
+          "spellId": 20915,
+          "name": "Seal of Command",
+          "rank": 2,
+          "costCopper": 200,
+          "knownBy": [
+            20915,
+            20918,
+            20919,
+            20920
+          ],
+          "optional": true
+        },
+        {
+          "spellId": 20165,
+          "name": "Seal of Light",
+          "rank": 1,
+          "costCopper": 11000,
+          "knownBy": [
+            20165,
+            20167,
+            20333,
+            20334,
+            20340,
+            20347,
+            20348,
+            20349
+          ]
+        }
+      ],
+      "totalCostCopper": 55400
+    },
+    {
+      "level": 32,
+      "spells": [
+        {
+          "spellId": 19836,
+          "name": "Blessing of Might",
+          "rank": 4,
+          "costCopper": 12000,
+          "knownBy": [
+            19836,
+            19837,
+            19838,
+            25291
+          ]
+        },
+        {
+          "spellId": 19888,
+          "name": "Frost Resistance Aura",
+          "rank": 1,
+          "costCopper": 12000,
+          "knownBy": [
+            19888,
+            19897,
+            19898
+          ]
+        },
+        {
+          "spellId": 20306,
+          "name": "Seal of the Crusader",
+          "rank": 4,
+          "costCopper": 12000,
+          "knownBy": [
+            20306,
+            20307,
+            20308
+          ]
+        }
+      ],
+      "totalCostCopper": 36000
+    },
+    {
+      "level": 34,
+      "spells": [
+        {
+          "spellId": 19852,
+          "name": "Blessing of Wisdom",
+          "rank": 3,
+          "costCopper": 13000,
+          "knownBy": [
+            19852,
+            19853,
+            19854,
+            25290
+          ]
+        },
+        {
+          "spellId": 642,
+          "name": "Divine Shield",
+          "rank": 1,
+          "costCopper": 13000,
+          "knownBy": [
+            642,
+            1020
+          ]
+        },
+        {
+          "spellId": 19940,
+          "name": "Flash of Light",
+          "rank": 3,
+          "costCopper": 13000,
+          "knownBy": [
+            19940,
+            19941,
+            19942,
+            19943
+          ]
+        },
+        {
+          "spellId": 20290,
+          "name": "Seal of Righteousness",
+          "rank": 5,
+          "costCopper": 13000,
+          "knownBy": [
+            20290,
+            20291,
+            20292,
+            20293,
+            25713,
+            25735,
+            25736,
+            25737
+          ]
+        }
+      ],
+      "totalCostCopper": 52000
+    },
+    {
+      "level": 36,
+      "spells": [
+        {
+          "spellId": 5615,
+          "name": "Exorcism",
+          "rank": 3,
+          "costCopper": 14000,
+          "knownBy": [
+            5615,
+            10312,
+            10313,
+            10314
+          ]
+        },
+        {
+          "spellId": 19891,
+          "name": "Fire Resistance Aura",
+          "rank": 1,
+          "costCopper": 14000,
+          "knownBy": [
+            19891,
+            19899,
+            19900
+          ]
+        },
+        {
+          "spellId": 10324,
+          "name": "Redemption",
+          "rank": 3,
+          "costCopper": 14000,
+          "knownBy": [
+            10324,
+            20772,
+            20773
+          ]
+        },
+        {
+          "spellId": 10299,
+          "name": "Retribution Aura",
+          "rank": 3,
+          "costCopper": 14000,
+          "knownBy": [
+            10299,
+            10300,
+            10301
+          ]
+        }
+      ],
+      "totalCostCopper": 56000
+    },
+    {
+      "level": 38,
+      "spells": [
+        {
+          "spellId": 10278,
+          "name": "Blessing of Protection",
+          "rank": 3,
+          "costCopper": 16000,
+          "knownBy": [
+            10278
+          ]
+        },
+        {
+          "spellId": 3472,
+          "name": "Holy Light",
+          "rank": 6,
+          "costCopper": 16000,
+          "knownBy": [
+            3472,
+            10328,
+            10329,
+            25292
+          ]
+        },
+        {
+          "spellId": 20166,
+          "name": "Seal of Wisdom",
+          "rank": 1,
+          "costCopper": 16000,
+          "knownBy": [
+            20166,
+            20168,
+            20350,
+            20351,
+            20356,
+            20357
+          ]
+        },
+        {
+          "spellId": 5627,
+          "name": "Turn Undead",
+          "rank": 2,
+          "costCopper": 16000,
+          "knownBy": [
+            5627,
+            10326
+          ]
+        }
+      ],
+      "totalCostCopper": 64000
+    },
+    {
+      "level": 40,
+      "spells": [
+        {
+          "spellId": 19977,
+          "name": "Blessing of Light",
+          "rank": 1,
+          "costCopper": 20000,
+          "knownBy": [
+            19977,
+            19978,
+            19979
+          ]
+        },
+        {
+          "spellId": 20912,
+          "name": "Blessing of Sanctuary",
+          "rank": 2,
+          "costCopper": 900,
+          "knownBy": [
+            20912,
+            20913,
+            20914
+          ]
+        },
+        {
+          "spellId": 20922,
+          "name": "Consecration",
+          "rank": 3,
+          "costCopper": 1000,
+          "knownBy": [
+            20922,
+            20923,
+            20924
+          ]
+        },
+        {
+          "spellId": 1032,
+          "name": "Devotion Aura",
+          "rank": 5,
+          "costCopper": 20000,
+          "knownBy": [
+            1032,
+            10292,
+            10293
+          ]
+        },
+        {
+          "spellId": 5589,
+          "name": "Hammer of Justice",
+          "rank": 3,
+          "costCopper": 20000,
+          "knownBy": [
+            5589,
+            10308
+          ]
+        },
+        {
+          "spellId": 750,
+          "name": "Plate Mail",
+          "rank": null,
+          "costCopper": 20000,
+          "knownBy": [
+            750
+          ]
+        },
+        {
+          "spellId": 20918,
+          "name": "Seal of Command",
+          "rank": 3,
+          "costCopper": 1000,
+          "knownBy": [
+            20918,
+            20919,
+            20920
+          ],
+          "optional": true
+        },
+        {
+          "spellId": 20347,
+          "name": "Seal of Light",
+          "rank": 2,
+          "costCopper": 20000,
+          "knownBy": [
+            20333,
+            20334,
+            20340,
+            20347,
+            20348,
+            20349
+          ]
+        },
+        {
+          "spellId": 19895,
+          "name": "Shadow Resistance Aura",
+          "rank": 2,
+          "costCopper": 20000,
+          "knownBy": [
+            19895,
+            19896
+          ]
+        }
+      ],
+      "totalCostCopper": 122900
+    },
+    {
+      "level": 42,
+      "spells": [
+        {
+          "spellId": 19837,
+          "name": "Blessing of Might",
+          "rank": 5,
+          "costCopper": 21000,
+          "knownBy": [
+            19837,
+            19838,
+            25291
+          ]
+        },
+        {
+          "spellId": 4987,
+          "name": "Cleanse",
+          "rank": null,
+          "costCopper": 21000,
+          "knownBy": [
+            4987
+          ]
+        },
+        {
+          "spellId": 19941,
+          "name": "Flash of Light",
+          "rank": 4,
+          "costCopper": 21000,
+          "knownBy": [
+            19941,
+            19942,
+            19943
+          ]
+        },
+        {
+          "spellId": 20291,
+          "name": "Seal of Righteousness",
+          "rank": 6,
+          "costCopper": 21000,
+          "knownBy": [
+            20291,
+            20292,
+            20293,
+            25713,
+            25735,
+            25736
+          ]
+        },
+        {
+          "spellId": 20307,
+          "name": "Seal of the Crusader",
+          "rank": 5,
+          "costCopper": 21000,
+          "knownBy": [
+            20307,
+            20308
+          ]
+        }
+      ],
+      "totalCostCopper": 105000
+    },
+    {
+      "level": 44,
+      "spells": [
+        {
+          "spellId": 19853,
+          "name": "Blessing of Wisdom",
+          "rank": 4,
+          "costCopper": 22000,
+          "knownBy": [
+            19853,
+            19854,
+            25290
+          ]
+        },
+        {
+          "spellId": 10312,
+          "name": "Exorcism",
+          "rank": 4,
+          "costCopper": 22000,
+          "knownBy": [
+            10312,
+            10313,
+            10314
+          ]
+        },
+        {
+          "spellId": 19897,
+          "name": "Frost Resistance Aura",
+          "rank": 2,
+          "costCopper": 22000,
+          "knownBy": [
+            19897,
+            19898
+          ]
+        },
+        {
+          "spellId": 24275,
+          "name": "Hammer of Wrath",
+          "rank": 1,
+          "costCopper": 22000,
+          "knownBy": [
+            24239,
+            24274,
+            24275
+          ]
+        }
+      ],
+      "totalCostCopper": 88000
+    },
+    {
+      "level": 46,
+      "spells": [
+        {
+          "spellId": 6940,
+          "name": "Blessing of Sacrifice",
+          "rank": 1,
+          "costCopper": 24000,
+          "knownBy": [
+            6940,
+            20729
+          ]
+        },
+        {
+          "spellId": 10328,
+          "name": "Holy Light",
+          "rank": 7,
+          "costCopper": 24000,
+          "knownBy": [
+            10328,
+            10329,
+            25292
+          ]
+        },
+        {
+          "spellId": 10300,
+          "name": "Retribution Aura",
+          "rank": 4,
+          "costCopper": 24000,
+          "knownBy": [
+            10300,
+            10301
+          ]
+        }
+      ],
+      "totalCostCopper": 72000
+    },
+    {
+      "level": 48,
+      "spells": [
+        {
+          "spellId": 19899,
+          "name": "Fire Resistance Aura",
+          "rank": 2,
+          "costCopper": 26000,
+          "knownBy": [
+            19899,
+            19900
+          ]
+        },
+        {
+          "spellId": 20929,
+          "name": "Holy Shock",
+          "rank": 2,
+          "costCopper": 1170,
+          "knownBy": [
+            20929,
+            20930,
+            25902,
+            25903,
+            25911,
+            25913
+          ],
+          "optional": true
+        },
+        {
+          "spellId": 20772,
+          "name": "Redemption",
+          "rank": 4,
+          "costCopper": 26000,
+          "knownBy": [
+            20772,
+            20773
+          ]
+        },
+        {
+          "spellId": 20356,
+          "name": "Seal of Wisdom",
+          "rank": 2,
+          "costCopper": 26000,
+          "knownBy": [
+            20350,
+            20351,
+            20356,
+            20357
+          ]
+        }
+      ],
+      "totalCostCopper": 79170
+    },
+    {
+      "level": 50,
+      "spells": [
+        {
+          "spellId": 19978,
+          "name": "Blessing of Light",
+          "rank": 2,
+          "costCopper": 28000,
+          "knownBy": [
+            19978,
+            19979
+          ]
+        },
+        {
+          "spellId": 20913,
+          "name": "Blessing of Sanctuary",
+          "rank": 3,
+          "costCopper": 1260,
+          "knownBy": [
+            20913,
+            20914
+          ]
+        },
+        {
+          "spellId": 20923,
+          "name": "Consecration",
+          "rank": 4,
+          "costCopper": 1400,
+          "knownBy": [
+            20923,
+            20924
+          ]
+        },
+        {
+          "spellId": 10292,
+          "name": "Devotion Aura",
+          "rank": 6,
+          "costCopper": 28000,
+          "knownBy": [
+            10292,
+            10293
+          ]
+        },
+        {
+          "spellId": 1020,
+          "name": "Divine Shield",
+          "rank": 2,
+          "costCopper": 28000,
+          "knownBy": [
+            1020
+          ]
+        },
+        {
+          "spellId": 19942,
+          "name": "Flash of Light",
+          "rank": 5,
+          "costCopper": 28000,
+          "knownBy": [
+            19942,
+            19943
+          ]
+        },
+        {
+          "spellId": 20927,
+          "name": "Holy Shield",
+          "rank": 2,
+          "costCopper": 1260,
+          "knownBy": [
+            20927,
+            20928
+          ]
+        },
+        {
+          "spellId": 2812,
+          "name": "Holy Wrath",
+          "rank": 1,
+          "costCopper": 28000,
+          "knownBy": [
+            2812,
+            10318
+          ]
+        },
+        {
+          "spellId": 10310,
+          "name": "Lay on Hands",
+          "rank": 3,
+          "costCopper": 28000,
+          "knownBy": [
+            10310
+          ]
+        },
+        {
+          "spellId": 20919,
+          "name": "Seal of Command",
+          "rank": 4,
+          "costCopper": 1260,
+          "knownBy": [
+            20919,
+            20920
+          ],
+          "optional": true
+        },
+        {
+          "spellId": 20348,
+          "name": "Seal of Light",
+          "rank": 3,
+          "costCopper": 28000,
+          "knownBy": [
+            20334,
+            20340,
+            20348,
+            20349
+          ]
+        },
+        {
+          "spellId": 20292,
+          "name": "Seal of Righteousness",
+          "rank": 7,
+          "costCopper": 28000,
+          "knownBy": [
+            20292,
+            20293,
+            25713,
+            25735
+          ]
+        }
+      ],
+      "totalCostCopper": 229180
+    },
+    {
+      "level": 52,
+      "spells": [
+        {
+          "spellId": 19838,
+          "name": "Blessing of Might",
+          "rank": 6,
+          "costCopper": 34000,
+          "knownBy": [
+            19838,
+            25291
+          ]
+        },
+        {
+          "spellId": 10313,
+          "name": "Exorcism",
+          "rank": 5,
+          "costCopper": 34000,
+          "knownBy": [
+            10313,
+            10314
+          ]
+        },
+        {
+          "spellId": 25782,
+          "name": "Greater Blessing of Might",
+          "rank": 1,
+          "costCopper": 46000,
+          "knownBy": [
+            25782,
+            25916
+          ]
+        },
+        {
+          "spellId": 24274,
+          "name": "Hammer of Wrath",
+          "rank": 2,
+          "costCopper": 34000,
+          "knownBy": [
+            24239,
+            24274
+          ]
+        },
+        {
+          "spellId": 20308,
+          "name": "Seal of the Crusader",
+          "rank": 6,
+          "costCopper": 34000,
+          "knownBy": [
+            20308
+          ]
+        },
+        {
+          "spellId": 19896,
+          "name": "Shadow Resistance Aura",
+          "rank": 3,
+          "costCopper": 34000,
+          "knownBy": [
+            19896
+          ]
+        },
+        {
+          "spellId": 10326,
+          "name": "Turn Undead",
+          "rank": 3,
+          "costCopper": 34000,
+          "knownBy": [
+            10326
+          ]
+        }
+      ],
+      "totalCostCopper": 250000
+    },
+    {
+      "level": 54,
+      "spells": [
+        {
+          "spellId": 20729,
+          "name": "Blessing of Sacrifice",
+          "rank": 2,
+          "costCopper": 40000,
+          "knownBy": [
+            20729
+          ]
+        },
+        {
+          "spellId": 19854,
+          "name": "Blessing of Wisdom",
+          "rank": 5,
+          "costCopper": 40000,
+          "knownBy": [
+            19854,
+            25290
+          ]
+        },
+        {
+          "spellId": 25894,
+          "name": "Greater Blessing of Wisdom",
+          "rank": 1,
+          "costCopper": 40000,
+          "knownBy": [
+            25894,
+            25918
+          ]
+        },
+        {
+          "spellId": 10308,
+          "name": "Hammer of Justice",
+          "rank": 4,
+          "costCopper": 40000,
+          "knownBy": [
+            10308
+          ]
+        },
+        {
+          "spellId": 10329,
+          "name": "Holy Light",
+          "rank": 8,
+          "costCopper": 40000,
+          "knownBy": [
+            10329,
+            25292
+          ]
+        }
+      ],
+      "totalCostCopper": 200000
+    },
+    {
+      "level": 56,
+      "spells": [
+        {
+          "spellId": 19898,
+          "name": "Frost Resistance Aura",
+          "rank": 3,
+          "costCopper": 42000,
+          "knownBy": [
+            19898
+          ]
+        },
+        {
+          "spellId": 20930,
+          "name": "Holy Shock",
+          "rank": 3,
+          "costCopper": 2100,
+          "knownBy": [
+            20930,
+            25902,
+            25903
+          ],
+          "optional": true
+        },
+        {
+          "spellId": 10301,
+          "name": "Retribution Aura",
+          "rank": 5,
+          "costCopper": 42000,
+          "knownBy": [
+            10301
+          ]
+        }
+      ],
+      "totalCostCopper": 86100
+    },
+    {
+      "level": 58,
+      "spells": [
+        {
+          "spellId": 19943,
+          "name": "Flash of Light",
+          "rank": 6,
+          "costCopper": 44000,
+          "knownBy": [
+            19943
+          ]
+        },
+        {
+          "spellId": 20293,
+          "name": "Seal of Righteousness",
+          "rank": 8,
+          "costCopper": 44000,
+          "knownBy": [
+            20293,
+            25713
+          ]
+        },
+        {
+          "spellId": 20357,
+          "name": "Seal of Wisdom",
+          "rank": 3,
+          "costCopper": 44000,
+          "knownBy": [
+            20351,
+            20357
+          ]
+        }
+      ],
+      "totalCostCopper": 132000
+    },
+    {
+      "level": 60,
+      "spells": [
+        {
+          "spellId": 19979,
+          "name": "Blessing of Light",
+          "rank": 3,
+          "costCopper": 46000,
+          "knownBy": [
+            19979
+          ]
+        },
+        {
+          "spellId": 20914,
+          "name": "Blessing of Sanctuary",
+          "rank": 4,
+          "costCopper": 2070,
+          "knownBy": [
+            20914
+          ]
+        },
+        {
+          "spellId": 20924,
+          "name": "Consecration",
+          "rank": 5,
+          "costCopper": 2300,
+          "knownBy": [
+            20924
+          ]
+        },
+        {
+          "spellId": 10293,
+          "name": "Devotion Aura",
+          "rank": 7,
+          "costCopper": 46000,
+          "knownBy": [
+            10293
+          ]
+        },
+        {
+          "spellId": 10314,
+          "name": "Exorcism",
+          "rank": 6,
+          "costCopper": 46000,
+          "knownBy": [
+            10314
+          ]
+        },
+        {
+          "spellId": 19900,
+          "name": "Fire Resistance Aura",
+          "rank": 3,
+          "costCopper": 46000,
+          "knownBy": [
+            19900
+          ]
+        },
+        {
+          "spellId": 25898,
+          "name": "Greater Blessing of Kings",
+          "rank": null,
+          "costCopper": 2070,
+          "knownBy": [
+            25898
+          ]
+        },
+        {
+          "spellId": 25890,
+          "name": "Greater Blessing of Light",
+          "rank": 1,
+          "costCopper": 46000,
+          "knownBy": [
+            25890
+          ]
+        },
+        {
+          "spellId": 25916,
+          "name": "Greater Blessing of Might",
+          "rank": 2,
+          "costCopper": 41400,
+          "knownBy": [
+            25916
+          ]
+        },
+        {
+          "spellId": 25895,
+          "name": "Greater Blessing of Salvation",
+          "rank": null,
+          "costCopper": 46000,
+          "knownBy": [
+            25895
+          ]
+        },
+        {
+          "spellId": 25899,
+          "name": "Greater Blessing of Sanctuary",
+          "rank": 1,
+          "costCopper": 2070,
+          "knownBy": [
+            25899
+          ]
+        },
+        {
+          "spellId": 25918,
+          "name": "Greater Blessing of Wisdom",
+          "rank": 2,
+          "costCopper": 46000,
+          "knownBy": [
+            25918
+          ]
+        },
+        {
+          "spellId": 24239,
+          "name": "Hammer of Wrath",
+          "rank": 3,
+          "costCopper": 46000,
+          "knownBy": [
+            24239
+          ]
+        },
+        {
+          "spellId": 20928,
+          "name": "Holy Shield",
+          "rank": 3,
+          "costCopper": 2070,
+          "knownBy": [
+            20928
+          ]
+        },
+        {
+          "spellId": 10318,
+          "name": "Holy Wrath",
+          "rank": 2,
+          "costCopper": 46000,
+          "knownBy": [
+            10318
+          ]
+        },
+        {
+          "spellId": 20773,
+          "name": "Redemption",
+          "rank": 5,
+          "costCopper": 46000,
+          "knownBy": [
+            20773
+          ]
+        },
+        {
+          "spellId": 20920,
+          "name": "Seal of Command",
+          "rank": 5,
+          "costCopper": 2070,
+          "knownBy": [
+            20920
+          ],
+          "optional": true
+        },
+        {
+          "spellId": 20349,
+          "name": "Seal of Light",
+          "rank": 4,
+          "costCopper": 46000,
+          "knownBy": [
+            20340,
+            20349
+          ]
+        }
+      ],
+      "totalCostCopper": 560050
+    }
+  ],
+  "classQuests": [
+    {
+      "level": 12,
+      "name": "The Tome of Divinity",
+      "startZone": "Ironforge",
+      "startInstance": null,
+      "reward": "Redemption (Rank 1)",
+      "rewardItemId": null,
+      "rewardItem": null,
+      "questId": 1785,
+      "faction": "alliance"
+    },
+    {
+      "level": 12,
+      "name": "The Tome of Divinity",
+      "startZone": "Stormwind City",
+      "startInstance": null,
+      "reward": "Redemption (Rank 1)",
+      "rewardItemId": null,
+      "rewardItem": null,
+      "questId": 1788,
+      "faction": "alliance"
+    },
+    {
+      "level": 20,
+      "name": "The Test of Righteousness",
+      "startZone": "Dun Morogh",
+      "startInstance": null,
+      "reward": "Verigan's Fist",
+      "rewardItemId": 6953,
+      "rewardItem": {
+        "name": "Verigan's Fist",
+        "iconName": "inv_hammer_05",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=6953",
+        "slot": "Two-Hand",
+        "itemSubclass": "Mace",
+        "quality": "Rare",
+        "requiredLevel": 0,
+        "itemLevel": 31,
+        "stats": [
+          {
+            "type": "Stamina",
+            "value": 7
+          },
+          {
+            "type": "Spirit",
+            "value": 12
+          },
+          {
+            "type": "Intellect",
+            "value": 6
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 7459,
+        "damage": {
+          "min": 65,
+          "max": 99,
+          "speed": 3.2
+        },
+        "durability": 100
+      },
+      "questId": 1806,
+      "faction": "alliance"
+    },
+    {
+      "level": 20,
+      "name": "The Tome of Valor",
+      "startZone": "Westfall",
+      "startInstance": null,
+      "reward": "Sense Undead",
+      "rewardItemId": null,
+      "rewardItem": null,
+      "questId": 1652,
+      "faction": "alliance"
+    },
+    {
+      "level": 40,
+      "name": "The Tome of Nobility",
+      "startZone": "Stormwind City",
+      "startInstance": null,
+      "reward": "Summon Warhorse, Riding",
+      "rewardItemId": null,
+      "rewardItem": null,
+      "questId": 1661,
+      "faction": "alliance"
+    },
+    {
+      "level": 54,
+      "name": "The Light and How To Swing It",
+      "startZone": "Feralas",
+      "startInstance": "Dire Maul",
+      "reward": "Royal Seal of Eldre'Thalas",
+      "rewardItemId": 18472,
+      "rewardItem": {
+        "name": "Royal Seal of Eldre'Thalas",
+        "iconName": "inv_jewelry_talisman_10",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=18472",
+        "slot": "Trinket",
+        "quality": "Rare",
+        "requiredLevel": 0,
+        "itemLevel": 62,
+        "stats": [],
+        "bind": "pickup",
+        "unique": true,
+        "sellPriceCopper": 0,
+        "effects": [
+          "Equip: Increased Armor +150",
+          "Equip: Increase Healing +22"
+        ]
+      },
+      "questId": 7501,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Avenger's Breastplate",
+      "startZone": "Silithus",
+      "startInstance": "Ahn'Qiraj",
+      "reward": "Avenger's Breastplate",
+      "rewardItemId": 21389,
+      "rewardItem": {
+        "name": "Avenger's Breastplate",
+        "iconName": "inv_chest_plate03",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=21389",
+        "slot": "Chest",
+        "itemSubclass": "Plate",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 88,
+        "stats": [
+          {
+            "type": "Agility",
+            "value": 12
+          },
+          {
+            "type": "Strength",
+            "value": 23
+          },
+          {
+            "type": "Intellect",
+            "value": 24
+          },
+          {
+            "type": "Spirit",
+            "value": 11
+          },
+          {
+            "type": "Stamina",
+            "value": 24
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 99463,
+        "armor": 985,
+        "durability": 165,
+        "effects": [
+          "Equip: Increase Spell Dam +18",
+          "Equip: Increased Critical Spell +1",
+          "Equip: Increased Critical +1"
+        ]
+      },
+      "questId": 8627,
+      "faction": "alliance"
+    },
+    {
+      "level": 60,
+      "name": "Avenger's Crown",
+      "startZone": "Silithus",
+      "startInstance": "Ahn'Qiraj",
+      "reward": "Avenger's Crown",
+      "rewardItemId": 21387,
+      "rewardItem": {
+        "name": "Avenger's Crown",
+        "iconName": "inv_helmet_72",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=21387",
+        "slot": "Head",
+        "itemSubclass": "Plate",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 81,
+        "stats": [
+          {
+            "type": "Agility",
+            "value": 12
+          },
+          {
+            "type": "Strength",
+            "value": 20
+          },
+          {
+            "type": "Intellect",
+            "value": 22
+          },
+          {
+            "type": "Spirit",
+            "value": 12
+          },
+          {
+            "type": "Stamina",
+            "value": 22
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 58153,
+        "armor": 739,
+        "durability": 100,
+        "effects": [
+          "Equip: Increase Spell Dam +23",
+          "Equip: Increased Critical +1"
+        ]
+      },
+      "questId": 8628,
+      "faction": "alliance"
+    },
+    {
+      "level": 60,
+      "name": "Avenger's Greaves",
+      "startZone": "Silithus",
+      "startInstance": "Ahn'Qiraj",
+      "reward": "Avenger's Greaves",
+      "rewardItemId": 21388,
+      "rewardItem": {
+        "name": "Avenger's Greaves",
+        "iconName": "inv_boots_chain_07",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=21388",
+        "slot": "Feet",
+        "itemSubclass": "Plate",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 78,
+        "stats": [
+          {
+            "type": "Agility",
+            "value": 13
+          },
+          {
+            "type": "Strength",
+            "value": 18
+          },
+          {
+            "type": "Intellect",
+            "value": 14
+          },
+          {
+            "type": "Spirit",
+            "value": 6
+          },
+          {
+            "type": "Stamina",
+            "value": 18
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 45619,
+        "armor": 604,
+        "durability": 75,
+        "effects": [
+          "Equip: Increase Spell Dam +14",
+          "Equip: Increased Mana Regen +4"
+        ]
+      },
+      "questId": 8655,
+      "faction": "alliance"
+    },
+    {
+      "level": 60,
+      "name": "Avenger's Legguards",
+      "startZone": "Silithus",
+      "startInstance": "Ahn'Qiraj",
+      "reward": "Avenger's Legguards",
+      "rewardItemId": 21390,
+      "rewardItem": {
+        "name": "Avenger's Legguards",
+        "iconName": "inv_pants_plate_02",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=21390",
+        "slot": "Legs",
+        "itemSubclass": "Plate",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 81,
+        "stats": [
+          {
+            "type": "Agility",
+            "value": 12
+          },
+          {
+            "type": "Strength",
+            "value": 21
+          },
+          {
+            "type": "Intellect",
+            "value": 22
+          },
+          {
+            "type": "Spirit",
+            "value": 9
+          },
+          {
+            "type": "Stamina",
+            "value": 22
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 70952,
+        "armor": 796,
+        "durability": 120,
+        "effects": [
+          "Equip: Increase Spell Dam +16",
+          "Equip: Increased Critical +1",
+          "Equip: Increased Mana Regen +4"
+        ]
+      },
+      "questId": 8629,
+      "faction": "alliance"
+    },
+    {
+      "level": 60,
+      "name": "Avenger's Pauldrons",
+      "startZone": "Silithus",
+      "startInstance": "Ahn'Qiraj",
+      "reward": "Avenger's Pauldrons",
+      "rewardItemId": 21391,
+      "rewardItem": {
+        "name": "Avenger's Pauldrons",
+        "iconName": "inv_shoulder_35",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=21391",
+        "slot": "Shoulder",
+        "itemSubclass": "Plate",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 78,
+        "stats": [
+          {
+            "type": "Agility",
+            "value": 14
+          },
+          {
+            "type": "Strength",
+            "value": 18
+          },
+          {
+            "type": "Intellect",
+            "value": 13
+          },
+          {
+            "type": "Spirit",
+            "value": 6
+          },
+          {
+            "type": "Stamina",
+            "value": 15
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 46145,
+        "armor": 659,
+        "durability": 100,
+        "effects": [
+          "Equip: Increase Spell Dam +14",
+          "Equip: Increased Mana Regen +3"
+        ]
+      },
+      "questId": 8630,
+      "faction": "alliance"
+    },
+    {
+      "level": 60,
+      "name": "Blade of Eternal Justice",
+      "startZone": "Silithus",
+      "startInstance": null,
+      "reward": "Blade of Eternal Justice",
+      "rewardItemId": 21395,
+      "rewardItem": {
+        "name": "Blade of Eternal Justice",
+        "iconName": "inv_sword_57",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=21395",
+        "slot": "Main Hand",
+        "itemSubclass": "Sword",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 70,
+        "stats": [
+          {
+            "type": "Strength",
+            "value": 9
+          },
+          {
+            "type": "Stamina",
+            "value": 11
+          },
+          {
+            "type": "Intellect",
+            "value": 7
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 0,
+        "damage": {
+          "min": 83,
+          "max": 154,
+          "speed": 2.3
+        },
+        "durability": 105,
+        "effects": [
+          "Equip: Increased Mana Regen +4"
+        ]
+      },
+      "questId": 8711,
+      "faction": "alliance"
+    },
+    {
+      "level": 60,
+      "name": "Cape of Eternal Justice",
+      "startZone": "Silithus",
+      "startInstance": null,
+      "reward": "Cape of Eternal Justice",
+      "rewardItemId": 21397,
+      "rewardItem": {
+        "name": "Cape of Eternal Justice",
+        "iconName": "inv_misc_cape_14",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=21397",
+        "slot": "Back",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 67,
+        "stats": [
+          {
+            "type": "Strength",
+            "value": 11
+          },
+          {
+            "type": "Stamina",
+            "value": 13
+          },
+          {
+            "type": "Intellect",
+            "value": 12
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 0,
+        "armor": 52,
+        "effects": [
+          "Equip: Increased Mana Regen +5"
+        ]
+      },
+      "questId": 8695,
+      "faction": "alliance"
+    },
+    {
+      "level": 60,
+      "name": "Judgment and Redemption",
+      "startZone": "Stormwind City",
+      "startInstance": null,
+      "reward": "Summon Charger, Riding",
+      "rewardItemId": null,
+      "rewardItem": null,
+      "questId": 7647,
+      "faction": "alliance"
+    },
+    {
+      "level": 60,
+      "name": "Paragons of Power: The Freethinker's Armguards",
+      "startZone": "Stranglethorn Vale",
+      "startInstance": null,
+      "reward": "Zandalar Freethinker's Armguards",
+      "rewardItemId": 19827,
+      "rewardItem": {
+        "name": "Zandalar Freethinker's Armguards",
+        "iconName": "inv_bracer_14",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=19827",
+        "slot": "Wrist",
+        "itemSubclass": "Plate",
+        "quality": "Epic",
+        "requiredLevel": 0,
+        "itemLevel": 61,
+        "stats": [
+          {
+            "type": "Intellect",
+            "value": 10
+          },
+          {
+            "type": "Stamina",
+            "value": 12
+          },
+          {
+            "type": "Strength",
+            "value": 12
+          },
+          {
+            "type": "Agility",
+            "value": 6
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 0,
+        "armor": 304,
+        "durability": 55,
+        "effects": [
+          "Equip: Increase Healing +11"
+        ]
+      },
+      "questId": 8053,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Paragons of Power: The Freethinker's Belt",
+      "startZone": "Stranglethorn Vale",
+      "startInstance": null,
+      "reward": "Zandalar Freethinker's Belt",
+      "rewardItemId": 19826,
+      "rewardItem": {
+        "name": "Zandalar Freethinker's Belt",
+        "iconName": "inv_belt_32",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=19826",
+        "slot": "Waist",
+        "itemSubclass": "Plate",
+        "quality": "Epic",
+        "requiredLevel": 0,
+        "itemLevel": 61,
+        "stats": [
+          {
+            "type": "Strength",
+            "value": 16
+          },
+          {
+            "type": "Intellect",
+            "value": 12
+          },
+          {
+            "type": "Stamina",
+            "value": 16
+          },
+          {
+            "type": "Agility",
+            "value": 10
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 0,
+        "armor": 391,
+        "durability": 55,
+        "effects": [
+          "Equip: Increase Healing +26"
+        ]
+      },
+      "questId": 8054,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Paragons of Power: The Freethinker's Breastplate",
+      "startZone": "Stranglethorn Vale",
+      "startInstance": null,
+      "reward": "Zandalar Freethinker's Breastplate",
+      "rewardItemId": 19825,
+      "rewardItem": {
+        "name": "Zandalar Freethinker's Breastplate",
+        "iconName": "inv_chest_plate07",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=19825",
+        "slot": "Chest",
+        "itemSubclass": "Plate",
+        "quality": "Epic",
+        "requiredLevel": 0,
+        "itemLevel": 65,
+        "stats": [
+          {
+            "type": "Strength",
+            "value": 19
+          },
+          {
+            "type": "Stamina",
+            "value": 26
+          },
+          {
+            "type": "Intellect",
+            "value": 16
+          },
+          {
+            "type": "Spirit",
+            "value": 7
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 0,
+        "armor": 738,
+        "durability": 165,
+        "effects": [
+          "Equip: Increased Critical +1"
+        ]
+      },
+      "questId": 8055,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Redemption Boots",
+      "startZone": "Eastern Plaguelands",
+      "startInstance": null,
+      "reward": "Redemption Boots",
+      "rewardItemId": 22430,
+      "rewardItem": {
+        "name": "Redemption Boots",
+        "iconName": "inv_boots_chain_05",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=22430",
+        "slot": "Feet",
+        "itemSubclass": "Plate",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 86,
+        "stats": [
+          {
+            "type": "Stamina",
+            "value": 22
+          },
+          {
+            "type": "Intellect",
+            "value": 18
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 70562,
+        "armor": 662,
+        "durability": 75,
+        "effects": [
+          "Equip: Increase Healing +42",
+          "Equip: Increased Critical Spell +1",
+          "Equip: Increased Mana Regen +5"
+        ]
+      },
+      "questId": 9047,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Redemption Girdle",
+      "startZone": "Eastern Plaguelands",
+      "startInstance": null,
+      "reward": "Redemption Girdle",
+      "rewardItemId": 22431,
+      "rewardItem": {
+        "name": "Redemption Girdle",
+        "iconName": "inv_belt_22",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=22431",
+        "slot": "Waist",
+        "itemSubclass": "Plate",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 88,
+        "stats": [
+          {
+            "type": "Stamina",
+            "value": 19
+          },
+          {
+            "type": "Intellect",
+            "value": 29
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 52055,
+        "armor": 554,
+        "durability": 55,
+        "effects": [
+          "Equip: Increase Healing +40",
+          "Equip: Increased Mana Regen +5"
+        ]
+      },
+      "questId": 9049,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Redemption Handguards",
+      "startZone": "Eastern Plaguelands",
+      "startInstance": null,
+      "reward": "Redemption Handguards",
+      "rewardItemId": 22426,
+      "rewardItem": {
+        "name": "Redemption Handguards",
+        "iconName": "inv_gauntlets_25",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=22426",
+        "slot": "Hands",
+        "itemSubclass": "Plate",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 88,
+        "stats": [
+          {
+            "type": "Stamina",
+            "value": 23
+          },
+          {
+            "type": "Intellect",
+            "value": 22
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 51099,
+        "armor": 615,
+        "durability": 55,
+        "effects": [
+          "Equip: Increased Mana Regen +8",
+          "Equip: Increase Healing +33"
+        ]
+      },
+      "questId": 9048,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Redemption Headpiece",
+      "startZone": "Eastern Plaguelands",
+      "startInstance": null,
+      "reward": "Redemption Headpiece",
+      "rewardItemId": 22428,
+      "rewardItem": {
+        "name": "Redemption Headpiece",
+        "iconName": "inv_helmet_15",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=22428",
+        "slot": "Head",
+        "itemSubclass": "Plate",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 88,
+        "stats": [
+          {
+            "type": "Stamina",
+            "value": 28
+          },
+          {
+            "type": "Intellect",
+            "value": 26
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 77225,
+        "armor": 800,
+        "durability": 100,
+        "effects": [
+          "Equip: Increase Healing +64",
+          "Equip: Increased Critical Spell +1",
+          "Equip: Increased Mana Regen +8"
+        ]
+      },
+      "questId": 9045,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Redemption Legguards",
+      "startZone": "Eastern Plaguelands",
+      "startInstance": null,
+      "reward": "Redemption Legguards",
+      "rewardItemId": 22427,
+      "rewardItem": {
+        "name": "Redemption Legguards",
+        "iconName": "inv_pants_mail_15",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=22427",
+        "slot": "Legs",
+        "itemSubclass": "Plate",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 88,
+        "stats": [
+          {
+            "type": "Stamina",
+            "value": 30
+          },
+          {
+            "type": "Intellect",
+            "value": 31
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 102583,
+        "armor": 861,
+        "durability": 120,
+        "effects": [
+          "Equip: Increased Critical Spell +1",
+          "Equip: Increase Healing +42",
+          "Equip: Increased Mana Regen +8"
+        ]
+      },
+      "questId": 9044,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Redemption Spaulders",
+      "startZone": "Eastern Plaguelands",
+      "startInstance": null,
+      "reward": "Redemption Spaulders",
+      "rewardItemId": 22429,
+      "rewardItem": {
+        "name": "Redemption Spaulders",
+        "iconName": "inv_shoulder_14",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=22429",
+        "slot": "Shoulder",
+        "itemSubclass": "Plate",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 86,
+        "stats": [
+          {
+            "type": "Stamina",
+            "value": 22
+          },
+          {
+            "type": "Intellect",
+            "value": 20
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 70300,
+        "armor": 722,
+        "durability": 100,
+        "effects": [
+          "Equip: Increased Critical Spell +1",
+          "Equip: Increase Healing +40",
+          "Equip: Increased Mana Regen +4"
+        ]
+      },
+      "questId": 9046,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Redemption Tunic",
+      "startZone": "Eastern Plaguelands",
+      "startInstance": null,
+      "reward": "Redemption Tunic",
+      "rewardItemId": 22425,
+      "rewardItem": {
+        "name": "Redemption Tunic",
+        "iconName": "inv_chest_chain_15",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=22425",
+        "slot": "Chest",
+        "itemSubclass": "Plate",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 92,
+        "stats": [
+          {
+            "type": "Stamina",
+            "value": 25
+          },
+          {
+            "type": "Intellect",
+            "value": 31
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 123767,
+        "armor": 1027,
+        "durability": 165,
+        "effects": [
+          "Equip: Increase Healing +59",
+          "Equip: Increased Critical Spell +1",
+          "Equip: Increased Mana Regen +10"
+        ]
+      },
+      "questId": 9043,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Redemption Wristguards",
+      "startZone": "Eastern Plaguelands",
+      "startInstance": null,
+      "reward": "Redemption Wristguards",
+      "rewardItemId": 22424,
+      "rewardItem": {
+        "name": "Redemption Wristguards",
+        "iconName": "inv_bracer_02",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=22424",
+        "slot": "Wrist",
+        "itemSubclass": "Plate",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 88,
+        "stats": [
+          {
+            "type": "Stamina",
+            "value": 22
+          },
+          {
+            "type": "Intellect",
+            "value": 15
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 50719,
+        "armor": 431,
+        "durability": 55,
+        "effects": [
+          "Equip: Increase Healing +31",
+          "Equip: Increased Mana Regen +4"
+        ]
+      },
+      "questId": 9050,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Ring of Eternal Justice",
+      "startZone": "Silithus",
+      "startInstance": null,
+      "reward": "Ring of Eternal Justice",
+      "rewardItemId": 21396,
+      "rewardItem": {
+        "name": "Ring of Eternal Justice",
+        "iconName": "inv_jewelry_ring_ahnqiraj_03",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=21396",
+        "slot": "Finger",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 65,
+        "stats": [
+          {
+            "type": "Strength",
+            "value": 12
+          },
+          {
+            "type": "Intellect",
+            "value": 12
+          },
+          {
+            "type": "Stamina",
+            "value": 11
+          }
+        ],
+        "bind": "pickup",
+        "unique": true,
+        "sellPriceCopper": 0,
+        "effects": [
+          "Equip: Increase Spell Dam +13"
+        ]
+      },
+      "questId": 8703,
+      "faction": "alliance"
+    },
+    {
+      "level": 60,
+      "name": "The Heathen's Brand",
+      "startZone": "Stranglethorn Vale",
+      "startInstance": null,
+      "reward": "Heathen's Brand",
+      "rewardItemId": 19579,
+      "rewardItem": {
+        "name": "Heathen's Brand",
+        "iconName": "inv_jewelry_necklace_23",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=19579",
+        "slot": "Neck",
+        "quality": "Uncommon",
+        "requiredLevel": 0,
+        "itemLevel": 60,
+        "stats": [
+          {
+            "type": "Strength",
+            "value": 8
+          },
+          {
+            "type": "Spirit",
+            "value": 7
+          },
+          {
+            "type": "Stamina",
+            "value": 8
+          }
+        ],
+        "bind": "pickup",
+        "unique": true,
+        "sellPriceCopper": 0
+      },
+      "questId": 8045,
+      "faction": "alliance"
+    },
+    {
+      "level": 60,
+      "name": "The Hero's Brand",
+      "startZone": "Stranglethorn Vale",
+      "startInstance": null,
+      "reward": "Hero's Brand",
+      "rewardItemId": 19588,
+      "rewardItem": {
+        "name": "Hero's Brand",
+        "iconName": "inv_jewelry_necklace_26",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=19588",
+        "slot": "Neck",
+        "quality": "Epic",
+        "requiredLevel": 0,
+        "itemLevel": 65,
+        "stats": [
+          {
+            "type": "Strength",
+            "value": 10
+          },
+          {
+            "type": "Intellect",
+            "value": 6
+          },
+          {
+            "type": "Spirit",
+            "value": 9
+          },
+          {
+            "type": "Stamina",
+            "value": 10
+          }
+        ],
+        "bind": "pickup",
+        "unique": true,
+        "sellPriceCopper": 0,
+        "effects": [
+          "Equip: Improved Hammer of Justice"
+        ]
+      },
+      "questId": 8048,
+      "faction": "alliance"
+    }
+  ],
+  "professionMilestones": [
+    {
+      "skill": "First Aid",
+      "atSkill": 50,
+      "levelHint": 10,
+      "action": "Train Journeyman First Aid",
+      "where": "any First Aid trainer"
+    },
+    {
+      "skill": "First Aid",
+      "atSkill": 125,
+      "levelHint": 20,
+      "action": "Buy Expert First Aid — Under Wraps",
+      "itemId": 16084,
+      "where": "Deneb Walker (Arathi Highlands) / Balai Lok'Wein (Dustwallow Marsh)"
+    },
+    {
+      "skill": "First Aid",
+      "atSkill": 225,
+      "levelHint": 35,
+      "action": "Complete Triage",
+      "questId": [
+        6624,
+        6622
+      ],
+      "where": "Doctor Gustaf VanHowzen (Dustwallow Marsh) / Doctor Gregory Victor (Arathi Highlands)"
+    },
+    {
+      "skill": "Cooking",
+      "atSkill": 50,
+      "levelHint": 10,
+      "action": "Train Journeyman Cooking",
+      "where": "any Cooking trainer"
+    },
+    {
+      "skill": "Cooking",
+      "atSkill": 125,
+      "levelHint": 20,
+      "action": "Buy the Expert Cookbook",
+      "itemId": 16072,
+      "where": "Shandrina (Ashenvale) / Wulan (Desolace)"
+    },
+    {
+      "skill": "Cooking",
+      "atSkill": 225,
+      "levelHint": 35,
+      "action": "Complete Clamlette Surprise",
+      "questId": 6610,
+      "where": "Dirge Quikcleave (Tanaris)"
+    },
+    {
+      "skill": "Fishing",
+      "atSkill": 50,
+      "levelHint": 10,
+      "action": "Train Journeyman Fishing",
+      "where": "any Fishing trainer"
+    },
+    {
+      "skill": "Fishing",
+      "atSkill": 125,
+      "levelHint": 20,
+      "action": "Buy Expert Fishing — The Bass and You",
+      "itemId": 16083,
+      "where": "Old Man Heming (Stranglethorn Vale)"
+    },
+    {
+      "skill": "Fishing",
+      "atSkill": 225,
+      "levelHint": 35,
+      "action": "Complete Nat Pagle, Angler Extreme",
+      "questId": 6607,
+      "where": "Nat Pagle (Dustwallow Marsh)"
+    }
+  ]
+}

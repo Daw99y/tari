@@ -1,0 +1,3461 @@
+{
+  "class": "druid",
+  "abilities": [
+    {
+      "level": 1,
+      "spells": [
+        {
+          "spellId": 1126,
+          "name": "Mark of the Wild",
+          "rank": 1,
+          "costCopper": 10,
+          "knownBy": [
+            1126,
+            5232,
+            5234,
+            6756,
+            8907,
+            9884,
+            9885,
+            24752
+          ]
+        }
+      ],
+      "totalCostCopper": 10
+    },
+    {
+      "level": 4,
+      "spells": [
+        {
+          "spellId": 8921,
+          "name": "Moonfire",
+          "rank": 1,
+          "costCopper": 100,
+          "knownBy": [
+            8921,
+            8924,
+            8925,
+            8926,
+            8927,
+            8928,
+            8929,
+            9833,
+            9834,
+            9835
+          ]
+        },
+        {
+          "spellId": 774,
+          "name": "Rejuvenation",
+          "rank": 1,
+          "costCopper": 100,
+          "knownBy": [
+            774,
+            1058,
+            1430,
+            2090,
+            2091,
+            3627,
+            8910,
+            9839,
+            9840,
+            9841,
+            25299
+          ]
+        }
+      ],
+      "totalCostCopper": 200
+    },
+    {
+      "level": 6,
+      "spells": [
+        {
+          "spellId": 467,
+          "name": "Thorns",
+          "rank": 1,
+          "costCopper": 100,
+          "knownBy": [
+            467,
+            782,
+            1075,
+            8914,
+            9756,
+            9910,
+            16877
+          ]
+        },
+        {
+          "spellId": 5177,
+          "name": "Wrath",
+          "rank": 2,
+          "costCopper": 100,
+          "knownBy": [
+            5177,
+            5178,
+            5179,
+            5180,
+            6780,
+            8905,
+            9912
+          ]
+        }
+      ],
+      "totalCostCopper": 200
+    },
+    {
+      "level": 8,
+      "spells": [
+        {
+          "spellId": 339,
+          "name": "Entangling Roots",
+          "rank": 1,
+          "costCopper": 200,
+          "knownBy": [
+            339,
+            1062,
+            5195,
+            5196,
+            9852,
+            9853,
+            19970,
+            19971,
+            19972,
+            19973,
+            19974,
+            19975
+          ]
+        },
+        {
+          "spellId": 5186,
+          "name": "Healing Touch",
+          "rank": 2,
+          "costCopper": 200,
+          "knownBy": [
+            5186,
+            5187,
+            5188,
+            5189,
+            6778,
+            8903,
+            9758,
+            9888,
+            9889,
+            25297
+          ]
+        }
+      ],
+      "totalCostCopper": 400
+    },
+    {
+      "level": 10,
+      "spells": [
+        {
+          "spellId": 99,
+          "name": "Demoralizing Roar",
+          "rank": 1,
+          "costCopper": 300,
+          "knownBy": [
+            99,
+            1735,
+            9490,
+            9747,
+            9898
+          ]
+        },
+        {
+          "spellId": 5232,
+          "name": "Mark of the Wild",
+          "rank": 2,
+          "costCopper": 300,
+          "knownBy": [
+            5232,
+            5234,
+            6756,
+            8907,
+            9884,
+            9885,
+            24752
+          ]
+        },
+        {
+          "spellId": 8924,
+          "name": "Moonfire",
+          "rank": 2,
+          "costCopper": 300,
+          "knownBy": [
+            8924,
+            8925,
+            8926,
+            8927,
+            8928,
+            8929,
+            9833,
+            9834,
+            9835
+          ]
+        },
+        {
+          "spellId": 1058,
+          "name": "Rejuvenation",
+          "rank": 2,
+          "costCopper": 300,
+          "knownBy": [
+            1058,
+            1430,
+            2090,
+            2091,
+            3627,
+            8910,
+            9839,
+            9840,
+            9841,
+            25299
+          ]
+        }
+      ],
+      "totalCostCopper": 1200
+    },
+    {
+      "level": 12,
+      "spells": [
+        {
+          "spellId": 5229,
+          "name": "Enrage",
+          "rank": null,
+          "costCopper": 800,
+          "knownBy": [
+            5229
+          ]
+        },
+        {
+          "spellId": 8936,
+          "name": "Regrowth",
+          "rank": 1,
+          "costCopper": 800,
+          "knownBy": [
+            8936,
+            8938,
+            8939,
+            8940,
+            8941,
+            9750,
+            9856,
+            9857,
+            9858
+          ]
+        }
+      ],
+      "totalCostCopper": 1600
+    },
+    {
+      "level": 14,
+      "spells": [
+        {
+          "spellId": 5211,
+          "name": "Bash",
+          "rank": 1,
+          "costCopper": 900,
+          "knownBy": [
+            5211,
+            6798,
+            8983
+          ]
+        },
+        {
+          "spellId": 5187,
+          "name": "Healing Touch",
+          "rank": 3,
+          "costCopper": 900,
+          "knownBy": [
+            5187,
+            5188,
+            5189,
+            6778,
+            8903,
+            9758,
+            9888,
+            9889,
+            25297
+          ]
+        },
+        {
+          "spellId": 782,
+          "name": "Thorns",
+          "rank": 2,
+          "costCopper": 900,
+          "knownBy": [
+            782,
+            1075,
+            8914,
+            9756,
+            9910,
+            16877
+          ]
+        },
+        {
+          "spellId": 5178,
+          "name": "Wrath",
+          "rank": 3,
+          "costCopper": 900,
+          "knownBy": [
+            5178,
+            5179,
+            5180,
+            6780,
+            8905,
+            9912
+          ]
+        }
+      ],
+      "totalCostCopper": 3600
+    },
+    {
+      "level": 16,
+      "spells": [
+        {
+          "spellId": 8925,
+          "name": "Moonfire",
+          "rank": 3,
+          "costCopper": 1800,
+          "knownBy": [
+            8925,
+            8926,
+            8927,
+            8928,
+            8929,
+            9833,
+            9834,
+            9835
+          ]
+        },
+        {
+          "spellId": 1430,
+          "name": "Rejuvenation",
+          "rank": 3,
+          "costCopper": 1800,
+          "knownBy": [
+            1430,
+            2090,
+            2091,
+            3627,
+            8910,
+            9839,
+            9840,
+            9841,
+            25299
+          ]
+        },
+        {
+          "spellId": 779,
+          "name": "Swipe",
+          "rank": 1,
+          "costCopper": 1800,
+          "knownBy": [
+            769,
+            779,
+            780,
+            9754,
+            9908
+          ]
+        }
+      ],
+      "totalCostCopper": 5400
+    },
+    {
+      "level": 18,
+      "spells": [
+        {
+          "spellId": 1062,
+          "name": "Entangling Roots",
+          "rank": 2,
+          "costCopper": 1900,
+          "knownBy": [
+            1062,
+            5195,
+            5196,
+            9852,
+            9853,
+            19970,
+            19971,
+            19972,
+            19973,
+            19974
+          ]
+        },
+        {
+          "spellId": 770,
+          "name": "Faerie Fire",
+          "rank": 1,
+          "costCopper": 1900,
+          "knownBy": [
+            770,
+            778,
+            9749,
+            9907
+          ]
+        },
+        {
+          "spellId": 2637,
+          "name": "Hibernate",
+          "rank": 1,
+          "costCopper": 1900,
+          "knownBy": [
+            2637,
+            18657,
+            18658
+          ]
+        },
+        {
+          "spellId": 6808,
+          "name": "Maul",
+          "rank": 2,
+          "costCopper": 1900,
+          "knownBy": [
+            6808,
+            6809,
+            8972,
+            9745,
+            9880,
+            9881
+          ]
+        },
+        {
+          "spellId": 16810,
+          "name": "Nature's Grasp",
+          "rank": 2,
+          "costCopper": 95,
+          "knownBy": [
+            16810,
+            16811,
+            16812,
+            16813,
+            17329
+          ],
+          "optional": true
+        },
+        {
+          "spellId": 8938,
+          "name": "Regrowth",
+          "rank": 2,
+          "costCopper": 1900,
+          "knownBy": [
+            8938,
+            8939,
+            8940,
+            8941,
+            9750,
+            9856,
+            9857,
+            9858
+          ]
+        }
+      ],
+      "totalCostCopper": 9595
+    },
+    {
+      "level": 20,
+      "spells": [
+        {
+          "spellId": 768,
+          "name": "Cat Form",
+          "rank": null,
+          "costCopper": 2000,
+          "knownBy": [
+            768
+          ]
+        },
+        {
+          "spellId": 1082,
+          "name": "Claw",
+          "rank": 1,
+          "costCopper": 2000,
+          "knownBy": [
+            1082,
+            3029,
+            5201,
+            9849,
+            9850
+          ]
+        },
+        {
+          "spellId": 1735,
+          "name": "Demoralizing Roar",
+          "rank": 2,
+          "costCopper": 2000,
+          "knownBy": [
+            1735,
+            9490,
+            9747,
+            9898
+          ]
+        },
+        {
+          "spellId": 5188,
+          "name": "Healing Touch",
+          "rank": 4,
+          "costCopper": 2000,
+          "knownBy": [
+            5188,
+            5189,
+            6778,
+            8903,
+            9758,
+            9888,
+            9889,
+            25297
+          ]
+        },
+        {
+          "spellId": 6756,
+          "name": "Mark of the Wild",
+          "rank": 3,
+          "costCopper": 2000,
+          "knownBy": [
+            5234,
+            6756,
+            8907,
+            9884,
+            9885,
+            24752
+          ]
+        },
+        {
+          "spellId": 5215,
+          "name": "Prowl",
+          "rank": 1,
+          "costCopper": 2000,
+          "knownBy": [
+            5215,
+            6783,
+            9913
+          ]
+        },
+        {
+          "spellId": 20484,
+          "name": "Rebirth",
+          "rank": 1,
+          "costCopper": 2000,
+          "knownBy": [
+            20484,
+            20739,
+            20742,
+            20747,
+            20748
+          ]
+        },
+        {
+          "spellId": 1079,
+          "name": "Rip",
+          "rank": 1,
+          "costCopper": 2000,
+          "knownBy": [
+            1079,
+            9492,
+            9493,
+            9752,
+            9894,
+            9896
+          ]
+        },
+        {
+          "spellId": 2912,
+          "name": "Starfire",
+          "rank": 1,
+          "costCopper": 2000,
+          "knownBy": [
+            2912,
+            8949,
+            8950,
+            8951,
+            9875,
+            9876,
+            25298
+          ]
+        }
+      ],
+      "totalCostCopper": 18000
+    },
+    {
+      "level": 22,
+      "spells": [
+        {
+          "spellId": 8926,
+          "name": "Moonfire",
+          "rank": 4,
+          "costCopper": 3000,
+          "knownBy": [
+            8926,
+            8927,
+            8928,
+            8929,
+            9833,
+            9834,
+            9835
+          ]
+        },
+        {
+          "spellId": 2090,
+          "name": "Rejuvenation",
+          "rank": 4,
+          "costCopper": 3000,
+          "knownBy": [
+            2090,
+            2091,
+            3627,
+            8910,
+            9839,
+            9840,
+            9841,
+            25299
+          ]
+        },
+        {
+          "spellId": 5221,
+          "name": "Shred",
+          "rank": 1,
+          "costCopper": 3000,
+          "knownBy": [
+            5221,
+            6800,
+            8992,
+            9829,
+            9830
+          ]
+        },
+        {
+          "spellId": 2908,
+          "name": "Soothe Animal",
+          "rank": 1,
+          "costCopper": 3000,
+          "knownBy": [
+            2908,
+            8955,
+            9901
+          ]
+        },
+        {
+          "spellId": 5179,
+          "name": "Wrath",
+          "rank": 4,
+          "costCopper": 3000,
+          "knownBy": [
+            5179,
+            5180,
+            6780,
+            8905,
+            9912
+          ]
+        }
+      ],
+      "totalCostCopper": 15000
+    },
+    {
+      "level": 24,
+      "spells": [
+        {
+          "spellId": 1822,
+          "name": "Rake",
+          "rank": 1,
+          "costCopper": 4000,
+          "knownBy": [
+            1822,
+            1823,
+            1824,
+            9904
+          ]
+        },
+        {
+          "spellId": 8939,
+          "name": "Regrowth",
+          "rank": 3,
+          "costCopper": 4000,
+          "knownBy": [
+            8939,
+            8940,
+            8941,
+            9750,
+            9856,
+            9857,
+            9858
+          ]
+        },
+        {
+          "spellId": 2782,
+          "name": "Remove Curse",
+          "rank": null,
+          "costCopper": 4000,
+          "knownBy": [
+            2782
+          ]
+        },
+        {
+          "spellId": 780,
+          "name": "Swipe",
+          "rank": 2,
+          "costCopper": 4000,
+          "knownBy": [
+            769,
+            780,
+            9754,
+            9908
+          ]
+        },
+        {
+          "spellId": 1075,
+          "name": "Thorns",
+          "rank": 3,
+          "costCopper": 4000,
+          "knownBy": [
+            1075,
+            8914,
+            9756,
+            9910,
+            16877
+          ]
+        },
+        {
+          "spellId": 5217,
+          "name": "Tiger's Fury",
+          "rank": 1,
+          "costCopper": 4000,
+          "knownBy": [
+            5217,
+            6793,
+            9845,
+            9846
+          ]
+        }
+      ],
+      "totalCostCopper": 24000
+    },
+    {
+      "level": 26,
+      "spells": [
+        {
+          "spellId": 2893,
+          "name": "Abolish Poison",
+          "rank": null,
+          "costCopper": 4500,
+          "knownBy": [
+            2893
+          ]
+        },
+        {
+          "spellId": 1850,
+          "name": "Dash",
+          "rank": 1,
+          "costCopper": 4500,
+          "knownBy": [
+            1850,
+            9821,
+            23099,
+            23109,
+            23110
+          ]
+        },
+        {
+          "spellId": 5189,
+          "name": "Healing Touch",
+          "rank": 5,
+          "costCopper": 4500,
+          "knownBy": [
+            5189,
+            6778,
+            8903,
+            9758,
+            9888,
+            9889,
+            25297
+          ]
+        },
+        {
+          "spellId": 6809,
+          "name": "Maul",
+          "rank": 3,
+          "costCopper": 4500,
+          "knownBy": [
+            6809,
+            8972,
+            9745,
+            9880,
+            9881
+          ]
+        },
+        {
+          "spellId": 8949,
+          "name": "Starfire",
+          "rank": 2,
+          "costCopper": 4500,
+          "knownBy": [
+            8949,
+            8950,
+            8951,
+            9875,
+            9876,
+            25298
+          ]
+        }
+      ],
+      "totalCostCopper": 22500
+    },
+    {
+      "level": 28,
+      "spells": [
+        {
+          "spellId": 5209,
+          "name": "Challenging Roar",
+          "rank": null,
+          "costCopper": 5000,
+          "knownBy": [
+            5209
+          ]
+        },
+        {
+          "spellId": 3029,
+          "name": "Claw",
+          "rank": 2,
+          "costCopper": 5000,
+          "knownBy": [
+            3029,
+            5201,
+            9849,
+            9850
+          ]
+        },
+        {
+          "spellId": 8998,
+          "name": "Cower",
+          "rank": 1,
+          "costCopper": 5000,
+          "knownBy": [
+            1742,
+            1753,
+            1754,
+            1755,
+            1756,
+            8998,
+            9000,
+            9892,
+            16697
+          ]
+        },
+        {
+          "spellId": 5195,
+          "name": "Entangling Roots",
+          "rank": 3,
+          "costCopper": 5000,
+          "knownBy": [
+            5195,
+            5196,
+            9852,
+            9853,
+            19970,
+            19971,
+            19972,
+            19973
+          ]
+        },
+        {
+          "spellId": 8927,
+          "name": "Moonfire",
+          "rank": 5,
+          "costCopper": 5000,
+          "knownBy": [
+            8927,
+            8928,
+            8929,
+            9833,
+            9834,
+            9835
+          ]
+        },
+        {
+          "spellId": 16811,
+          "name": "Nature's Grasp",
+          "rank": 3,
+          "costCopper": 250,
+          "knownBy": [
+            16811,
+            16812,
+            16813,
+            17329
+          ],
+          "optional": true
+        },
+        {
+          "spellId": 2091,
+          "name": "Rejuvenation",
+          "rank": 5,
+          "costCopper": 5000,
+          "knownBy": [
+            2091,
+            3627,
+            8910,
+            9839,
+            9840,
+            9841,
+            25299
+          ]
+        },
+        {
+          "spellId": 9492,
+          "name": "Rip",
+          "rank": 2,
+          "costCopper": 5000,
+          "knownBy": [
+            9492,
+            9493,
+            9752,
+            9894,
+            9896
+          ]
+        }
+      ],
+      "totalCostCopper": 35250
+    },
+    {
+      "level": 30,
+      "spells": [
+        {
+          "spellId": 6798,
+          "name": "Bash",
+          "rank": 2,
+          "costCopper": 6000,
+          "knownBy": [
+            6798,
+            8983
+          ]
+        },
+        {
+          "spellId": 778,
+          "name": "Faerie Fire",
+          "rank": 2,
+          "costCopper": 6000,
+          "knownBy": [
+            778,
+            9749,
+            9907
+          ]
+        },
+        {
+          "spellId": 17390,
+          "name": "Faerie Fire (Feral)",
+          "rank": 2,
+          "costCopper": 300,
+          "knownBy": [
+            17390,
+            17391,
+            17392
+          ],
+          "optional": true
+        },
+        {
+          "spellId": 24974,
+          "name": "Insect Swarm",
+          "rank": 2,
+          "costCopper": 300,
+          "knownBy": [
+            24974,
+            24975,
+            24976,
+            24977
+          ]
+        },
+        {
+          "spellId": 5234,
+          "name": "Mark of the Wild",
+          "rank": 4,
+          "costCopper": 6000,
+          "knownBy": [
+            5234,
+            8907,
+            9884,
+            9885,
+            24752
+          ]
+        },
+        {
+          "spellId": 20739,
+          "name": "Rebirth",
+          "rank": 2,
+          "costCopper": 6000,
+          "knownBy": [
+            20739,
+            20742,
+            20747,
+            20748
+          ]
+        },
+        {
+          "spellId": 8940,
+          "name": "Regrowth",
+          "rank": 4,
+          "costCopper": 6000,
+          "knownBy": [
+            8940,
+            8941,
+            9750,
+            9856,
+            9857,
+            9858
+          ]
+        },
+        {
+          "spellId": 6800,
+          "name": "Shred",
+          "rank": 2,
+          "costCopper": 6000,
+          "knownBy": [
+            6800,
+            8992,
+            9829,
+            9830
+          ]
+        },
+        {
+          "spellId": 740,
+          "name": "Tranquility",
+          "rank": 1,
+          "costCopper": 6000,
+          "knownBy": [
+            740,
+            8918,
+            9862,
+            9863
+          ]
+        },
+        {
+          "spellId": 783,
+          "name": "Travel Form",
+          "rank": null,
+          "costCopper": 6000,
+          "knownBy": [
+            783
+          ]
+        },
+        {
+          "spellId": 5180,
+          "name": "Wrath",
+          "rank": 5,
+          "costCopper": 6000,
+          "knownBy": [
+            5180,
+            6780,
+            8905,
+            9912
+          ]
+        }
+      ],
+      "totalCostCopper": 54600
+    },
+    {
+      "level": 32,
+      "spells": [
+        {
+          "spellId": 9490,
+          "name": "Demoralizing Roar",
+          "rank": 3,
+          "costCopper": 8000,
+          "knownBy": [
+            9490,
+            9747,
+            9898
+          ]
+        },
+        {
+          "spellId": 22568,
+          "name": "Ferocious Bite",
+          "rank": 1,
+          "costCopper": 8000,
+          "knownBy": [
+            22568,
+            22827,
+            22828,
+            22829,
+            22851,
+            22853,
+            22861,
+            22862,
+            31018
+          ]
+        },
+        {
+          "spellId": 6778,
+          "name": "Healing Touch",
+          "rank": 6,
+          "costCopper": 8000,
+          "knownBy": [
+            6778,
+            8903,
+            9758,
+            9888,
+            9889,
+            25297
+          ]
+        },
+        {
+          "spellId": 6785,
+          "name": "Ravage",
+          "rank": 1,
+          "costCopper": 8000,
+          "knownBy": [
+            6785,
+            6787,
+            9866,
+            9867
+          ]
+        },
+        {
+          "spellId": 5225,
+          "name": "Track Humanoid",
+          "rank": null,
+          "costCopper": 8000,
+          "knownBy": [
+            5225
+          ]
+        }
+      ],
+      "totalCostCopper": 40000
+    },
+    {
+      "level": 34,
+      "spells": [
+        {
+          "spellId": 8972,
+          "name": "Maul",
+          "rank": 4,
+          "costCopper": 10000,
+          "knownBy": [
+            8972,
+            9745,
+            9880,
+            9881
+          ]
+        },
+        {
+          "spellId": 8928,
+          "name": "Moonfire",
+          "rank": 6,
+          "costCopper": 10000,
+          "knownBy": [
+            8928,
+            8929,
+            9833,
+            9834,
+            9835
+          ]
+        },
+        {
+          "spellId": 1823,
+          "name": "Rake",
+          "rank": 2,
+          "costCopper": 10000,
+          "knownBy": [
+            1823,
+            1824,
+            9904
+          ]
+        },
+        {
+          "spellId": 3627,
+          "name": "Rejuvenation",
+          "rank": 6,
+          "costCopper": 10000,
+          "knownBy": [
+            3627,
+            8910,
+            9839,
+            9840,
+            9841,
+            25299
+          ]
+        },
+        {
+          "spellId": 8950,
+          "name": "Starfire",
+          "rank": 3,
+          "costCopper": 10000,
+          "knownBy": [
+            8950,
+            8951,
+            9875,
+            9876,
+            25298
+          ]
+        },
+        {
+          "spellId": 769,
+          "name": "Swipe",
+          "rank": 3,
+          "costCopper": 10000,
+          "knownBy": [
+            769,
+            9754,
+            9908
+          ]
+        },
+        {
+          "spellId": 8914,
+          "name": "Thorns",
+          "rank": 4,
+          "costCopper": 10000,
+          "knownBy": [
+            8914,
+            9756,
+            9910,
+            16877
+          ]
+        }
+      ],
+      "totalCostCopper": 70000
+    },
+    {
+      "level": 36,
+      "spells": [
+        {
+          "spellId": 22842,
+          "name": "Frenzied Regeneration",
+          "rank": 1,
+          "costCopper": 11000,
+          "knownBy": [
+            22842,
+            22895,
+            22896
+          ]
+        },
+        {
+          "spellId": 9005,
+          "name": "Pounce",
+          "rank": 1,
+          "costCopper": 11000,
+          "knownBy": [
+            9005,
+            9823,
+            9827
+          ]
+        },
+        {
+          "spellId": 8941,
+          "name": "Regrowth",
+          "rank": 5,
+          "costCopper": 11000,
+          "knownBy": [
+            8941,
+            9750,
+            9856,
+            9857,
+            9858
+          ]
+        },
+        {
+          "spellId": 9493,
+          "name": "Rip",
+          "rank": 3,
+          "costCopper": 11000,
+          "knownBy": [
+            9493,
+            9752,
+            9894,
+            9896
+          ]
+        },
+        {
+          "spellId": 6793,
+          "name": "Tiger's Fury",
+          "rank": 2,
+          "costCopper": 11000,
+          "knownBy": [
+            6793,
+            9845,
+            9846
+          ]
+        }
+      ],
+      "totalCostCopper": 55000
+    },
+    {
+      "level": 38,
+      "spells": [
+        {
+          "spellId": 5201,
+          "name": "Claw",
+          "rank": 3,
+          "costCopper": 12000,
+          "knownBy": [
+            5201,
+            9849,
+            9850
+          ]
+        },
+        {
+          "spellId": 5196,
+          "name": "Entangling Roots",
+          "rank": 4,
+          "costCopper": 12000,
+          "knownBy": [
+            5196,
+            9852,
+            9853,
+            19970,
+            19971,
+            19972
+          ]
+        },
+        {
+          "spellId": 8903,
+          "name": "Healing Touch",
+          "rank": 7,
+          "costCopper": 12000,
+          "knownBy": [
+            8903,
+            9758,
+            9888,
+            9889,
+            25297
+          ]
+        },
+        {
+          "spellId": 18657,
+          "name": "Hibernate",
+          "rank": 2,
+          "costCopper": 12000,
+          "knownBy": [
+            18657,
+            18658
+          ]
+        },
+        {
+          "spellId": 16812,
+          "name": "Nature's Grasp",
+          "rank": 4,
+          "costCopper": 600,
+          "knownBy": [
+            16812,
+            16813,
+            17329
+          ],
+          "optional": true
+        },
+        {
+          "spellId": 8992,
+          "name": "Shred",
+          "rank": 3,
+          "costCopper": 12000,
+          "knownBy": [
+            8992,
+            9829,
+            9830
+          ]
+        },
+        {
+          "spellId": 8955,
+          "name": "Soothe Animal",
+          "rank": 2,
+          "costCopper": 12000,
+          "knownBy": [
+            8955,
+            9901
+          ]
+        },
+        {
+          "spellId": 6780,
+          "name": "Wrath",
+          "rank": 6,
+          "costCopper": 12000,
+          "knownBy": [
+            6780,
+            8905,
+            9912
+          ]
+        }
+      ],
+      "totalCostCopper": 84600
+    },
+    {
+      "level": 40,
+      "spells": [
+        {
+          "spellId": 9000,
+          "name": "Cower",
+          "rank": 2,
+          "costCopper": 14000,
+          "knownBy": [
+            1753,
+            1754,
+            1755,
+            1756,
+            9000,
+            9892,
+            16697
+          ]
+        },
+        {
+          "spellId": 9634,
+          "name": "Dire Bear Form",
+          "rank": null,
+          "costCopper": 14000,
+          "knownBy": [
+            9634
+          ]
+        },
+        {
+          "spellId": 20719,
+          "name": "Feline Grace",
+          "rank": null,
+          "costCopper": 14000,
+          "knownBy": [
+            20719
+          ]
+        },
+        {
+          "spellId": 22827,
+          "name": "Ferocious Bite",
+          "rank": 2,
+          "costCopper": 14000,
+          "knownBy": [
+            22827,
+            22828,
+            22829,
+            22853,
+            22861,
+            22862,
+            31018
+          ]
+        },
+        {
+          "spellId": 16914,
+          "name": "Hurricane",
+          "rank": 1,
+          "costCopper": 14000,
+          "knownBy": [
+            16914,
+            17401,
+            17402
+          ],
+          "optional": true
+        },
+        {
+          "spellId": 29166,
+          "name": "Innervate",
+          "rank": 1,
+          "costCopper": 14000,
+          "knownBy": [
+            29166
+          ]
+        },
+        {
+          "spellId": 24975,
+          "name": "Insect Swarm",
+          "rank": 3,
+          "costCopper": 700,
+          "knownBy": [
+            24975,
+            24976,
+            24977
+          ]
+        },
+        {
+          "spellId": 8907,
+          "name": "Mark of the Wild",
+          "rank": 5,
+          "costCopper": 14000,
+          "knownBy": [
+            8907,
+            9884,
+            9885,
+            24752
+          ]
+        },
+        {
+          "spellId": 8929,
+          "name": "Moonfire",
+          "rank": 7,
+          "costCopper": 14000,
+          "knownBy": [
+            8929,
+            9833,
+            9834,
+            9835
+          ]
+        },
+        {
+          "spellId": 6783,
+          "name": "Prowl",
+          "rank": 2,
+          "costCopper": 14000,
+          "knownBy": [
+            6783,
+            9913
+          ]
+        },
+        {
+          "spellId": 20742,
+          "name": "Rebirth",
+          "rank": 3,
+          "costCopper": 14000,
+          "knownBy": [
+            20742,
+            20747,
+            20748
+          ]
+        },
+        {
+          "spellId": 8910,
+          "name": "Rejuvenation",
+          "rank": 7,
+          "costCopper": 14000,
+          "knownBy": [
+            8910,
+            9839,
+            9840,
+            9841,
+            25299
+          ]
+        },
+        {
+          "spellId": 8918,
+          "name": "Tranquility",
+          "rank": 2,
+          "costCopper": 14000,
+          "knownBy": [
+            8918,
+            9862,
+            9863
+          ]
+        }
+      ],
+      "totalCostCopper": 168700
+    },
+    {
+      "level": 42,
+      "spells": [
+        {
+          "spellId": 9747,
+          "name": "Demoralizing Roar",
+          "rank": 4,
+          "costCopper": 16000,
+          "knownBy": [
+            9747,
+            9898
+          ]
+        },
+        {
+          "spellId": 9749,
+          "name": "Faerie Fire",
+          "rank": 3,
+          "costCopper": 16000,
+          "knownBy": [
+            9749,
+            9907
+          ]
+        },
+        {
+          "spellId": 17391,
+          "name": "Faerie Fire (Feral)",
+          "rank": 3,
+          "costCopper": 800,
+          "knownBy": [
+            17391,
+            17392
+          ],
+          "optional": true
+        },
+        {
+          "spellId": 9745,
+          "name": "Maul",
+          "rank": 5,
+          "costCopper": 16000,
+          "knownBy": [
+            9745,
+            9880,
+            9881
+          ]
+        },
+        {
+          "spellId": 6787,
+          "name": "Ravage",
+          "rank": 2,
+          "costCopper": 16000,
+          "knownBy": [
+            6787,
+            9866,
+            9867
+          ]
+        },
+        {
+          "spellId": 9750,
+          "name": "Regrowth",
+          "rank": 6,
+          "costCopper": 16000,
+          "knownBy": [
+            9750,
+            9856,
+            9857,
+            9858
+          ]
+        },
+        {
+          "spellId": 8951,
+          "name": "Starfire",
+          "rank": 4,
+          "costCopper": 16000,
+          "knownBy": [
+            8951,
+            9875,
+            9876,
+            25298
+          ]
+        }
+      ],
+      "totalCostCopper": 96800
+    },
+    {
+      "level": 44,
+      "spells": [
+        {
+          "spellId": 22812,
+          "name": "Barkskin",
+          "rank": null,
+          "costCopper": 18000,
+          "knownBy": [
+            22812
+          ]
+        },
+        {
+          "spellId": 9758,
+          "name": "Healing Touch",
+          "rank": 8,
+          "costCopper": 18000,
+          "knownBy": [
+            9758,
+            9888,
+            9889,
+            25297
+          ]
+        },
+        {
+          "spellId": 1824,
+          "name": "Rake",
+          "rank": 3,
+          "costCopper": 18000,
+          "knownBy": [
+            1824,
+            9904
+          ]
+        },
+        {
+          "spellId": 9752,
+          "name": "Rip",
+          "rank": 4,
+          "costCopper": 18000,
+          "knownBy": [
+            9752,
+            9894,
+            9896
+          ]
+        },
+        {
+          "spellId": 9754,
+          "name": "Swipe",
+          "rank": 4,
+          "costCopper": 18000,
+          "knownBy": [
+            9754,
+            9908
+          ]
+        },
+        {
+          "spellId": 9756,
+          "name": "Thorns",
+          "rank": 5,
+          "costCopper": 18000,
+          "knownBy": [
+            9756,
+            9910,
+            16877
+          ]
+        }
+      ],
+      "totalCostCopper": 108000
+    },
+    {
+      "level": 46,
+      "spells": [
+        {
+          "spellId": 8983,
+          "name": "Bash",
+          "rank": 3,
+          "costCopper": 20000,
+          "knownBy": [
+            8983
+          ]
+        },
+        {
+          "spellId": 9821,
+          "name": "Dash",
+          "rank": 2,
+          "costCopper": 20000,
+          "knownBy": [
+            9821,
+            23109,
+            23110
+          ]
+        },
+        {
+          "spellId": 22895,
+          "name": "Frenzied Regeneration",
+          "rank": 2,
+          "costCopper": 20000,
+          "knownBy": [
+            22895,
+            22896
+          ]
+        },
+        {
+          "spellId": 9833,
+          "name": "Moonfire",
+          "rank": 8,
+          "costCopper": 20000,
+          "knownBy": [
+            9833,
+            9834,
+            9835
+          ]
+        },
+        {
+          "spellId": 9823,
+          "name": "Pounce",
+          "rank": 2,
+          "costCopper": 20000,
+          "knownBy": [
+            9823,
+            9827
+          ]
+        },
+        {
+          "spellId": 9839,
+          "name": "Rejuvenation",
+          "rank": 8,
+          "costCopper": 20000,
+          "knownBy": [
+            9839,
+            9840,
+            9841,
+            25299
+          ]
+        },
+        {
+          "spellId": 9829,
+          "name": "Shred",
+          "rank": 4,
+          "costCopper": 20000,
+          "knownBy": [
+            9829,
+            9830
+          ]
+        },
+        {
+          "spellId": 8905,
+          "name": "Wrath",
+          "rank": 7,
+          "costCopper": 20000,
+          "knownBy": [
+            8905,
+            9912
+          ]
+        }
+      ],
+      "totalCostCopper": 160000
+    },
+    {
+      "level": 48,
+      "spells": [
+        {
+          "spellId": 9849,
+          "name": "Claw",
+          "rank": 4,
+          "costCopper": 22000,
+          "knownBy": [
+            9849,
+            9850
+          ]
+        },
+        {
+          "spellId": 9852,
+          "name": "Entangling Roots",
+          "rank": 5,
+          "costCopper": 22000,
+          "knownBy": [
+            9852,
+            9853,
+            19970,
+            19971
+          ]
+        },
+        {
+          "spellId": 22828,
+          "name": "Ferocious Bite",
+          "rank": 3,
+          "costCopper": 22000,
+          "knownBy": [
+            22828,
+            22829,
+            22861,
+            22862,
+            31018
+          ]
+        },
+        {
+          "spellId": 16813,
+          "name": "Nature's Grasp",
+          "rank": 5,
+          "costCopper": 1100,
+          "knownBy": [
+            16813,
+            17329
+          ],
+          "optional": true
+        },
+        {
+          "spellId": 9856,
+          "name": "Regrowth",
+          "rank": 7,
+          "costCopper": 22000,
+          "knownBy": [
+            9856,
+            9857,
+            9858
+          ]
+        },
+        {
+          "spellId": 9845,
+          "name": "Tiger's Fury",
+          "rank": 3,
+          "costCopper": 22000,
+          "knownBy": [
+            9845,
+            9846
+          ]
+        }
+      ],
+      "totalCostCopper": 111100
+    },
+    {
+      "level": 50,
+      "spells": [
+        {
+          "spellId": 9888,
+          "name": "Healing Touch",
+          "rank": 9,
+          "costCopper": 23000,
+          "knownBy": [
+            9888,
+            9889,
+            25297
+          ]
+        },
+        {
+          "spellId": 17401,
+          "name": "Hurricane",
+          "rank": 2,
+          "costCopper": 23000,
+          "knownBy": [
+            17401,
+            17402
+          ],
+          "optional": true
+        },
+        {
+          "spellId": 24976,
+          "name": "Insect Swarm",
+          "rank": 4,
+          "costCopper": 1150,
+          "knownBy": [
+            24976,
+            24977
+          ]
+        },
+        {
+          "spellId": 9884,
+          "name": "Mark of the Wild",
+          "rank": 6,
+          "costCopper": 23000,
+          "knownBy": [
+            9884,
+            9885,
+            24752
+          ]
+        },
+        {
+          "spellId": 9880,
+          "name": "Maul",
+          "rank": 6,
+          "costCopper": 23000,
+          "knownBy": [
+            9880,
+            9881
+          ]
+        },
+        {
+          "spellId": 9866,
+          "name": "Ravage",
+          "rank": 3,
+          "costCopper": 23000,
+          "knownBy": [
+            9866,
+            9867
+          ]
+        },
+        {
+          "spellId": 20747,
+          "name": "Rebirth",
+          "rank": 4,
+          "costCopper": 23000,
+          "knownBy": [
+            20747,
+            20748
+          ]
+        },
+        {
+          "spellId": 9875,
+          "name": "Starfire",
+          "rank": 5,
+          "costCopper": 23000,
+          "knownBy": [
+            9875,
+            9876,
+            25298
+          ]
+        },
+        {
+          "spellId": 9862,
+          "name": "Tranquility",
+          "rank": 3,
+          "costCopper": 23000,
+          "knownBy": [
+            9862,
+            9863
+          ]
+        }
+      ],
+      "totalCostCopper": 185150
+    },
+    {
+      "level": 52,
+      "spells": [
+        {
+          "spellId": 9892,
+          "name": "Cower",
+          "rank": 3,
+          "costCopper": 26000,
+          "knownBy": [
+            1754,
+            1755,
+            1756,
+            9892,
+            16697
+          ]
+        },
+        {
+          "spellId": 9898,
+          "name": "Demoralizing Roar",
+          "rank": 5,
+          "costCopper": 26000,
+          "knownBy": [
+            9898
+          ]
+        },
+        {
+          "spellId": 9834,
+          "name": "Moonfire",
+          "rank": 9,
+          "costCopper": 26000,
+          "knownBy": [
+            9834,
+            9835
+          ]
+        },
+        {
+          "spellId": 9840,
+          "name": "Rejuvenation",
+          "rank": 9,
+          "costCopper": 26000,
+          "knownBy": [
+            9840,
+            9841,
+            25299
+          ]
+        },
+        {
+          "spellId": 9894,
+          "name": "Rip",
+          "rank": 5,
+          "costCopper": 26000,
+          "knownBy": [
+            9894,
+            9896
+          ]
+        }
+      ],
+      "totalCostCopper": 130000
+    },
+    {
+      "level": 54,
+      "spells": [
+        {
+          "spellId": 9907,
+          "name": "Faerie Fire",
+          "rank": 4,
+          "costCopper": 28000,
+          "knownBy": [
+            9907
+          ]
+        },
+        {
+          "spellId": 17392,
+          "name": "Faerie Fire (Feral)",
+          "rank": 4,
+          "costCopper": 1400,
+          "knownBy": [
+            17392
+          ],
+          "optional": true
+        },
+        {
+          "spellId": 9904,
+          "name": "Rake",
+          "rank": 4,
+          "costCopper": 28000,
+          "knownBy": [
+            9904
+          ]
+        },
+        {
+          "spellId": 9857,
+          "name": "Regrowth",
+          "rank": 8,
+          "costCopper": 28000,
+          "knownBy": [
+            9857,
+            9858
+          ]
+        },
+        {
+          "spellId": 9830,
+          "name": "Shred",
+          "rank": 5,
+          "costCopper": 28000,
+          "knownBy": [
+            9830
+          ]
+        },
+        {
+          "spellId": 9901,
+          "name": "Soothe Animal",
+          "rank": 3,
+          "costCopper": 28000,
+          "knownBy": [
+            9901
+          ]
+        },
+        {
+          "spellId": 9908,
+          "name": "Swipe",
+          "rank": 5,
+          "costCopper": 28000,
+          "knownBy": [
+            9908
+          ]
+        },
+        {
+          "spellId": 9910,
+          "name": "Thorns",
+          "rank": 6,
+          "costCopper": 28000,
+          "knownBy": [
+            9910,
+            16877
+          ]
+        },
+        {
+          "spellId": 9912,
+          "name": "Wrath",
+          "rank": 8,
+          "costCopper": 28000,
+          "knownBy": [
+            9912
+          ]
+        }
+      ],
+      "totalCostCopper": 225400
+    },
+    {
+      "level": 56,
+      "spells": [
+        {
+          "spellId": 22829,
+          "name": "Ferocious Bite",
+          "rank": 4,
+          "costCopper": 30000,
+          "knownBy": [
+            22829,
+            22862,
+            31018
+          ]
+        },
+        {
+          "spellId": 22896,
+          "name": "Frenzied Regeneration",
+          "rank": 3,
+          "costCopper": 30000,
+          "knownBy": [
+            22896
+          ]
+        },
+        {
+          "spellId": 9889,
+          "name": "Healing Touch",
+          "rank": 10,
+          "costCopper": 30000,
+          "knownBy": [
+            9889,
+            25297
+          ]
+        },
+        {
+          "spellId": 9827,
+          "name": "Pounce",
+          "rank": 3,
+          "costCopper": 30000,
+          "knownBy": [
+            9827
+          ]
+        }
+      ],
+      "totalCostCopper": 120000
+    },
+    {
+      "level": 58,
+      "spells": [
+        {
+          "spellId": 9850,
+          "name": "Claw",
+          "rank": 5,
+          "costCopper": 32000,
+          "knownBy": [
+            9850
+          ]
+        },
+        {
+          "spellId": 9853,
+          "name": "Entangling Roots",
+          "rank": 6,
+          "costCopper": 32000,
+          "knownBy": [
+            9853,
+            19970
+          ]
+        },
+        {
+          "spellId": 18658,
+          "name": "Hibernate",
+          "rank": 3,
+          "costCopper": 32000,
+          "knownBy": [
+            18658
+          ]
+        },
+        {
+          "spellId": 9881,
+          "name": "Maul",
+          "rank": 7,
+          "costCopper": 32000,
+          "knownBy": [
+            9881
+          ]
+        },
+        {
+          "spellId": 9835,
+          "name": "Moonfire",
+          "rank": 10,
+          "costCopper": 32000,
+          "knownBy": [
+            9835
+          ]
+        },
+        {
+          "spellId": 17329,
+          "name": "Nature's Grasp",
+          "rank": 6,
+          "costCopper": 1600,
+          "knownBy": [
+            17329
+          ],
+          "optional": true
+        },
+        {
+          "spellId": 9867,
+          "name": "Ravage",
+          "rank": 4,
+          "costCopper": 32000,
+          "knownBy": [
+            9867
+          ]
+        },
+        {
+          "spellId": 9841,
+          "name": "Rejuvenation",
+          "rank": 10,
+          "costCopper": 32000,
+          "knownBy": [
+            9841,
+            25299
+          ]
+        },
+        {
+          "spellId": 9876,
+          "name": "Starfire",
+          "rank": 6,
+          "costCopper": 32000,
+          "knownBy": [
+            9876,
+            25298
+          ]
+        }
+      ],
+      "totalCostCopper": 257600
+    },
+    {
+      "level": 60,
+      "spells": [
+        {
+          "spellId": 17402,
+          "name": "Hurricane",
+          "rank": 3,
+          "costCopper": 34000,
+          "knownBy": [
+            17402
+          ],
+          "optional": true
+        },
+        {
+          "spellId": 24977,
+          "name": "Insect Swarm",
+          "rank": 5,
+          "costCopper": 1700,
+          "knownBy": [
+            24977
+          ]
+        },
+        {
+          "spellId": 9885,
+          "name": "Mark of the Wild",
+          "rank": 7,
+          "costCopper": 34000,
+          "knownBy": [
+            9885,
+            24752
+          ]
+        },
+        {
+          "spellId": 9913,
+          "name": "Prowl",
+          "rank": 3,
+          "costCopper": 34000,
+          "knownBy": [
+            9913
+          ]
+        },
+        {
+          "spellId": 20748,
+          "name": "Rebirth",
+          "rank": 5,
+          "costCopper": 34000,
+          "knownBy": [
+            20748
+          ]
+        },
+        {
+          "spellId": 9858,
+          "name": "Regrowth",
+          "rank": 9,
+          "costCopper": 34000,
+          "knownBy": [
+            9858
+          ]
+        },
+        {
+          "spellId": 9896,
+          "name": "Rip",
+          "rank": 6,
+          "costCopper": 34000,
+          "knownBy": [
+            9896
+          ]
+        },
+        {
+          "spellId": 9846,
+          "name": "Tiger's Fury",
+          "rank": 4,
+          "costCopper": 34000,
+          "knownBy": [
+            9846
+          ]
+        },
+        {
+          "spellId": 9863,
+          "name": "Tranquility",
+          "rank": 4,
+          "costCopper": 34000,
+          "knownBy": [
+            9863
+          ]
+        }
+      ],
+      "totalCostCopper": 273700
+    }
+  ],
+  "classQuests": [
+    {
+      "level": 10,
+      "name": "Body and Heart",
+      "startZone": "Teldrassil",
+      "startInstance": null,
+      "reward": "Bear Form, Growl, Maul (Rank 1)",
+      "rewardItemId": null,
+      "rewardItem": null,
+      "questId": 6001,
+      "faction": "alliance"
+    },
+    {
+      "level": 10,
+      "name": "Body and Heart",
+      "startZone": "Mulgore",
+      "startInstance": null,
+      "reward": "Bear Form, Growl, Maul (Rank 1)",
+      "rewardItemId": null,
+      "rewardItem": null,
+      "questId": 6002,
+      "faction": "horde"
+    },
+    {
+      "level": 14,
+      "name": "Curing the Sick",
+      "startZone": "Darkshore",
+      "startInstance": null,
+      "reward": "Veildust Medicine Bag",
+      "rewardItemId": 15866,
+      "rewardItem": {
+        "name": "Veildust Medicine Bag",
+        "iconName": "inv_misc_bag_10",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=15866",
+        "slot": "Held",
+        "quality": "Uncommon",
+        "requiredLevel": 0,
+        "itemLevel": 15,
+        "stats": [
+          {
+            "type": "Spirit",
+            "value": 1
+          },
+          {
+            "type": "Intellect",
+            "value": 1
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 562,
+        "effects": [
+          "Use: Mana Rejuvenation"
+        ]
+      },
+      "questId": 6124,
+      "faction": "alliance"
+    },
+    {
+      "level": 14,
+      "name": "Curing the Sick",
+      "startZone": "The Barrens",
+      "startInstance": null,
+      "reward": "Veildust Medicine Bag",
+      "rewardItemId": 15866,
+      "rewardItem": {
+        "name": "Veildust Medicine Bag",
+        "iconName": "inv_misc_bag_10",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=15866",
+        "slot": "Held",
+        "quality": "Uncommon",
+        "requiredLevel": 0,
+        "itemLevel": 15,
+        "stats": [
+          {
+            "type": "Spirit",
+            "value": 1
+          },
+          {
+            "type": "Intellect",
+            "value": 1
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 562,
+        "effects": [
+          "Use: Mana Rejuvenation"
+        ]
+      },
+      "questId": 6129,
+      "faction": "horde"
+    },
+    {
+      "level": 14,
+      "name": "Power over Poison",
+      "startZone": "Moonglade",
+      "startInstance": null,
+      "reward": "Cure Poison",
+      "rewardItemId": null,
+      "rewardItem": null,
+      "questId": 6125,
+      "faction": "alliance"
+    },
+    {
+      "level": 16,
+      "name": "Aquatic Form",
+      "startZone": "Moonglade",
+      "startInstance": null,
+      "reward": "Aquatic Form",
+      "rewardItemId": null,
+      "rewardItem": null,
+      "questId": 31,
+      "faction": "horde"
+    },
+    {
+      "level": 54,
+      "name": "The Emerald Dream...",
+      "startZone": "Feralas",
+      "startInstance": "Dire Maul",
+      "reward": "Royal Seal of Eldre'Thalas",
+      "rewardItemId": 18470,
+      "rewardItem": {
+        "name": "Royal Seal of Eldre'Thalas",
+        "iconName": "inv_jewelry_talisman_10",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=18470",
+        "slot": "Trinket",
+        "quality": "Rare",
+        "requiredLevel": 0,
+        "itemLevel": 62,
+        "stats": [],
+        "bind": "pickup",
+        "unique": true,
+        "sellPriceCopper": 0,
+        "effects": [
+          "Equip: Increase Healing +44"
+        ]
+      },
+      "questId": 7506,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Band of Unending Life",
+      "startZone": "Silithus",
+      "startInstance": null,
+      "reward": "Band of Unending Life",
+      "rewardItemId": 21408,
+      "rewardItem": {
+        "name": "Band of Unending Life",
+        "iconName": "inv_jewelry_ring_ahnqiraj_03",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=21408",
+        "slot": "Finger",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 65,
+        "stats": [
+          {
+            "type": "Strength",
+            "value": 10
+          },
+          {
+            "type": "Stamina",
+            "value": 9
+          },
+          {
+            "type": "Intellect",
+            "value": 8
+          },
+          {
+            "type": "Agility",
+            "value": 10
+          },
+          {
+            "type": "Spirit",
+            "value": 7
+          }
+        ],
+        "bind": "pickup",
+        "unique": true,
+        "sellPriceCopper": 0,
+        "effects": [
+          "Equip: Increased Mana Regen +5"
+        ]
+      },
+      "questId": 8700,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Cloak of Unending Life",
+      "startZone": "Silithus",
+      "startInstance": null,
+      "reward": "Cloak of Unending Life",
+      "rewardItemId": 21409,
+      "rewardItem": {
+        "name": "Cloak of Unending Life",
+        "iconName": "inv_misc_cape_15",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=21409",
+        "slot": "Back",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 67,
+        "stats": [
+          {
+            "type": "Intellect",
+            "value": 10
+          },
+          {
+            "type": "Stamina",
+            "value": 10
+          },
+          {
+            "type": "Strength",
+            "value": 12
+          },
+          {
+            "type": "Agility",
+            "value": 8
+          },
+          {
+            "type": "Spirit",
+            "value": 7
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 0,
+        "armor": 52,
+        "effects": [
+          "Equip: Increase Spell Dam +11"
+        ]
+      },
+      "questId": 8692,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Dreamwalker Boots",
+      "startZone": "Eastern Plaguelands",
+      "startInstance": null,
+      "reward": "Dreamwalker Boots",
+      "rewardItemId": 22492,
+      "rewardItem": {
+        "name": "Dreamwalker Boots",
+        "iconName": "inv_boots_chain_05",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=22492",
+        "slot": "Feet",
+        "itemSubclass": "Leather",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 86,
+        "stats": [
+          {
+            "type": "Intellect",
+            "value": 20
+          },
+          {
+            "type": "Spirit",
+            "value": 14
+          },
+          {
+            "type": "Stamina",
+            "value": 20
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 91165,
+        "armor": 171,
+        "durability": 60,
+        "effects": [
+          "Equip: Increase Healing +46",
+          "Equip: Increased Mana Regen +5"
+        ]
+      },
+      "questId": 9090,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Dreamwalker Girdle",
+      "startZone": "Eastern Plaguelands",
+      "startInstance": null,
+      "reward": "Dreamwalker Girdle",
+      "rewardItemId": 22494,
+      "rewardItem": {
+        "name": "Dreamwalker Girdle",
+        "iconName": "inv_belt_22",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=22494",
+        "slot": "Waist",
+        "itemSubclass": "Leather",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 88,
+        "stats": [
+          {
+            "type": "Stamina",
+            "value": 14
+          },
+          {
+            "type": "Intellect",
+            "value": 23
+          },
+          {
+            "type": "Spirit",
+            "value": 13
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 67481,
+        "armor": 142,
+        "durability": 40,
+        "effects": [
+          "Equip: Increase Healing +51",
+          "Equip: Increased Mana Regen +4"
+        ]
+      },
+      "questId": 9092,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Dreamwalker Handguards",
+      "startZone": "Eastern Plaguelands",
+      "startInstance": null,
+      "reward": "Dreamwalker Handguards",
+      "rewardItemId": 22493,
+      "rewardItem": {
+        "name": "Dreamwalker Handguards",
+        "iconName": "inv_gauntlets_25",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=22493",
+        "slot": "Hands",
+        "itemSubclass": "Leather",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 88,
+        "stats": [
+          {
+            "type": "Spirit",
+            "value": 16
+          },
+          {
+            "type": "Stamina",
+            "value": 17
+          },
+          {
+            "type": "Intellect",
+            "value": 22
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 67240,
+        "armor": 158,
+        "durability": 40,
+        "effects": [
+          "Equip: Increase Healing +53"
+        ]
+      },
+      "questId": 9091,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Dreamwalker Headpiece",
+      "startZone": "Eastern Plaguelands",
+      "startInstance": null,
+      "reward": "Dreamwalker Headpiece",
+      "rewardItemId": 22490,
+      "rewardItem": {
+        "name": "Dreamwalker Headpiece",
+        "iconName": "inv_helmet_15",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=22490",
+        "slot": "Head",
+        "itemSubclass": "Leather",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 88,
+        "stats": [
+          {
+            "type": "Spirit",
+            "value": 20
+          },
+          {
+            "type": "Intellect",
+            "value": 31
+          },
+          {
+            "type": "Stamina",
+            "value": 25
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 99788,
+        "armor": 205,
+        "durability": 70,
+        "effects": [
+          "Equip: Increase Healing +66"
+        ]
+      },
+      "questId": 9088,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Dreamwalker Legguards",
+      "startZone": "Eastern Plaguelands",
+      "startInstance": null,
+      "reward": "Dreamwalker Legguards",
+      "rewardItemId": 22489,
+      "rewardItem": {
+        "name": "Dreamwalker Legguards",
+        "iconName": "inv_pants_mail_15",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=22489",
+        "slot": "Legs",
+        "itemSubclass": "Leather",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 88,
+        "stats": [
+          {
+            "type": "Spirit",
+            "value": 20
+          },
+          {
+            "type": "Intellect",
+            "value": 26
+          },
+          {
+            "type": "Stamina",
+            "value": 22
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 132583,
+        "armor": 221,
+        "durability": 90,
+        "effects": [
+          "Equip: Increase Healing +66",
+          "Equip: Increased Mana Regen +8"
+        ]
+      },
+      "questId": 9087,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Dreamwalker Spaulders",
+      "startZone": "Eastern Plaguelands",
+      "startInstance": null,
+      "reward": "Dreamwalker Spaulders",
+      "rewardItemId": 22491,
+      "rewardItem": {
+        "name": "Dreamwalker Spaulders",
+        "iconName": "inv_shoulder_14",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=22491",
+        "slot": "Shoulder",
+        "itemSubclass": "Leather",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 86,
+        "stats": [
+          {
+            "type": "Spirit",
+            "value": 12
+          },
+          {
+            "type": "Intellect",
+            "value": 22
+          },
+          {
+            "type": "Stamina",
+            "value": 18
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 90838,
+        "armor": 186,
+        "durability": 70,
+        "effects": [
+          "Equip: Increased Mana Regen +5",
+          "Equip: Increase Healing +48"
+        ]
+      },
+      "questId": 9089,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Dreamwalker Tunic",
+      "startZone": "Eastern Plaguelands",
+      "startInstance": null,
+      "reward": "Dreamwalker Tunic",
+      "rewardItemId": 22488,
+      "rewardItem": {
+        "name": "Dreamwalker Tunic",
+        "iconName": "inv_chest_chain_15",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=22488",
+        "slot": "Chest",
+        "itemSubclass": "Leather",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 92,
+        "stats": [
+          {
+            "type": "Spirit",
+            "value": 19
+          },
+          {
+            "type": "Intellect",
+            "value": 29
+          },
+          {
+            "type": "Stamina",
+            "value": 29
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 160571,
+        "armor": 262,
+        "durability": 120,
+        "effects": [
+          "Equip: Increase Healing +66",
+          "Equip: Increased Mana Regen +8"
+        ]
+      },
+      "questId": 9086,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Dreamwalker Wristguards",
+      "startZone": "Eastern Plaguelands",
+      "startInstance": null,
+      "reward": "Dreamwalker Wristguards",
+      "rewardItemId": 22495,
+      "rewardItem": {
+        "name": "Dreamwalker Wristguards",
+        "iconName": "inv_bracer_02",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=22495",
+        "slot": "Wrist",
+        "itemSubclass": "Leather",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 88,
+        "stats": [
+          {
+            "type": "Stamina",
+            "value": 14
+          },
+          {
+            "type": "Intellect",
+            "value": 16
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 67721,
+        "armor": 111,
+        "durability": 40,
+        "effects": [
+          "Equip: Increase Healing +40",
+          "Equip: Increased Mana Regen +5"
+        ]
+      },
+      "questId": 9093,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Enchanted South Seas Kelp",
+      "startZone": "Stranglethorn Vale",
+      "startInstance": null,
+      "reward": "Enchanted South Seas Kelp",
+      "rewardItemId": 19610,
+      "rewardItem": {
+        "name": "Enchanted South Seas Kelp",
+        "iconName": "inv_jewelry_necklace_23",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=19610",
+        "slot": "Neck",
+        "quality": "Uncommon",
+        "requiredLevel": 0,
+        "itemLevel": 60,
+        "stats": [
+          {
+            "type": "Intellect",
+            "value": 8
+          },
+          {
+            "type": "Spirit",
+            "value": 7
+          },
+          {
+            "type": "Stamina",
+            "value": 8
+          }
+        ],
+        "bind": "pickup",
+        "unique": true,
+        "sellPriceCopper": 0
+      },
+      "questId": 8110,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Genesis Boots",
+      "startZone": "Silithus",
+      "startInstance": "Ahn'Qiraj",
+      "reward": "Genesis Boots",
+      "rewardItemId": 21355,
+      "rewardItem": {
+        "name": "Genesis Boots",
+        "iconName": "inv_boots_cloth_07",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=21355",
+        "slot": "Feet",
+        "itemSubclass": "Leather",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 78,
+        "stats": [
+          {
+            "type": "Agility",
+            "value": 13
+          },
+          {
+            "type": "Strength",
+            "value": 12
+          },
+          {
+            "type": "Intellect",
+            "value": 14
+          },
+          {
+            "type": "Spirit",
+            "value": 6
+          },
+          {
+            "type": "Stamina",
+            "value": 14
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 58580,
+        "armor": 158,
+        "durability": 60,
+        "effects": [
+          "Equip: Increase Spell Dam +20",
+          "Equip: Increased Mana Regen +4",
+          "Equip: Increased Spell Penetration +10"
+        ]
+      },
+      "questId": 8665,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Genesis Helm",
+      "startZone": "Silithus",
+      "startInstance": "Ahn'Qiraj",
+      "reward": "Genesis Helm",
+      "rewardItemId": 21353,
+      "rewardItem": {
+        "name": "Genesis Helm",
+        "iconName": "inv_helmet_06",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=21353",
+        "slot": "Head",
+        "itemSubclass": "Leather",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 81,
+        "stats": [
+          {
+            "type": "Agility",
+            "value": 12
+          },
+          {
+            "type": "Strength",
+            "value": 15
+          },
+          {
+            "type": "Intellect",
+            "value": 22
+          },
+          {
+            "type": "Spirit",
+            "value": 12
+          },
+          {
+            "type": "Stamina",
+            "value": 22
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 67301,
+        "armor": 192,
+        "durability": 70,
+        "effects": [
+          "Equip: Increase Spell Dam +27",
+          "Equip: Increased Critical +1"
+        ]
+      },
+      "questId": 8667,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Genesis Shoulderpads",
+      "startZone": "Silithus",
+      "startInstance": "Ahn'Qiraj",
+      "reward": "Genesis Shoulderpads",
+      "rewardItemId": 21354,
+      "rewardItem": {
+        "name": "Genesis Shoulderpads",
+        "iconName": "inv_shoulder_03",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=21354",
+        "slot": "Shoulder",
+        "itemSubclass": "Leather",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 78,
+        "stats": [
+          {
+            "type": "Agility",
+            "value": 14
+          },
+          {
+            "type": "Strength",
+            "value": 15
+          },
+          {
+            "type": "Intellect",
+            "value": 13
+          },
+          {
+            "type": "Spirit",
+            "value": 6
+          },
+          {
+            "type": "Stamina",
+            "value": 15
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 58358,
+        "armor": 172,
+        "durability": 70,
+        "effects": [
+          "Equip: Increase Spell Dam +20",
+          "Equip: Increased Mana Regen +3"
+        ]
+      },
+      "questId": 8669,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Genesis Trousers",
+      "startZone": "Silithus",
+      "startInstance": "Ahn'Qiraj",
+      "reward": "Genesis Trousers",
+      "rewardItemId": 21356,
+      "rewardItem": {
+        "name": "Genesis Trousers",
+        "iconName": "inv_pants_leather_01",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=21356",
+        "slot": "Legs",
+        "itemSubclass": "Leather",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 81,
+        "stats": [
+          {
+            "type": "Agility",
+            "value": 12
+          },
+          {
+            "type": "Strength",
+            "value": 12
+          },
+          {
+            "type": "Intellect",
+            "value": 22
+          },
+          {
+            "type": "Spirit",
+            "value": 9
+          },
+          {
+            "type": "Stamina",
+            "value": 22
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 90751,
+        "armor": 207,
+        "durability": 90,
+        "effects": [
+          "Equip: Increase Spell Dam +27",
+          "Equip: Increased Critical +1",
+          "Equip: Increased Mana Regen +4"
+        ]
+      },
+      "questId": 8668,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Genesis Vest",
+      "startZone": "Silithus",
+      "startInstance": "Ahn'Qiraj",
+      "reward": "Genesis Vest",
+      "rewardItemId": 21357,
+      "rewardItem": {
+        "name": "Genesis Vest",
+        "iconName": "inv_chest_leather_08",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=21357",
+        "slot": "Chest",
+        "itemSubclass": "Leather",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 88,
+        "stats": [
+          {
+            "type": "Agility",
+            "value": 12
+          },
+          {
+            "type": "Strength",
+            "value": 13
+          },
+          {
+            "type": "Intellect",
+            "value": 24
+          },
+          {
+            "type": "Spirit",
+            "value": 11
+          },
+          {
+            "type": "Stamina",
+            "value": 24
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 128176,
+        "armor": 253,
+        "durability": 120,
+        "effects": [
+          "Equip: Increase Spell Dam +28",
+          "Equip: Increased Critical Spell +1",
+          "Equip: Increased Critical +1"
+        ]
+      },
+      "questId": 8666,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Mace of Unending Life",
+      "startZone": "Silithus",
+      "startInstance": null,
+      "reward": "Mace of Unending Life",
+      "rewardItemId": 21407,
+      "rewardItem": {
+        "name": "Mace of Unending Life",
+        "iconName": "inv_mace22",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=21407",
+        "slot": "Main Hand",
+        "itemSubclass": "Mace",
+        "quality": "Epic",
+        "requiredLevel": 60,
+        "itemLevel": 70,
+        "stats": [
+          {
+            "type": "Strength",
+            "value": 9
+          },
+          {
+            "type": "Agility",
+            "value": 7
+          },
+          {
+            "type": "Intellect",
+            "value": 11
+          },
+          {
+            "type": "Stamina",
+            "value": 10
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 0,
+        "damage": {
+          "min": 67,
+          "max": 149,
+          "speed": 2.6
+        },
+        "durability": 105,
+        "effects": [
+          "Equip: Increase Spell Dam +40",
+          "Equip: Attack Power - Feral +140"
+        ]
+      },
+      "questId": 8708,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Paragons of Power: The Haruspex's Belt",
+      "startZone": "Stranglethorn Vale",
+      "startInstance": null,
+      "reward": "Zandalar Haruspex's Belt",
+      "rewardItemId": 19839,
+      "rewardItem": {
+        "name": "Zandalar Haruspex's Belt",
+        "iconName": "inv_belt_01",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=19839",
+        "slot": "Waist",
+        "itemSubclass": "Leather",
+        "quality": "Epic",
+        "requiredLevel": 0,
+        "itemLevel": 61,
+        "stats": [
+          {
+            "type": "Intellect",
+            "value": 21
+          },
+          {
+            "type": "Spirit",
+            "value": 12
+          },
+          {
+            "type": "Stamina",
+            "value": 10
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 0,
+        "armor": 165,
+        "durability": 40,
+        "effects": [
+          "Equip: Increase Healing +15"
+        ]
+      },
+      "questId": 8064,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Paragons of Power: The Haruspex's Bracers",
+      "startZone": "Stranglethorn Vale",
+      "startInstance": null,
+      "reward": "Zandalar Haruspex's Bracers",
+      "rewardItemId": 19840,
+      "rewardItem": {
+        "name": "Zandalar Haruspex's Bracers",
+        "iconName": "inv_bracer_08",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=19840",
+        "slot": "Wrist",
+        "itemSubclass": "Leather",
+        "quality": "Epic",
+        "requiredLevel": 0,
+        "itemLevel": 61,
+        "stats": [
+          {
+            "type": "Intellect",
+            "value": 11
+          },
+          {
+            "type": "Spirit",
+            "value": 11
+          },
+          {
+            "type": "Stamina",
+            "value": 9
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 0,
+        "armor": 122,
+        "durability": 40,
+        "effects": [
+          "Equip: Increase Healing +24"
+        ]
+      },
+      "questId": 8057,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Paragons of Power: The Haruspex's Tunic",
+      "startZone": "Stranglethorn Vale",
+      "startInstance": null,
+      "reward": "Zandalar Haruspex's Tunic",
+      "rewardItemId": 19838,
+      "rewardItem": {
+        "name": "Zandalar Haruspex's Tunic",
+        "iconName": "inv_chest_leather_06",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=19838",
+        "slot": "Chest",
+        "itemSubclass": "Leather",
+        "quality": "Epic",
+        "requiredLevel": 0,
+        "itemLevel": 65,
+        "stats": [
+          {
+            "type": "Intellect",
+            "value": 24
+          },
+          {
+            "type": "Spirit",
+            "value": 23
+          },
+          {
+            "type": "Stamina",
+            "value": 15
+          }
+        ],
+        "bind": "pickup",
+        "sellPriceCopper": 0,
+        "armor": 287,
+        "durability": 120,
+        "effects": [
+          "Equip: Increase Healing +33"
+        ]
+      },
+      "questId": 8065,
+      "faction": "both"
+    },
+    {
+      "level": 60,
+      "name": "Pristine Enchanted South Seas Kelp",
+      "startZone": "Stranglethorn Vale",
+      "startInstance": null,
+      "reward": "Pristine Enchanted South Seas Kelp",
+      "rewardItemId": 19613,
+      "rewardItem": {
+        "name": "Pristine Enchanted South Seas Kelp",
+        "iconName": "inv_jewelry_necklace_26",
+        "wowheadUrl": "https://www.wowhead.com/classic/item=19613",
+        "slot": "Neck",
+        "quality": "Epic",
+        "requiredLevel": 0,
+        "itemLevel": 65,
+        "stats": [
+          {
+            "type": "Strength",
+            "value": 6
+          },
+          {
+            "type": "Intellect",
+            "value": 10
+          },
+          {
+            "type": "Spirit",
+            "value": 9
+          },
+          {
+            "type": "Stamina",
+            "value": 10
+          }
+        ],
+        "bind": "pickup",
+        "unique": true,
+        "sellPriceCopper": 0,
+        "effects": [
+          "Equip: Improved Wrath/Starfire"
+        ]
+      },
+      "questId": 8113,
+      "faction": "both"
+    }
+  ],
+  "professionMilestones": [
+    {
+      "skill": "First Aid",
+      "atSkill": 50,
+      "levelHint": 10,
+      "action": "Train Journeyman First Aid",
+      "where": "any First Aid trainer"
+    },
+    {
+      "skill": "First Aid",
+      "atSkill": 125,
+      "levelHint": 20,
+      "action": "Buy Expert First Aid — Under Wraps",
+      "itemId": 16084,
+      "where": "Deneb Walker (Arathi Highlands) / Balai Lok'Wein (Dustwallow Marsh)"
+    },
+    {
+      "skill": "First Aid",
+      "atSkill": 225,
+      "levelHint": 35,
+      "action": "Complete Triage",
+      "questId": [
+        6624,
+        6622
+      ],
+      "where": "Doctor Gustaf VanHowzen (Dustwallow Marsh) / Doctor Gregory Victor (Arathi Highlands)"
+    },
+    {
+      "skill": "Cooking",
+      "atSkill": 50,
+      "levelHint": 10,
+      "action": "Train Journeyman Cooking",
+      "where": "any Cooking trainer"
+    },
+    {
+      "skill": "Cooking",
+      "atSkill": 125,
+      "levelHint": 20,
+      "action": "Buy the Expert Cookbook",
+      "itemId": 16072,
+      "where": "Shandrina (Ashenvale) / Wulan (Desolace)"
+    },
+    {
+      "skill": "Cooking",
+      "atSkill": 225,
+      "levelHint": 35,
+      "action": "Complete Clamlette Surprise",
+      "questId": 6610,
+      "where": "Dirge Quikcleave (Tanaris)"
+    },
+    {
+      "skill": "Fishing",
+      "atSkill": 50,
+      "levelHint": 10,
+      "action": "Train Journeyman Fishing",
+      "where": "any Fishing trainer"
+    },
+    {
+      "skill": "Fishing",
+      "atSkill": 125,
+      "levelHint": 20,
+      "action": "Buy Expert Fishing — The Bass and You",
+      "itemId": 16083,
+      "where": "Old Man Heming (Stranglethorn Vale)"
+    },
+    {
+      "skill": "Fishing",
+      "atSkill": 225,
+      "levelHint": 35,
+      "action": "Complete Nat Pagle, Angler Extreme",
+      "questId": 6607,
+      "where": "Nat Pagle (Dustwallow Marsh)"
+    }
+  ]
+}

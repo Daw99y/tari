@@ -24,11 +24,14 @@ import blastedLands from "../reference/guide/blasted-lands.json";
 import burningSteppes from "../reference/guide/burning-steppes.json";
 import darkshore from "../reference/guide/darkshore.json";
 import darnassus from "../reference/guide/darnassus.json";
+import deadwindPass from "../reference/guide/deadwind-pass.json";
 import desolace from "../reference/guide/desolace.json";
+import direMaulEast from "../reference/guide/dire-maul-east.json";
 import dunMorogh from "../reference/guide/dun-morogh.json";
 import durotar from "../reference/guide/durotar.json";
 import duskwood from "../reference/guide/duskwood.json";
 import dustwallowMarsh from "../reference/guide/dustwallow-marsh.json";
+import easternPlaguelands from "../reference/guide/eastern-plaguelands.json";
 import elwynnForest from "../reference/guide/elwynn-forest.json";
 import felwood from "../reference/guide/felwood.json";
 import feralas from "../reference/guide/feralas.json";
@@ -47,6 +50,7 @@ import redridgeMountains from "../reference/guide/redridge-mountains.json";
 import scarletMonastery from "../reference/guide/scarlet-monastery.json";
 import searingGorge from "../reference/guide/searing-gorge.json";
 import shadowfangKeep from "../reference/guide/shadowfang-keep.json";
+import silithus from "../reference/guide/silithus.json";
 import silverpineForest from "../reference/guide/silverpine-forest.json";
 import stonetalonMountains from "../reference/guide/stonetalon-mountains.json";
 import stormwindCity from "../reference/guide/stormwind-city.json";
@@ -66,8 +70,10 @@ import uldaman from "../reference/guide/uldaman.json";
 import unGoroCrater from "../reference/guide/un-goro-crater.json";
 import undercity from "../reference/guide/undercity.json";
 import wailingCaverns from "../reference/guide/wailing-caverns.json";
+import westernPlaguelands from "../reference/guide/western-plaguelands.json";
 import westfall from "../reference/guide/westfall.json";
 import wetlands from "../reference/guide/wetlands.json";
+import winterspring from "../reference/guide/winterspring.json";
 import zulFarrak from "../reference/guide/zul-farrak.json";
 import zulGurub from "../reference/guide/zul-gurub.json";
 
@@ -214,6 +220,12 @@ const GUIDES: Record<string, GuideFile> = {
   "blackrock-depths": blackrockDepths as GuideFile,
   "burning-steppes": burningSteppes as GuideFile,
   moonglade: moonglade as GuideFile,
+  "western-plaguelands": westernPlaguelands as GuideFile,
+  "dire-maul-east": direMaulEast as GuideFile,
+  "eastern-plaguelands": easternPlaguelands as GuideFile,
+  silithus: silithus as GuideFile,
+  winterspring: winterspring as GuideFile,
+  "deadwind-pass": deadwindPass as GuideFile,
 };
 
 export function guideFor(roomId: string): GuideFile | undefined {

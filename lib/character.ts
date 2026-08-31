@@ -27,6 +27,17 @@ export type Character = {
   hearth?: string | null;
   zone?: string | null;
   professions?: { name: string; rank: number }[];
+  /** The quest log as the addon last saw it — started, not finished. TA2.
+   *  Kept on the character rather than turned into marks: a mark is something
+   *  the reader did and never takes back, and a quest leaves the log the
+   *  moment it is handed in. This is a photograph, and the next import
+   *  replaces it. */
+  questLog?: number[];
+  /** Every talent's rank, per tree. TA2. Stored because the string carries it
+   *  and throwing it away is how the race field got lost for a week; nothing
+   *  reads it yet — the trainer rows it would settle need a talent→row map
+   *  emitted by CPLUS first. */
+  talentPicks?: number[][];
 };
 
 /** WoW's 19 inventory slots, by index in `gear` (slot id − 1). */
