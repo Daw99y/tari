@@ -266,7 +266,7 @@ export default async function Page() {
             No download. <em>Type your name.</em>
           </h2>
           <p className={styles.body}>
-            Blizzard put Classic on the armory. We read it. Your character, your gear, your guild — Classic Era and
+            Blizzard put Classic on the armory. We read it. Your character, your gear, your guild. Classic Era and
             Hardcore, in about ten seconds. The addon comes later, if you want it.
           </p>
         </Reveal>
@@ -348,7 +348,7 @@ export default async function Page() {
             Every place is a <em>room.</em>
           </h2>
           <p className={styles.body}>
-            Seventy-nine of them, and there is no server list. One Azeroth, every realm, both factions &mdash; walk
+            Seventy-nine of them, and there is no server list. One Azeroth, every realm, both factions. Walk
             into any of these and see who is already there.
           </p>
         </Reveal>
