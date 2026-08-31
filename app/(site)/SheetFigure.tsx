@@ -27,8 +27,12 @@ export default function SheetFigure({
     const host = hostRef.current;
     if (!host) return;
     const measure = () => {
-      const r = host.getBoundingClientRect();
-      if (r.width > 0 && r.height > 0) setBox({ w: r.width, h: r.height });
+      /* offsetWidth, not getBoundingClientRect: the landing scales the whole
+         sheet window with a transform, and the rect comes back shrunken. The
+         offsets are the layout size, which is the ruler the figure wants. */
+      const w = host.offsetWidth;
+      const h = host.offsetHeight;
+      if (w > 0 && h > 0) setBox({ w, h });
     };
     measure();
     const ro = new ResizeObserver(measure);

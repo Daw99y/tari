@@ -1,0 +1,36 @@
+/* The landing's frame around a true-size app window, and the two site-side
+ * pieces the sheet mock borrows from the hero: the figure and her shadow. */
+
+.appShot {
+  width: min(100%, 72rem);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  background: var(--well);
+  box-shadow:
+    inset 0 0 0 1px rgba(242, 240, 234, 0.1),
+    0 30px 70px -30px rgba(0, 0, 0, 0.7);
+}
+
+/* The seduced rogue, standing in the sheet window. Same rules the hero uses. */
+.figure {
+  position: absolute;
+  transform: translate(-50%, -100%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 1200ms ease 300ms;
+}
+
+.figure[data-ready="true"] {
+  opacity: 1;
+}
+
+.figureShadow {
+  position: absolute;
+  left: 50%;
+  bottom: -1.5%;
+  width: 74%;
+  height: 7%;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: radial-gradient(50% 50% at 50% 50%, rgba(6, 6, 10, 0.55) 0%, rgba(6, 6, 10, 0) 70%);
+}
