@@ -51,7 +51,7 @@ import {
   type TrainSpell,
   type Walk,
 } from "@/lib/journey";
-import { isOn, setMark, useMarks } from "@/lib/marks";
+import { clearMarks, isOn, setMark, subjectsOn, useMarks } from "@/lib/marks";
 import { letter, readPath } from "@/lib/path";
 import { overlay, planKey, plannedAt } from "@/lib/plan";
 import { getRoom, roomArt } from "@/lib/rooms";
@@ -156,6 +156,20 @@ export default function Campfire() {
      one line that says how many there are. */
   const [made, setMade] = useState(false);
 
+  /* THE RECORD CAN BE PUT BACK. A tick is a fact about the character and an
+     import writes them by the dozen, so an import that named the wrong
+     character leaves a page of them nobody made — Kacey, 2026-08-31, a level
+     18 rogue reporting Molten Core cleared. Undoing that one press by press
+     is fifty presses, so there is one press that does it.
+     It asks twice, and forgets it asked. An armed button left armed is a
+     button that goes off on the way past. */
+  const [armed, setArmed] = useState(false);
+  useEffect(() => {
+    if (!armed) return;
+    const t = setTimeout(() => setArmed(false), 5000);
+    return () => clearTimeout(t);
+  }, [armed]);
+
   if (me === undefined) return null;
   if (me === null) {
     return (
@@ -172,6 +186,7 @@ export default function Campfire() {
   const tick = (subject: string) =>
     setMark(me.key, "done", subject, !isOn(marks, me.key, "done", subject));
   const ticked = (subject: string) => isOn(marks, me.key, "done", subject);
+  const ticks = subjectsOn(marks, me.key, "done").length;
 
   const ranks = journey ? ranksOwed(journey) : 0;
   /* -1 is "the reader shut the one that was open", which is not the same as
@@ -468,6 +483,36 @@ export default function Campfire() {
             </section>
           ) : null}
         </div>
+
+        {/* ---- the record itself
+            The only control here that is about the page rather than about the
+            character. It sits under everything, in the quiet register, and it
+            says the whole price on the second press. */}
+        {ticks > 0 ? (
+          <div className={styles.record}>
+            <p className={styles.recordWords}>
+              Ticks you never made? An import files a history under the name in
+              the string. Paste the wrong character over this one and it lands
+              here.
+            </p>
+            <button
+              type="button"
+              className={`${styles.clear} ${armed ? styles.armed : ""}`}
+              onClick={() => {
+                if (!armed) {
+                  setArmed(true);
+                  return;
+                }
+                clearMarks(me.key, "done");
+                setArmed(false);
+              }}
+            >
+              {armed
+                ? `Clear ${ticks} ${ticks === 1 ? "tick" : "ticks"} — press again`
+                : `Clear ${me.name}\u2019s ticks`}
+            </button>
+          </div>
+        ) : null}
       </div>
     </div>
   );

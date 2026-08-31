@@ -354,7 +354,14 @@ export default function Creator() {
     !!existing &&
     !!imported?.name &&
     existing.name.trim().toLowerCase() === imported.name.trim().toLowerCase();
-  const editingExisting = !!existing && (!named || named === existing.key || sameName);
+  /* A PASTE WITH NO REALM STILL NAMES SOMEBODY. `R:` is a keyed field like
+     every other, so an older addon simply does not send it — and the fallback
+     for that must not be "then it must be whoever is already on screen",
+     which is the same bug in a hat. A name that is not the selected row's
+     name is another character, realm or no realm, and it gets its own key
+     rather than the selected row's ticks. */
+  const stranger = !!existing && !!imported?.name && !sameName;
+  const editingExisting = !!existing && !stranger && (!named || named === existing.key);
 
   const accept = async () => {
     if (!ok) return;

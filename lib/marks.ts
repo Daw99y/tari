@@ -191,6 +191,36 @@ export function setMarks(char: string, kind: MarkKind, subjects: string[], val: 
 }
 
 /**
+ * Take back every mark of one kind, for one character. Returns how many went.
+ *
+ * The mirror of `setMarks`, and it is here for the same reason: a record that
+ * arrived all at once has to be able to leave all at once. An import that
+ * filed a level 60's history under a level 18's name leaves forty ticks the
+ * reader never made, and undoing one mistake should not cost forty presses.
+ *
+ * IT WRITES TOMBSTONES RATHER THAN DELETING. Every subject is queued as
+ * `on: false`, because the rows are on the server too — drop them from the
+ * map alone and the next pull hands the same forty ticks straight back.
+ */
+export function clearMarks(char: string, kind: MarkKind): number {
+  const cur = snapshot();
+  const kinds = { ...(cur.on[char] ?? {}) };
+  const gone = Object.keys(kinds[kind] ?? {});
+  if (gone.length === 0) return 0;
+  delete kinds[kind];
+
+  const same = (q: Queued) => q.mark.char === char && q.mark.kind === kind;
+  const queue = [
+    ...cur.queue.filter((q) => !same(q)),
+    ...gone.map((subject) => ({ seq: ++seq, mark: { char, kind, subject, val: null, on: false } })),
+  ];
+
+  commit({ on: { ...cur.on, [char]: kinds }, queue, since: cur.since });
+  soon();
+  return gone.length;
+}
+
+/**
  * Carry one character's whole record to a new key.
  *
  * A character can be renamed exactly once in its life: a body the reader made
