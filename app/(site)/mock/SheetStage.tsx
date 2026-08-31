@@ -7,6 +7,7 @@
 import { promises as fs } from "node:fs";
 import path from "node:path";
 
+import Coins from "@/components/Coins";
 import { ItemHover } from "@/components/ItemTooltip";
 import SlotGlyph from "@/components/SlotGlyph";
 import UpArrow from "@/components/UpArrow";
@@ -150,6 +151,23 @@ function Slot({
   );
 }
 
+function Trade({ name, rank }: { name: string; rank: number }) {
+  return (
+    <li className={styles.trade}>
+      <span className={styles.tradeRow}>
+        <span className={styles.factKey}>{name}</span>
+        <span className={styles.factVal}>
+          {rank}
+          <span className={styles.cap}> / 300</span>
+        </span>
+      </span>
+      <span className={styles.tradeBar} aria-hidden="true">
+        <span className={styles.tradeFill} style={{ width: `${(rank / 300) * 100}%` }} />
+      </span>
+    </li>
+  );
+}
+
 function Fact({ k, v }: { k: string; v: React.ReactNode }) {
   return (
     <p className={styles.fact}>
@@ -213,21 +231,11 @@ export default async function SheetStage() {
 
         <aside className={styles.facts}>
           <Fact k="Played" v="2d 6h" />
-          <Fact k="Money" v="23g 41s 8c" />
+          <Fact k="Money" v={<Coins copper={234108} />} />
           <Fact k="Hearth" v="Goldshire" />
           <ul className={styles.trades}>
-            <li className={styles.fact}>
-              <span className={styles.factKey}>First Aid</span>
-              <span className={styles.factVal}>
-                132<span className={styles.cap}> / 300</span>
-              </span>
-            </li>
-            <li className={styles.fact}>
-              <span className={styles.factKey}>Engineering</span>
-              <span className={styles.factVal}>
-                96<span className={styles.cap}> / 300</span>
-              </span>
-            </li>
+            <Trade name="First Aid" rank={132} />
+            <Trade name="Engineering" rank={96} />
           </ul>
         </aside>
       </div>

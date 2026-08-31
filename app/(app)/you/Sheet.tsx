@@ -69,7 +69,6 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import {
   GEAR_SLOTS,
   loadCharacter,
-  money,
   played,
   SHEET_BOTTOM,
   SHEET_LEFT,
@@ -80,6 +79,7 @@ import {
   trades,
   type Character,
 } from "@/lib/character";
+import Coins from "@/components/Coins";
 import { ItemHover } from "@/components/ItemTooltip";
 import SlotGlyph from "@/components/SlotGlyph";
 import UpArrow from "@/components/UpArrow";
@@ -302,17 +302,22 @@ export default function Sheet({
           {me.importedAt ? (
             <>
               {me.played != null ? <Fact k="Played" v={played(me.played)} /> : null}
-              {me.copper != null ? <Fact k="Money" v={money(me.copper)} /> : null}
+              {me.copper != null ? <Fact k="Money" v={<Coins copper={me.copper} />} /> : null}
               {me.hearth ? <Fact k="Hearth" v={me.hearth} /> : null}
               {me.zone ? <Fact k="Last seen" v={me.zone} /> : null}
               {worked.length ? (
                 <ul className={styles.trades}>
                   {worked.map((t) => (
-                    <li key={t.name} className={styles.fact}>
-                      <span className={styles.factKey}>{t.name}</span>
-                      <span className={styles.factVal}>
-                        {t.rank}
-                        <span className={styles.cap}> / {TRADE_CAP}</span>
+                    <li key={t.name} className={styles.trade}>
+                      <span className={styles.tradeRow}>
+                        <span className={styles.factKey}>{t.name}</span>
+                        <span className={styles.factVal}>
+                          {t.rank}
+                          <span className={styles.cap}> / {TRADE_CAP}</span>
+                        </span>
+                      </span>
+                      <span className={styles.tradeBar} aria-hidden="true">
+                        <span className={styles.tradeFill} style={{ width: `${(t.rank / TRADE_CAP) * 100}%` }} />
                       </span>
                     </li>
                   ))}
@@ -622,7 +627,7 @@ function Slot({
   );
 }
 
-function Fact({ k, v }: { k: string; v: string }) {
+function Fact({ k, v }: { k: string; v: React.ReactNode }) {
   return (
     <p className={styles.fact}>
       <span className={styles.factKey}>{k}</span>

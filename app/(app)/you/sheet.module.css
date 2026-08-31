@@ -572,8 +572,41 @@
   margin: 0.15rem 0 0;
   padding: 0.45rem 0 0;
   display: grid;
-  gap: 0.3rem;
+  gap: 0.45rem;
   border-top: 0.5px solid var(--rule);
+}
+
+/* A trade is a fact with a gauge under it: the game's own skill window, at
+ * the corner's size. The fill is bronze — the trades are worked metal, and
+ * green already means "something here is for you". */
+
+.trade {
+  display: grid;
+  gap: 0.28rem;
+}
+
+.tradeRow {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: 0.78rem;
+  line-height: 1.3;
+}
+
+.tradeBar {
+  display: block;
+  height: 2px;
+  border-radius: 1px;
+  background: rgba(242, 240, 234, 0.12);
+  overflow: hidden;
+}
+
+.tradeFill {
+  display: block;
+  height: 100%;
+  min-width: 2px;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #7a5a28, #d8a84e);
 }
 
 .factKey {

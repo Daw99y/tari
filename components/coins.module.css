@@ -1,0 +1,38 @@
+/* Three metals, lit from the upper left the way the plate's icons are. The
+ * dot is the denomination — the game's money frame never spells "g". */
+
+.coins {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.55em;
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+}
+
+.piece {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3em;
+}
+
+.coin {
+  width: 0.52em;
+  height: 0.52em;
+  border-radius: 50%;
+  flex: none;
+}
+
+.coin[data-coin="g"] {
+  background: radial-gradient(circle at 35% 30%, #ffe9a3, #e3b53e 55%, #8a6a1d);
+  box-shadow: 0 0 0 0.5px rgba(255, 233, 163, 0.3);
+}
+
+.coin[data-coin="s"] {
+  background: radial-gradient(circle at 35% 30%, #eef1f5, #a9aeb8 55%, #63676f);
+  box-shadow: 0 0 0 0.5px rgba(238, 241, 245, 0.2);
+}
+
+.coin[data-coin="c"] {
+  background: radial-gradient(circle at 35% 30%, #f0b384, #b06d3a 55%, #5f3a1e);
+  box-shadow: 0 0 0 0.5px rgba(240, 179, 132, 0.2);
+}
