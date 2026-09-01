@@ -211,7 +211,7 @@ export default async function Page() {
           <p className={styles.lede}>Every zone is a live room. Every realm, both factions, one world. Walk in.</p>
         </div>
 
-        <p className={styles.credit}>She has stood in Hillsbrad for an hour. Nobody made her.</p>
+        <p className={styles.credit}>Barrens chat has not stopped once since 2004.</p>
       </section>
 
       {/* ================= the idea */}
