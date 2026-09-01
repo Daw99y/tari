@@ -510,10 +510,20 @@
   aspect-ratio: 1;
   border-radius: var(--r-md);
   overflow: hidden;
-  background:
-    radial-gradient(80% 80% at 50% 60%, rgba(242, 240, 234, 0.05), transparent 70%),
-    var(--panel-deep);
+  background: var(--panel-deep);
+}
+
+/* The ring sits above the canvas: the canvas paints its own opaque ground
+ * (the same panel-deep the lab's vitrines use) with no blend mode, so the
+ * effect keeps the exact colours the game files author — screen-blending
+ * them over a sheen washed the stars out. */
+.specimen::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
   box-shadow: inset 0 0 0 1px rgba(242, 240, 234, 0.1);
+  pointer-events: none;
 }
 
 .specimenArt {
@@ -521,7 +531,6 @@
   inset: 0;
   width: 100%;
   height: 100%;
-  mix-blend-mode: screen;
 }
 
 /* ---- the banded sections

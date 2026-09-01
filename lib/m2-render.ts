@@ -263,9 +263,9 @@ export async function loadTextures(mesh: M2Mesh): Promise<TextureSet> {
 type Tinted = { canvas: HTMLCanvasElement; pattern: CanvasPattern | null; w: number; h: number };
 const tintCache = new Map<string, Tinted>();
 
-function tinted(ctx: CanvasRenderingContext2D, img: HTMLImageElement, key: string, rgb: Vec3): Tinted {
+function tinted(ctx: CanvasRenderingContext2D, img: HTMLImageElement, key: string, rgb: Vec3, additive = false): Tinted {
   const q = rgb.map((v) => Math.round(Math.max(0, Math.min(1, v)) * 31));
-  const k = `${key}|${q.join(",")}`;
+  const k = `${key}|${q.join(",")}|${additive ? "a" : ""}`;
   const hit = tintCache.get(k);
   if (hit) return hit;
   const c = document.createElement("canvas");
@@ -273,12 +273,54 @@ function tinted(ctx: CanvasRenderingContext2D, img: HTMLImageElement, key: strin
   c.height = img.naturalHeight || 1;
   const g = c.getContext("2d")!;
   g.drawImage(img, 0, 0);
+  /* Additive fold, measured BEFORE the tint. The fold has to come from the
+     texture as authored: fold after tinting and a pure-white texture tinted
+     red goes slightly translucent everywhere, its grown triangles double
+     their alpha along every shared edge, and the hearts read as wireframe
+     while they pulse — the exact artifact the scratch layers exist to
+     prevent. */
+  let fold: Uint8ClampedArray | null = null;
+  if (additive) {
+    const px = g.getImageData(0, 0, c.width, c.height);
+    const d = px.data;
+    let opaque = true;
+    for (let i = 3; i < d.length; i += 4) {
+      if (d[i] < 255) {
+        opaque = false;
+        break;
+      }
+    }
+    if (opaque) {
+      fold = new Uint8ClampedArray(d.length / 4);
+      for (let i = 0; i < d.length; i += 4) {
+        fold[i / 4] = Math.max(d[i], d[i + 1], d[i + 2]);
+      }
+    }
+  }
   if (q[0] !== 31 || q[1] !== 31 || q[2] !== 31) {
     g.globalCompositeOperation = "multiply";
     g.fillStyle = `rgb(${(q[0] / 31) * 255},${(q[1] / 31) * 255},${(q[2] / 31) * 255})`;
     g.fillRect(0, 0, c.width, c.height);
     g.globalCompositeOperation = "destination-in";
     g.drawImage(img, 0, 0);
+  }
+  if (fold) {
+    /* An additive texture is light: black contributes nothing. The game gets
+       this from additive blending, but these batches go through a source-over
+       scratch layer here — and many glow textures ship with NO alpha at all
+       (additive blending never read it in game), so a near quad's opaque
+       black ground ERASES the quad behind it in the layer, and the erased
+       hole reads as the texture's square. For those, brightness becomes
+       alpha and the ground stops covering. A texture that carries a real
+       alpha channel (the sap star, say) is left exactly as authored — its
+       dark texels are shading, not ground, and folding them away changes
+       its face. */
+    const px = g.getImageData(0, 0, c.width, c.height);
+    const d = px.data;
+    for (let i = 0; i < d.length; i += 4) {
+      d[i + 3] = fold[i / 4];
+    }
+    g.putImageData(px, 0, 0);
   }
   const t: Tinted = { canvas: c, pattern: ctx.createPattern(c, "repeat"), w: c.width, h: c.height };
   tintCache.set(k, t);
@@ -435,7 +477,7 @@ export function drawFrame(
     const img = bt.texture ? textures.get(bt.texture) : undefined;
     let painted = false;
     if (img) {
-      const tx = tinted(g, img, bt.texture!, rgb);
+      const tx = tinted(g, img, bt.texture!, rgb, isAdd(bt.blend));
       if (tx.pattern) {
         const s0 = uv[tri.a * 2] * tx.w, t0 = uv[tri.a * 2 + 1] * tx.h;
         const s1 = uv[tri.b * 2] * tx.w, t1 = uv[tri.b * 2 + 1] * tx.h;
