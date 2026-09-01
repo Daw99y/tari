@@ -211,12 +211,27 @@
     filter 200ms ease;
 }
 
-/* The door is Discord's, so it wears Discord's blurple and Discord's mark.
- * The one control on the page that is not ours to restyle. */
-.discord {
-  background: var(--blurple);
-  color: #fff;
-  box-shadow: 0 6px 24px -8px rgba(88, 101, 242, 0.7);
+/* ---- the pair of doors: the world first, Discord beside it */
+
+.doors {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.6rem;
+}
+
+/* Discord in ghost: the clyde keeps its blurple, the pill stays quiet next to
+ * an open door, and the hover fills with Discord's own colour — the moment it
+ * matters, the door wears their face in full. */
+.discordGhost {
+  background: rgba(242, 240, 234, 0.08);
+  color: var(--ink);
+  box-shadow: inset 0 0 0 1px rgba(242, 240, 234, 0.16);
+}
+
+.discordGhost .clyde {
+  color: var(--blurple);
 }
 
 .clyde,
@@ -243,10 +258,15 @@
   filter: brightness(1.05);
 }
 
-.discord:hover {
-  background: var(--blurple-deep);
+.discordGhost:hover {
+  background: var(--blurple);
+  color: #fff;
   box-shadow: 0 12px 32px -10px rgba(88, 101, 242, 0.8);
   filter: none;
+}
+
+.discordGhost:hover .clyde {
+  color: #fff;
 }
 
 .button:active {
@@ -258,21 +278,19 @@
   outline-offset: 3px;
 }
 
-.discord:focus-visible {
-  outline-color: #fff;
-}
-
-.buttonQuiet {
-  cursor: default;
-  background: rgba(242, 240, 234, 0.12);
+/* Why the second door exists, said once, at the foot of the page. */
+.doorWhy {
+  margin: 0.65rem 0 0;
+  font: 600 0.78rem/1.5 var(--sans);
   color: var(--mute);
-  box-shadow: none;
 }
 
-.buttonQuiet:hover {
-  transform: none;
-  box-shadow: none;
-  filter: none;
+/* The bar is tight on a phone, and one door is enough there. The pair still
+ * stands at the end of the page. */
+@media (max-width: 40rem) {
+  .bar .discordGhost {
+    display: none;
+  }
 }
 
 

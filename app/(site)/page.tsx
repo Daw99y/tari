@@ -44,21 +44,15 @@ function Clyde() {
   );
 }
 
-/* The one control on the page, in its three honest states: no door on this
- * deploy, a door you have not walked through, and a door you already have.
- * Somebody signed in is not asked to sign in again — the button drops the
- * blurple, takes Tari's own colour, and just opens the world. */
-async function DiscordButton() {
-  if (!hasAuth()) {
-    return (
-      <span className={`${styles.button} ${styles.buttonQuiet}`} aria-disabled="true">
-        <Clyde />
-        Sign-in opens soon
-      </span>
-    );
-  }
-
-  const session = await auth();
+/* The doors. lib/auth.ts is the argument: signing in grants no feature, so
+ * the main door is a plain link straight into the first room — account or
+ * none. Discord stands beside it in ghost for whoever wants their pins and
+ * their character kept; the app asks again at the exact moment it matters
+ * (the rail's foot, the card). Somebody signed in gets one door: back in.
+ * On a deploy without the Discord pair, the world is still open — the lime
+ * door works alone. */
+async function Doors() {
+  const session = hasAuth() ? await auth() : null;
   if (session?.user) {
     return (
       <a href={FIRST_ROOM} className={`${styles.button} ${styles.enter}`}>
@@ -69,18 +63,26 @@ async function DiscordButton() {
   }
 
   return (
-    <form
-      action={async () => {
-        "use server";
-        // Straight into the shell. No doorstep.
-        await signIn("discord", { redirectTo: FIRST_ROOM });
-      }}
-    >
-      <button type="submit" className={`${styles.button} ${styles.discord}`}>
-        <Clyde />
-        Enter with Discord
-      </button>
-    </form>
+    <div className={styles.doors}>
+      <a href={FIRST_ROOM} className={`${styles.button} ${styles.enter}`}>
+        <FoxMark className={styles.buttonFox} />
+        Walk in
+      </a>
+      {hasAuth() && (
+        <form
+          action={async () => {
+            "use server";
+            // Straight into the shell. No doorstep.
+            await signIn("discord", { redirectTo: FIRST_ROOM });
+          }}
+        >
+          <button type="submit" className={`${styles.button} ${styles.discordGhost}`}>
+            <Clyde />
+            Enter with Discord
+          </button>
+        </form>
+      )}
+    </div>
   );
 }
 
@@ -196,7 +198,7 @@ export default async function Page() {
           <a href="/" className={styles.wordmark} aria-label="Tari, home">
             <FoxMark className={styles.fox} />
           </a>
-          <DiscordButton />
+          <Doors />
         </header>
 
         <div className={styles.title}>
@@ -266,8 +268,8 @@ export default async function Page() {
             No download. <em>Type your name.</em>
           </h2>
           <p className={styles.body}>
-            Blizzard put Classic on the armory. We read it. Your character, your gear, your guild. Classic Era and
-            Hardcore, in about ten seconds. The addon comes later, if you want it.
+            Blizzard put Classic on the armory. We read it. Your character, your gear, your guild, in ten seconds. The
+            addon is there if you want it exact. A desktop app is coming.
           </p>
         </Reveal>
         <Reveal className={styles.wide}>
@@ -284,18 +286,17 @@ export default async function Page() {
           <i className={`ra ra-player ${styles.mark}`} aria-hidden="true" />
           <p className={styles.badge}>Your character</p>
           <h2 id="you-h" className={styles.h2}>
-            Paste one line. <em>That's you.</em>
+            Your gear. <em>Then somewhere to go.</em>
           </h2>
           <p className={styles.body}>
-            Type <code className={styles.code}>/tari</code> in game and paste the line it gives you. Your character
-            steps out, gear and all, with a green arrow on every slot the world can do better. Hover anything for the
-            real tooltip.
+            The game's paperdoll, your body in it in live 3D. Press a slot to try on anything your class can wear. A
+            green arrow means a room has alternatives, and it names the room.
           </p>
         </Reveal>
         <Reveal className={mock.appShot}>
           <Scaled src="/shot/you" width={SHOT_W} height={SHOT_H} />
         </Reveal>
-        <p className={styles.caption}>Live 3D from the 1.12 client. Yours stands at /you. Armory import works too.</p>
+        <p className={styles.caption}>Live 3D from the 1.12 client. Nothing you try on touches what you own.</p>
       </section>
 
       {/* ================= the campfire — what changed while you were away */}
@@ -439,7 +440,8 @@ export default async function Page() {
             whole app. The mark is a T with a fox tail.
           </p>
           <div className={styles.endCta}>
-            <DiscordButton />
+            <Doors />
+            <p className={styles.doorWhy}>Discord keeps your pins and your character.</p>
           </div>
         </Reveal>
         <p className={styles.small}>
