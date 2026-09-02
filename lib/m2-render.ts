@@ -260,7 +260,7 @@ export async function loadTextures(mesh: M2Mesh): Promise<TextureSet> {
 
 /* ---------- tint cache: texture × colour → pattern */
 
-type Tinted = { canvas: HTMLCanvasElement; pattern: CanvasPattern | null; w: number; h: number };
+type Tinted = { canvas: HTMLCanvasElement; pattern: CanvasPattern | null; w: number; h: number; texels: Map<number, string> };
 const tintCache = new Map<string, Tinted>();
 
 function tinted(ctx: CanvasRenderingContext2D, img: HTMLImageElement, key: string, rgb: Vec3, additive = false): Tinted {
@@ -268,10 +268,16 @@ function tinted(ctx: CanvasRenderingContext2D, img: HTMLImageElement, key: strin
   const k = `${key}|${q.join(",")}|${additive ? "a" : ""}`;
   const hit = tintCache.get(k);
   if (hit) return hit;
+  /* All the pixel work happens on this throwaway canvas, declared
+     willReadFrequently so its readbacks are cheap. The canvas the pattern is
+     built from must never be read back at all — a couple of getImageData
+     calls and Chrome takes the canvas off the GPU, and a pattern sourced
+     from a software canvas re-uploads on every fill, which is what made the
+     whole page crawl. */
   const c = document.createElement("canvas");
   c.width = img.naturalWidth || 1;
   c.height = img.naturalHeight || 1;
-  const g = c.getContext("2d")!;
+  const g = c.getContext("2d", { willReadFrequently: true })!;
   g.drawImage(img, 0, 0);
   /* Additive fold, measured BEFORE the tint. The fold has to come from the
      texture as authored: fold after tinting and a pure-white texture tinted
@@ -322,9 +328,43 @@ function tinted(ctx: CanvasRenderingContext2D, img: HTMLImageElement, key: strin
     }
     g.putImageData(px, 0, 0);
   }
-  const t: Tinted = { canvas: c, pattern: ctx.createPattern(c, "repeat"), w: c.width, h: c.height };
+  /* Blit the finished tint onto a clean canvas that has never been read
+     back, so it stays GPU-backed, and build the pattern from that. */
+  const clean = document.createElement("canvas");
+  clean.width = c.width;
+  clean.height = c.height;
+  clean.getContext("2d")!.drawImage(c, 0, 0);
+  const t: Tinted = {
+    canvas: clean,
+    pattern: ctx.createPattern(clean, "repeat"),
+    w: clean.width,
+    h: clean.height,
+    texels: new Map(),
+  };
   tintCache.set(k, t);
   return t;
+}
+
+/** One texel of a tinted texture as a CSS colour, without ever calling
+ *  getImageData on the pattern's canvas (that would push it off the GPU).
+ *  The texel is copied through a 1×1 scratch first and the answer cached. */
+const texelScratch = typeof document !== "undefined" ? document.createElement("canvas") : null;
+function texelAt(tx: Tinted, x: number, y: number): string {
+  const key = y * tx.w + x;
+  const hit = tx.texels.get(key);
+  if (hit !== undefined) return hit;
+  let fill = "rgba(0,0,0,0)";
+  if (texelScratch) {
+    texelScratch.width = 1;
+    texelScratch.height = 1;
+    const sg = texelScratch.getContext("2d", { willReadFrequently: true })!;
+    sg.clearRect(0, 0, 1, 1);
+    sg.drawImage(tx.canvas, -x, -y);
+    const px = sg.getImageData(0, 0, 1, 1).data;
+    fill = `rgba(${px[0]},${px[1]},${px[2]},${px[3] / 255})`;
+  }
+  tx.texels.set(key, fill);
+  return fill;
 }
 
 /* ---------- the frame */
@@ -512,14 +552,11 @@ export function drawFrame(
         } else {
           // Degenerate UVs (every corner on one texel): solid fill with that
           // texel, tinted. Good enough for the 8×8 whites.
-          const gg = tx.canvas.getContext("2d")!;
-          const px = gg.getImageData(
+          g.fillStyle = texelAt(
+            tx,
             Math.max(0, Math.min(tx.w - 1, Math.floor(s0))),
             Math.max(0, Math.min(tx.h - 1, Math.floor(t0))),
-            1,
-            1,
-          ).data;
-          g.fillStyle = `rgba(${px[0]},${px[1]},${px[2]},${px[3] / 255})`;
+          );
           g.beginPath();
           g.moveTo(G[0], G[1]);
           g.lineTo(G[2], G[3]);
