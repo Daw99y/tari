@@ -224,7 +224,7 @@ export default async function Page() {
           <h2 id="idea-h" className={styles.h2}>
             Built to <em>stop</em> you.
           </h2>
-          <p className={styles.body}>The game's own model files, playing live in your browser. Not video.</p>
+          <p className={styles.body}>The game's own model files, playing live in your browser.</p>
         </Reveal>
         <ul className={styles.effects} role="list">
           {STOPPED.map((e, i) => (
