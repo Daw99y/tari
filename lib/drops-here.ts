@@ -74,10 +74,18 @@ export function dropsHere(
   cls: string | null,
   level: number,
   found: (itemId: number) => boolean,
-): number {
+): { open: number; best: number } {
   /* The cap counts what the panel would have shown, not what is open: eight
-     drops with three ticked off is five still waiting, not eight. */
+     drops with three ticked off is five still waiting, not eight.
+
+     `best` is the quality rank of the finest of those still waiting — the
+     rows arrive byRank-ordered, so the first unfound row settles it. */
   let open = 0;
-  for (const [itemId] of panelRows(roomId, cls, level)) if (!found(itemId)) open++;
-  return open;
+  let best = 0;
+  for (const row of panelRows(roomId, cls, level)) {
+    if (found(row[0])) continue;
+    if (open === 0) best = row[4];
+    open++;
+  }
+  return { open, best };
 }

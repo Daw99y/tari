@@ -177,10 +177,10 @@ def main():
                 f.write(f'  "{rid}": {{ min: {b["min"]}, max: {b["max"]} }},\n')
         f.write("};\n")
 
-    # THE RAIL'S INDEX. Four numbers per item — id, the level it becomes
-    # available, a bitmask of the classes it appears for, and the slot it is
-    # worn in — in byRank order,
-    # so the client can run panelFor's filter and cap without carrying quality,
+    # THE RAIL'S INDEX. Five numbers per item — id, the level it becomes
+    # available, a bitmask of the classes it appears for, the slot it is
+    # worn in, and the quality rank — in byRank order,
+    # so the client can run panelFor's filter and cap without carrying
     # item level, names, sources or icons. 2,320 items land in ~30 KB instead of
     # the ~1 MB the loot files are, which is what makes a per-room count
     # affordable on a sidebar that renders on every page.
@@ -216,8 +216,13 @@ def main():
         for sl in slots_in_order:
             f.write(f'  "{sl}",\n')
         f.write("] as const;\n\n")
-        f.write("/** [itemId, availableAtLevel, classMask, slot], best first. */\n")
-        f.write("export type DropRow = [number, number, number, number];\n\n")
+        f.write("/** The quality order the fifth number indexes. */\n")
+        f.write("export const DROP_QUALITIES = [\n")
+        for q in sorted(quality_rank, key=quality_rank.get):
+            f.write(f'  "{q}",\n')
+        f.write("] as const;\n\n")
+        f.write("/** [itemId, availableAtLevel, classMask, slot, quality], best first. */\n")
+        f.write("export type DropRow = [number, number, number, number, number];\n\n")
         f.write("export const ROOM_DROPS: Record<string, DropRow[]> = {\n")
         for rid in sorted(rooms):
             items = sorted(
@@ -230,7 +235,7 @@ def main():
                 for c in i["classes"]:
                     mask |= 1 << classes_in_order.index(c)
                 slot = slots_in_order.index(i["slot"])
-                rows.append(f'[{i["itemId"]},{i["availableAtLevel"]},{mask},{slot}]')
+                rows.append(f'[{i["itemId"]},{i["availableAtLevel"]},{mask},{slot},{quality_rank[i["quality"]]}]')
             f.write(f'  "{rid}": [{",".join(rows)}],\n')
         f.write("};\n")
 

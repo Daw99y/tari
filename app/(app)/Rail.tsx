@@ -36,6 +36,7 @@ import { useEffect, useState } from "react";
 
 import { loadCharacter, type Character } from "@/lib/character";
 import { dropsHere } from "@/lib/drops-here";
+import { DROP_QUALITIES } from "@/lib/room-drops";
 import { setMark, silence, subjectsOn, sync, useMarks } from "@/lib/marks";
 import {
   CONTINENT_LABEL,
@@ -52,6 +53,11 @@ import { useRoomId } from "./room-context";
 import styles from "./shell.module.css";
 
 const GROUPS = roomsByKind();
+
+/** The kinds whose rows carry a drop count — the rooms you pick off a list
+ *  because of what drops in them. A capital you visit because you are
+ *  already going, so the kinds with no honest count stay bare. */
+const COUNTED: ReadonlySet<RoomKind> = new Set(["zone", "dungeon", "raid"]);
 
 /** Which kinds the reader left open. Not the character's business and not
  *  worth a round trip — this is a preference about a screen, so it stays on
@@ -131,13 +137,13 @@ export default function Rail({ signedIn }: { signedIn: boolean }) {
   const isFound = (itemId: number) => found.has(String(itemId));
 
   /* WHAT IS WAITING FOR YOU IN THERE, on the row rather than behind it.
-     Zones only, which is the ask and also the honest limit: a zone is the one
-     kind of room you pick off a list because of what drops in it. A dungeon is
-     picked because it is a dungeon, a capital because you are already going,
-     and a raid because it is Tuesday. Widening it is one line, and the badge
-     hides itself at zero either way — see dropsHere. */
+     The badge hides itself at zero either way — see dropsHere, which also
+     names the finest rarity still waiting so the figure can wear that
+     colour. */
   const countFor = (room: Room) =>
-    me && room.kind === "zone" ? dropsHere(room.id, me.cls, me.level, isFound) : 0;
+    me && COUNTED.has(room.kind)
+      ? dropsHere(room.id, me.cls, me.level, isFound)
+      : { open: 0, best: 0 };
   /* ROOMS is written continent by continent inside kind, and the pinned block
      reads in that same order — so a starred room never moves once it is up
      there, and never sorts itself out from under the pointer. */
@@ -148,6 +154,7 @@ export default function Rail({ signedIn }: { signedIn: boolean }) {
   }
 
   function card(room: Room) {
+    const { open, best } = countFor(room);
     return (
       <Card
         key={room.id}
@@ -156,7 +163,8 @@ export default function Rail({ signedIn }: { signedIn: boolean }) {
         starred={starred.has(room.id)}
         canStar={char !== null}
         onStar={star}
-        drops={countFor(room)}
+        drops={open}
+        quality={DROP_QUALITIES[best]}
       />
     );
   }
@@ -240,6 +248,7 @@ function Card({
   canStar,
   onStar,
   drops,
+  quality,
 }: {
   room: Room;
   current: boolean;
@@ -248,6 +257,8 @@ function Card({
   onStar: (room: Room, on: boolean) => void;
   /** Still waiting in there for this character. Zero draws nothing. */
   drops: number;
+  /** The finest rarity among them — the figure wears its colour. */
+  quality: string;
 }) {
   const router = useRouter();
   const band = bandLabel(room);
@@ -294,7 +305,9 @@ function Card({
                   fill="currentColor"
                 />
               </svg>
-              <span className={styles.roomUpCount}>{drops}</span>
+              <span className={styles.roomUpCount} data-quality={quality}>
+                {drops}
+              </span>
             </span>
           ) : null}
           <span>{room.name}</span>

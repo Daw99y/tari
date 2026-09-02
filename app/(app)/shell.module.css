@@ -716,6 +716,17 @@
   margin-top: 0.05rem;
 }
 
+/* The figure wears the finest waiting drop's quality — the game's own
+ * vocabulary (components/item-tooltip.module.css), with Rare and Epic
+ * lifted a step because the tooltip's hexes drown at nine pixels on dark
+ * art. The arrow stays the summons green; the number says how good.
+ * Common and below inherit the arrow's colour rather than dressing up
+ * in grey. */
+.roomUpCount[data-quality="Uncommon"] { color: #1eff00; }
+.roomUpCount[data-quality="Rare"] { color: #2c8cf0; }
+.roomUpCount[data-quality="Epic"] { color: #b25aff; }
+.roomUpCount[data-quality="Legendary"] { color: #ff8000; }
+
 /* The row lifts its art under the pointer; the mark lifts with it. */
 .room:hover .roomUp,
 .room[data-current] .roomUp {
