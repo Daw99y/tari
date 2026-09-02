@@ -12,14 +12,17 @@
  * The faces still answer a hover with the game's plate, because the corner
  * has always been where the reader idly asks "what is that". */
 
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 import { useDock } from "@/components/Dock";
 import { ItemHover } from "@/components/ItemTooltip";
 import UpArrow from "@/components/UpArrow";
-import { loadCharacter } from "@/lib/character";
+import { loadCharacter, type Character } from "@/lib/character";
 import { iconUrl, topQuality, type ClassId, type Item } from "@/lib/loot";
 import { isOn, useMarks } from "@/lib/marks";
+import { gearFrom } from "@/lib/plan";
+import { rankOf, slotBeats } from "@/lib/upgrade";
+import { useWornDict } from "@/lib/use-worn";
 
 import styles from "./room.module.css";
 
@@ -28,14 +31,28 @@ export default function Drops({ drops, cls, level }: { drops: Item[]; cls: Class
   const marks = useMarks();
   /* Read after mount: the server render has no localStorage, and a corner
      that guessed would flash someone else's ticks. */
-  const [char, setChar] = useState<string | null>(null);
-  useEffect(() => setChar(loadCharacter()?.key ?? null), []);
+  const [me, setMe] = useState<Character | null>(null);
+  useEffect(() => setMe(loadCharacter()), []);
+  const char = me?.key ?? null;
+
+  /* THE JUDGE (lib/upgrade.ts, Kacey 2026-09-02): the arrow is a promise of
+     upgrades, so with a character loaded the count holds only what beats the
+     worn piece — the same gear and the same judge the rail and the path run.
+     A reader with no character keeps the plain class-and-window count. */
+  const gear = useMemo(() => gearFrom(marks, me), [marks, me]);
+  const dict = useWornDict(me ? gear : []);
+  const mine = me
+    ? drops.filter((d) => slotBeats(gear, dict, d.slot, rankOf(d.quality), d.itemLevel, d.itemId))
+    : drops;
 
   const found = (item: Item) => (char ? isOn(marks, char, "found", String(item.itemId)) : false);
-  const open = drops.filter((d) => !found(d));
-  const done = drops.length - open.length;
-  const cleared = drops.length > 0 && done === drops.length;
-  const slots = new Set(drops.map((d) => d.slot)).size;
+  const open = mine.filter((d) => !found(d));
+  const done = mine.length - open.length;
+  const cleared = mine.length > 0 && done === mine.length;
+  /* The room has drops, the judge let none through: a true state of its own,
+     said plainly rather than drawn as a zero. */
+  const beaten = me !== null && dict !== null && mine.length === 0 && drops.length > 0;
+  const slots = new Set(mine.map((d) => d.slot)).size;
   /* The tally wears the best colour still on the table: the reader learns
      "how many" and "how good" in one look, without opening anything. */
   const best = topQuality(open);
@@ -48,8 +65,10 @@ export default function Drops({ drops, cls, level }: { drops: Item[]; cls: Class
           className={styles.up}
           aria-label={
             open.length > 0
-              ? `Your kit — ${open.length} of ${drops.length} drops still to find here`
-              : `Your kit — all ${drops.length} drops crossed off here`
+              ? `Your kit — ${open.length} of ${mine.length} upgrades still to find here`
+              : beaten
+                ? "Your kit — nothing here beats what you are wearing"
+                : `Your kit — all ${mine.length} drops crossed off here`
           }
           onClick={() => dock?.openKit()}
         >
@@ -69,7 +88,11 @@ export default function Drops({ drops, cls, level }: { drops: Item[]; cls: Class
           {cleared ? (
             <p className={styles.clearedLine}>
               <span className={styles.clearedStamp} aria-hidden="true">✓</span>
-              All {drops.length} crossed off — for now. It moves when you do.
+              All {mine.length} crossed off — for now. It moves when you do.
+            </p>
+          ) : beaten ? (
+            <p className={styles.clearedLine}>
+              Nothing here beats your kit — {drops.length} {drops.length === 1 ? "drop" : "drops"} still live inside.
             </p>
           ) : (
             <>
@@ -81,13 +104,13 @@ export default function Drops({ drops, cls, level }: { drops: Item[]; cls: Class
               </p>
               <p className={styles.upSub}>
                 {slots === 1 ? "one slot answered" : `${slots} slots answered`}
-                {done > 0 ? ` · ${done} of ${drops.length} crossed off` : ""}
+                {done > 0 ? ` · ${done} of ${mine.length} crossed off` : ""}
               </p>
             </>
           )}
 
           <span className={styles.upFaces}>
-            {drops.map((item) => {
+            {mine.map((item) => {
               const icon = iconUrl(item);
               return (
                 <ItemHover

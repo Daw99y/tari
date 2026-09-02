@@ -12,6 +12,12 @@
  * on it rather than the gate, and the letter is the one reader that still
  * filters on that field.
  *
+ * IT ONLY NAMES WHAT BEATS YOU. Kacey, 2026-09-02: the window is "here for
+ * you", not "better than yours", and the arrows were counting greens over
+ * epics and the worn item itself. Every answer now passes lib/upgrade.ts
+ * against the piece in the slot; a slot with nothing that beats it has no
+ * arrow, however full the window is.
+ *
  * IT NAMES PLACES, IT DOES NOT RANK THEM. §2.1 refuses a ranked catalogue
  * across zones and DROPS.md refuses a wishlist page, so nothing here sorts
  * rooms by how much they hold or says which to walk into first. A behind slot
@@ -27,6 +33,7 @@
 
 import { GEAR_SLOTS, SHEET_SLOTS } from "./character";
 import { panelRows } from "./drops-here";
+import { beats } from "./upgrade";
 import { DROP_SLOTS } from "./room-drops";
 import { getRoom, roomsByKind } from "./rooms";
 import { WINDOW_BELOW } from "./window";
@@ -154,7 +161,9 @@ export function readPath(
   if (slots.length === 0) return slots;
 
   /* One pass over the world: what each room still has open, as slot bits, and
-     the rows themselves so the arrow can show them. */
+     the rows themselves so the arrow can show them. A row only answers a slot
+     it beats — the judge runs here, once, so the arrow, its count and the
+     rooms panel cannot disagree about what an upgrade is. */
   const want = slots.reduce((bits, s) => bits | (FILLS[s.at] ?? 0), 0);
   for (const room of RAIL_ORDER) {
     const rows = panelRows(room, cls, level).filter((row) => !found(row[0]));
@@ -164,8 +173,12 @@ export function readPath(
     for (const s of slots) {
       const fills = FILLS[s.at] ?? 0;
       if (!(open & fills)) continue;
+      const id = gear[s.at] ?? 0;
+      const worn = id ? dict[String(id)] : null;
+      const mine = rows.filter((row) => fills & (1 << row[3]) && beats(row[4], row[5], row[0], worn, id));
+      if (mine.length === 0) continue;
       s.rooms.push(room);
-      for (const row of rows) if (fills & (1 << row[3])) s.answers.push({ itemId: row[0], room, at: row[1] });
+      for (const row of mine) s.answers.push({ itemId: row[0], room, at: row[1] });
     }
   }
 

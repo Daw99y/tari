@@ -290,7 +290,7 @@ export default async function Page() {
           </h2>
           <p className={styles.body}>
             The game's paperdoll, your body in it in live 3D. Press a slot to try on anything your class can wear. A
-            green arrow means a room has alternatives, and it names the room.
+            green arrow means a room is holding something better than what you own — and it names the room.
           </p>
         </Reveal>
         <Reveal className={mock.appShot}>

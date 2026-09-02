@@ -324,3 +324,38 @@
     gap: 0.6rem;
   }
 }
+
+/* THE QUIET LIST. The room's drops the judge let nobody call upgrades —
+   present because the room is a fact, dimmed because the headline no longer
+   counts them. Hover wakes a row enough to read and tick. */
+.alsoHead {
+  display: grid;
+  gap: 0.3rem;
+  padding: clamp(1.1rem, 2.2vh, 1.5rem) 0 0.4rem;
+  border-top: 0.5px solid var(--rule);
+}
+
+.alsoTitle {
+  margin: 0;
+  font: 500 0.55rem/1 var(--mono);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(242, 240, 234, 0.5);
+}
+
+.alsoSub {
+  margin: 0;
+  font-size: 0.8rem;
+  line-height: 1.35;
+  color: var(--mute);
+}
+
+.row[data-quiet] {
+  opacity: 0.5;
+  transition: opacity 140ms ease;
+}
+
+.row[data-quiet]:hover,
+.row[data-quiet]:focus-within {
+  opacity: 0.92;
+}

@@ -74,16 +74,22 @@ export function dropsHere(
   cls: string | null,
   level: number,
   found: (itemId: number) => boolean,
+  judge?: (row: DropRow) => boolean,
 ): { open: number; best: number } {
   /* The cap counts what the panel would have shown, not what is open: eight
      drops with three ticked off is five still waiting, not eight.
 
      `best` is the quality rank of the finest of those still waiting — the
      rows arrive byRank-ordered, so the first unfound row settles it. */
+  /* `judge` is the upgrade judge (lib/upgrade.ts) when the caller has a
+     dressed character: a row that does not beat the worn piece is not
+     waiting for you, however open it is. Absent for a reader with no
+     character, whose count stays the plain class-and-window one. */
   let open = 0;
   let best = 0;
   for (const row of panelRows(roomId, cls, level)) {
     if (found(row[0])) continue;
+    if (judge && !judge(row)) continue;
     if (open === 0) best = row[4];
     open++;
   }

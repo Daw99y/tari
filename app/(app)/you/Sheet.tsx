@@ -563,13 +563,12 @@ function Slot({
 
       {rooms && behind ? (
         <div className={styles.panel} onPointerDown={stop}>
-          {/* Three headings for three true things. Empty: the rooms fill it.
-              Behind: what is in it is older than your level, so the rooms
-              are better. Neither: the rooms have something for this slot and
-              the sheet does not know whose is stronger — "Also in" says that
-              without pretending to a comparison it has not made. */}
+          {/* Two headings for two true things. Empty: the rooms fill it.
+              Worn: everything listed passed the judge (lib/upgrade.ts)
+              against the piece in the slot, so "Better in" is now a
+              comparison the sheet has actually made. */}
           <p className={styles.roomsHead}>
-            {behind.empty ? "Fills in" : behind.behind ? "Better in" : "Also in"}
+            {behind.empty ? "Fills in" : "Better in"}
           </p>
           <ul ref={list} className={styles.list} data-more={more ? "" : undefined}>
             {offers.map((g) => (

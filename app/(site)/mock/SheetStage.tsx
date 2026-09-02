@@ -28,7 +28,15 @@ import styles from "../../(app)/you/sheet.module.css";
  * SHEET_LEFT / SHEET_RIGHT / SHEET_BOTTOM). The entries are the outfit the
  * figure wears (components/SeducedFigure.tsx) plus the slots the client
  * wears but does not draw. The number beside a slot is the summons: how many
- * upgrades the rooms in her window are holding for it. */
+ * upgrades the rooms in her window are holding for it.
+ *
+ * THE NUMBERS ARE THE JUDGE'S, NOT INVENTED (Kacey, 2026-09-02): the front
+ * page was showing twelve arrows on a Zealot Blade — a best-in-slot rare at
+ * her level — which read as a broken backend, because it was one. These
+ * counts are lib/upgrade.ts run over her actual window: her rares beat the
+ * window's greens, so only the slots she has honestly outgrown (a worn green
+ * ring, old bracers, a training bow) carry a summons. Rerun the numbers if
+ * her outfit or the pipeline changes. */
 
 type SheetSlot = [label: string, entry: number | null, behind?: number];
 
@@ -36,19 +44,19 @@ const SHEET_L: SheetSlot[] = [
   ["Head", 3020],
   ["Neck", 19541],
   ["Shoulder", 2264],
-  ["Back", 13108, 3],
-  ["Chest", 4119, 5],
+  ["Back", 13108],
+  ["Chest", 4119],
   ["Shirt", 4336],
   ["Tabard", 19506],
-  ["Wrist", 9455, 1],
+  ["Wrist", 4794, 5],
 ];
 const SHEET_R: SheetSlot[] = [
-  ["Hands", 6727, 7],
-  ["Waist", 20117, 2],
-  ["Legs", 9624, 11],
-  ["Feet", 20114, 2],
-  ["Finger", 13097, 2],
-  ["Finger", 9447],
+  ["Hands", 6727],
+  ["Waist", 20117],
+  ["Legs", 9624],
+  ["Feet", 20114],
+  ["Finger", 13097],
+  ["Finger", 5351, 2],
   ["Trinket", 21119],
   ["Trinket", 4381],
 ];
@@ -57,9 +65,9 @@ const SHEET_R: SheetSlot[] = [
 const QUALITY_RANK: Record<Quality, number> = { Poor: 0, Common: 1, Uncommon: 2, Rare: 3, Epic: 4, Legendary: 5 };
 
 const SHEET_W: SheetSlot[] = [
-  ["Main hand", 13033, 12],
+  ["Main hand", 13033],
   ["Off hand", 776],
-  ["Ranged", 6696, 6],
+  ["Ranged", 3039, 1],
 ];
 
 /* A handful of dictionary rows carry no icon name — the wardrobe catalogue

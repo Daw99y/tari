@@ -373,6 +373,29 @@ Each step is usable before the next one exists.
 7. **DESIGN.md.** Record the stage as settled, and close the "map and objects"
    open question.
 
+## The judge — 2026-09-02
+
+Kacey's ruling, found while proofing a deploy: the green arrow is a promise
+of *better*, and every counting surface was drawing it on anything in the
+level window — greens over epics, and the armory-imported item itself. The
+window means "here for you"; it never meant "better than yours".
+
+`lib/upgrade.ts` is now the one opinion the app holds about two items: an
+item's price is its item level plus 13 per quality step, a candidate must
+price strictly higher than the worn piece, ties lose, and the item you are
+wearing is refused by id. The rail's index carries the item level as a sixth
+number so the judge can run everywhere the window runs. Coarse on purpose —
+stat weights per build is a theorycraft site; the kit still prints the
+honest deltas beside anything the judge lets through.
+
+Who runs it: the path (`readPath` — the sheet's arrows and their panels),
+the rail's badge and the corner's summons (only when a character is loaded;
+a stranger keeps the plain window count), and the kit, which now leads with
+what beats you and sinks the rest into a quiet, uncounted "also drops here"
+list — the room stays a fact, the headline only promises upgrades. The
+landing mock's numbers are the judge's own output, rerun by hand when her
+outfit changes.
+
 ## What this refuses
 
 - No lens rail. No four windows onto one catalogue.

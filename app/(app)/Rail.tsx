@@ -32,12 +32,15 @@
 
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 import { loadCharacter, type Character } from "@/lib/character";
 import { dropsHere } from "@/lib/drops-here";
 import { DROP_QUALITIES } from "@/lib/room-drops";
 import { setMark, silence, subjectsOn, sync, useMarks } from "@/lib/marks";
+import { gearFrom } from "@/lib/plan";
+import { judgeFor } from "@/lib/upgrade";
+import { useWornDict } from "@/lib/use-worn";
 import {
   CONTINENT_LABEL,
   KIND_LABEL,
@@ -136,13 +139,22 @@ export default function Rail({ signedIn }: { signedIn: boolean }) {
   const found = char ? new Set(subjectsOn(marks, char, "found")) : new Set<string>();
   const isFound = (itemId: number) => found.has(String(itemId));
 
+  /* THE JUDGE (lib/upgrade.ts): a badge is a promise of upgrades, so a row
+     only counts if it beats what the character wears — the plan's dressing
+     included, the same gear the sheet reads. Until the worn rows land the
+     judge refuses everything and the badges arrive a beat late rather than
+     counting high and correcting themselves. */
+  const gear = useMemo(() => gearFrom(marks, me), [marks, me]);
+  const dict = useWornDict(me ? gear : []);
+  const judge = me ? judgeFor(gear, dict) : undefined;
+
   /* WHAT IS WAITING FOR YOU IN THERE, on the row rather than behind it.
      The badge hides itself at zero either way — see dropsHere, which also
      names the finest rarity still waiting so the figure can wear that
      colour. */
   const countFor = (room: Room) =>
     me && COUNTED.has(room.kind)
-      ? dropsHere(room.id, me.cls, me.level, isFound)
+      ? dropsHere(room.id, me.cls, me.level, isFound, judge)
       : { open: 0, best: 0 };
   /* ROOMS is written continent by continent inside kind, and the pinned block
      reads in that same order — so a starred room never moves once it is up

@@ -13,6 +13,11 @@
  * answer here simply is not a row. The kit can never become the shopping
  * list §2.1 refuses, because it is bolted to the place.
  *
+ * THE JUDGE SPLITS THE ROOM (lib/upgrade.ts, Kacey 2026-09-02): the headline
+ * only promises what beats the worn piece. Everything else the room drops
+ * sinks to a quiet list below — still a fact, still tickable, never counted
+ * and never wearing the arrow's green.
+ *
  * Hover is the plate, press is the stage, the picture is the found tick,
  * the star hunts — the same four gestures as everywhere else. */
 
@@ -27,6 +32,8 @@ import { bestSource } from "@/lib/hunt";
 import { iconUrl, sourceLine, type ClassId, type Item } from "@/lib/loot";
 import { isOn, setMark, useMarks } from "@/lib/marks";
 import { gearFrom, planKey } from "@/lib/plan";
+import { rankOf, slotBeats } from "@/lib/upgrade";
+import { useWornDict } from "@/lib/use-worn";
 import { deltaParts, gearIndices, type WornItem } from "@/lib/worn";
 
 import styles from "./kit.module.css";
@@ -55,9 +62,6 @@ export default function Kit({
   const marks = useMarks();
   const [me, setMe] = useState<Character | null>(null);
   const char = me?.key ?? null;
-  /* The dictionary rows for what the character wears, one fetch for the
-     whole kit. Absent until it lands; the rows read fine without it. */
-  const [dict, setDict] = useState<Record<string, WornItem> | null>(null);
   useEffect(() => setMe(loadCharacter()), []);
 
   /* What the character is wearing, the dressing room's plan included
@@ -67,51 +71,89 @@ export default function Kit({
   const key = planKey(marks, char);
   const gear = useMemo(() => gearFrom(marks, me), [me, key]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  useEffect(() => {
-    const ids = [
-      ...new Set(
-        drops
-          .flatMap((d) => gearIndices(d.slot))
-          .map((i) => gear[i])
-          .filter((id): id is number => typeof id === "number" && id > 0)
-      ),
-    ];
-    if (ids.length === 0) return;
-    let gone = false;
-    fetch(`/api/items?ids=${ids.join(",")}`)
-      .then((r) => (r.ok ? r.json() : null))
-      .then((d: Record<string, WornItem> | null) => {
-        if (!gone && d) setDict(d);
-      })
-      .catch(() => {});
-    return () => {
-      gone = true;
-    };
-  }, [drops, gear]);
+  /* The dictionary rows for what the character wears in the slots this room
+     answers — one shared fetch (lib/use-worn.ts). Null until it lands; the
+     judge refuses to judge without it. */
+  const wornIds = useMemo(
+    () =>
+      drops
+        .flatMap((d) => gearIndices(d.slot))
+        .map((i) => gear[i])
+        .filter((id): id is number => typeof id === "number" && id > 0),
+    [drops, gear]
+  );
+  const dict = useWornDict(wornIds);
 
   const found = (item: Item) => (char ? isOn(marks, char, "found", String(item.itemId)) : false);
   const wished = (item: Item) => (char ? isOn(marks, char, "wish", String(item.itemId)) : false);
 
   /* One row per slot the room answers, in the sheet's order. The worn piece
-     is the weaker of a pair — the honest bar. */
+     is the weaker of a pair — the honest bar. The judge splits each slot:
+     what beats the worn piece stands in the rows the headline counts, the
+     rest sinks to the quiet list. Until there is a character and the worn
+     rows have landed, nothing is judged and the room reads as it always
+     did — a fact about the place. */
+  const ready = char !== null && dict !== null;
+  const sink = (items: Item[]) =>
+    [...items].sort((a, b) => Number(found(a)) - Number(found(b)) || Number(wished(b)) - Number(wished(a)));
   const rows: SlotRow[] = [];
+  const quiet: SlotRow[] = [];
   for (const slot of SLOT_ORDER) {
-    const items = drops.filter((d) => d.slot === slot);
-    if (items.length === 0) continue;
+    const all = drops.filter((d) => d.slot === slot);
+    if (all.length === 0) continue;
     const ids = gearIndices(slot)
       .map((i) => gear[i])
       .filter((id): id is number => typeof id === "number" && id > 0);
     const wornRows = dict ? ids.map((id) => dict[id]).filter(Boolean) : [];
     wornRows.sort((a, b) => (a.il ?? 0) - (b.il ?? 0));
-    rows.push({
+    const ups = ready
+      ? all.filter((d) => slotBeats(gear, dict, d.slot, rankOf(d.quality), d.itemLevel, d.itemId))
+      : all;
+    const rest = ready ? all.filter((d) => !ups.includes(d)) : [];
+    const base = {
       slot,
-      items: [...items].sort((a, b) => Number(found(a)) - Number(found(b)) || Number(wished(b)) - Number(wished(a))),
       worn: wornRows[0] ?? null,
       bare: char !== null && gear.length > 0 && ids.length === 0,
-    });
+    };
+    if (ups.length > 0) rows.push({ ...base, items: sink(ups) });
+    if (rest.length > 0) quiet.push({ ...base, items: sink(rest) });
   }
 
   const done = drops.filter(found).length;
+
+  const slotRow = (r: SlotRow, dim: boolean) => (
+    <li key={(dim ? "also-" : "") + r.slot} className={styles.row} data-quiet={dim || undefined}>
+      <div className={styles.slot}>
+        <SlotGlyph slot={r.slot} className={styles.slotGlyph} />
+        <span className={styles.slotName}>{r.slot}</span>
+      </div>
+
+      <div className={styles.wearing}>
+        <span className={styles.wearK}>wearing</span>
+        {r.worn ? (
+          <span className={styles.wearV} data-quality={r.worn.q}>
+            {r.worn.n}
+          </span>
+        ) : (
+          <span className={styles.wearNone}>{r.bare ? "nothing yet" : "—"}</span>
+        )}
+      </div>
+
+      <ol className={styles.offers}>
+        {r.items.map((item) => (
+          <Offer
+            key={item.itemId}
+            item={item}
+            worn={r.worn}
+            level={level}
+            char={char}
+            found={found(item)}
+            wished={wished(item)}
+          />
+        ))}
+      </ol>
+    </li>
+  );
 
   return (
     <div className={styles.kit}>
@@ -119,7 +161,9 @@ export default function Kit({
         <div className={styles.said}>
           <p className={styles.eyebrow}>Your kit · in this room</p>
           <h2 className={styles.title}>
-            {room} answers {rows.length === 1 ? "one slot" : `${rows.length} of your slots`}
+            {rows.length === 0
+              ? `Nothing in ${room} beats your kit`
+              : `${room} answers ${rows.length === 1 ? "one slot" : `${rows.length} of your slots`}`}
           </h2>
           <p className={styles.sub}>
             {cls ? `For a ${cls} at ${level}` : `At ${level}`}
@@ -133,39 +177,14 @@ export default function Kit({
       </header>
 
       <ol className={styles.rows}>
-        {rows.map((r) => (
-          <li key={r.slot} className={styles.row}>
-            <div className={styles.slot}>
-              <SlotGlyph slot={r.slot} className={styles.slotGlyph} />
-              <span className={styles.slotName}>{r.slot}</span>
-            </div>
-
-            <div className={styles.wearing}>
-              <span className={styles.wearK}>wearing</span>
-              {r.worn ? (
-                <span className={styles.wearV} data-quality={r.worn.q}>
-                  {r.worn.n}
-                </span>
-              ) : (
-                <span className={styles.wearNone}>{r.bare ? "nothing yet" : "—"}</span>
-              )}
-            </div>
-
-            <ol className={styles.offers}>
-              {r.items.map((item) => (
-                <Offer
-                  key={item.itemId}
-                  item={item}
-                  worn={r.worn}
-                  level={level}
-                  char={char}
-                  found={found(item)}
-                  wished={wished(item)}
-                />
-              ))}
-            </ol>
+        {rows.map((r) => slotRow(r, false))}
+        {quiet.length > 0 ? (
+          <li key="also" className={styles.alsoHead}>
+            <p className={styles.alsoTitle}>Also drops here</p>
+            <p className={styles.alsoSub}>None of it beats what you&rsquo;re wearing — ticks and stars still work.</p>
           </li>
-        ))}
+        ) : null}
+        {quiet.map((r) => slotRow(r, true))}
       </ol>
     </div>
   );
