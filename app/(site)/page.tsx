@@ -437,7 +437,7 @@ export default async function Page() {
           </h2>
           <p className={styles.body}>
             Taretha taught a captive orc to read, in secret. Notice things, remember them, help unasked. That's the
-            whole app. The mark is a T with a fox tail.
+            whole app.
           </p>
           <div className={styles.endCta}>
             <Doors />
