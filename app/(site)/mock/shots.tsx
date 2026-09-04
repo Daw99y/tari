@@ -5,6 +5,7 @@
 
 import RoomStage from "./RoomStage";
 import SheetStage from "./SheetStage";
+import StoryStage from "./StoryStage";
 import Window from "./Window";
 
 /* A 1760×980 desktop window. Not arbitrary: the sheet puts the paperdoll
@@ -71,17 +72,17 @@ export function Shot({ id }: { id: ShotId }) {
             doorCounts: { "elwynn-forest": 3 },
           }}
         >
-          <RoomStage
+          <StoryStage
             id="duskwood"
             was="Brightwood"
-            pin={{
-              who: "Tari",
-              cls: "tari",
-              meta: "Today",
-              body: "The fog never lifts and it never gets brighter. Somebody chose that.",
+            card={{
+              icon: "stitches",
+              subject: "Stitches",
+              tag: "Level 35 Elite · walks the road",
+              yell: "DARKSHIRE... I HUNGER.",
+              lines: ["Two Night Watch stands are in his way.", "Without help, he kills both."],
             }}
-            pager={[1, 2]}
-            tally={2}
+            pager={[9, 15]}
             drops={6}
           />
         </Window>
