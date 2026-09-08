@@ -276,7 +276,28 @@ export const WHO_EVENT = "tari:who";
 function markActive(c: Character | null): void {
   if (c) {
     localStorage.setItem(ACTIVE, c.key);
-    document.cookie = `${WHO_COOKIE}=${c.cls}:${c.level}; path=/; max-age=31536000; samesite=lax`;
+    /* A THIRD FIELD, AND WHY IT IS HERE (2026-09-09, docs/DIRECTION.md §4.1).
+       The front door's first column has to open on a zone before a line of
+       client JavaScript has run, or the reader watches it pick one and change
+       its mind. The zone the addon last saw is the only honest default there
+       is — the combat log does not flush until logout and the armory answers
+       as of last logout, so nothing anywhere knows where a reader is standing
+       — and it lives on the character, in localStorage, where a server
+       component cannot reach it.
+
+       So it rides on the cookie that already exists for exactly this job.
+       The side rides along for the same reason: the front door's quest rows
+       are faction-gated in the pipeline, and a Horde reader shown Alliance
+       errands is being handed a list they cannot act on.
+
+       Additive: `readWho` reads the first two fields and ignores whatever
+       follows, so a browser holding the old two-field cookie keeps working
+       and is simply back to no default until its next character switch. */
+    /* The colon is the separator, and encodeURIComponent leaves colons alone.
+       No zone in the game has one in its name, and one line here is cheaper
+       than finding out otherwise. */
+    const seen = c.zone ? encodeURIComponent(c.zone).replace(/:/g, "%3A") : "";
+    document.cookie = `${WHO_COOKIE}=${c.cls}:${c.level}:${seen}:${c.faction}; path=/; max-age=31536000; samesite=lax`;
   } else {
     localStorage.removeItem(ACTIVE);
     document.cookie = `${WHO_COOKIE}=; path=/; max-age=0; samesite=lax`;
@@ -355,6 +376,33 @@ export function readWho(cookie: string | undefined): { cls: string; level: numbe
   const [cls, lv] = cookie.split(":");
   const level = Number(lv);
   return cls && Number.isInteger(level) ? { cls, level } : null;
+}
+
+/**
+ * THE ZONE THE CLIENT LAST SAW, off the same cookie. `null` on a browser whose
+ * cookie predates the third field, and on a character that was made here
+ * rather than imported.
+ *
+ * IT IS A LAST-SEEN AND IT IS NEVER A WHEREABOUTS. docs/DIRECTION.md §4.1 and
+ * rule 9: the client hands over a zone on logout and never while a reader is
+ * playing, so every surface that draws this must say when it was true. There
+ * is no reading of this value that supports the words "now" or "in".
+ */
+export function readSide(cookie: string | undefined): "alliance" | "horde" | null {
+  const side = cookie?.split(":")[3];
+  return side === "alliance" || side === "horde" ? side : null;
+}
+
+export function readWhere(cookie: string | undefined): string | null {
+  if (!cookie) return null;
+  const zone = cookie.split(":")[2];
+  if (!zone) return null;
+  try {
+    return decodeURIComponent(zone) || null;
+  } catch {
+    /* A cookie somebody hand-edited. Not a crash. */
+    return null;
+  }
 }
 
 /** The ceiling in 1.12. Nothing in Tari goes past it. */

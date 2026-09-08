@@ -209,6 +209,20 @@ export const ALL_ROOMS: Room[] = [...ROOMS, CLASSICPLUS];
  */
 export const FIRST_ROOM = "/r/duskwood";
 
+/**
+ * THE FRONT DOOR — the three-column dashboard. docs/DIRECTION.md §3, §5.
+ *
+ * A room is one place; this is the screen that answers all three of rule 1's
+ * questions at once — where you are, who you are, what is happening — and
+ * §5's build order makes it the product rather than the room.
+ *
+ * IT SITS BESIDE FIRST_ROOM AND DOES NOT REPLACE IT. The landing page still
+ * sends a reader to a place with weather in it, because a first look at Tari
+ * should be Duskwood and not a control panel. Kacey swaps that line when the
+ * dashboard is the better first impression; nothing here decides it for him.
+ */
+export const FRONT_DOOR = "/home";
+
 const BY_ID = new Map(ALL_ROOMS.map((room) => [room.id, room]));
 
 export function getRoom(id: string): Room | undefined {

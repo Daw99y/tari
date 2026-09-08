@@ -19,7 +19,7 @@ import FoxMark from "@/components/FoxMark";
 import HeroCurtain from "./HeroCurtain";
 import M2Sprite from "@/components/M2Sprite";
 import { auth, hasAuth, signIn } from "@/lib/auth";
-import { FIRST_ROOM, roomThumb } from "@/lib/rooms";
+import { FRONT_DOOR, roomThumb } from "@/lib/rooms";
 import { SUCCUBUS_ASSETS } from "@/lib/succubus";
 
 import Reveal from "./Reveal";
@@ -55,7 +55,7 @@ async function Doors() {
   const session = hasAuth() ? await auth() : null;
   if (session?.user) {
     return (
-      <a href={FIRST_ROOM} className={`${styles.button} ${styles.enter}`}>
+      <a href={FRONT_DOOR} className={`${styles.button} ${styles.enter}`}>
         <FoxMark className={styles.buttonFox} />
         Walk back in
       </a>
@@ -64,7 +64,7 @@ async function Doors() {
 
   return (
     <div className={styles.doors}>
-      <a href={FIRST_ROOM} className={`${styles.button} ${styles.enter}`}>
+      <a href={FRONT_DOOR} className={`${styles.button} ${styles.enter}`}>
         <FoxMark className={styles.buttonFox} />
         Walk in
       </a>
@@ -73,7 +73,7 @@ async function Doors() {
           action={async () => {
             "use server";
             // Straight into the shell. No doorstep.
-            await signIn("discord", { redirectTo: FIRST_ROOM });
+            await signIn("discord", { redirectTo: FRONT_DOOR });
           }}
         >
           <button type="submit" className={`${styles.button} ${styles.discordGhost}`}>
