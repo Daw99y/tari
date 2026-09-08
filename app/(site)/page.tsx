@@ -97,22 +97,22 @@ const STOPPED = [
 
 /* ---- the promises
  *
- * EVERY LINE HERE IS TRUE OF THE BUILD, TODAY. That is the only rule, and it
- * is worth stating because this list failed it once: it claimed the addon
- * suppressed notifications during combat and inside instances. The addon
- * registers eight events (addon/Tari/Tari.lua) and none of them is combat or
- * instance state, and it has no network — it writes a string you paste. It
- * could not have kept that promise in either half.
+ * EVERY LINE HERE IS TRUE OF THE BUILD, TODAY, and the second column names the
+ * part of the repo that makes it true. That is the only rule. It has failed
+ * once already: the list claimed the addon suppressed notifications during
+ * combat and inside instances, and the addon registers eight events, none of
+ * which is combat or instance state.
  *
- * A promise about a feature that does not exist is not a promise, it is a
- * roadmap with a halo on it. Rested went the same way: docs/WELCOME.md §4 is
- * a proposal, nothing in lib/ implements it, so "time away pays" came off and
- * the true half of it — nothing is counting — stayed.
- *
- * Second column is the mechanism, and it has to be checkable in the repo. */
-/* Emptied 2026-09-09: the six refusals are struck (docs/DIRECTION.md §0).
- * Replacement copy is Kacey's to write. */
-const REFUSALS: [string, string, string][] = [];
+ * Rewritten 2026-09-09. The six refusals are struck (docs/DIRECTION.md §0) and
+ * these are capabilities rather than abstentions. Same rule applies. */
+const PROMISES: [string, string, string][] = [
+  ["ra-player", "Walk in without an account", "The door is a link into the first room. Signing in keeps your pins and your character, and grants nothing else."],
+  ["ra-knight-helmet", "Your character in ten seconds", "Realm and name into the armory. Level, gear, guild and class come back. Nothing to download."],
+  ["ra-speech-bubbles", "Every zone is one room", "A live channel per zone carries presence, chat and cursors. Cross-realm and cross-region by construction."],
+  ["ra-compass", "Filtered before you ask", "Every zone already knows what drops there for your class at your level. Four hundred and forty-two files, one per zone per class."],
+  ["ra-shield", "Upgrades judged against what you wear", "A green never outranks your blue. The worn piece is the bar, and ties lose."],
+  ["ra-sprout", "Nothing opens empty", "Seventy-nine rooms, seventy-nine seeds, planted before anybody arrived."],
+];
 
 /* ---- the rulesets Tari already reads
  *
@@ -173,42 +173,24 @@ export default async function Page() {
         </header>
 
         <div className={styles.title}>
+          {/* Badge and lede carry the launch window and expire with it.
+              The h1 does not — leave it alone. */}
           <p className={styles.badge} data-tone="lime">
-            Early access · live now
+            Classic+ · open a week early
           </p>
           <h1 id="hero-h" className={styles.h1}>
             One Azeroth.
             <br />
             <em>Everyone in it.</em>
           </h1>
-          <p className={styles.lede}>Every zone is a live room. Every realm, both factions, one world. Walk in.</p>
+          <p className={styles.lede}>
+            Every zone is a live room, cross-realm and cross-region. When the new world opens nobody will know
+            where anything is, and this is where everyone puts what they find. Walk in now and be standing there
+            when it does.
+          </p>
         </div>
 
-        <p className={styles.credit}>Barrens chat has not stopped once since 2004.</p>
-      </section>
-
-      {/* ================= the idea */}
-      <section className={styles.section} data-tone="pink" aria-labelledby="idea-h">
-        <Reveal className={styles.copy}>
-          <i className={`ra ra-bear-trap ${styles.mark}`} aria-hidden="true" />
-          <p className={styles.badge}>The point</p>
-          <h2 id="idea-h" className={styles.h2}>
-            Built to <em>stop</em> you.
-          </h2>
-          <p className={styles.body}>The game's own model files, playing live in your browser.</p>
-        </Reveal>
-        <ul className={styles.effects} role="list">
-          {STOPPED.map((e, i) => (
-            <li key={e.kind}>
-              <Reveal delay={i * 90} className={styles.effectCard}>
-                <div className={styles.specimen}>
-                  <M2Sprite src={e.m2} background="#0a0912" zoom={e.zoom} className={styles.specimenArt} />
-                </div>
-                <Debuff large kind={e.kind} name={e.name} note={e.note} />
-              </Reveal>
-            </li>
-          ))}
-        </ul>
+        <p className={styles.credit}>That&rsquo;s Durnholde over the hill. Tari never left it either.</p>
       </section>
 
       {/* ================= presence: the app's own window on Undercity */}
@@ -270,6 +252,49 @@ export default async function Page() {
         <p className={styles.caption}>Live 3D from the 1.12 client. Nothing you try on touches what you own.</p>
       </section>
 
+      {/* ================= the deck: what the room tells, and what people leave */}
+      <section className={styles.section} data-tone="purple" aria-labelledby="guide-h">
+        <Reveal className={styles.copy}>
+          <i className={`ra ra-book ${styles.mark}`} aria-hidden="true" />
+          <p className={styles.badge}>The deck</p>
+          <h2 id="guide-h" className={styles.h2}>
+            Lore you can <em>pick up.</em>
+          </h2>
+          <p className={styles.body}>
+            Every room deals its story as things: chips, graves, pages, yells. Players pin one sentence where they
+            stood. Leave one of your own.
+          </p>
+        </Reveal>
+        <Reveal className={mock.appShot}>
+          <Scaled src="/shot/duskwood" width={SHOT_W} height={SHOT_H} />
+        </Reveal>
+        <p className={styles.caption}>Spoilers stay buried until you dig. What people left sits under what the room tells.</p>
+      </section>
+
+      {/* ================= the pace, and what Soak looks like */}
+      <section className={styles.section} data-tone="blue" aria-labelledby="idea-h">
+        <Reveal className={styles.copy}>
+          <i className={`ra ra-bear-trap ${styles.mark}`} aria-hidden="true" />
+          <p className={styles.badge}>Pace</p>
+          <h2 id="idea-h" className={styles.h2}>
+            Built to <em>stop</em> you.
+          </h2>
+          <p className={styles.body}>The game's own model files, playing live in your browser.</p>
+        </Reveal>
+        <ul className={styles.effects} role="list">
+          {STOPPED.map((e, i) => (
+            <li key={e.kind}>
+              <Reveal delay={i * 90} className={styles.effectCard}>
+                <div className={styles.specimen}>
+                  <M2Sprite src={e.m2} background="#0a0912" zoom={e.zoom} className={styles.specimenArt} />
+                </div>
+                <Debuff large kind={e.kind} name={e.name} note={e.note} />
+              </Reveal>
+            </li>
+          ))}
+        </ul>
+      </section>
+
       {/* ================= the campfire — what changed while you were away */}
       <section className={`${styles.section} ${styles.banded}`} data-tone="pink" aria-labelledby="fire-h">
         <Reveal className={styles.copy}>
@@ -287,28 +312,8 @@ export default async function Page() {
           <Fire />
         </Reveal>
         <p className={styles.caption}>
-          Sentences, in the game&rsquo;s own order. Nothing is scored, nothing is ranked, and nothing you tick ever
-          leaves the page.
+          Sentences, in the game&rsquo;s own order. Nothing you tick ever leaves the page.
         </p>
-      </section>
-
-      {/* ================= the deck: what the room tells, and what people leave */}
-      <section className={styles.section} data-tone="purple" aria-labelledby="guide-h">
-        <Reveal className={styles.copy}>
-          <i className={`ra ra-book ${styles.mark}`} aria-hidden="true" />
-          <p className={styles.badge}>The deck</p>
-          <h2 id="guide-h" className={styles.h2}>
-            Lore you can <em>pick up.</em>
-          </h2>
-          <p className={styles.body}>
-            Every room deals its story as things: chips, graves, pages, yells. Players pin one sentence where they
-            stood. Leave one of your own.
-          </p>
-        </Reveal>
-        <Reveal className={mock.appShot}>
-          <Scaled src="/shot/duskwood" width={SHOT_W} height={SHOT_H} />
-        </Reveal>
-        <p className={styles.caption}>Spoilers stay buried until you dig. The deck ends; there is no feed under it.</p>
       </section>
 
       {/* ================= the world, as a board */}
@@ -382,12 +387,12 @@ export default async function Page() {
             Six we can <em>keep.</em>
           </h2>
           <p className={styles.body}>
-            Not features we skipped. Each one is a property of how Tari is built, which is why it survives the feature
-            that would otherwise break it.
+            Every line is true of the build today, and the second half of each says which part of it is responsible.
+            Nothing here is a roadmap with a halo on it.
           </p>
         </Reveal>
         <ul className={styles.promises} role="list">
-          {REFUSALS.map(([icon, what, why], i) => (
+          {PROMISES.map(([icon, what, why], i) => (
             <li key={what}>
               <Reveal delay={(i % 3) * 70} className={styles.promise}>
                 <i className={`ra ${icon} ${styles.promiseIcon}`} aria-hidden="true" />
