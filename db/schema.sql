@@ -211,3 +211,41 @@ create table if not exists follows (
 -- to be told about is a change to one TypeScript type rather than a migration
 -- — the same reason `characters.profile` is jsonb.
 alter table users add column if not exists prefs jsonb not null default '{}'::jsonb;
+
+-- ===========================================================================
+-- THE NEWS PIPE — docs/DIRECTION.md §3.1. Added 2026-09-09.
+--
+-- A FEED READER, NOT A SCRAPER. There is no body column and there must never
+-- be one. Headline, source and link is the whole row, because a headline sends
+-- Wowhead traffic and a copy of their article makes us a competitor they can
+-- act against. A summary generated from the body is the same thing wearing a
+-- hat, so that column does not exist either.
+--
+-- `external_id` is whatever the feed calls the item — a guid, or the link when
+-- the feed offers no guid. The UNIQUE below is the whole idempotency story:
+-- the refresh route inserts with `on conflict do nothing`, so running it twice
+-- in a row changes nothing and a cron that fires late and doubles up is
+-- harmless rather than a duplicate wall.
+--
+-- `category` is the feed's own tag that let the item in, kept rather than
+-- recomputed so the column can be read without re-running the filter.
+-- `image_url` is nullable and only ever comes from an <enclosure> or a
+-- media:* element — never lifted out of the description, which is the body.
+-- ===========================================================================
+create table if not exists news (
+  id           bigserial   primary key,
+  source       text        not null,   -- wowhead | reddit
+  external_id  text        not null,   -- the feed's guid, or the link
+  title        text        not null,
+  url          text        not null,
+  published_at timestamptz not null,
+  category     text,
+  image_url    text,
+  fetched_at   timestamptz not null default now(),
+  unique (source, external_id)
+);
+
+-- The column's only query: the newest handful, all sources together.
+create index if not exists news_published on news (published_at desc);
+-- One source at a time, for a per-source column or a per-source backfill.
+create index if not exists news_source_published on news (source, published_at desc);
