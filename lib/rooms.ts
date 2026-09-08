@@ -27,7 +27,7 @@ import { ROOM_BANDS, type Band } from "./room-bands";
 
 /** Four kinds of room (§4.1), plus the towns and hubs the art shoot caught
  *  on the way past. A `place` is somewhere you stand that is not a zone. */
-export type RoomKind = "city" | "zone" | "dungeon" | "raid" | "place";
+export type RoomKind = "city" | "zone" | "dungeon" | "raid" | "place" | "future";
 
 export type Continent = "eastern-kingdoms" | "kalimdor";
 
@@ -42,7 +42,14 @@ export type Room = {
 };
 
 /** The order the rail draws its groups in: where people are, then where
- *  people go, then what they go there for. */
+ *  people go, then what they go there for.
+ *
+ *  `future` is deliberately absent. The rail is Azeroth as a list and
+ *  Classic+ is not in Azeroth — a sixth foldable heading over one row would
+ *  be the rail claiming a kind it has one of, and the one row that should
+ *  never be folded away is the one that would be. It draws instead in its own
+ *  block under Favourites (Rail.tsx, "The next game"), which is where the
+ *  things that are not places already stack. */
 export const KIND_ORDER: RoomKind[] = ["city", "zone", "dungeon", "raid", "place"];
 
 export const KIND_LABEL: Record<RoomKind, string> = {
@@ -51,6 +58,7 @@ export const KIND_LABEL: Record<RoomKind, string> = {
   dungeon: "Dungeons",
   raid: "Raids",
   place: "Places",
+  future: "Classic+",
 };
 
 export const CONTINENT_LABEL: Record<Continent, string> = {
@@ -150,6 +158,45 @@ export const ROOMS: Room[] = [
 ];
 
 /**
+ * THE ROOM FOR A GAME THAT DOES NOT EXIST YET.
+ *
+ * `docs/DIRECTION.md` §5: not `/blizzcon` — name it for the thing that lasts.
+ * The event it opens on is one Saturday; the room is permanent, so nothing in
+ * it carries the event's name.
+ *
+ * It is a room like every other room — presence, chat, cursors, moments, one
+ * deck, one Tari-signed seed — and it is a `Room` so that every one of those
+ * gets it for free: `getRoom` is the gate `app/api/pins/route.ts` and
+ * `People.tsx` both stand behind, and a room they cannot look up is a room
+ * nobody can stand in or write in.
+ *
+ * IT IS NOT IN `ROOMS`. That array is the world the art pipeline shipped, and
+ * three surfaces count it out loud — the landing's board says how many rooms
+ * there are, the rail draws every one, the mock draws the rail. Classic+ is
+ * none of their business. `getRoom` is widened instead, which is the one
+ * question the live layer actually asks.
+ *
+ * `continent` is a required field with no honest answer here, so it holds
+ * Kalimdor and is never drawn: `Room.tsx` prints the continent for the kinds
+ * that stand on one, and `future` is not one of them.
+ *
+ * `art` borrows Winterspring — empty snow at first light, and the least
+ * trafficked picture in the folder, so the borrow collides with nobody.
+ * **A shot of its own is the one thing this room still wants.**
+ */
+export const CLASSICPLUS: Room = {
+  id: "classicplus",
+  name: "Classic+",
+  kind: "future",
+  continent: KAL,
+  art: "winterspring",
+};
+
+/** Every room the live layer will answer for: the world, plus the rooms that
+ *  are rooms without being places. What ⌘K searches. */
+export const ALL_ROOMS: Room[] = [...ROOMS, CLASSICPLUS];
+
+/**
  * Where the door opens onto.
  *
  * Signing in on the landing page lands here, and so does anyone who asks for
@@ -162,11 +209,34 @@ export const ROOMS: Room[] = [
  */
 export const FIRST_ROOM = "/r/duskwood";
 
-const BY_ID = new Map(ROOMS.map((room) => [room.id, room]));
+const BY_ID = new Map(ALL_ROOMS.map((room) => [room.id, room]));
 
 export function getRoom(id: string): Room | undefined {
   return BY_ID.get(id);
 }
+
+/**
+ * THE URL A ROOM LIVES AT.
+ *
+ * `/r/<id>` for the world, because the rail is Azeroth and `/r/` is what a
+ * place in it looks like. Classic+ is the room people are sent to from
+ * outside — a link in a reddit post, read by somebody who has never heard of
+ * Tari — and `/classicplus` is what that link should say. `docs/DIRECTION.md`
+ * §5 names it.
+ *
+ * One function, so the day a second room stands outside `/r/` nothing has to
+ * be found twice. `/r/classicplus` still resolves: the room page redirects
+ * here rather than serving the same room at two addresses.
+ */
+export function roomHref(room: Room): string {
+  return room.kind === "future" ? `/${room.id}` : `/r/${room.id}`;
+}
+
+/** The ids that live outside `/r/`. Read by the shell, which has only the
+ *  URL's first segment to go on. */
+export const STANDALONE: ReadonlySet<string> = new Set(
+  ALL_ROOMS.filter((room) => room.kind === "future").map((room) => room.id),
+);
 
 /** The full-bleed ground: the shipped master, 52 KB to 528 KB. */
 export function roomArt(id: string): string {

@@ -42,12 +42,14 @@ import { gearFrom } from "@/lib/plan";
 import { judgeFor } from "@/lib/upgrade";
 import { useWornDict } from "@/lib/use-worn";
 import {
+  CLASSICPLUS,
   CONTINENT_LABEL,
   KIND_LABEL,
   ROOMS,
   bandLabel,
   type Room,
   type RoomKind,
+  roomHref,
   roomThumb,
   roomsByKind,
 } from "@/lib/rooms";
@@ -198,6 +200,41 @@ export default function Rail({ signedIn }: { signedIn: boolean }) {
         </section>
       ) : null}
 
+      {/* THE NEXT GAME. One row, above the world, and the only thing on the
+          rail that is not a place you can stand in today.
+          docs/DIRECTION.md §5.
+
+          It gets its own block rather than a sixth kind for the reason a
+          sixth kind was wrong: the five headings are what a reader folds, and
+          this is one row that should never be folded away. So it borrows the
+          Favourites block's shape — no chevron, no count, a hairline under
+          it — and takes the accent instead of the compass's gold, which is
+          the one colour that means "this one is for you".
+
+          Temporary, by Kacey's own word: when Blizzard says something the
+          heading is what changes, and the room underneath it does not. */}
+      <section className={`${styles.group} ${styles.nextGroup}`}>
+        <h2 className={`${styles.groupName} ${styles.pinnedName} ${styles.nextName}`}>
+          <span className={styles.nextMark} aria-hidden="true">
+            +
+          </span>
+          <span className={styles.groupLabel}>The next game</span>
+        </h2>
+        <ul className={styles.rooms}>
+          {/* No star. A room with a permanent block of its own has nothing to
+              gain from being pinned above it. */}
+          <Card
+            room={CLASSICPLUS}
+            current={CLASSICPLUS.id === here}
+            starred={false}
+            canStar={false}
+            onStar={() => {}}
+            drops={0}
+            quality={DROP_QUALITIES[0]}
+          />
+        </ul>
+      </section>
+
       {GROUPS.map((group) => {
         const shown = open[group.kind] === true;
         return (
@@ -274,13 +311,17 @@ function Card({
 }) {
   const router = useRouter();
   const band = bandLabel(room);
+  /* Not every room is `/r/<id>`: Classic+ stands at `/classicplus`, because
+     the link that reaches it is written in a reddit post rather than here
+     (lib/rooms.ts, roomHref). */
+  const href = roomHref(room);
 
   return (
     <li className={styles.slot}>
       <Link
-        href={`/r/${room.id}`}
+        href={href}
         prefetch
-        onPointerEnter={() => router.prefetch(`/r/${room.id}`)}
+        onPointerEnter={() => router.prefetch(href)}
         className={styles.room}
         data-current={current || undefined}
         aria-current={current ? "page" : undefined}

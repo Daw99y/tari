@@ -47,6 +47,9 @@ const KIND_WORD: Record<RoomType["kind"], string> = {
   dungeon: "Dungeon",
   raid: "Raid",
   place: "Place",
+  /* Not a kind of place — a kind of nothing-yet. Classic+ has no continent to
+     stand on and no band to carry, so the line is one word (lib/rooms.ts). */
+  future: "Not announced",
 };
 
 type Props = {
@@ -144,7 +147,8 @@ export default function Room({ room, past, drops, cls, level, guide, plate, hunt
             belongs: attached to the thing it used to be. */}
         <div className={styles.card}>
           <p className={styles.line}>
-            {KIND_WORD[room.kind]} · {CONTINENT_LABEL[room.continent]}
+            {KIND_WORD[room.kind]}
+            {room.kind === "future" ? null : ` · ${CONTINENT_LABEL[room.continent]}`}
           </p>
           {was ? <p className={styles.was}>{was}</p> : null}
           <h1 className={styles.name}>{room.name}</h1>

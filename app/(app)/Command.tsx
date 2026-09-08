@@ -11,7 +11,7 @@
 import { useRouter } from "next/navigation";
 import { useEffect, useMemo, useRef, useState } from "react";
 
-import { KIND_LABEL, ROOMS } from "@/lib/rooms";
+import { ALL_ROOMS, KIND_LABEL, getRoom, roomHref } from "@/lib/rooms";
 
 import styles from "./shell.module.css";
 
@@ -31,11 +31,11 @@ export default function Command({
 
   const hits = useMemo(() => {
     const needle = q.trim().toLowerCase();
-    if (!needle) return ROOMS.slice(0, LIMIT);
+    if (!needle) return ALL_ROOMS.slice(0, LIMIT);
     /* Rooms whose name starts with what you typed come first — typing "st"
        should offer Stormwind before Blasted Lands. */
-    const starts = ROOMS.filter((r) => r.name.toLowerCase().startsWith(needle));
-    const rest = ROOMS.filter(
+    const starts = ALL_ROOMS.filter((r) => r.name.toLowerCase().startsWith(needle));
+    const rest = ALL_ROOMS.filter(
       (r) => !r.name.toLowerCase().startsWith(needle) && r.name.toLowerCase().includes(needle)
     );
     return [...starts, ...rest].slice(0, LIMIT);
@@ -56,7 +56,8 @@ export default function Command({
   if (!open) return null;
 
   function go(id: string) {
-    router.push(`/r/${id}`);
+    const room = getRoom(id);
+    if (room) router.push(roomHref(room));
     onClose();
   }
 

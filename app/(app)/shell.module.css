@@ -504,6 +504,41 @@
   opacity: 0.85;
 }
 
+/* THE NEXT GAME — one row, above the world.
+ *
+ * It borrows the Favourites block's shape on purpose: no chevron, no count,
+ * a hairline under it, so the two blocks that are not Azeroth stack together
+ * and the five foldable kinds start clean underneath. See Rail.tsx.
+ *
+ * What separates it from Favourites is the colour. Gold is the compass and
+ * belongs to the star; the accent is the one colour in this app that means
+ * "this one is for you", and there is exactly one row it points at. */
+.nextGroup {
+  border-bottom: 0.5px solid var(--hair);
+  padding-bottom: 0.55rem;
+  margin-bottom: 0.2rem;
+}
+
+.nextName {
+  color: rgba(182, 255, 46, 0.62);
+}
+
+/* The plus out of Classic+, at heading size. The mark is the name, which is
+ * the only glyph here that says anything a star could not. */
+.nextMark {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 13px;
+  height: 13px;
+  border-radius: 3px;
+  border: 0.5px solid rgba(182, 255, 46, 0.34);
+  background: rgba(182, 255, 46, 0.09);
+  font: 600 0.62rem/1 var(--mono);
+  letter-spacing: 0;
+  color: var(--accent);
+}
+
 /* An empty shelf says what puts something on it. */
 .pinHint {
   margin: 0;
@@ -1195,6 +1230,7 @@
   /* A strip this short has nothing to gain by folding, and a vertical word is
      a poor thing to ask anybody to tap. So the phone reads straight across —
      pins first, then the world, exactly as the column does. */
+  .nextGroup,
   .group:has(> .pinnedName) {
     border-bottom: 0;
     border-right: 0.5px solid var(--hair);
@@ -1244,6 +1280,11 @@
     width: 12px;
     height: 12px;
     opacity: 1;
+  }
+  /* The plus is the whole heading sideways, so it holds its size. */
+  .nextMark {
+    width: 14px;
+    height: 14px;
   }
   .rooms {
     display: flex;

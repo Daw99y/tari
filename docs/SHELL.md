@@ -179,3 +179,26 @@ carries `view-transition-name: room-art` and waits.
 **Nothing links to the shell.** The hero's "enter" (`<Link
 href="/r/duskwood">`) is a one-line change to a hero that is still being
 redlined, so `/r/duskwood` is reached by typing it.
+
+## A room outside `/r/` — 2026-09-08
+
+`docs/DIRECTION.md` §5 asked for `/classicplus`, and the room it names is a
+room by every test the live layer applies: `getRoom` finds it, so presence,
+chat, cursors, moments, the deck and the pins API all work on it untouched.
+What it is not is a place in Azeroth, so it sits outside the array the rail
+draws and the landing counts.
+
+Three small pieces carry that:
+
+| piece | what it does |
+| --- | --- |
+| `ALL_ROOMS` and `CLASSICPLUS` (`lib/rooms.ts`) | `ROOMS` stays the world at 75. `getRoom` and ⌘K read both. |
+| `roomHref(room)` | `/r/<id>` for the world, `/classicplus` for this one. `app/(app)/r/[room]/page.tsx` redirects rather than serving one room at two addresses. |
+| `STANDALONE` | the set `Shell.tsx` checks when the URL's first segment is not `r`, so the socket scopes to the right room. |
+
+The rail draws it in its own block under Favourites, headed **The next
+game** and marked with the plus out of the name in the accent rather than the
+compass's gold. Not a sixth kind: the five kinds fold, and this is the one row
+that should never be folded away. Kacey called it temporary, and the heading is
+the part that changes when Blizzard says something. The room under it does
+not.

@@ -20,6 +20,7 @@ import { useEffect, useState } from "react";
 
 import FoxMark from "@/components/FoxMark";
 import { loadCharacter } from "@/lib/character";
+import { STANDALONE } from "@/lib/rooms";
 
 import Command from "./Command";
 import Live from "./Live";
@@ -42,7 +43,16 @@ export default function Shell({
   children: React.ReactNode;
 }) {
   const segments = useSelectedLayoutSegments();
-  const roomId = segments[0] === "r" && segments[1] ? segments[1] : null;
+  /* A room is `/r/<id>`, except for the ones that are rooms without being
+     places in Azeroth — Classic+ stands at `/classicplus` (lib/rooms.ts,
+     roomHref). The shell only ever has the segments to go on, so it asks the
+     one list rather than growing a second rule. */
+  const roomId =
+    segments[0] === "r" && segments[1]
+      ? segments[1]
+      : segments[0] && STANDALONE.has(segments[0])
+        ? segments[0]
+        : null;
   const pathname = usePathname();
   const router = useRouter();
   const [asking, setAsking] = useState(false);

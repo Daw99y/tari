@@ -1,5 +1,5 @@
 {
-  "_": "THE SEEDS. docs/PINS.md, docs/WELCOME.md §2. One pin Tari leaves in a room so its deck opens holding something. Signed Tari, spotless, level-less, replyable. All seventy-nine rooms covered as of 2026-08-30. Kacey's copy to redline — this is the app speaking in its own name and every line should sound like him, not like a generator.",
+  "_": "THE SEEDS. docs/PINS.md, docs/WELCOME.md §2. One pin Tari leaves in a room so its deck opens holding something. Signed Tari, spotless, level-less, replyable. All seventy-nine rooms covered as of 2026-08-30, plus /classicplus (2026-09-08), whose seeds are the panel schedule. Kacey's copy to redline — this is the app speaking in its own name and every line should sound like him, not like a generator.",
   "stormwind-city": [
     "You can fish the canals. Most people have run past them a thousand times and never once cast."
   ],
@@ -236,5 +236,9 @@
   ],
   "ratchet": [
     "The first neutral town most Horde players ever see, and the boat off Kalimdor. People wait here."
+  ],
+  "classicplus": [
+    "The Classic Game Deep Dive runs Saturday at 15:30 US Pacific. That is 00:30 Sunday across Europe and 06:30 Sunday in Perth. Set the alarm for the one that is yours.",
+    "There is no map here and no level band. The game this room is for has not been announced. The room stays open either way."
   ]
 }

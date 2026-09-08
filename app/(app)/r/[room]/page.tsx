@@ -10,7 +10,7 @@
 
 import type { Metadata } from "next";
 import { cookies } from "next/headers";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 
 import { auth, hasAuth } from "@/lib/auth";
 import { readWho, WHO_COOKIE } from "@/lib/character";
@@ -20,7 +20,7 @@ import { clampLevel, defaultLevel, isClassId, lootFor, panelFor } from "@/lib/lo
 import { plateFor } from "@/lib/maps";
 import { pinsIn } from "@/lib/pins-db";
 import { huntFor } from "@/lib/spots";
-import { getRoom, ROOMS } from "@/lib/rooms";
+import { getRoom, roomHref, ROOMS } from "@/lib/rooms";
 
 import Room from "./Room";
 
@@ -45,6 +45,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function RoomPage({ params, searchParams }: Props) {
   const room = getRoom((await params).room);
   if (!room) notFound();
+
+  /* One room, one address. A room that lives outside `/r/` is reachable here
+     because `getRoom` is the world plus Classic+ (lib/rooms.ts) — so this
+     sends the reader to the address the room actually has rather than serving
+     it twice. */
+  if (roomHref(room) !== `/r/${room.id}`) redirect(roomHref(room));
 
   const sp = await searchParams;
   const who = readWho((await cookies()).get(WHO_COOKIE)?.value);
