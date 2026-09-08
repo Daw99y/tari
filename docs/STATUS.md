@@ -11,6 +11,39 @@ see them. Earlier references to `FOXTON.md` mean `docs/TARI.md`.
 
 ---
 
+## 0. What changed on 8 and 9 September 2026
+
+**Everything below this section predates the direction change and is not being
+rewritten. Read `docs/DIRECTION.md` first; where the two disagree, DIRECTION
+wins.**
+
+- **8 September — the refusals are dead.** `docs/DIRECTION.md` supersedes
+  `TARI.md` §2 and §13 and every refusal in `WELCOME.md`. Tari is a social,
+  levelling, companion, guide, database, comments and chat second-monitor app
+  for Classic+. The rooms are the chassis, not the product. Nine rules replace
+  the six refusals. Ranking, notifications, counts and routes are all allowed;
+  the taste survives as defaults.
+- **8 September — the shape.** Two shells from one codebase, web and Tauri.
+  The home screen is a three-column dashboard — where you are, who you are,
+  what is happening — not a room. Indexed zone pages now, item pages later.
+- **9 September — the combat-log spike, and it is a no.** `docs/LIVE-CLIENT.md`
+  has the raw lines. `WoWCombatLog.txt` names the zone exactly on every border
+  crossing and never reaches disk until logout. So §0 below survives, for a
+  better reason: the client records where a reader is standing, it just does not
+  hand it over while they play. **Tari cannot mirror live position, and that
+  search is closed.** The desktop client's job becomes journal, not mirror: it
+  imports the session at logout and feeds the almanac, Rested, `lib/path.ts`
+  and the feed. Rule 9 came out of it — never show a reader a fact the client
+  did not give us.
+- **9 September — the docs.** `TARI.md` §2 rewritten, §13 deleted, refusals
+  struck throughout. `WELCOME.md` §0, §3.1, §3.2, §4.1, §5.2, §7 and §8 struck,
+  §8.1 overturned. `START-HERE` rule 7 deleted and the philosophical rules
+  replaced. `app/(site)/page.tsx` `REFUSALS` emptied.
+- **Next:** `/classicplus`, then indexed zone pages, then the r/classicwow post
+  before the BlizzCon Classic Deep Dive — Sunday 13th, 06:30 Perth.
+
+---
+
 ## 0. Latest — the card, the envelope, the follow, 2026-08-31 (late)
 
 **Three of `WELCOME.md`'s open rulings are settled and the welcome is one piece

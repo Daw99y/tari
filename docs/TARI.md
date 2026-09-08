@@ -95,40 +95,49 @@ field guide entry and it teaches the reader how to use everything else.
 
 ---
 
-## 2. The goal, the mechanism, the atom
+## 2. The statement, in three beats
 
-| | |
-| --- | --- |
-| **The goal** | slow the player down |
-| **The mechanism** | community |
-| **The atom** | the pin |
+Rewritten 2026-09-09 from `DIRECTION.md` §1, which supersedes the goal /
+mechanism / atom framing that stood here. The landing page does these in order
+as it scrolls. So does any Reddit post.
 
-**Slowing down is not a feature. It is an outcome.** You cannot build "slow."
-You can only build *reasons to go somewhere you would otherwise skip* — and
-the only durable, infinite, uncopyable source of those reasons is other people.
+**Beat one, the hook: the window.** §0, unchanged.
 
-So community is not the second goal sitting beside the first. **Community is
-how the first one happens.**
+> Day one of Classic+, Wowhead has no data. Every RestedXP waypoint is a lie.
+> Questie has no coordinates. Sixtyupgrades has no items. Every tool in the
+> category is dead on arrival for weeks, and the only source of knowledge in
+> the world is other players, discovering things in real time, telling each
+> other. Tari is where that lands.
 
-> RestedXP shows you where to go so you can leave sooner.
-> **Tari shows you where other people stopped.**
+**Beat two, the value: the second monitor.**
 
-### 2.1 The test
+> Tari knows your character and it knows the zone you are in. Everything it
+> shows you is already filtered by those two facts. What drops here for you.
+> What quests are here. What people wrote here. Where to go next, at the pace
+> you set.
 
-Applied to every feature that will ever be proposed:
+**Beat three, the reveal: one world.**
 
-> **Does this make someone linger in a place, or move through it faster?**
+> Classic fragments Azeroth into fifty islands. Your Duskwood and a stranger's
+> Duskwood are the same Duskwood on Tari. Cross-realm, cross-region, live.
 
-| | |
-| --- | --- |
-| upgrades shown **per-place** — "this drops here" | ✅ a reason to go somewhere |
-| upgrades as a **shopping list across zones** | ❌ that's a route |
-| quest **text, lore, what it is actually about** | ✅ |
-| quest **"go here, kill 10"** | ❌ Questie already does it, better |
-| pins, presence, chat | ✅ people are a reason to stay |
-| routes, arrows, waypoints, a clock that counts up | ❌ never |
-| a tool in the corner of your eye | ❌ that is the loop |
-| a tool on the other screen | ✅ it costs a look away — see §2.3 |
+Beat one wins the launch. Beat two is why it survives the launch. Beat three is
+the thing nobody else can copy.
+
+**What this replaced.** ~~The goal is to slow the player down; the mechanism is
+community; the atom is the pin.~~ The first two were a law and are struck. The
+pin survives as the atom, for the reasons in §2.2 — it is a thing the product
+is built out of, not a rule about what may be built.
+
+### 2.1 The test — struck 2026-09-09
+
+~~Does this make someone linger in a place, or move through it faster?~~
+
+**Struck.** It was a law, and `DIRECTION.md` §2 replaces it with nine rules.
+It survives as taste, not as a gate: lingering is still what most of these
+surfaces are for. What no longer holds is the right-hand column — routes,
+waypoints, cross-zone lists and coordinates are allowed now (rules 2 and 5),
+and shipping one is a per-surface call rather than a refusal.
 
 ### 2.2 The atom
 
@@ -174,18 +183,21 @@ down, to where the product is allowed to live.
 **This is why the in-game half stays thin, and why the reverse path (§9.2) is
 constrained rather than expanded:**
 
-> **Nothing Tari puts back into the game may move you.**
+~~**Nothing Tari puts back into the game may move you.** The addon may show a
+pin, because a pin is a noun. It may never show a heading, a target, a distance,
+or an order.~~
 
-The addon may show a pin, because a pin is a noun — *someone stopped here.* It
-may never show a heading, a target, a distance, or an order. **The moment the
-addon can be followed, Tari has become the thing it exists to argue with.**
+**Struck 2026-09-09.** `DIRECTION.md` rule 5 inverts it: never make the player
+alt-tab to act, so anything actionable ships as a copyable macro or a waypoint
+the addon can eat. The argument above still explains why the second monitor is
+the right place to live; it no longer decides what may cross back.
 
 Three consequences, all of which are already true elsewhere in this document
 and only now have one reason behind them:
 
-1. **The notification rules** (`WELCOME.md` §3). Tari goes quiet while you are
-   playing and speaks when you are not, because the whole point is that it does
-   not live in there with you.
+1. ~~**The notification rules** (`WELCOME.md` §3). Tari goes quiet while you
+   are playing.~~ **Struck** — `DIRECTION.md` rule 3: it may ring, and the
+   player decides what for.
 2. **Moments** (§8). A room reacting crosses the *other* screen. Nothing about
    it lands in the game.
 3. **The client** (§9) is a second-monitor object, not an overlay. Its job is to
@@ -263,7 +275,7 @@ only thing that makes a place you already know worth reopening.
 > 4. **What closes** — the only clock the product owns
 > 5. **Who came through at 24** — the permanent layer
 > 6. **What they left** — the pins
-> 7. **What drops here for you** — a panel, never a list across zones
+> 7. **What drops here for you** — a panel by default, not a list across zones
 
 **Emphasis, not a queue.** Full-bleed with the live layer across the whole surface
 means it is a canvas, not a scroll. Nobody scrolls past lore to find drops.
@@ -293,7 +305,8 @@ when you get home**, and it is Tari's letter.
 > You hit 34. Two new trainer ranks. A class chain starts in Stranglethorn.
 > Three quests grey out in two levels.
 
-**It says what changed, never where to go.** The one surface that is about
+**It says what changed.** ~~Never where to go.~~ Struck 2026-09-09; the pace
+modes decide that per surface. The one surface that is about
 *you*, and the counterweight to the room.
 
 ---
@@ -369,8 +382,10 @@ your attention* — pin language.
 
 ### 7.1 Two rules
 
-**Icons are vocabulary, never rewards.** The moment a Rested badge is *earned*,
-it is a streak in a costume and every refusal in §13 is dead.
+**Icons are vocabulary, not rewards.** ~~The moment a Rested badge is *earned*,
+it is a streak in a costume and every refusal in §13 is dead.~~ Struck
+2026-09-09 with §13. Kept as a default: an icon that means something is worth
+more than an icon you won.
 
 **Redraw the theme icons; use the real ones only for content.** Vanilla icons
 are 64×64 bitmaps drawn for CRT monitors and will look like mud on a 5K
@@ -418,7 +433,7 @@ swap, not a rewrite.
 | Room reactions | someone dings 60 and it crosses every screen | built |
 | Occupancy roll-up | a quiet dungeon points next door (§4.1) | built |
 | Threads | pins, pinned to coordinates, permanent, level-indexed | next |
-| Notifications | waiting when you get back, **never while playing** | later |
+| Notifications | ~~never while playing~~ — per-type toggles, `DIRECTION.md` rule 3 | later |
 
 **The bar:** at 5–50 online it feels like a tight community; at 500 it feels
 like a gold mine someone just found. Different designs, both true.
@@ -472,10 +487,10 @@ load — no network, just disk, the way WeakAura and TSM imports work.
 > **web → client → addon.** You are standing in Duskwood and the addon shows
 > you the pin someone left there. One reload behind.
 
-RestedXP's delivery mechanism carrying the opposite payload. It stays a noun —
-*someone stopped here* — never a direction. **§2.3 is the rule this obeys:
-nothing Tari puts back into the game may move you.** This path is allowed to
-say what is there; it is never allowed to be followed.
+RestedXP's delivery mechanism carrying the opposite payload. ~~It stays a noun
+and never a direction.~~ Struck 2026-09-09 with §2.3: under `DIRECTION.md`
+rule 5 this path is where a macro or a waypoint is *supposed* to land, so that
+acting never costs an alt-tab.
 
 ---
 
@@ -593,21 +608,6 @@ badges, early access, moderator standing.
    database. Nobody can rebuild the room.
 
 Corollary from §7.1: **anything on the paid tier must be original art.**
-
----
-
-## 13. The refusals
-
-On the landing page, in the flat register. Each is something a growth team
-would be fired for shipping.
-
-- No notifications while you're playing. Tari will never pull you out.
-- No streaks. Nothing punishes a week off.
-- No infinite scroll. The feed ends, the way the evening ends.
-- No ranking of players against each other.
-- No number that only goes up. No karma, no followers, no points.
-- No route, no arrow, no waypoint, no clock that counts up.
-- Tari states the fact; **another player waves at it.**
 
 ---
 

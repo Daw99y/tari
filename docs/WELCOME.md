@@ -23,31 +23,14 @@ welcome.
 
 ---
 
-## 0. The rule
+## 0. The rule — struck 2026-09-09
 
-§13 refused notifications, streaks and followers. All three are wanted now.
-They are not a reversal, because every mechanic §13 refused was refused for the
-same reason: **the reward lived inside the product.**
+~~If it brings you back to Tari, it does not get built. If it sends you back
+into the world, it does.~~
 
-> **If it brings you back to Tari, it does not get built.
-> If it sends you back into the world, it does.**
-
-One line, and it survives every feature in this document. It also explains
-itself, which six refusals never did.
-
-### 0.1 The test, restated
-
-§2.1 asks whether a feature makes someone linger or move faster. This document
-adds the second half of the same question:
-
-| | |
-| --- | --- |
-| a notification about something happening in Azeroth | ✅ |
-| a notification about something happening in Tari | ❌ |
-| a number that records what you did | ✅ |
-| a number that threatens you with what you'll lose | ❌ |
-| following a person whose pins you want to stand in | ✅ |
-| a count of who follows you | ❌ |
+**Struck.** `DIRECTION.md` §0: bringing people back is the goal. The nine rules
+in `DIRECTION.md` §2 replace this one and the table in §0.1 with it. Every
+feature this document describes survives; only the gate is gone.
 
 ---
 
@@ -202,56 +185,39 @@ seeded by Tari alone.
 
 ## 3. The nudge
 
-### 3.1 The refusal, re-cut 2026-08-31
+### 3.1 The refusal — struck 2026-08-31, and it stays struck
 
 It used to read, word for word:
 
 > ~~**Tari never rings while you're playing.**~~
 
-**It came off, because it is not true and cannot be made true.** Kacey,
-2026-08-31: **the addon cannot read live state — not combat, not instance, not
-position, not anything.** It writes an export string a reader copies out of the
-game and pastes in (`docs/CHARACTER.md`, TA2). The armory answers as of last
-logout and says so. **Both are photographs, taken when somebody decides to take
-one.** Nothing in this product knows you are playing right now, so a promise to
-go quiet while you are is marketing — and §8 is explicit that a broken promise
-costs more than one never made.
+It came off on 31 August on the grounds that nothing in the product can know
+you are playing. **The 2026-09-09 combat-log spike (`docs/LIVE-CLIENT.md`)
+confirms that conclusion for a different mechanism than the one it named.**
+`WoWCombatLog.txt` does record the zone, exactly and by name — and it does not
+reach disk until logout. The line exists; the delivery does not. So nothing
+here is restored: under `DIRECTION.md` rule 3 the app may ring, and the player
+decides what for.
 
-This settles open ruling §11.2 as **no**, and it deletes a feature: *"when I'm
-near water you've never sat at"* was the best line on the list and it is a lie,
-so it is gone rather than parked. A toggle that can never fire is worse than an
-absent feature — the reader ticks it, waits, and learns the app makes things
-up. **The kit's fishing card carried the same promise** and is re-cut too
-(`reference/kit.json`, `pole`: the second line is now *"Nobody has ever
-regretted the ten minutes."*).
+~~Only Azeroth. Never Tari, never a streak, and never at 3am.~~ **Struck** as
+law. Kept as the default setting: world things on, Tari things moderate, quiet
+hours on, all of it a toggle.
 
-What replaced it is three things this product can keep, enforced by the list in
-§3.2a rather than by intention:
+The upside noted on 31 August still holds: the nudge works for everybody —
+signed out, nothing installed, on a borrowed laptop.
 
-> **Only Azeroth. Never Tari, never a streak, and never at 3am.**
+### 3.2 The rules — struck 2026-09-09, except one
 
-**The upside of losing the addon condition is large:** the nudge now works for
-everybody — signed out, nothing installed, on a borrowed laptop. §1.0's
-"armory-only readers get the correct degradation" is moot, because there is no
-longer anything to degrade.
+Rules 1 to 5 were law and are struck. Notifications about Tari, about replies,
+about streaks and counts are all allowed now, per type, per toggle
+(`DIRECTION.md` rule 3). Quiet hours survive as a default, not a commandment.
 
-### 3.2 The rules, as a testable list
+**The one that survives, and is now `DIRECTION.md` rule 3's second half:**
 
-1. **Only about Azeroth, never about Tari.** "The Faire leaves Elwynn on
-   Sunday" ✅. "Someone replied to your pin" ❌ — that waits in the envelope.
-   "You haven't opened Tari in three days" ❌, permanently.
-2. **No direction.** "You're near water you've never sat at" is a pin.
-   "Crystal Lake, 340 yards, this way" is RestedXP. §2.1 is not suspended
-   because the message arrives by push.
-3. **Nothing defends a streak.** No notification may reference Rested, the
-   almanac, or any count. This is the line that keeps §0 true.
-4. **Quiet hours are load-bearing.** Cross-region product. Nothing fires at 3am
-   in Perth.
-5. **Per-thing opt-in, chosen in the kit.** Never a blanket permission.
-6. **It must be knowable without the reader** — added 2026-08-31, and it is the
-   rule §3.1 was rewritten around. If answering it needs a client that is
-   running, a position, a combat state, or anything else nothing in this
-   product can see, it does not go on the list.
+> **It must be knowable without the reader.** If answering it needs a client
+> that is running, a position, a combat state, or anything else nothing in this
+> product can see, it does not go on the list. **A toggle that can never fire
+> never ships.**
 
 ### 3.2a The list, as built
 
@@ -316,14 +282,13 @@ number's whole job is to threaten you. So invert it: **time away accrues.**
 inverse of every engagement system, and it is one query change — "since you were
 last here" is already §4.2 and already called Tari's line.
 
-### 4.1 The two rules that keep §7.1 true
+### 4.1 The two rules — struck 2026-09-09
 
-§7.1: *the moment a Rested badge is earned, it is a streak in a costume.*
-Rested survives that because it is not earned by activity. To keep it that way:
+~~1. It is never a bar filling in real time. 2. It is never spent.~~
 
-1. **It is never a bar filling in real time.** No progress, no anticipation.
-2. **It is never spent.** The moment it is a currency you save up, §7.1 is dead
-   and so is §13.
+**Struck as law, kept as the shipping default.** `DIRECTION.md` §2.1: Rested
+ships alongside streaks now, not instead of them. Rested itself is unchanged —
+it is still earned by absence, which is still the interesting half.
 
 ---
 
@@ -346,13 +311,13 @@ Not "you fished 40 times" — *you were in Moonglade for the Lunar Festival,
 | the world | you were in Silithus the week it opened | not modelled |
 | rares | **met** — your first meeting with each | **data exists**, see §6 |
 
-### 5.2 The rule that keeps it from being a checklist
+### 5.2 The rule — struck 2026-09-09
 
-> **It shows what you have. It never renders what you haven't.**
+~~It shows what you have. It never renders what you haven't.~~
 
-No greyed slots. No "3 of 12 seasonal events." An empty almanac is a new
-character, not a failure — the same logic as *The unwritten room*. Five of six
-greyed out is a checklist; five names you collected is a memory.
+**Struck as law, kept as a default.** Greyed slots are a per-surface design
+call now. An empty almanac is still a new character rather than a failure, and
+that is still the better read of it.
 
 ### 5.3 Why it matters to §7
 
@@ -407,72 +372,59 @@ The day a rare gets an `x`/`y` the product has shipped a farming route.
 ## 7. The follow — built, 2026-08-31
 
 `lib/follow.ts` · `app/api/follow/route.ts` · the flag rides `lib/pins-db.ts`.
-**The refusal is written as a missing index**: `db/schema.sql` has no index on
-`follows.followed`, because an index that way round exists only to count or
-list the people following somebody. The comment there says so, so adding it
-later cannot happen by accident. There is no `countFollowers` for anything to
-call, no route that returns who follows you, and no list of who you follow —
-the whole surface is one boolean on the pins a room was already reading.
+The surface is one boolean on the pins a room was already reading, and it works.
 
-The value is the feed. The poison is the number.
+~~**You can follow. Nothing is counted.** The refusal is written as a missing
+index: `db/schema.sql` has no index on `follows.followed`, so nothing can count
+or list the people following somebody.~~
 
-> **You can follow. Nothing is counted.**
+**Struck 2026-09-09.** `DIRECTION.md` §2.1: follower counts, pin counts and
+contributor reputation all ship. The missing index is now a *to-do*, not a
+ruling — counting followers needs `follows.followed` indexed, and adding it is
+an additive migration. Update the comment in `db/schema.sql` when it goes in so
+the next reader does not mistake it for a promise.
 
-No follower total exists anywhere in the product — not publicly, not privately,
-not to the person being followed. §13's "no number that only goes up" survives
-completely intact. PINS.md already refuses "pin count badges on the rail"; this
-is the same ruling one level up.
+The lore still does the work: **`/follow` in WoW means you stop steering and let
+someone else lead you through a place.**
 
-The lore does the work: **`/follow` in WoW means you stop steering and let
-someone else lead you through a place.** That is the thesis in a slash command.
-
-**Place-first, never timeline-first.** You follow someone because of a pin in
+**Place-first stays the default.** You follow someone because of a pin in
 Duskwood, and the payoff is their pins surfacing in the rooms *you* walk into.
-Never a chronological feed of their posts — that is an infinite scroll wearing a
-friend's face, and §13 refuses it.
+A chronological timeline of their posts is a different product; it is no longer
+forbidden, it is just not what this is for.
 
 ---
 
-## 8. The refusals, re-cut
+## 8. The refusals — struck 2026-09-09
 
-`app/(site)/page.tsx`, `REFUSALS` — **verified unchanged as of 08-30.** Still
-the original six, three of which this document falsifies.
-
-Same six lines, same glyph, every line re-cut to describe a **property** rather
-than a feature, so future work does not falsify the landing page:
+`app/(site)/page.tsx`, `REFUSALS` — **the array is now empty.** All six lines
+came off the landing page today:
 
 ```
-Nothing here rings while you're in a dungeon.
-Nothing here punishes a week off.
-Nothing here ends only when you close the tab.
-Nothing here ranks you against anyone.
-Nothing here is a number that only goes up.
-Nothing here tells you where to go.
+~~Nothing here rings while you're in a dungeon.~~
+~~Nothing here punishes a week off.~~
+~~Nothing here ends only when you close the tab.~~
+~~Nothing here ranks you against anyone.~~
+~~Nothing here is a number that only goes up.~~
+~~Nothing here tells you where to go.~~
 ```
 
-| line | survives because |
-| --- | --- |
-| rings while you're in a dungeon | §3.1 — the addon suppresses and queues |
-| punishes a week off | §4 — absence is the thing that pays |
-| ends only when you close the tab | unchanged, no infinite scroll |
-| ranks you against anyone | **conditional — see below** |
-| a number that only goes up | §7 — no counts exist |
-| tells you where to go | §3.2 rule 2, and §6's `t` ruling |
+They are replaced by `DIRECTION.md` §1's three beats — the window, the second
+monitor, one world. `DIRECTION.md` §0.1 has the reasoning: the taste was right,
+making it law was not, because a law cannot be tested, toggled or revisited.
 
-### 8.1 The leaderboard ruling
+Kacey writes the replacement copy.
 
-"No leaderboards. Nobody wins Tari." must come off the page **now**, not when a
-leaderboard ships. A promise broken costs more than one never made.
+### 8.1 The leaderboard ruling — overturned 2026-09-09
 
-The replacement line keeps its value for free **if future leaderboards rank
-places, not players.** "Nobody has been to the Stockade in three weeks" ranks a
-room. Then *nothing here ranks you against anyone* stays true forever.
+**Ruled 2026-08-31: places, never players. That ruling is overturned.**
+`DIRECTION.md` rule 4: ranking is allowed — players, guilds, realms and places.
+First to 60, first clear, first legendary, most zones walked. *"Nothing here
+ranks you against anyone"* is off the page, so nothing is broken by shipping a
+player leaderboard.
 
-**Ruled 2026-08-31: places, never players.** So the line stays on the landing
-page exactly as written, and it stays true for free. Any leaderboard this
-product ever ships ranks rooms — *"nobody has been to the Stockade in three
-weeks"*, *"137 stood in Ironforge today"*. **A ranking of players is now a
-thing this document forbids**, not a thing it is waiting on.
+Ranking places is still a good idea. *"Nobody has been to the Stockade in three
+weeks"* is a better line than most player tables and it should ship too. It is
+now taste rather than law.
 
 ---
 

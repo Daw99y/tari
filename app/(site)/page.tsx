@@ -110,38 +110,9 @@ const STOPPED = [
  * the true half of it — nothing is counting — stayed.
  *
  * Second column is the mechanism, and it has to be checkable in the repo. */
-const REFUSALS: [string, string, string][] = [
-  [
-    "ra-bell",
-    "Nothing here can interrupt you.",
-    "There are no notifications, no email and no push. Tari is a page you open, and it is only ever where you left it.",
-  ],
-  [
-    "ra-hourglass",
-    "Nothing punishes a week off.",
-    "No streaks, no dailies, nothing to defend. Come back in a month and nothing was lost, because nothing was counting.",
-  ],
-  [
-    "ra-scroll-unfurled",
-    "The page ends.",
-    "The deck runs out. There is no feed under it, and nothing loads when you reach the bottom.",
-  ],
-  [
-    "ra-podium",
-    "Nothing ranks you.",
-    "You are never in a table with other people.",
-  ],
-  [
-    "ra-gold-bar",
-    "No number that only goes up.",
-    "No points, no score, no totals. Nothing here adds up what you have done.",
-  ],
-  [
-    "ra-broadhead-arrow",
-    "A pin says look, never go.",
-    "A warning tells you what is there. It never tells you where to stand, or which way to walk.",
-  ],
-];
+/* Emptied 2026-09-09: the six refusals are struck (docs/DIRECTION.md §0).
+ * Replacement copy is Kacey's to write. */
+const REFUSALS: [string, string, string][] = [];
 
 /* ---- the rulesets Tari already reads
  *
